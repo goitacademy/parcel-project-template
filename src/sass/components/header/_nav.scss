@@ -1,0 +1,70 @@
+.nav {
+  @extend %flex;
+  > a {
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      margin-right: 56px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      margin-right: 60px;
+    }
+  }
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.link {
+  display: inline-block;
+  padding: 32px 0;
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  color: $secondary-text-color;
+  @extend %transition-color;
+  @extend %flex;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.site-nav {
+  @extend %flex;
+
+  &-title {
+    margin-left: 25px;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+  }
+}
+.current {
+  color: $accent-color;
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    bottom: 0;
+    left: 0;
+
+    background-color: $accent-color;
+  }
+}
+// .navigation {
+//   @media screen and (min-width: 320px) and (max-width: 767px) {
+//     display: none;
+//   }
+//   @media screen and (min-width: 768px) {
+//     display: flex;
+//   }
+// }
