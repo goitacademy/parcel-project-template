@@ -1,0 +1,80 @@
+.burger-button {
+  position: absolute;
+  top: 48px;
+  right: 30px;
+  z-index: 5;
+
+  display: inline-flex;
+  padding: 0;
+
+  color: $white;
+
+  border: none;
+
+  background-color: transparent;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+
+  // закрытие и открытие меню - замена иконок
+  & .burger-opened {
+    display: none;
+  }
+  &.is-open .burger-opened {
+    display: block;
+    color: $heading-text-color;
+  }
+  &.is-open .burger-closed {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+// обертка бургер меню
+.burger-wrapper {
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 4;
+
+    padding-left: 40px;
+    width: 70%;
+    height: 796px;
+
+    background-color: $white;
+
+    opacity: 0;
+
+    pointer-events: none;
+    .backdrop.is-open & {
+      opacity: 1;
+
+      pointer-events: initial;
+    }
+  }
+}
+// бекдроп
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(25, 28, 38, 0.2);
+
+  opacity: 0;
+
+  &.is-open {
+    opacity: 1;
+  }
+}
