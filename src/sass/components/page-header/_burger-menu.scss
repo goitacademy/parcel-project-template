@@ -1,6 +1,10 @@
 .burger-button {
-  display: inline-flex;
+  position: absolute;
+  top: 48px;
+  right: 30px;
+  z-index: 5;
 
+  display: inline-flex;
   padding: 0;
 
   color: $white;
@@ -34,13 +38,30 @@
 }
 // обертка бургер меню
 .burger-wrapper {
-  pointer-events: none;
-  &.is-open {
-    pointer-events: initial;
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 4;
+
+    padding-left: 40px;
+    width: 70%;
+    height: 796px;
+
+    background-color: $white;
+
+    opacity: 0;
+
+    pointer-events: none;
+    .backdrop.is-open & {
+      opacity: 1;
+
+      pointer-events: initial;
+    }
   }
 }
 // бекдроп
-.burger-wrapper__backdrop {
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -53,7 +74,7 @@
 
   opacity: 0;
 
-  .burger-wrapper.is-open & {
+  &.is-open {
     opacity: 1;
   }
 }
