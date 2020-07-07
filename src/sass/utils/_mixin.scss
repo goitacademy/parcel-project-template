@@ -1,0 +1,53 @@
+//flexContainer
+@mixin flex($base: center, $cross: center) {
+  display: flex;
+  justify-content: $base;
+  align-items: $cross;
+}
+
+//font style
+@mixin font(
+  $weight: 400,
+  $size: 18px,
+  $height: 1.67,
+  $spacing: 0.02em,
+  $family: "Open Sans"
+) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  letter-spacing: $spacing;
+  font-family: $family, sans-serif;
+}
+
+//transition functions
+@mixin transition($propertyI, $propertyII: 1, $propertyIII: 1, $propertyIV: 1) {
+  @if ($propertyIV!=1) {
+    transition: $propertyI 250ms $time-function,
+      $propertyII 250ms $time-function, $propertyIII 250ms $time-function,
+      $propertyIV 250ms $time-function;
+  }
+  @if ($propertyIII!=1) {
+    transition: $propertyI 250ms $time-function,
+      $propertyII 250ms $time-function, $propertyIII 250ms $time-function;
+  }
+  @if ($propertyII!=1) {
+    transition: $propertyI 250ms $time-function,
+      $propertyII 250ms $time-function;
+  } @else {
+    transition: $propertyI 250ms $time-function;
+  }
+}
+
+//fill all available space
+@mixin all-space() {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin all-space-tl() {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
