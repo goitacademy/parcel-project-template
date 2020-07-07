@@ -1,0 +1,209 @@
+@mixin bg-image($background-image) {
+  background-image: linear-gradient(
+      to right,
+      rgba(25, 28, 38, 0.2),
+      rgba(25, 28, 38, 0.2)
+    ),
+    url($background-image);
+}
+
+@mixin bg-img($bg1, $bg2, $bg3) {
+  @include bg-image($bg1);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    @include bg-image($bg2);
+  }
+
+  @media screen and (min-device-pixel-ratio: 3),
+    screen and (-webkit-min-device-pixel-ratio: 3),
+    screen and (-o-min-device-pixel-ratio: 3/1),
+    screen and (min-resolution: 288dpi),
+    screen and (min-resolution: 3dppx) {
+    @include bg-image($bg3);
+  }
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-section {
+  position: relative;
+  height: 580px;
+  min-width: 240px;
+  max-width: 1125px;
+
+  @media screen and (max-width: 767px) {
+    max-width: 480px;
+    @include bg-img(
+      '/images/hero/hero-mobile3.jpg',
+      '/images/hero/hero-mobile3@2x.jpg',
+      '/images/hero/hero-mobile3@3x.jpg'
+    );
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    max-width: 609px;
+    height: 680px;
+    padding: 40px;
+
+    @include bg-img(
+      '/images/hero/hero-tablet3.jpg',
+      '/images/hero/hero-tablet3@2x.jpg',
+      '/images/hero/hero-tablet3@3x.jpg'
+    );
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1125px;
+    height: 680px;
+    padding: 40px 55px 40px 55px;
+
+    @include bg-img(
+      '/images/hero/hero-desctop3.jpg',
+      '/images/hero/hero-desctop3@2x.jpg',
+      '/images/hero/hero-desctop3@3x.jpg'
+    );
+  }
+}
+
+.hero-container {
+  margin-left: 31px;
+  padding-top: 208px;
+  font-style: normal;
+
+  &__par {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-family: $second-font;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.36;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: rgba(157, 164, 189, 0.6);
+  }
+
+  &__heading {
+    margin-bottom: 20px;
+
+    font-family: $main-font;
+
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 1.17;
+    letter-spacing: 0.05em;
+    color: $white;
+
+    @media screen and(min-width:1280px) {
+      font-size: 72px;
+      line-height: 1.18;
+    }
+  }
+
+  &__about-us {
+    font-family: $second-font;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.62;
+
+    letter-spacing: 0.02em;
+
+    color: #9da4bd;
+
+    @media screen and(min-width:1280px) {
+      font-size: 18px;
+      line-height: 1.67;
+    }
+  }
+
+  @media screen and(max-width:767px) {
+    max-width: 306px;
+  }
+
+  @media screen and(min-width:768px) {
+    max-width: 355px;
+    margin-left: 80px;
+    padding-top: 227px;
+  }
+
+  @media screen and(min-width:1280px) {
+    max-width: 486px;
+    margin-left: 60px;
+    padding-top: 217px;
+  }
+}
+
+.hero-container__par::before {
+  @extend %line-before-with-opacity;
+}
+
+// кнопки назад-вперёд
+.hero-section__buttons {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.hero-section__btn {
+  padding: 8px 0px 8px 0px;
+
+  font-family: $second-font;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+
+  letter-spacing: 0.1em;
+
+  color: $white;
+  background-color: rgba(0, 0, 0, 0);
+
+  border-style: none;
+  border: none;
+  outline: none;
+  border-image: none;
+  border-bottom: 1px solid currentColor;
+
+  &__back {
+    color: rgba(157, 164, 189, 0.6);
+    padding-right: 22px;
+    margin-right: 26px;
+  }
+
+  &__forward {
+    padding-left: 13px;
+  }
+
+  &__back:hover,
+  &__back:focus,
+  &__forward:hover,
+  &__forward:focus {
+    color: $accent-color;
+  }
+}
+
+.hero-section__btn:hover,
+.hero-section__btn:focus {
+  cursor: pointer;
+}
+
+// линии-переключатели слайдера справа
+.slider-lines {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
