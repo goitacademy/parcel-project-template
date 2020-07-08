@@ -1,16 +1,31 @@
 .price-list {
     @extend %list;
     padding: 30px;
-    margin: 0 auto;
-    width: 87%;
-    outline: solid 1px red;
+
+    margin-bottom: 50px;
+    // width: 87%;
+    // outline: solid 1px red;
+    background: linear-gradient(180deg, #171A24 0%, rgba(23, 26, 36, 0.2) 100%);
 }
 
 //Cтили для рисования линии внизу
 .price-list-item {
+
     display: flex;
     justify-content: space-between;
 
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    color: $secondaryTextColor;
+    font-family: 'Open Sans';
+
+    font-size: 14px;
+    line-height: 2.14;
+    /* identical to box height, or 214% */
+
+    letter-spacing: 0.02em;
 }
 
 .price-underline {
@@ -21,11 +36,69 @@
 .price-underline::after {
     content: '';
     position: absolute;
-    width: 100%;
+
+    width: 90%;
     height: 1px;
-    left: 0;
-    bottom: 0;
+    left: 5%;
+    bottom: 2px;
 
-    background-color: red;
+    background-color: rgba(157, 164, 189, 0.12);
 
+
+}
+
+.overlay {
+    max-width: 1600px;
+
+    margin-left: auto;
+    margin-right: auto;
+    // outline: 1px solid black;
+
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media screen and (max-width: 479px) {
+        height: 826px;
+        background-image: url('../images/prices-mob.png'), linear-gradient(to right,
+                $bgPricesSectColor,
+                $bgPricesSectColor);
+    }
+}
+
+@media (min-resolution: 2dppx) {
+    .overlay {
+        background-image: url('../images/prices-mob@2x.png'),
+            linear-gradient(to right,
+                $bgPricesSectColor,
+                $bgPricesSectColor);
+    }
+}
+
+
+//текст
+
+.services-prices .subtitle {
+    margin-bottom: 20px;
+    color: $textTrColor;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.36;
+    /* identical to box height */
+
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.services-prices .title {
+    margin-bottom: 44px;
+    color: $contrastColor;
+    font-family: 'Raleway';
+
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.17;
+    letter-spacing: 0.05em;
 }
