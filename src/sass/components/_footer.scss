@@ -31,9 +31,14 @@
 	color: rgba(157, 164, 189, 0.4);
 	transition: $transition;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		border-bottom: 1px solid $primary-title-color-lt;
 	}
+}
+.input-field:hover + .form__input,
+.input-field:focus + .form__input {
+	color: $primary-title-color-lt;
 }
 .form__field:last-child {
 	margin-bottom: 44px;
@@ -44,27 +49,34 @@
 		text-decoration: underline;
 	}
 }
+.form__label {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+.form__input {
+	text-transform: uppercase;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	transition: $transition;
+}
 .textarea {
 	resize: none;
 }
 .form__input {
 	color: $secondary-text-color;
 }
-.form__input--uppercase {
-	text-transform: uppercase;
-}
+
 // for mobile
 .footer-title--mob {
 	text-align: center;
 	margin-bottom: 40px;
 }
-
-// .footer__element {
-//   background-color: $background-color-dkr;
-//   &--with-bg {
-//     background-image: url(../images/footer-mob.png);
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     background-position: center;
-//   }
-// }
+.footer__element--with-bg {
+	background-image: url(../images/footer-mob.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
