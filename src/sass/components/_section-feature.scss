@@ -1,4 +1,16 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 .feature-subtitle {
+  margin-top: 0;
+  margin-bottom: 20px;
+
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   font-size: 11px;
@@ -9,6 +21,9 @@
   color: $title-text-color;
 }
 .feature-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+
   font-family: 'Raleway', sans-serif;
   font-size: 42px;
   line-height: 49px;
@@ -17,6 +32,9 @@
   color: $title-text-color;
 }
 .feature-text {
+  margin-top: 0;
+  margin-bottom: 44px;
+
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   line-height: 1.67;
@@ -25,16 +43,17 @@
   color: $primary-text-color;
 }
 .feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
 }
 .feature-list-item {
   display: flex;
   flex-wrap: wrap;
-  width: 194px;
+  max-width: 194px;
   height: 133px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 32px;
-  padding-right: 32px;
+
+  padding: 20px 32px;
   justify-content: center;
   align-items: center;
 
@@ -42,11 +61,25 @@
   font-weight: 600;
   font-size: 11px;
   line-height: 1.36;
+  text-align: center;
+  letter-spacing: 0.05em;
 
   color: $title-text-color;
   background: $secondary-background-color;
+
+  &:nth-child(-n + 2) {
+    margin-bottom: 30px;
+  }
+  &:nth-child(2n + 1) {
+    margin-right: 30px;
+  }
+  &:nth-child(2n) {
+    transform: translateY(29px);
+  }
 }
 .feature-list-numeric {
+  margin-right: 2px;
+  margin-bottom: 6px;
   font-weight: 700;
   font-size: 42px;
   text-align: center;
@@ -54,7 +87,9 @@
 
   color: $title-text-color;
 }
+
 .feature-list-sup {
+  transform: translateY(-14px);
   font-size: 16px;
   line-height: 1.375;
 
