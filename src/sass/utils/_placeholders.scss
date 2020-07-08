@@ -13,7 +13,6 @@
 }
 
 %button {
-  border: none;
   outline: none;
   border: 1px solid $accent-color;
   border-radius: 25px;
@@ -26,10 +25,11 @@
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: $white;
-}
 
-%button:hover {
-  background-color: $accent-color;
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+  }
 }
 
 // серая черточка перед текстом. Что бы выровнять её по центру нужно указать родителю display: flex + justify-content-center или добавить других правил
@@ -62,4 +62,21 @@
   margin-right: 20px;
 
   background: $white;
+}
+
+%container {
+  margin-left: auto;
+  margin-right: auto;
+
+  max-width: 480px;
+  padding: 84px 15px;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 100px 15px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+    padding: 130px 15px;
+  }
 }
