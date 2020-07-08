@@ -1,42 +1,99 @@
-// img {
-//   display: block;
-// }
+.about-us {
+  background-color: $color-bg-main;
+}
 
-// .about-us {
-//   padding-top: 84px;
-//   padding-bottom: 84px;
+.about-us-photos {
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 
-//   .container {
-//     padding-left: 31px;
-//     padding-right: 31px;
+  .cont-photos {
+    display: none;
 
-//     @media screen and (min-width: 480px) {
-//       display: flex;
-//       width: auto;
-//     }
-//     .about-us-photos {
-//       display: flex;
-//       @media screen and (max-width: 767px) {
-//         display: none;
-//       }
+    @media screen and (min-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      width: 330px;
+      margin-right: 30px;
 
-//       @media screen and (min-width: 768px) {
-//         flex-direction: column;
-//       }
+      .photos:first-child {
+        margin-bottom: 30px;
+      }
+    }
 
-//       @media screen and (min-width: 1200px) {
-//         flex-direction: row;
-//         margin: 0;
-//       }
-//     }
-//   }
-//   .desc {
-//     margin-bottom: 20px;
-//   }
-// }
+    @media screen and (min-width: 1200px) {
+      display: flex;
+      flex-direction: row;
+      width: 570px;
+      margin-right: 64px;
 
-// .photos {
-//   display: block;
-//   max-width: 100%;
-//   height: auto;
-// }
+      .photos:first-child {
+        margin: 0 30px 0 0;
+      }
+    }
+  }
+}
+
+.desc {
+  .about-us-title {
+    margin: 0 0 25px;
+    display: inline-flex;
+    align-items: center;
+    @include small-title($color-title-main);
+    &::before {
+      @include pseudo-line($color-text-transparent);
+      margin-right: 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 330px;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 500px;
+  }
+
+  .big-title {
+    margin: 0 44px 25px;
+    @include big-title(28px, 1.18, $color-title-main);
+
+    @media screen and (min-width: 768px) {
+      margin: 0 0 20px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      @include big-title(42px, 1.17, $color-title-main);
+    }
+  }
+
+  .come-to-us {
+    margin: 0 0 25px;
+    @include p-text(16px, 1.62);
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      @include p-text(18px, 1.66);
+    }
+  }
+
+  .we-are-team {
+    margin: 0 0 25px;
+    @include p-text(14px, 1.86);
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 40px;
+    }
+  }
+
+  .button {
+    @include button($color-title-main);
+  }
+}
