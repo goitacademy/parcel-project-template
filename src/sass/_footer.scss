@@ -10,15 +10,84 @@
 
 // // font-family: 'Open Sans', sans-serif;
 // // font-family: 'Raleway', sans-serif;
-
-.fsign__wrapper {
+.general {
   background-color: $color-bg-footer;
+  min-width: 280px;
+  max-width: 2400px;
+  margin: 0 auto;
+}
+.prefooter {
+  @media screen and(min-width:1200px) {
+    // max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+// .footer {
+//   background-color: #191c26;
+//   margin: 0 auto;
+//   max-width: 1200px;
+//   @media screen and (min-width: 1200px) {
+//     display: grid;
+//     grid-template-columns: 1fr 1fr;
+//   }
+// }
+.fsign__wrapper,
+.fcontacts__wrapper {
+  padding: 84px 0;
+  @media screen and (min-width: 768px) {
+    padding: 100px 0;
+  }
+  @media screen and (min-width: 1200px) {
+    padding-top: 130px;
+    padding-bottom: 130px;
+  }
+}
+.fsign__wrapper {
+  @media screen and (min-width: 1200px) {
+    padding-left: 15px;
+  }
+}
+.fcontacts__wrapper {
+  @media screen and (min-width: 1200px) {
+    padding-right: 15px;
+  }
+}
+.fsign__content,
+.fcontacts__content {
+  @media screen and(min-width:480px) {
+    max-width: 480px;
+    // padding: 0 15px;
+    // margin: 0 auto;
+  }
+  @media screen and(min-width:768px) {
+    max-width: 768px;
+    // padding: 0 15px;
+    // margin: 0 auto;
+  }
+  @media screen and(min-width:1200px) {
+    max-width: 585px;
+    // padding: 0 15px;
+    // margin: 0 auto;
+  }
+  @media screen and(max-width:1199px) {
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+}
+.fsign__wrapper {
+  // background-color: $color-bg-footer;
+  outline: 1px solid red;
 }
 
 .fsign__content {
   color: $color-bg-main;
   @media screen and (max-width: 767px) {
     text-align: center;
+  }
+  @media screen and(min-width:1200px) {
+    margin-left: auto;
   }
 }
 .fsign__title,
@@ -32,18 +101,30 @@
 .fsign__form {
   @media screen and (min-width: 768px) {
     display: flex;
+
     flex-wrap: wrap;
+    // justify-content: center;
+  }
+}
+.fsign__coment {
+  @media screen and (min-width: 768px) {
   }
 }
 .fsign__name,
 .fsign__tel,
 .fsign__coment {
   display: block;
+  margin-bottom: 38px;
 }
-.fsign__name > .sign__item,
-.fsign__tel > .sign__item {
+.fsign__name,
+.fsign__tel {
   @media screen and (min-width: 768px) {
-    width: 330px;
+    width: calc((100% - 30px) / 2);
+  }
+}
+.fsign__name {
+  @media screen and (min-width: 768px) {
+    margin-right: 30px;
   }
 }
 .fsign__coment {
@@ -51,18 +132,15 @@
     width: 100%;
   }
 }
+
 .fsign__item {
   background-color: inherit;
   color: $color-text-transparent;
   width: 100%;
   border: none;
   border-bottom: 1px solid $color-text-transparent;
-  margin-bottom: 38px;
-  padding: 8px 0;
-  // @media screen and (min-width: 720px) {
 
-  //   width: 330px;
-  // }
+  padding: 8px 0;
 }
 
 textarea {
@@ -77,6 +155,7 @@ textarea {
   }
 }
 .fcontacts__wrapper {
+  outline: 1px solid green;
   background-image: linear-gradient(
       rgba(25, 28, 38, 0.9),
       rgba(25, 28, 38, 0.9)
@@ -86,40 +165,45 @@ textarea {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.fsocials__wrapper {
-  background-color: $color-bg-second;
-}
+
 .fcontacts__content {
   color: $color-text-second;
 }
 .fcontacts__main {
   font-style: normal;
+  @media screen and (min-width: 768px) {
+    margin-right: 110px;
+  }
 }
-.fcontacts__address {
-  margin: 0 0 20px;
-  display: inline-flex;
-  align-items: center;
-  font-size: 18px;
-  line-height: 1.66;
+.fcontacts__flex {
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 }
+
+.fcontacts__address,
 .fcontacts__phone,
 .fcontacts__mail {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   color: inherit;
   text-decoration: none;
   font-size: 18px;
   line-height: 1.66;
 }
+.fcontacts__address,
 .fcontacts__phone {
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
 .fcontacts__mail {
-  margin-bottom: 44px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 44px;
+  }
 }
 .fcontacts__icon {
   stroke: currentColor;
   fill: transparent;
+  margin-right: 20px;
 }
 .fcontacts__work {
   margin: 0 0 20px;
@@ -136,10 +220,16 @@ textarea {
   font-size: 18px;
   line-height: 1.66;
 }
-.fsocials__wrapper {
+.footer {
+  min-width: 280px;
+  max-width: 2400px;
+  margin: 0 auto;
+  background-color: $color-bg-second;
   padding: 44px 0;
 }
+
 .fsocials__content {
+  outline: 1px solid tomato;
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row-reverse;
