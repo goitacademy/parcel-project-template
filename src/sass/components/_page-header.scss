@@ -1,0 +1,209 @@
+.page-header {
+  // временный фон, чтобы был виден логотип
+  background-color: $bgHeaderColor;  
+}
+
+.logo {
+  @extend %link;
+}
+
+.icon-logo {
+  color: $contrastColor;
+  fill: currentColor;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 40px;
+}
+
+.menu-button {
+  display: block;
+  padding: 0;
+  border: none;
+  outline: transparent;
+  background-color: transparent;
+
+  .icon-menu {
+    fill: $contrastColor;
+  }
+
+  .icon-close {
+    fill: $ordinaryColor;
+  }
+
+  @media screen and (min-width: $tablet) {
+      display: none;
+    }
+}
+
+.menu-button.close {
+  margin-bottom: 30px;
+  margin-left: auto;
+}
+
+.menu-container {
+  @media screen and (max-width: $tablet - 1px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 337px;
+    height: 100%;
+
+    padding: 48px 40px;
+
+    display: none;
+    
+    background-color: $contrastColor;
+
+    overflow-y: scroll;
+    
+  }
+}
+
+.backdrop {
+  @media screen and (max-width: $tablet - 1px) {
+    display: none;
+  }
+}
+
+.backdrop.is-open {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: 10;
+
+  background-color: $bgHeaderColor;
+
+  .menu-container {
+    display: block;
+  }
+}
+
+.site-nav {
+  @extend %list;
+  margin-bottom: 64px;
+
+  .link {
+    @extend %link;
+
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.39;
+    letter-spacing: 0.1em;
+
+    color: $ordinaryColor;
+
+    transition: color $transition;
+
+    &:hover,
+    &:focus {
+      color: $accentColor;
+    }
+  }
+
+  .item:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+
+.number-phone {
+  @extend %link;
+  display: inline-block;
+  margin-bottom: 24px;
+
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.39;
+  letter-spacing: 0.1em;
+
+  color: $ordinaryColor;
+
+  transition: color $transition;
+
+  &:hover,
+  &:focus {
+  color: $accentColor;
+  }
+}
+
+.record {
+  @extend %button;
+  display: block;
+  margin-bottom: 64px;
+  padding: 12px 37px;
+
+  border: 1px solid $accentColor;
+  border-radius: 25px;
+  background-color: transparent;
+  cursor: pointer;
+
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.09em;
+  color: $ordinaryColor;
+
+  transition: color $transition,
+    background-color $transition;
+
+  &:hover,
+  &:focus {
+    background-color: $accentColor;
+    color: $contrastColor;
+  }
+
+  .link {
+    @extend %link;
+  }
+}
+
+.channel {
+  @extend %list;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  
+
+  &::before {
+  display: block;
+  margin-right: 40px;
+  content: "";
+  width: 60px;
+  height: 1px;
+  background-color: $ordinaryColor;
+  }
+  .item:last-child {
+    flex-basis: 100%;
+    margin-top: 24px;
+    margin-left: 100px;
+  }
+
+  .link {
+  @extend %link;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.36;
+
+  color: $ordinaryColor;
+
+  transition: color $transition;
+
+    &:hover,
+    &:focus {
+    color: $accentColor;
+    }
+  }
+}
+
+
+
