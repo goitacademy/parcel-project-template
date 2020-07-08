@@ -25,7 +25,6 @@
 }
 
 .nav {
-  position: relative;
   @include flex(space-between);
   margin-bottom: 111px;
 }
@@ -37,14 +36,21 @@
 .nav-container {
   display: none;
   position: absolute;
-  top: 100%;
-  right: 0px;
-  width: 70%;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  padding-left: 40px;
+  padding-top: 118px;
+  padding-right: 31px;
+  padding-left: calc(30% + 40px);
   text-align: left;
+  z-index: 1;
 
-  background-color: $background-basic-color;
+  background: linear-gradient(
+    to right,
+    $overlay-color 30%,
+    $background-basic-color 30%
+  );
   box-shadow: $menu-shadow;
 
   &.is-open {
@@ -53,32 +59,36 @@
 }
 
 .button-menu {
+  position: relative;
   @include flex();
   width: 40px;
   height: 40px;
   border: none;
+  padding: 0;
   outline-width: 0px;
   cursor: pointer;
 
   background-color: inherit;
+  fill: $additional-white-color;
 
-  @include transition(fill);
-
-  & > .icon-menu {
-    fill: $additional-white-color;
-  }
-
-  & > .icon-close {
+  &.is-open {
     fill: $header-font-color;
-  }
-
-  &:hover,
-  &:focus {
-    fill: $accent-font-color;
   }
 }
 
 .icon-menu {
+  width: 24px;
+  height: 16px;
+
+  .button-menu.is-open & {
+    position: absolute;
+    z-index: 2;
+    width: 19px;
+    height: 19px;
+  }
+}
+
+.icon-burger {
   display: block;
 
   .button-menu.is-open & {
@@ -91,6 +101,80 @@
 
   .button-menu.is-open & {
     display: block;
+  }
+}
+
+.sections-list,
+.order-list {
+  margin-bottom: 64px;
+}
+
+.sections-item:not(:last-child),
+.order-item:not(:last-child),
+.header-social-item:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.page-link,
+.order-phone {
+  display: block;
+  @include font(600, 18px, 1.39, 0.1em);
+
+  color: $header-font-color;
+
+  &:hover,
+  &:focus {
+    color: $accent-font-color;
+  }
+}
+
+.order-phone {
+  text-transform: uppercase;
+}
+
+.order-link {
+  display: inline-block;
+  padding: 12px 37px;
+  border: 1px solid $accent-font-color;
+  border-radius: 25px;
+
+  @include font(600, 12px, 1.34, 0.09em);
+  text-transform: uppercase;
+
+  color: $header-font-color;
+
+  &:hover,
+  &:focus {
+    color: $additional-white-color;
+    background-color: $accent-font-color;
+  }
+}
+
+.header-social-list {
+  position: relative;
+  padding-left: 100px;
+}
+
+.header-social-list::before {
+  content: '';
+  position: absolute;
+  top: 0.5em;
+  left: 0%;
+  width: 60px;
+  height: 1px;
+
+  background-color: $header-font-color;
+}
+
+.header-social-link {
+  display: block;
+  @include font(600, 14px, 1.36);
+
+  color: $header-font-color;
+
+  &:hover,
+  &:focus {
+    color: $accent-font-color;
   }
 }
 
@@ -111,7 +195,7 @@
 .sub-title::before {
   content: '';
   position: absolute;
-  top: 50%;
+  top: 0.5em;
   left: 0%;
   width: 60px;
   height: 1px;
