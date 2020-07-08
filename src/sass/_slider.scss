@@ -1,0 +1,183 @@
+.slider {
+  position: relative;
+  @media screen and (max-width: 479px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 480px) {
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.menu {
+  @media screen and (max-width: 767px) {
+    @include flex(space-between, center);
+    padding: 40px 16px 0px;
+  }
+}
+
+.logo,
+.menu-open {
+  fill: $color-bg-main;
+}
+
+.menu-button {
+  @extend %inlineFlex;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.menu-list {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+  padding: 48px 31px 40px;
+  text-align: end;
+  background-color: $color-bg-main;
+  box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.16), -2px 0px 4px rgba(0, 0, 0, 0.08),
+    -4px 0px 8px rgba(0, 0, 0, 0.04);
+  @media screen and (max-width: 479px) {
+    width: calc(70%);
+  }
+  @media screen and (min-width: 480px) {
+    width: 337px;
+  }
+  &.is-open {
+    display: block;
+  }
+  &.is-open .menu-close {
+    display: block;
+    fill: $color-title-main;
+  }
+}
+
+.header-hero {
+  padding: 0px 16px;
+  max-width: 100%;
+  margin-top: 113px;
+}
+
+.header-text {
+  @extend %inlineFlex;
+  @extend %marginHeader;
+  @include small-title($color-text-transparent);
+  &::before {
+    @include pseudo-line($color-text-transparent);
+    margin-right: 20px;
+  }
+}
+
+.header-title {
+  @extend %heroWidth;
+  @extend %marginHeader;
+  @include big-title(48px, 1.17em, $color-bg-main);
+}
+
+.header-slogan {
+  @extend %heroWidth;
+  display: inline-block;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.63em;
+  letter-spacing: 0.02em;
+  color: $color-text-second;
+}
+
+.header-nav,
+.header-contacts,
+.header-link,
+.header-social {
+  text-align: start;
+}
+
+.header-nav {
+  padding-top: 30px;
+  padding-bottom: 64px;
+}
+
+.header-nav-item:not(:last-child),
+.header-contacts-item:not(:last-child),
+.header-item-social:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.menu-link {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.39em;
+  letter-spacing: 0.1em;
+  color: $color-title-main;
+  &:hover,
+  &:focus {
+    color: $color-accent;
+  }
+}
+
+.header-contacts {
+  margin-bottom: 64px;
+}
+
+.menu-item-form {
+  padding: 12px 37px;
+  border: 1px solid $color-accent;
+  border-radius: 25px;
+  text-align: center;
+  &:hover,
+  &:focus {
+    background-color: $color-accent;
+  }
+  &:hover .menu-link-form,
+  &:focus .menu-link-form {
+    color: $color-bg-main;
+  }
+}
+
+.menu-link-form {
+  //   display: block;
+  //   width: 100%;
+  //   height: 100%;
+
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33em;
+  letter-spacing: 0.09em;
+  color: $color-title-main;
+  text-transform: uppercase;
+}
+
+.header-link-social {
+  @extend %inlineFlex;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.36em;
+  letter-spacing: 0.2em;
+  color: $color-title-main;
+  &:hover,
+  &:focus {
+    color: $color-accent;
+  }
+}
+
+.inst {
+  &::before {
+    @include pseudo-line($color-title-main);
+    margin-right: 40px;
+  }
+}
+.yt {
+  &::before {
+    @include pseudo-line(transparent);
+    margin-right: 40px;
+  }
+}
