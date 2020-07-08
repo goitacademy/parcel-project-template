@@ -1,57 +1,83 @@
 <header class="page-header">
+  <div class="header-container container">    
     <!-- Главная навигация -->
-    <div class="header-container">
+    <nav class="main-nav">
+      
+      <!-- Логотип компании -->
+      <a href="./index.html" class="logo">
+        <svg width="68.93" height="55.46" class="icon-logo">
+          <use href="./images/sprite.svg#icon-logo"></use>
+        </svg>
+      </a>
 
-        <nav class="main-nav">
-            <!-- Логотип компании -->
-            <a href="./index.html" class="logo">
-                <svg width="68.93" height="55.46" class="icon-logo">
-                    <use href="./images/sprite.svg#icon-logo"></use>
-                </svg>
-            </a>
+      <!-- Открытие меню для мобилки -->
+      <button type="button" class="menu-button" aria-expanded="false" aria-controls="menu-container"
+      data-menu-open>
+        <svg width="40" height="40" aria-label="Переключатель мобильного меню">
+          <use class="icon-menu" href="./images/sprite.svg#icon-menu"></use>
+        </svg>
+      </button>
 
-            <!-- Переключатель меню для мобилки -->
-            <button type="button" class="menu-button" aria-expanded="false" aria-controls="menu-container"
-                data-menu-button>
-                <svg width="40" height="40" aria-label="Переключатель мобильного меню">
-                    <use class="icon-close" href="./images/sprite.svg#icon-close"></use>
-                    <use class="icon-menu" href="./images/sprite.svg#icon-menu"></use>
-                </svg>
-            </button>
+      
+      <div class="backdrop" data-menu>
+        <div class="menu-container" id="menu-container" >
 
-            <!-- Меню -->
-            <div class="menu-container" id="menu-container" data-menu>
-                <ul class="site-nav">
-                    <li class="item"><a href="#" class="link">О нас</a></li>
-                    <li class="item"><a href="#" class="link">Услуги и цены</a></li>
-                    <li class="item"><a href="#" class="link">Мастера</a></li>
-                    <li class="item"><a href="#" class="link">Контакты</a></li>
-                </ul>
-                <a href="tel:+380441111111" class="number-phone">+38 044 111 11 11</a>
-                <button class="record">онлайн-запись</button>
+          <!-- Закрытие меню для мобилки -->
+          <button type="button" class="menu-button close" aria-controls="menu-container" data-menu-close>
+            <svg width="40" height="40" aria-label="Переключатель мобильного меню">
+              <use class="icon-close" href="./images/sprite.svg#icon-close"></use>
+            </svg>
+          </button>
 
-                <!-- Ссылки на каналы -->
-                <ul class="channel">
-                    <li class="item"><a href="#" aria-label="Ссылка на Instagram" class="link">Instagram</a></li>
-                    <li class="item"><a href="#" aria-label="Ссылка на Youtube" class="link">Youtube</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+          <!-- Меню -->
+          <ul class="site-nav">
+            <li class="item"><a href="#about-us" class="link" data-about-us>О нас</a></li>
+            <li class="item"><a href="#services-and-prices" class="link" data-price-list>Услуги и цены</a></li>
+            <li class="item"><a href="#" class="link" data-master>Мастера</a></li>
+            <li class="item"><a href="#" class="link" data-contact>Контакты</a></li>
+          </ul>
+          <a href="tel:+380441111111" class="number-phone">+38 044 111 11 11</a>
+          <button class="record" data-menu-record>
+            <a href="#clients-form-ref" class="link">онлайн-запись</a>
+          </button>
+        
+          <!-- Ссылки на каналы -->
+          <ul class="channel">
+            <li class="item"><a href="#" aria-label="Ссылка на Instagram" class="link">Instagram</a></li>
+            <li class="item"><a href="#" aria-label="Ссылка на Youtube" class="link">Youtube</a></li>
+          </ul>
+
+          
+        </div>
+      </div>
+      
+    </nav>
+  </div>
 </header>
-<!-- <script>
+
+<script>
     (() => {
-            const menuBtnRef = document.querySelector("[data-menu-button]");
-            const mobileMenuRef = document.querySelector("[data-menu]");
+        const refs = {
+          openMenuBtn: document.querySelector("[data-menu-open]"),
+          closeMenuBtn: document.querySelector("[data-menu-close]"),
+          recordBtn: document.querySelector("[data-menu-record]"),
+          mobileMenu: document.querySelector("[data-menu]"),
+          aboutUs: document.querySelector("[data-about-us]"),
+          priceList: document.querySelector("[data-price-list]"),
+          master: document.querySelector("[data-master]"),
+          contactLink: document.querySelector("[data-contact]"),
+        };
 
-            menuBtnRef.addEventListener("click", () => {
-                const expanded =
-                    menuBtnRef.getAttribute("aria-expanded") === "true" || false;
+        refs.openMenuBtn.addEventListener("click", toggleMenu);
+        refs.closeMenuBtn.addEventListener("click", toggleMenu);
+        refs.recordBtn.addEventListener("click", toggleMenu);
+        refs.aboutUs.addEventListener("click", toggleMenu);
+        refs.priceList.addEventListener("click", toggleMenu);
+        refs.master.addEventListener("click", toggleMenu);
+        refs.contactLink.addEventListener("click", toggleMenu);
 
-                menuBtnRef.classList.toggle("is-open");
-                menuBtnRef.setAttribute("aria-expanded", !expanded);
-
-                mobileMenuRef.classList.toggle("is-open");
-            });
-        })();
-</script> -->
+        function toggleMenu() {
+          refs.mobileMenu.classList.toggle("is-open");
+        }
+      })();
+</script>
