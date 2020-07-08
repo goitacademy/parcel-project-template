@@ -1,0 +1,134 @@
+.header-section {
+  margin: 0 auto;
+  padding: 40px 0px;
+
+  //Фон для экранов до 480 (вкл.)
+  background-image: linear-gradient($overlay-color, $overlay-color),
+    url(../images/header/slider480.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient($overlay-color, $overlay-color),
+      url(../images/header/slider480@2x.jpg);
+  }
+
+  @media screen and (min-device-pixel-ratio: 3),
+    screen and (min-resolution: 288dpi),
+    screen and (min-resolution: 3dppx) {
+    background-image: linear-gradient($overlay-color, $overlay-color),
+      url(../images/header/slider480@3x.jpg);
+  }
+}
+
+.nav {
+  position: relative;
+  @include flex(space-between);
+  margin-bottom: 111px;
+}
+
+.header-logo {
+  display: inline-flex;
+}
+
+.nav-container {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0px;
+  width: 70%;
+  height: 100%;
+  padding-left: 40px;
+  text-align: left;
+
+  background-color: $background-basic-color;
+  box-shadow: $menu-shadow;
+
+  &.is-open {
+    display: block;
+  }
+}
+
+.button-menu {
+  @include flex();
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline-width: 0px;
+  cursor: pointer;
+
+  background-color: inherit;
+
+  @include transition(fill);
+
+  & > .icon-menu {
+    fill: $additional-white-color;
+  }
+
+  & > .icon-close {
+    fill: $header-font-color;
+  }
+
+  &:hover,
+  &:focus {
+    fill: $accent-font-color;
+  }
+}
+
+.icon-menu {
+  display: block;
+
+  .button-menu.is-open & {
+    display: none;
+  }
+}
+
+.icon-close {
+  display: none;
+
+  .button-menu.is-open & {
+    display: block;
+  }
+}
+
+.title-box {
+  width: 306px;
+}
+
+.sub-title {
+  position: relative;
+  padding-left: 80px;
+  margin-bottom: 20px;
+  @include font(600, 11px, 1.37, 0.1em);
+  text-transform: uppercase;
+
+  color: $sub-title-color;
+}
+
+.sub-title::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 60px;
+  height: 1px;
+
+  background-color: $sub-title-color;
+}
+
+.main-title {
+  margin-bottom: 20px;
+
+  @include font(700, 48px, 1.17, 0.05em, Raleway);
+
+  color: $additional-white-color;
+}
+
+.slogan {
+  margin-bottom: 143px;
+
+  @include font($size: 16px, $height: 1.62);
+}
