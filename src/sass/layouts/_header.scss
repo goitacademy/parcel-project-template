@@ -28,10 +28,72 @@
       ),
       url(../images/header/slider480@3x.jpg);
   }
+
+  //Фон для экранов больше 480
+  @media screen and (min-width: $mobile + 1) {
+    background-image: linear-gradient(
+        $gradient-hero-color,
+        $gradient-hero-color
+      ),
+      url(../images/header/slider768.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          $gradient-hero-color,
+          $gradient-hero-color
+        ),
+        url(../images/header/slider768@2x.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          $gradient-hero-color,
+          $gradient-hero-color
+        ),
+        url(../images/header/slider768@3x.jpg);
+    }
+  }
+
+  @media screen and (min-width: $tablet + 1) {
+    background-image: linear-gradient(
+        $gradient-hero-color,
+        $gradient-hero-color
+      ),
+      url(../images/header/slider1280.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          $gradient-hero-color,
+          $gradient-hero-color
+        ),
+        url(../images/header/slider1280@2x.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          $gradient-hero-color,
+          $gradient-hero-color
+        ),
+        url(../images/header/slider1280@3x.jpg);
+    }
+  }
 }
 
 .nav {
-  position: relative;
   @include flex(space-between);
   margin-bottom: 111px;
 }
@@ -41,50 +103,72 @@
 }
 
 .nav-container {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0px;
-  width: 70%;
-  height: 100%;
-  padding-left: 40px;
-  text-align: left;
+  @media screen and (max-width: $tablet - 1) {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 118px;
+    padding-right: 31px;
+    padding-left: calc(30% + 40px);
+    text-align: left;
+    z-index: 1;
 
-  background-color: $bg-white-color;
-  box-shadow: $shadow-mobile-menu;
+    background: linear-gradient(
+      to right,
+      $gradient-hero-color 30%,
+      $bg-white-color 30%
+    );
+    box-shadow: $shadow-mobile-menu;
 
-  &.is-open {
-    display: block;
+    &.is-open {
+      display: block;
+    }
+  }
+  @media screen and (min-width: $tablet) {
+    @include flex(space-between);
   }
 }
 
 .button-menu {
-  @include flex();
-  width: 40px;
-  height: 40px;
-  border: none;
-  outline-width: 0px;
-  cursor: pointer;
+  @media screen and (max-width: $tablet - 1) {
+    position: relative;
+    @include flex();
+    width: 40px;
+    height: 40px;
+    border: none;
+    padding: 0;
+    outline-width: 0px;
+    cursor: pointer;
 
-  background-color: inherit;
-
-  @include transition(fill);
-
-  & > .icon-menu {
+    background-color: inherit;
     fill: $primary-white-color;
-  }
 
-  & > .icon-close {
-    fill: $primary-grey-color;
+    &.is-open {
+      fill: $primary-grey-color;
+    }
   }
+  @media screen and (min-width: $tablet) {
+    display: none;
 
-  &:hover,
-  &:focus {
-    fill: $accent-color;
   }
 }
 
 .icon-menu {
+  width: 24px;
+  height: 16px;
+
+  .button-menu.is-open & {
+    position: absolute;
+    z-index: 2;
+    width: 19px;
+    height: 19px;
+  }
+}
+
+.icon-burger {
   display: block;
 
   .button-menu.is-open & {
@@ -97,6 +181,84 @@
 
   .button-menu.is-open & {
     display: block;
+  }
+}
+
+.sections-list,
+.order-list {
+  margin-bottom: 64px;
+
+  @media screen and (min-width: $tablet) {
+    @include flex(left);
+  }
+}
+
+.sections-item:not(:last-child),
+.order-item:not(:last-child),
+.header-social-item:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.page-link,
+.order-phone {
+  display: block;
+  @include font(600, 18px, 1.39, 0.1em);
+
+  color: $primary-grey-color;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.order-phone {
+  text-transform: uppercase;
+}
+
+.order-link {
+  display: inline-block;
+  padding: 12px 37px;
+  border: 1px solid $accent-color;
+  border-radius: 25px;
+
+  @include font(600, 12px, 1.34, 0.09em);
+  text-transform: uppercase;
+
+  color: $primary-grey-color;
+
+  &:hover,
+  &:focus {
+    color: $primary-white-color;
+    background-color: $accent-color;
+  }
+}
+
+.header-social-list {
+  position: relative;
+  padding-left: 100px;
+}
+
+.header-social-list::before {
+  content: '';
+  position: absolute;
+  top: 0.5em;
+  left: 0%;
+  width: 60px;
+  height: 1px;
+
+  background-color: $primary-grey-color;
+}
+
+.header-social-link {
+  display: block;
+  @include font(600, 14px, 1.36);
+
+  color: $primary-grey-color;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
   }
 }
 
@@ -117,7 +279,7 @@
 .sub-title::before {
   content: '';
   position: absolute;
-  top: 50%;
+  top: 0.5em;
   left: 0%;
   width: 60px;
   height: 1px;
@@ -138,3 +300,9 @@
 
   @include font($size: 16px, $height: 1.62);
 }
+
+  .icon-logo {
+  width: 69px;
+  height: 56px;
+
+  fill: $primary-white-color;
