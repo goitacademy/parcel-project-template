@@ -28,6 +28,69 @@
       ),
       url(../images/header/slider480@3x.jpg);
   }
+
+  //Фон для экранов больше 480
+  @media screen and (min-width: $mobile + 1) {
+    background-image: linear-gradient(
+        $gradient-hero-color,
+        $gradient-hero-color
+      ),
+      url(../images/header/slider768.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          $gradient-hero-color,
+          $gradient-hero-color
+        ),
+        url(../images/header/slider768@2x.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          $gradient-hero-color,
+          $gradient-hero-color
+        ),
+        url(../images/header/slider768@3x.jpg);
+    }
+  }
+
+  @media screen and (min-width: $tablet + 1) {
+    background-image: linear-gradient(
+        $gradient-hero-color,
+        $gradient-hero-color
+      ),
+      url(../images/header/slider1280.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          $gradient-hero-color,
+          $gradient-hero-color
+        ),
+        url(../images/header/slider1280@2x.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          $gradient-hero-color,
+          $gradient-hero-color
+        ),
+        url(../images/header/slider1280@3x.jpg);
+    }
+  }
 }
 
 .nav {
@@ -40,45 +103,55 @@
 }
 
 .nav-container {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding-top: 118px;
-  padding-right: 31px;
-  padding-left: calc(30% + 40px);
-  text-align: left;
-  z-index: 1;
+  @media screen and (max-width: $tablet - 1) {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 118px;
+    padding-right: 31px;
+    padding-left: calc(30% + 40px);
+    text-align: left;
+    z-index: 1;
 
-  background: linear-gradient(
-    to right,
-    $gradient-hero-color 30%,
-    $bg-white-color 30%
-  );
-  box-shadow: $shadow-mobile-menu;
+    background: linear-gradient(
+      to right,
+      $gradient-hero-color 30%,
+      $bg-white-color 30%
+    );
+    box-shadow: $shadow-mobile-menu;
 
-  &.is-open {
-    display: block;
+    &.is-open {
+      display: block;
+    }
+  }
+  @media screen and (min-width: $tablet) {
+    @include flex(space-between);
   }
 }
 
 .button-menu {
-  position: relative;
-  @include flex();
-  width: 40px;
-  height: 40px;
-  border: none;
-  padding: 0;
-  outline-width: 0px;
-  cursor: pointer;
+  @media screen and (max-width: $tablet - 1) {
+    position: relative;
+    @include flex();
+    width: 40px;
+    height: 40px;
+    border: none;
+    padding: 0;
+    outline-width: 0px;
+    cursor: pointer;
 
-  background-color: inherit;
-  fill: $primary-white-color;
+    background-color: inherit;
+    fill: $primary-white-color;
 
-  &.is-open {
-    fill: $primary-grey-color;
+    &.is-open {
+      fill: $primary-grey-color;
+    }
+  }
+  @media screen and (min-width: $tablet) {
+    display: none;
   }
 }
 
@@ -113,6 +186,10 @@
 .sections-list,
 .order-list {
   margin-bottom: 64px;
+
+  @media screen and (min-width: $tablet) {
+    @include flex(left);
+  }
 }
 
 .sections-item:not(:last-child),
