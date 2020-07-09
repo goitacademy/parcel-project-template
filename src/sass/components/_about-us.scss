@@ -1,0 +1,103 @@
+.about{
+    @media screen and (min-width:$mobile){
+    padding-top:$sec-pad-mob;
+    padding-bottom: $sec-pad-mob;
+    }
+    @media screen and (min-width:$tablet){
+        padding-top:$sec-pad-tab;
+        padding-bottom: $sec-pad-tab;
+    }
+    @media screen and (min-width:$desktop){
+        padding-top:$sec-pad-desk;
+        padding-bottom: $sec-pad-desk;
+    }
+}
+
+img{
+    max-width: inherit;
+}
+
+.about-images{
+    @media screen and (max-width:767px) {
+        display:none;   
+    }
+    @media screen and (min-width:$tablet) {
+        width: calc((100% - 30px) / 2);
+    }
+    @media screen and (min-width:$desktop){
+    display:flex;
+    width: calc((100% - 64px) / 2);
+    }
+}
+
+.about-image{
+    @media screen and (min-width:$tablet){
+        &:first-child{
+        margin-bottom: 30px;
+        }
+    }    
+    @media screen and (min-width:$desktop){
+        &:first-child{
+            margin-right:30px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.about-content{
+    @media screen and (min-width:$tablet) {
+        width: calc((100% - 30px) / 2);
+        margin-left: 30px;
+    }
+    @media screen and (min-width:$desktop){
+        margin-left: 64px;
+    }
+}
+
+.container.about-us{
+    display: flex;
+}
+
+.about-us{
+    color:$primary-grey-color;
+    margin-top: 0;
+}
+
+.sub-title.about-us:before{
+    background-color:$primary-grey-color;
+}
+
+.about-title{
+    @include font(700, 28px, 1.18,0.02em, $heading-font);
+    margin-bottom:20px;
+    @media screen and (min-width:$desktop){
+    @include font(700, 42px, 1.17, 0.05em, $heading-font);
+    }
+
+}
+
+.slogan.about-us{
+    color:$tertiary-grey-color;
+    margin-bottom:20px;
+    margin-top:0;
+}
+
+.article.about-us {
+    @include font(400, 14px, 1.86);
+    color:$tertiary-grey-color;
+    margin-bottom:40px;
+}
+
+.button-order{
+    padding: 12px 20px;
+    @extend %border-button;
+    @include font(600, 12px, 1.33, 0.09em);
+    text-transform: uppercase;
+    color: $primary-grey-color;
+
+    &:hover,
+    &:focus{
+        background-color: $accent-color;
+        color:$primary-white-color;
+    }
+}
