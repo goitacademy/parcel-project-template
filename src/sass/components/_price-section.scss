@@ -1,15 +1,20 @@
 .section.price {
   background-color: #111319;
-  background-image: url(../images/price-section/img.png);
+  background-image: url(../images/price-section/bg-price-mobile.png);
   background-repeat: no-repeat;
   max-width: 480px;
   margin-right: auto;
   margin-left: auto;
-  //   background-image: linear-gradient(rgba(7, 7, 10, 0.8), rgba(7, 7, 10, 0.8)),
-  //     url(../images/price-section/background-mobile.jpg);
-}
 
-.container.price {
+  @media screen and (min-width: $min-tablet) and (min-width: $max-tablet) {
+    max-width: 768px;
+    background-image: url(../images/price-section/bg-price-tablet.png);
+  }
+
+  @media screen and (min-width: $min-desktop) {
+    max-width: 1280px;
+    background-image: url(../images/price-section/bg-price-desktop.png);
+  }
 }
 
 .tagline {
@@ -22,10 +27,16 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(157, 164, 189, 0.6);
+  display: flex;
+  align-items: center;
 
   &::before {
     content: '';
-    border: 1px solid rgba(157, 164, 189, 0.6);
+    margin-right: 20px;
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: rgba(157, 164, 189, 0.6);
   }
 }
 
@@ -41,11 +52,27 @@
   color: #ffffff;
 }
 
+.price-conteiner {
+  @media screen and (max-width: $max-tablet) {
+    padding: 30px;
+  }
+
+  margin-bottom: 50px;
+  @media screen and (min-width: $min-desktop) {
+    display: flex;
+  }
+
+  @media screen and (min-width: $min-tablet) and (max-width: $max-desktop) {
+    padding: 30px 40px;
+  }
+
+  @media screen and (max-width: $max-desktop) {
+    background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
+  }
+}
+
 .price-list {
   @extend %list;
-  padding: 30px;
-  margin-bottom: 30px;
-  background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
 
   font-weight: 400;
   font-size: 14px;
@@ -54,8 +81,36 @@
 
   letter-spacing: 0.02em;
 
+  @media screen and (min-width: $min-tablet) {
+    font-size: 18px;
+    line-height: 1.667;
+  }
+
+  @media screen and (max-width: $max-desktop) {
+    &:nth-child(1) {
+      margin-bottom: 20px;
+    }
+  }
+
   @media screen and (min-width: $min-desktop) {
-    column-count: 2;
+    padding: 30px 40px;
+    &:nth-child(1) {
+      width: 50%;
+      background: linear-gradient(
+        180deg,
+        #171a24 0%,
+        rgba(23, 26, 36, 0.2) 100%
+      );
+    }
+
+    &:nth-child(2) {
+      width: 50%;
+      background: linear-gradient(
+        180deg,
+        #090b13 0%,
+        rgba(9, 11, 19, 0.2) 100%
+      );
+    }
   }
 }
 
