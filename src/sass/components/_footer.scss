@@ -1,12 +1,15 @@
 .copyright {
 	background-color: $background-color-dk;
+	&__container {
+		display: flex;
+		justify-content: space-between;
+	}
 }
 .footer {
 	background-color: $background-color-dkr;
 }
 .layout--dk {
 	background-color: $background-color-dkr;
-	// max-width: 1600px;
 }
 
 .footer-text,
@@ -78,9 +81,6 @@
 .textarea {
 	resize: none;
 }
-.form__input {
-	color: $secondary-text-color;
-}
 
 .adress__item:not(:last-child) {
 	margin-bottom: 20px;
@@ -98,19 +98,16 @@
 	color: $primary-text-color-lt;
 }
 
-// for mobile
-
 .footer__element--with-bg {
 	background-image: url(../images/footer-mob.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
-.copyright__layout--mob {
-	padding-top: 44px;
-	padding-bottom: 44px;
+.copyright__items--dark {
+	display: flex;
+	color: $primary-title-color-dk;
 }
-
 @media screen and (max-width: 767px) {
 	.footer-title {
 		text-align: center;
@@ -118,6 +115,10 @@
 	}
 	.footer__button--center {
 		text-align: center;
+	}
+	.copyright__layout--mob {
+		padding-top: 44px;
+		padding-bottom: 44px;
 	}
 }
 
@@ -141,12 +142,14 @@
 
 	.form__field--inrow {
 		width: calc((100% - 30px) / 2);
-		// margin: 15px;
-		/* margin-right: 3px; */
 	}
 }
 
 @media screen and (min-width: 1200px) {
+	.copyright.copyright__layout--mob {
+		padding-top: 56px;
+		padding-bottom: 56px;
+	}
 	.footer__wrap {
 		display: flex;
 		flex-wrap: wrap;
@@ -154,10 +157,19 @@
 	}
 	.footer__element {
 		width: calc((100% - 30px) / 2);
-		// width : 50%;
 	}
 
 	.footer__element.footer__element--with-bg.layout.layout--dk {
 		padding-left: 100px;
+	}
+	.form {
+		padding-right: 25px;
+	}
+	.address__section {
+		width: 100%;
+	}
+	.address-wrap {
+		display: flex;
+		flex-direction: column;
 	}
 }
