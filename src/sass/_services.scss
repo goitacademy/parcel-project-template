@@ -1,6 +1,7 @@
 .services__section {
   margin-left: auto;
   margin-right: auto;
+
   width: 480px;
   height: 826px;
 
@@ -16,7 +17,7 @@
     background-image: url('../images/services/tab/services_img_tab-768.png');
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     width: 1280px;
     max-width: 100%;
     height: 718px;
@@ -26,19 +27,86 @@
   }
 }
 
+@media screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  .services__section {
+    background-image: url('../images/services/mob/services_img_mob-480@2x.png');
+  }
+}
+@media screen and (min-device-pixel-ratio: 3),
+  screen and (min-resolution: 288dpi),
+  screen and (min-resolution: 3dppx) {
+  .services__section {
+    background-image: url('../images/services/mob/services_img_mob-480@3x.png');
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  @media screen and (min-width: 768px) {
+    .services__section {
+      background-image: url('../images/services/tab/services_img_tab-768@2x.png');
+    }
+  }
+}
+@media screen and (min-device-pixel-ratio: 3),
+  screen and (min-resolution: 288dpi),
+  screen and (min-resolution: 3dppx) {
+  @media screen and (min-width: 768px) {
+    .services__section {
+      background-image: url('../images/services/tab/services_img_tab-768@3x.png');
+    }
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  @media screen and (min-width: 1280px) {
+    .services__section {
+      background-image: url('../images/services/desk/services_img_desk-1280@2x.png');
+    }
+  }
+}
+@media screen and (min-device-pixel-ratio: 3),
+  screen and (min-resolution: 288dpi),
+  screen and (min-resolution: 3dppx) {
+  @media screen and (min-width: 1280px) {
+    .services__section {
+      background-image: url('../images/services/desk/services_img_desk-1280@3x.png');
+    }
+  }
+}
+
 .services__container {
+  display: block;
   margin-left: auto;
   margin-right: auto;
+
   width: 418px;
-  display: block;
-  text-align: center;
   padding: 84px 31px;
+
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    max-width: 690px;
+    width: 100%;
+    padding: 100px 39px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1170px;
+    width: 100%;
+    padding: 130px 55px;
+  }
 }
 
 .services__subtitle {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 20px;
 
   font-family: $second-font;
@@ -53,9 +121,6 @@
 
   &::before {
     @extend %line-before-with-opacity;
-
-    background-color: rgba(157, 164, 189, 0.6);
-    background-image: url('../images/accent_line.svg');
   }
 }
 
@@ -76,15 +141,53 @@
 .services__list {
   display: flex;
   flex-direction: column;
+
   margin-bottom: 50px;
 
   max-width: 418px;
   padding: 30px;
   background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
   text-align: left;
+
+  @media screen and (min-width: 768px) {
+    max-width: 690px;
+
+    padding: 30px 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
+    max-width: 1170px;
+    width: 100%;
+    padding: 0;
+  }
 }
+
+.services__item--first,
+.services__item--second {
+  @media screen and (min-width: 1280px) {
+    max-width: 585px;
+    width: 100%;
+    padding: 30px 40px;
+  }
+}
+
+.services__item--first {
+  @media screen and (max-width: 1279px) {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .services__item--first {
+    background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
+  }
+  .services__item--second {
+    background: linear-gradient(180deg, #090b13 0%, rgba(9, 11, 19, 0.2) 100%);
+  }
+}
+
 .services__item {
-  max-width: 358px;
+  max-width: inherit;
 }
 .services__item:not(:last-child) {
   margin-bottom: 20px;
@@ -99,6 +202,11 @@
   line-height: 2.14;
   letter-spacing: 0.02em;
   color: #9da4bd;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.67;
+  }
 }
 .service {
   position: relative;
@@ -109,17 +217,19 @@
   position: absolute;
   left: 100%;
   top: 70%;
-  width: 50%;
+  display: inline-flex;
+
+  min-width: 74px;
+  // width: 100%;
   height: 1px;
   margin-left: 6px;
   margin-right: 6px;
 
   background-color: rgba(157, 164, 189, 0.12);
-  background-image: url('../images/accent_line.svg');
 }
 
 .price {
-  justify-items: flex-end;
+  margin-left: auto;
 }
 
 .button {
