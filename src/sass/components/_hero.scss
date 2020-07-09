@@ -1,3 +1,6 @@
+body {
+  background-color: turquoise;
+}
 img {
   display: block;
   max-width: 100%;
@@ -6,8 +9,8 @@ img {
 .hero {
   position: relative;
 
-  box-sizing: border-box;
   max-width: 480px;
+  margin: 0px auto;
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
@@ -17,9 +20,12 @@ img {
     max-width: 1280px;
   }
 }
-.hero-img-container {
-  position: absolute;
-  right: 0px;
+.hero-img-container img {
+  margin: 0px auto;
+
+  @media screen and (min-width: 768px) {
+    margin: 0px 0px 0px auto;
+  }
 }
 .slider-image1,
 .slider-image2 {
@@ -28,7 +34,22 @@ img {
 .hero-content-container {
   position: absolute;
   top: 208px;
-  left: 31px;
+  right: 143px;
+
+  max-width: 306px;
+
+  @media screen and (min-width: 768px) {
+    top: 272px;
+    right: 134px;
+
+    max-width: 355px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 575px;
+
+    max-width: 450px;
+  }
 }
 .hero-description {
   margin: 0px 0px 20px;
@@ -42,6 +63,16 @@ img {
   text-transform: uppercase;
   color: rgba(157, 164, 189, 0.6);
 }
+.hero-description::before {
+  content: '';
+
+  display: inline-block;
+  width: 60px;
+  height: 1px;
+  margin: 0px 20px 4px 0px;
+
+  background-color: rgba(157, 164, 189, 0.6);
+}
 .hero-title {
   margin: 0px 0px 20px;
   padding: 0px;
@@ -52,9 +83,13 @@ img {
   line-height: 1.17;
   letter-spacing: 0.05em;
   color: #ffffff;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 72px;
+    line-height: 1.18;
+  }
 }
 .hero-text {
-  max-width: 306px;
   margin: 0px;
   padding: 0px;
 
@@ -64,4 +99,83 @@ img {
   line-height: 1.63;
   letter-spacing: 0.02em;
   color: #9da4bd;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+    line-height: 1.67;
+  }
+}
+.hero-radio-container {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    top: 325px;
+    right: 39px;
+
+    display: block;
+
+    @media screen and (min-width: 1280px) {
+      right: 55px;
+    }
+  }
+}
+.hero-radio-container input {
+  display: none;
+}
+.hero-radio-container label::before {
+  content: '';
+  display: block;
+  width: 15px;
+  height: 3px;
+
+  background-color: #9da4bd;
+  cursor: pointer;
+}
+.hero-radio-container label:not(:last-child)::before {
+  margin-bottom: 12px;
+}
+.hero-radio-container input:checked + label::before {
+  width: 30px;
+
+  background-color: #fff;
+}
+.hero-button-container {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    top: 616px;
+    right: 39px;
+
+    display: block;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 55px;
+  }
+}
+.button {
+  padding-bottom: 8px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.button:not(:last-child) {
+  margin-right: 26px;
+}
+.button.back {
+  padding-right: 22px;
+  color: rgba(157, 164, 189, 0.6);
+  border-bottom: 1px solid rgba(157, 164, 189, 0.6);
+}
+.button.forward {
+  padding-left: 13px;
+  color: #fff;
+  border-bottom: 1px solid #fff;
 }
