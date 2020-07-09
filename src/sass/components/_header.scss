@@ -1,41 +1,18 @@
+* {
+  outline: 1px solid tomato;
+}
+
 .header-section {
   margin: 0 auto;
   padding: 40px 0px;
 
   //Фон для экранов до 480 (вкл.)
-  background-image: linear-gradient($gradient-hero-color, $gradient-hero-color),
-    url(../images/header/slider480.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
+  @media screen and (max-width: $tablet - 1) {
     background-image: linear-gradient(
         $gradient-hero-color,
         $gradient-hero-color
       ),
-      url(../images/header/slider480@2x.jpg);
-  }
-
-  @media screen and (min-device-pixel-ratio: 3),
-    screen and (min-resolution: 288dpi),
-    screen and (min-resolution: 3dppx) {
-    background-image: linear-gradient(
-        $gradient-hero-color,
-        $gradient-hero-color
-      ),
-      url(../images/header/slider480@3x.jpg);
-  }
-
-  //Фон для экранов больше 480
-  @media screen and (min-width: $mobile + 1) {
-    background-image: linear-gradient(
-        $gradient-hero-color,
-        $gradient-hero-color
-      ),
-      url(../images/header/slider768.jpg);
+      url(../images/header/slider480.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -47,7 +24,7 @@
           $gradient-hero-color,
           $gradient-hero-color
         ),
-        url(../images/header/slider768@2x.jpg);
+        url(../images/header/slider480@2x.jpg);
     }
 
     @media screen and (min-device-pixel-ratio: 3),
@@ -57,49 +34,36 @@
           $gradient-hero-color,
           $gradient-hero-color
         ),
-        url(../images/header/slider768@3x.jpg);
+        url(../images/header/slider480@3x.jpg);
     }
   }
 
-  @media screen and (min-width: $tablet + 1) {
-    background-image: linear-gradient(
-        $gradient-hero-color,
-        $gradient-hero-color
-      ),
-      url(../images/header/slider1280.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      background-image: linear-gradient(
-          $gradient-hero-color,
-          $gradient-hero-color
-        ),
-        url(../images/header/slider1280@2x.jpg);
-    }
-
-    @media screen and (min-device-pixel-ratio: 3),
-      screen and (min-resolution: 288dpi),
-      screen and (min-resolution: 3dppx) {
-      background-image: linear-gradient(
-          $gradient-hero-color,
-          $gradient-hero-color
-        ),
-        url(../images/header/slider1280@3x.jpg);
-    }
+  @media screen and (min-width: $tablet) {
+    padding: 32px 0px;
   }
 }
 
+//Стили навигатора
 .nav {
   @include flex(space-between);
-  margin-bottom: 111px;
+  margin-bottom: 112px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 185px;
+  }
 }
 
 .header-logo {
   display: inline-flex;
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    margin-left: 11px;
+    margin-right: 64px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 71px;
+  }
 }
 
 .nav-container {
@@ -129,6 +93,17 @@
   }
   @media screen and (min-width: $tablet) {
     @include flex(space-between);
+    flex-grow: 1;
+  }
+}
+
+.icon-logo {
+  width: 69px;
+  height: 56px;
+
+  fill: $primary-white-color;
+  @media screen and (min-width: $tablet) {
+    fill: $primary-grey-color;
   }
 }
 
@@ -183,23 +158,31 @@
   }
 }
 
-.sections-list,
-.order-list {
-  margin-bottom: 64px;
+.sections-list {
+  @media screen and (max-width: $tablet - 1) {
+    margin-bottom: 64px;
+  }
 
   @media screen and (min-width: $tablet) {
     @include flex(left);
   }
 }
 
-.sections-item:not(:last-child),
-.order-item:not(:last-child),
-.header-social-item:not(:last-child) {
-  margin-bottom: 24px;
+.sections-item:not(:last-child) {
+  @media screen and (max-width: $tablet - 1) {
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-right: 24px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 40px;
+  }
 }
 
-.page-link,
-.order-phone {
+.page-link {
   display: block;
   @include font(600, 18px, 1.39, 0.1em);
 
@@ -209,10 +192,60 @@
   &:focus {
     color: $accent-color;
   }
+
+  @media screen and (min-width: $tablet) {
+    @include font(600, 12px, 1.34, 0.1em);
+
+    color: $primary-white-color;
+  }
+}
+
+.order-list {
+  @media screen and (max-width: $tablet - 1) {
+    margin-bottom: 64px;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    position: relative;
+  }
+
+  @media screen and (min-width: $desktop) {
+    @include flex(left);
+  }
+}
+
+.order-item:not(:last-child) {
+  @media screen and (max-width: $tablet - 1) {
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 40px;
+  }
 }
 
 .order-phone {
+  display: block;
+  @include font(600, 18px, 1.39, 0.1em);
   text-transform: uppercase;
+
+  color: $primary-grey-color;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+
+    @include font(600, 12px, 1.34, 0.1em);
+    color: $primary-white-color;
+  }
 }
 
 .order-link {
@@ -231,22 +264,47 @@
     color: $primary-white-color;
     background-color: $accent-color;
   }
+
+  @media screen and (min-width: $tablet) {
+    padding: 12px 20px;
+
+    color: $primary-white-color;
+  }
 }
 
 .header-social-list {
   position: relative;
   padding-left: 100px;
+
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    bottom: 0;
+    left: 76px;
+    display: flex;
+
+    transform: rotate(-90deg);
+    transform-origin: bottom left;
+  }
 }
 
 .header-social-list::before {
   content: '';
   position: absolute;
   top: 0.5em;
-  left: 0%;
+  left: 0;
   width: 60px;
   height: 1px;
 
   background-color: $primary-grey-color;
+}
+
+.header-social-item:not(:last-child) {
+  margin-bottom: 24px;
+
+  @media screen and (min-width: $tablet) {
+    margin-right: 40px;
+    margin-bottom: 0px;
+  }
 }
 
 .header-social-link {
@@ -261,8 +319,20 @@
   }
 }
 
+//Стили блока h1
 .title-box {
   width: 306px;
+  @media screen and (min-width: $tablet) {
+    margin-left: 240px;
+    margin-bottom: 181px;
+    width: 355px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 200px;
+    margin-bottom: 142px;
+    width: 500px;
+  }
 }
 
 .sub-title {
@@ -289,20 +359,85 @@
 .main-title {
   margin-bottom: 20px;
 
-  @include font(700, 48px, 1.17, 0.05em, Raleway);
+  @include font(700, 48px, 1.17, 0.05em, $heading-font);
 
   color: $primary-white-color;
+
+  @media screen and (min-width: $desktop) {
+    @include font(700, 72px, 1.18, 0.05em, $heading-font);
+  }
 }
 
 .slogan {
   margin-bottom: 143px;
 
+  color: $secondary-grey-color;
+
   @include font($size: 16px, $height: 1.62);
+
+  @media screen and (min-width: $desktop) {
+    @include font($size: 18px, $height: 1.67);
+  }
 }
 
-.icon-logo {
-  width: 69px;
-  height: 56px;
+//Стили слайдера
 
-  fill: $primary-white-color;
+.slider-container {
+  display: none;
+
+  @media screen and (min-width: $tablet) {
+    display: block;
+    position: absolute;
+    top: -40px;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+    width: 100%;
+    padding-left: 160px;
+  }
+}
+
+.slider-track {
+  display: flex;
+  @include transition(transform);
+}
+
+.slider-item {
+  height: 100%;
+}
+
+.slider-buttons-box {
+  display: none;
+
+  @media screen and (min-width: $tablet) {
+    display: block;
+    text-align: right;
+  }
+}
+
+.slider-button {
+  width: 60px;
+  padding: 0;
+  padding-bottom: 8px;
+  @include font(600, 11px, 1.36, 0.1em, $basic-font);
+
+  color: $primary-white-color;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+  cursor: pointer;
+
+  &:disabled {
+    color: $secondary-hero-text-color;
+  }
+
+  &.btn-prev {
+    text-align: left;
+    margin-right: 26px;
+  }
+
+  &.btn-next {
+    text-align: right;
+  }
 }
