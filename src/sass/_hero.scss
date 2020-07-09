@@ -31,8 +31,23 @@
   background-size: cover;
 }
 
+.hero-flexer {
+  @media screen and(min-width:768px) {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and(min-width:1280px) {
+    max-width: 1280px;
+  }
+}
+
 .hero-section {
   position: relative;
+  display: flex;
   height: 580px;
   min-width: 240px;
   max-width: 1125px;
@@ -53,7 +68,7 @@
     max-width: 609px;
     height: 680px;
     padding: 40px;
-    margin-left: 120px;
+    flex-grow: 0.88;
 
     @include bg-img(
       '/images/hero/hero-tablet3.jpg',
@@ -66,7 +81,7 @@
     max-width: 1125px;
     height: 680px;
     padding: 40px 55px 40px 55px;
-    margin-left: 155px;
+    flex-grow: 0.88;
 
     @include bg-img(
       '/images/hero/hero-desctop3.jpg',
@@ -77,8 +92,6 @@
 }
 
 .hero-container {
-  margin-left: 31px;
-  padding-top: 208px;
   font-style: normal;
 
   &__par {
@@ -130,18 +143,20 @@
 
   @media screen and(max-width:767px) {
     max-width: 306px;
+    padding-top: 208px;
+    margin-left: 31px;
   }
 
   @media screen and(min-width:768px) {
     max-width: 355px;
-    margin-left: 80px;
-    padding-top: 227px;
+    padding-left: 80px;
+    padding-top: 232px;
   }
 
   @media screen and(min-width:1280px) {
     max-width: 486px;
-    margin-left: 60px;
-    padding-top: 217px;
+    padding-left: 45px;
+    padding-top: 232px;
   }
 }
 
@@ -184,10 +199,12 @@
     color: rgba(157, 164, 189, 0.6);
     padding-right: 22px;
     margin-right: 26px;
+    transition: color 250ms $main-transition;
   }
 
   &__forward {
     padding-left: 13px;
+    transition: color 250ms $main-transition;
   }
 
   &__back:hover,
@@ -201,14 +218,4 @@
 .hero-section__btn:hover,
 .hero-section__btn:focus {
   cursor: pointer;
-}
-
-// линии-переключатели слайдера справа
-.slider-lines {
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
 }
