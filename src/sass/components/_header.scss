@@ -1,0 +1,73 @@
+header > .container {
+  position: relative;
+}
+
+.header-container {
+  position: absolute;
+  top: 40px;
+  width: 87%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// тимчасове лого, поки нема спрайту
+.logo-icon {
+  border: 1px solid black;
+}
+
+// menu button
+.menu-button {
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+
+  & .icon-close-menu {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.menu-button.is-open {
+  & .icon-close-menu {
+    display: block;
+  }
+
+  & .icon-menu {
+    display: none;
+  }
+}
+
+// menu
+.menu-container {
+  @media screen and (max-width: 767px) {
+    display: none;
+
+    position: absolute;
+    top: -40px;
+    right: -31px;
+    min-width: 80.6%;
+    height: 796px;
+
+    padding-top: 118px;
+    text-align: left;
+
+    background-color: #ffffff;
+    box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.16),
+      -2px 0px 4px rgba(0, 0, 0, 0.08), -4px 0px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  &.is-open {
+    display: block;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+  }
+}
