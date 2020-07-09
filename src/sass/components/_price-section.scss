@@ -10,9 +10,11 @@
     max-width: 768px;
     background-image: url(../images/price-section/bg-price-tablet.png);
   }
-}
 
-.container.price {
+  @media screen and (min-width: $min-desktop) {
+    max-width: 1280px;
+    background-image: url(../images/price-section/bg-price-desktop.png);
+  }
 }
 
 .tagline {
@@ -50,11 +52,27 @@
   color: #ffffff;
 }
 
+.price-conteiner {
+  @media screen and (max-width: $max-tablet) {
+    padding: 30px;
+  }
+
+  margin-bottom: 50px;
+  @media screen and (min-width: $min-desktop) {
+    display: flex;
+  }
+
+  @media screen and (min-width: $min-tablet) and (max-width: $max-desktop) {
+    padding: 30px 40px;
+  }
+
+  @media screen and (max-width: $max-desktop) {
+    background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
+  }
+}
+
 .price-list {
   @extend %list;
-  padding: 30px;
-  margin-bottom: 50px;
-  background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
 
   font-weight: 400;
   font-size: 14px;
@@ -65,11 +83,34 @@
 
   @media screen and (min-width: $min-tablet) {
     font-size: 18px;
-    line-height: 1.1666;
+    line-height: 1.667;
+  }
+
+  @media screen and (max-width: $max-desktop) {
+    &:nth-child(1) {
+      margin-bottom: 20px;
+    }
   }
 
   @media screen and (min-width: $min-desktop) {
-    column-count: 2;
+    padding: 30px 40px;
+    &:nth-child(1) {
+      width: 50%;
+      background: linear-gradient(
+        180deg,
+        #171a24 0%,
+        rgba(23, 26, 36, 0.2) 100%
+      );
+    }
+
+    &:nth-child(2) {
+      width: 50%;
+      background: linear-gradient(
+        180deg,
+        #090b13 0%,
+        rgba(9, 11, 19, 0.2) 100%
+      );
+    }
   }
 }
 
