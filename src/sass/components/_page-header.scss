@@ -3,14 +3,25 @@
   background-color: $bgHeaderColor;  
 }
 
+.header-container {
+  @media screen and (min-width: $tablet) {
+    position: relative;
+  }
+}
+
 // Стили для логотипа
 .logo {
   @extend %link;
+
 }
 
 .icon-logo {
   color: $contrastColor;
   fill: currentColor;
+
+  @media screen and (min-width: $tablet) {
+    color: $ordinaryColor;
+  }
 }
 
 // Стили для навигации
@@ -19,6 +30,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  // flex-wrap: wrap;
 
   padding-top: 40px;
 }
@@ -67,6 +79,12 @@
     overflow-y: scroll;
     
   }
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: center;
+    // flex-wrap: wrap;
+  }
 }
 
 // темный фон бекдропа
@@ -74,29 +92,47 @@
   @media screen and (max-width: $tablet - 1px) {
     display: none;
   }
+
+  @media screen and (min-width: $tablet) {
+    margin-left: auto;
+  }
 }
 
 .backdrop.is-open {
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  z-index: 10;
-
-  background-color: $bgHeaderColor;
-
-  .menu-container {
+  @media screen and (max-width: $tablet - 1px) {
     display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: 10;
+
+    background-color: $bgHeaderColor;
+
+    .menu-container {
+    display: block;
+    }
   }
+  
 }
 
 // стили ссылок в меню
 .site-nav {
   @extend %list;
-  margin-bottom: 64px;
+
+  @media screen and (max-width: $tablet - 1px) {
+    margin-bottom: 64px;
+  }
+  
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: center;
+
+    margin-right: 47px;
+  }
 
   .link {
     @extend %link;
@@ -110,6 +146,12 @@
 
     transition: color $transition;
 
+    @media screen and (min-width: $tablet) {
+      color: $contrastColor;
+      font-size: 12px;
+      line-height: 1.33;
+    }
+
     &:hover,
     &:focus {
       color: $accentColor;
@@ -117,15 +159,36 @@
   }
 
   .item:not(:last-child) {
-    margin-bottom: 24px;
+    @media screen and (max-width: $tablet - 1px) {
+      margin-bottom: 24px;
+    }
+
+    @media screen and (min-width: $tablet) {
+      margin-right: 24px;
+    }
   }
+
+  
+  
 }
 
+.flex-container {
+  @media screen and (min-width: $tablet) 
+  and (max-width: $desktop - 1px) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  
+}
 
 .number-phone {
   @extend %link;
   display: inline-block;
-  margin-bottom: 24px;
+
+  @media screen and (max-width: $tablet - 1px) {
+    margin-bottom: 24px;
+  }
 
   font-weight: 600;
   font-size: 18px;
@@ -135,6 +198,12 @@
   color: $ordinaryColor;
 
   transition: color $transition;
+
+  @media screen and (min-width: $tablet) {
+      color: $contrastColor;
+      font-size: 12px;
+      line-height: 1.33;
+    }
 
   &:hover,
   &:focus {
@@ -162,6 +231,12 @@
 
   transition: color $transition,
     background-color $transition;
+  
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 20px;
+    padding: 12px 20px;
+      color: $contrastColor;
+    }
 
   &:hover,
   &:focus {
@@ -180,6 +255,10 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
   
 
   &::before {
@@ -190,11 +269,15 @@
   height: 1px;
   background-color: $ordinaryColor;
   }
-  .item:last-child {
+
+  @media screen and (max-width: $tablet - 1px) {
+    .item:last-child {
     flex-basis: 100%;
     margin-top: 24px;
     margin-left: 100px;
+    }
   }
+  
 
   .link {
   @extend %link;
@@ -206,6 +289,11 @@
   color: $ordinaryColor;
 
   transition: color $transition;
+
+  @media screen and (min-width: $tablet) {
+      font-size: 11px;
+      line-height: 1.36;
+    }
 
     &:hover,
     &:focus {
