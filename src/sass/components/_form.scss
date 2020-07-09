@@ -1,14 +1,71 @@
+.footer-form {
+  padding-top: 84px;
+  padding-bottom: 84px;
+  background-color: #191c26;
+}
+
+// заголовок формы "онлайн-запись"
+
+.form-caption {
+  margin-bottom: 44px;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 1.16;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: none;
+
+  color: $primary-bg-color;
+}
+
+// секция имя и телефон
+
+.form-section {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-bottom: 44px;
+  }
+}
+
 .form-label {
   display: block;
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(157, 164, 189, 0.4);
   margin-bottom: 44px;
+
+  @media screen and (min-width: $tablet) {
+    min-width: 330px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    min-width: 270px;
+  }
+
+  &:focus-within .form-text {
+    color: #ffffff;
+  }
+
+  &:focus-within {
+    border-bottom: 1px solid $primary-bg-color;
+  }
 }
+@media screen and (min-width: $tablet) {
+  .form-label:first-child {
+    margin-right: 30px;
+  }
+}
+
+// поля для ввода имени и телефона
 
 .form-field {
   border: none;
   background-color: transparent;
-  color: #ffffff;
+  color: $primary-bg-color;
 
   &:hover,
   &:focus {
@@ -16,35 +73,40 @@
   }
 }
 
-.form-section {
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   max-width: 655px;
-  margin-bottom: 44px;
-}
-
-// .form-message {
-//   border-bottom: 1px solid rgba(157, 164, 189, 0.4);
-// }
+//  блок сообщение
 
 .message {
   display: block;
   margin-bottom: 60px;
   border-bottom: 1px solid rgba(157, 164, 189, 0.4);
+  @media screen and (min-width: $tablet) {
+    min-width: 100%;
+  }
+
+  &:focus-within .message-text {
+    color: $primary-bg-color;
+  }
+
+  &:focus-within {
+    border-bottom: 1px solid $primary-bg-color;
+  }
 }
+
+// поле для ввода сообщения
 
 .message-field {
   width: 100%;
   padding-top: 60px;
   border: none;
   background-color: transparent;
-  color: #ffffff;
+  color: $primary-bg-color;
 
   &:hover,
   &:focus {
     outline: none;
   }
 }
+// расположение кнопки "отправить"
 
 // .message-text {
 //   padding-bottom: 60px;
@@ -77,4 +139,9 @@
 
 .message:focus-within .message-text {
   color: #ffffff;
+.button-send {
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
+}
 }
