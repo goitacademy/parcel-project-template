@@ -1,0 +1,131 @@
+.team {
+  padding: $sec-pad-mob 0;
+  background-color: $bg-grey-color;
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    padding: $sec-pad-tab 0;
+
+    & .container {
+      padding: 0 159px;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: $sec-pad-desk 0;
+  }
+}
+
+.team-description {
+  position: relative;
+  margin: 0 0 0 80px;
+  padding-bottom: 20px;
+
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  &:before {
+    position: absolute;
+    left: -80px;
+    top: 0.6em;
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: $primary-grey-color;
+  }
+}
+
+.team-title {
+  margin: 0;
+  padding-bottom: 44px;
+
+  font-family: $heading-font;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.17;
+  letter-spacing: 0.05em;
+}
+
+.people {
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & .item {
+    text-align: center;
+  }
+
+  & .item:not(:last-child) {
+    margin-bottom: 64px;
+
+    @media screen and (min-width: $desktop) {
+      margin-bottom: 0px;
+    }
+  }
+
+  & .thumb {
+    height: 346px;
+    margin-bottom: 30px;
+  }
+
+  & .image {
+    display: block;
+    max-width: 418px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+      max-width: 450px;
+    }
+  }
+
+  & .name {
+    margin: 0 0 8px 0;
+
+    font-size: 18px;
+    line-height: 1.39;
+    letter-spacing: 0.02em;
+  }
+
+  & .profession {
+    margin: 0 0 30px 0;
+
+    font-size: 14px;
+    line-height: 1.36;
+    letter-spacing: 0.02em;
+    color: $accent-color;
+  }
+}
+
+.social-links {
+  @include flex;
+
+  & a {
+    @include flex;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: $bg-white-color;
+  }
+
+  & a:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  & .social-icon {
+    width: 20px;
+    height: 20px;
+    fill: $primary-grey-color;
+    transition: fill 250ms $timing-function;
+  }
+
+  & a:hover .social-icon,
+  & a:focus .social-icon {
+    fill: $accent-color;
+  }
+}
