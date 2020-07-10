@@ -1,29 +1,24 @@
 .page-footer {
-  padding-top: $sec-pad-mob;
-  padding-bottom: $sec-pad-mob;
   background-color: $bg-dark-color;
 
-  //фон для экранов до 480
-  background-image: url(../images/footer/footer-bgi480px.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom;
-
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    background-image: url(../images/footer/footer-bgi480px@2x.png);
-  }
-
-  @media screen and (min-device-pixel-ratio: 3),
-    screen and (min-resolution: 288dpi),
-    screen and (min-resolution: 3dppx) {
-    background-image: url(../images/footer/footer-bgi480px@2x.png);
+  @media screen and (min-width: $desktop) {
+    display: flex;
   }
 }
 
-.form-footer {
-  text-align: center;
+.first-container {
+  padding-top: $sec-pad-mob;
+  padding-bottom: $sec-pad-mob;
+
+  @media screen and (min-width: $tablet) {
+    padding-top: $sec-pad-tab;
+    padding-bottom: $sec-pad-tab;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: $sec-pad-desk;
+    padding-bottom: $sec-pad-desk;
+  }
 }
 
 .form-title {
@@ -31,6 +26,17 @@
   margin-top: 0;
   margin-bottom: 44px;
   color: $primary-white-color;
+
+  @media screen and (min-width: $tablet) {
+    text-align: left;
+  }
+}
+
+.form-flex {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    margin: -15px -15px 44px -15px;
+  }
 }
 
 .form-field {
@@ -40,7 +46,23 @@
   &:hover .form-label,
   &:focus .form-label {
     color: $primary-white-color;
+    cursor: pointer;
   }
+
+  @media screen and (min-width: $tablet) {
+    width: calc((100% - 2 * 30px) / 2);
+    margin: 15px 15px 0px 15px;
+  }
+}
+
+.form-input {
+  @include font(600, 11px, 1.36, 0.1em, $basic-font);
+  color: $primary-white-color;
+  width: 100%;
+  background: transparent;
+
+  border: none;
+  border-bottom: 1px solid $form-text-color;
 
   &:hover,
   &:focus {
@@ -49,12 +71,9 @@
   }
 }
 
-.form-input {
-  width: 100%;
-  background: transparent;
-
-  border: none;
-  border-bottom: 1px solid $form-text-color;
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  opacity: 0;
 }
 
 .form-label {
@@ -64,6 +83,51 @@
 
   @include font(600, 11px, 1.36, 0.1em, $basic-font);
   color: $form-text-color;
+
+  opacity: 1;
+}
+
+.message-field {
+  position: relative;
+  margin-bottom: 44px;
+
+  &:hover .message-label,
+  &:focus .message-label {
+    color: $primary-white-color;
+    cursor: pointer;
+  }
+}
+
+.message-input {
+  @include font(600, 11px, 1.36, 0.1em, $basic-font);
+  color: $primary-white-color;
+  width: 100%;
+  background: transparent;
+
+  border: none;
+  border-bottom: 1px solid $form-text-color;
+
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid $primary-white-color;
+    outline: none;
+  }
+}
+
+.message-input:focus + .message-label,
+.message-input:not(:placeholder-shown) + .message-label {
+  opacity: 0;
+}
+
+.message-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include font(600, 11px, 1.36, 0.1em, $basic-font);
+  color: $form-text-color;
+
+  opacity: 1;
 }
 
 .send {
@@ -71,7 +135,6 @@
   padding: 12px 37px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 168px;
   border: 1px solid $accent-color;
   border-radius: 25px;
 
@@ -84,16 +147,110 @@
   &:focus {
     background-color: $accent-color;
   }
+
+  @media screen and (min-width: $tablet) {
+    margin-left: 0;
+  }
+}
+
+.second-container {
+  padding-top: $sec-pad-mob;
+  padding-bottom: $sec-pad-mob;
+
+  @media screen and (min-width: $tablet) {
+    padding-top: $sec-pad-tab;
+    padding-bottom: $sec-pad-tab;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: $sec-pad-desk;
+    padding-bottom: $sec-pad-desk;
+  }
+
+  //фон для экранов до 480
+  background-image: url(../images/footer/footer-bgi480px.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/footer/footer-bgi480px@2x.png);
+  }
+
+  @media screen and (min-device-pixel-ratio: 3),
+    screen and (min-resolution: 288dpi),
+    screen and (min-resolution: 3dppx) {
+    background-image: url(../images/footer/footer-bgi480px@3x.png);
+  }
+
+  //фон от 768px
+  @media screen and (min-width: $tablet) {
+    background-image: url(../images/footer/footer-bgi768px.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/footer/footer-bgi768px@2x.png);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: url(../images/footer/footer-bgi768px@3x.png);
+    }
+  }
+
+  //фон от 1280px
+  @media screen and (min-width: $desktop) {
+    background-image: url(../images/footer/footer-bgi1280px.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/footer/footer-bgi1280px@2x.png);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: url(../images/footer/footer-bgi1280px@3x.png);
+    }
+  }
+}
+
+.contacts-container {
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    @include flex();
+    margin: -15px;
+  }
+}
+
+.address-container {
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    width: calc((100% - 2 * 30px) / 2);
+    margin: 15px;
+  }
 }
 
 .contacts-title {
   @extend .form-title;
   text-align: center;
+
+  @media screen and (min-width: $tablet) {
+    text-align: left;
+  }
 }
 
 .address-item {
-  display: flex;
-  align-items: center;
+  @include flex(flex-start, center);
 
   &:not(:last-child) {
     margin-bottom: 20px;
@@ -145,15 +302,27 @@
   background-color: $secondary-hero-text-color;
 }
 
-.copyright {
+.copyright-container {
   padding-top: 44px;
   padding-bottom: 44px;
   background-color: $bg-white-color;
+
+  @media screen and (min-width: $tablet) {
+    @include flex(space-between);
+    flex-direction: row-reverse;
+
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
 }
 
 .social-list {
   @include flex(flex-end, center);
   margin-bottom: 20px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 0px;
+  }
 }
 
 .line {
