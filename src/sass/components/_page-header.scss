@@ -1,6 +1,11 @@
+body {
+  overflow-x: hidden;
+}
+
 .page-header {
   // Временный фон, чтобы был виден логотип
   background-color: $bgHeaderColor;  
+  
 }
 
 // Стили для навигации
@@ -58,33 +63,17 @@
   margin-left: auto;
 }
 
-// темный фон бекдропа
-.backdrop {
-  @media screen and (max-width: $tablet - 1px) {
-    display: none;
-  }
-
-  @media screen and (min-width: $tablet) {
-    margin-left: auto;
-  }
-}
-
-.backdrop.is-open {
+// темный фон overlay
+.overlay-menu.is-open {
   @media screen and (max-width: $tablet - 1px) {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
 
-    display: block;
     width: 100%;
     height: 100%;
 
     background-color: $bgHeaderColor;
-
-    .menu-container {
-    display: block;
-    }
   }
 }
 
@@ -94,8 +83,13 @@
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 100;
 
-    display: none;
+    transform: translateX(100%);
+
+    transition: all $transition;
+
+    opacity: 0;
     max-width: 337px;
     height: 100%;
 
@@ -109,6 +103,15 @@
   @media screen and (min-width: $tablet) {
     display: flex;
     align-items: center;
+
+    margin-left: auto;
+  }
+}
+
+.menu-container.is-open {
+  @media screen and (max-width: $tablet - 1px) {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -221,15 +224,12 @@
 
 // стили кнопки Онлайн-записи
 .record {
-  @extend %button;
-  display: block;
+  display: inline-block;
   margin-bottom: 64px;
   padding: 12px 37px;
 
   border: 1px solid $accentColor;
   border-radius: 25px;
-  background-color: transparent;
-  cursor: pointer;
 
   font-weight: 600;
   font-size: 12px;
@@ -239,6 +239,8 @@
 
   transition: color $transition,
   background-color $transition;
+
+  @extend %link;
   
   @media screen and (min-width: $tablet) {
     margin-bottom: 20px;
@@ -254,10 +256,6 @@
   &:focus {
     background-color: $accentColor;
     color: $contrastColor;
-  }
-
-  .link {
-    @extend %link;
   }
 }
 
