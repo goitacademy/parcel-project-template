@@ -277,9 +277,14 @@ img {
 
 @media screen and (max-width: 767px) {
   .container {
-    width: 480px;
     padding-left: 31px;
     padding-right: 31px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .container {
+    width: 480px;
   }
 }
 
@@ -346,25 +351,40 @@ img {
 }
 
 .prices .white-section-title {
-  display: inline-block;
-  margin-top: 0px;
-  margin-bottom: 44px;
-  margin-left: 39px;
   font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 42px;
   line-height: 1.16;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #FFFFFF;
 }
 
 .section {
   font-family: "Open Sans", sans-serif;
 }
 
+.container.about-us {
+  display: block;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
 .section-title-secondary {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.17;
+  letter-spacing: 0.05em;
+  margin: 0px;
+  margin-bottom: 20px;
+  color: #303030;
   font-family: "Raleway", sans-serif;
+}
+
+@media screen and (min-width: 768px) {
+  .section-title-secondary {
+    display: block;
+    width: 330px;
+  }
 }
 
 .about-us-main-text {
@@ -377,7 +397,7 @@ img {
 }
 
 .about-us-explain-text {
-  margin-bottom: 40px;
+  margin-bottom: 34px;
   font-weight: normal;
   font-size: 14px;
   line-height: 1.86;
@@ -416,18 +436,12 @@ img {
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
   }
-  .about-us-media {
-    display: block;
-  }
   .about-us-picture {
     display: block;
     margin-right: 30px;
   }
   .about-us-picture.first {
     margin-bottom: 30px;
-  }
-  .about-us-content {
-    outline: 1px solid black;
   }
   .about-us-main-text,
   .about-us-explain-text {
@@ -437,21 +451,85 @@ img {
 }
 
 .prices {
-  background-color: #111319;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 84px;
   padding-bottom: 84px;
+  background-color: #111319;
   background-image: url(../images/prices-overlay-mob.png);
-  background-size: cover;
+  background-size: 480px 826px;
   background-repeat: no-repeat;
-  width: 100%;
+  max-width: 480px;
+  height: 826px;
 }
 
-.prices .container {
-  width: 100%;
+@media screen and (min-width: 768px) {
+  .prices {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .prices {
+    padding-top: 130px;
+    padding-bottom: 130px;
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2), screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .prices {
+    background-image: url(../images/prices-overlay-mob@2x.png);
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .prices {
+    max-width: 768px;
+    height: 858px;
+    background-image: url(../images/prices-overlay-tab.png);
+    background-size: 768px 858px;
+  }
+}
+
+@media screen and (min-width: 481px) and (min-device-pixel-ratio: 2), screen and (min-width: 481px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 481px) and (min-resolution: 192dpi), screen and (min-width: 481px) and (min-resolution: 2dppx) {
+  .prices {
+    background-image: url(../images/prices-overlay-tab@2x.png);
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .prices {
+    max-width: 1280px;
+    background-image: url(../images/prices-overlay-desk.png);
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 769px) and (min-device-pixel-ratio: 2), screen and (min-width: 769px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 769px) and (min-resolution: 192dpi), screen and (min-width: 769px) and (min-resolution: 2dppx) {
+  .prices {
+    background-image: url(../images/prices-overlay-desk@2x.png);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .prices {
+    width: 100%;
+    height: 718px;
+    background-image: url(../images/prices-overlay-desk.png);
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (min-resolution: 192dpi), screen and (min-width: 1280px) and (min-resolution: 2dppx) {
+  .prices {
+    background-image: url(../images/prices-overlay-desk@2x.png);
+  }
 }
 
 .prices .white-section-title {
-  margin-left: 0;
+  color: #FFFFFF;
+  margin-bottom: 44px;
 }
 
 .prices .section-title {
@@ -472,7 +550,7 @@ img {
 .price-list {
   padding: 30px;
   margin: 0 auto 50px;
-  height: 440px;
+  min-height: 440px;
   background: -webkit-gradient(linear, left top, left bottom, from(#171a24), to(rgba(23, 26, 36, 0.2)));
   background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
 }
@@ -482,9 +560,10 @@ img {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    height: 240px;
+    min-height: 240px;
     background: initial;
     margin: 0;
+    margin-bottom: 50px;
     padding: 0;
   }
 }
@@ -492,8 +571,31 @@ img {
 @media screen and (min-width: 1280px) {
   .list-left-side,
   .list-right-side {
-    max-width: 585px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 40px;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
   }
+}
+
+@media screen and (min-width: 1280px) {
+  .list-left-side {
+    background: -webkit-gradient(linear, left top, left bottom, from(#171a24), to(rgba(23, 26, 36, 0.2)));
+    background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .list-right-side {
+    background: -webkit-gradient(linear, left top, left bottom, from(#090b13), to(rgba(9, 11, 19, 0.2)));
+    background: linear-gradient(180deg, #090b13 0%, rgba(9, 11, 19, 0.2) 100%);
+  }
+}
+
+.list-right-side .price-list-row:last-child {
+  margin-bottom: 0;
 }
 
 .price-list-row {
@@ -510,6 +612,9 @@ img {
 @media screen and (min-width: 1280px) {
   .price-list-row {
     max-width: 585px;
+  }
+  .price-list-row:nth-child(4n) {
+    margin-bottom: 0;
   }
 }
 
