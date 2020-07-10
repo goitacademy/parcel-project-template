@@ -5,6 +5,9 @@
   height: 24px;
   margin-right: 20px;
 }
+.align-center {
+  text-align: center;
+}
 
 .footer-title {
   font-weight: bold;
@@ -18,10 +21,18 @@
 
 .form-container {
   background: $footer-background-color;
+  padding-left: 11px;
+  padding-right: 11px;
 }
 
 .form-label {
   display: block;
+  position: relative;
+  margin-bottom: 40px;
+  &:focus-within > .text-label,
+  &:hover > .text-label {
+    color: #ffffff;
+  }
 }
 
 .form-input {
@@ -36,7 +47,7 @@
   border-right: 1px solid transparent;
   border-bottom: 1px solid rgba(157, 164, 189, 0.4);
   // outline: 1px solid red;
-  margin-bottom: 22px;
+
   color: #ffffff;
 
   &:hover,
@@ -46,6 +57,27 @@
     outline: none;
     border-bottom: 1px solid #ffffff;
   }
+  &:not(:placeholder-shown) + .text-label {
+    transform: translateY(-32px);
+    color: #ffffff;
+  }
+}
+
+.text-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 250ms linear;
+}
+
+textarea + .text-label {
+  top: 17px;
+}
+
+textarea.form-input {
+  margin-bottom: 44px;
+  resize: none;
+  // outline: 1px solid red;
 }
 
 .footer-address {
