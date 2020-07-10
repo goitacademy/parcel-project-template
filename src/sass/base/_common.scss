@@ -8,7 +8,7 @@ body {
   letter-spacing: 0.02em;
 }
 
-main-title {
+.main-title {
   font-family: 'Raleway', sans-serif;
 
   font-weight: 700;
@@ -60,7 +60,7 @@ img {
   }
 
   &-title {
-    font-family: Raleway;
+    font-family: 'Raleway', sans-serif;
 
     font-weight: 700;
     font-size: 42px;
@@ -70,14 +70,14 @@ img {
   }
 }
 
-img {
-  display: block;
-  width: 100%;
-  height: auto;
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.list {
-  list-style: none;
+p {
+  margin: 0;
 }
 
 .button {
@@ -95,6 +95,8 @@ img {
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
+
+  transition: $duration-animation $timing-animation;
 
   color: $inverse-primery-text-color;
   background-color: transparent;
@@ -116,15 +118,42 @@ img {
 }
 
 .slogan {
+  display: flex;
+  align-items: center;
+
   font-weight: 600;
   font-size: 11px;
-  line-height: 1;
+  line-height: 1.36;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-
   color: $title-text-color;
+
+  &::before {
+    content: '';
+    margin-right: 20px;
+    width: 60px;
+    height: 1px;
+
+    background-color: $title-text-color;
+  }
 }
 
 .slogan.inverse {
   color: $inverse-other-text-color;
+
+  &::before {
+    background-color: $inverse-other-text-color;
+  }
+}
+
+/*Налаштування для посилань*/
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color $duration-animation $timing-animation;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
 }
