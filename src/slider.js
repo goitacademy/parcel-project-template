@@ -1,4 +1,5 @@
 let position = 0;
+let currentItem = 1;
 const slidesToShow = 1;
 const slidesToScroll = 1;
 const container = document.querySelector('.slider-container');
@@ -20,15 +21,20 @@ btnNext.addEventListener('click', () => {
 
 	setPosition();
 	checkButtons();
+
+	currentItem = Math.abs(position) / itemWidth + 1;
+	setNavigator(currentItem);
 })
 
 btnPrev.addEventListener('click', () => {
 	const itemsLeft = Math.abs(position) / itemWidth;
-
 	position += itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
 
 	setPosition();
 	checkButtons();
+
+	currentItem = Math.abs(position) / itemWidth + 1;
+	setNavigator(currentItem);
 })
 
 const setPosition = () => {
@@ -41,3 +47,16 @@ const checkButtons = () => {
 }
 
 checkButtons();
+
+setNavigator(currentItem);
+
+function setNavigator(current) {
+	resetNavigator();
+	document.querySelector(`.navigation-item:nth-child(${current})`).classList.add('active-slide');
+}
+
+function resetNavigator() {
+	document
+		.querySelectorAll('.navigation-item.active-slide')
+		.forEach((el) => { el.classList.remove('active-slide') });
+}
