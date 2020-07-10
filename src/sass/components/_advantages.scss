@@ -1,10 +1,15 @@
 .advantages {
-  padding-top: 84px;
-  padding-bottom: 84px;
   font-family: $font-main-text;
 
   &-thumb {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     margin-bottom: 44px;
+
+    @media screen and (min-width: 768px) {
+      width: 500px;
+    }
   }
 
   &-subtitle {
@@ -29,6 +34,13 @@
     letter-spacing: 0.02em;
     color: $color-text-on-pale;
   }
+
+  &-subtext {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.36;
+  }
+
   &-number {
     position: relative;
     padding-bottom: 6px;
@@ -38,24 +50,50 @@
     letter-spacing: 0.05em;
     color: $color-basic;
   }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.advantages-blocks {
+  @media screen and (min-width: 480px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 450px;
+    margin-left: 240px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 370px;
+  }
 }
 
 .block {
   text-align: center;
-  margin-bottom: 30px;
   background-color: $color-fog;
   padding: 20px 0;
-}
-.sup {
-  color: $color-accent;
-  font-size: 16px;
-}
+  &:not(:first-child) {
+    margin-top: 30px;
+  }
 
-// .advantages-number::after {
-//   content: '+';
-//   position: absolute;
-//   top: 0;
-//   width: 13px;
-//   height: 22px;
-//   color: $color-accent;
-// }
+  @media screen and (min-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: calc((100% - 30px) / 2);
+    height: 100%;
+    padding: 20px 36px;
+    &:nth-child(2n) {
+      margin-left: 30px;
+    }
+
+    &:nth-child(3n) {
+      margin: 0;
+    }
+  }
+}
