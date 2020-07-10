@@ -22,6 +22,9 @@
 
   color: $primary-bg-color;
 
+  animation-duration: 750ms;
+  animation-timing-function: ease;
+
   &.transparent {
     color: $primary-text-color;
   }
@@ -29,5 +32,30 @@
   &:focus {
     background: $accent-bg-color;
     color: $primary-bg-color;
+    animation-name: Tada;
+  }
+}
+
+@keyframes Tada {
+  0% {
+    transform: scale(1);
+  }
+  10%,
+  20% {
+    transform: scale(0.9) skew(10deg, -10deg);
+  }
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale(1.1) skew(-10deg, 10deg);
+  }
+  40%,
+  60%,
+  80% {
+    transform: scale(1.1) skew(10deg, -10deg);
+  }
+  100% {
+    transform: scale(1) skew(0);
   }
 }
