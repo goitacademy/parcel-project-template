@@ -1,0 +1,321 @@
+// Cтили контейнера
+.contact-info {
+  //   position: relative;
+  padding-top: 84px;
+  padding-bottom: 84px;
+  background-color: $bgFooterColor;
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    .container {
+      position: relative;
+      display: flex;
+    }
+
+    .contacts {
+      margin-left: 100px;
+    }
+  }
+}
+
+// Для стилизации изображений
+.contact-info {
+  //   position: relative;
+  //   top: 887px;
+  //   max-width: 480px;
+  //   height: 496px;
+  background-image: url(../images/contacts-m.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/contacts-m@2x.png);
+  }
+
+  @media screen and (min-width: 481px) {
+    // max-width: 768px;
+    background-image: url(../images/contacts-t.png);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/contacts-t@2x.png);
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    background-position: right;
+    background-image: url(../images/contacts-d.png);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/contacts-d@2x.png);
+    }
+  }
+}
+
+// Форма онлайн-записи
+.clients-form {
+  margin-bottom: 84px;
+
+  @media screen and (min-width: $desktop) {
+    width: 600px;
+    padding-right: 40px;
+  }
+
+  & > div {
+    margin-bottom: 36px;
+
+    @media screen and (min-width: $desktop) {
+      display: flex;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+  }
+
+  .clients-button {
+    display: flex;
+    margin-top: 44px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px 38px;
+
+    border: 1px solid $accentColor;
+    border-radius: 25px;
+    background-color: $bgFooterColor;
+    color: $contrastColor;
+
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.33;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+
+    transition: background-color $transition;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: $accentColor;
+    }
+  }
+
+  textarea {
+    resize: none;
+    height: 75px;
+    width: 100%;
+    background: border-box;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: rgba(157, 164, 189, 0.4);
+  }
+}
+
+.clients-form > h2,
+.contacts > h2 {
+  margin-bottom: 40px;
+  //   font-family: Raleway;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.17;
+  letter-spacing: 0.05em;
+  color: $contrastColor;
+
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
+}
+
+.form-field-item,
+.form-field-textarea {
+  position: relative;
+
+  &:hover .form-label,
+  &:focus .form-label,
+  &:hover .form-label-message,
+  &:focus .form-label-message {
+    color: $contrastColor;
+    cursor: pointer;
+  }
+
+  &:hover .form-input,
+  &:focus .form-input {
+    border-bottom-color: $contrastColor;
+  }
+
+  @media screen and (max-width: 1279px) {
+    display: flex;
+
+    &:not(:last-of-type) {
+      margin-bottom: 36px;
+    }
+  }
+
+  .form-input,
+  textarea {
+    padding: 8px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: rgba(157, 164, 189, 0.4);
+    border-width: 1px;
+
+    background-color: $bgFooterColor;
+    transition: border-bottom-color $transition;
+  }
+
+  &:not(:last-of-type) .form-input {
+    width: 100%;
+  }
+
+  &:last-of-type .form-input {
+    width: 100%;
+  }
+
+  .form-label,
+  .form-label-message {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.36;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: rgba(157, 164, 189, 0.4);
+    transform: translateY(-50%);
+    transition: color $transition;
+  }
+}
+
+.form-label-message {
+  top: 0;
+  transform: translateY(0);
+}
+
+.form-field-item {
+  @media screen and (min-width: $desktop) {
+    width: calc((100% / 2) - 30px);
+  }
+}
+
+.form-field-textarea {
+  display: flex;
+}
+
+@media screen and (min-width: $tablet) and (max-width: 1279px) {
+  .contacts-block {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+// Контакты
+// Адрес
+.contacts {
+  ul {
+    @extend %list;
+    margin-bottom: 44px;
+
+    @media screen and (min-width: $desktop) {
+      margin-bottom: 70px;
+    }
+  }
+
+  li:hover > a,
+  li:focus > a {
+    color: $contrastColor;
+  }
+
+  li:hover > svg,
+  li:focus > svg {
+    fill: $contrastColor;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 20px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+  }
+
+  li,
+  a {
+    font-family: Open Sans;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1.7;
+
+    letter-spacing: 0.02em;
+
+    color: $secondaryTextColor;
+    transition: color $transition;
+  }
+
+  svg {
+    margin-right: 16px;
+    // fill: $secondaryTextColor;
+    // transition: fill $transition;
+  }
+}
+
+// Часы работы
+.working-hours {
+  &-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .strip {
+      width: 60px;
+      height: 1px;
+      margin-right: 20px;
+      background-color: $textTrColor;
+    }
+  }
+
+  h3 {
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 15px;
+
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $contrastColor;
+  }
+
+  p {
+    font-family: Open Sans;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 0.02em;
+
+    color: $secondaryTextColor;
+  }
+}
