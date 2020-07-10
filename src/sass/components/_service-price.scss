@@ -1,115 +1,94 @@
-// .container {
-//   margin-left: auto;
-//   margin-right: auto;
-//   // width: 1200px;
-//   padding-left: 15px;
-//   padding-right: 15px;
-
-//   @media screen and (min-width: 480px) {
-//     width: 480px;
-//   }
-
-//   @media screen and (min-width: 768px) {
-//     width: 768px;
-//   }
-
-//   @media screen and (min-width: 1280px) {
-//     width: 1280px;
-//   }
-// }
-// ul {
-//   list-style: none;
-//   margin: 0px;
-//   padding: 0px;
-// }
-li {
-  list-style: none;
-}
 .motivation {
   margin: 0px;
-  // margin-top: 84px;
+
   font-weight: 600;
   font-size: 11px;
-  line-height: 15px;
-  /* identical to box height */
+  line-height: 1.36;
 
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
   color: rgba(157, 164, 189, 0.6);
-}
-.motivation::before {
-  content: '';
-  display: inline-block;
-  height: 1px;
-  width: 60px;
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 1px;
+    width: 59px;
 
-  background-color: rgba(157, 164, 189, 0.6);
+    background-color: rgba(157, 164, 189, 0.6);
 
-  vertical-align: 25%;
-  margin-right: 20px;
+    vertical-align: 25%;
+    margin-right: 20px;
+  }
 }
+
 .price-title {
   font-family: $heading-font;
   margin: 0px;
   margin-top: 20px;
   font-weight: bold;
   font-size: 42px;
-  line-height: 49px;
+  line-height: 1.16;
   letter-spacing: 0.05em;
 
-  color: #ffffff;
+  color: $primary-white-color;
 }
-// .service-box {
-//   width: 480px;
-//   padding-left: 15px;
-//   padding-right: 15px;
-//   padding-top: 84px;
-//   padding-bottom: 84px;
-// }
+
 .price-list {
   @extend %list;
   display: block;
   padding: 30px;
   margin-top: 44px;
   background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     padding-left: 40px;
     padding-right: 40px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: $desktop) {
     display: flex;
     padding: 0px;
     background: none;
+    // &:nth-child(4) {
+    //   margin-bottom: 0px;
+    // }
   }
 }
 .column-left {
-  @media screen and (min-width: 1280px) {
-    padding-right: 40px;
-    padding-left: 40px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+  & .price-item {
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: $tablet) {
+    & .price-item {
+      margin-bottom: 20px;
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 30px 40px;
     width: 585px;
     background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
+    & .price-item:last-child {
+      margin-bottom: 0px;
+    }
   }
 }
 
-.column-left .price-item {
-  margin-bottom: 20px;
-}
-.column-right .price-item:not(:last-child) {
-  margin-bottom: 20px;
-}
+// .column-left .price-item:not(:last-child) {
+//   margin-bottom: 20px;
+// }
+// .column-right .price-item:not(:last-child) {
+//   margin-bottom: 20px;
+// }
 .column-right {
-  &:last-child {
-    margin-bottom: 0px;
+  & .price-item:not(:last-child) {
+    margin-bottom: 20px;
   }
-  @media screen and (min-width: 1280px) {
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    // padding-right: 30px;
+  @media screen and (min-width: $desktop) {
+    // padding-left: 40px;
+    // padding-right: 40px;
+    // padding-top: 30px;
+    // padding-bottom: 30px;
+    padding: 30px 40px;
+
     width: 585px;
     background: linear-gradient(180deg, #090b13 0%, rgba(9, 11, 19, 0.2) 100%);
   }
@@ -124,7 +103,7 @@ li {
   padding-top: 12px;
   padding-bottom: 12px;
   border: none;
-  border: 1px solid #ff6c00;
+  border: 1px solid $accent-color;
   box-sizing: border-box;
   border-radius: 25px;
   background-color: transparent;
@@ -133,7 +112,7 @@ li {
   letter-spacing: 0.09em;
   text-transform: uppercase;
 
-  color: #ffffff;
+  color: $primary-white-color;
   cursor: pointer;
 }
 .price-item {
@@ -145,29 +124,21 @@ li {
   white-space: nowrap;
   font-size: 14px;
   line-height: 2.14;
-  /* identical to box height, or 214% */
 
-  letter-spacing: 0.02em;
-
-  color: #9da4bd;
-  // margin-bottom: 20px;
+  color: $secondary-text-color;
 }
-// .price-item:last-child {
-//   margin-bottom: 0px;
-// }
-// .price-item:nth-child(4){
-//   margin-bottom: 20px;
-// }
 
 .service {
+  font-size: 14px;
   margin-right: 6px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     font-size: 18px;
   }
 }
 .price {
+  font-size: 14px;
   margin-left: 6px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     font-size: 18px;
   }
 }
@@ -177,10 +148,6 @@ li {
   display: inline-block;
   width: 100%;
   height: auto;
-
-  //   vertical-align: middle;
-  //   background-color: red;
-  //   border-bottom: 4px green;
 }
 .between::after {
   content: '';
@@ -192,13 +159,9 @@ li {
 }
 .service-box {
   height: 826px;
-  padding-top: 84px;
-  // padding-bottom: 174px;
-  padding-left: 31px;
-  padding-right: 31px;
 
-  //   margin-left: auto;
-  //   margin-right: auto;
+  padding: 84px 31px 0px 31px;
+
   outline: 1px solid black;
   background-image: url(/images/pricemob.png), url(/images/bgpricemob.jpg);
 
@@ -210,13 +173,11 @@ li {
     screen and (min-resolution: 2dppx) {
     background-image: url(/images/pricemob.png), url(/images/bgpricemob@2x.jpg);
   }
-  @media screen and (min-width: 768px) {
-    width: 768px;
+  @media screen and (min-width: $tablet) {
+    width: $tablet;
     height: 858px;
-    padding-top: 100px;
-    // padding-bottom: 190px;
-    padding-left: 39px;
-    padding-right: 39px;
+
+    padding: 100px 39px 0px 39px;
     background-image: url(/images/pricetab.png), url(/images/bgpricetab.jpg);
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
@@ -225,13 +186,11 @@ li {
         url(/images/bgpricetab@2x.jpg);
     }
   }
-  @media screen and (min-width: 1280px) {
-    width: 1280px;
+  @media screen and (min-width: $desktop) {
+    width: $desktop;
     height: 718px;
-    padding: 0px;
-    padding-top: 130px;
-    padding-right: 55px;
-    padding-left: 55px;
+
+    padding: 130px 55px 0px 55px;
     background-image: url(/images/pricedesctop.png),
       url(/images/bgpricedesctop.jpg);
     @media screen and (min-device-pixel-ratio: 2),
