@@ -1,6 +1,13 @@
-.form{
-    padding-left: 31px;
-    padding-right: 31px;
+.form {
+  padding-left: 31px;
+  padding-right: 31px;
+}
+
+.form__box {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    margin-bottom: 44px;
+  }
 }
 
 .form__title {
@@ -9,15 +16,28 @@
   font-weight: 700;
   font-size: 42px;
   line-height: 1.17;
-  text-align: center;
   letter-spacing: 0.05em;
   color: $primary-white-color;
+
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
 }
 
 .form__field {
   position: relative;
   display: block;
-  margin-bottom: 44px;
+  width: 100%;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 44px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
 
   &-inpute {
     width: 100%;
@@ -90,5 +110,13 @@
         color: $primary-white-color;
       }
     }
+  }
+}
+
+.form__button {
+  @media screen and (max-width: 767px) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

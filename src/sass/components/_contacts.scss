@@ -1,10 +1,41 @@
 .contacts {
   padding-left: 31px;
   padding-right: 31px;
+  max-width: $mobile;
   background-image: url('../../src/images/contacts-bg-img-480.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url('../../src/images/contacts-bg-img-960.png');
+  }
+
+  @media screen and (min-width: $tablet) {
+    max-width: $tablet;
+    background-image: url('../../src/images/contacts-bg-img-768.png');
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../../src/images/contacts-bg-img-1536.png');
+    }
+  }
+}
+
+.contacts__main-box {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+.contacts__box {
+  @media screen and (min-width: $tablet) {
+    width: calc(50% - 15px);
+  }
 }
 
 .contacts__title {
@@ -13,17 +44,25 @@
   font-weight: 700;
   font-size: 42px;
   line-height: 1.17;
-  text-align: center;
   letter-spacing: 0.05em;
   color: $primary-white-color;
+
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
 }
 
 .contacts__direction {
   display: block;
+  margin-bottom: 20px;
   font-size: 18px;
   line-height: 1.67;
   letter-spacing: 0.02em;
   color: $secondary-text-color;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 200px;
+  }
 }
 
 .contacts__tel {
@@ -33,23 +72,38 @@
 .contacts__tel,
 .contacts__mail {
   display: block;
+  margin-bottom: 20px;
   font-size: 18px;
   line-height: 1.67;
   letter-spacing: 0.02em;
   color: $secondary-text-color;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
 }
 
 .schedule {
+  @media screen and (min-width: $tablet) {
+    width: calc(50% - 15px);
+    margin-left: auto;
+  }
+
   &__title {
     display: block;
+    margin-top: 0;
     margin-bottom: 20px;
-    margin-top: 44px;
     font-weight: 600;
     font-size: 11px;
     line-height: 1.36;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: $primary-white-color;
+
+    @media screen and (max-width: 767px) {
+      margin-top: 44px;
+    }
   }
 
   &__work-time {
