@@ -1,20 +1,8 @@
 .header {
-
-	
-	background-image: linear-gradient(rgba(9, 11, 19, 0.4), rgba(9, 11, 19, 0.4));
-	background-repeat: no-repeat;
-	
-
-	// @media screen and (min-width: 768px) {
-		
-	// 	background-position: right;
-	// 	background-size: 50%;
-	// }
-
-
-
+	background-color: #303030;
 	.container {
 		padding-top: 40px;
+		height: 580px;
 
 		background-image: linear-gradient($background-hero, $background-hero), url(../images/slider/slider-mob.jpg);
 		background-repeat: no-repeat;
@@ -32,9 +20,11 @@
 			padding-right: 31px;
 		}
 		@media screen and (min-width: 768px) {
+			height: 680px;
+			padding-top: 32px;
 			position: relative;
 			background-image: linear-gradient($background-hero, $background-hero), url(../images/slider-tab.jpg);
-			background-position: (159px 0), (159px 0);
+			background-position: (159px 0);
 
 		// 	@media screen and (min-device-pixel-ratio: 2),
 		// screen and (-webkit-min-device-pixel-ratio: 2),
@@ -57,7 +47,11 @@
 		}
 	}
 
-	.media-wrapper {
+	&-top {
+		display: flex;
+	}
+
+	.aside {
 		@media screen and (max-width: 767px) {
 			display: none;
 		}
@@ -65,38 +59,35 @@
 
 }
 
-
-
 .logo {
 	
 	fill: $primary-title-color-lt;
 
 	@media screen and (min-width: 768px) {
-		fill: $primary-title-color-dk;
+		margin-left: 11px;
 
+		fill: $primary-title-color-dk;
 		z-index: 1;
+	}
+	@media screen and (min-width: 1200px) {
+		margin-left: 35px;
 	}
 }
 
 .hero {
 	padding-top: 120px;
-	padding-bottom: 183px;
 
 	@media screen and (min-width: 768px) {
 		margin-left: 120px;
 		padding-left: 120px;
 		padding-top: 156px;
-		padding-bottom: 245px;
+
 	}
 
 	@media screen and (min-width: 1200px) {
 		padding-top: 184px;
-		padding-bottom: 206px;
+
 	}
-
-
-
-
 
 	.subtitle {
 		margin-bottom: 20px;
@@ -118,9 +109,9 @@
 		@media screen and (min-width: 768px) {
 			max-width: 355px;
 		}
-	}
-	.slider {
-		display: none;
+		@media screen and (min-width: 1200px) {
+			max-width: 500px;
+		}
 	}
 }
 
@@ -129,6 +120,10 @@
 	font-size: 48px;
 	line-height: 1.167;
 	letter-spacing: 0.05em;
+	@media screen and (min-width: 1200px) {
+		font-size: 72px;
+		line-height: 1.18;
+	}
 }
 
 .desc--middle {
@@ -137,6 +132,28 @@
 	line-height: 1.62;
 	letter-spacing: 0.02em;
 	color: $primary-text-color-lt;
+
+	@media screen and (min-width: 1200px) {
+		font-size: 18px;
+		line-height: 1.67;
+	}
 }
 
 
+.aside {
+	@media screen and (min-width: 768px) {
+		display: flex;
+		align-items: flex-end;
+		width: 144px;
+		height: 680px;
+		top: 0;
+		left: 15px;
+		position: absolute;
+		color: $primary-title-color-dk;
+		background-color: $background-color-lt;
+	}
+
+	.media {
+		transform:  rotate(-90deg) translate(calc(50% + 40px), -68px);
+	}
+}
