@@ -1,31 +1,31 @@
-.about-us .container {
+.about-us > .container {
   @media screen and (min-width: $tablet) {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
   }
 }
 
-.about-us-images-list {
-  @media screen and (max-width: 767px) {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
+.about-us .images-list {
+  display: none;
+  margin-right: 30px;
+
   @media screen and (min-width: $tablet) {
     display: flex;
     flex-direction: column;
-    margin-right: 30px;
-    @media screen and (max-width: 1169px) {
-      &-item:not(:last-child) {
-        margin-bottom: 30px;
-      }
+  }
+  @media screen and (max-width: 1169px) {
+    &-item {
+      flex-basis: calc((100% - 2 * 15px) / 2);
+    }
+    &-item:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+  @media screen and (min-width: 1170px) {
+    flex-direction: row;
+    &-item {
+      flex-basis: calc((100% - 2 * 15px) / 2);
+    }
+    &-item:not(:last-child) {
+      margin-right: 30px;
     }
   }
 }
@@ -33,30 +33,48 @@
   width: 100%;
 }
 
-.about-us-content .title {
-  margin-left: 80px;
+.about-us-title {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: start;
   margin-bottom: 20px;
+  color: $primary-text-color;
+  text-align: center;
+
   &::before {
-    position: absolute;
     content: '';
-    border: 1px solid $primary-text-color;
+    display: inline-block;
     height: 1px;
     width: 60px;
+    margin-right: 20px;
 
     background: $primary-text-color;
-
-    display: block;
-    top: 50%;
-    left: -20%;
   }
-  & + h3 {
-    margin-bottom: 20px;
+}
+.about-us-description {
+  margin-bottom: 20px;
+  font-size: 28px;
+  line-height: 1.18;
+  margin-bottom: 20px;
+  @media screen and (min-width: 1170px) {
+    font-size: 42px;
+    line-height: 1.17;
+  }
+}
+.about-us-text {
+  color: $secondary-text-color;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 1170px) {
+    font-size: 18px;
+    line-height: 1.67;
   }
 }
 
 .about-us-details {
   font-size: 14px;
   line-height: 1.86;
-  margin-top: 20px;
   margin-bottom: 40px;
+  color: $secondary-text-color;
 }
