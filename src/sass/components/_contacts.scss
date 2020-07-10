@@ -150,6 +150,7 @@
   &:focus .form-label,
   &:hover .form-label-message,
   &:focus .form-label-message {
+    transform: translateY(-30px);
     color: $contrastColor;
     cursor: pointer;
   }
@@ -178,6 +179,12 @@
 
     background-color: $bgFooterColor;
     transition: border-bottom-color $transition;
+
+    &:not(:placeholder-shown) + .form-label,
+    &:not(:placeholder-shown) + .form-label-message {
+      transform: translateY(-30px);
+      color: $contrastColor;
+    }
   }
 
   &:not(:last-of-type) .form-input {
@@ -203,13 +210,13 @@
 
     color: rgba(157, 164, 189, 0.4);
     transform: translateY(-50%);
-    transition: color $transition;
+    transition: color $transition, transform $transition;
   }
-}
 
-.form-label-message {
-  top: 0;
-  transform: translateY(0);
+  .form-label-message {
+    top: 0;
+    transform: translateY(0);
+  }
 }
 
 .form-field-item {
