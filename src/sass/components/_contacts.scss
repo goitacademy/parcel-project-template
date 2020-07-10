@@ -49,7 +49,7 @@
   @media screen and (min-width: $desktop) {
     background-position: right;
     background-image: url(../images/contacts-d.png);
-    background-size: calc(50% + 30px);
+    background-size: calc(50% - 30px);
     // max-width: $desktop;
     // margin-right: auto;
     // margin-left: auto;
@@ -69,6 +69,21 @@
 
     .contacts {
       margin-left: 100px;
+    }
+  }
+
+  .container {
+    padding-right: 30px;
+    padding-left: 30px;
+
+    @media screen and (min-width: $tablet) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      padding-left: 55px;
+      padding-right: 55px;
     }
   }
 }
@@ -157,13 +172,21 @@
 .form-field-textarea {
   position: relative;
 
-  &:hover .form-label,
-  &:focus .form-label,
-  &:hover .form-label-message,
-  &:focus .form-label-message {
-    transform: translateY(-30px);
+  &:hover > .form-label,
+  &:focus > .form-label,
+  &:hover > .form-label-message,
+  &:focus > .form-label-message {
     color: $contrastColor;
-    cursor: pointer;
+  }
+
+  &:hover > .form-label,
+  &:focus > .form-label {
+    transform: translateY(-40px);
+  }
+
+  &:hover > .form-label-message,
+  &:focus > .form-label-message {
+    transform: translateY(-23px);
   }
 
   &:hover .form-input,
@@ -181,20 +204,35 @@
 
   .form-input,
   textarea {
-    padding: 8px;
+    padding: 8px 0;
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom-color: rgba(157, 164, 189, 0.4);
     border-width: 1px;
 
+    color: rgba(157, 164, 189, 0.4);
+    font-family: Open Sans;
+    font-weight: 600;
+    letter-spacing: 0.07em;
     background-color: $bgFooterColor;
     transition: border-bottom-color $transition;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
 
     &:not(:placeholder-shown) + .form-label,
     &:not(:placeholder-shown) + .form-label-message {
-      transform: translateY(-30px);
       color: $contrastColor;
+    }
+    &:not(:placeholder-shown) + .form-label {
+      transform: translateY(-40px);
+    }
+
+    &:not(:placeholder-shown) + .form-label-message {
+      transform: translateY(-23px);
     }
   }
 
