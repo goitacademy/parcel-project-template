@@ -1,11 +1,3 @@
-body {
-  background-color: turquoise;
-}
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
 .hero {
   position: relative;
 
@@ -20,7 +12,12 @@ img {
     max-width: 1280px;
   }
 }
-.hero-img-container img {
+.hero-img-list,
+.hero-radio-list,
+.hero-button-list {
+  @extend %list;
+}
+.hero-img-list img {
   margin: 0px auto;
 
   @media screen and (min-width: 768px) {
@@ -33,20 +30,24 @@ img {
 }
 .hero-content-container {
   position: absolute;
-  top: 208px;
-  right: 143px;
+  top: 43.3vw;
+  left: 31px;
 
   max-width: 306px;
 
+  @media screen and (min-width: 480px) {
+    top: 208px;
+  }
+
   @media screen and (min-width: 768px) {
     top: 272px;
-    right: 134px;
+    left: 279px;
 
     max-width: 355px;
   }
 
   @media screen and (min-width: 1280px) {
-    right: 575px;
+    left: 255px;
 
     max-width: 450px;
   }
@@ -55,34 +56,33 @@ img {
   margin: 0px 0px 20px;
   padding: 0px;
 
-  font-family: 'Open Sans', sans-serif;
   font-weight: 600;
-  font-size: 11px;
+  font-size: 2.3vw;
   line-height: 1.36;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(157, 164, 189, 0.6);
-}
-.hero-description::before {
-  content: '';
 
-  display: inline-block;
-  width: 60px;
-  height: 1px;
-  margin: 0px 20px 4px 0px;
+  @media screen and (min-width: 480px) {
+    font-size: 11px;
+  }
 
-  background-color: rgba(157, 164, 189, 0.6);
+  &::before {
+    @include decor-line(rgba(157, 164, 189, 0.6));
+
+    margin: 0px 20px 4px 0px;
+  }
 }
 .hero-title {
   margin: 0px 0px 20px;
   padding: 0px;
 
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 1.17;
-  letter-spacing: 0.05em;
-  color: #ffffff;
+  font-size: 10vw;
+  color: $primary-white-color;
+
+  @media screen and (min-width: 480px) {
+    font-size: 48px;
+  }
 
   @media screen and (min-width: 1280px) {
     font-size: 72px;
@@ -93,20 +93,25 @@ img {
   margin: 0px;
   padding: 0px;
 
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
+  font-size: 3.33vw;
   line-height: 1.63;
-  letter-spacing: 0.02em;
-  color: #9da4bd;
+  color: $secondary-text-color;
+
+  @media screen and (min-width: 480px) {
+    font-size: 16px;
+  }
 
   @media screen and (min-width: 1280px) {
     font-size: 18px;
     line-height: 1.67;
   }
 }
-.hero-radio-container {
+.hero-radio-list {
   display: none;
+
+  & > li:not(:last-child) {
+    margin-bottom: 12px;
+  }
 
   @media screen and (min-width: 768px) {
     position: absolute;
@@ -120,27 +125,28 @@ img {
     }
   }
 }
-.hero-radio-container input {
+.hero-radio-list input {
   display: none;
 }
-.hero-radio-container label::before {
+.hero-radio-list label {
+  display: flex;
+  justify-content: flex-end;
+}
+.hero-radio-list label::before {
   content: '';
   display: block;
   width: 15px;
   height: 3px;
 
-  background-color: #9da4bd;
+  background-color: $secondary-text-color;
   cursor: pointer;
 }
-.hero-radio-container label:not(:last-child)::before {
-  margin-bottom: 12px;
-}
-.hero-radio-container input:checked + label::before {
+.hero-radio-list input:checked + label::before {
   width: 30px;
 
-  background-color: #fff;
+  background-color: $primary-white-color;
 }
-.hero-button-container {
+.hero-button-list {
   display: none;
 
   @media screen and (min-width: 768px) {
@@ -148,7 +154,12 @@ img {
     top: 616px;
     right: 39px;
 
-    display: block;
+    display: flex;
+    flex-direction: row;
+
+    & > li:not(:last-child) {
+      margin-right: 26px;
+    }
   }
 
   @media screen and (min-width: 1280px) {
@@ -156,8 +167,11 @@ img {
   }
 }
 .hero-button {
-  padding-bottom: 8px;
-  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+
+  padding: 1px 0px 0px;
+
   font-weight: 600;
   font-size: 11px;
   line-height: 1.36;
@@ -166,20 +180,23 @@ img {
   border: none;
   cursor: pointer;
 }
-.hero-button:not(:last-child) {
-  margin-right: 26px;
-}
 .hero-button.back {
-  padding-top: 0px;
-  padding-right: 22px;
-  padding-left: 0px;
   color: rgba(157, 164, 189, 0.6);
-  border-bottom: 1px solid rgba(157, 164, 189, 0.6);
+
+  &::after {
+    margin-top: 8px;
+
+    @include decor-line(rgba(157, 164, 189, 0.6));
+  }
 }
 .hero-button.forward {
-  padding-top: 0px;
-  padding-right: 0px;
-  padding-left: 13px;
-  color: #fff;
-  border-bottom: 1px solid #fff;
+  align-items: flex-end;
+
+  color: $primary-white-color;
+
+  &::after {
+    margin-top: 8px;
+
+    @include decor-line($primary-white-color);
+  }
 }
