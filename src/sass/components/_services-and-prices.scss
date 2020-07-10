@@ -1,36 +1,83 @@
 .prices {
-  background-color: #111319;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 84px;
   padding-bottom: 84px;
+  background-color: #111319;
   background-image: url(../images/prices-overlay-mob.png);
-  background-size: cover;
+  background-size: 480px 826px;
   background-repeat: no-repeat;
-  width: 100%;
-  // background-position: center center;
-  // position: relative;
+  max-width: 480px;
   // width: 100%;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
+  height: 826px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 130px;
+    padding-bottom: 130px;
+  }
 }
-// .prices::before {
-//   content: '';
-//   background-image: url('../images/prices-overlay-mob.webp');
-//   background-size: cover;
-//   position: absolute;
-//   top: 0px;
-//   right: 0px;
-//   bottom: 0px;
-//   left: 0px;
-//   opacity: 0.2;
-// }
-.prices .container {
-  // position: relative;
-  width: 100%;
+@media screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  .prices {
+    background-image: url(../images/prices-overlay-mob@2x.png);
+  }
+}
+@media screen and (min-width: 481px) {
+  .prices {
+    max-width: 768px;
+    height: 858px;
+    background-image: url(../images/prices-overlay-tab.png);
+    background-size: 768px 858px;
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .prices {
+      background-image: url(../images/prices-overlay-tab@2x.png);
+    }
+  }
+}
+@media screen and (min-width: 769px) {
+  .prices {
+    max-width: 1280px;
+    // height: 718px;
+    background-image: url(../images/prices-overlay-desk.png);
+    background-size: cover;
+  }
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .prices {
+      background-image: url(../images/prices-overlay-desk@2x.png);
+    }
+  }
+}
+@media screen and (min-width: 1280px) {
+  .prices {
+    width: 100%;
+    height: 718px;
+    background-image: url(../images/prices-overlay-desk.png);
+    background-size: cover;
+  }
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .prices {
+      background-image: url(../images/prices-overlay-desk@2x.png);
+    }
+  }
 }
 .prices .white-section-title {
-  @extend %white-section-titles;
-  margin-left: 0;
+  @extend %second-section-titles;
+  color: $color-pale;
+
+  margin-bottom: 44px;
 }
 .prices .section-title {
   @extend %section-title;
@@ -47,39 +94,56 @@
     border-radius: 4px;
   }
 }
-
 .price-list {
   padding: 30px;
   margin: 0 auto 50px;
-  height: 440px;
-
+  min-height: 440px;
   background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
+
   @media screen and (min-width: 1280px) {
     display: flex;
-    height: 240px;
+    min-height: 240px;
     background: initial;
     margin: 0;
+    margin-bottom: 50px;
     padding: 0;
   }
 }
 .list-left-side,
 .list-right-side {
   @media screen and (min-width: 1280px) {
-    max-width: 585px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 40px;
+    flex-grow: 1;
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .list-left-side {
+    background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .list-right-side {
+    background: linear-gradient(180deg, #090b13 0%, rgba(9, 11, 19, 0.2) 100%);
+  }
+}
+.list-right-side .price-list-row:last-child {
+  margin-bottom: 0;
+}
 .price-list-row {
   max-width: 418px;
   margin: 0 auto 20px;
-  // &:last-child {
-  //   margin-bottom: 0;
-  // }
+
   @media screen and (min-width: 481px) {
     max-width: 690px;
   }
   @media screen and (min-width: 1280px) {
     max-width: 585px;
+    &:nth-child(4n) {
+      margin-bottom: 0;
+    }
   }
 }
 
