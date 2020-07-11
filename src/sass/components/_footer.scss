@@ -1,13 +1,13 @@
-// .footer{
-//     padding-top: 0px;
-//     padding-bottom: 0px;
-// }
-
 // собираю футер
+
+//Собрал футер в секцию, переопределение
+.footer{
+    padding: 0px;
+}
 
 .page-footer {
   background-color: #191c26;
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: $desktop) {
     display: flex;
   }
 }
@@ -22,6 +22,8 @@
   background-size: cover;
 
   @media screen and (min-width: $tablet) {
+    // padding-top: 100px;
+    // padding-bottom: 100px;
     max-width: 768px;
     background-image: url(../images/footer/footer-tab-x1.png);
 
@@ -32,16 +34,19 @@
 
   @media screen and (min-width: $desktop) {
     max-width: 1200px;
+    padding: 130px 105px 130px 100px;
+    // padding-left: 100px;
+    // padding-right: 105px;
     background-image: url(../images/footer/footer-desk-x1.png);
-
-    background-size: cover;
-  }
-
-  @media screen and (min-width: $desktop) {
     display: flex;
     flex-direction: column;
     width: 625px;
+
+    background-size: cover;
+    width: 48%;
+    
   }
+
 }
 
 @media screen and (min-device-pixel-ratio: 2),
@@ -105,51 +110,52 @@
 
   text-transform: capitalize;
   text-align: center;
-
-  font-family: Raleway;
+  font-weight: bold;
 
   font-size: 42px;
   line-height: 1.16;
-
   letter-spacing: 0.05em;
 
-  color: #ffffff;
+  color: $primary-bg-color;
 }
 
 .address-info {
-  margin-bottom: 44px;
-
   display: flex;
   flex-direction: column;
-  // font-family: Open Sans;
+ 
   font-style: normal;
-  // font-weight: normal;
   font-size: 18px;
   line-height: 1.67;
   letter-spacing: 0.02em;
 
-  color: #9da4bd;
+  color: $price-text-color;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 44px;
+  }
 }
 
 .footer-svg {
   display: block;
+  align-self: end;
+  margin-top: 5px;
   margin-right: 16px;
 
   fill: currentColor;
-  width: 24px;
+  min-width: 24px;
   height: 24px;
+  
 }
 
-// .map-pin{
-//     display: block;
-//     width: 24px;
-//     height: 24px;
-// }
+.footer-address,
+.footer-tel,
+.footer-mail{
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}
 
 .footer-address {
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
   margin-bottom: 20px;
 
   @media screen and (min-width: $tablet) {
@@ -158,24 +164,25 @@
 }
 
 .footer-tel {
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
   margin-bottom: 20px;
   text-decoration: none;
 }
 
 .footer-mail {
   text-decoration: underline;
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
-  margin-bottom: 20px;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 70px;
+  }
 }
 
 .footer-mail,
 .footer-tel {
-  color: #9da4bd;
+  color: $price-text-color;
 }
 
 .working-container {
@@ -186,7 +193,7 @@
 }
 
 .working-time {
-  color: #ffffff;
+  color: $primary-bg-color;
   padding-bottom: 20px;
 }
 
@@ -202,18 +209,23 @@
 
 .working-hours {
   margin: 0px;
+  font-size: 18px;
+}
+
+.footer-socials,
+.copyright{
+    display: inline-flex;
+
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.36;
+    letter-spacing: 0.2em; 
 }
 
 .footer-socials {
   display: inline-flex;
   justify-content: space-around;
-
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 1.36;
-  letter-spacing: 0.2em;
 
   color: $primary-text-color;
 
@@ -224,26 +236,42 @@
 
 .footer-items {
   list-style: none;
-
+  
   &:nth-child(-n + 1) {
     margin-right: 40px;
   }
+
+  & a:hover,
+  & a:focus{
+    color: $accent-bg-color;
+    cursor: pointer;
+  }
+}
+
+.item-soc{
+    text-decoration: none;
+    color: $primary-text-color;
 }
 
 .footer-third {
   display: flex;
-  padding: 44px 15px;
+  justify-content: space-between;
+    max-width: 100%;
+  padding: 44px 31px;
+}
 
-  @media screen and (min-width: $tablet) {
-    display: flex;
-  }
+.footer-line{
+    display: inline-flex;
+    
+    width: 100%;
 }
 
 .footer-line::before {
   content: '';
   display: inline-block;
   margin-right: 40px;
-  margin-bottom: 2px;
+  
+  margin-top: 7px;
   width: 60px;
   height: 1px;
 
@@ -253,15 +281,10 @@
 .copyright {
   display: inline-flex;
   align-self: flex-end;
-
+  
   padding-right: 21px;
   font-family: Open Sans;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 1.36;
-  letter-spacing: 0.2em;
-
+ 
   @media screen and (max-width: 767px) {
     padding-top: 35px;
   }
@@ -270,4 +293,5 @@
     display: inline-block;
     justify-self: center;
   }
+  
 }
