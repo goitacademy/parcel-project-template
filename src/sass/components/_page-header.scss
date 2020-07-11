@@ -26,7 +26,7 @@
     //   @include price-resolution(3, 'img3-1125@3x.jpg');
   }
 }
-
+///////////////////////////////// логотип цвета в мобил и табл
 .logo {
   @media screen and(max-width: $min-tablet) {
     fill: $light-link-color;
@@ -40,31 +40,23 @@
   padding-right: 31px;
 }
 
+//////////////////////// кнопка для вызова моб меню
 .menu-button {
   display: inline-flex;
   margin: 0;
   padding: 0;
   border: none;
   background-color: transparent;
+  z-index: 999;
 
-  @media screen and (min-width: 768px) {
+  ////////////////////////существует только в моб версии
+  @media screen and (min-width: $min-tablet) {
     display: none;
   }
 }
-// .menu-button .icon-close {
-//   display: none;
-// }
-.menu-button.is-open .icon-close {
-  display: block;
-}
-.menu-button.is-open .icon-menu {
-  display: none;
-}
 
-.site-nav {
-  @extend %list;
-}
 .hero {
+  ////////////// стили для пред текста
   .sub-title {
     @extend %list;
     font-weight: 600;
@@ -74,7 +66,7 @@
     text-transform: uppercase;
     color: rgba(157, 164, 189, 0.6);
   }
-
+  //////////////////////// для заголовка всего сайта
   h1 {
     @extend %list;
     font-family: Raleway;
@@ -82,58 +74,104 @@
     font-size: 48px;
     line-height: 1.16;
     letter-spacing: 0.05em;
-    color: #ffffff;
+    color: $light-heading-color;
+
     margin-top: 20px;
   }
+  ///////////// стили для контента описания
   .sub-content {
     @extend %list;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.62;
     letter-spacing: 0.02em;
-    color: #9da4bd;
+    color: $secondary-text-color;
     width: 306px;
+
     margin-top: 20px;
   }
 }
-@media screen and (max-width: 767px) {
+
+////////////// стили хедера для мобильной версии
+
+@media screen and (max-width: $max-tablet) {
   .sidebar {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+  //////////////отступы для героя
   .hero {
     padding-top: 112px;
     padding-bottom: 183px;
   }
-  .nav .link {
-    text-decoration: none;
-    color: $dark-link-color;
+
+  .nav {
+    ///////////стили для ссылок и ховер для них
+    .link {
+      text-decoration: none;
+      color: $dark-link-color;
+
+      &:hover,
+      &:focus {
+        color: $accent-color;
+      }
+    }
+
+    ////////////////// переназначение цвета кнопки "онлайн запись" и ховер
+    .record_button {
+      color: $dark-link-color;
+
+      &:hover,
+      &:focus {
+        color: $light-link-color;
+      }
+    }
   }
-  .nav .link:hover,
-  .nav .link:focus {
-    color: $accent-color;
-  }
-  .site-nav li:not(:last-child) {
-    margin-bottom: 24px;
-  }
-  .auth-nav .link {
-    font-size: 18px;
+
+  .site-nav {
+    // @extend %list;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 64px;
+
     font-weight: 600;
+    font-size: 18px;
+    line-height: 1.38;
+    letter-spacing: 0.1em;
+
+    li:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+
+  .auth-nav {
+    // @extend %list;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 64px;
+
+    .link {
+      font-size: 18px;
+      font-weight: 600;
+    }
   }
   li:not(:last-child) {
     margin-bottom: 24px;
   }
-  .nav .record_button {
-    color: $dark-link-color;
-  }
-  .nav .record_button:hover,
-  .nav .record_button:focus {
-    color: $light-link-color;
-  }
-  .soc .link {
-    font-size: 14px;
-    font-weight: 600;
+
+  .soc {
+    // @extend %list;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .link {
+      font-size: 14px;
+      font-weight: 600;
+    }
   }
 }
 //  .soc-instagram::before {
