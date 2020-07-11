@@ -7,6 +7,9 @@
 }
 .align-center {
   text-align: center;
+  @media screen and (min-width: $tablet-screen) {
+    text-align: left;
+  }
 }
 
 .footer-title {
@@ -17,25 +20,41 @@
   letter-spacing: 0.05em;
   margin-bottom: 40px;
   color: $inverse-primery-text-color;
+  @media screen and (min-width: $tablet-screen) {
+    text-align: left;
+  }
 }
 
 .form-container {
   background: $footer-background-color;
-  padding-left: 11px;
-  padding-right: 11px;
+  padding-left: 31px;
+  padding-right: 31px;
 }
 
 .form-label {
   display: block;
   position: relative;
   margin-bottom: 40px;
+  @media screen and (min-width: $tablet-screen) {
+    width: calc((100% - 60px) / 2);
+    margin: 15px;
+    &:last-child {
+      width: calc(100% - 30px);
+    }
+  }
   &:focus-within > .text-label,
   &:hover > .text-label {
     color: $inverse-primery-text-color;
   }
 }
 
-
+.addres-flex {
+  @media screen and (min-width: $tablet-screen) {
+    display: flex;
+    align-items: flex-start;
+    // justify-content: space-between;
+  }
+}
 
 .form-input {
   display: block;
@@ -48,8 +67,6 @@
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
   border-bottom: 1px solid rgba(157, 164, 189, 0.4);
-  // outline: 1px solid red;
-
   color: $inverse-primery-text-color;
 
   &:hover,
@@ -62,6 +79,14 @@
   &:not(:placeholder-shown) + .text-label {
     transform: translateY(-32px);
     color: $inverse-primery-text-color;
+  }
+}
+
+.list-input {
+  @media screen and (min-width: $tablet-screen) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
   }
 }
 
@@ -79,6 +104,9 @@ textarea + .text-label {
 textarea.form-input {
   margin-bottom: 44px;
   resize: none;
+  @media screen and (min-width: $tablet-screen) {
+    width: 100%;
+  }
 }
 
 .footer-address {
@@ -98,10 +126,17 @@ textarea.form-input {
 
 .footer-info-container {
   padding-left: 35px;
+  @media screen and (min-width: $tablet-screen) {
+    padding-left: 0;
+  }
 }
 
 .footer-info-container.time {
   padding-left: 31px;
+  @media screen and (min-width: $tablet-screen) {
+    padding-left: 0;
+    margin-left: 30px;
+  }
 }
 
 .footer-info-item {
@@ -113,6 +148,12 @@ textarea.form-input {
   letter-spacing: 0.02em;
   margin-bottom: 20px;
   color: $inverse-secondary-text-color;
+
+  @media screen and (min-width: $tablet-screen) {
+    & p {
+      width: 290px;
+    }
+  }
 }
 
 .footer-info-item > a {
@@ -135,6 +176,9 @@ a.mail {
   text-transform: uppercase;
   margin-bottom: 20px;
   margin-top: 44px;
+  @media screen and (min-width: $tablet-screen) {
+    margin-top: 0;
+  }
 }
 
 .time-work::before {
@@ -158,6 +202,11 @@ a.mail {
   padding-left: 31px;
   padding-top: 44px;
   padding-bottom: 44px;
+  @media screen and (min-width: $tablet-screen) {
+    justify-content: space-between;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
 }
 
 p.copy {
@@ -170,6 +219,10 @@ p.copy {
   letter-spacing: 0.2em;
 
   color: $inverse-secondary-text-color;
+
+  @media screen and (min-width: $tablet-screen) {
+    padding-top: 0;
+  }
 }
 
 ul.social-link {
@@ -210,4 +263,19 @@ ul.social-link::before {
   display: block;
   height: 1px;
   margin-right: 40px;
+}
+
+.footer-desc-flex {
+  @media screen and (min-width: $desktop-screen) {
+    display: flex;
+    // max-width: $desktop-screen;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.desc {
+  @media screen and (min-width: $desktop-screen) {
+    width: 50%;
+  }
 }
