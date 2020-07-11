@@ -4,17 +4,22 @@ header > .container {
 
 .header-container {
   position: absolute;
-  top: 40px;
-  left: 31px;
-  width: 87%;
-
   display: flex;
-  align-items: center;
   justify-content: space-between;
   z-index: 2;
 
+  @media screen and (max-width: 767px) {
+    top: 40px;
+    left: 31px;
+    width: 87%;
+    align-items: center;
+  }
+
   @media screen and (min-width: $tablet) {
     width: 89.8%;
+    top: 32px;
+    left: 39px;
+    align-items: flex-start;
   }
 
   @media screen and (min-width: $desktop) {
@@ -22,9 +27,13 @@ header > .container {
   }
 }
 
-@media screen and (max-width: 767px) {
-  .logo-icon {
+.logo-icon {
+  @media screen and (max-width: 767px) {
     fill: $primary-white-color;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-left: 11px;
   }
 }
 
@@ -113,33 +122,53 @@ header > .container {
       -2px 0px 4px rgba(0, 0, 0, 0.08), -4px 0px 8px rgba(0, 0, 0, 0.04);
 
     @include transitionI(transform);
+    overflow-y: scroll;
   }
 
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
+    margin-top: 8px;
   }
 }
 
 // navigation
 .header-nav {
   @extend %list;
-  margin-bottom: 40px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 64px;
+  }
 
   @media screen and (min-width: $tablet) {
     display: flex;
+    margin-top: 12px;
+    margin-right: 47px;
   }
 }
 
-.header-nav-item {
-  @extend %link;
-  display: inline-block;
-  margin-bottom: 24px;
+.header-nav-item:not(:last-child) {
+  @media screen and (max-width: 767px) {
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: $tablet) {
+    margin-right: 24px;
+  }
+}
 
-  font-size: 18px;
-  line-height: 1.4;
+.header-nav-link {
+  @extend %link;
+
+  @media screen and (max-width: 767px) {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1.4;
+    color: $primary-text-color;
+  }
+
+  font-size: 12px;
+  line-height: 1.33;
+  color: $primary-white-color;
   letter-spacing: 0.1em;
-  color: $primary-text-color;
   @include transitionI(color);
 
   &:hover,
@@ -147,30 +176,37 @@ header > .container {
     color: $accent-color;
     outline: none;
   }
-
-  // доробити
-  @media screen and (min-width: $tablet) {
-    margin-right: 24px;
-    margin-bottom: 0;
-  }
 }
 
 // contacts
 .header-contacts {
   display: flex;
   flex-direction: column;
-  margin-bottom: 40px;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 64px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 }
 
 .header-contacts-item {
   @extend %link;
-  margin-bottom: 24px;
-
-  font-size: 18px;
-  line-height: 1.4;
+  font-size: 12px;
+  line-height: 1.33;
+  color: $primary-white-color;
   letter-spacing: 0.1em;
-  color: $primary-text-color;
   @include transitionI(color);
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 24px;
+    font-size: 18px;
+    line-height: 1.4;
+    color: $primary-text-color;
+  }
 
   &:hover,
   &:focus {
@@ -182,9 +218,18 @@ header > .container {
 .header-button {
   @extend %button;
   @extend %link;
-  width: 194px;
-  color: $primary-text-color;
+  width: 160px;
+  color: $primary-white-color;
   @include transitionII(color, background-color);
+
+  @media screen and (max-width: 767px) {
+    width: 194px;
+    color: $primary-text-color;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 20px;
+  }
 
   &:hover,
   &:focus {
@@ -204,8 +249,8 @@ header > .container {
 
   @media screen and (min-width: $tablet) {
     position: absolute;
-    top: 540px;
-    left: 37px;
+    top: 465px;
+    left: 76px;
     transform-origin: bottom left;
     transform: rotate(-90deg);
   }
@@ -216,6 +261,10 @@ header > .container {
   position: absolute;
   top: 9px;
   left: 0;
+
+  @media screen and (min-width: $tablet) {
+    left: -100px;
+  }
 }
 
 .header-social-link {
@@ -228,6 +277,11 @@ header > .container {
   letter-spacing: 0.2em;
   color: $primary-text-color;
   @include transitionI(color);
+
+  @media screen and (min-width: $tablet) {
+    margin-right: 40px;
+    font-size: 11px;
+  }
 
   &:hover,
   &:focus {
