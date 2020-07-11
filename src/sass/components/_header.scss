@@ -1,3 +1,19 @@
+.modal-open {
+  @media screen and (max-width: $viewport-breakpoint-2 - 1) {
+    overflow: hidden;
+  }
+}
+button {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+%accent-text,
+%accent-hover:hover,
+%accent-hover:focus {
+  color: $color-accent;
+}
+
 //header using componrents
 .container-for-header {
   min-height: 580px;
@@ -22,15 +38,39 @@
   color: $color-pale;
 }
 
+.page-social {
+  position: relative;
+
+  padding-left: 60px;
+
+  &::before {
+    @extend %section-title;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    margin: 9px 0;
+  }
+
+  &-item {
+    margin-left: 40px;
+  }
+
+  &-link {
+    @extend %accent-hover;
+
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.36;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    color: $color-basic;
+  }
+}
+
 //
-
-// добавь свои специфические классы к селектору тега
-// svg {
-//   fill: currentColor;
-//   display: block;
-// }
-
-
 .menu-mobile-toggle {
   display: none;
 
@@ -44,6 +84,10 @@
   padding: 0;
   background: transparent;
   border: none;
+
+  .icon-menu {
+    color: $color-pale;
+  }
 
   & > svg {
     width: inherit;
@@ -60,24 +104,20 @@
     display: none;
   }
 
-  @media screen and (max-width: $viewport-breakpoint-1) {
+  @media screen and (max-width: $viewport-breakpoint-2 - 1) {
     display: block;
   }
 }
 
 .menu-mobile-container {
-  @media screen and (max-width: $viewport-breakpoint-1) {
-    &.is-open {
-      display: block;
-    }
-
+  @media screen and (max-width: $viewport-breakpoint-2 - 1) {
     display: none;
 
     position: absolute;
     top: 0;
     right: 0;
 
-    width: calc(100% - 143px);
+    width: calc((100% - 143px) - (100% - 480px) / 2);
     height: 100vh;
 
     padding: 40px;
@@ -86,9 +126,24 @@
     background-color: $color-pale;
     box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.16),
       -2px 0px 4px rgba(0, 0, 0, 0.08), -4px 0px 8px rgba(0, 0, 0, 0.04);
+
+    &.is-open {
+      display: block;
+    }
+
+    &-element:not(:last-child) {
+      margin-bottom: 64px;
+    }
+
+    [class$='-item'] {
+      margin-bottom: 24px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }
-
 //
 
 .page-header {
@@ -102,25 +157,34 @@
 
   &-tel {
     @extend .site-nav-link;
+    margin-bottom: 24px;
+  }
+
+  &-button {
+    @extend %btn;
+    padding-left: 37px;
+    padding-right: 37px;
   }
 }
 
 .site-nav {
-  margin-bottom: -20px;
+  display: flex;
 
-  &-item {
-    margin-bottom: 20px;
+  @media screen and (max-width: $viewport-breakpoint-2 - 1) {
+    flex-direction: column;
   }
 
   &-link {
+    @extend %accent-hover;
+
+    display: block;
+
     font-family: $font-main-text;
     font-weight: 600;
     font-size: 18px;
     line-height: 1.4;
     letter-spacing: 0.1em;
     text-decoration: none;
-
-    padding: 4px 0;
 
     color: $color-basic;
   }
