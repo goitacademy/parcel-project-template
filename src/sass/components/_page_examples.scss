@@ -1,8 +1,6 @@
-.container {
+.examples {
   @media screen and (max-width: 767px) {
     width: 480px;
-    padding-top: 84px;
-    padding-bottom: 84px;
   }
   @media screen and (min-width: 768px) {
     width: 768px;
@@ -17,10 +15,11 @@
   font-size: 11px;
   line-height: 1.91;
   letter-spacing: 0.1em;
-  color: #303030;
+  color: $primaryTextColor;
   text-transform: uppercase;
   padding-left: calc(111px - 31px);
   overflow: hidden;
+  position: relative;
   @media screen and (min-width: 768px) {
     padding-left: calc(119px - 39px);
     line-height: 1.36;
@@ -31,15 +30,26 @@
 }
 
 .statement:before {
-  content: '';
-  display: inline-block;
-  vertical-align: middle;
-  width: 100%;
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: 60px;
   height: 1px;
-  background-color: #303030;
-  position: relative;
-  margin-left: -100%;
-  left: -20px;
+  background: $primaryTextColor;
+  margin-right: 20px;
+  top: 50%;
+  left: 0;
+  @media screen and (max-width: 767px) {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 1px;
+    background: $primaryTextColor;
+    margin-right: 20px;
+    top: 25%;
+    left: 0;
+  }
 }
 .examples {
   &_container {
@@ -51,6 +61,11 @@
   }
   &_item {
     margin-bottom: 30px;
+    @media screen and (max-width: 767px) {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
     @media screen and (min-width: 768px) {
       width: calc((100% - 30px) / 2);
       &:nth-last-child(even) {
@@ -69,20 +84,19 @@
       }
     }
   }
-}
-.photo_set {
-  @media screen and (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
+  &_photo {
+    @media screen and (min-width: 768px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
   }
-  & img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  &_picture {
+    height: 360px;
   }
-}
-.thumb {
-  height: 360px;
-  outline: 1px solid red;
 }
