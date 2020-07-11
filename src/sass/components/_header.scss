@@ -1,0 +1,169 @@
+//header using componrents
+.container-for-header {
+  min-height: 580px;
+
+  background-color: $color-overlay;
+}
+
+.logo-barbershop {
+  display: inline-block;
+  width: 69px;
+  height: 56px;
+}
+
+.title-greatest {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.17;
+  letter-spacing: 0.05em;
+
+  color: $color-pale;
+}
+
+//
+
+// добавь свои специфические классы к селектору тега
+// svg {
+//   fill: currentColor;
+//   display: block;
+// }
+
+
+.menu-mobile-toggle {
+  display: none;
+
+  position: relative;
+  z-index: 1;
+
+  width: 40px;
+  height: 40px;
+
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+
+  & > svg {
+    width: inherit;
+    height: inherit;
+  }
+
+  & .icon-close {
+    display: none;
+  }
+  &.is-open .icon-close {
+    display: block;
+  }
+  &.is-open .icon-menu {
+    display: none;
+  }
+
+  @media screen and (max-width: $viewport-breakpoint-1) {
+    display: block;
+  }
+}
+
+.menu-mobile-container {
+  @media screen and (max-width: $viewport-breakpoint-1) {
+    &.is-open {
+      display: block;
+    }
+
+    display: none;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: calc(100% - 143px);
+    height: 100vh;
+
+    padding: 40px;
+    padding-top: 118px;
+
+    background-color: $color-pale;
+    box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.16),
+      -2px 0px 4px rgba(0, 0, 0, 0.08), -4px 0px 8px rgba(0, 0, 0, 0.04);
+  }
+}
+
+//
+
+.page-header {
+  padding-top: 40px;
+
+  &-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-tel {
+    @extend .site-nav-link;
+  }
+}
+
+.site-nav {
+  margin-bottom: -20px;
+
+  &-item {
+    margin-bottom: 20px;
+  }
+
+  &-link {
+    font-family: $font-main-text;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+
+    padding: 4px 0;
+
+    color: $color-basic;
+  }
+}
+
+/*-*/
+
+//greeting -section
+.greeting {
+  display: none;
+  position: absolute;
+
+  &-subtitle {
+    color: $color-subtitle-ondark;
+
+    &::before {
+      background-color: $color-subtitle-ondark;
+    }
+  }
+
+  &-text {
+    padding-top: 20px;
+
+    font-size: 16px;
+    line-height: 1.62;
+    letter-spacing: 0.02em;
+
+    color: $color-text-on-dark;
+  }
+}
+
+//slider - section
+.slider {
+  display: none;
+
+  &-slide {
+    &.current {
+      display: block;
+    }
+    display: none;
+  }
+
+  &-button {
+    display: none;
+  }
+}
