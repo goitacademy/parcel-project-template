@@ -3,6 +3,9 @@
 
   &.container {
     padding: 0;
+    @media screen and (min-width: $desktop) {
+      max-width: 1280px;
+    }
   }
 
   &__basement {
@@ -12,7 +15,8 @@
   }
 
   &__copyright {
-    display: block;
+    display: flex;
+    align-items: center;
     margin-bottom: 0;
     font-weight: 600;
     font-size: 11px;
@@ -20,9 +24,20 @@
     letter-spacing: 0.2em;
     color: $secondary-text-color;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: $tablet - 1px) {
       margin-top: 20px;
     }
+  }
+}
+
+.copyright__icon {
+  display: block;
+  margin-right: 6px;
+}
+
+.footer__container {
+  @media screen and (min-width: $desktop) {
+    display: flex;
   }
 }
 
@@ -40,8 +55,20 @@
   margin-left: auto;
   @extend %list;
 
-  &__item:not(:first-child) {
-    margin-left: 40px;
+  &__item {
+    &:not(:first-child) {
+      margin-left: 40px;
+    }
+
+    &:first-child {
+      display: flex;
+      align-items: center;
+
+      &::before {
+        @include decor-line($primary-text-color);
+        margin-right: 20px;
+      }
+    }
   }
 
   &__link {
@@ -51,6 +78,7 @@
     line-height: 1.36;
     letter-spacing: 0.2em;
     color: $primary-text-color;
+    @include transitionI(color);
 
     &:hover,
     &:focus {
