@@ -1,11 +1,12 @@
 const refs = {
-  openModalBtn: document.querySelector('[data-open-modal]'),
+  openModalBtn: document.querySelectorAll('[data-open-modal]'),
   closeModalBtn: document.querySelector('[data-close-modal]'),
   backdrop: document.querySelector('[data-backdrop]'),
 };
 
-refs.openModalBtn.addEventListener('click', toggleModal);
-refs.closeModalBtn.addEventListener('click', toggleModal);
+for (var i = 0, len = refs.openModalBtn.length;  i < len; i++) {
+  refs.openModalBtn[i].addEventListener('click', toggleModal);}
+  refs.closeModalBtn.addEventListener('click', toggleModal);
 
 refs.backdrop.addEventListener('click', logBackdropClick);
 
