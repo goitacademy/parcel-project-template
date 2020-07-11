@@ -6,11 +6,16 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  @media screen and (max-width: 479px) {
+  @media screen and (min-width: 320px) and (max-width: 479px) {
     width: 100%;
-    max-height: 580px;
+    // min-height: 580px;
+    min-height: calc(385px + (385 + 195 * 0.66) * ((100vw - 320px) / 479));
   }
-  @media screen and (min-width: 480px) and (max-width: 767px) {
+  @media screen and (min-width: 480px) {
+    width: 100%;
+    min-height: 580px;
+  }
+  @media screen and (min-width: 481px) and (max-width: 767px) {
     max-width: 480px;
     min-height: 580px;
   }
@@ -287,13 +292,13 @@
 .header-content {
   @include absolute(auto, auto, auto);
   @media screen and (min-width: 320px) and (max-width: 399px) {
-    top: calc(120px + (88 + 88 * 0.58) * ((100vw - 320px) / 480));
+    top: calc(120px + (80 + 80 * 0.6) * ((100vw - 320px) / 480));
   }
   @media screen and (min-width: 400px) {
-    top: 208px;
+    top: 200px;
   }
   @media screen and (max-width: 767px) {
-    margin: 0px 16px;
+    margin: 0px 31px;
     width: 65%;
   }
   @media screen and (min-width: 768px) {
