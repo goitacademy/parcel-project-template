@@ -1,4 +1,4 @@
-/*поменять цвет текста в строке 304, ul - .list*/
+/*поменять ul - .list*/
 
 /*слайдер*/
 
@@ -6,20 +6,19 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  // background-color: red;
   @media screen and (max-width: 479px) {
     width: 100%;
     max-height: 580px;
   }
   @media screen and (min-width: 480px) and (max-width: 767px) {
     max-width: 480px;
-    height: 580px;
+    min-height: 580px;
   }
   @media screen and (min-width: 768px) {
     max-width: 768px;
-    height: 680px;
+    min-height: 680px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     max-width: 1280px;
     min-height: 680px;
   }
@@ -43,6 +42,11 @@
     @include absolute(0, auto, 15px);
     min-width: 594px;
     padding: 32px 24px 0px;
+  }
+  @media screen and (min-width: 1280px) {
+    @include absolute(0, auto, 0);
+    min-width: 1125px;
+    padding: 40px 55px 0px 40px;
   }
 }
 
@@ -130,6 +134,9 @@
     @media screen and (min-width: 768px) {
       margin-right: 24px;
     }
+    @media screen and (min-width: 1280px) {
+      margin-right: 40px;
+    }
   }
 }
 
@@ -166,6 +173,8 @@
   }
   @media screen and (min-width: 768px) {
     @include flex(flex-start, stretch);
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     flex-direction: column-reverse;
   }
 }
@@ -174,11 +183,14 @@
   @media screen and (max-width: 767px) {
     margin-bottom: 24px;
   }
+  @media screen and (min-width: 1280px) {
+    margin-right: 40px;
+  }
 }
 
 .header-contacts-form {
   text-align: center;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     margin-bottom: 20px;
   }
 }
@@ -289,6 +301,11 @@
     left: 36%;
     min-width: 59%;
   }
+  @media screen and (min-width: 1280px) {
+    top: 39%;
+    left: 20%;
+    min-width: 76%;
+  }
 }
 
 .header-content-text {
@@ -299,9 +316,9 @@
   line-height: 1.36;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(157, 164, 189, 0.6);
+  color: $color-text-transparent-grey;
   &::before {
-    @include pseudo-line($color-text-transparent);
+    @include pseudo-line($color-text-transparent-grey);
     margin-right: 20px;
   }
   @media screen and (max-width: 480px) {
@@ -328,6 +345,10 @@
   @media screen and (min-width: 480px) {
     font-size: 48px;
   }
+  @media screen and (min-width: 1280px) {
+    font-size: 72px;
+    line-height: 1.18;
+  }
 }
 
 .header-title-svg {
@@ -348,6 +369,11 @@
   @media screen and (min-width: 768px) {
     max-width: 355px;
   }
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+    line-height: 1.67;
+    max-width: 486px;
+  }
 }
 
 /*sidebar*/
@@ -364,14 +390,12 @@
     padding: 32px 0px 40px;
     @include flex(space-between, center);
     flex-direction: column;
-
-    background-color: blue;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     @include absolute(0, 0px, auto);
-    width: 100px;
+    width: 70px;
     height: 100%;
-    margin: 0px 0px 0px 55px;
+    margin: 0px 30px 0px 55px;
     padding: 32px 0px 40px;
     @include flex(space-between, center);
     flex-direction: column;
