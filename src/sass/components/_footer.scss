@@ -1,8 +1,13 @@
 // собираю футер
 
+//Собрал футер в секцию, переопределение
+.footer{
+    padding: 0px;
+}
+
 .page-footer {
   background-color: #191c26;
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: $desktop) {
     display: flex;
   }
 }
@@ -17,6 +22,8 @@
   background-size: cover;
 
   @media screen and (min-width: $tablet) {
+    // padding-top: 100px;
+    // padding-bottom: 100px;
     max-width: 768px;
     background-image: url(../images/footer/footer-tab-x1.png);
 
@@ -27,6 +34,9 @@
 
   @media screen and (min-width: $desktop) {
     max-width: 1200px;
+    padding: 130px 105px 130px 100px;
+    // padding-left: 100px;
+    // padding-right: 105px;
     background-image: url(../images/footer/footer-desk-x1.png);
     display: flex;
     flex-direction: column;
@@ -110,8 +120,6 @@
 }
 
 .address-info {
-  margin-bottom: 44px;
-
   display: flex;
   flex-direction: column;
  
@@ -121,15 +129,22 @@
   letter-spacing: 0.02em;
 
   color: $price-text-color;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 44px;
+  }
 }
 
 .footer-svg {
   display: block;
+  align-self: end;
+  margin-top: 5px;
   margin-right: 16px;
 
   fill: currentColor;
-  width: 24px;
+  min-width: 24px;
   height: 24px;
+  
 }
 
 .footer-address,
@@ -155,7 +170,14 @@
 
 .footer-mail {
   text-decoration: underline;
-  margin-bottom: 20px;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 70px;
+  }
 }
 
 .footer-mail,
@@ -187,6 +209,7 @@
 
 .working-hours {
   margin: 0px;
+  font-size: 18px;
 }
 
 .footer-socials,
@@ -232,18 +255,23 @@
 
 .footer-third {
   display: flex;
+  justify-content: space-between;
+    max-width: 100%;
   padding: 44px 31px;
+}
 
-  @media screen and (min-width: $tablet) {
-    display: flex;
-  }
+.footer-line{
+    display: inline-flex;
+    
+    width: 100%;
 }
 
 .footer-line::before {
   content: '';
   display: inline-block;
   margin-right: 40px;
-  margin-bottom: 2px;
+  
+  margin-top: 7px;
   width: 60px;
   height: 1px;
 
@@ -253,7 +281,7 @@
 .copyright {
   display: inline-flex;
   align-self: flex-end;
-
+  
   padding-right: 21px;
   font-family: Open Sans;
  
