@@ -23,17 +23,26 @@ header > .container {
   }
 
   @media screen and (min-width: $desktop) {
-    width: 90.8%;
+    left: 15px;
+    width: 97.5%;
+    align-items: center;
+    justify-content: flex-start;
   }
 }
 
-.logo-icon {
-  @media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
+  .logo-icon {
     fill: $primary-white-color;
   }
+}
 
-  @media screen and (min-width: $tablet) {
+.logo-link {
+  @media screen and (min-width: $tablet) and (max-width: 1199px) {
     margin-left: 11px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 71px;
   }
 }
 
@@ -61,6 +70,10 @@ header > .container {
 }
 
 .menu-button.is-open {
+  position: fixed;
+  top: 48px;
+  left: 85.2vw;
+
   & .icon-close {
     display: block;
   }
@@ -70,17 +83,13 @@ header > .container {
   }
 }
 
-.icon-menu {
-  fill: #000000;
-}
-
 // menu
 .menu-backdrop {
   @media screen and (max-width: 767px) {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100%;
 
     background-color: rgba(25, 28, 38, 0.2);
@@ -89,6 +98,7 @@ header > .container {
 
     opacity: 0;
     pointer-events: none;
+    overflow: hidden;
     @include transitionI(opacity);
   }
 
@@ -109,13 +119,12 @@ header > .container {
     position: absolute;
     top: 0;
     right: 0;
-    width: 70.2%;
+    width: 70.3vw;
     height: 100%;
     transform: translateX(100%);
 
-    padding-top: 118px;
+    padding-top: 106px;
     padding-left: 40px;
-    text-align: left;
 
     background-color: $primary-white-color;
     box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.16),
@@ -125,18 +134,25 @@ header > .container {
     overflow-y: scroll;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     display: flex;
     flex-direction: row;
     margin-top: 8px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    align-items: center;
+    margin-top: 0;
   }
 }
 
 // navigation
 .header-nav {
   @extend %list;
+
   @media screen and (max-width: 767px) {
-    margin-bottom: 64px;
+    margin-bottom: 40px;
+    max-width: 155px;
   }
 
   @media screen and (min-width: $tablet) {
@@ -144,19 +160,28 @@ header > .container {
     margin-top: 12px;
     margin-right: 47px;
   }
+
+  @media screen and (min-width: $desktop) {
+    align-items: center;
+    margin-top: 0;
+    margin-right: 317px;
+  }
 }
 
 .header-nav-item:not(:last-child) {
-  @media screen and (max-width: 767px) {
-    margin-bottom: 24px;
-  }
   @media screen and (min-width: $tablet) {
     margin-right: 24px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 40px;
   }
 }
 
 .header-nav-link {
   @extend %link;
+  padding-top: 12px;
+  padding-bottom: 12px;
 
   @media screen and (max-width: 767px) {
     display: inline-block;
@@ -181,20 +206,28 @@ header > .container {
 // contacts
 .header-contacts {
   display: flex;
-  flex-direction: column;
 
   @media screen and (max-width: 767px) {
-    margin-bottom: 64px;
+    flex-direction: column;
+    margin-bottom: 52px;
+    max-width: 194px;
   }
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) and (max-width: 1199px) {
     flex-direction: column-reverse;
     align-items: center;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 8px;
   }
 }
 
 .header-contacts-item {
   @extend %link;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
   font-size: 12px;
   line-height: 1.33;
   color: $primary-white-color;
@@ -202,10 +235,14 @@ header > .container {
   @include transitionI(color);
 
   @media screen and (max-width: 767px) {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     font-size: 18px;
     line-height: 1.4;
     color: $primary-text-color;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 40px;
   }
 
   &:hover,
@@ -217,49 +254,58 @@ header > .container {
 
 .header-button {
   @extend %button;
-  @extend %link;
-  width: 160px;
   color: $primary-white-color;
   @include transitionII(color, background-color);
 
   @media screen and (max-width: 767px) {
-    width: 194px;
+    max-width: 194px;
     color: $primary-text-color;
   }
 
+  @media screen and (min-width: $tablet) and (max-width: 1199px) {
+    margin-bottom: 8px;
+  }
+
   @media screen and (min-width: $tablet) {
-    margin-bottom: 20px;
+    width: 160px;
   }
 
   &:hover,
   &:focus {
     color: $primary-white-color;
     background-color: $accent-color;
+    outline: none;
   }
 }
 
 // header instagram youtube
 .header-social-media {
   @media screen and (max-width: 767px) {
-    position: relative;
+    position: absolute;
+    left: 12%;
     display: flex;
     flex-direction: column;
     padding-left: 100px;
+    max-width: 194px;
   }
 
   @media screen and (min-width: $tablet) {
     position: absolute;
-    top: 465px;
-    left: 76px;
+    top: 460px;
+    left: 64px;
     transform-origin: bottom left;
     transform: rotate(-90deg);
+  }
+
+  @media screen and (min-width: $desktop) {
+    left: 48px;
   }
 }
 
 .header-social-media::before {
   @include decor-line($primary-text-color);
   position: absolute;
-  top: 9px;
+  top: 21px;
   left: 0;
 
   @media screen and (min-width: $tablet) {
@@ -270,7 +316,8 @@ header > .container {
 .header-social-link {
   @extend %link;
   display: inline-block;
-  margin-bottom: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 
   font-size: 14px;
   line-height: 1.35;
