@@ -1,31 +1,7 @@
-.container {
-  padding-left: 31px;
-  padding-right: 31px;
-  margin-left: auto;
-  margin-right: auto;
-
-  // outline: 1px solid tomato;
-
-  @media screen and (min-width: 480px) {
-    width: 480px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 768px;
-    padding-left: 39px;
-    padding-right: 39px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    width: 1200px;
-    padding-left: 55px;
-    padding-right: 55px;
-  }
-}
-
 .hero-section {
+  position: relative;
   @media screen and (max-width: 767px) {
-    width: 480px;
+    max-width: 480px;
     background-size: cover;
     background-image: linear-gradient(
         rgba(25, 28, 38, 0.2),
@@ -52,7 +28,7 @@
     display: none;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 70px;
   }
 
@@ -70,7 +46,7 @@
       width: 60px;
       height: 1px;
       margin-left: 40px;
-      background: #303030;
+      background: $primery-color;
     }
   }
 
@@ -89,7 +65,7 @@
 
     letter-spacing: 0.2em;
 
-    color: #303030;
+    color: $primery-color;
 
     &:focus,
     &:hover {
@@ -102,25 +78,13 @@
 
       letter-spacing: 0.2em;
 
-      color: #ff6c00;
+      color: $accept-color;
     }
   }
 }
 
-.fon {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(25, 28, 38, 0.2);
-}
-
-.imgsl {
-  position: absolute;
-
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
+.list {
+  text-decoration: none;
 }
 
 .hero {
@@ -129,12 +93,13 @@
 
   @media screen and (min-width: 768px) {
     position: absolute;
+    z-index: 5;
     top: 0;
     padding-top: 272px;
     padding-left: 120px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     padding-top: 272px;
 
     padding-left: 100px;
@@ -152,9 +117,10 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
 
+    margin: 0;
     margin-bottom: 20px;
 
-    color: rgba(157, 164, 189, 0.6);
+    color: $secondary-dark-color;
 
     &::before {
       content: '';
@@ -165,7 +131,7 @@
 
       margin-right: 20px;
 
-      background: rgba(157, 164, 189, 0.6);
+      background: $secondary-dark-color;
     }
   }
 
@@ -177,11 +143,12 @@
     line-height: 56px;
     letter-spacing: 0.05em;
 
+    margin: 0;
     margin-bottom: 20px;
 
-    color: #ffffff;
+    color: $white-color;
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1200px) {
       font-size: 72px;
       line-height: 85px;
       /* identical to box height */
@@ -191,6 +158,7 @@
   }
 
   .text-hero {
+    margin: 0;
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
@@ -200,9 +168,9 @@
 
     letter-spacing: 0.02em;
 
-    color: #9da4bd;
+    color: $primery-dark-color;
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1200px) {
       font-size: 18px;
       line-height: 30px;
       /* or 167% */
@@ -220,17 +188,101 @@
   }
 }
 
+// Слайдер
+/* Собственно сам слайдер */
+.slider {
+  position: absolute;
+  right: 0;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 100%;
+  }
+}
+/* Картинка мастабируется по отношению к родительскому элементу */
+.slider .item img {
+  object-fit: cover;
+  height: 100%;
+}
+
+/* Кружочки */
+.slider-dots {
+  position: absolute;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  right: 39px;
+  top: 325px;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1200px) {
+    right: 15px;
+  }
+}
+.slider-dots_item {
+  cursor: pointer;
+  width: 8px;
+  height: 2px;
+  border: none;
+  text-align: right;
+  background: $primery-dark-color;
+
+  margin-top: 12px;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active,
+.slider-dots_item:hover {
+  width: 18px;
+  height: 2px;
+
+  background: $white-color;
+}
+/* Анимация слайдов */
+.slider .item {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Кнопки слайдеру
 .button-slayder {
   position: absolute;
-  right: 0px;
+  z-index: 60;
+  right: 39px;
   bottom: 40px;
 
   @media screen and (max-width: 767px) {
     display: none;
   }
 
-  @media screen and (min-width: 1280px) {
-    right: 0;
+  @media screen and (min-width: 1200px) {
+    right: 15px;
     bottom: 40px;
   }
 
@@ -254,7 +306,7 @@
 
     padding: 8px 0px;
 
-    color: rgba(157, 164, 189, 0.6);
+    color: $secondary-dark-color;
 
     &:focus,
     &:hover {
@@ -267,7 +319,7 @@
 
       letter-spacing: 0.1em;
 
-      color: #ffffff;
+      color: $white-color;
     }
   }
 
@@ -293,7 +345,7 @@
 
     letter-spacing: 0.1em;
 
-    color: rgba(157, 164, 189, 0.6);
+    color: $secondary-dark-color;
 
     &:focus,
     &:hover {
@@ -306,42 +358,7 @@
 
       letter-spacing: 0.1em;
 
-      color: #ffffff;
-    }
-  }
-}
-
-.right-panels {
-  position: absolute;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
-
-  @media screen and (min-width: 768px) {
-    right: 0;
-    top: 325px;
-  }
-
-  .up1 {
-    width: 8px;
-    height: 2px;
-    border: none;
-    text-align: right;
-    background: #9da4bd;
-
-    margin-top: 12px;
-
-    &:focus,
-    &:hover {
-      width: 18px;
-      height: 2px;
-
-      background: #ffffff;
+      color: $section-bgc;
     }
   }
 }
