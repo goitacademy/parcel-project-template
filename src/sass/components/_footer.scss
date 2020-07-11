@@ -29,6 +29,16 @@
   background: $footer-background-color;
   padding-left: 31px;
   padding-right: 31px;
+
+  @media screen and (min-width: $tablet-screen) {
+    padding-left: 39px;
+    padding-right: 39px;
+  }
+
+  @media screen and (min-width: $desktop-screen) {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
 }
 
 .form-label {
@@ -53,6 +63,9 @@
     display: flex;
     align-items: flex-start;
     // justify-content: space-between;
+  }
+  @media screen and (min-width: $desktop-screen) {
+    flex-wrap: wrap;
   }
 }
 
@@ -122,12 +135,28 @@ textarea.form-input {
 
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media screen and (min-width: $tablet-screen) {
+    background: url(../images/bg-footer768.png), #191c26;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background: url(../images/bg-footer768@2x.png), #191c26;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
 }
 
 .footer-info-container {
   padding-left: 35px;
   @media screen and (min-width: $tablet-screen) {
     padding-left: 0;
+  }
+  @media screen and (min-width: $desktop-screen) {
+    margin-bottom: 70px;
   }
 }
 
@@ -268,14 +297,26 @@ ul.social-link::before {
 .footer-desc-flex {
   @media screen and (min-width: $desktop-screen) {
     display: flex;
-    // max-width: $desktop-screen;
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 .desc {
+  @media screen and (min-width: $tablet-screen) {
+    &.footer-address {
+      padding-left: 39px;
+      padding-right: 39px;
+    }
+  }
+
   @media screen and (min-width: $desktop-screen) {
     width: 50%;
+
+    &.footer-address {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
   }
 }
