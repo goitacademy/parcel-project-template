@@ -15,6 +15,8 @@
 
   @media screen and (min-width: $tablet) {
     max-width: $tablet;
+    padding-left: 40px;
+    padding-right: 40px;
     background-image: url('../../src/images/contacts/contacts-bg-img-768.png');
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -23,17 +25,30 @@
       background-image: url('../../src/images/contacts/contacts-bg-img-768@2x.png');
     }
   }
+
+  @media screen and (min-width: $desktop) {
+    max-width: $desktop;
+    flex-basis: 625px;
+    padding-left: 100px;
+    background-image: url('../../src/images/contacts/contacts-bg-img-625.png');
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../../src/images/contacts/contacts-bg-img-625@2x.png');
+    }
+  }
 }
 
 .contacts__main-box {
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1px) {
     display: flex;
     align-items: flex-start;
   }
 }
 
 .contacts__box {
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1px) {
     width: calc(50% - 15px);
   }
 }
@@ -47,7 +62,7 @@
   letter-spacing: 0.05em;
   color: $primary-white-color;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: $tablet - 1px) {
     text-align: center;
   }
 }
@@ -61,13 +76,13 @@
 .contacts__direction,
 .contacts__tel {
   @extend %link;
+  margin-bottom: 20px;
 }
 
 .contacts__direction,
 .contacts__tel,
 .contacts__mail {
   display: flex;
-  margin-bottom: 20px;
   font-size: 18px;
   line-height: 1.67;
   letter-spacing: 0.02em;
@@ -90,13 +105,14 @@
 }
 
 .schedule {
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1px) {
     width: calc(50% - 15px);
     margin-left: auto;
   }
 
   &__title {
-    display: block;
+    display: flex;
+    align-items: center;
     margin-top: 0;
     margin-bottom: 20px;
     font-weight: 600;
@@ -106,8 +122,16 @@
     text-transform: uppercase;
     color: $primary-white-color;
 
-    @media screen and (max-width: 767px) {
+    &::before {
+      @include decor-line($placeholder-text-color);
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
       margin-top: 44px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      margin-top: 70px;
     }
   }
 
