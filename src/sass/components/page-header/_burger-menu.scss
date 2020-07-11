@@ -1,0 +1,95 @@
+.burger-button {
+  position: absolute;
+  top: 48px;
+  right: 30px;
+  z-index: 5;
+
+  display: inline-flex;
+  padding: 0;
+
+  color: $white;
+
+  border: none;
+
+  background-color: transparent;
+
+  cursor: pointer;
+
+  @include transition($property: color);
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+
+  // закрытие и открытие меню - замена иконок
+  & .burger-opened {
+    display: none;
+  }
+  &.is-open .burger-opened {
+    display: block;
+    color: $heading-text-color;
+  }
+  &.is-open .burger-closed {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+// обертка бургер меню
+.burger-wrapper {
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 4;
+
+    padding-left: 40px;
+    width: 70%;
+    height: 796px;
+
+    background-color: $white;
+
+    box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.16),
+      -2px 0px 4px rgba(0, 0, 0, 0.08), -4px 0px 8px rgba(0, 0, 0, 0.04);
+
+    opacity: 0;
+
+    @include transition($property: opacity);
+
+    pointer-events: none;
+    .backdrop.is-open & {
+      opacity: 1;
+
+      pointer-events: initial;
+    }
+  }
+}
+// бекдроп
+.backdrop {
+  @media screen and (max-width: 767px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    @media screen and (min-width: 481px) {
+      left: calc((100vw - 480px) / 2);
+    }
+    overflow-y: scroll;
+
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+
+    background-color: rgba(25, 28, 38, 0.2);
+
+    opacity: 0;
+
+    @include transition($property: opacity);
+    pointer-events: none;
+    &.is-open {
+      opacity: 1;
+    }
+  }
+}
