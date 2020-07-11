@@ -1,3 +1,4 @@
+// задает ширину описинию секции
 .descr_wrap {
     margin-bottom: 44px;
     @media screen and (min-width: $tablet) {
@@ -5,6 +6,7 @@
     }
 }
 
+// меняет очередность подсекций в десктоп
 .adv_wrap {
     @media screen and (min-width: $desktop) {
         display: flex;
@@ -13,6 +15,7 @@
     }
 }
 
+// стилизирует заглавие секции
 .adv_title {
     font-family: $textFont;
     font-weight: 600;
@@ -28,6 +31,7 @@
     margin-bottom: 20px;
     margin-left: 80px;
     position: relative;
+    // Добавляет черту перез заглавием секции
     &::before {
         content: "";
         position: absolute;
@@ -40,6 +44,7 @@
     }
 }
 
+// стилизирует заголовок секции
 .adv_header {
     margin-bottom: 20px;
     font-family: $headerFont;
@@ -50,6 +55,7 @@
     color: $ordinaryColor;
 }
 
+// Стилизирует описание секции
 .adv_description {
     font-family: $textFont;
     font-size: 18px;
@@ -58,12 +64,14 @@
     color: $textColor;
 }
 
+// Стилизирует список 
 .adv_list {
     display: flex;
     flex-wrap: wrap;
     padding: 0;
     margin-top: 0;
     margin-bottom: 0;
+    // Задает ширину списка для разных медиапортов
     @media screen and (min-width: $tablet) {
         width: 450px;
         margin-left: auto;
@@ -74,6 +82,7 @@
     }
 }
 
+// задает ширину и стили элементам списка
 .adv_item {
     list-style: none;
     width: calc((100% - 30px) / 2);
@@ -84,16 +93,24 @@
     text-align: center;
     color: $ordinaryColor;
     background-color: $bgLightColor;
-    padding: 20px 0 20px 0;
+    @media screen and (max-width: 1199px) {
+        padding: 20px 32px 20px 32px;
+    }
+    @media screen and (min-width: 1200px) {
+        padding: 20px 18px 20px 18px;
+    }
+    // Задает отступы нечетным элементам списка
     &:nth-child(2n+1) {
         margin-right: 30px;
         margin-bottom: 30px;
     }
+    // Задает отступы четным элементам списка
     &:nth-child(2n+2) {
         margin-top: 30px;
     }
 }
 
+// Стилизирует заголовок элемента
 .adv_num {
     display: inline;
     position: relative;
@@ -105,14 +122,7 @@
     color: $ordinaryColor;
 }
 
-.adv_num_descr {
-    font-family: Open Sans;
-    font-weight: 600;
-    font-size: 11px;
-    line-height: 15px;
-    text-align: center;
-}
-
+// Позиционирует иконку "плюсик"
 .icon-plus {
     position: absolute;
     top: 25%;
