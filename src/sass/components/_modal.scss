@@ -1,182 +1,140 @@
 .backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  @include all-space-tl();
   background-color: $bg-modal-overlay-color;
   z-index: 98;
   overflow-y: scroll;
 
-  @media screen and (max-width: $tablet - 1) {
-    padding-top: 93px;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
+  padding-top: 20px; //бэкдроп это фон, здесь нужен только верхний отступ, остальные стили в модалке
 
-  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
-    padding-top: 208px;
-    padding-right: 159px;
-    padding-left: 159px;
-  }
+  // @media screen and (max-width: $tablet - 1) {
+  //   padding-top: 93px;
+  //   padding-right: 15px;
+  //   padding-left: 15px;
+  // }
 
-  @media screen and (min-width: $desktop) {
-    padding-top: 221px;
-    padding-right: 536px;
-    padding-left: 536px;
-  }
+  // @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+  //   padding-top: 208px;
+  //   padding-right: 159px;
+  //   padding-left: 159px;
+  // }
+
+  // @media screen and (min-width: $desktop) {
+  //   padding-top: 221px;
+  //   padding-right: 536px;
+  //   padding-left: 536px;
+  // }
 
   opacity: 1;
-  transition: opacity 250ms $timing-function;
+  visibility: visible; //второе свойство (ч.г. не знаю для чего)
+
+  //так симпатичней----------------
+  @include transition(opacity, visibility);
+  // transition: opacity 250ms $timing-function;
 
   &.is-hidden {
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
   }
 
-  &.is-hidden .modal {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.7);
+  //Это стиль модалки, туда его и отправить
+  // &.is-hidden .modal {
+  //   opacity: 0;
+  //   transform: translate(-50%, -50%) scale(0.7);
+  // }
+}
+.modal {
+  position: relative;
+  margin: 0 auto; //для центрирования
+  padding: 55px;
+
+  transform: perspective(600px) scale(1) rotateX(0);
+  @include transition(transform);
+
+  .backdrop.is-hidden & {
+    // opacity: 0; // не нужно, т.к. будет следовать за бэкдроп
+    transform: perspective(600px) scale(0.7) rotateX(90deg);
   }
 
-  .modal {
-    position: relative;
-    padding: 55px;
+  //ниже предлагаю немного сократить код, т.к. много повторяется -------------------
+  //(стратегия мобайл-ферст все, что будет переопределяться - пишем без медиа правил для мобилки
 
-    @media screen and (max-width: $mobile - 1) {
-      max-width: 450px;
-    }
+  // @media screen and (max-width: $mobile - 1) {
+  max-width: 450px;
+  // }
 
-    @media screen and (min-width: $mobile) and (max-width: $tablet - 1) {
-      min-width: 450px;
-    }
+  // @media screen and (min-width: $mobile) and (max-width: $tablet - 1) {
+  //   min-width: 450px;
+  // }
 
-    @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
-      position: absolute;
-      width: 450px;
-      top: 50%;
-      left: 50%;
-      margin-top: 100px;
-    }
+  // @media screen and (min-width: $tablet) and (max-width: $desktop - 1) { //не нужен такой сложный оборот
+  // @media screen and (min-width: $tablet) {
+  //   position: absolute;
+  // width: 450px;
+  // top: 50%;
+  // left: 50%;
+  // margin-top: 100px;
+  // }
 
-    @media screen and (min-width: $desktop) {
-      position: absolute;
-      width: 528px;
-      top: 50%;
-      left: 50%;
-      margin-top: 100px;
-    }
-
-    background-color: $bg-white-color;
-    color: $primary-grey-color;
-
-    font-size: 20px;
-    line-height: 1.5;
-    font-weight: 700;
-
-    box-shadow: $modal-shadow;
-    border-radius: 4px;
-
-    z-index: 99;
-    opacity: 1;
-
-    @media screen and (min-width: $tablet) {
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    transition: transform 250ms $timing-function, opacity 250ms $timing-function;
-
-    &-title {
-      display: block;
-      margin-bottom: 30px;
-      font-family: $heading-font;
-      font-size: 24px;
-      line-height: 1.13;
-      text-align: center;
-    }
+  @media screen and (min-width: $desktop) {
+    // position: absolute;
+    width: 528px;
+    // top: 50%;
+    // left: 50%;
+    // margin-top: 100px;
   }
 
-  .modal-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: $primary-grey-color;
-    text-transform: uppercase;
+  background-color: $bg-white-color;
+  color: $primary-grey-color;
 
-    .modal-form-field {
-      position: relative;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 700;
 
-      @media screen and (max-width: $mobile - 1) {
-        max-width: 360px;
-      }
+  box-shadow: $modal-shadow;
+  border-radius: 4px;
 
-      @media screen and (min-width: $mobile) and (max-width: $desktop - 1) {
-        width: 360px;
-      }
+  // z-index: 99; // - оно ниже бекдропа по коду, и лежит в нем - повторит его индекс, но будет выше
+  // opacity: 1;
 
-      @media screen and (min-width: $desktop) {
-        width: 400px;
-      }
+  // @media screen and (min-width: $tablet) { - уже есть выше
+  //   transform: translate(-50%, -50%) scale(1);
+  // }
 
-      margin-bottom: 25px;
+  // transition: transform 250ms $timing-function, opacity 250ms $timing-function;
 
-      font-size: 14px;
-      line-height: 1.14;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-    }
+  //Это отдельный элемент - потеряется в этом классе, лучше ниже
+  // &-title {
+  //   display: block;
+  //   margin-bottom: 30px;
+  //   font-family: $heading-font;
+  //   font-size: 24px;
+  //   line-height: 1.13;
+  //   text-align: center;
+  // }
+}
 
-    .form-input {
-      width: 100%;
-      padding-top: 12px;
-      padding-bottom: 12px;
-      padding-left: 10px;
-      padding-right: 10px;
-      border-top: 0;
-      border-right: 0;
-      border-left: 0;
-      border-bottom: 1px solid $primary-grey-color;
-      border-radius: 0;
-      transition: border-color 250ms $timing-function;
-    }
+.modal-title {
+  display: block;
+  margin-bottom: 30px;
+  @include font(700, 24px, 1.13, $heading-font); //миксин сокращает код
+  // font-family: $heading-font;
+  // font-size: 24px;
+  // line-height: 1.13;
+  text-align: center;
+}
 
-    .form-input:focus {
-      border-color: $accent-color;
-      outline-color: $accent-color;
-    }
+.modal-form {
+  @include flex(); // для чего же мы миксины вводили
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  flex-direction: column; // вот тут не понял - для чего тогда флекс у формы ?
+  color: $primary-grey-color;
+  text-transform: uppercase;
 
-    .modal-form-label {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      color: $primary-grey-color;
-      transform: translateY(-50%);
-      transition: transform 250ms $timing-function, color 250ms $timing-function;
-    }
-
-    & .button {
-      max-width: 160px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    & .button:hover {
-      color: $primary-white-color;
-      background-color: $accent-color;
-    }
-  }
-
-  .modal-form-field:focus-within > .modal-form-label {
-    color: $accent-color;
-    transform: translateY(calc(-50% - 32px));
-  }
-
-  .form-input:not(:placeholder-shown) + .modal-form-label {
-    transform: translateY(calc(-50% - 32px));
-  }
-
-  .datetime-field {
+  .modal-form-field {
     position: relative;
 
     @media screen and (max-width: $mobile - 1) {
@@ -199,7 +157,7 @@
     letter-spacing: 0.01em;
   }
 
-  .datetime-input {
+  .form-input {
     width: 100%;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -213,158 +171,164 @@
     transition: border-color 250ms $timing-function;
   }
 
-  .datetime-input:focus {
+  .form-input:focus {
     border-color: $accent-color;
     outline-color: $accent-color;
   }
 
-  .datetime-label {
-    display: inline-block;
-    padding-top: 5px;
-    padding-left: 0;
-    padding-bottom: 5px;
+  .modal-form-label {
+    position: absolute;
+    top: 50%;
+    left: 0;
     color: $primary-grey-color;
-    transition: color 250ms $timing-function;
+    transform: translateY(-50%);
+    transition: transform 250ms $timing-function, color 250ms $timing-function;
   }
 
-  .datetime-field:focus-within > .datetime-label,
-  .datetime-input:not(:placeholder-shown) + .datetime-label {
-    color: $accent-color;
+  & .button {
+    max-width: 160px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .barber-field {
-    position: relative;
-    display: flex;
-    flex-direction: column;
+  & .button:hover {
+    color: $primary-white-color;
+    background-color: $accent-color;
+  }
+}
 
-    @media screen and (max-width: $mobile - 1) {
-      max-width: 360px;
-    }
+.modal-form-field:focus-within > .modal-form-label {
+  color: $accent-color;
+  transform: translateY(calc(-50% - 32px));
+}
 
-    @media screen and (min-width: $mobile) and (max-width: $desktop - 1) {
-      width: 360px;
-    }
+.form-input:not(:placeholder-shown) + .modal-form-label {
+  transform: translateY(calc(-50% - 32px));
+}
 
-    @media screen and (min-width: $desktop) {
-      width: 400px;
-    }
+.datetime-field {
+  position: relative;
 
-    margin-bottom: 25px;
-
-    font-size: 14px;
-    line-height: 1.14;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    border-bottom: 1px solid $primary-grey-color;
+  @media screen and (max-width: $mobile - 1) {
+    max-width: 360px;
   }
 
-  .barber-label {
-    display: inline-block;
-    padding-top: 5px;
-    padding-left: 0;
-    padding-bottom: 5px;
-    color: $primary-grey-color;
-    transition: color 250ms $timing-function;
+  @media screen and (min-width: $mobile) and (max-width: $desktop - 1) {
+    width: 360px;
   }
 
-  .barber-field:focus-within > .barber-label,
-  .barber-input:not(:placeholder-shown) + .barber-label {
-    color: $accent-color;
-  }
-  .barbers {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 10px;
-  }
-  .barber-choice {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  @media screen and (min-width: $desktop) {
+    width: 400px;
   }
 
-  .barber-name {
-    margin-right: 10px;
+  margin-bottom: 25px;
+
+  font-size: 14px;
+  line-height: 1.14;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.datetime-input {
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-bottom: 1px solid $primary-grey-color;
+  border-radius: 0;
+  transition: border-color 250ms $timing-function;
+}
+
+.datetime-input:focus {
+  border-color: $accent-color;
+  outline-color: $accent-color;
+}
+
+.datetime-label {
+  display: inline-block;
+  padding-top: 5px;
+  padding-left: 0;
+  padding-bottom: 5px;
+  color: $primary-grey-color;
+  transition: color 250ms $timing-function;
+}
+
+.datetime-field:focus-within > .datetime-label,
+.datetime-input:not(:placeholder-shown) + .datetime-label {
+  color: $accent-color;
+}
+
+.barber-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: $mobile - 1) {
+    max-width: 360px;
   }
 
-  .services-field {
-    position: relative;
-    display: flex;
-    align-items: stretch;
-    padding-top: 0;
-    padding-left: 0;
-    padding-right: 10px;
-    padding-bottom: 12px;
-
-    @media screen and (max-width: $mobile - 1) {
-      max-width: 360px;
-    }
-
-    @media screen and (min-width: $mobile) and (max-width: $desktop - 1) {
-      width: 360px;
-    }
-
-    @media screen and (min-width: $desktop) {
-      width: 400px;
-    }
-
-    margin-bottom: 25px;
-
-    font-size: 14px;
-    line-height: 1.14;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    border-bottom: 1px solid $primary-grey-color;
+  @media screen and (min-width: $mobile) and (max-width: $desktop - 1) {
+    width: 360px;
   }
 
-  .services-label {
-    display: inline-block;
-    padding-top: 5px;
-    padding-left: 0;
-    padding-bottom: 5px;
-    margin-right: 20px;
-    color: $primary-grey-color;
-    font-size: 14px;
-    line-height: 1.14;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    transition: color 250ms $timing-function;
-  }
-
-  .services-field:focus-within > .services-label {
-    color: $accent-color;
-  }
-
-  .services-field:focus-within > .services-choice {
-    outline-color: $accent-color;
-  }
-  .services-choice {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid $primary-grey-color;
+  @media screen and (min-width: $desktop) {
+    width: 400px;
   }
 
   .modal-message-field {
     position: relative;
 
-    @media screen and (max-width: $mobile - 1) {
-      max-width: 360px;
-    }
+  font-size: 14px;
+  line-height: 1.14;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid $primary-grey-color;
+}
 
-    @media screen and (min-width: $mobile) and (max-width: $desktop - 1) {
-      width: 360px;
-    }
+.barber-label {
+  display: inline-block;
+  padding-top: 5px;
+  padding-left: 0;
+  padding-bottom: 5px;
+  color: $primary-grey-color;
+  transition: color 250ms $timing-function;
+}
 
-    @media screen and (min-width: $desktop) {
-      width: 400px;
-    }
+.barber-field:focus-within > .barber-label,
+.barber-input:not(:placeholder-shown) + .barber-label {
+  color: $accent-color;
+}
+.barbers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 10px;
+}
+.barber-choice {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 
-    margin-bottom: 25px;
+.barber-name {
+  margin-right: 10px;
+}
 
-    font-size: 14px;
-    line-height: 1.14;
-    font-weight: 400;
-    letter-spacing: 0.01em;
+.services-field {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 10px;
+  padding-bottom: 12px;
+
+  @media screen and (max-width: $mobile - 1) {
+    max-width: 360px;
   }
 
   .modal-message-input {
@@ -400,158 +364,209 @@
     color: $accent-color;
   }
 
-  .policy {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-    text-transform: none;
+  @media screen and (min-width: $desktop) {
+    width: 400px;
   }
 
-  .personal-data {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
+  margin-bottom: 25px;
 
-    @media screen and (max-width: $desktop - 1) {
-      font-size: 12px;
-      line-height: 1.16;
-    }
+  font-size: 14px;
+  line-height: 1.14;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
 
-    @media screen and (min-width: $desktop) {
-      font-size: 14px;
-      line-height: 1.71;
-    }
+.message-input {
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-bottom: 1px solid $primary-grey-color;
+  border-radius: 0;
+  transition: border-color 250ms $timing-function;
+}
 
-    font-weight: 400;
-    letter-spacing: 0.03em;
+.message-input:focus {
+  border-color: $accent-color;
+  outline-color: $accent-color;
+}
 
-    &-agreement {
-      color: $accent-color;
-    }
+.message-label {
+  display: inline-block;
+  padding-top: 5px;
+  padding-left: 0;
+  padding-bottom: 5px;
+  color: $primary-grey-color;
+  transition: color 250ms $timing-function;
+}
 
-    &-agreement:active,
-    &-agreement:visited {
-      color: $accent-color;
-    }
-  }
+.message-field:focus-within > .message-label,
+.message-input:not(:placeholder-shown) + .message-label {
+  color: $accent-color;
+}
 
-  .confidentiality {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.policy {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  text-transform: none;
+}
 
-    @media screen and (max-width: $desktop - 1) {
-      font-size: 12px;
-      line-height: 1.16;
-    }
+.personal-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
 
-    @media screen and (min-width: $desktop) {
-      font-size: 14px;
-      line-height: 1.71;
-    }
-
-    font-weight: 400;
-    letter-spacing: 0.03em;
-
-    &-agreement {
-      color: $accent-color;
-    }
-
-    &-agreement:active,
-    &-agreement:visited {
-      color: $accent-color;
-    }
-  }
-
-  .checkbox {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
-
-  .icon-modal-checkbox {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin-right: 9px;
-    border: 2px solid $primary-grey-color;
-    border-radius: 2px;
-    transition: border-color 250ms $timing-function,
-      background-image 250ms $timing-function,
-      background-color 250ms $timing-function;
-  }
-
-  .checkbox:checked + .icon-modal-checkbox {
-    border-color: $accent-color;
-    background-image: url(../images/modal/checkbox.svg);
-    background-color: $accent-color;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-origin: border-box;
-  }
-
-  .button-close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    background-color: $bg-white-color;
-    border-radius: 50%;
-    border: 1px solid $accent-color;
-    outline-color: $accent-color;
-    text-align: center;
-  }
-
-  .icon-modal-close {
-    fill: $primary-grey-color;
-    transition: fill 250ms $timing-function;
-  }
-
-  .button-close:hover .icon-modal-close {
-    fill: $accent-color;
-  }
-
-  .button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 160px;
-    padding: 12px 20px;
-
-    color: $primary-grey-color;
-    background-color: $bg-white-color;
+  @media screen and (max-width: $desktop - 1) {
     font-size: 12px;
-    line-height: 1.33;
-    font-weight: 700;
-    letter-spacing: 0.09em;
-    text-align: center;
-    text-transform: uppercase;
-    border: 1px solid $accent-color;
-    border-radius: 25px;
-
-    transition: background-color 250ms $timing-function,
-      color 250ms $timing-function, transform 250ms $timing-function;
+    line-height: 1.16;
   }
 
-  .button {
-    &:hover,
-    &:focus {
-      color: $primary-white-color;
-      background-color: $accent-color;
-    }
+  @media screen and (min-width: $desktop) {
+    font-size: 14px;
+    line-height: 1.71;
   }
+
+  font-weight: 400;
+  letter-spacing: 0.03em;
+
+  &-agreement {
+    color: $accent-color;
+  }
+
+  &-agreement:active,
+  &-agreement:visited {
+    color: $accent-color;
+  }
+}
+
+.confidentiality {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: $desktop - 1) {
+    font-size: 12px;
+    line-height: 1.16;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 14px;
+    line-height: 1.71;
+  }
+
+  font-weight: 400;
+  letter-spacing: 0.03em;
+
+  &-agreement {
+    color: $accent-color;
+  }
+
+  &-agreement:active,
+  &-agreement:visited {
+    color: $accent-color;
+  }
+}
+
+.checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.icon-modal-checkbox {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 9px;
+  border: 2px solid $primary-grey-color;
+  border-radius: 2px;
+  transition: border-color 250ms $timing-function,
+    background-image 250ms $timing-function,
+    background-color 250ms $timing-function;
+}
+
+.checkbox:checked + .icon-modal-checkbox {
+  border-color: $accent-color;
+  background-image: url(../images/modal/checkbox.svg);
+  background-color: $accent-color;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+}
+
+.button-close {
+  @include flex(); // миксин
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-color: $bg-white-color;
+  border-radius: 50%;
+  border: 1px solid $accent-color;
+  outline-color: $accent-color;
+  text-align: center;
+}
+
+.icon-modal-close {
+  fill: $primary-grey-color;
+  transition: fill 250ms $timing-function;
+}
+
+.button-close:hover .icon-modal-close {
+  fill: $accent-color;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  padding: 12px 20px;
+
+  color: $primary-grey-color;
+  background-color: $bg-white-color;
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid $accent-color;
+  border-radius: 25px;
+
+  transition: background-color 250ms $timing-function,
+    color 250ms $timing-function, transform 250ms $timing-function;
+}
+
+.button {
+  &:hover,
+  &:focus {
+    color: $primary-white-color;
+    background-color: $accent-color;
+  }
+}
+
+.backdrop-area {
+  position: absolute;
+  @include all-space-tl();
+  cursor: default;
 }

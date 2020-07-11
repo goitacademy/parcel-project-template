@@ -82,7 +82,7 @@
     width: 100%;
     height: 100vh;
     padding-top: 118px;
-    padding-right: 31px;
+    padding-right: $cont-pad-mob;
     padding-left: calc(30% + 40px);
     text-align: left;
     z-index: 1;
@@ -185,6 +185,8 @@
 
   color: $primary-grey-color;
 
+  @include transition(color);
+
   &:hover,
   &:focus {
     color: $accent-color;
@@ -228,6 +230,8 @@
 
   color: $primary-grey-color;
 
+  @include transition(color);
+
   &:hover,
   &:focus {
     color: $accent-color;
@@ -257,6 +261,8 @@
   text-transform: uppercase;
 
   color: $primary-grey-color;
+
+  @include transition(color, background-color);
 
   &:hover,
   &:focus {
@@ -315,6 +321,8 @@
   @include font(600, 14px, 1.36);
 
   color: $primary-grey-color;
+
+  @include transition(color);
 
   &:hover,
   &:focus {
@@ -383,7 +391,9 @@
   }
 }
 
-.slogan-first {
+.break-line {
+  display: none;
+
   @media screen and (min-width: $tablet) {
     display: block;
   }
@@ -650,7 +660,7 @@
     text-align: right;
     position: absolute;
     top: 50%;
-    right: 39px;
+    right: $cont-pad-tab;
     transform: translateY(-50%);
     width: 18px;
     height: 30px;
@@ -659,7 +669,7 @@
   }
 
   @media screen and (min-width: $desktop) {
-    right: 55px;
+    right: $cont-pad-desk;
   }
 }
 
@@ -668,6 +678,8 @@
   height: 2px;
   margin-left: auto;
   background-color: $secondary-grey-color;
+
+  @include transition(background-color);
 
   &:not(:last-child) {
     margin-bottom: 12px;
