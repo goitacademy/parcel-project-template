@@ -1,5 +1,202 @@
 .hero {
-  width: 300px;
-  height: 300px;
-  background-color: aqua;
+  position: relative;
+
+  max-width: $mobile;
+  margin: 0px auto;
+
+  @media screen and (min-width: $tablet) {
+    max-width: $tablet;
+  }
+
+  @media screen and (min-width: $desktop) {
+    max-width: $desktop;
+  }
+}
+.hero-img-list,
+.hero-radio-list,
+.hero-button-list {
+  @extend %list;
+}
+.hero-img-list img {
+  margin: 0px auto;
+
+  @media screen and (min-width: $tablet) {
+    margin: 0px 0px 0px auto;
+  }
+}
+.slider-image1,
+.slider-image2 {
+  display: none;
+}
+.hero-content-container {
+  position: absolute;
+  top: 43.3vw;
+  left: 31px;
+
+  max-width: 306px;
+
+  @media screen and (min-width: $mobile) {
+    top: 208px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    top: 272px;
+    left: 279px;
+
+    max-width: 355px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    left: 255px;
+
+    max-width: 450px;
+  }
+}
+.hero-description {
+  margin: 0px 0px 20px;
+  padding: 0px;
+
+  font-weight: 600;
+  font-size: 2.3vw;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(157, 164, 189, 0.6);
+
+  &::before {
+    @include decor-line(rgba(157, 164, 189, 0.6));
+
+    margin: 0px 20px 4px 0px;
+  }
+
+  @media screen and (min-width: $mobile) {
+    font-size: 11px;
+  }
+}
+.hero-title {
+  margin: 0px 0px 20px;
+  padding: 0px;
+
+  font-size: 10vw;
+  color: $primary-white-color;
+
+  @media screen and (min-width: $mobile) {
+    font-size: 48px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 72px;
+    line-height: 1.18;
+  }
+}
+.hero-text {
+  margin: 0px;
+  padding: 0px;
+
+  font-size: 3.33vw;
+  line-height: 1.63;
+  color: $secondary-text-color;
+
+  @media screen and (min-width: $mobile) {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 18px;
+    line-height: 1.67;
+  }
+}
+.hero-radio-list {
+  display: none;
+
+  & > li:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    top: 325px;
+    right: 39px;
+
+    display: block;
+
+    @media screen and (min-width: $desktop) {
+      right: 55px;
+    }
+  }
+}
+.hero-radio-list input {
+  display: none;
+}
+.hero-radio-list label {
+  display: flex;
+  justify-content: flex-end;
+}
+.hero-radio-list label::before {
+  content: '';
+  display: block;
+  width: 15px;
+  height: 3px;
+
+  background-color: $secondary-text-color;
+  cursor: pointer;
+}
+.hero-radio-list input:checked + label::before {
+  width: 30px;
+
+  background-color: $primary-white-color;
+}
+.hero-button-list {
+  display: none;
+
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    top: 616px;
+    right: 39px;
+
+    display: flex;
+    flex-direction: row;
+
+    & > li:not(:last-child) {
+      margin-right: 26px;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    right: 55px;
+  }
+}
+.hero-button {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1px 0px 0px;
+
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.hero-button.back {
+  color: rgba(157, 164, 189, 0.6);
+
+  &::after {
+    margin-top: 8px;
+
+    @include decor-line(rgba(157, 164, 189, 0.6));
+  }
+}
+.hero-button.forward {
+  align-items: flex-end;
+
+  color: $primary-white-color;
+
+  &::after {
+    margin-top: 8px;
+
+    @include decor-line($primary-white-color);
+  }
 }
