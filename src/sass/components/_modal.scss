@@ -4,7 +4,8 @@ body.modal-open {
 
 .modal {
   position: relative;
-  box-shadow: 0px 2px 1px grey, 0px 1px 1px grey, 0px 1px 3px gray;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   padding: 40px;
 
@@ -13,6 +14,8 @@ body.modal-open {
   @media screen and (max-width: 767px) {
     width: 450px;
     height: 500px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   @media screen and (min-width: 768px) {
@@ -22,7 +25,7 @@ body.modal-open {
     transform: translate(-50%, -50%) scale(1);
 
     width: 450px;
-    height: 609px;
+    height: 500px;
   }
 }
 
@@ -38,7 +41,7 @@ body.modal-open {
   display: block;
   text-align: center;
 
-  font-weight: 700;
+  font-weight: 400;
   font-size: 30px;
   line-height: 1.16;
   letter-spacing: 0.05em;
@@ -52,20 +55,6 @@ body.modal-open {
   flex-direction: column;
   margin-top: 30px;
   margin-bottom: 28px;
-}
-
-.form-textarea {
-  position: relative;
-  resize: none;
-  height: 120px;
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 12px 16px 12px 16px;
-  outline: none;
-
-  @media screen and (max-width: 767px) {
-    width: 370px;
-  }
 }
 
 .form-field {
@@ -94,27 +83,39 @@ body.modal-open {
 .form-input {
   &:focus + .form-label,
   &:not(:placeholder-shown) + .form-label {
-    transform: translate(-23px, -40px);
-    color: blue;
+    transform: translate(0px, -40px);
+    color: $color-accent;
   }
 }
 
 .form-input {
   &:focus {
-    border-color: blue;
+    border-color: $color-accent;
   }
 }
 
 .form-textarea {
-  background-color: $color-footer-background;
+  position: relative;
+  resize: none;
   border: none;
   border-bottom: 1px solid rgba(157, 164, 189, 0.4);
+
+  height: 120px;
+  padding: 12px;
+  outline: none;
+
+  background-color: $color-footer-background;
+  color: $color-pale;
+
+  @media screen and (max-width: 767px) {
+    width: 370px;
+  }
 }
 
 .textarea-label {
   position: absolute;
   top: 12px;
-  left: 16px;
+  left: 12px;
   margin: 0;
 
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -133,13 +134,13 @@ body.modal-open {
   &:focus + .textarea-label,
   &:not(:placeholder-shown) + .textarea-label {
     transform: translateY(-30px);
-    color: blue;
+    color: $color-accent;
   }
 }
 
 .form-textarea {
   &:focus {
-    border-color: blue;
+    border-color: $color-accent;
   }
 }
 
@@ -153,7 +154,6 @@ body.modal-open {
   border: none;
   border-bottom: 1px solid rgba(157, 164, 189, 0.4);
   box-sizing: border-box;
-  border-radius: 4px;
 
   font-size: 14px;
   line-height: 1.14;
@@ -168,41 +168,20 @@ body.modal-open {
   }
 }
 
-.form-input {
-  &:focus ~ .form-icon {
-    fill: blue;
-  }
-}
-
 .submit-button {
   @extend %btn;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
   background-color: $color-footer-background;
   color: $color-pale;
-  //   width: 200px;
-  //   height: 50px;
-
-  //   border-radius: 4px;
-  //   padding: 6px 22px;
-  //   border-color: transparent;
-  //   margin-left: auto;
-  //   margin-right: auto;
-  //   justify-content: center;
-  //   align-items: center;
-
-  //   color: white;
-  //   background-color: blue;
-  //   font-family: inherit;
-  //   font-weight: 500;
-  //   font-size: 16px;
-  //   line-height: 1.62;
-  //   text-align: center;
-  //   letter-spacing: 0.03em;
 }
 
 .close-button {
   position: absolute;
-  top: 22px;
-  right: 17px;
+  top: 8px;
+  right: 8px;
   padding: 0px;
 
   width: 30px;
@@ -218,6 +197,6 @@ body.modal-open {
 .close-button {
   &:hover,
   &:focus {
-    fill: blue;
+    fill: $color-accent;
   }
 }
