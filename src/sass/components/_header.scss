@@ -12,15 +12,35 @@
 
 //header using componrents
 .container-for-header {
+  position: relative;
+
   min-height: 580px;
 
+  @media screen and (min-width: $viewport-breakpoint-2) {
+    min-height: 680px;
+  }
+
   background-color: $color-overlay;
+
+  svg {
+    display: block;
+    fill: currentColor;
+  }
 }
 
 .logo-barbershop {
+  position: relative;
   display: inline-block;
   width: 69px;
   height: 56px;
+  z-index: 1;
+
+  @media screen and (max-width: $viewport-breakpoint-2 - 1) {
+    color: $color-pale;
+  }
+  @media screen and (min-width: $viewport-breakpoint-2) {
+    left: 11px;
+  }
 }
 
 .title-greatest {
@@ -35,6 +55,7 @@
 }
 
 .page-social {
+  display: flex;
   position: relative;
 
   padding-left: 60px;
@@ -86,10 +107,8 @@
   }
 
   & > svg {
-    display: block;
     width: inherit;
     height: inherit;
-    fill: currentColor;
   }
 
   & .icon-close {
@@ -140,6 +159,13 @@
         margin-bottom: 0;
       }
     }
+
+    .page-social {
+      flex-direction: column;
+    }
+  }
+  @media screen and (min-width: $viewport-breakpoint-2) {
+    display: flex;
   }
 }
 //
@@ -153,16 +179,62 @@
     align-items: center;
   }
 
+  &-contacts {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media screen and (max-width: $viewport-breakpoint-2 - 1) {
+      min-height: 89px;
+    }
+    @media screen and (min-width: $viewport-breakpoint-2) {
+      flex-direction: column-reverse;
+      align-items: center;
+      min-height: 76px;
+      margin-left: 47px;
+    }
+  }
+
   &-tel {
     @extend .site-nav-link;
-    margin-bottom: 24px;
   }
 
   &-button {
     @extend %btn;
-    padding-left: 37px;
-    padding-right: 37px;
+
     background-color: transparent;
+    @media screen and (max-width: $viewport-breakpoint-2 - 1) {
+      padding-left: 36px;
+      padding-right: 36px;
+    }
+  }
+
+  &-social {
+    @media screen and (min-width: $viewport-breakpoint-2) {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform-origin: top left;
+      transform: translateY(100%) rotate(-90deg);
+
+      width: 680px;
+      height: calc(159px + (100vw - 768px) / 2);
+
+      background-color: #ffffffba;
+
+      padding-left: 40px;
+
+      .page-social {
+        position: absolute;
+        top: calc(80px + (100vw - 768px) / 2);
+        transform: translateY(-50%);
+
+        &-link {
+          font-size: 11px;
+          line-height: 1.36;
+        }
+      }
+    }
   }
 }
 
@@ -173,6 +245,9 @@
     flex-direction: column;
   }
 
+  &-item {
+    margin-left: 24px;
+  }
   &-link {
     @extend %accent-hover;
 
@@ -186,6 +261,13 @@
     text-decoration: none;
 
     color: $color-basic;
+
+    @media screen and (min-width: $viewport-breakpoint-2) {
+      font-size: 12px;
+      line-height: 1.33;
+
+      color: $color-pale;
+    }
   }
 }
 
