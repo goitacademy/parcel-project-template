@@ -4,8 +4,8 @@ const refs = {
   backdrop: document.querySelector('[data-backdrop]'),
 };
 
-for (var i = 0, len = refs.openModalBtn.length;  i < len; i++) {
-  refs.openModalBtn[i].addEventListener('click', toggleModal);}
+for (var OMB of refs.openModalBtn) {
+  OMB.addEventListener('click', toggleModal)}
   refs.closeModalBtn.addEventListener('click', toggleModal);
 
 refs.backdrop.addEventListener('click', logBackdropClick);
