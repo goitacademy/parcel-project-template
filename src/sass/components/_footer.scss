@@ -1,24 +1,67 @@
-.page-footer {
-  margin: 0;
-  background-color: #191c26;
-}
+// .page-footer {
+
+//   // background-color: #191c26;
+// }
 .online-rec {
-  margin: 0;
   padding-top: 84px;
   padding-bottom: 84px;
+  background-color: #191c26;
+}
+.form-list {
+  display: flex;
+  flex-wrap: wrap;
+  .item:first-child {
+    margin-right: 30px;
+  }
 }
 .form-title {
   @extend %second-section-titles;
   color: $color-pale;
   margin-bottom: 40px;
   text-align: center;
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
 }
 .form-input {
   width: 100%;
   margin-bottom: 44px;
   padding-bottom: 8px;
   resize: none;
+  @media screen and (min-width: 768px) {
+    width: 330px;
+  }
+  background-color: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid $color-text-on-dark;
 
+  font-family: $font-main-text;
+  color: $color-input-text;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+  &:hover {
+    color: $color-pale;
+    border-bottom: 1px solid $color-pale;
+    cursor: pointer;
+  }
+  &:hover::placeholder {
+    color: $color-pale;
+  }
+}
+.contact-input {
+  width: 100%;
+  margin-bottom: 44px;
+  padding-bottom: 8px;
+  resize: none;
+  @media screen and (min-width: 768px) {
+    width: 690px;
+  }
   background-color: transparent;
   border-top: none;
   border-right: none;
@@ -45,26 +88,44 @@
 .form-button {
   @extend %btn;
   display: block;
-  margin-right: auto;
-  margin-left: auto;
+
   background-color: transparent;
   color: $color-pale;
+  @media screen and (max-width: 767px) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media screen and (min-width: 768px) {
+    margin-right: auto;
+  }
 }
 .contacts {
   padding-top: 84px;
   padding-bottom: 84px;
-  margin: 0;
-  background-image: url(..\images\footer-contacts.png);
+  background-color: #191c26;
+  background-image: url(../images/footer-contacts.png);
   background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 496px;
 
   font-style: inherit;
 }
+.contacts-flex {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 .contacts-title {
   @extend %second-section-titles;
   color: $color-pale;
   margin-bottom: 40px;
   text-align: center;
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
 }
 
 .contacts-list-item {
@@ -132,15 +193,26 @@
   letter-spacing: 0.02em;
 }
 .footer {
-  margin: 0;
   background-color: $color-fog;
+  padding-top: 44px;
+  padding-bottom: 44px;
+}
+@media screen and (min-width: 768px) {
+  .footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+  }
 }
 .social-list {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-bottom: 20px;
 
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
   &::before {
     content: '';
     width: 60px;
@@ -168,7 +240,6 @@
 }
 
 .copyright {
-  padding-bottom: 44px;
   color: $color-text-on-dark;
   font-family: $font-main-text;
 
