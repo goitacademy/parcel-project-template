@@ -1,0 +1,323 @@
+// Стили хедера
+
+// $primeryTextColor: #303030;
+// $secondaryTextColor: #555555;
+// $whiteTextColor: #fff;
+// $primeryAccentTextColor: #9DA4BD;
+// $secondaryAccentTextColor: rgba(157, 164, 189, 0.6);
+// $accentLinkColor: #FF6C00;
+// $primeryBgColor: #fff;
+// $secondaryBgColor: #F7F7F7;
+// $primeryFont: Open Sans,
+// sans-serif;
+// $secondaryFont: Raleway,
+// sans-serif;
+// $mobile: 480px;
+// $tablet: 768px;
+// $desktop: 1200px;
+
+// Стили хедера
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.1);
+
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.header.out {
+  transform: translateY(-100%);
+}
+
+a {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: $accentLinkColor;
+  }
+}
+
+.headerWrap {
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (max-width: $preTablet) {
+    max-width: 90%;
+    padding-top: 40px;
+    // padding: 40px 39px 0 39px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $preDesktop) {
+    width: 90%;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: $desktop;
+  }
+}
+
+.headerMobile {
+  @media screen and (max-width: $preTablet) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  fill: $whiteTextColor;
+}
+
+.buttonMenu {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+
+  border: none;
+
+  fill: $whiteTextColor;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 100;
+
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(25, 28, 38, 0.2);
+  z-index: 10;
+  // overflow-y: scroll;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+@media screen and (max-width: $preTablet) {
+  .buttonMenu .icon-cross {
+    display: none;
+  }
+
+  .buttonMenu.is-open .icon-cross {
+    display: block;
+  }
+
+  .buttonMenu.is-open {
+    fill: $primeryTextColor;
+  }
+
+  .buttonMenu.is-open .icon-menu {
+    display: none;
+  }
+
+  .backdrop.is-visible {
+    opacity: 1;
+    // overflow-y: scroll;
+    pointer-events: auto;
+  }
+
+  .buttonMenu .icon-menu,
+  .icon-cross {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .buttonMenu:hover,
+  .buttonMenu:focus {
+    .icon-menu,
+    .icon-cross {
+      fill: $accentLinkColor;
+    }
+  }
+}
+
+.siteNav-item {
+  @media screen and (max-width: $preTablet) {
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $preDesktop) {
+    &:not(:first-child) {
+      margin-left: 24px;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    &:not(:first-child) {
+      margin-left: 40px;
+    }
+  }
+}
+
+.sideBar {
+  @media screen and (max-width: $preTablet) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    padding: 118px 105px 227px 40px;
+
+    z-index: 50;
+
+    background-color: $primeryBgColor;
+
+    transform: translateX(100%);
+
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.is-open {
+      transform: translateX(0);
+      overflow-y: scroll;
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-left: 80px;
+
+    font-size: 12px;
+    line-height: 1.33;
+  }
+}
+
+.buttonMenu {
+  .icon-cross {
+    fill: $primeryTextColor;
+  }
+}
+
+.siteNav,
+.headerSocial {
+  @extend %list;
+}
+
+.siteNav-link,
+.headerSocial-link,
+.tel {
+  text-decoration: none;
+
+  color: $primeryTextColor;
+
+  @media screen and (min-width: $tablet) {
+    color: $whiteTextColor;
+  }
+}
+
+.siteNav-link {
+  @media screen and (min-width: $tablet) {
+    display: block;
+    padding: 52px 0px;
+  }
+}
+
+.siteNav {
+  @media screen and (max-width: $preTablet) {
+    margin-bottom: 64px;
+
+    font-size: 18px;
+    line-height: 1.39;
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    // justify-content: space-evenly;
+  }
+}
+
+.tel {
+  display: block;
+
+  @media screen and (min-width: $desktop) {
+    padding: 52px 0;
+  }
+}
+
+@media screen and (max-width: $preTablet) {
+  .headerSocial-link {
+    &:first-child::before {
+      content: '';
+      display: inline-block;
+      width: 60px;
+      height: 1px;
+      margin-right: 20px;
+      background-color: #303030;
+    }
+  }
+
+  .headerSocial-item {
+    &:first-child {
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.headerSocial {
+  display: none;
+  @media screen and (max-width: $preTablet) {
+    display: block;
+  }
+}
+
+@media screen and (max-width: $preTablet) {
+  .sideBar {
+    .tel {
+      margin-bottom: 24px;
+    }
+
+    .contacts {
+      margin-bottom: 64px;
+    }
+  }
+}
+
+.contacts {
+  @media screen and (min-width: $tablet) {
+    margin-left: auto;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $preDesktop) {
+    display: flex;
+    flex-direction: column-reverse;
+
+    .button {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    display: flex;
+
+    .button {
+      height: 40px;
+      margin: 40px 0 40px 40px;
+    }
+  }
+}
