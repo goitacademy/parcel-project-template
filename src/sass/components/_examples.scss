@@ -1,0 +1,53 @@
+.examples-description {
+  text-transform: uppercase;
+  font-family: $main-font;
+  color: $primary-text-color;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  margin: 0px;
+  @media screen and (min-width: $desktop) {
+    padding: 130px 0px 44px 135px;
+  }
+  @media screen and (min-width: $tablet) {
+    padding: 100px 0px 44px 119px;
+    line-height: 1.36;
+  }
+  @media screen and (max-width: $tablet - 1) {
+    padding: 84px 0px 44px 111px;
+    line-height: 1.91;
+  }
+}
+
+.examples-list {
+  @extend %link;
+  list-style: none;
+  display: flex;
+  padding: 0px 55px 130px 55px;
+  margin: 0;
+  @media screen and (max-width: $desktop - 1) {
+    flex-wrap: wrap;
+  }
+}
+.examples-list-item {
+  @media screen and (min-width: $desktop) {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    width: calc((100% - 30px) / 2);
+
+    &:nth-child(2n + 1) {
+      margin-right: 30px;
+    }
+    &:not(:nth-last-child(-n + 2)) {
+      margin-bottom: 30px;
+    }
+  }
+  @media screen and (max-width: $tablet - 1) {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+}
