@@ -282,56 +282,101 @@
   .modal-message-field {
     position: relative;
 
-  font-size: 14px;
-  line-height: 1.14;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  border-bottom: 1px solid $primary-grey-color;
-}
-
-.barber-label {
-  display: inline-block;
-  padding-top: 5px;
-  padding-left: 0;
-  padding-bottom: 5px;
-  color: $primary-grey-color;
-  transition: color 250ms $timing-function;
-}
-
-.barber-field:focus-within > .barber-label,
-.barber-input:not(:placeholder-shown) + .barber-label {
-  color: $accent-color;
-}
-.barbers {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 10px;
-}
-.barber-choice {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.barber-name {
-  margin-right: 10px;
-}
-
-.services-field {
-  position: relative;
-  display: flex;
-  align-items: stretch;
-  padding-top: 0;
-  padding-left: 0;
-  padding-right: 10px;
-  padding-bottom: 12px;
-
-  @media screen and (max-width: $mobile - 1) {
-    max-width: 360px;
+    font-size: 14px;
+    line-height: 1.14;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    border-bottom: 1px solid $primary-grey-color;
   }
 
-  .modal-message-input {
+  .barber-label {
+    display: inline-block;
+    padding-top: 5px;
+    padding-left: 0;
+    padding-bottom: 5px;
+    color: $primary-grey-color;
+    transition: color 250ms $timing-function;
+  }
+
+  .barber-field:focus-within > .barber-label,
+  .barber-input:not(:placeholder-shown) + .barber-label {
+    color: $accent-color;
+  }
+  .barbers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 10px;
+  }
+  .barber-choice {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .barber-name {
+    margin-right: 10px;
+  }
+
+  .services-field {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 10px;
+    padding-bottom: 12px;
+
+    @media screen and (max-width: $mobile - 1) {
+      max-width: 360px;
+    }
+
+    .modal-message-input {
+      width: 100%;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-top: 0;
+      border-right: 0;
+      border-left: 0;
+      border-bottom: 1px solid $primary-grey-color;
+      border-radius: 0;
+      transition: border-color 250ms $timing-function;
+    }
+
+    .modal-message-input:focus {
+      border-color: $accent-color;
+      outline-color: $accent-color;
+    }
+
+    .modal-message-label {
+      display: inline-block;
+      padding-top: 5px;
+      padding-left: 0;
+      padding-bottom: 5px;
+      color: $primary-grey-color;
+      transition: color 250ms $timing-function;
+    }
+
+    .modal-message-field:focus-within > .modal-message-label,
+    .modal-message-input:not(:placeholder-shown) + .modal-message-label {
+      color: $accent-color;
+    }
+
+    @media screen and (min-width: $desktop) {
+      width: 400px;
+    }
+
+    margin-bottom: 25px;
+
+    font-size: 14px;
+    line-height: 1.14;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  .message-input {
     width: 100%;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -345,12 +390,12 @@
     transition: border-color 250ms $timing-function;
   }
 
-  .modal-message-input:focus {
+  .message-input:focus {
     border-color: $accent-color;
     outline-color: $accent-color;
   }
 
-  .modal-message-label {
+  .message-label {
     display: inline-block;
     padding-top: 5px;
     padding-left: 0;
@@ -359,214 +404,170 @@
     transition: color 250ms $timing-function;
   }
 
-  .modal-message-field:focus-within > .modal-message-label,
-  .modal-message-input:not(:placeholder-shown) + .modal-message-label {
+  .message-field:focus-within > .message-label,
+  .message-input:not(:placeholder-shown) + .message-label {
     color: $accent-color;
   }
 
-  @media screen and (min-width: $desktop) {
-    width: 400px;
+  .policy {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    text-transform: none;
   }
 
-  margin-bottom: 25px;
+  .personal-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
 
-  font-size: 14px;
-  line-height: 1.14;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-}
+    @media screen and (max-width: $desktop - 1) {
+      font-size: 12px;
+      line-height: 1.16;
+    }
 
-.message-input {
-  width: 100%;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-top: 0;
-  border-right: 0;
-  border-left: 0;
-  border-bottom: 1px solid $primary-grey-color;
-  border-radius: 0;
-  transition: border-color 250ms $timing-function;
-}
+    @media screen and (min-width: $desktop) {
+      font-size: 14px;
+      line-height: 1.71;
+    }
 
-.message-input:focus {
-  border-color: $accent-color;
-  outline-color: $accent-color;
-}
+    font-weight: 400;
+    letter-spacing: 0.03em;
 
-.message-label {
-  display: inline-block;
-  padding-top: 5px;
-  padding-left: 0;
-  padding-bottom: 5px;
-  color: $primary-grey-color;
-  transition: color 250ms $timing-function;
-}
+    &-agreement {
+      color: $accent-color;
+    }
 
-.message-field:focus-within > .message-label,
-.message-input:not(:placeholder-shown) + .message-label {
-  color: $accent-color;
-}
-
-.policy {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
-  text-transform: none;
-}
-
-.personal-data {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-
-  @media screen and (max-width: $desktop - 1) {
-    font-size: 12px;
-    line-height: 1.16;
+    &-agreement:active,
+    &-agreement:visited {
+      color: $accent-color;
+    }
   }
 
-  @media screen and (min-width: $desktop) {
-    font-size: 14px;
-    line-height: 1.71;
+  .confidentiality {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: $desktop - 1) {
+      font-size: 12px;
+      line-height: 1.16;
+    }
+
+    @media screen and (min-width: $desktop) {
+      font-size: 14px;
+      line-height: 1.71;
+    }
+
+    font-weight: 400;
+    letter-spacing: 0.03em;
+
+    &-agreement {
+      color: $accent-color;
+    }
+
+    &-agreement:active,
+    &-agreement:visited {
+      color: $accent-color;
+    }
   }
 
-  font-weight: 400;
-  letter-spacing: 0.03em;
-
-  &-agreement {
-    color: $accent-color;
+  .checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
   }
 
-  &-agreement:active,
-  &-agreement:visited {
-    color: $accent-color;
-  }
-}
-
-.confidentiality {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @media screen and (max-width: $desktop - 1) {
-    font-size: 12px;
-    line-height: 1.16;
+  .icon-modal-checkbox {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 9px;
+    border: 2px solid $primary-grey-color;
+    border-radius: 2px;
+    transition: border-color 250ms $timing-function,
+      background-image 250ms $timing-function,
+      background-color 250ms $timing-function;
   }
 
-  @media screen and (min-width: $desktop) {
-    font-size: 14px;
-    line-height: 1.71;
-  }
-
-  font-weight: 400;
-  letter-spacing: 0.03em;
-
-  &-agreement {
-    color: $accent-color;
-  }
-
-  &-agreement:active,
-  &-agreement:visited {
-    color: $accent-color;
-  }
-}
-
-.checkbox {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.icon-modal-checkbox {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  margin-right: 9px;
-  border: 2px solid $primary-grey-color;
-  border-radius: 2px;
-  transition: border-color 250ms $timing-function,
-    background-image 250ms $timing-function,
-    background-color 250ms $timing-function;
-}
-
-.checkbox:checked + .icon-modal-checkbox {
-  border-color: $accent-color;
-  background-image: url(../images/modal/checkbox.svg);
-  background-color: $accent-color;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-origin: border-box;
-}
-
-.button-close {
-  @include flex(); // миксин
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  background-color: $bg-white-color;
-  border-radius: 50%;
-  border: 1px solid $accent-color;
-  outline-color: $accent-color;
-  text-align: center;
-}
-
-.icon-modal-close {
-  fill: $primary-grey-color;
-  transition: fill 250ms $timing-function;
-}
-
-.button-close:hover .icon-modal-close {
-  fill: $accent-color;
-}
-
-.button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 160px;
-  padding: 12px 20px;
-
-  color: $primary-grey-color;
-  background-color: $bg-white-color;
-  font-size: 12px;
-  line-height: 1.33;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-align: center;
-  text-transform: uppercase;
-  border: 1px solid $accent-color;
-  border-radius: 25px;
-
-  transition: background-color 250ms $timing-function,
-    color 250ms $timing-function, transform 250ms $timing-function;
-}
-
-.button {
-  &:hover,
-  &:focus {
-    color: $primary-white-color;
+  .checkbox:checked + .icon-modal-checkbox {
+    border-color: $accent-color;
+    background-image: url(../images/modal/checkbox.svg);
     background-color: $accent-color;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-origin: border-box;
   }
-}
 
-.backdrop-area {
-  position: absolute;
-  @include all-space-tl();
-  cursor: default;
+  .button-close {
+    @include flex(); // миксин
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background-color: $bg-white-color;
+    border-radius: 50%;
+    border: 1px solid $accent-color;
+    outline-color: $accent-color;
+    text-align: center;
+  }
+
+  .icon-modal-close {
+    fill: $primary-grey-color;
+    transition: fill 250ms $timing-function;
+  }
+
+  .button-close:hover .icon-modal-close {
+    fill: $accent-color;
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    padding: 12px 20px;
+
+    color: $primary-grey-color;
+    background-color: $bg-white-color;
+    font-size: 12px;
+    line-height: 1.33;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid $accent-color;
+    border-radius: 25px;
+
+    transition: background-color 250ms $timing-function,
+      color 250ms $timing-function, transform 250ms $timing-function;
+  }
+
+  .button {
+    &:hover,
+    &:focus {
+      color: $primary-white-color;
+      background-color: $accent-color;
+    }
+  }
+
+  .backdrop-area {
+    position: absolute;
+    @include all-space-tl();
+    cursor: default;
+  }
 }
