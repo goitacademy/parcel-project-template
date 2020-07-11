@@ -10,7 +10,28 @@
   color: $color-accent;
 }
 
-//header using componrents
+%header-link {
+  @extend %accent-hover;
+
+  display: block;
+
+  font-family: $font-main-text;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+
+  color: $color-basic;
+
+  @media screen and (min-width: $viewport-breakpoint-2) {
+    font-size: 12px;
+    line-height: 1.34;
+
+    color: $color-pale;
+  }
+}
+
 .container-for-header {
   position: relative;
 
@@ -40,6 +61,10 @@
   }
   @media screen and (min-width: $viewport-breakpoint-2) {
     left: 11px;
+    top: -8px;
+  }
+  @media screen and (min-width: $viewport-breakpoint-3) {
+    left: 0px;
   }
 }
 
@@ -68,6 +93,10 @@
     top: 0;
 
     margin: 9px 0;
+
+    @media screen and (min-width: $viewport-breakpoint-2) {
+      margin: 7px 0;
+    }
   }
 
   &-item {
@@ -80,14 +109,13 @@
     display: block;
     font-weight: 600;
     font-size: 14px;
-    line-height: 1.36;
+    line-height: 1.37;
     letter-spacing: 0.2em;
     text-decoration: none;
     color: $color-basic;
   }
 }
 
-//
 .menu-mobile-toggle {
   display: none;
 
@@ -174,8 +202,14 @@
   @media screen and (min-width: $viewport-breakpoint-2) {
     display: flex;
   }
+  @media screen and (min-width: $viewport-breakpoint-3) {
+    flex-grow: 1;
+
+    justify-content: space-between;
+
+    padding-left: 32px;
+  }
 }
-//
 
 .page-header {
   padding-top: 40px;
@@ -183,7 +217,9 @@
   &-row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    @media screen and (max-width: $viewport-breakpoint-2 - 1) {
+      align-items: center;
+    }
   }
 
   &-contacts {
@@ -200,10 +236,15 @@
       min-height: 76px;
       margin-left: 47px;
     }
+    @media screen and (min-width: $viewport-breakpoint-3) {
+      flex-direction: row;
+      margin: 0;
+      min-height: initial;
+    }
   }
 
   &-tel {
-    @extend .site-nav-link;
+    @extend %header-link;
   }
 
   &-button {
@@ -213,6 +254,12 @@
     @media screen and (max-width: $viewport-breakpoint-2 - 1) {
       padding-left: 36px;
       padding-right: 36px;
+    }
+    @media screen and (min-width: $viewport-breakpoint-2) {
+      color: $color-pale;
+    }
+    @media screen and (min-width: $viewport-breakpoint-3) {
+      margin-left: 40px;
     }
   }
 
@@ -233,13 +280,22 @@
 
       .page-social {
         position: absolute;
-        top: calc(80px + (100vw - 768px) / 2);
+        top: calc(83px + (100vw - 768px) / 2);
         transform: translateY(-50%);
 
         &-link {
           font-size: 11px;
-          line-height: 1.36;
         }
+      }
+    }
+
+    @media screen and (min-width: $viewport-breakpoint-3) {
+      height: calc(155px + (100vw - 1280px) / 2);
+
+      .page-social {
+        position: absolute;
+        top: calc(80px + (100vw - 1280px) / 2);
+        transform: translateY(0);
       }
     }
   }
@@ -253,27 +309,19 @@
   }
 
   &-item {
-    margin-left: 24px;
+    @media screen and (min-width: $viewport-breakpoint-2) {
+      margin-left: 24px;
+    }
+    @media screen and (min-width: $viewport-breakpoint-3) {
+      margin-left: 40px;
+    }
   }
   &-link {
-    @extend %accent-hover;
-
-    display: block;
-
-    font-family: $font-main-text;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 1.4;
-    letter-spacing: 0.1em;
-    text-decoration: none;
-
-    color: $color-basic;
+    @extend %header-link;
 
     @media screen and (min-width: $viewport-breakpoint-2) {
-      font-size: 12px;
-      line-height: 1.33;
-
-      color: $color-pale;
+      padding-top: 12px;
+      padding-bottom: 12px;
     }
   }
 }
