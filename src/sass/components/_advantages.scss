@@ -1,0 +1,128 @@
+.advantages {
+  margin: 0 auto;
+  padding: 84px 31px;
+  font-family: $basic-font;
+  color: $primary-grey-color;
+
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 100px 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+}
+// (!) & = .advantages
+.advantages {
+  & .container {
+    padding: 0;
+
+    @media screen and (min-width: 1280px) {
+      width: 1280px;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-evenly;
+    }
+  }
+  & .header {
+    @extend %visually-hidden;
+  }
+  & .text-container {
+    margin-bottom: 44px;
+    @media screen and (min-width: 768px) {
+      width: 500px;
+    }
+  }
+  & .subtitle {
+    position: relative;
+    margin: 0 0 20px 0;
+    padding-left: 80px;
+
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  & .subtitle::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 1px;
+    left: 0px;
+    top: 50%;
+
+    background: $primary-grey-color;
+  }
+  & .title {
+    margin: 0 0 20px 0;
+    padding: 0;
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.17;
+    letter-spacing: 0.05em;
+  }
+  & .text {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.67;
+    letter-spacing: 0.02em;
+  }
+  & .list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 450px;
+    list-style-type: none;
+
+    @media screen and (min-width: 768px) {
+      margin-left: auto;
+    }
+    @media screen and (min-width: 1280px) {
+      margin-left: 0;
+    }
+  }
+  & .item {
+    display: block;
+    padding: 20px 35px;
+    background-color: $bg-grey-color;
+    width: calc((100% - 2 * 30px) / 2);
+    text-align: center;
+    // (!) & = .advantages .item
+    &:nth-child(odd) {
+      margin-bottom: 30px;
+      margin-right: 30px;
+    }
+    &:nth-child(even) {
+      margin-top: 30px;
+    }
+  }
+  // (!) & = .advantages
+  & .number {
+    position: relative;
+    margin: 0;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.36;
+    letter-spacing: 0.05em;
+  }
+  & .plus {
+    margin-left: 2px;
+    position: absolute;
+    top: 18px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.38px;
+    color: $accent-color;
+  }
+  & .desc {
+    margin: 0;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.36;
+  }
+}
