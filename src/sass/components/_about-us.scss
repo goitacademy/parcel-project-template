@@ -1,3 +1,6 @@
+.block.desc {
+	display: flex;
+}
 .section-title--small {
 	font-weight: 700;
 	font-size: 28px;
@@ -5,10 +8,13 @@
 	letter-spacing: 0.05em;
 	color: $primary-title-color-dk;
 	margin-bottom: 20px;
-}
-.image > img,
-.image-desc > img {
-	max-width: none;
+	@media screen and(min-width:1200px) {
+		font-weight: 700;
+		font-size: 42px;
+		line-height: 1.16;
+		letter-spacing: 0.05em;
+		color: $primary-title-color-dk;
+	}
 }
 
 .subdesc {
@@ -17,6 +23,13 @@
 	letter-spacing: 0.02em;
 	color: $primary-text-color-dk;
 	margin-bottom: 20px;
+	@media screen and(min-width:1200px) {
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 1.7;
+		letter-spacing: 0.02em;
+		color: $primary-text-color-dk;
+	}
 }
 
 .desc--small {
@@ -25,69 +38,43 @@
 	line-height: 1.9;
 	letter-spacing: 0.02em;
 	color: $primary-text-color-dk;
+	margin-bottom: 40px;
 }
 
 .desc.images {
-	display: none;
-}
-
-.desc-content__position:last-of-type {
-	margin-bottom: 25px;
-}
-
-.desc-content__position {
-	margin-bottom: 20px;
-}
-
-@media screen and (min-width: 768px) {
-	.desc-content {
-		margin-left: 30px;
-	}
-	.desc.images {
-		display: block;
-	}
-	.desc.image {
+	& .photo {
 		margin-bottom: 30px;
 	}
-
-	.desc.image:last-child {
-		margin-bottom: 0px;
+	@media screen and(max-width:767px) {
+		display: none;
 	}
-	.block.desc {
-		display: flex;
+	@media screen and(min-width:768px) {
+		display: block;
 	}
-	.desc.images {
-		margin-bottom: 0px;
-	}
-}
-
-.desc.images {
 	@media screen and (min-width: 1200px) {
 		display: none;
 	}
 }
 
-@media screen and (max-width: 1199px) {
-	.desc.image-desc {
-		display: none;
+.desc-content {
+	@media screen and (min-width: 768px) {
+		margin-left: 30px;
+		width: 50%;
+	}
+	@media screen and(min-width:1200px) {
+		margin-left: 64px;
+		width: 500px;
 	}
 }
 
-.desc.images-desc {
-	display: flex;
-	margin-bottom: 0px;
-}
-
-.desc.image-desc:first-child {
-	margin-right: 30px;
-	margin-bottom: 0px;
-}
-.desc.image-desc:last-child {
-	margin-bottom: 0px;
-}
-
-@media screen and (min-width: 1200px) {
-	.desc-content__position:last-of-type {
-		margin-bottom: 75px;
+.desc.image-desc {
+	& .photo {
+		margin-right: 30px;
+	}
+	@media screen and(min-width:1200px) {
+		display: inline-flex;
+	}
+	@media screen and (max-width: 1199px) {
+		display: none;
 	}
 }
