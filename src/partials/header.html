@@ -82,14 +82,70 @@
   </div>
 
   <section class="slider">
-    <img class="slider-slide" src="./images/slider1-mob.jpg" alt="Слайд №1" />
-    <img
-      class="slider-slide current"
-      src="./images/slider2-mob.jpg"
-      alt="Слайд №2"
-    />
-    <img class="slider-slide" src="./images/slider3-mob.jpg" alt="Слайд №3" />
-    <button class="slider-button">Назад</button>
-    <button class="slider-button">Вперед</button>
+    <div class="mySlides">
+      <img
+        class="slider-slide current"
+        src="./images/slider1-mob.jpg"
+        alt="Слайд №1"
+        style="width: 100%;"
+      />
+    </div>
+    <div class="mySlides">
+      <img
+        class="slider-slide current"
+        src="./images/slider2-mob.jpg"
+        alt="Слайд №2"
+        style="width: 100%;"
+      />
+    </div>
+    <div class="mySlides">
+      <img
+        class="slider-slide current"
+        src="./images/slider3-mob.jpg"
+        alt="Слайд №3"
+        style="width: 100%;"
+      />
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">Вперед</a>
+    <a class="next" onclick="plusSlides(1)">Назад</a>
   </section>
+  <br />
+
+  <div style="text-align: center;">
+    <span class="line" onclick="currentSlide(1)"></span>
+    <span class="line" onclick="currentSlide(2)"></span>
+    <span class="line" onclick="currentSlide(3)"></span>
+  </div>
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides((slideIndex += n));
+    }
+
+    function currentSlide(n) {
+      showSlides((slideIndex = n));
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName('mySlides');
+      let lines = document.getElementsByClassName('line');
+      if (n > slides.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = slides.length;
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      for (i = 0; i < lines.length; i++) {
+        lines[i].className = lines[i].className.replace(' active', '');
+      }
+      slides[slideIndex - 1].style.display = 'block';
+      lines[slideIndex - 1].className += ' active';
+    }
+  </script>
 </div>
