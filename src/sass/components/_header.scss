@@ -23,8 +23,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  transition: all 0.3s ease;
-  background-color: rgba(0, 0, 0, 0.1);
+  transition: transform 250ms $cubic;
+  z-index: 2;
 
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -34,14 +34,6 @@
   transform: translateY(-100%);
 }
 
-a {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    color: $accentLinkColor;
-  }
-}
 
 .headerWrap {
   margin-right: auto;
@@ -57,10 +49,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-
-  @media screen and (min-width: $tablet) and (max-width: $preDesktop) {
-    width: 90%;
+     width: 90%;
   }
 
   @media screen and (min-width: $desktop) {
@@ -78,17 +67,28 @@ a {
 
 .logo {
   fill: $whiteTextColor;
+
+  @media screen and (max-width: $preTablet) {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  }
+
+  @media screen and (min-width: $tablet) {
+    fill: $primeryTextColor;
+  }
 }
 
 .buttonMenu {
   width: 40px;
   height: 40px;
   padding: 0;
+  @include centeredFlex();
 
   border: none;
+  border-radius: 4px;
 
   fill: $whiteTextColor;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.15);
   cursor: pointer;
   z-index: 100;
 
@@ -104,11 +104,9 @@ a {
   width: 100%;
   height: 100%;
   background-color: rgba(25, 28, 38, 0.2);
-  z-index: 10;
-  // overflow-y: scroll;
+  z-index: 5;
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms $cubic;
 
   opacity: 0;
   pointer-events: none;
@@ -117,6 +115,9 @@ a {
 .modal-open {
   overflow: hidden;
 }
+
+// медиа правило для изменения кнопки и бекдропа 
+// при открытии меню
 
 @media screen and (max-width: $preTablet) {
   .buttonMenu .icon-cross {
@@ -137,14 +138,19 @@ a {
 
   .backdrop.is-visible {
     opacity: 1;
-    // overflow-y: scroll;
     pointer-events: auto;
   }
 
   .buttonMenu .icon-menu,
   .icon-cross {
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill 250ms $cubic;
   }
+
+  .buttonMenu {
+  .icon-cross {
+    fill: $primeryTextColor;
+  }
+}
 
   .buttonMenu:hover,
   .buttonMenu:focus {
@@ -155,9 +161,67 @@ a {
   }
 }
 
-.siteNav-item {
+.sideBar {
   @media screen and (max-width: $preTablet) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    padding: 118px 105px 227px 40px;
+    z-index: 10;
+
+    background-color: $primeryBgColor;
+    box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.16), 
+    -2px 0px 4px rgba(0, 0, 0, 0.08), 
+    -4px 0px 8px rgba(0, 0, 0, 0.04);
+
+    transform: translateX(100%);
+
+    transition: transform 250ms $cubic;
+
+    &.is-open {
+      transform: translateX(0);
+      overflow-y: scroll;
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    margin-left: 30px;
+
+    font-size: 12px;
+    line-height: 1.33;
+  }
+
+  @media screen and (min-width: 850px) {
+    margin-left: 70px;
+  }
+}
+
+.siteNav {
+  @media screen and (max-width: $preTablet) {
+    margin-bottom: 64px;
+
+    font-size: 18px;
+    line-height: 1.39;
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+  }
+}
+
+.siteNav-item {
+   @media screen and (max-width: $preTablet) {
     margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: $tablet) {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
   }
 
   @media screen and (min-width: $tablet) and (max-width: $preDesktop) {
@@ -173,47 +237,6 @@ a {
   }
 }
 
-.sideBar {
-  @media screen and (max-width: $preTablet) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    padding: 118px 105px 227px 40px;
-
-    z-index: 50;
-
-    background-color: $primeryBgColor;
-
-    transform: translateX(100%);
-
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    &.is-open {
-      transform: translateX(0);
-      overflow-y: scroll;
-    }
-  }
-
-  @media screen and (min-width: $tablet) {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    margin-left: 80px;
-
-    font-size: 12px;
-    line-height: 1.33;
-  }
-}
-
-.buttonMenu {
-  .icon-cross {
-    fill: $primeryTextColor;
-  }
-}
-
 .siteNav,
 .headerSocial {
   @extend %list;
@@ -222,7 +245,7 @@ a {
 .siteNav-link,
 .headerSocial-link,
 .tel {
-  text-decoration: none;
+  @include linkAccent();
 
   color: $primeryTextColor;
 
@@ -234,56 +257,21 @@ a {
 .siteNav-link {
   @media screen and (min-width: $tablet) {
     display: block;
-    padding: 52px 0px;
-  }
-}
-
-.siteNav {
-  @media screen and (max-width: $preTablet) {
-    margin-bottom: 64px;
-
-    font-size: 18px;
-    line-height: 1.39;
-  }
-
-  @media screen and (min-width: $tablet) {
-    display: flex;
-    // justify-content: space-evenly;
+    padding: 8px 8px;
   }
 }
 
 .tel {
-  display: block;
-
-  @media screen and (min-width: $desktop) {
-    padding: 52px 0;
-  }
-}
-
-@media screen and (max-width: $preTablet) {
-  .headerSocial-link {
-    &:first-child::before {
-      content: '';
-      display: inline-block;
-      width: 60px;
-      height: 1px;
-      margin-right: 20px;
-      background-color: #303030;
-    }
+  @media screen and (min-width: $tablet) {
+    height: 31px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
   }
 
-  .headerSocial-item {
-    &:first-child {
-      margin-bottom: 24px;
-    }
-  }
-}
-
-.headerSocial {
-  display: none;
-  @media screen and (max-width: $preTablet) {
-    display: block;
-  }
+  // @media screen and (min-width: $desktop) {
+  //   padding: 52px 0;
+  // }
 }
 
 @media screen and (max-width: $preTablet) {
@@ -298,26 +286,64 @@ a {
   }
 }
 
+.headerSocial {
+  display: none;
+  @media screen and (max-width: $preTablet) {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+  }
+}
+
+.headerSocial-item {
+  &:first-child::before {
+    content: '';
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    margin-right: 20px;
+    background-color: #303030;
+  }
+
+  &:first-child {
+    display: flex;
+    align-items: center;
+  }
+
+  @media screen and (max-width: $preTablet) {
+    &:first-child {
+      margin-bottom: 24px;
+    }
+  }
+}
+
 .contacts {
+  display: flex;
+  flex-direction: column;
+
   @media screen and (min-width: $tablet) {
     margin-left: auto;
+
+    .button {
+     min-width: 160px;
+      height: 40px;
+      margin: 40px 0 40px 40px;
+    }
   }
 
   @media screen and (min-width: $tablet) and (max-width: $preDesktop) {
-    display: flex;
     flex-direction: column-reverse;
 
     .button {
-      margin-bottom: 20px;
+      margin-bottom: 12px;
+      margin-left: 0px;
     }
   }
 
   @media screen and (min-width: $desktop) {
-    display: flex;
-
-    .button {
-      height: 40px;
-      margin: 40px 0 40px 40px;
-    }
+    flex-direction: row;
+    align-items: center;
   }
 }
