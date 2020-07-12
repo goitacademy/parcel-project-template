@@ -1,30 +1,20 @@
 @mixin lineWithText($color) {
-    // // тект должен быть position relative/ и инлайн, либо блок с заданой шириной,
-    //  т.к. если стоит блок, он занимает всю ширину родителя,
-    //  и бефор ставиться left/right по родителю.
-    // Я еще подумаю, как это можно сделать максимально нормально, пока так (
-      
-      display: inline;
-      position: relative;
-      margin-left: 200px;
-      color: $color;
-      font-size: 11px;
-      text-transform: uppercase;
-      font-weight: 600;
-      font-size: 11px;
-      line-height: 21px;
-      letter-spacing: 0.1em;
-  
-      &:before {
-        content: "";
-        position: absolute;
-        width: 60px;
-        top: 50%;
-        transform: translateY(-50%);
-        left: -80px;
-        // -80рх по тому что длинна этой полоски 60рх + 20рх отступ от текста
-  
-        border-top: 1px solid;
-        border-color: inherit;
-      }
+  // Текcт должен быть
+  // position relative;
+  // display: inline/inline-flex/flex;
+  // left: 80px; что бы бефор не вылазил за край контейнера,
+  // т.к. он обсолютно спозиционирован.
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -80px;
+    // -80рх по тому что длинна этой полоски 60рх + 20рх отступ от текста
+
+    border-top: 1px solid;
+    border-color: inherit;
   }
+}
