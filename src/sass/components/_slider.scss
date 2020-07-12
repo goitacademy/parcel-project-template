@@ -8,12 +8,15 @@
   z-index: -1;
 
   @media screen and (min-width: $tablet) {
-    left: 0;
+    right: 0;
+    width: calc(100% - 159px);
   }
 }
 
 .slider-item {
   height: 100%;
+  background-repeat: no-repeat;
+  background-position: right;
 
   &:nth-child(1) {
     @include slider-image(url(../images/mobile-slider-1.jpg));
@@ -109,16 +112,93 @@
   }
 }
 
-.slider-buttons {
+.slider-nav {
   @extend %list;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  top: 50%;
+  right: 39px;
+  transform: translateY(-50%);
+
   @media screen and (max-width: $tablet - 1px) {
     display: none;
   }
 }
 
-.slider-controls {
+.slider-nav-item {
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+}
+
+.slider-nav-button {
+  @extend %button;
+  display: block;
+  width: 8px;
+  height: 2px;
+  padding: 0;
+  background-color: $secondaryTextColor;
+
+  &.current {
+    width: 18px;
+    background-color: $contrastColor;
+  }
+}
+
+.slider-control {
   @extend %list;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 182px;
   @media screen and (max-width: $tablet - 1px) {
     display: none;
+  }
+}
+
+.slider-control-item {
+  text-align: left;
+
+  &:nth-child(2) {
+    text-align: right;
+  }
+}
+
+.slider-control-button {
+  @extend %button;
+
+  display: block;
+  margin-left: 26px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+
+  color: $textTrColor;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+
+  background-color: unset;
+  text-align: inherit;
+
+  &::after {
+    content: '';
+    display: block;
+    margin-top: 8px;
+
+    background-color: $textTrColor;
+
+    width: 60px;
+    height: 1px;
+  }
+}
+
+.slider-control-button.current {
+  color: $contrastColor;
+
+  &::after {
+    background-color: $contrastColor;
   }
 }
