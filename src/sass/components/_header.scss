@@ -41,7 +41,7 @@
     min-height: 680px;
   }
 
-  background-color: $color-overlay;
+  background-color: rgba(25, 28, 38, 0.59);
 
   svg {
     display: block;
@@ -51,10 +51,10 @@
 
 .logo-barbershop {
   position: relative;
+  z-index: 3;
   display: inline-block;
   width: 69px;
   height: 56px;
-  z-index: 1;
 
   @media screen and (max-width: $viewport-breakpoint-2 - 1) {
     color: $color-pale;
@@ -69,6 +69,9 @@
 }
 
 .title-greatest {
+  margin: 0;
+  padding: 0;
+
   font-family: Raleway;
   font-style: normal;
   font-weight: 700;
@@ -77,6 +80,11 @@
   letter-spacing: 0.05em;
 
   color: $color-pale;
+
+  @media screen and (min-width: $viewport-breakpoint-3) {
+    font-size: 72px;
+    line-height: 1.19;
+  }
 }
 
 .page-social {
@@ -120,7 +128,7 @@
   display: none;
 
   position: relative;
-  z-index: 1;
+  z-index: 3;
 
   width: 40px;
   height: 40px;
@@ -154,14 +162,14 @@
   }
 }
 
-.menu-mobile-toggle.is-open .backdrop {
-
-  svg {
-    display: none;
-  }
-}
+// .menu-mobile-toggle.is-open .backdrop {
+//   svg {
+//     display: none;
+//   }
+// }
 
 .menu-mobile-container {
+  z-index: 2;
   @media screen and (max-width: $viewport-breakpoint-2 - 1) {
     display: none;
 
@@ -204,9 +212,8 @@
   }
   @media screen and (min-width: $viewport-breakpoint-3) {
     flex-grow: 1;
-
     justify-content: space-between;
-
+    height: 40px;
     padding-left: 32px;
   }
 }
@@ -274,7 +281,7 @@
       width: 680px;
       height: calc(159px + (100vw - 768px) / 2);
 
-      background-color: #ffffffba;
+      background-color: $color-pale;
 
       padding-left: 40px;
 
@@ -326,14 +333,25 @@
   }
 }
 
-/*-*/
-
-//greeting -section
 .greeting {
-  display: none;
-  position: absolute;
+  position: relative;
+  z-index: 1;
+  top: 112px;
+
+  max-width: 306px;
+
+  @media screen and (min-width: $viewport-breakpoint-2) {
+    max-width: 355px;
+    top: 156px;
+    left: 245px;
+  }
+
+  @media screen and (min-width: $viewport-breakpoint-3) {
+    max-width: 500px;
+  }
 
   &-subtitle {
+    display: flex;
     color: $color-subtitle-ondark;
 
     &::before {
@@ -354,7 +372,8 @@
 
 //slider - section
 .slider {
-  display: none;
+  position: absolute;
+  top: 0;
 
   &-slide {
     &.current {
