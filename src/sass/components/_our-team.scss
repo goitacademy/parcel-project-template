@@ -4,9 +4,25 @@
 .section-title {
   margin-bottom: 44px;
 }
+.titleContainer {
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (max-width: $preDesktop) {
+    max-width: 450px;
+  }
+}
 
 .list {
   @extend %list;
+}
+.photoThumb {
+  height: 346px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 .teammate {
   margin-top: 30px;
@@ -43,16 +59,13 @@
     border-radius: 50%;
     fill: $primeryTextColor;
 
-    &:hover,
-    &:focus {
-      fill: $accentLinkColor;
-    }
+    @include socailLinkAccent();
   }
 }
+
 .teamList {
   > .item {
     margin-bottom: 64px;
-    outline: solid 1px green;
     @media screen and (min-width: $tablet) and (max-width: $preDesktop) {
       margin-left: auto;
       margin-right: auto;
@@ -62,23 +75,9 @@
   @media screen and (min-width: $desktop) {
     display: flex;
   }
-  .item + .item {
+  > .item + .item {
     @media screen and (min-width: $desktop) {
       margin-left: 30px;
     }
-  }
-}
-.test {
-  margin-left: auto;
-  margin-right: auto;
-}
-.photo-thumb {
-  outline: 1px solid red;
-  height: 346px;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
   }
 }
