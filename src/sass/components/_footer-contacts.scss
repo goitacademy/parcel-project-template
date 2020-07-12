@@ -1,19 +1,25 @@
 // Временно...
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  padding-left: 31px;
+  padding-right: 31px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: 480px) and (max-width: 767px) {
     max-width: 480px;
-    padding-left: 31px;
-    padding-right: 31px;
   }
-  @media screen and (min-width: 768px) {
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
     max-width: 768px;
     padding-left: 39px;
     padding-right: 39px;
   }
+
   @media screen and (min-width: 1200px) {
     max-width: 1200px;
     padding-left: 15px;
@@ -36,20 +42,26 @@
 }
 // ----------------------------------------
 
-.footer-contacts {
+.section.footer-contacts {
   background-color: #191c26;
+
+  @media screen and (min-width: 1200px) {
+    max-width: 625px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }
 
 .contacts-title {
   margin-bottom: 40px;
+  text-align: center;
 
   font-weight: 700;
   font-size: 42px;
   line-height: 1.7;
-  text-align: center;
   letter-spacing: 0.05em;
 
-  color: #ffffff;
+  color: $white-color;
 
   @media screen and (min-width: 768px) {
     text-align: left;
@@ -57,7 +69,7 @@
 }
 
 .contacts-container {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
     display: flex;
     justify-content: space-between;
   }
@@ -72,18 +84,19 @@
   margin-bottom: 44px;
 
   @media screen and (min-width: 768px) {
-    &:not(:last-child) {
-      margin-right: 30px;
-    }
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 70px;
   }
 }
 
-// .contacts-item {
-//   @media screen and (min-width: 768px) {
-//     display: block;
-//     max-width: 230px;
-//   }
-// }
+.contacts-item {
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
 
 .contacts-img {
   margin-right: 20px;
@@ -98,10 +111,17 @@
   letter-spacing: 0.02em;
   text-decoration: none;
 
-  color: #9da4bd;
+  color: $secondary-text-color;
 
   &.email {
     text-decoration: underline;
+  }
+
+  &.adress {
+    @media screen and (min-width: 768px) {
+      display: inline-block;
+      max-width: 200px;
+    }
   }
 }
 
@@ -115,7 +135,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
-  color: #ffffff;
+  color: $white-color;
 
   &:before {
     content: '';
@@ -126,6 +146,6 @@
     left: -80px;
 
     border-top: 1px solid;
-    border-color: rgba(157, 164, 189, 0.4);
+    border-color: $add-title-color;
   }
 }
