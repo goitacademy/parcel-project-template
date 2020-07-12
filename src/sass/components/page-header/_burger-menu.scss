@@ -50,6 +50,9 @@
     width: 70%;
     height: 796px;
 
+
+    overflow-y: scroll;
+
     background-color: $white;
 
     box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.16),
@@ -60,6 +63,7 @@
     @include transition($property: opacity);
 
     pointer-events: none;
+
     .backdrop.is-open & {
       opacity: 1;
 
@@ -86,10 +90,17 @@
 
     opacity: 0;
 
-    @include transition($property: opacity);
     pointer-events: none;
+
+    @include transition($property: opacity);
+
     &.is-open {
       opacity: 1;
+
+      pointer-events: initial;
     }
   }
+}
+.body-hidden {
+  overflow: hidden;
 }

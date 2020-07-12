@@ -1,55 +1,86 @@
-.section.team {
+
+.section-team {
   background-color: $background-primaty-color;
-  display: flex;
-  justify-content: center;
+
 }
 .team__container {
   padding-top: 84px;
   padding-bottom: 84px;
-  @media screen and (min-width: 768px) {
+
+  @media screen and (min-width: $tablet) {
     max-width: 450px;
+  }
+  @media screen and (min-width: $desktop) {
+    max-width: 1200px;
+    padding: 130px 55px;
+  }
+}
+.team__main {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-family: $second-font;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.37;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $heading-text-color;
+  &::before {
+    @extend %line-before-black;
   }
 }
 .team__title {
   margin-bottom: 44px;
-  font-weight: 700;
+
   font-size: 42px;
+  font-weight: 700;
+
   line-height: 1.16;
   letter-spacing: 0.05em;
   color: $heading-text-color;
 }
-.team__list {
-  @media screen and (min-width: 1200px) {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -15px;
-  }
-}
 
 .team-card {
+  &__list {
+    @media screen and (min-width: 1200px) {
+      display: flex;
+    }
+  }
+
   &__name {
     @extend %main-font;
     padding-top: 30px;
     padding-bottom: 8px;
+
+    font-family: $second-font;
     line-height: 1.38;
   }
   &__post {
-    @extend %main-font;
     padding-bottom: 30px;
+    @extend %main-font;
+    font-family: $second-font;
+
     font-size: 14px;
     line-height: 1.36;
     color: $accent-color;
   }
-}
-.team-card__item {
-  text-align: center;
-  &:not(:last-child) {
-    margin-bottom: 64px;
+
+  &__item {
+    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: 64px;
+      @media screen and (min-width: $desktop) {
+        margin-bottom: 0;
+        margin-right: 30px;
+      }
+    }
   }
 }
-.card__socials {
+.socials {
   @extend %centeringVar;
-  .socials__item {
+  &__item {
+
     &:not(:last-child) {
       margin-right: 10px;
     }
@@ -64,8 +95,9 @@
   height: 44px;
   border-radius: 50%;
   background-color: $white;
-  //   transition: color $duration $timingFunction,
-  //     background-color $duration $timingFunction;
+
+  transition: fill 250ms $main-transition;
+
   &:hover,
   &:focus {
     fill: $accent-color;
