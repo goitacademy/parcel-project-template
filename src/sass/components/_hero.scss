@@ -172,6 +172,8 @@
 
   background-color: $secondary-text-color;
   cursor: pointer;
+
+  @include transitionII(width, background-color);
 }
 .hero-radio-list input:checked + label::before {
   width: 30px;
@@ -213,24 +215,28 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-}
-.hero-button.back {
   color: rgba(157, 164, 189, 0.6);
+
+  @include transitionI(color);
 
   &::after {
     margin-top: 8px;
 
     @include decor-line(rgba(157, 164, 189, 0.6));
+
+    @include transitionI(background-color);
+  }
+
+  &:hover,
+  &:focus {
+    color: $primary-white-color;
+
+    &::after {
+      @include decor-line($primary-white-color);
+    }
   }
 }
-.hero-button.forward {
+
+.forward {
   align-items: flex-end;
-
-  color: $primary-white-color;
-
-  &::after {
-    margin-top: 8px;
-
-    @include decor-line($primary-white-color);
-  }
 }
