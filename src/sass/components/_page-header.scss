@@ -40,18 +40,29 @@ body {
 
 // Кнопка меню мобилки
 .menu-button {
+  position: relative;
+  z-index: 500;
+
   display: block;
   padding: 0;
+
   border: none;
   outline: transparent;
   background-color: transparent;
 
+  fill: currentColor;
+  
+  cursor: pointer;
+
   .icon-menu {
-    fill: $contrastColor;
+    color: $contrastColor;
+    transition: color $transition;
   }
 
   .icon-close {
-    fill: $ordinaryColor;
+    display: none;
+    color: $ordinaryColor;
+    transition: color $transition;
   }
 
   @media screen and (min-width: $tablet) {
@@ -59,10 +70,30 @@ body {
   }
 }
 
-.menu-button.close {
-  margin-bottom: 30px;
-  margin-left: auto;
+.menu-button.is-open {
+  .icon-menu {
+    display: none;
+  }
+
+  .icon-close {
+    display: block;
+  }
 }
+
+.menu-button:hover,
+.menu-button:focus {
+  .icon-menu {
+    color: $accentColor;
+  }
+  .icon-close {
+    color: $accentColor;
+  }
+}
+
+// .menu-button.close {
+//   margin-bottom: 30px;
+//   margin-left: auto;
+// }
 
 // темный фон overlay
 .overlay-menu.is-open {
@@ -89,7 +120,7 @@ body {
     max-width: 337px;
     height: 796px;
 
-    padding: 48px 40px;
+    padding: 118px 40px;
 
     background-color: $contrastColor;
 
@@ -138,6 +169,7 @@ body {
 
   .link {
     @extend %link;
+    display: inline-block;
 
     font-weight: 600;
     font-size: 18px;
@@ -238,6 +270,7 @@ body {
   line-height: 1.33;
   letter-spacing: 0.09em;
   color: $ordinaryColor;
+  text-transform: uppercase;
 
   transition: color $transition,
   background-color $transition;
