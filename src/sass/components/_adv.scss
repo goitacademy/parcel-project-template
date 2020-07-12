@@ -1,8 +1,3 @@
-.advantages {
-    background: #fff;
-    padding: 130px 0;
-  }
-  
   .advantages-container {
     margin: 0 auto;
     width: 100%;
@@ -15,10 +10,9 @@
   }
   
   .advantages-numbers {
-    list-style: none;
+    @extend %list;
     width: 60%;
     margin: 0 auto;
-    padding: 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -31,7 +25,7 @@
     margin: 15px;
     font-size: 10px;
     font-weight: 600;
-    background: #f7f7f7;
+    background: $secondary-background-color;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,7 +49,7 @@
       content: '+';
       position: absolute;
       font-size: 12px;
-      color: #ff6c00;
+      color: $accent-color;
       font-weight: 600;
       right: -10px;
       top: -5px;
@@ -67,6 +61,7 @@
   }
   
   .advantages-title {
+    text-align: left;
     font-weight: 700;
     font-size: 2rem;
     width: 60%;
@@ -75,29 +70,28 @@
   }
   
   .advantages-suptitle {
+    text-align: left;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: 600;
     font-size: 11px;
     &:before {
-      content: '';
-      width: 60px;
+      @include decor-line($primary-text-color);
       margin-right: 10px;
-      background: #303030;
-      height: 1px;
       display: inline-block;
       vertical-align: middle;
     }
   }
   
   .advantages-text__content {
+    text-align: left;
     width: 70%;
     font-size: 14px;
     line-height: 30px;
     letter-spacing: 0.02em;
   }
   
-  @media screen and (max-width: 1040px) {
+  @media screen and (max-width: $desktop) {
     .advantages-text {
       width: 40%;
     }
@@ -131,7 +125,7 @@
     }
   }
   
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $tablet) {
     .advantages-container {
       flex-direction: column-reverse;
       > * {
@@ -144,23 +138,15 @@
       justify-content: center;
       align-items: center;
     }
-    .advantages-title,
-    .advantages-text__content {
-      margin-left: auto;
-      margin-right: auto;
-    }
     .advantages-suptitle {
       position: relative;
       &:before {
-        position: absolute;
-        left: 50%;
-        bottom: -5px;
-        transform: translateX(-50%);
+        width: 30px;
       }
     }
   }
   
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: $mobile) {
     .advantages-container {
       > * {
         width: 100%;
@@ -171,7 +157,7 @@
     }
   }
   
-  @media screen and (max-width: 370px) {
+  @media screen and (max-width: $mobile) {
     .advantages-title,
     .advantages-text__content {
       width: 90%;
