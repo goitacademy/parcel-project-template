@@ -49,7 +49,7 @@
   @media screen and (min-width: $desktop) {
     background-position: right;
     background-image: url(../images/contacts-d.png);
-    background-size: calc(50% - 30px);
+    background-size: calc(50% - 15px);
     // max-width: $desktop;
     // margin-right: auto;
     // margin-left: auto;
@@ -96,7 +96,13 @@
 
 // Форма онлайн-записи
 .clients-form {
-  margin-bottom: 84px;
+  @media screen and (max-width: 1279px) {
+    margin-bottom: 100px;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 84px;
+  }
 
   @media screen and (min-width: $desktop) {
     width: 600px;
@@ -297,14 +303,12 @@
   }
 }
 
-.contacts {
-  ul {
-    @extend %list;
-    margin-bottom: 44px;
+.contacts address {
+  @extend %list;
+  margin-bottom: 44px;
 
-    @media screen and (min-width: $desktop) {
-      margin-bottom: 70px;
-    }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 70px;
   }
 
   li:hover > a,
@@ -328,15 +332,11 @@
   a {
     display: flex;
     align-items: center;
-  }
 
-  li,
-  a {
     font-family: Open Sans;
     font-style: normal;
     font-size: 18px;
     line-height: 1.7;
-
     letter-spacing: 0.02em;
 
     color: $secondaryTextColor;
