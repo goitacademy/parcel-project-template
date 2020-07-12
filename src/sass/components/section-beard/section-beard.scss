@@ -1,11 +1,26 @@
 .section-beard {
+  margin-left: auto;
+  margin-right: auto;
+
   @media screen and (max-width: 767px) {
     max-width: 480px;
-    padding: 84px 31px 84px 31px;
+    padding: 84px 31px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 100px 39px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+    padding: 130px 15px;
   }
 }
 
 .section-beard__title {
+  margin-bottom: 44px;
+
   font-family: $second-font;
   font-weight: 600;
   font-size: 11px;
@@ -19,24 +34,67 @@
   @media screen and (min-width: 768px) {
     line-height: 1.36;
   }
+}
 
-  &::before {
-    @extend %line-before-black;
+.section-beard__title-wrapper::before {
+  @extend %line-before-black;
+  margin-top: 10px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 7px;
   }
 }
 
-.section-beard__image {
-  display: block;
-  width: 100%;
-  height: auto;
+.section-beard__title-wrapper {
+  display: inline-flex;
+}
 
+.section-beard__image {
   @media screen and (max-width: 767px) {
     max-width: 418px;
   }
 
-  &:not(:last-child) {
-    @media screen and (max-width: 767px) {
-      margin-bottom: 30px;
-    }
+  @media screen and (min-width: 768px) {
+    width: 330px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 270px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section-beard__item:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .section-beard__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .section-beard__item {
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
+
+  .section-beard__item:nth-child(2n) {
+    margin-right: 0;
+  }
+
+  .section-beard__item:nth-last-child(-n + 2) {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .section-beard__list {
+    display: flex;
+  }
+
+  .section-beard__item:not(:last-child) {
+    margin-right: 30px;
   }
 }
