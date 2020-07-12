@@ -1,12 +1,10 @@
-body {
-  overflow-x: hidden;
-}
-
 .page-header {
   position: absolute;
   top: 0;
   right: 0;
   left: 0;  
+
+  z-index: 100;
 }
 
 // Стили для навигации
@@ -80,21 +78,6 @@ body {
   }
 }
 
-.menu-button:hover,
-.menu-button:focus {
-  .icon-menu {
-    color: $accentColor;
-  }
-  .icon-close {
-    color: $accentColor;
-  }
-}
-
-// .menu-button.close {
-//   margin-bottom: 30px;
-//   margin-left: auto;
-// }
-
 // темный фон overlay
 .overlay-menu.is-open {
   @media screen and (max-width: $tablet - 1px) {
@@ -118,19 +101,16 @@ body {
     z-index: 100;
 
     max-width: 337px;
-    height: 796px;
+    min-height: 796px;
 
     padding: 118px 40px;
 
     background-color: $contrastColor;
 
-    transform: translateX(100%);
     opacity: 0;
 
-    transition: opacity $transition,
-      transform $transition;
+    transition: opacity $transition;
 
-//     overflow-y: scroll;
   }
 
   @media screen and (min-width: $tablet) {
@@ -144,7 +124,6 @@ body {
 .menu-container.is-open {
   @media screen and (max-width: $tablet - 1px) {
     opacity: 1;
-    transform: translateX(0);
   }
 }
 
