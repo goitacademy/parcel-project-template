@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
@@ -12,13 +12,81 @@
   <body>
     <!-- <include src="./partials/hero-page.html"></include> -->
 
+    <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
+    <!-- <include src="./partials/example.html"></include> -->
+    <!-- <include src="./partials/page-header.html"></include> -->
+    <include src="./partials/hero-page.html"></include>
+
+    <include src="./partials/price.html"></include>
+
     <include src="./partials/features.html"></include>
+
+    <include src="./partials/master.html"></include>
 
     <!-- <include src="./partials/master.html"></include>
 
     <include src="./partials/portfolio.html"></include> -->
 
+    <include src="./partials/contacts.html"></include>
+    <include src="./partials/footer.html"></include>
+
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
+    <!-- Скрипт для открытия мобильного меню в шапке -->
+    <script>
+      (() => {
+        const menuBtnRef = document.querySelector('[data-menu-button]');
+        const mobileMenuRef = document.querySelector('[data-menu]');
+        menuBtnRef.addEventListener('click', () => {
+          const expanded =
+            menuBtnRef.getAttribute('aria-expanded') === 'true' || false;
+          menuBtnRef.classList.toggle('is-open');
+          menuBtnRef.setAttribute('aria-expanded', !expanded);
+          mobileMenuRef.classList.toggle('is-open');
+        });
+      })();
+    </script>
+    <!-- JS Слайдера -->
+    <script>
+      /* Индекс слайда по умолчанию */
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      /* Функция увеличивает индекс на 1, показывает следующй слайд*/
+      function plusSlide() {
+        showSlides((slideIndex += 1));
+      }
+
+      /* Функция уменьшяет индекс на 1, показывает предыдущий слайд*/
+      function minusSlide() {
+        showSlides((slideIndex -= 1));
+      }
+
+      /* Устанавливает текущий слайд */
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      /* Основная функция слайдера */
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName('slider-item');
+        var dots = document.getElementsByClassName('slider-dots_item');
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(' active', '');
+        }
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].className += ' active';
+      }
+    </script>
   </body>
 </html>
