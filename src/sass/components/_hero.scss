@@ -4,7 +4,6 @@
 
   padding-top: 208px;
   padding-bottom: 183px;
-  z-index: -1;
 
   margin-right: auto;
   margin-left: auto;
@@ -16,6 +15,8 @@
   @media screen and (min-width: $tablet) {
     width: $tablet;
     height: 680px;
+    padding-top: 272px;
+    padding-bottom: 40px;
   }
 
   @media screen and (min-width: $desktop) {
@@ -23,14 +24,55 @@
   }
 }
 
-.hero-container {
-  @media screen and (min-width: $desktop) {
-    display: flex;
+.hero-social-list {
+  @extend %list;
+  position: absolute;
+  bottom: 40px;
+  left: 76px;
+
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  transform: rotate(-90deg);
+  transform-origin: bottom left;
+
+  &::after {
+    content: '';
+    display: block;
+    margin-right: 40px;
+    background-color: $ordinaryColor;
+
+    width: 60px;
+    height: 1px;
+  }
+
+  @media screen and (max-width: $tablet - 1px) {
+    display: none;
+  }
+}
+
+.hero-link {
+  @extend %link;
+
+  margin-right: 40px;
+  color: $ordinaryColor;
+
+  transition: color 250ms $transition, background-color 250ms $transition;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $accentColor;
   }
 }
 
 .hero-box {
   max-width: 306px;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 355px;
+    margin-left: 264px;
+  }
 }
 
 .hero-description {
@@ -38,7 +80,7 @@
   align-items: center;
   margin-bottom: 20px;
 
-  color: rgba(157, 164, 189, 0.6);
+  color: $textTrColor;
   font-weight: 600;
   font-size: 11px;
   line-height: 1.36;
@@ -47,9 +89,6 @@
 
   &::before {
     content: '';
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-right: 20px;
 
     background-color: $textTrColor;
@@ -62,6 +101,7 @@
 .hero {
   margin-bottom: 20px;
 
+  font-family: $headerFont;
   color: $contrastColor;
   font-weight: 700;
   font-size: 48px;
@@ -73,11 +113,4 @@
   font-size: 16px;
   line-height: 1.62;
   color: #9da4bd;
-}
-
-.hero-social-list {
-  @extend %list;
-  @media screen and (max-width: $tablet - 1px) {
-    display: none;
-  }
 }
