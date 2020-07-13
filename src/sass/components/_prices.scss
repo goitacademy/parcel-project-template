@@ -1,64 +1,90 @@
-.layout--price {
-	background-image: url(../images/slider2-mob.png);
-	padding: 84px 0;
+.price {
+	background-image: url(../images/price/price-mob.png);
 	background-color: #111319;
 	background-size: cover;
-	max-width: 1280px;
+	max-width: 480px;
+	margin-right: auto;
+	margin-left: auto;
 
-	@media screen and (min-width: 480px) {
-		width: 480px;
-	}
+
+	@media screen and (min-device-pixel-ratio: 2),
+		screen and (-webkit-min-device-pixel-ratio: 2),
+		screen and (-o-min-device-pixel-ratio: 2/1),
+		screen and (min-resolution: 192dpi),
+		screen and (min-resolution: 2dppx) {
+			background-image: url(../images/price/price-mob@2x.png);
+		}
 
 	@media screen and (min-width: 768px) {
-		background-image: url(../images/slider2-tab.png);
-		padding: 100px 0;
-		width: 768px;
+		background-image: url(../images/price/price-tab.png);
+		max-width: 768px;
+
+		@media screen and (min-device-pixel-ratio: 2),
+		screen and (-webkit-min-device-pixel-ratio: 2),
+		screen and (-o-min-device-pixel-ratio: 2/1),
+		screen and (min-resolution: 192dpi),
+		screen and (min-resolution: 2dppx) {
+			background-image: url(../images/price/price-tab@2x.png);
+		}
 	}
 
 	@media screen and (min-width: 1200px) {
-		width: 1280px;
-		background-image: url(../images/slider2-des.png);
-		padding: 130px 0;
-	}
-}
-.price-servises {
-	margin-bottom: 50px;
-	@media screen and(max-width:1199px) {
-		background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
-
-		padding: 30px;
-	}
-	@media screen and(min-width:1200px) {
-		display: flex;
-	}
-}
-
-.subtitle {
-	&.price {
-		font-size: $fs-text-mini;
-		line-height: 1.36;
-		letter-spacing: 0.09em;
-		color: $secondary-text-color;
-
-		&::before {
-			content: "";
-			display: inline-block;
-			width: 60px;
-			height: 6px;
-			border-top: 1px solid rgba(157, 164, 189, 0.6);
-			margin-right: 20px;
+		background-image: url(../images/price/price-des.png);
+		max-width: 1280px;
+		
+		@media screen and (min-device-pixel-ratio: 2),
+		screen and (-webkit-min-device-pixel-ratio: 2),
+		screen and (-o-min-device-pixel-ratio: 2/1),
+		screen and (min-resolution: 192dpi),
+		screen and (min-resolution: 2dppx) {
+			background-image: url(../images/price/price-des@2x.png);
 		}
 	}
+
+	.subtitle {
+		color: rgba(157, 164, 189, 0.6);
+	
+		&::before {
+		border-top: 1px solid rgba(157, 164, 189, 0.6);
+		}
+	}
+	
+	&-content {
+		margin-bottom: 50px;
+		@media screen and(max-width:1199px) {
+			background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
+	
+			padding: 30px;
+		}
+		@media screen and(min-width:1200px) {
+			display: flex;
+		}
+	}
+	.button-wrapper {
+		text-align: center;
+	}
 }
-.price-items {
-	&.primary--gradient {
+
+.price-list {
+	color: $primary-text-color-lt;
+	@media screen and(min-width:1200px) {
+		width: 585px;
+		padding: 30px;
+	}
+
+	&--ligth {
 		@media screen and(max-width:1199px) {
 			margin-bottom: 20px;
 		}
 
 		@media screen and(min-width:1200px) {
-			width: 585px;
-			padding: 30px;
+			background-image: linear-gradient(180deg, #171A24 0%, rgba(23, 26, 36, 0.2) 100%);
+		}
+	}
+
+	&--dark {
+		@media screen and(min-width:1200px) {
+			background: linear-gradient(180deg, #090b13 0%, rgba(9, 11, 19, 0.2) 100%);
 		}
 	}
 }
@@ -71,30 +97,21 @@
 	}
 
 	&__text {
-		font-size: $fs-text-small;
-		line-height: 20px;
+		font-size: 14px;
+		line-height: 2.14;
 		letter-spacing: 0.02em;
 		color: $primary-text-color-lt;
-		&--decor {
-			flex: 1;
-			width: 100%;
-			border-bottom: 1px solid $secondary-text-color;
-			margin: 0 6px;
-			margin-bottom: 3px;
-		}
-	}
-	&-desc {
-		color: $primary-text-color-lt;
-		&.secondary--gradient {
-			@media screen and(min-width:1200px) {
-				width: 585px;
-				background: linear-gradient(180deg, #090b13 0%, rgba(9, 11, 19, 0.2) 100%);
-				padding: 30px;
-			}
-		}
-	}
-}
 
-.button-price__position {
-	text-align: center;
+		@media screen and(min-width:768px) {
+			font-size: 18px;
+			line-height: 1.67;		
+		}
+	}
+
+	&__decor {
+		flex: 1;
+		width: 100%;
+		border-bottom: 1px solid $secondary-text-color;
+		margin: 0 6px 7px;
+	}
 }
