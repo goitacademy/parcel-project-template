@@ -1,9 +1,32 @@
 .footer__section--dk {
+	
 	background-color: $background-color-dkr;
+	max-width: 480px;
+	margin-right: auto;
+	margin-left: auto;
+
+	@media screen and (min-width: 768px) {
+		max-width: 768px;
+	}
+	@media screen and (min-width: 1200px) {
+		max-width: 1280px;
+	}
 }
 
 .footer__section--lt {
+
 	background-color: $background-color-dk;
+
+	max-width: 480px;
+	margin-right: auto;
+	margin-left: auto;
+
+	@media screen and (min-width: 768px) {
+		max-width: 768px;
+	}
+	@media screen and (min-width: 1200px) {
+		max-width: 1280px;
+	}
 }
 
 .contact__wrap {
@@ -51,44 +74,49 @@
 
 .contact__block--bg {
 	background-image: url("../images/footer-mob.png");
+	background-repeat: no-repeat;
+	max-width: 480px;
+	margin-right: auto;
+	margin-left: auto;
+	background-size: cover;
 
-	@media screen and (min-width: 480px) {
-		background-image: url("../images/footer-mob.png");
-		background-size: 480px 446px;
-	}
-	@media screen and (min-width: 480px),
-		screen and (min-device-pixel-ratio: 2),
+
+	@media screen and (min-device-pixel-ratio: 2),
+		screen and (-webkit-min-device-pixel-ratio: 2),
+		screen and (-o-min-device-pixel-ratio: 2/1),
 		screen and (min-resolution: 192dpi),
 		screen and (min-resolution: 2dppx) {
-		background-image: url("../images/footer-mob@2x.png");
-		background-size: 480px 446px;
-	}
+			background-image: url(../images/footer-mob@2x.png);
+		}
 
 	@media screen and (min-width: 768px) {
-		background-image: url("../images/footer-tab.png");
-		background-size: 768px 449px;
-	}
-	// TODO: понять почему не работает для ретины
-	@media screen and (min-width: 768px),
-		screen and (min-device-pixel-ratio: 2),
+		background-image: url(../images/footer-tab.png);
+		max-width: 768px;
+
+		@media screen and (min-device-pixel-ratio: 2),
+		screen and (-webkit-min-device-pixel-ratio: 2),
+		screen and (-o-min-device-pixel-ratio: 2/1),
 		screen and (min-resolution: 192dpi),
 		screen and (min-resolution: 2dppx) {
-		background-image: url("../images/footer-tab@2x.png");
-		background-size: 768px 449px;
+			background-image: url(../images/footer-tab@2x.png);
+		}
 	}
 
 	@media screen and (min-width: 1200px) {
-		background-image: url("../images/footer-des.png");
-		background-size: 625px 644px;
 		padding-left: 100px;
-	}
-	@media screen and (min-width: 1200px),
-		screen and (min-device-pixel-ratio: 2),
+		background-image: url(../images/footer-des.png);
+		max-width: 625px;
+		
+		@media screen and (min-device-pixel-ratio: 2),
+		screen and (-webkit-min-device-pixel-ratio: 2),
+		screen and (-o-min-device-pixel-ratio: 2/1),
 		screen and (min-resolution: 192dpi),
 		screen and (min-resolution: 2dppx) {
-		background-image: url("../images/footer-des@2x.png");
-		background-size: 625px 644px;
+			background-image: url(../images/footer-des@2x.png);
+		}
 	}
+
+	
 }
 .section-title--lt {
 
@@ -196,6 +224,15 @@
 	line-height: 1.67;
 	letter-spacing: 0.02em;
 	color: $primary-text-color-lt;
+	margin-bottom: 44px;
+
+	@media screen and (min-width: 768px) and (max-width: 1199px) {
+		margin-right: 30px;
+		margin-bottom: 0;
+	}
+	@media screen and (min-width: 1200px) {
+		margin-bottom: 70px;
+	}
 
 	&__wrap {
 		@media screen and (min-width: 768px) and (max-width: 1199px) {
@@ -205,21 +242,13 @@
 
 	&__section {
 		@media screen and (min-width: 768px) and (max-width: 1199px) {
-			padding-left: 30px;
 			width: calc((100% - 2 * 30px) / 2);
-		}
-	}
-
-	&__items {
-		margin-bottom: 44px;
-
-		@media screen and (min-width: 1200px) {
-			margin-bottom: 70px;
 		}
 	}
 
 	&__item {
 		display: flex;
+		
 		&:not(:last-child) {
 			margin-bottom: 20px;
 		}
@@ -227,48 +256,25 @@
 
 	&__text {
 		display: inline-flex;
-
-		&::before {
-			content: " ";
-			margin-right: 20px;
-			width: 24px;
-			height: 24px;
-			// background-image: url("https://image.flaticon.com/icons/svg/785/785116.svg");
-			background-image: url("../images/map.svg");
-			margin-top: 5px;
-			fill: white;
-		}
-
-		&--value {
-			width: 230px;
+		@media screen and (min-width: 768px){
+		width: 230px;
 		}
 	}
 
-	&__tel {
+	&__link {
+		position: relative;
+		margin-left: 40px;
+	}
+	&__icon {
 		display: inline-flex;
-
-		&::before {
-			content: " ";
-			margin-right: 20px;
-			width: 24px;
-			height: 24px;
-			background-image: url("https://image.flaticon.com/icons/svg/785/785116.svg");
-			// background-image: url("./images/sprite.svg#phone");
-		}
+		--color4: currentColor;
+		position: absolute;
+		left: -40px;
+		top: 3px;
 	}
-
-	&__email {
-		display: inline-flex;
-
-		&::before {
-			content: " ";
-			margin-right: 20px;
-			width: 24px;
-			height: 24px;
-			background-image: url("https://image.flaticon.com/icons/svg/785/785116.svg");
-			// background-image: url("./images/sprite.svg#mail");
-		}
-	}
+}
+.icon-map {
+	top: 6px;
 }
 
 .email-text {
@@ -285,18 +291,15 @@
 .copyright {
 	background-color: $background-color-dk;
 	color: $primary-title-color-dk;
-	display: flex;
-	justify-content: space-between;
 	padding-top: 44px;
 	padding-bottom: 44px;
-	padding-left: 31px;
-	padding-right: 31px;
-
+	display: flex;
+	flex-direction: column;
+	
 	@media screen and (min-width: 768px) {
 		padding-top: 56px;
 		padding-bottom: 56px;
-		padding-left: 15px;
-		padding-right: 15px;
+		flex-direction: row-reverse;
 	}
 
 	&__text {
@@ -306,7 +309,7 @@
 		letter-spacing: 0.2em;
 
 		@media screen and (max-width: 767px) {
-			align-self: flex-end;
+			margin-right: auto;
 		}
 	}
 
@@ -314,35 +317,16 @@
 		color: $primary-text-color-lt;
 	}
 }
+.copyright {
+	.media-wrapper {
 
-.media-wrapper {
-	.media {
-		display: flex;
-	}
-	.media__item:not(:first-child) {
-		margin-left: 40px;
-	}
-}
+		margin-left: auto;
 
-.border-top {
-	position: relative;
-
-	&::before {
-		content: "";
-		display: flex;
-		left: -100px;
-		align-items: baseline;
-		position: absolute;
-		bottom: 50%;
-		background: #303030;
-		width: 60px;
-		height: 1px;
-		display: inline-block;
-	}
-}
-
-.copyright .media-wrapper {
-	@media screen and (max-width: 767px) {
+		@media screen and (max-width: 767px) {
 		padding-bottom: 20px;
+		}
 	}
+
 }
+
+
