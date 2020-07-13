@@ -6,25 +6,25 @@
   font-size: 11px;
   letter-spacing: 0.1em;
   margin: 0px;
-  @media screen and (min-width: $desktop) {
-    padding: 130px 0px 44px 135px;
-  }
+  padding-bottom: 44px;
+  display: flex;
+  align-items: center;
+
   @media screen and (min-width: $tablet) {
-    padding: 100px 0px 44px 119px;
     line-height: 1.36;
   }
   @media screen and (max-width: $tablet - 1) {
-    padding: 84px 0px 44px 111px;
     line-height: 1.91;
+  }
+  &::before {
+    @include decor-line($primary-text-color);
+    margin-right: 20px;
   }
 }
 
 .examples-list {
-  @extend %link;
-  list-style: none;
+  @extend %list;
   display: flex;
-  padding: 0px 55px 130px 55px;
-  margin: 0;
   @media screen and (max-width: $desktop - 1) {
     flex-wrap: wrap;
   }
@@ -36,8 +36,6 @@
     }
   }
   @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
-    width: calc((100% - 30px) / 2);
-
     &:nth-child(2n + 1) {
       margin-right: 30px;
     }
