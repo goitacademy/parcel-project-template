@@ -115,14 +115,31 @@
   }
 }
 .contacts__wrapper {
-  background-image: linear-gradient(
-      rgba(25, 28, 38, 0.9),
-      rgba(25, 28, 38, 0.9)
-    ),
-    url(../images/footer/bg-contacts.jpg);
+  $bg: linear-gradient(rgba(25, 28, 38, 0.9), rgba(25, 28, 38, 0.9));
+  background-image: $bg, url(../images/footer/bg-mobile.jpg);
+  @media screen and (min-width: 480px) {
+    background-image: $bg, url(../images/footer/bg-tablet.jpg);
+  }
+  @media screen and (min-width: 1200px) {
+    background-image: $bg, url(../images/footer/bg-desktop.jpg);
+  }
+
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: $bg, url(../images/footer/bg-mobile@2x.jpg);
+    @media screen and (min-width: 480px) {
+      background-image: $bg, url(../images/footer/bg-tablet@2x.jpg);
+    }
+    @media screen and (min-width: 1200px) {
+      background-image: $bg, url(../images/footer/bg-desktop@2x.jpg);
+    }
+  }
 }
 
 .contacts__content {
