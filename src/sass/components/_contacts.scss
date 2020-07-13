@@ -1,10 +1,22 @@
 .contact-info {
+  padding-top: 84px;
+  padding-bottom: 84px;
   background-color: $bgFooterColor;
   background-size: 50%;
   background-image: url(../images/contacts-m.png);
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: contain;
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 130px;
+    padding-bottom: 130px;
+  }
 
   // Для стилизации изображений
   @media screen and (min-device-pixel-ratio: 2),
@@ -37,9 +49,6 @@
     background-position: right;
     background-image: url(../images/contacts-d.png);
     background-size: calc(50% - 15px);
-    // max-width: $desktop;
-    // margin-right: auto;
-    // margin-left: auto;
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (-webkit-min-device-pixel-ratio: 2),
@@ -58,27 +67,6 @@
       margin-left: 100px;
     }
   }
-
-  .container {
-    padding-right: 30px;
-    padding-left: 30px;
-
-    @media screen and (min-width: $tablet) {
-      padding-left: 40px;
-      padding-right: 40px;
-    }
-
-    @media screen and (min-width: $desktop) {
-      padding-left: 55px;
-      padding-right: 55px;
-    }
-  }
-}
-
-.contact-info-container {
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 1280px;
 }
 
 // Форма онлайн-записи
@@ -207,7 +195,7 @@
     border-bottom-color: rgba(157, 164, 189, 0.4);
     border-width: 1px;
 
-    color: rgba(157, 164, 189, 0.4);
+    color: $contrastColor;
     font-family: Open Sans;
     font-weight: 600;
     letter-spacing: 0.07em;
@@ -294,14 +282,16 @@
 }
 
 .contacts address {
-  @extend %list;
-
   @media screen and (max-width: $tablet) {
     margin-bottom: 44px;
   }
 
   @media screen and (min-width: $desktop) {
     margin-bottom: 70px;
+  }
+
+  ul {
+    @extend %list;
   }
 
   li:hover > a,
