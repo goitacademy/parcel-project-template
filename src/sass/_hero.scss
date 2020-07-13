@@ -1,22 +1,52 @@
+.hero-container {
+  @media screen and (min-width: $desktop) {
+    position: relative;
+    left: 57px;
+  }
+}
 .hero {
   position: relative;
-
   max-width: 480px;
   margin: 0px auto;
   overflow: hidden;
 
-  @media screen and (min-width: 768px) {
-    max-width: 768px;
+  @media screen and (min-width: $tablet) {
+    max-width: $tablet;
   }
 
-  @media screen and (min-width: 1200px) {
-    max-width: 1200px;
+  @media screen and (min-width: $desktop) {
+    max-width: $desktop;
   }
-}
-.hero-container {
-  @media screen and (min-width: 1200px) {
-    position: relative;
-    left: 57px;
+  &-title {
+    margin: 0px 0px 20px;
+    padding: 0px;
+    font-size: 10vw;
+    color: $white-bg-color;
+
+    @media screen and (min-width: $mobile) {
+      font-size: 48px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      font-size: 72px;
+      line-height: 1.18;
+    }
+  }
+  &-text {
+    margin: 0px;
+    padding: 0px;
+    font-size: 3.33vw;
+    line-height: 1.63;
+    color: $light-dark-text-color;
+
+    @media screen and (min-width: $mobile) {
+      font-size: 16px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      font-size: 18px;
+      line-height: 1.67;
+    }
   }
 }
 
@@ -31,7 +61,7 @@
 .hero-slider img {
   margin: 0px auto;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     margin: 0px 0px 0px auto;
   }
 }
@@ -46,11 +76,11 @@
   left: 0px;
   background: rgba(25, 28, 38, 0.2);
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     left: 159px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: $desktop) {
     left: 75px;
   }
 }
@@ -64,21 +94,20 @@
   position: absolute;
   top: 43.3vw;
   left: 31px;
-
   max-width: 306px;
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: $mobile) {
     top: 208px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     top: 272px;
     left: 279px;
 
     max-width: 355px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: $desktop) {
     left: 170px;
 
     max-width: 450px;
@@ -87,13 +116,12 @@
 .hero-citation {
   margin: 0px 0px 20px;
   padding: 0px;
-
   font-weight: 600;
   font-size: 2.3vw;
   line-height: 1.36;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(157, 164, 189, 0.6);
+  color: $slogan-text-color;
 
   &::before {
     content: '';
@@ -101,46 +129,13 @@
     width: 60px;
     height: 1px;
     margin-top: 8px;
-    background-color: rgba(157, 164, 189, 0.6);
+    background-color: $slogan-text-color;
 
     margin: 0px 20px 4px 0px;
   }
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: $mobile) {
     font-size: 11px;
-  }
-}
-.hero-title {
-  margin: 0px 0px 20px;
-  padding: 0px;
-
-  font-size: 10vw;
-  color: #fff;
-
-  @media screen and (min-width: 480px) {
-    font-size: 48px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    font-size: 72px;
-    line-height: 1.18;
-  }
-}
-.hero-text {
-  margin: 0px;
-  padding: 0px;
-
-  font-size: 3.33vw;
-  line-height: 1.63;
-  color: #9da4bd;
-
-  @media screen and (min-width: 480px) {
-    font-size: 16px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    font-size: 18px;
-    line-height: 1.67;
   }
 }
 
@@ -152,68 +147,64 @@
     margin-bottom: 12px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     position: absolute;
     top: 325px;
     right: 39px;
 
     display: block;
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: $desktop) {
       right: 71px;
       padding-right: 55px;
     }
   }
-}
-.hero-radio input {
-  display: none;
-}
-.hero-radio label {
-  display: flex;
-  justify-content: flex-end;
-}
-.hero-radio label::before {
-  content: '';
-  display: block;
-  width: 15px;
-  height: 3px;
+  & input {
+    display: none;
+  }
+  & label {
+    display: flex;
+    justify-content: flex-end;
+    &::before {
+      content: '';
+      display: block;
+      width: 15px;
+      height: 3px;
 
-  background-color: #9da4bd;
-  cursor: pointer;
+      background-color: $light-dark-text-color;
+      cursor: pointer;
+    }
+  }
 }
+
 .hero-radio input:checked + label::before {
   width: 30px;
-
-  background-color: #fff;
+  background-color: $white-bg-color;
 }
 
 /* Стилизация кнопок "вперед" и "назад" */
 .hero-button {
   display: none;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     position: absolute;
     top: 616px;
     right: 39px;
-
     display: flex;
     flex-direction: row;
-
     & > li:not(:last-child) {
       margin-right: 26px;
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: $desktop) {
     right: 71px;
   }
 }
 .hero-butn {
   display: flex;
   flex-direction: column;
-
   padding: 1px 0px 0px;
-
   font-weight: 600;
   font-size: 11px;
   line-height: 1.36;
@@ -221,32 +212,32 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-}
-.hero-butn.back {
-  color: rgba(157, 164, 189, 0.6);
 
-  &::after {
-    content: '';
-    display: inline-block;
-    width: 60px;
-    height: 1px;
-    margin-top: 8px;
-    background-color: rgba(157, 164, 189, 0.6);
-  }
-}
-.hero-butn.next {
-  align-items: flex-end;
-  color: #fff;
-  @media screen and(min-width:1200px) {
-    padding-right: 55px;
-  }
+  &.back {
+    color: $slogan-text-color;
 
-  &::after {
-    content: '';
-    display: inline-block;
-    width: 60px;
-    height: 1px;
-    margin-top: 8px;
-    background-color: #fff;
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 60px;
+      height: 1px;
+      margin-top: 8px;
+      background-color: $slogan-text-color;
+    }
+  }
+  &.next {
+    align-items: flex-end;
+    color: $white-bg-color;
+    @media screen and(min-width:$desktop) {
+      padding-right: 55px;
+    }
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 60px;
+      height: 1px;
+      margin-top: 8px;
+      background-color: $white-bg-color;
+    }
   }
 }
