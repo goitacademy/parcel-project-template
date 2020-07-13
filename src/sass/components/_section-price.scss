@@ -1,9 +1,89 @@
 
 // поставил бордер на контайнер
-// .container {
-//   border: 1px solid green;
+.container.services {
+  border: 1px solid green;
   
-// }
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 480px) {
+    width: 480px;
+    padding-left: 31px;
+    padding-right: 31px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 39px;
+    padding-right: 39px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.section.services {
+  padding-top: 84px;
+  padding-bottom: 84px;
+}
+
+
+
+.text {
+display: inline;
+position: relative;
+margin-left: 55px;
+font-family: Open Sans;
+font-style: normal;
+font-weight: 600;
+font-size: 11px;
+line-height: 1.36em;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+
+color: #303030;
+&::before {
+  content: '';
+
+  position: absolute;
+  width: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -80px;
+  // -80рх по тому что длинна этой полоски 60рх + 20рх отступ от текста
+
+  border-top: 1px solid;
+  border-color: inherit;
+}
+}
+
+.services-title {
+  margin-top: 20px;
+  margin-bottom: 44px;
+}
+
+.services-ul-first, .services-ul-second {
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+
+  display: flex;
+  
+  .li {
+    display: block;
+    width: 358px;
+    height: 30px;
+
+    background-color: red;
+  }
+}
+
+
 
 
 
@@ -12,6 +92,8 @@
     display: block;
     min-width: 160px;
     min-height: 40px;
+
+    margin-top: 50px;
   
     font-weight: 600;
     font-size: 12px;
@@ -43,36 +125,4 @@
     }
   }
 
-  // p {
-  //   // // тект должен быть position relative/ и инлайн, либо блок с заданой шириной,
-  //   //  т.к. если стоит блок, он занимает всю ширину родителя,
-  //   //  и бефор ставиться left/right по родителю.
-  //   // Я еще подумаю, как это можно сделать максимально нормально, пока так (
   
-  //   display: inline;
-  //   position: relative;
-  //   margin-left: 200px;
-  
-  //   font-size: 14px;
-  //   text-transform: uppercase;
-  //   color: royalblue;
-  
-  //   &:before {
-  //     content: "";
-  //     position: absolute;
-  //     width: 60px;
-  //     top: 50%;
-  //     transform: translateY(-50%);
-  //     left: -80px;
-  //     // -80рх по тому что длинна этой полоски 60рх + 20рх отступ от текста
-  
-  //     border-top: 1px solid;
-  //     border-color: inherit;
-  //   }
-  // }
-
-  .lineWithText {
-    @include lineWithText($secondary-text-color) {
-      font-size: 14px;;
-    }
-  }
