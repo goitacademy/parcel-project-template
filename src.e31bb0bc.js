@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"./..\\images\\price\\bg-price-mobile.jpg":[["bg-price-mobile.0d406c4c.jpg","images/price/bg-price-mobile.jpg"],"images/price/bg-price-mobile.jpg"],"./..\\images\\price\\bg-price-mobile@2x.jpg":[["bg-price-mobile@2x.bd3eafc2.jpg","images/price/bg-price-mobile@2x.jpg"],"images/price/bg-price-mobile@2x.jpg"],"./..\\images\\price\\bg-price-tablet.jpg":[["bg-price-tablet.8f92d88d.jpg","images/price/bg-price-tablet.jpg"],"images/price/bg-price-tablet.jpg"],"./..\\images\\price\\bg-price-tablet@2x.jpg":[["bg-price-tablet@2x.babe5ed6.jpg","images/price/bg-price-tablet@2x.jpg"],"images/price/bg-price-tablet@2x.jpg"],"./..\\images\\price\\bg-price-desktop.jpg":[["bg-price-desktop.fe654cc5.jpg","images/price/bg-price-desktop.jpg"],"images/price/bg-price-desktop.jpg"],"./..\\images\\price\\bg-price-desktop@2x.jpg":[["bg-price-desktop@2x.4dcceda4.jpg","images/price/bg-price-desktop@2x.jpg"],"images/price/bg-price-desktop@2x.jpg"],"./..\\images\\contacts\\mobile.jpg":[["mobile.e6c1285a.jpg","images/contacts/mobile.jpg"],"images/contacts/mobile.jpg"],"./..\\images\\contacts\\mobile@2x.jpg":[["mobile@2x.717efd09.jpg","images/contacts/mobile@2x.jpg"],"images/contacts/mobile@2x.jpg"],"./..\\images\\contacts\\tablet.jpg":[["tablet.c4509875.jpg","images/contacts/tablet.jpg"],"images/contacts/tablet.jpg"],"./..\\images\\contacts\\tablet@2x.jpg":[["tablet@2x.c82497ee.jpg","images/contacts/tablet@2x.jpg"],"images/contacts/tablet@2x.jpg"],"./..\\images\\contacts\\desktop.jpg":[["desktop.150277d7.jpg","images/contacts/desktop.jpg"],"images/contacts/desktop.jpg"],"./..\\images\\contacts\\desktop@2x.jpg":[["desktop@2x.8b1c77c7.jpg","images/contacts/desktop@2x.jpg"],"images/contacts/desktop@2x.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("./sass/main.scss");
@@ -221,7 +221,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49337" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60502" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
