@@ -1,7 +1,7 @@
 .burger-button {
   position: absolute;
   top: 48px;
-  right: 30px;
+  right: 0;
   z-index: 5;
 
   display: inline-flex;
@@ -32,6 +32,16 @@
   }
   &.is-open .burger-closed {
     display: none;
+  }
+  // фиксирование кнопки закрытия при переходе меню по якорям
+  &.is-open {
+    position: fixed;
+    @media screen and (max-width: $mobile) {
+      right: 31px;
+    }
+    @media screen and (min-width: ($mobile + 1)) and (max-width: ($tablet - 1)) {
+      right: calc(((100vw - 480px) / 2) + 31px);
+    }
   }
 
   @media screen and (min-width: $tablet) {
@@ -68,6 +78,10 @@
 
       pointer-events: initial;
     }
+  }
+  // растягивание меню на ширину вьюпорта на мелких ширинах экрана
+  @media screen and (max-width: 340px) {
+    width: 100%;
   }
 }
 // бекдроп
