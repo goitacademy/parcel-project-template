@@ -6,16 +6,15 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  @media screen and (min-width: 320px) and (max-width: 479px) {
+  @media screen and (min-width: 320px) and (max-width: 480px) {
     width: 100%;
-    // min-height: 580px;
-    min-height: calc(385px + (385 + 195 * 0.66) * ((100vw - 320px) / 479));
+    min-height: calc(385px + (385 + 195 * 0.66) * ((100vw - 320px) / 480));
   }
   @media screen and (min-width: 480px) {
     width: 100%;
     min-height: 580px;
   }
-  @media screen and (min-width: 481px) and (max-width: 767px) {
+  @media screen and (min-width: 480px) and (max-width: 767px) {
     max-width: 480px;
     min-height: 580px;
   }
@@ -29,8 +28,86 @@
   }
 }
 
-.slider-image {
-  float: right;
+.siema {
+  position: absolute;
+  top: 0;
+  right: 0;
+  @media screen and (min-width: 320px) and (max-width: 479px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    width: 480px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 609px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1125px;
+  }
+}
+
+.siema-buttons {
+  position: absolute;
+  bottom: 40px;
+  right: 49px;
+  min-width: 146px;
+  @include flex(space-between, stretch);
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.prev,
+.next {
+  @extend %button;
+  @include link(600, 11px, 1.36, 0.01em, $color-text-transparent-grey);
+  min-width: 60px;
+  min-height: 24px;
+  cursor: pointer;
+}
+
+.prev {
+  @include flex(flex-start, stretch);
+  &:after {
+    @include pseudo-line($color-text-transparent-grey);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+.next {
+  @include flex(flex-end, stretch);
+  &:after {
+    @include pseudo-line($color-text-transparent-grey);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+// .siema-buttons-prev:hover .prev,
+// .siema-buttons-prev:focus .prev {
+//   color: $color-bg-main;
+// }
+
+.prev:hover,
+.prev:focus,
+.next:hover,
+.next:focus {
+  color: $color-bg-main;
+  outline: none;
+  // border-radius: 2px;
+}
+
+.prev:hover,
+.prev:focus,
+.next:hover,
+.next:focus {
+  &:after {
+    background-color: $color-bg-main;
+    outline: none;
+  }
 }
 
 /*меню*/
@@ -63,10 +140,7 @@
 }
 
 .menu-button {
-  margin: 0;
-  padding: 0;
-  border: none;
-  background-color: transparent;
+  @extend %button;
   @media screen and (min-width: 768px) {
     display: none;
   }
