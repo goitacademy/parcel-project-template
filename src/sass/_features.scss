@@ -1,5 +1,3 @@
-@import './utils/variables';
-
 .features.section {
   padding-top: 84px;
   padding-bottom: 84px;
@@ -26,17 +24,13 @@
   margin-top: 0;
   margin-bottom: 20px;
 
-  font-family: $main-font;
   font-style: normal;
   font-weight: 600;
   font-size: 11px;
-  line-height: 1.36;
   text-align: center;
 
   letter-spacing: 0.1em;
   text-transform: uppercase;
-
-  color: $primery-color;
 
   &::before {
     content: '';
@@ -60,21 +54,16 @@
   font-size: 42px;
   line-height: 1.16;
   letter-spacing: 0.05em;
-
-  color: $primery-color;
 }
 
 .features-text {
   margin-top: 0;
   margin-bottom: 44px;
 
-  font-family: $main-font;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 1.6;
-
-  letter-spacing: 0.02em;
 
   color: $secondary-color;
 }
@@ -83,22 +72,22 @@
   display: flex;
   flex-wrap: wrap;
 
-  margin: -15px;
-  .features-blocks {
-    margin: 15px;
-  }
+  margin: 0;
+  padding: 0;
 }
 
 .features-blocks {
   display: block;
-  padding: 20px 35px;
+
+  margin-right: 30px;
+  padding: 20px 28px;
   width: 193px;
   height: 133px;
 
   background-color: $section-bgc;
 
   &:nth-child(2n) {
-    margin-top: 35px;
+    margin-top: 30px;
     margin-right: 0;
   }
 }
@@ -108,15 +97,11 @@
   margin-top: 0;
   margin-bottom: 6px;
 
-  font-family: $main-font;
   font-style: normal;
   font-weight: bold;
   font-size: 42px;
-  line-height: 1.36;
   text-align: center;
   letter-spacing: 0.05em;
-
-  color: $primery-color;
 
   &::after {
     position: absolute;
@@ -135,45 +120,55 @@
   margin-top: 0;
   margin-bottom: 0;
 
-  font-family: $main-font;
   font-style: normal;
   font-weight: 600;
   font-size: 11px;
   line-height: 1.35;
   text-align: center;
-
-  color: $primery-color;
 }
 
 .module-first {
-  margin-bottom: 29px;
-
   max-width: 500px;
 }
 
 .features {
+  @media screen and (max-width: 480px) {
+    .features-blocks {
+      margin-top: 30px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
   @media screen and (min-width: 768px) {
     .features-blocks {
-      padding: 20px 40px;
+      padding: 20px 38px;
       width: 210px;
     }
     .module-second {
       margin-left: 239px;
     }
   }
+
   @media screen and (min-width: 1200px) {
     display: flex;
+    justify-content: space-between;
     flex-direction: row-reverse;
 
     .features-blocks {
-      padding: 20px;
+      padding: 20px 18px;
       width: 170px;
     }
-    .module-first {
-      margin-right: 150px;
-    }
     .module-second {
-      margin-left: 155px;
+      margin-left: 100px;
+      max-width: 370px;
+    }
+    .module-first {
+      margin-right: 70px;
+    }
+    .features-text {
+      margin-bottom: 0;
     }
   }
 }
