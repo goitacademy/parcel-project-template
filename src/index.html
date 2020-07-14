@@ -58,6 +58,38 @@
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
 
+    <!-- Скрипт для шапки -->
+    <script>
+      (() => {
+        const refs = {
+
+          openMenuBtn: document.querySelector("[data-menu-open]"),
+          recordBtn: document.querySelector("[data-menu-record]"),
+          mobileMenu: document.querySelector("[data-menu]"),
+          aboutUs: document.querySelector("[data-about-us]"),
+          priceList: document.querySelector("[data-price-list]"),
+          master: document.querySelector("[data-master]"),
+          contactLink: document.querySelector("[data-contact]"),
+          overlayMenu: document.querySelector("[data-overlay]"),
+        };
+
+        refs.openMenuBtn.addEventListener("click", toggleMenu);
+        refs.recordBtn.addEventListener("click", toggleMenu);
+        refs.aboutUs.addEventListener("click", toggleMenu);
+        refs.priceList.addEventListener("click", toggleMenu);
+        refs.master.addEventListener("click", toggleMenu);
+        refs.contactLink.addEventListener("click", toggleMenu);
+
+        function toggleMenu() {
+          refs.mobileMenu.classList.toggle("is-open"),
+            refs.openMenuBtn.classList.toggle("is-open"),
+            refs.overlayMenu.classList.toggle("is-open")
+        }
+      })();
+
+
+    </script>
+
     <!-- Скрипт для карты -->
     <script src="" type="text/javascript"></script>
     <script type="text/javascript">
