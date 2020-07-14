@@ -81,18 +81,24 @@
   }
 }
 
-.make-appoitment {
+.price-button {
   @extend %button;
+  @extend %link;
+  display: inline-block;
 
-  color: $primary-white-color;
-  position: relative;
-  margin: 0 auto;
   margin-top: 50px;
+  color: $primary-white-color;
+  @include transitionII(color, background-color);
 
-  &:hover {
+  &:hover,
+  &:focus {
+    color: $primary-white-color;
     background-color: $accent-color;
-    // transition: $property 300ms linear;
   }
+}
+.button-box {
+  width: 100%;
+  text-align: center;
 }
 
 .price-item {
@@ -146,7 +152,8 @@
   margin-left: auto;
   margin-right: auto;
   outline: 1px solid black;
-  background-image: url(/images/pricemob.png), url(/images/bgpricemob.jpg);
+  background-image: url(/images/pricemob.png),
+    linear-gradient(rgba(17, 19, 25, 1), rgba(17, 19, 25, 1));
 
   background-repeat: no-repeat;
   background-position: center;
@@ -154,29 +161,31 @@
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
-    background-image: url(/images/pricemob.png), url(/images/bgpricemob@2x.jpg);
+    background-image: url(/images/pricemob@2x.png),
+      linear-gradient(rgba(17, 19, 25, 1), rgba(17, 19, 25, 1));
   }
   @media screen and (min-width: $tablet) {
     width: $tablet;
 
-    background-image: url(/images/pricetab.png), url(/images/bgpricetab.jpg);
+    background-image: url(/images/pricetab.png),
+      linear-gradient(rgba(17, 19, 25, 1), rgba(17, 19, 25, 1));
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url(/images/pricetab.png),
-        url(/images/bgpricetab@2x.jpg);
+      background-image: url(/images/pricetab@2x.png),
+        linear-gradient(rgba(17, 19, 25, 1), rgba(17, 19, 25, 1));
     }
   }
   @media screen and (min-width: $desktop) {
-    width: $desktop;
+    width: 1280px;
+    // max-width: 1280px;
 
-    background-image: url(/images/pricedesctop.png),
-      url(/images/bgpricedesctop.jpg);
+    background-image: url(/images/pricedesctop.png), #111319;
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url(/images/pricedesctop.png),
-        url(/images/bgpricedesctop@2x.jpg);
+      background-image: url(/images/pricedesctop@2x.png),
+        linear-gradient(rgba(17, 19, 25, 1), rgba(17, 19, 25, 1));
     }
   }
 }
