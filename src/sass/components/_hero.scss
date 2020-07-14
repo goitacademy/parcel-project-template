@@ -1,0 +1,159 @@
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    $contrastColor 50%,
+    $bgPricesSectColor 50%
+  );
+  z-index: -2;
+
+  @media screen and (max-width: $tablet - 1px) {
+    background: linear-gradient(
+      to right,
+      $bgPricesSectColor,
+      $bgPricesSectColor
+    );
+  }
+}
+
+.hero-container {
+  position: relative;
+  height: 580px;
+
+  padding-top: 208px;
+  padding-bottom: 183px;
+
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (max-width: $tablet - 1px) {
+    max-width: $mobile;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: $tablet;
+    height: 680px;
+    padding-top: 272px;
+    padding-bottom: 40px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: $desktop;
+  }
+}
+
+.hero-social-list {
+  @extend %list;
+  position: absolute;
+  bottom: 40px;
+  left: 76px;
+
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  transform: rotate(-90deg);
+  transform-origin: bottom left;
+
+  &::after {
+    content: '';
+    display: block;
+    margin-right: 40px;
+    background-color: $ordinaryColor;
+
+    width: 60px;
+    height: 1px;
+  }
+
+  @media screen and (max-width: $tablet - 1px) {
+    display: none;
+  }
+
+  @media screen and (min-width: $desktop) {
+    left: 90px;
+  }
+}
+
+.hero-link {
+  @extend %link;
+
+  margin-right: 40px;
+  color: $ordinaryColor;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.2em;
+
+  transition: color 250ms $transition, background-color 250ms $transition;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $accentColor;
+  }
+}
+
+.hero-box {
+  max-width: 306px;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 355px;
+    margin-left: 240px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    max-width: 475px;
+    margin-left: 200px;
+  }
+}
+
+.hero-description {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  color: $textTrColor;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.37;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  &::before {
+    content: '';
+    margin-right: 20px;
+
+    background-color: $textTrColor;
+
+    width: 60px;
+    height: 1px;
+  }
+}
+
+.hero {
+  margin-bottom: 20px;
+
+  font-family: $headerFont;
+  color: $contrastColor;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.17;
+  letter-spacing: 0.05em;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 72px;
+    line-height: 1.18;
+  }
+}
+
+.hero-content {
+  font-size: 16px;
+  line-height: 1.63;
+  color: #9da4bd;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 18px;
+    line-height: 1.67;
+  }
+}

@@ -1,16 +1,63 @@
-// Cтили контейнера
 .contact-info {
-  //   position: relative;
   padding-top: 84px;
   padding-bottom: 84px;
   background-color: $bgFooterColor;
+  background-size: 50%;
+  background-image: url(../images/contacts-m.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
 
   @media screen and (min-width: $tablet) {
     padding-top: 100px;
     padding-bottom: 100px;
   }
 
+  @media screen and (min-width: $tablet) {
+    padding-top: 130px;
+    padding-bottom: 130px;
+  }
+
+  // Для стилизации изображений
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/contacts-m@2x.png);
+  }
+
+  @media screen and (min-width: 481px) {
+    background-image: url(../images/contacts-t.png);
+    background-size: auto 496px;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/contacts-t@2x.png);
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    // auto
+    background-size: 100% 449px;
+  }
+
   @media screen and (min-width: $desktop) {
+    background-position: right;
+    background-image: url(../images/contacts-d.png);
+    background-size: calc(50% - 15px);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/contacts-d@2x.png);
+    }
+
     .container {
       position: relative;
       display: flex;
@@ -22,55 +69,15 @@
   }
 }
 
-// Для стилизации изображений
-.contact-info {
-  //   position: relative;
-  //   top: 887px;
-  //   max-width: 480px;
-  //   height: 496px;
-  background-image: url(../images/contacts-m.png);
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: contain;
-
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (-webkit-min-device-pixel-ratio: 2),
-    screen and (-o-min-device-pixel-ratio: 2/1),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    background-image: url(../images/contacts-m@2x.png);
-  }
-
-  @media screen and (min-width: 481px) {
-    // max-width: 768px;
-    background-image: url(../images/contacts-t.png);
-
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (-webkit-min-device-pixel-ratio: 2),
-      screen and (-o-min-device-pixel-ratio: 2/1),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      background-image: url(../images/contacts-t@2x.png);
-    }
-  }
-
-  @media screen and (min-width: $desktop) {
-    background-position: right;
-    background-image: url(../images/contacts-d.png);
-
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (-webkit-min-device-pixel-ratio: 2),
-      screen and (-o-min-device-pixel-ratio: 2/1),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      background-image: url(../images/contacts-d@2x.png);
-    }
-  }
-}
-
 // Форма онлайн-записи
 .clients-form {
-  margin-bottom: 84px;
+  @media screen and (max-width: 1279px) {
+    margin-bottom: 100px;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 84px;
+  }
 
   @media screen and (min-width: $desktop) {
     width: 600px;
@@ -90,8 +97,6 @@
   .clients-button {
     display: flex;
     margin-top: 44px;
-    margin-left: auto;
-    margin-right: auto;
     padding: 12px 38px;
 
     border: 1px solid $accentColor;
@@ -99,7 +104,6 @@
     background-color: $bgFooterColor;
     color: $contrastColor;
 
-    font-family: Open Sans;
     font-weight: 600;
     font-size: 12px;
     line-height: 1.33;
@@ -112,6 +116,11 @@
     &:hover,
     &:focus {
       background-color: $accentColor;
+    }
+
+    @media screen and (max-width: 767px) {
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
@@ -130,7 +139,7 @@
 .clients-form > h2,
 .contacts > h2 {
   margin-bottom: 40px;
-  //   font-family: Raleway;
+  font-family: Raleway;
   font-weight: 700;
   font-size: 42px;
   line-height: 1.17;
@@ -146,13 +155,21 @@
 .form-field-textarea {
   position: relative;
 
-  &:hover .form-label,
-  &:focus .form-label,
-  &:hover .form-label-message,
-  &:focus .form-label-message {
-    transform: translateY(-30px);
+  &:hover > .form-label,
+  &:focus > .form-label,
+  &:hover > .form-label-message,
+  &:focus > .form-label-message {
     color: $contrastColor;
-    cursor: pointer;
+  }
+
+  &:hover > .form-label,
+  &:focus > .form-label {
+    transform: translateY(-40px);
+  }
+
+  &:hover > .form-label-message,
+  &:focus > .form-label-message {
+    transform: translateY(-23px);
   }
 
   &:hover .form-input,
@@ -170,20 +187,34 @@
 
   .form-input,
   textarea {
-    padding: 8px;
+    padding: 8px 0;
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom-color: rgba(157, 164, 189, 0.4);
     border-width: 1px;
 
+    color: $contrastColor;
+    font-weight: 600;
+    letter-spacing: 0.07em;
     background-color: $bgFooterColor;
     transition: border-bottom-color $transition;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
 
     &:not(:placeholder-shown) + .form-label,
     &:not(:placeholder-shown) + .form-label-message {
-      transform: translateY(-30px);
       color: $contrastColor;
+    }
+    &:not(:placeholder-shown) + .form-label {
+      transform: translateY(-40px);
+    }
+
+    &:not(:placeholder-shown) + .form-label-message {
+      transform: translateY(-23px);
     }
   }
 
@@ -201,7 +232,6 @@
     top: 50%;
     left: 0;
 
-    font-family: Open Sans;
     font-weight: 600;
     font-size: 11px;
     line-height: 1.36;
@@ -239,23 +269,39 @@
 // Контакты
 // Адрес
 .contacts {
+  @media screen and (max-width: 1279px) {
+    padding-top: 100px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding-top: 84px;
+  }
+}
+
+.contacts address {
+  @media screen and (max-width: $tablet) {
+    margin-bottom: 44px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 70px;
+  }
+
   ul {
     @extend %list;
-    margin-bottom: 44px;
-
-    @media screen and (min-width: $desktop) {
-      margin-bottom: 70px;
-    }
   }
 
   li:hover > a,
-  li:focus > a {
+  li:focus > a,
+  li:hover > .contacts-address-button,
+  li:focus > .contacts-address-button {
     color: $contrastColor;
+    cursor: pointer;
   }
 
-  li:hover > svg,
-  li:focus > svg {
-    fill: $contrastColor;
+  li:hover svg,
+  li:focus svg {
+    --color2: #ffffff;
   }
 
   li:not(:last-child) {
@@ -266,27 +312,27 @@
     }
   }
 
-  a {
+  a,
+  .contacts-address-button {
     display: flex;
     align-items: center;
-  }
 
-  li,
-  a {
-    font-family: Open Sans;
     font-style: normal;
     font-size: 18px;
     line-height: 1.7;
-
-    letter-spacing: 0.02em;
 
     color: $secondaryTextColor;
     transition: color $transition;
   }
 
+  .contacts-address-button {
+    background-color: inherit;
+    outline: none;
+    border: none;
+  }
+
   svg {
     margin-right: 16px;
-    // fill: $secondaryTextColor;
     // transition: fill $transition;
   }
 }
@@ -307,7 +353,6 @@
   }
 
   h3 {
-    font-family: Open Sans;
     font-weight: 600;
     font-size: 11px;
     line-height: 15px;
@@ -318,10 +363,8 @@
   }
 
   p {
-    font-family: Open Sans;
     font-size: 18px;
     line-height: 30px;
-    letter-spacing: 0.02em;
 
     color: $secondaryTextColor;
   }

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>BarberShop</title>
     <!-- Нормализация стилей -->
 
@@ -12,10 +13,10 @@
     />
 
     <!-- Добавляет шрифты -->
-    <link
+    <!-- <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@700&display=swap"
       rel="stylesheet"
-    />
+    /> -->
   </head>
 
   <body>
@@ -47,7 +48,36 @@
     <!-- Добавляет футер -->
     <include src="./partials/footer.html"></include>
 
+    <!-- Добавляет модальное окно с картой -->
+    <include src="./partials/modal-map.html"></include>
+
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
+
+    <!-- Скрипт для карты -->
+    <script src="" type="text/javascript"></script>
+    <script type="text/javascript">
+      function initialize() {
+        if (GBrowserIsCompatible()) {
+          var map = new GMap2(document.getElementById('map_canvas'));
+          map.setCenter(new GLatLng(56.32811, 44.0), 10);
+        }
+      }
+    </script>
+    <script>
+      const refs = {
+        openModalBtn: document.querySelector('[data-modal-open]'),
+        closeModalBtn: document.querySelector('[data-modal-close]'),
+        modal: document.querySelector('[data-modal]'),
+      };
+
+      refs.openModalBtn.addEventListener('click', toggleModal);
+      refs.closeModalBtn.addEventListener('click', toggleModal);
+
+      function toggleModal() {
+        document.body.classList.toggle('modal-open');
+        refs.modal.classList.toggle('is-hidden');
+      }
+    </script>
   </body>
 </html>

@@ -2,7 +2,6 @@
   padding-top: 44px;
   padding-bottom: 44px;
 
-  font-family: $textFont;
   font-weight: 600;
   font-size: 11px;
   line-height: 1.36;
@@ -12,10 +11,22 @@
     padding-bottom: 56px;
   }
 
-  & > .container {
+  &-container {
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
+    margin-left: 30px;
+    margin-right: 30px;
+
+    @media screen and (min-width: $tablet) {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      margin-left: 55px;
+      margin-right: 55px;
+    }
   }
 }
 
@@ -23,8 +34,9 @@
   display: flex;
   align-items: center;
   color: $secondaryTextColor;
+  letter-spacing: 0.2em;
 
-  @media screen and (max-width: $tablet) {
+  @media screen and (max-width: $mobile) {
     margin-top: 35px;
   }
 
@@ -33,12 +45,16 @@
   }
 }
 
-.page-footer-links {
+.page-footer-list {
   display: flex;
   justify-content: space-between;
   align-items: center;
   @extend %list;
   width: 270px;
+
+  @media screen and (max-width: $mobile) {
+    align-self: baseline;
+  }
 
   & > .strip {
     width: 60px;
@@ -49,5 +65,11 @@
   a {
     color: $ordinaryColor;
     text-decoration: none;
+    transition: color $transition;
+
+    &:hover,
+    &:focus {
+      color: $accentColor;
+    }
   }
 }

@@ -1,6 +1,13 @@
 .page-header {
-  // Временный фон, чтобы был виден логотип
-  background-color: $bgHeaderColor;  
+  position: relative;
+  z-index: 100;
+}
+
+.absolute-block {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 // Стили для навигации
@@ -34,18 +41,29 @@
 
 // Кнопка меню мобилки
 .menu-button {
+  position: relative;
+  z-index: 200;
+
   display: block;
   padding: 0;
+
   border: none;
   outline: transparent;
   background-color: transparent;
 
+  fill: currentColor;
+  
+  cursor: pointer;
+
   .icon-menu {
-    fill: $contrastColor;
+    color: $contrastColor;
+    transition: color $transition;
   }
 
   .icon-close {
-    fill: $ordinaryColor;
+    display: none;
+    color: $ordinaryColor;
+    transition: color $transition;
   }
 
   @media screen and (min-width: $tablet) {
@@ -53,38 +71,27 @@
   }
 }
 
-.menu-button.close {
-  margin-bottom: 30px;
-  margin-left: auto;
-}
-
-// темный фон бекдропа
-.backdrop {
-  @media screen and (max-width: $tablet - 1px) {
+.menu-button.is-open {
+  .icon-menu {
     display: none;
   }
 
-  @media screen and (min-width: $tablet) {
-    margin-left: auto;
+  .icon-close {
+    display: block;
   }
 }
 
-.backdrop.is-open {
+// темный фон overlay
+.overlay-menu.is-open {
   @media screen and (max-width: $tablet - 1px) {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
 
-    display: block;
     width: 100%;
     height: 100%;
 
     background-color: $bgHeaderColor;
-
-    .menu-container {
-    display: block;
-    }
   }
 }
 
@@ -94,21 +101,32 @@
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 100;
 
-    display: none;
     max-width: 337px;
-    height: 100%;
+    min-height: 796px;
 
-    padding: 48px 40px;
+    padding: 118px 40px;
 
     background-color: $contrastColor;
 
-    overflow-y: scroll;
+    opacity: 0;
+
+    transition: opacity $transition;
+
   }
 
   @media screen and (min-width: $tablet) {
     display: flex;
     align-items: center;
+
+    margin-left: auto;
+  }
+}
+
+.menu-container.is-open {
+  @media screen and (max-width: $tablet - 1px) {
+    opacity: 1;
   }
 }
 
@@ -133,6 +151,7 @@
 
   .link {
     @extend %link;
+    display: inline-block;
 
     font-weight: 600;
     font-size: 18px;
@@ -221,24 +240,24 @@
 
 // стили кнопки Онлайн-записи
 .record {
-  @extend %button;
-  display: block;
+  display: inline-block;
   margin-bottom: 64px;
   padding: 12px 37px;
 
   border: 1px solid $accentColor;
   border-radius: 25px;
-  background-color: transparent;
-  cursor: pointer;
 
   font-weight: 600;
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: 0.09em;
   color: $ordinaryColor;
+  text-transform: uppercase;
 
   transition: color $transition,
   background-color $transition;
+
+  @extend %link;
   
   @media screen and (min-width: $tablet) {
     margin-bottom: 20px;
@@ -254,10 +273,6 @@
   &:focus {
     background-color: $accentColor;
     color: $contrastColor;
-  }
-
-  .link {
-    @extend %link;
   }
 }
 
