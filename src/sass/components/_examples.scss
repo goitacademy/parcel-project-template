@@ -1,0 +1,56 @@
+.examples-description {
+  text-transform: uppercase;
+  font-family: $main-font;
+  color: $primary-text-color;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  margin: 0px;
+  padding-bottom: 44px;
+  display: flex;
+  align-items: start;
+
+  @media screen and (min-width: $tablet) {
+    line-height: 1.36;
+  }
+  @media screen and (max-width: $tablet - 1) {
+    line-height: 1.91;
+  }
+  &::before {
+    @include decor-line($primary-text-color);
+    margin-right: 20px;
+    margin-top: 6px;
+    @media screen and (max-width: $tablet - 1) {
+      margin-top: 10px;
+    }
+  }
+}
+
+.examples-list {
+  @extend %list;
+  display: flex;
+  @media screen and (max-width: $desktop - 1) {
+    flex-wrap: wrap;
+  }
+}
+
+.examples-list-item {
+  @media screen and (min-width: $desktop) {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    &:nth-child(2n + 1) {
+      margin-right: 30px;
+    }
+    &:not(:nth-last-child(-n + 2)) {
+      margin-bottom: 30px;
+    }
+  }
+  @media screen and (max-width: $tablet - 1) {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+}

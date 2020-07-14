@@ -1,0 +1,331 @@
+header > .container {
+  position: relative;
+}
+
+.header-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+
+  @media screen and (max-width: 767px) {
+    top: 40px;
+    left: 31px;
+    width: 87%;
+    align-items: center;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 89.8%;
+    top: 32px;
+    left: 39px;
+    align-items: flex-start;
+  }
+
+  @media screen and (min-width: $desktop) {
+    left: 15px;
+    width: 97.5%;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .logo-icon {
+    fill: $primary-white-color;
+  }
+}
+
+.logo-link {
+  @media screen and (min-width: $tablet) and (max-width: 1199px) {
+    margin-left: 11px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 71px;
+  }
+}
+
+// menu button
+.menu-button {
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  z-index: 2;
+
+  & .icon-close {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.menu-button.is-open {
+  position: fixed;
+  top: 48px;
+  left: 85.2vw;
+
+  & .icon-close {
+    display: block;
+  }
+
+  & .icon-menu {
+    display: none;
+  }
+}
+
+// menu
+.menu-backdrop {
+  @media screen and (max-width: 767px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+
+    background-color: rgba(25, 28, 38, 0.2);
+    box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.16),
+      -2px 0px 4px rgba(0, 0, 0, 0.08), -4px 0px 8px rgba(0, 0, 0, 0.04);
+
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    @include transitionI(opacity);
+  }
+
+  &.is-open {
+    pointer-events: auto;
+    opacity: 1;
+    overflow: hidden;
+
+    & > .menu-container {
+      transform: translateX(0);
+    }
+  }
+}
+
+.menu-container {
+  font-weight: 600;
+
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70.3vw;
+    height: 100%;
+    transform: translateX(100%);
+
+    padding-top: 106px;
+    padding-left: 40px;
+
+    background-color: $primary-white-color;
+    box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.16),
+      -2px 0px 4px rgba(0, 0, 0, 0.08), -4px 0px 8px rgba(0, 0, 0, 0.04);
+
+    @include transitionI(transform);
+    overflow-y: scroll;
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    align-items: center;
+    margin-top: 0;
+  }
+}
+
+// navigation
+.header-nav {
+  @extend %list;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 40px;
+    max-width: 155px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    margin-top: 12px;
+    margin-right: 47px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    align-items: center;
+    margin-top: 0;
+    margin-right: 317px;
+  }
+}
+
+.header-nav-item:not(:last-child) {
+  @media screen and (min-width: $tablet) {
+    margin-right: 24px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 40px;
+  }
+}
+
+.header-nav-link {
+  @extend %link;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  @media screen and (max-width: 767px) {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1.4;
+    color: $primary-text-color;
+  }
+
+  font-size: 12px;
+  line-height: 1.33;
+  color: $primary-white-color;
+  letter-spacing: 0.1em;
+  @include transitionI(color);
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+// contacts
+.header-contacts {
+  display: flex;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    margin-bottom: 52px;
+    max-width: 194px;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: 1199px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 8px;
+  }
+}
+
+.header-contacts-item {
+  @extend %link;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  font-size: 12px;
+  line-height: 1.33;
+  color: $primary-white-color;
+  letter-spacing: 0.1em;
+  @include transitionI(color);
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 12px;
+    font-size: 18px;
+    line-height: 1.4;
+    color: $primary-text-color;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 40px;
+  }
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.header-button {
+  @extend %button;
+  @extend %link;
+  color: $primary-white-color;
+  @include transitionII(color, background-color);
+
+  @media screen and (max-width: 767px) {
+    color: $primary-text-color;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: 1199px) {
+    margin-bottom: 8px;
+  }
+
+  &:hover,
+  &:focus {
+    color: $primary-white-color;
+    background-color: $accent-color;
+  }
+}
+
+// header instagram youtube
+.header-social-media {
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    left: 12%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    max-width: 194px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    top: 460px;
+    left: 64px;
+    transform-origin: bottom left;
+    transform: rotate(-90deg);
+  }
+
+  @media screen and (min-width: $desktop) {
+    left: 48px;
+  }
+}
+
+.header-social-media::before {
+  @include decor-line($primary-text-color);
+  position: absolute;
+  top: 21px;
+  left: 0;
+
+  @media screen and (min-width: $tablet) {
+    left: -100px;
+  }
+}
+
+.header-social-link {
+  @extend %link;
+  display: inline-block;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  font-size: 14px;
+  line-height: 1.35;
+  letter-spacing: 0.2em;
+  color: $primary-text-color;
+  @include transitionI(color);
+
+  @media screen and (min-width: $tablet) {
+    margin-right: 40px;
+    font-size: 11px;
+  }
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
