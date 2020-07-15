@@ -188,6 +188,7 @@
   .form-input,
   textarea {
     padding: 8px 0;
+    width: 100%;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -209,6 +210,15 @@
     &:not(:placeholder-shown) + .form-label-message {
       color: $contrastColor;
     }
+
+    &:invalid:not(:placeholder-shown) {
+      border-color: $accentColor;
+
+      & + .form-label {
+        color: $accentColor;
+      }
+    }
+
     &:not(:placeholder-shown) + .form-label {
       transform: translateY(-40px);
     }
@@ -216,14 +226,6 @@
     &:not(:placeholder-shown) + .form-label-message {
       transform: translateY(-23px);
     }
-  }
-
-  &:not(:last-of-type) .form-input {
-    width: 100%;
-  }
-
-  &:last-of-type .form-input {
-    width: 100%;
   }
 
   .form-label,
