@@ -1,7 +1,8 @@
 // slider = document.querySelector('.hero-container'), // основный элемент блока
 
 const sliderItems = document.querySelectorAll('.slider-item'), // коллекция .slider-item
-  sliderButtons = document.querySelectorAll('.slider-control-button'), // контейнер для .slider-item
+  sliderControl = document.querySelector('.slider-control'), // блок елементов управления
+  sliderButtons = document.querySelectorAll('.slider-control-button'), // элементы управления
   sliderButtonPrev = document.querySelector('.btn-prev'), // элемент управления 'Назад'
   sliderButtonNext = document.querySelector('.btn-next'), // элемент управления 'Вперед'
   indicatorItems = document.querySelectorAll('.slider-nav-button'); // элементы управления
@@ -54,6 +55,14 @@ indicatorItems.forEach((item, indexIndicator) => {
     index = indexIndicator;
     prepareCurrentSlide(index);
   });
+});
+
+sliderControl.addEventListener('click', function (e) {
+  const target = e.target;
+  Array.from(sliderButtons).forEach(item => {
+    item.classList.remove('current');
+  });
+  target.classList.add('current');
 });
 
 sliderButtonNext.addEventListener('click', nextSlide);
