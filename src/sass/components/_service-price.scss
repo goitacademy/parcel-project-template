@@ -12,27 +12,15 @@
 
   color: rgba(157, 164, 189, 0.6);
   &::before {
-    content: '';
-    display: inline-block;
-    height: 1px;
-    width: 60px;
+    @include decor-line(rgba(157, 164, 189, 0.6));
     margin-top: 6px;
-
-    background-color: rgba(157, 164, 189, 0.6);
-
     margin-right: 20px;
   }
 }
 
 .price-title {
-  font-family: $heading-font;
-  margin: 0px;
   margin-top: 20px;
-  font-weight: bold;
   font-size: 42px;
-  line-height: 1.16;
-  letter-spacing: 0.05em;
-
   color: $primary-white-color;
 }
 
@@ -56,15 +44,12 @@
   & .price-item {
     margin-bottom: 20px;
   }
-  @media screen and (min-width: $tablet) {
-    & .price-item {
-      margin-bottom: 20px;
-    }
-  }
+
   @media screen and (min-width: $desktop) {
     padding: 30px 40px;
     width: 585px;
     background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
+
     & .price-item:last-child {
       margin-bottom: 0px;
     }
@@ -75,9 +60,9 @@
   & .price-item:not(:last-child) {
     margin-bottom: 20px;
   }
+
   @media screen and (min-width: $desktop) {
     padding: 30px 40px;
-
     width: 585px;
     background: linear-gradient(180deg, #090b13 0%, rgba(9, 11, 19, 0.2) 100%);
   }
@@ -86,7 +71,6 @@
 .price-button {
   @extend %button;
   @extend %link;
-  display: inline-block;
 
   margin-top: 50px;
   color: $primary-white-color;
@@ -98,8 +82,8 @@
     background-color: $accent-color;
   }
 }
+
 .button-box {
-  width: 100%;
   text-align: center;
 }
 
@@ -113,21 +97,11 @@
   color: $secondary-text-color;
 }
 
-.service {
-  font-size: 2.92vw;
-
-  margin-right: 6px;
-  @media screen and (min-width: $mobile) {
-    font-size: 14px;
-  }
-  @media screen and (min-width: $tablet) {
-    font-size: 18px;
-  }
-}
+.service,
 .price {
   font-size: 2.92vw;
 
-  margin-left: 6px;
+  margin-right: 6px;
   @media screen and (min-width: $mobile) {
     font-size: 14px;
   }
@@ -142,6 +116,7 @@
   width: 100%;
   height: auto;
 }
+
 .between::after {
   content: '';
   position: absolute;
@@ -150,6 +125,7 @@
   height: 1px;
   bottom: 7px;
 }
+
 .section.services-prices {
   margin-left: auto;
   margin-right: auto;
@@ -160,14 +136,16 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
     background-image: url(/images/pricemob@2x.png),
       linear-gradient(rgba(17, 19, 25, 1), rgba(17, 19, 25, 1));
   }
-  @media screen and (min-width: $tablet) {
-    width: $tablet;
+
+  @media screen and (min-width: $tablet) and (max-width: 1199px) {
+    max-width: $tablet;
 
     background-image: url(/images/pricetab.png),
       linear-gradient(rgba(17, 19, 25, 1), rgba(17, 19, 25, 1));
@@ -178,10 +156,13 @@
         linear-gradient(rgba(17, 19, 25, 1), rgba(17, 19, 25, 1));
     }
   }
+
   @media screen and (min-width: $desktop) and (max-width: 1279px) {
     width: 100%;
 
-    background-image: url(/images/pricedesctop.png), #111319;
+    background-image: url(/images/pricedesctop.png),
+      linear-gradient(rgba(17, 19, 25, 1), rgba(17, 19, 25, 1));
+
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
@@ -192,7 +173,9 @@
   @media screen and (min-width: 1280px) {
     width: 1280px;
 
-    background-image: url(/images/pricedesctop.png), #111319;
+    background-image: url(/images/pricedesctop.png),
+      linear-gradient(rgba(17, 19, 25, 1), rgba(17, 19, 25, 1));
+
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
