@@ -2,8 +2,7 @@
   margin-left: auto;
   margin-right: auto;
 
-  max-width: 480px;
-
+  max-width: $mobile;
   background-size: cover;
 
   background-repeat: no-repeat;
@@ -11,20 +10,27 @@
   background-color: #111319;
   background-image: url('../images/services/mob/services_img_mob-480.png');
 
-  @media screen and (min-width: 481px) and (max-width: 767px) {
+  @media screen and (min-width: $mobile) and (max-width: 767px) {
+    max-width: $mobile;
+    height: 826px;
+
     max-width: 100%;
     background-size: contain;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    max-width: 768px;
+  @media screen and (min-width: $tablet) and (max-width: 1279px) {
+    max-width: $tablet;
+    height: 858px;
+
     max-width: 100%;
     background-size: contain;
     background-image: url('../images/services/tab/services_img_tab-768.png');
   }
 
-  @media screen and (min-width: 1280px) {
-    max-width: 1280px;
+  @media screen and (min-width: $desktop) {
+    max-width: $desktop;
+    height: 718px;
+
     max-width: 100%;
     background-size: contain;
     background-image: url('../images/services/desk/services_img_desk-1280.png');
@@ -49,7 +55,7 @@
 @media screen and (min-device-pixel-ratio: 2),
   screen and (min-resolution: 192dpi),
   screen and (min-resolution: 2dppx) {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     .services__section {
       background-image: url('../images/services/tab/services_img_tab-768@2x.png');
     }
@@ -58,7 +64,7 @@
 @media screen and (min-device-pixel-ratio: 3),
   screen and (min-resolution: 288dpi),
   screen and (min-resolution: 3dppx) {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     .services__section {
       background-image: url('../images/services/tab/services_img_tab-768@3x.png');
     }
@@ -68,7 +74,7 @@
 @media screen and (min-device-pixel-ratio: 2),
   screen and (min-resolution: 192dpi),
   screen and (min-resolution: 2dppx) {
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: $desktop) {
     .services__section {
       background-image: url('../images/services/desk/services_img_desk-1280@2x.png');
     }
@@ -77,7 +83,7 @@
 @media screen and (min-device-pixel-ratio: 3),
   screen and (min-resolution: 288dpi),
   screen and (min-resolution: 3dppx) {
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: $desktop) {
     .services__section {
       background-image: url('../images/services/desk/services_img_desk-1280@3x.png');
     }
@@ -85,36 +91,31 @@
 }
 
 .services__container {
-  display: block;
   margin-left: auto;
   margin-right: auto;
 
-  max-width: 418px;
+  max-width: 448px;
+  height: 100%;
   padding: 84px 15px;
 
   text-align: center;
 
-  @media screen and (min-width: 480px) {
-    padding: 84px 0;
+  @media screen and (min-width: $tablet) {
+    max-width: 720px;
+    height: 100%;
+    padding: 100px 15px;
   }
 
-  @media screen and (min-width: 768px) {
-    max-width: 690px;
-    width: 100%;
-    padding: 100px 0;
-  }
-
-  @media screen and (min-width: 1280px) {
-    max-width: 1170px;
-    width: 100%;
-    padding: 130px 0;
+  @media screen and (min-width: $desktop) {
+    max-width: 1200px;
+    height: 100%;
+    padding: 130px 15px;
   }
 }
 
 .services__subtitle {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   margin-bottom: 20px;
 
   font-family: $second-font;
@@ -126,6 +127,7 @@
   text-transform: uppercase;
 
   color: rgba(157, 164, 189, 0.6);
+  text-align: left;
 
   &::before {
     @extend %line-before-with-opacity;
@@ -149,36 +151,34 @@
 .services__list {
   display: flex;
   flex-direction: column;
-
   margin-bottom: 50px;
-
-  max-width: 418px;
 
   padding: 15px;
   background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
   text-align: left;
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: $mobile) {
+    max-width: 418px;
+
     padding: 30px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     max-width: 690px;
 
     padding: 30px 40px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: $desktop) {
     flex-direction: row;
     max-width: 1170px;
-    width: 100%;
     padding: 0;
   }
 }
 
 .services__item--first,
 .services__item--second {
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: $desktop) {
     max-width: 585px;
     width: 100%;
     padding: 30px 40px;
@@ -191,7 +191,7 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: $desktop) {
   .services__item--first {
     background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
   }
@@ -214,7 +214,7 @@
   letter-spacing: 0.02em;
   color: #9da4bd;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     font-size: 18px;
     line-height: 1.67;
   }
@@ -233,11 +233,7 @@
 
 .button {
   @extend %button;
-  width: 160px;
-  height: 40px;
+  display: inline-block;
+  padding: 12px 20px;
   background-color: transparent;
-}
-
-.services-btn {
-  padding: 12px 37px;
 }
