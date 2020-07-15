@@ -1,8 +1,11 @@
 .section-title.feature {
-  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+  max-width: 418px;
+
+  @media screen and (min-width: $tablet) {
     max-width: 420px;
   }
 }
+
 .feature-text {
   margin-top: 0;
   margin-bottom: 44px;
@@ -11,7 +14,7 @@
   font-size: 18px;
   line-height: 1.67em;
 
-  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+  @media screen and (min-width: $tablet) {
     max-width: 500px;
   }
 }
@@ -22,12 +25,15 @@
   justify-content: center;
   flex-wrap: wrap;
 
-  max-width: 480px;
+  margin: -15px -15px 20px -15px;
 
-  margin: -15px;
-
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) and (max-width: $preDesktop) {
     margin-left: auto;
+    max-width: 480px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    max-width: 400px;
   }
 }
 
@@ -36,17 +42,25 @@
   flex-direction: column;
 
   justify-content: center;
-  width: 193px;
-  height: 100%;
+  width: calc((100% - 2 * 30px) / 2);
   color: $primeryTextColor;
   background-color: $secondaryBgColor;
   text-align: center;
 
-  padding: 20px 29px;
+  padding: 20px 34px;
   margin: 15px;
 
+  @media screen and (min-width: $tablet) and (min-width: $desktop) {
+    padding: 20px 38px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding: 20px 18px;
+  }
+
   &:nth-child(even) {
-    margin-bottom: -50px;
+    position: relative;
+    top: 35px;
   }
 
   .number {
@@ -72,5 +86,13 @@
 
     margin-top: 0;
     margin-bottom: 0;
+  }
+}
+
+.container.feature {
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
   }
 }
