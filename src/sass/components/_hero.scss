@@ -31,49 +31,94 @@
   background-size: cover;
 }
 
+.hero-flexer {
+  @media screen and(min-width:768px) {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 768px;
+  }
+
+  @media screen and(min-width:1280px) {
+    max-width: 1280px;
+  }
+}
+.hero-background {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(
+      to right,
+      rgb(255, 255, 255),
+      rgb(213, 213, 213),
+      rgb(170, 170, 171),
+      rgb(128, 128, 130),
+      rgb(85, 85, 88),
+      rgb(43, 43, 46),
+      rgb(39, 39, 43),
+      rgb(35, 35, 40),
+      rgb(31, 31, 37),
+      rgb(27, 26, 34),
+      rgb(23, 22, 31),
+      rgb(19, 18, 28)
+    );
+  }
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .hero-section {
   position: relative;
+  display: flex;
   height: 580px;
   min-width: 240px;
   max-width: 1125px;
 
+  @media screen and (max-width: 400px) {
+    height: 400px;
+  }
+
   @media screen and (max-width: 767px) {
     max-width: 480px;
-    @include bg-img(
-      '/images/hero/hero-mobile3.jpg',
-      '/images/hero/hero-mobile3@2x.jpg',
-      '/images/hero/hero-mobile3@3x.jpg'
-    );
+    margin-left: auto;
+    margin-right: auto;
+
+    // @include bg-img(
+    //   '/images/hero/hero-mobile3.jpg',
+    //   '/images/hero/hero-mobile3@2x.jpg',
+    //   '/images/hero/hero-mobile3@3x.jpg'
+    // );
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    max-width: 609px;
+    min-width: 609px;
     height: 680px;
     padding: 40px;
+    flex-grow: 0.88;
 
-    @include bg-img(
-      '/images/hero/hero-tablet3.jpg',
-      '/images/hero/hero-tablet3@2x.jpg',
-      '/images/hero/hero-tablet3@3x.jpg'
-    );
+    // @include bg-img(
+    //   '/images/hero/hero-tablet3.jpg',
+    //   '/images/hero/hero-tablet3@2x.jpg',
+    //   '/images/hero/hero-tablet3@3x.jpg'
+    // );
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: 1125px;
+    min-width: 1125px;
     height: 680px;
     padding: 40px 55px 40px 55px;
+    flex-grow: 0.88;
 
-    @include bg-img(
-      '/images/hero/hero-desctop3.jpg',
-      '/images/hero/hero-desctop3@2x.jpg',
-      '/images/hero/hero-desctop3@3x.jpg'
-    );
+    // @include bg-img(
+    //   '/images/hero/hero-desctop3.jpg',
+    //   '/images/hero/hero-desctop3@2x.jpg',
+    //   '/images/hero/hero-desctop3@3x.jpg'
+    // );
   }
 }
 
 .hero-container {
-  margin-left: 31px;
-  padding-top: 208px;
+  position: absolute;
   font-style: normal;
 
   &__par {
@@ -105,6 +150,10 @@
       font-size: 72px;
       line-height: 1.18;
     }
+    @media screen and (max-width: 380px) {
+      font-size: 42px;
+      line-height: 1.18;
+    }
   }
 
   &__about-us {
@@ -121,22 +170,35 @@
       font-size: 18px;
       line-height: 1.67;
     }
+
+    @media screen and (max-width: 380px) {
+      font-size: 14px;
+      line-height: 1.62;
+    }
   }
 
   @media screen and(max-width:767px) {
     max-width: 306px;
+    padding-top: 208px;
+    margin-left: 31px;
   }
 
   @media screen and(min-width:768px) {
     max-width: 355px;
-    margin-left: 80px;
-    padding-top: 227px;
+    padding-left: 80px;
+    padding-top: 232px;
   }
 
   @media screen and(min-width:1280px) {
     max-width: 486px;
-    margin-left: 60px;
-    padding-top: 217px;
+    padding-left: 45px;
+    padding-top: 232px;
+  }
+
+  @media screen and(max-width:479px) {
+    max-width: 306px;
+    padding-top: 208px;
+    margin-left: 8px;
   }
 }
 
@@ -152,6 +214,10 @@
 
   @media screen and (max-width: 767px) {
     display: none;
+  }
+
+  @media screen and (min-width: $desktop) {
+    right: 55px;
   }
 }
 
@@ -174,15 +240,19 @@
   outline: none;
   border-image: none;
   border-bottom: 1px solid currentColor;
+  &:disabled {
+    color: rgba(157, 164, 189, 0.6);
+  }
 
   &__back {
-    color: rgba(157, 164, 189, 0.6);
     padding-right: 22px;
     margin-right: 26px;
+    transition: color 250ms $main-transition;
   }
 
   &__forward {
     padding-left: 13px;
+    transition: color 250ms $main-transition;
   }
 
   &__back:hover,
@@ -196,14 +266,4 @@
 .hero-section__btn:hover,
 .hero-section__btn:focus {
   cursor: pointer;
-}
-
-// линии-переключатели слайдера справа
-.slider-lines {
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
 }

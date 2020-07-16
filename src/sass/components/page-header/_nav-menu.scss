@@ -1,26 +1,59 @@
 .nav-menu {
-  padding-top: 118px;
-  margin-bottom: 64px;
-
   font-family: $second-font;
   font-weight: 600;
   font-size: 18px;
   line-height: 1.39;
   letter-spacing: 0.1em;
+
+  @media screen and (max-width: ($tablet - 1)) {
+    padding-top: 118px;
+    margin-bottom: 64px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    top: 52px;
+
+    left: 153px;
+
+    display: flex;
+
+    font-size: 12px;
+    line-height: 1.33;
+  }
+
+  @media screen and (min-width: $desktop) {
+    left: 140px;
+  }
 }
 .nav-menu__item {
-  &:not(:last-child) {
-    margin-bottom: 24px;
+  @media screen and (max-width: ($tablet - 1)) {
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+  @media screen and (min-width: $tablet) {
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
   }
 }
 .nav-menu__link {
   color: $heading-text-color;
 
+  @include transition($property: color);
+
   &:hover,
   &:focus {
     color: $accent-color;
   }
-}
-.nav-menu__link--accent {
-  color: $accent-color;
+
+  @media screen and (min-width: $tablet) {
+    color: $white;
+  }
 }

@@ -1,6 +1,24 @@
+.header-wrapper__contact-us {
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    top: 39px;
+    right: 0;
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  @media screen and (min-width: $desktop) {
+    top: 40px;
+    right: 0px;
+
+    display: flex;
+    flex-direction: row;
+  }
+}
 .contact-us__tel {
   display: block;
-  margin-bottom: 24px;
 
   font-family: $second-font;
   font-weight: 600;
@@ -10,16 +28,43 @@
 
   color: $heading-text-color;
 
+  @include transition($property: color);
+
   &:hover,
   &:focus {
     color: $accent-color;
   }
+
+  @media screen and (max-width: ($tablet - 1)) {
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-size: 12px;
+    line-height: 1.33;
+
+    color: $white;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 40px;
+  }
 }
 .contact-us__online {
   @extend %button;
-  display: block;
+  display: inline-block;
   padding: 12px 37px;
-  margin-bottom: 64px;
 
-  color: $heading-text-color;
+  background-color: transparent;
+
+  @media screen and (max-width: ($tablet - 1)) {
+    color: $heading-text-color;
+    margin-bottom: 64px;
+  }
+  @media screen and (min-width: $tablet) and (max-width: ($desktop - 1)) {
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: $tablet) {
+    padding: 12px 20px;
+  }
 }

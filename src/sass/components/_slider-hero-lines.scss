@@ -1,0 +1,60 @@
+// линии-переключатели слайдера справа
+.slider-lines {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translate(0, -50%);
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 55px;
+  }
+}
+
+.slider-lines__form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+// прячу стандартную кнопку
+.slider-lines__form-item {
+  position: absolute;
+  width: 1;
+  height: 1;
+  margin: -1;
+  clip: rect(0 0 0 0);
+  border: 0;
+  overflow: hidden;
+}
+
+.slider-lines-icon {
+  display: block;
+  width: 8px;
+  height: 2px;
+  margin-bottom: 11px;
+  background-image: url('../images/unactive-slider.svg');
+  transition: background 250ms $main-transition;
+
+  &:hover,
+  &:focus {
+    background: $accent-color;
+    cursor: pointer;
+  }
+
+  .slider-lines__form-item:checked + &,
+  .slider-lines__form-item:active + & {
+    width: 18px;
+    background-image: url('../images/active-slider.svg');
+  }
+
+  // &:checked,
+  // &:active {
+  //   width: 18px;
+  //   background-image: url('../images/active-slider.svg');
+  // }
+}
