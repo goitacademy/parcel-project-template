@@ -21,8 +21,10 @@
         return;
       }
 
+      this.displayActiveItem();
+
       this.isActive = true;
-      this.intervalId = setInterval(() => this.listingNext(), 2000);
+      this.intervalId = setInterval(() => this.listingNext(), 3000);
     },
 
     stop() {
@@ -31,13 +33,30 @@
       this.isActive = false;
     },
 
+    displayActiveItem() {
+      refs.items[this.activeIndex].setAttribute('data-active', '');
+      [...refs.items]
+        .filter(el => !el.getAttribute('data-active'))
+        .map(el => el.setAttribute('style', 'display: none'));
+
+      refs.items[this.activeIndex].setAttribute('style', 'display: block');
+    },
+
     setActiveItem() {
       const prevElem = getElByAtr(refs.items, 'data-active');
       const prevRadio = getElByAtr(refs.radioBtns, 'checked');
 
       prevElem.removeAttribute('data-active');
+      prevElem.setAttribute('style', 'display: none');
       prevRadio.removeAttribute('checked');
-      refs.items[this.activeIndex].setAttribute('data-active', '');
+
+      this.displayActiveItem();
+      // refs.items[this.activeIndex].setAttribute('data-active', '');
+      // [...refs.items]
+      //   .filter(el => !el.getAttribute('data-active'))
+      //   .map(el => el.setAttribute('style', 'display: block'));
+
+      // refs.items[this.activeIndex].setAttribute('style', 'display: block');
       refs.radioBtns[this.activeIndex].setAttribute('checked', '');
     },
 
@@ -73,6 +92,8 @@
     // },
   };
 
+  // slider.displayActiveItem.call(slider);
+
   refs.nextBtn.addEventListener('click', slider.listingNext.bind(slider));
   refs.prevBtn.addEventListener('click', slider.listingPrev.bind(slider));
   // refs.radioList.addEventListener('click', slider.listingRadio.bind(slider));
@@ -85,12 +106,14 @@
   //   }
   // };
 
+  // window.addEventListener('load', () => slider.displayActiveItem());
+
   // listner for run slider
-  // window.addEventListener('load', () => {
-  //   //   if (window.matchMedia('screen and (max-width: 479px)').matches) {
-  //   slider.start();
-  //   //   }
-  // });
+  window.addEventListener('load', () => {
+    //   if (window.matchMedia('screen and (max-width: 479px)').matches) {
+    slider.start();
+    //   }
+  });
   // listner for run slider -END
 })();
 // window.addEventListener('resize', onResize);
