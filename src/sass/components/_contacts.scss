@@ -4,7 +4,7 @@
 
   @media screen and (min-width: $desktop) {
     display: flex;
-    // padding-top: 0;
+    padding-top: 0;
   }
 }
 
@@ -19,13 +19,12 @@
 
   @media screen and (min-width: $desktop) {
     width: 655px;
-    // flex-basis: 50%;
-    // padding-left: 45px;
-    // padding-right: 40px;
-
-    // padding-bottom: 0;
-    // padding-top: 130px;
-    // text-align: left;
+    padding-right: 40px;
+    padding-top: 130px;
+    padding-bottom: 193px;
+    margin-right: 0;
+    // margin-left: auto;
+    padding-left: 55px;
   }
 }
 
@@ -70,7 +69,7 @@
   background: transparent;
   border-color: transparent;
   border-bottom-color: rgba(157, 164, 189, 0.4);
-  padding-top: 8px;
+  // padding-top: 8px;
   padding-bottom: 8px;
 
   &:hover {
@@ -96,8 +95,8 @@
   }
 }
 
-.recording-input:focus+.recording-label,
-.recording-input:not(:placeholder-shown)+.recording-label {
+.recording-input:focus + .recording-label,
+.recording-input:not(:placeholder-shown) + .recording-label {
   transform: translateY(-32px);
   color: $whiteTextColor;
   transition-duration: 250ms;
@@ -122,8 +121,8 @@
   top: 10px;
 }
 
-.recording-textarea:focus+.textarea-label,
-.recording-textarea:not(:placeholder-shown)+.textarea-label {
+.recording-textarea:focus + .textarea-label,
+.recording-textarea:not(:placeholder-shown) + .textarea-label {
   transform: translateY(-32px);
   color: $whiteTextColor;
   transition-duration: 250ms;
@@ -146,8 +145,8 @@
   background-size: cover;
 
   @media screen and (min-device-pixel-ratio: 2),
-  screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx) {
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
     background-image: url(../images/contacts/mobile@2x.png);
   }
 
@@ -157,38 +156,42 @@
     background-image: url(../images/contacts/tablet.png);
 
     @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
       background-image: url(../images/contacts/tablet@2x.png);
     }
   }
 
   @media (min-width: $desktop) {
-    width: 625px;
-    // margin-left: 0;
-    // padding-left: 55px;
-    // padding-top: 134px;
-    // padding-left: 100px;
-    // background-image: url(../images/contacts/desktop.png);
+    padding-top: 130px;
+    padding-bottom: 130px;
+    padding-left: 100px;
+    background-image: url(../images/contacts/desktop.png);
 
-    // @media screen and (min-device-pixel-ratio: 2),
-    // screen and (min-resolution: 192dpi),
-    // screen and (min-resolution: 2dppx) {
-    //   background-image: url(../images/contacts/desktop@2x.png);
-    // }
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/contacts/desktop@2x.png);
+    }
   }
 }
 
-.desktop-container {}
+.desktop-container {
+  @media screen and (min-width: $desktop) {
+    width: 525px;
+    padding: 0;
+    margin: 0;
+  }
+}
 
 .contacts-flex {
   @media (min-width: $tablet) {
     display: flex;
   }
 
-  // @media (min-width: $desktop) {
-  //   display: block;
-  // }
+  @media (min-width: $desktop) {
+    display: block;
+  }
 }
 
 .contacts-address {
@@ -197,18 +200,18 @@
     margin-right: 30px;
   }
 }
-
-.contacts-list {
-  @extend %list;
+.contacts-address {
   margin-bottom: 44px;
-
   @media screen and (min-width: $tablet) {
     margin-bottom: 0;
   }
 
-  // @media screen and (min-width: $desktop) {
-  //   margin-bottom: 70px;
-  // }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 70px;
+  }
+}
+.contacts-list {
+  @extend %list;
 }
 
 .contacts-item:not(:last-child) {
@@ -237,6 +240,7 @@
 .contacts-span {
   @media screen and (min-width: $tablet) {
     padding-left: 45px;
+    display: inline-block;
   }
 }
 
