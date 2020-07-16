@@ -122,15 +122,20 @@
 }
 
 .copyright {
-  display: flex;
   padding-left: 15px;
   padding-right: 15px;
   background-color: $white-bg-color;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 480px) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    display: flex;
     padding-top: 44px;
     padding-bottom: 44px;
   }
   @media screen and (min-width: 768px) {
+    display: flex;
     padding-top: 56px;
     padding-bottom: 56px;
   }
@@ -145,22 +150,28 @@
     &:focus {
       color: $orange-color;
     }
-
-    &.insta {
-      margin-left: auto;
-      &::before {
-        content: '';
-        display: inline-block;
-        width: 60px;
-        height: 1px;
-        margin-top: 8px;
-        background-color: #303030;
-
-        margin: 0px 40px 4px 0px;
+    @media screen and (max-width: 480px) {
+      &.insta {
+        margin-bottom: 15px;
       }
     }
-    &.yutube {
-      margin-left: 40px;
+    @media screen and (min-width: 480px) {
+      &.insta {
+        margin-left: auto;
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 60px;
+          height: 1px;
+          margin-top: 8px;
+          background-color: #303030;
+
+          margin: 0px 40px 4px 0px;
+        }
+      }
+      &.yutube {
+        margin-left: 40px;
+      }
     }
   }
   .copyright-text {
@@ -169,7 +180,10 @@
     line-height: 1.36;
     letter-spacing: 0.2em;
     color: $light-dark-text-color;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 480px) {
+      margin-bottom: 20px;
+    }
+    @media screen and (min-width: 480px) and (max-width: 767px) {
       margin-top: 35px;
     }
   }
@@ -181,8 +195,8 @@
   margin: 0px;
   z-index: 2;
   position: fixed;
-  bottom: 100px;
-  right: 20px;
+  bottom: 70px;
+  right: 10px;
 }
 .back-top a {
   @media screen and (max-width: 767px) {
@@ -198,7 +212,7 @@
     height: 70px;
   }
 
-  padding: 8px;
+  padding: 7px;
   border-color: $white-bg-color;
   border-radius: 50%;
   background: rgba(7, 7, 7, 0.815);
