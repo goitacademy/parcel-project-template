@@ -60,7 +60,6 @@
         this.activeIndex = 0;
       }
       this.setActiveItem();
-      console.log('this.activeIndex', this.activeIndex);
     },
 
     listingPrev() {
@@ -69,7 +68,6 @@
         this.activeIndex = refs.items.length - 1;
       }
       this.setActiveItem();
-      console.log('this.activeIndex', this.activeIndex);
     },
   };
 
