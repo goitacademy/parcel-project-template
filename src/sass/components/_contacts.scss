@@ -1,5 +1,11 @@
 .section--background {
   background-color: #191c26;
+  padding-bottom: 0;
+
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    // padding-top: 0;
+  }
 }
 
 .recording {
@@ -9,6 +15,17 @@
   @media screen and (min-width: $tablet) {
     padding-bottom: 100px;
     text-align: left;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 655px;
+    // flex-basis: 50%;
+    // padding-left: 45px;
+    // padding-right: 40px;
+
+    // padding-bottom: 0;
+    // padding-top: 130px;
+    // text-align: left;
   }
 }
 
@@ -25,6 +42,10 @@
 .recording-list {
   margin-bottom: 44px;
   @extend %list;
+}
+
+.recording-item {
+  position: relative;
 }
 
 .recording-item:first-child {
@@ -52,71 +73,122 @@
   padding-top: 8px;
   padding-bottom: 8px;
 
-  &::placeholder {
-    font-weight: 600;
-    font-size: 11px;
-    line-height: 1.36;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(157, 164, 189, 0.4);
+  &:hover {
+    border-bottom-color: $primeryBgColor;
   }
+}
+
+.recording-label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(157, 164, 189, 0.4);
 
   &:hover {
-    border-bottom-color: $secondaryBgColor;
+    color: $whiteTextColor;
   }
+}
+
+.recording-input:focus+.recording-label,
+.recording-input:not(:placeholder-shown)+.recording-label {
+  transform: translateY(-32px);
+  color: $whiteTextColor;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .recording-textarea {
   width: 100%;
   padding-bottom: 60px;
   resize: none;
-  color: rgba(157, 164, 189, 0.4);
   background: transparent;
   border-color: transparent;
   border-bottom-color: rgba(157, 164, 189, 0.4);
+
+  &:hover {
+    color: $whiteTextColor;
+    border-bottom-color: $primeryBgColor;
+  }
+}
+
+.textarea-label {
+  top: 10px;
+}
+
+.recording-textarea:focus+.textarea-label,
+.recording-textarea:not(:placeholder-shown)+.textarea-label {
+  transform: translateY(-32px);
+  color: $whiteTextColor;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.recording-input:focus,
+.recording-textarea:focus {
+  outline: none;
+  border-bottom-color: $primeryBgColor;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts {
   padding-top: 84px;
+  padding-bottom: 84px;
   background-image: url(../images/contacts/mobile.png);
   background-repeat: no-repeat;
   background-size: cover;
 
   @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
     background-image: url(../images/contacts/mobile@2x.png);
   }
 
   @media (min-width: $tablet) {
     padding-top: 100px;
+    padding-bottom: 100px;
     background-image: url(../images/contacts/tablet.png);
 
     @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
       background-image: url(../images/contacts/tablet@2x.png);
     }
   }
 
   @media (min-width: $desktop) {
-    width: 49%;
-    margin-left: 0;
-    padding-left: 100px;
-    background-image: url(../images/contacts/desktop.png);
+    width: 625px;
+    // margin-left: 0;
+    // padding-left: 55px;
+    // padding-top: 134px;
+    // padding-left: 100px;
+    // background-image: url(../images/contacts/desktop.png);
 
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      background-image: url(../images/contacts/desktop@2x.png);
-    }
+    // @media screen and (min-device-pixel-ratio: 2),
+    // screen and (min-resolution: 192dpi),
+    // screen and (min-resolution: 2dppx) {
+    //   background-image: url(../images/contacts/desktop@2x.png);
+    // }
   }
 }
+
+.desktop-container {}
 
 .contacts-flex {
   @media (min-width: $tablet) {
     display: flex;
   }
+
+  // @media (min-width: $desktop) {
+  //   display: block;
+  // }
 }
 
 .contacts-address {
@@ -133,6 +205,10 @@
   @media screen and (min-width: $tablet) {
     margin-bottom: 0;
   }
+
+  // @media screen and (min-width: $desktop) {
+  //   margin-bottom: 70px;
+  // }
 }
 
 .contacts-item:not(:last-child) {
@@ -156,6 +232,12 @@
   fill: currentColor;
   margin-right: 16px;
   vertical-align: middle;
+}
+
+.contacts-span {
+  @media screen and (min-width: $tablet) {
+    padding-left: 45px;
+  }
 }
 
 .schedule-header {
