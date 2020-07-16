@@ -1,4 +1,5 @@
 .page-header {
+  position: relative;
   padding: 0;
   margin: 0;
   margin-right: auto;
@@ -13,16 +14,21 @@
 }
 
 .soc-bar {
+  position: absolute;
+  bottom: 200px;
+  left: -68px;
   display: flex;
+  align-items: center;
   transform: rotate(-90deg);
+  // background-color: rgb(165, 5, 5);
 
   &::before {
     content: '';
-    margin-right: 40px;
+    margin-right: 20px;
     display: block;
     width: 60px;
     height: 1px;
-    background-color: #303030;
+    background-color: rgba(157, 164, 189, 0.6);
   }
 
   .link {
@@ -66,15 +72,6 @@
     align-items: center;
 
     color: rgba(157, 164, 189, 0.6);
-
-    &::before {
-      content: '';
-      margin-right: 20px;
-      display: block;
-      width: 60px;
-      height: 1px;
-      background-color: rgba(157, 164, 189, 0.6);
-    }
   }
   ///////// для заголовка всего сайта
   h1 {
@@ -207,6 +204,7 @@
 
   .auth-nav {
     // @extend %list;
+
     list-style: none;
     margin: 0;
     padding: 0;
@@ -244,29 +242,11 @@
   .soc-Instagram {
     display: flex;
     align-items: center;
-
-    &::before {
-      content: '';
-      margin-right: 40px;
-      display: block;
-      width: 60px;
-      height: 1px;
-      background-color: $dark-heading-color;
-    }
   }
 
   .soc-Youtube {
     display: flex;
     align-items: center;
-
-    &::before {
-      content: '';
-      margin-right: 40px;
-      display: block;
-      width: 60px;
-      height: 1px;
-      background-color: white;
-    }
   }
 }
 ////////////////для планшетной версии/////////////////////
@@ -331,16 +311,18 @@
         /////////////////////
         .site-nav {
           display: flex;
-
+          padding-top: 10px;
           li:not(:last-child) {
             margin-right: 24px;
           }
         }
         ///////////////////////
         .auth-nav {
+          display: flex;
+          flex-direction: column-reverse;
+          // background-color: rgb(177, 21, 21);
           text-align: center;
-
-          li:not(:last-child) {
+          li:not(:first-child) {
             margin-bottom: 20px;
           }
         }
@@ -400,7 +382,6 @@
     }
 
     .sidebar {
-      background-color: #ffffff;
       width: 155px;
       height: 680px;
 
@@ -412,7 +393,7 @@
       .logo-div {
         display: flex;
         justify-content: center;
-        margin-bottom: 360px;
+        // margin-bottom: 360px;
       }
     }
     .menu-button {
@@ -504,6 +485,22 @@
           line-height: 1.67;
         }
       }
+    }
+  }
+}
+
+.social-links-header {
+  display: flex;
+
+  &::before {
+    content: '';
+    margin-right: 20px;
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: rgba(157, 164, 189, 0.6);
+    @media screen and (max-width: $max-tablet) {
+      margin-top: 8px;
     }
   }
 }
