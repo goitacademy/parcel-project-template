@@ -1,15 +1,26 @@
 header {
   position: relative;
+  margin: auto;
 }
 
 .header-container {
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1;
 
   //   margin: 0;
   padding: 40px 31px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 479px) {
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width: 480px) {
     width: 480px;
     display: inline-flex;
     flex-wrap: nowrap;
@@ -39,10 +50,12 @@ header {
 .logo {
   width: 69px;
   height: 55px;
-  // margin-top: 32px;
-  margin-left: 11px;
-  margin-right: 10px;
-  // margin-right: 0;
+
+  fill: $black-text-color;
+
+  @media screen and (max-width: 767px) {
+    fill: $white-bg-color;
+  }
 }
 
 .socials {
@@ -57,7 +70,7 @@ header {
 
     position: absolute;
     top: 370px;
-    left: -40px;
+    left: -30px;
 
     &::before {
       content: '';
@@ -98,12 +111,18 @@ header {
 }
 
 .page-header {
+  @media screen and (max-width: 767px) {
+    // max-width: 480px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   @media screen and (min-width: 768px) {
-    width: 546px;
+    // width: 546px;
     height: 76px;
     display: flex;
     // margin: 0;
-    margin-left: 24px;
+    margin-left: 60px;
 
     // padding: 0;
     // padding-top: 40px;
@@ -120,7 +139,7 @@ header {
   @media screen and (max-width: 767px) {
     position: absolute;
     top: 0;
-    left: 143px;
+    right: 0;
 
     width: 337px;
     height: 796px;
@@ -173,7 +192,7 @@ header {
   }
 
   @media screen and (min-width: 1200px) {
-    margin-right: 322px;
+    margin-right: 270px;
   }
 }
 
@@ -223,7 +242,8 @@ header {
   color: $black-text-color;
   text-decoration: none;
 
-  &.current {
+  &:hover,
+  &:focus {
     color: $orange-color;
   }
 
@@ -311,6 +331,7 @@ header {
   &:focus {
     background-color: $orange-color;
     color: $white-text-color;
+    cursor: pointer;
   }
 
   @media screen and (min-width: 768px) {

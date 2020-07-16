@@ -18,35 +18,27 @@
     max-width: $desktop;
   }
   &-title {
+    font-family: $titleFont;
     margin: 0px 0px 20px;
     padding: 0px;
-    font-size: 10vw;
+    font-size: 48px;
     color: $white-bg-color;
-
-    @media screen and (min-width: $mobile) {
-      font-size: 48px;
-    }
-
     @media screen and (min-width: $desktop) {
       font-size: 72px;
       line-height: 1.18;
     }
   }
   &-text {
-    max-width: 306px;
+    font-family: $mainFont;
     margin: 0px;
-    padding: 0px;
-    font-size: 3.33vw;
+    font-size: 16px;
     line-height: 1.63;
     color: $light-dark-text-color;
-
-    @media screen and (min-width: $mobile) {
-      font-size: 16px;
-    }
 
     @media screen and (min-width: $desktop) {
       font-size: 18px;
       line-height: 1.67;
+      padding: 0;
     }
   }
 }
@@ -94,31 +86,31 @@
 .hero-content {
   position: absolute;
   top: 43.3vw;
-  left: 31px;
-  max-width: 306px;
+  padding-left: 31px;
 
-  @media screen and (min-width: $mobile) {
+  @media screen and(min-width:$mobile) {
+    max-width: 306px;
     top: 208px;
   }
 
   @media screen and (min-width: $tablet) {
     top: 272px;
     left: 279px;
-
+    padding: 0;
     max-width: 355px;
   }
 
   @media screen and (min-width: $desktop) {
-    left: 170px;
-
-    max-width: 450px;
+    left: 155px;
+    max-width: 486px;
+    padding-left: 50px;
   }
 }
 .hero-citation {
+  font-family: $mainFont;
   margin: 0px 0px 20px;
   padding: 0px;
-  font-weight: 600;
-  font-size: 2.3vw;
+  font-size: 11px;
   line-height: 1.36;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -199,7 +191,7 @@
   }
 
   @media screen and (min-width: $desktop) {
-    right: 71px;
+    padding-right: 55px;
   }
 }
 .hero-butn {
@@ -211,27 +203,22 @@
   line-height: 1.36;
   letter-spacing: 0.1em;
   background-color: transparent;
+  color: rgba(157, 164, 189, 0.6);
   border: none;
   cursor: pointer;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &.back {
-    color: $slogan-text-color;
-
-    &::after {
-      content: '';
-      display: inline-block;
-      width: 60px;
-      height: 1px;
-      margin-top: 8px;
-      background-color: $slogan-text-color;
-    }
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    margin-top: 8px;
+    background-color: $slogan-text-color;
   }
-  &.next {
-    align-items: flex-end;
+  &:hover,
+  &:focus {
     color: $white-bg-color;
-    @media screen and(min-width:$desktop) {
-      padding-right: 55px;
-    }
     &::after {
       content: '';
       display: inline-block;
@@ -241,4 +228,7 @@
       background-color: $white-bg-color;
     }
   }
+}
+.next {
+  align-items: flex-end;
 }
