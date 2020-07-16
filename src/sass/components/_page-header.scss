@@ -22,10 +22,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 52px;
-  }
-  @media screen and (min-width: 768px) {
+    padding-top: 40px;
     margin-bottom: 192px;
+  }
+  @media screen and (min-width: 1200px) {
+    padding-top: 52px;
   }
 }
 
@@ -45,6 +46,7 @@
 
 .header-menu.is-open .btn {
   color: $title-color;
+  margin-left: 0;
 }
 
 .container-mobile {
@@ -182,6 +184,7 @@
   }
 
   @media screen and (min-width: 768px) {
+    max-width: 609px;
     left: calc((100% - 768px) / 2 + 120px + 39px);
   }
 
@@ -255,16 +258,6 @@
   display: none;
 }
 
-.navigation {
-  @media screen and (min-width: 768px) {
-    padding-left: 24px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    padding-left: 40px;
-  }
-}
-
 .navigation-list {
   @media screen and (min-width: 768px) {
     display: flex;
@@ -276,12 +269,25 @@
   }
 }
 
+.nav-list {
+  margin-left: 40px;
+
+  @media screen and(min-width: 768px) {
+    margin-left: 24px;
+  }
+
+  @media screen and(max-width: 767px) {
+    margin: 0px 0px 24px 0px;
+  }
+}
+
 .navigation-item {
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: 0.1em;
+  text-decoration: none;
 
   color: $white-color;
   cursor: pointer;
@@ -295,19 +301,6 @@
   &:hover,
   &:focus {
     color: $accent-color;
-  }
-}
-
-.navigation-item:first-child {
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
-    margin-left: 24px;
-  }
-}
-
-.navigation-item:not(:last-child) {
-  margin-right: 24px;
-  @media screen and (max-width: 767px) {
-    margin-bottom: 24px;
   }
 }
 
@@ -552,4 +545,32 @@
 .button-primeri:hover,
 .button-primeri:focus {
   color: $white-color;
+}
+
+.laiby {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  bottom: 339px;
+  right: 55px;
+  @media screen and (min-width: 768px) {
+    right: 39px;
+  }
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.bar {
+  width: 8px;
+  height: 2px;
+  background-color: $secondary-text-color;
+  margin-bottom: 12px;
+  transition: $transition;
+}
+
+input[name='r'] {
+  position: absolute;
+  visibility: hidden;
 }
