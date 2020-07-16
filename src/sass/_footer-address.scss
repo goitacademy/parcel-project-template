@@ -19,6 +19,9 @@
   letter-spacing: 0.05em;
   text-align: center;
   color: $white-text-color;
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
 }
 
 .footer-overley {
@@ -44,7 +47,7 @@
       background-image: url('../images/footer/bg-tablet@2x.png');
     }
     .time {
-      margin-left: 30px;
+      margin-left: 175px;
     }
   }
 
@@ -59,12 +62,22 @@
 }
 
 .address {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.67;
-  letter-spacing: 0.02em;
-  font-style: normal;
-  color: $light-dark-text-color;
+  .address-text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.67;
+    letter-spacing: 0.02em;
+    font-style: normal;
+    color: $light-dark-text-color;
+  }
+  @media screen and (max-width: 767px) {
+    margin-bottom: 44px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 70px;
+  }
+
   p {
     display: flex;
     align-items: center;
@@ -88,7 +101,7 @@
     margin-right: 16px;
   }
 }
-.address-text {
+.address-time {
   margin-bottom: 20px;
   font-weight: 600;
   font-size: 11px;
@@ -96,18 +109,33 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: $white-text-color;
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    margin-top: 8px;
+    background-color: $slogan-text-color;
+
+    margin: 0px 20px 4px 0px;
+  }
 }
 
 .copyright {
-  display: flex;
   padding-left: 15px;
   padding-right: 15px;
   background-color: $white-bg-color;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 480px) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    display: flex;
     padding-top: 44px;
     padding-bottom: 44px;
   }
   @media screen and (min-width: 768px) {
+    display: flex;
     padding-top: 56px;
     padding-bottom: 56px;
   }
@@ -118,12 +146,32 @@
     line-height: 1.36;
     letter-spacing: 0.2em;
     color: $black-text-color;
-
-    &.insta {
-      margin-left: auto;
+    &:hover,
+    &:focus {
+      color: $orange-color;
     }
-    &.yutube {
-      margin-left: 40px;
+    @media screen and (max-width: 480px) {
+      &.insta {
+        margin-bottom: 15px;
+      }
+    }
+    @media screen and (min-width: 480px) {
+      &.insta {
+        margin-left: auto;
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 60px;
+          height: 1px;
+          margin-top: 8px;
+          background-color: #303030;
+
+          margin: 0px 40px 4px 0px;
+        }
+      }
+      &.yutube {
+        margin-left: 40px;
+      }
     }
   }
   .copyright-text {
@@ -132,7 +180,10 @@
     line-height: 1.36;
     letter-spacing: 0.2em;
     color: $light-dark-text-color;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 480px) {
+      margin-bottom: 20px;
+    }
+    @media screen and (min-width: 480px) and (max-width: 767px) {
       margin-top: 35px;
     }
   }
@@ -144,8 +195,8 @@
   margin: 0px;
   z-index: 2;
   position: fixed;
-  bottom: 0px;
-  right: 0px;
+  bottom: 70px;
+  right: 10px;
 }
 .back-top a {
   @media screen and (max-width: 767px) {
@@ -161,10 +212,10 @@
     height: 70px;
   }
 
-  padding: 8px;
+  padding: 7px;
   border-color: $white-bg-color;
   border-radius: 50%;
-  background: rgba(7, 7, 7, 0.911);
+  background: rgba(7, 7, 7, 0.815);
 
   color: #fff;
   display: block;
