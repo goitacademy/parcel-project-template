@@ -110,8 +110,16 @@
 
   transition: opacity 250ms $cubic;
 
-  opacity: 0;
-  pointer-events: none;
+  @media screen and (max-width: $preTablet) {
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  @media screen and (min-width: $tablet) {
+    position: static;
+    background-color: transparent;
+  }
 }
 
 .modal-open {
@@ -156,7 +164,6 @@
 
   .buttonMenu:hover,
   .buttonMenu:focus {
-
     .icon-menu,
     .icon-cross {
       fill: $accentLinkColor;
@@ -170,8 +177,8 @@
     top: 0;
     right: 0;
     bottom: 0;
-    height: 100vh;
-    padding: 118px 105px 227px 40px;
+    height: 100%;
+    padding: 118px 105px 80px 40px;
     z-index: 10;
 
     background-color: $primeryBgColor;
@@ -260,7 +267,7 @@
 .siteNav-link {
   @media screen and (min-width: $tablet) {
     display: block;
-    padding: 50px 0px;
+    padding: 13px 0px;
   }
 }
 
@@ -273,7 +280,7 @@
   // }
 
   @media screen and (min-width: $desktop) {
-    padding: 52px 0;
+    padding: 15px 0;
   }
 }
 
@@ -331,6 +338,11 @@
   display: flex;
   flex-direction: column;
 
+  .button {
+    @include centeredFlex();
+    text-decoration: none;
+  }
+
   @media screen and (min-width: $tablet) {
     margin-left: auto;
 
@@ -355,9 +367,20 @@
   @media screen and (min-width: $desktop) {
     flex-direction: row;
     align-items: center;
+    padding: 37px 0;
 
     .button {
       margin-left: 40px;
     }
   }
+}
+
+.iconBack {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+
+  fill: #fff;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
