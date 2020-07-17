@@ -1,10 +1,14 @@
 .header {
-  position: relative;
+  // position: relative;
   height: 680px;
 
   @media screen and(max-width: 767px) {
     height: 580px;
   }
+}
+
+.header-container {
+  position: relative;
 }
 
 .header-main {
@@ -18,10 +22,22 @@
   position: relative;
   z-index: 10;
   display: none;
+
+  @media screen and (max-width: 767px) {
+    top: 0;
+    right: -100%;
+    width: 337px;
+    height: 100%;
+    background: $white-color;
+    box-shadow: -1px 0px 3px rgba(0, 0, 0, 0.16),
+      -2px 0px 4px rgba(0, 0, 0, 0.08), -4px 0px 8px rgba(0, 0, 0, 0.04);
+    transition: all 250ms $cubic;
+  }
+
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding-top: 40px;
     margin-bottom: 192px;
   }
@@ -33,12 +49,8 @@
 .header-menu.is-open {
   display: block;
   position: absolute;
-  top: 0;
   right: 0;
-  background-color: $white-color;
   z-index: 12;
-  width: 337px;
-  height: 100%;
   padding-top: 118px;
   padding-left: 40px;
   overflow-y: scroll;
@@ -258,6 +270,10 @@
   display: none;
 }
 
+.navigation {
+  padding-top: 12px;
+}
+
 .navigation-list {
   @media screen and (min-width: 768px) {
     display: flex;
@@ -288,6 +304,7 @@
   line-height: 1.33;
   letter-spacing: 0.1em;
   text-decoration: none;
+  transition: color 250ms $cubic;
 
   color: $white-color;
   cursor: pointer;
@@ -334,6 +351,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
+  transition: color 250ms $cubic;
 
   color: $white-color;
 
@@ -430,6 +448,7 @@
   letter-spacing: 0.2em;
 
   color: $title-color;
+  transition: color 250ms $cubic;
 }
 .social-work {
   position: relative;
@@ -514,6 +533,7 @@
     letter-spacing: 0.1em;
 
     color: $add-title-color;
+    transition: color 250ms $cubic;
 
     &::before {
       content: '';
@@ -567,7 +587,8 @@
   height: 2px;
   background-color: $secondary-text-color;
   margin-bottom: 12px;
-  transition: $transition;
+  transform: scale(1.25);
+  transition: transform 250ms $cubic;
 }
 
 input[name='r'] {
