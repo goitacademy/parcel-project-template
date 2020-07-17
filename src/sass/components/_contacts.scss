@@ -29,6 +29,7 @@
 }
 
 .recording-header {
+  display: block;
   color: $whiteTextColor;
   margin-bottom: 40px;
   text-align: center;
@@ -38,8 +39,29 @@
   }
 }
 
-.recording-input {
+// DDDDddddddddddddddddddd
+.recording-field {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 44px;
+
+  &:first-child {
+    @media screen and (min-width: $tablet) {
+      margin-right: 30px;
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: inline-block;
+    width: calc((100% - 30px) / 2);
+  }
+
+
+}
+
+.recording-input {
   width: 100%;
 
   color: rgba(157, 164, 189, 0.4);
@@ -47,28 +69,19 @@
   border-color: transparent;
   border-bottom-color: rgba(157, 164, 189, 0.4);
   padding-bottom: 8px;
-  margin-bottom: 44px;
 
-  @media screen and (min-width: $tablet) {
-    display: inline-block;
-    width: calc((100% - 30px) / 2);
+  .recording-field:focus-within>&,
+  .recording-input:not(:placeholder-shown)+& {
+    outline: none;
+    border-bottom-color: $whiteTextColor;
   }
 
-  &:first-child {
-    @media screen and (min-width: $tablet) {
-      margin-right: 25px;
-    }
-  }
-
-  &:hover {
-    border-bottom-color: $primeryBgColor;
-  }
 }
 
 .recording-label {
   position: absolute;
-  top: 50%;
-  left: 0;
+  top: 45%;
+  left: 1%;
   transform: translateY(-50%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 600;
@@ -78,53 +91,39 @@
   text-transform: uppercase;
   color: rgba(157, 164, 189, 0.4);
 
-  &:hover {
+  .recording-field:focus-within>&,
+  .recording-input:not(:placeholder-shown)+& {
+    transform: translateY(-32px);
+
+  }
+
+  .recording-field:focus-within>& {
     color: $whiteTextColor;
   }
-}
-
-.recording-input:focus+.recording-label,
-.recording-input:not(:placeholder-shown)+.recording-label {
-  transform: translateY(-32px);
-  color: $whiteTextColor;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .recording-textarea {
   position: relative;
   width: 100%;
-  margin-bottom: 44px;
   padding-bottom: 60px;
   resize: none;
   background: transparent;
   border-color: transparent;
   border-bottom-color: rgba(157, 164, 189, 0.4);
 
-  &:hover {
+  .recording-field:focus-within>&,
+  .recording-input:not(:placeholder-shown)+& {
+    border-bottom-color: $whiteTextColor;
+    outline: none;
+  }
+
+  .recording-field:focus-within>& {
     color: $whiteTextColor;
-    border-bottom-color: $primeryBgColor;
   }
 }
 
 .textarea-label {
   top: 10px;
-}
-
-.recording-textarea:focus+.textarea-label,
-.recording-textarea:not(:placeholder-shown)+.textarea-label {
-  transform: translateY(-32px);
-  color: $whiteTextColor;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.recording-input:focus,
-.recording-textarea:focus {
-  outline: none;
-  border-bottom-color: $primeryBgColor;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts {
