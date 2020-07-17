@@ -38,39 +38,27 @@
   }
 }
 
-.recording-list {
-  margin-bottom: 44px;
-  @extend %list;
-}
-
-.recording-item {
-  position: relative;
-}
-
-.recording-item:first-child {
-  @media screen and (min-width: $tablet) {
-    margin-right: 25px;
-  }
-}
-
-.recording-item:not(:last-child) {
-  margin-bottom: 44px;
-
-  @media screen and (min-width: $tablet) {
-    display: inline-block;
-    width: calc((100% - 30px) / 2);
-  }
-}
-
 .recording-input {
+  position: relative;
   width: 100%;
 
   color: rgba(157, 164, 189, 0.4);
   background: transparent;
   border-color: transparent;
   border-bottom-color: rgba(157, 164, 189, 0.4);
-  // padding-top: 8px;
   padding-bottom: 8px;
+  margin-bottom: 44px;
+
+  @media screen and (min-width: $tablet) {
+    display: inline-block;
+    width: calc((100% - 30px) / 2);
+  }
+
+  &:first-child {
+    @media screen and (min-width: $tablet) {
+      margin-right: 25px;
+    }
+  }
 
   &:hover {
     border-bottom-color: $primeryBgColor;
@@ -95,8 +83,8 @@
   }
 }
 
-.recording-input:focus + .recording-label,
-.recording-input:not(:placeholder-shown) + .recording-label {
+.recording-input:focus+.recording-label,
+.recording-input:not(:placeholder-shown)+.recording-label {
   transform: translateY(-32px);
   color: $whiteTextColor;
   transition-duration: 250ms;
@@ -104,7 +92,9 @@
 }
 
 .recording-textarea {
+  position: relative;
   width: 100%;
+  margin-bottom: 44px;
   padding-bottom: 60px;
   resize: none;
   background: transparent;
@@ -121,8 +111,8 @@
   top: 10px;
 }
 
-.recording-textarea:focus + .textarea-label,
-.recording-textarea:not(:placeholder-shown) + .textarea-label {
+.recording-textarea:focus+.textarea-label,
+.recording-textarea:not(:placeholder-shown)+.textarea-label {
   transform: translateY(-32px);
   color: $whiteTextColor;
   transition-duration: 250ms;
@@ -145,8 +135,8 @@
   background-size: cover;
 
   @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
     background-image: url(../images/contacts/mobile@2x.png);
   }
 
@@ -156,8 +146,8 @@
     background-image: url(../images/contacts/tablet.png);
 
     @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
       background-image: url(../images/contacts/tablet@2x.png);
     }
   }
@@ -169,8 +159,8 @@
     background-image: url(../images/contacts/desktop.png);
 
     @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
       background-image: url(../images/contacts/desktop@2x.png);
     }
   }
@@ -200,8 +190,10 @@
     margin-right: 30px;
   }
 }
+
 .contacts-address {
   margin-bottom: 44px;
+
   @media screen and (min-width: $tablet) {
     margin-bottom: 0;
   }
@@ -210,6 +202,7 @@
     margin-bottom: 70px;
   }
 }
+
 .contacts-list {
   @extend %list;
 }
