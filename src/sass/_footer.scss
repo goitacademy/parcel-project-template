@@ -17,10 +17,7 @@
   display: flex;
   align-items: center;
 }
-.footer__line {
-  width: 60px;
-  height: 1px;
-}
+
 // адаптивка для пк
 .footer--flex-parants {
   @media screen and (min-width: 1280px) {
@@ -267,9 +264,7 @@
   color: $main_gray;
   font-style: normal;
 }
-.footer__line--gray {
-  background-color: $form_gray_opacity;
-}
+
 .footer__container--margin-bootom-top {
   margin-top: 44px;
   margin-bottom: 20px;
@@ -278,13 +273,14 @@
   }
 }
 .contacts__working-hours {
+  position: relative;
+  margin-left: 80px;
   font-size: 11px;
   line-height: 1.36;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: $main_white;
-  margin-left: 20px;
 }
 .contacts__icon {
   display: block;
@@ -302,9 +298,7 @@
 .footer__container--position-left {
   justify-content: flex-end;
 }
-.footer__line--black {
-  background-color: $main_black;
-}
+
 %footer-social-link--decoration-text {
   font-weight: 600;
   font-size: 11px;
@@ -313,6 +307,7 @@
 }
 
 .footer-social-link__link {
+  position: relative;
   margin-left: 40px;
   @extend %footer-social-link--decoration-text;
   color: $main_black;
@@ -324,4 +319,31 @@
 }
 .footer-social-link__teg {
   font-size: 14px;
+}
+.footer-social-link-line::before {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 1px;
+  width: 60px;
+  top: 0;
+  left: -100px;
+  transform: translateY(8px);
+
+  background: $main_black;
+  border-radius: 2px;
+}
+.footer-_working-hours-line::before {
+  content: '';
+  position: absolute;
+
+  display: block;
+  height: 1px;
+  width: 60px;
+  top: 0;
+  left: -80px;
+  transform: translateY(8px);
+
+  background: $form_gray_opacity;
+  border-radius: 2px;
 }
