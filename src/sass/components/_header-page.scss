@@ -1,7 +1,40 @@
 // Шапка сайта
 .header-page {
-  background-color: #550055;
-}
-.nav {
-  background-color: #337733;
+  & .menu-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    // justify-content: space-between;
+    align-items: center;
+    top: 0;
+    right: 0;
+    @media screen and (min-width: $tablet) {
+      display: flex;
+      flex-direction: row;
+    }
+    &.is-open {
+      display: none;
+    }
+  }
+  .menu-button {
+    border: none;
+    background-color: transparent;
+    @media screen and (min-width: $tablet) {
+      display: none;
+    }
+    & .icon-cross {
+      display: none;
+    }
+    & .icon-menu {
+      display: block;
+      fill: $white-color;
+    }
+    &.is-open .icon-cross {
+      display: block;
+      fill: $main-text;
+    }
+    &.is-open .icon-menu {
+      display: none;
+    }
+  }
 }
