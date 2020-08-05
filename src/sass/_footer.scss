@@ -9,6 +9,15 @@
   text-align: center;
   color: $main_white;
 }
+.footer__container {
+  display: flex;
+  align-items: center;
+}
+.footer__line {
+  width: 60px;
+  height: 1px;
+}
+
 // стили секции Онлайн запись
 .online-booking {
   padding-top: 84px;
@@ -20,13 +29,187 @@
 .online-booking__list {
   margin-bottom: 44px;
 }
+.online-booking__list li {
+  position: relative;
+}
+.online-booking__list li + li {
+  margin-top: 44px;
+}
+
 .online-booking__button {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  padding: 12px 38px;
+
+  border: 1px solid $hover_color;
+  border-radius: 20px;
+  background-color: transparent;
+
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: $main_white;
+  &:hover,
+  &:focus {
+    background-color: $hover_color;
+  }
+}
+
+%style-input {
+  width: 100%;
+  max-width: 418px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(157, 164, 189, 0.4);
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  outline: none;
+  color: $form_gray_opacity;
+}
+.online-booking__user-name {
+  @extend %style-input;
+  padding-left: 40px;
+  padding-bottom: 8px;
+  &:not(:placeholder-shown),
+  &:focus {
+    color: $main_white;
+  }
+}
+.online-booking__user-telephone {
+  @extend %style-input;
+  padding-left: 75px;
+  padding-bottom: 8px;
+  &:not(:placeholder-shown),
+  &:focus {
+    color: $main_white;
+  }
+}
+.online-booking__user-masang {
+  @extend %style-input;
+  padding-top: 15px;
+  height: 76px;
+  &:not(:placeholder-shown),
+  &:focus {
+    color: $main_white;
+  }
+}
+%style-label {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $form_gray_opacity;
+}
+.online-booking__user-name-label {
+  @extend %style-label;
+  .online-booking__user-name:not(:placeholder-shown) + &,
+  .online-booking__user-name:focus + & {
+    color: $main_white;
+  }
+}
+.online-booking__user-telephone-label {
+  @extend %style-label;
+  .online-booking__user-telephone:not(:placeholder-shown) + &,
+  .online-booking__user-telephone:focus + & {
+    color: $main_white;
+  }
+}
+.online-booking__user-masang-label {
+  @extend %style-label;
+  .online-booking__user-masang:not(:placeholder-shown) + &,
+  .online-booking__user-masang:focus + & {
+    color: $main_white;
+  }
 }
 // стили секции контактов
 .contacts {
   padding-top: 84px;
   padding-bottom: 84px;
+  background-image: linear-gradient(
+      to right,
+      rgba(25, 28, 38, 0.9),
+      rgba(25, 28, 38, 0.9)
+    ),
+    url(../images/footer_bg@1x.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.contacts__list {
+  margin-bottom: 44px;
+}
+.contacts__list li + li {
+  margin-top: 20px;
+}
+.contacts__list li {
+  display: flex;
+}
+.contacts__mail {
+  text-decoration: underline;
+}
+.contacts--text-decoration {
+  font-size: 18px;
+  line-height: 1.66;
+  color: $main_gray;
+  font-style: normal;
+}
+.footer__line--gray {
+  background-color: $form_gray_opacity;
+}
+.footer__container--margin-bootom {
+  margin-bottom: 20px;
+}
+.contacts__working-hours {
+  font-size: 11px;
+  line-height: 1.36;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $main_white;
+  margin-left: 20px;
+}
+.contacts__icon-map-pin {
+  display: block;
+  fill: $main_white;
+  width: 24px;
+  height: 24px;
+}
+// стили блока с сылками на соц сети
+.footer-social-link {
+  padding-top: 44px;
+  padding-bottom: 44px;
+  background-color: $main_white;
+}
+.footer__container--position-left {
+  justify-content: flex-end;
+}
+.footer__line--black {
+  background-color: $main_black;
+}
+%footer-social-link--decoration-text {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.2em;
+}
+
+.footer-social-link__link {
+  margin-left: 40px;
+  @extend %footer-social-link--decoration-text;
+  color: $main_black;
+}
+.footer-social-link__copyright {
+  @extend %footer-social-link--decoration-text;
+  color: $main_gray;
+  margin-top: 20px;
 }
