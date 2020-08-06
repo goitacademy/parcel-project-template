@@ -1,11 +1,22 @@
-.footer__form {
+.footer-form {
   padding: 84px 31px 84px 31px;
-
   height: 557px;
   background-color: $dark-bacground-color;
 }
 
-.footer-form__title {
+.footer {
+  ul {
+    padding: 0;
+  }
+  textarea {
+    resize: none;
+  }
+}
+
+/* заголовок блока */
+.footer-form-title {
+  margin-bottom: 44px;
+
   font-family: $font-title;
   color: $light-title-color;
   font-style: normal;
@@ -16,13 +27,74 @@
   letter-spacing: 0.05em;
 }
 
+/* форма отправки данных */
+.footer-form-field {
+  display: block;
+  width: 100%;
+  min-height: 24px;
+
+  border: none;
+  outline: 0;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+
+  &:focus + .footer-form-label,
+  &:not(:placeholder-shown) + .footer-form-label {
+    visibility: hidden;
+  }
+}
+
+.footer-form-row {
+  position: relative;
+  display: block;
+
+  margin-bottom: 44px;
+  border-bottom: 1px solid rgba(157, 164, 189, 0.4);
+
+  &:focus,
+  &:hover {
+    border-bottom: 1px solid #fff;
+  }
+
+  &:hover .footer-form-label,
+  &:focus .footer-form-label {
+    color: $light-title-color;
+  }
+}
+
+.footer-form-label {
+  position: absolute;
+  top: 0;
+  color: rgba(157, 164, 189, 0.4);
+}
+
+/* форма для сообдещий */
+.footer-form-comment {
+  display: block;
+  width: 100%;
+  min-height: 76px;
+  padding: 0;
+  color: $light-title-color;
+  border: none;
+  outline: 0;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:focus + .footer-form-label,
+  &:not(:placeholder-shown) + .footer-form-label {
+    visibility: hidden;
+  }
+}
+
 /*кнопка отправки */
-.footer-form__button {
+.footer-form-button {
   display: flex;
   margin-left: auto;
   margin-right: auto;
   padding: 12px 38px;
   min-width: 160px;
+  height: 40px;
   justify-content: center;
 
   color: $light-title-color;
@@ -40,15 +112,9 @@
   box-sizing: border-box;
   border-radius: 25px;
   cursor: pointer;
-}
 
-/* форма отправки */
-.footer-form__field {
-  display: block;
-  width: 100%;
-
-  border: none;
-  outline: 0;
-  background-color: transparent;
-  border-bottom: 1px solid #31353f;
+  &:focus,
+  &:hover {
+    background-color: $accent-color;
+  }
 }
