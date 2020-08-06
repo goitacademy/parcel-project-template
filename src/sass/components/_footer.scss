@@ -4,7 +4,7 @@ html {
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 body {
@@ -30,8 +30,8 @@ body {
 }
 
 .container {
-  margin: 0;
-  padding: 0 15px;
+  margin: 0 auto;
+  padding: 0;
 
   @media screen and (min-width: $mobile) {
     width: $mobile;
@@ -58,11 +58,13 @@ p {
   margin: 0;
 }
 
-// img {
-//   display: block;
-//   max-width: 100%;
-//   height: auto;
-// }
+ul {
+  list-style: none;
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
 a {
   text-decoration: none;
@@ -70,16 +72,24 @@ a {
 
 //    footer
 
-ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
 .box-form {
   padding: 84px 31px;
   background-color: $footer-bgc;
+
+  @media screen and (min-width: $tablet) {
+    padding: 100px 39px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 50%;
+    padding: 130px 40px 130px 55px;
+  }
+}
+
+.box-footer-desktop {
+  @media screen and (min-width: $desktop) {
+    display: flex;
+  }
 }
 
 .box-address {
@@ -89,10 +99,20 @@ ul {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  @media screen and (min-width: $tablet) {
+    padding: 100px 39px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 50%;
+    padding: 130px 100px;
+  }
 }
 
 .box-link {
   padding: 44px 31px;
+  @media screen and (min-width: $tablet) {
+    padding: 100px 39px;
+  }
 }
 
 .footer-title {
@@ -106,6 +126,18 @@ ul {
   letter-spacing: 0.05em;
 
   color: #ffffff;
+
+  @media screen and (min-width: $tablet) {
+    text-align: left;
+  }
+}
+
+.form-input-flex {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
 }
 
 .form-input,
@@ -132,6 +164,13 @@ ul {
     color: rgba(157, 164, 189, 0.4);
   }
 }
+
+.form-input + .form-input {
+  @media screen and (min-width: $tablet) {
+    margin-left: 30px;
+  }
+}
+
 .modal-send {
   display: block;
   padding: 12px 38px;
@@ -151,17 +190,71 @@ ul {
 
   border: 1px solid #ff6c00;
   border-radius: 25px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-left: 0px;
+  }
+}
+
+.box-address-flex {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  @media screen and (min-width: $desktop) {
+    display: block;
+  }
+}
+
+.footer-address,
+.footer-time {
+  @media screen and (min-width: $tablet) {
+    max-width: 330px;
+    padding-left: 80px;
+  }
+}
+
+.footer-time {
+  @media screen and (min-width: $desktop) {
+    margin-top: 70px;
+  }
 }
 
 .footer-working-time {
+  position: relative;
   margin-top: 44px;
   margin-bottom: 20px;
   font-weight: 600;
   font-size: 11px;
-  line-height: 15px;
-  letter-spacing: 0.1em;
+  line-height: calc(15px / 11px);
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #ffffff;
+
+  text-align: left;
+
+  padding-left: 80px;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5.5px;
+    left: 0px;
+    width: 60px;
+    height: 1px;
+    background-color: rgba(157, 164, 189, 0.4);
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-top: 0px;
+  }
 }
 
 .address-link {
@@ -183,12 +276,33 @@ ul {
   color: #9da4bd;
 }
 
-.address-footer-icon {
-  color: red;
+.icon-footer {
+}
+
+.link-mail {
+  text-decoration: underline;
+}
+
+.footer-social-list {
+  display: block;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 80px;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 13px;
+    right: 210px;
+    width: 60px;
+    height: 1px;
+    background-color: black;
+  }
 }
 
 .footer-social-item {
-  float: right;
   margin-left: 40px;
 }
 
@@ -202,6 +316,7 @@ ul {
 }
 
 .text-copyriting {
+  display: block;
   margin-top: 20px;
   font-weight: 600;
   font-size: 11px;
