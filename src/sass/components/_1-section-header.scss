@@ -13,18 +13,22 @@ header {
 
 .container-header {
   max-width: 480px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 31px;
+  padding-right: 31px;
   margin-left: auto;
   margin-right: auto;
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
+    padding-left: 39px;
+    padding-right: 39px;
     position: relative;
   }
 
   @media screen and (min-width: 1280px) {
     max-width: 1280px;
+    padding-left: 55px;
+    padding-right: 55px;
   }
 
   @media screen and (max-width: 767px) {
@@ -56,52 +60,20 @@ header {
 
   @media screen and (min-width: 1280px) {
     background-image: url('../images/header/header-desktop-1125.jpg');
+    background-size: 1125px auto;
   }
 }
-// .barber-bgc {
-//   @media screen and (max-width: 767px) {
-//     position: relative;
-//     height: 580px;
-//     // max-width: 480px;
-//     background-image: url('../images/header/header-mobile-480.jpg');
-
-//     background-position: center;
-//     background-size: cover;
-//     background-repeat: no-repeat;
-
-//     margin-right: auto;
-//     margin-left: auto;
-//     background-position: center;
-
-//     padding-top: 40px;
-//     padding-bottom: 113px;
-//   }
-
-//   @media screen and (min-width: 768px) {
-//     height: 680px;
-//     background-image: url('../images/header/header-tablet-609.jpg');
-
-//     background-repeat: no-repeat;
-//     background-position: right;
-//     // background-size: cover;
-//   }
-
-//   @media screen and (min-width: 1280px) {
-//     background-image: url('../images/header/header-desktop-1125.jpg');
-//   }
-// }
 
 // Navigation
 
 .logo-header {
   @media screen and (min-width: 768px) {
-    margin-right: 64px;
-    margin-left: 40px;
+    margin-left: 6px;
+    margin-right: 0;
   }
 
-  @media screen and (min-width: 768px) {
-    margin-left: 27px;
-    margin-right: 0;
+  @media screen and (min-width: 1280px) {
+    margin-left: 0;
   }
 }
 
@@ -125,9 +97,15 @@ header {
 .barber-logo {
   fill: #ffffff;
 
+  transition: fill 250ms linear;
+
   @media screen and (min-width: 768px) {
     fill: #303030;
   }
+}
+
+.logo-header:hover .barber-logo {
+  fill: $accent-color;
 }
 
 .barber-main {
@@ -138,7 +116,14 @@ header {
     // margin-bottom: 245px;
     margin-left: 279px;
     margin-right: 134px;
+    margin-bottom: 181px;
     padding: 0;
+    width: 355px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 500px;
+    margin-bottom: 142px;
   }
 }
 
@@ -168,17 +153,16 @@ header {
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
-    margin-left: auto;
-    margin-right: 10px;
+    margin-left: 65px;
   }
 
   @media screen and (min-width: 1280px) {
-    margin-left: 87px;
+    margin-left: 66px;
   }
-}
 
-.content.is-open {
-  display: block;
+  &.is-open {
+    display: block;
+  }
 }
 
 .barber-main-texttop {
@@ -248,7 +232,7 @@ header {
 
 // Button HEADER
 
-.button-menu-header {
+.menu-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -269,16 +253,15 @@ header {
   fill: #000000;
 }
 
-.button-menu-header .icon-close {
+.menu-button .icon-close {
   display: none;
 }
 
-.button-menu-header.is-open .icon-close {
+.menu-button.is-open .icon-close {
   display: block;
-  z-index: 999;
 }
 
-.button-menu-header.is-open .icon-open {
+.menu-button.is-open .icon-open {
   display: none;
 }
 
@@ -286,7 +269,7 @@ header {
   list-style: none;
   transition: color 250ms linear;
 
-  @media screen and (min-width: 720px) {
+  @media screen and (min-width: 768px) {
     font-weight: 600;
     font-size: 12px;
     line-height: 1.33;
@@ -328,6 +311,10 @@ header {
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
     margin-right: 24px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 40px;
   }
 }
 
@@ -400,7 +387,7 @@ header {
   }
 
   @media screen and (min-width: 1280px) {
-    margin-right: 362px;
+    margin-right: 322px;
   }
 }
 
@@ -506,6 +493,41 @@ header {
   }
 
   @media screen and (min-width: 768px) {
-    left: 77px;
+    left: 81px;
+  }
+}
+
+// Кнопки НАЗАД и ВПЕРЁД
+
+.switch {
+  // display: inline-block;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  background-color: transparent;
+
+  &.back {
+    color: rgba(157, 164, 189, 0.6);
+    margin-right: 26px;
+    border-bottom: 1px solid rgba(157, 164, 189, 0.6);
+  }
+
+  &.forward {
+    color: $alternative-tittle-color;
+    border-bottom: 1px solid $alternative-tittle-color;
+  }
+}
+
+.switchers {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  margin-left: 544px;
+
+  @media screen and (min-width: 1280px) {
+    margin-left: 1024px;
   }
 }
