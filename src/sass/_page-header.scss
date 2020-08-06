@@ -2,16 +2,29 @@
     position: relative;
 }
 
+.container-sidebar {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    margin-right: 0;
+    width: 90px;
+    height: 680px;
+    background-color: $white-color;
+}
+
 .container-nav {
     position: absolute;
-    z-index: 1;
+    top: 0;
+    left: 0;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-align: center;
 
-    @media screen and (min-width: $mobile) {
-        
-    }
+    width: 100%;
 }
 
 .menu-button {
@@ -73,7 +86,7 @@
 }
 
 .site-nav {
-    margin: 0;
+    margin-left: 40px;
     padding: 0;
 
     @media screen and (max-width: 767px) {
@@ -138,6 +151,10 @@
 
     @media screen and (min-width: $desktop) {
         display: flex;
+        flex-direction: inherit;
+        align-items: center;
+        padding: 0;
+        margin-left: 322px;
     }
 }
 
@@ -165,6 +182,11 @@
         letter-spacing: 0.1em;
         color: $white-color;
         text-align: center;
+    }
+
+    @media screen and (min-width: $desktop) {
+        margin-top: 0;
+        margin-right: 40px;
     }
 }
 
@@ -202,7 +224,6 @@
 .hero {
     display: flex;
     align-items: center;
-    min-height: 580px;
     margin-left: auto;
     margin-right: auto;
 
@@ -211,16 +232,11 @@
     background-position: center;
     background-size: cover;
 
-    @media (max-width: 767px) {
-        position: absolute;
-        top: 0;
-        left: 0;
+    @media screen and (max-width: 767px) {
+        min-height: 580px;
     }
 
     @media (min-resolution: 2dppx) {
-        position: absolute;
-        top: 0;
-        right: 0;
         background-image: url("../images/стрижка1-2x.jpg");
     }
 
@@ -239,6 +255,27 @@
             background-image: url("../images/стрижка3-2x.jpg");
         }
     }
+
+    @media screen and (min-width: $tablet) {
+        display: flex;
+        justify-content: center;
+        min-height: 680px;
+    }
+}
+
+.content-container {
+    @media screen and (max-width: 767px) {
+        padding-left: 31px;
+        max-width: 306px;
+    }
+
+    @media screen and (min-width: $tablet) {
+        max-width: 355px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        max-width: 500px;
+    }
 }
 
 .appeal {
@@ -247,10 +284,7 @@
     line-height: 1.36;
     letter-spacing: 0.1em;
     color: $text-color3;
-}
-
-.content-container {
-    padding-left: 31px;
+    text-transform: uppercase;
 }
 
 .title-hero {
