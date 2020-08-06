@@ -1,0 +1,88 @@
+.barba {
+  padding-top: 85px;
+  padding-bottom: 85px;
+
+  @media screen and(min-width: $tablet) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @media screen and(min-width: $desktop) {
+    padding-top: 130px;
+    padding-bottom: 130px;
+  }
+}
+
+.barba_title {
+  position: relative;
+  margin-left: 80px;
+  margin-bottom: 45px;
+  @include font(600, 11px, 1.91);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $title-main-color;
+
+  @media screen and(min-width: $tablet) {
+    line-height: 1.37;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -80px;
+    height: 1px;
+    width: 60px;
+    background-color: $title-main-color;
+
+    @media screen and(min-width:$tablet) {
+      top: 5px;
+    }
+  }
+}
+
+.barba_list {
+  @media screen and(min-width: $tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  @media screen and(min-width: $tablet) and (max-width: $desktop - 1px) {
+    margin: -15px;
+  }
+
+  @media screen and(min-width: $desktop) {
+    margin: 0;
+    flex-wrap: nowrap;
+  }
+}
+
+.barba_item {
+  @media screen and(max-width: $tablet - 1px) {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  @media screen and(min-width: $tablet) {
+    width: calc((100% - 4 * 15px) / 2);
+    margin: 15px;
+  }
+
+  @media screen and(min-width: $desktop) {
+    width: $desktop;
+    margin: 0;
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.barba-icon {
+  @media screen and(max-width: $tablet - 1px) {
+    padding-top: 10px;
+  }
+  color: currentColor;
+}
