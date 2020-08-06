@@ -1,20 +1,23 @@
 // Шапка сайта
 .header-page {
-  & .menu-container {
+  flex-direction: row;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+
+  & .mobile-header {
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    // justify-content: space-between;
+    justify-content: space-between;
     align-items: center;
-    top: 0;
-    right: 0;
-    @media screen and (min-width: $tablet) {
-      display: flex;
-      flex-direction: row;
-    }
-    &.is-open {
-      display: none;
-    }
+    padding-top: 40px;
+    width: 100%;
+    padding-left: 31px;
+    padding-right: 31px;
+    // position: absolute;
+    z-index: 5;
+  }
+  & .logo {
+    color: $white-color;
   }
   .menu-button {
     border: none;
@@ -36,5 +39,43 @@
     &.is-open .icon-menu {
       display: none;
     }
+  }
+  & .menu-container {
+    display: flex;
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      align-items: flex-start;
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      right: 0;
+      width: 65%;
+      height: 796px;
+      padding-top: 118px;
+      padding-left: 40px;
+
+      background-color: $white-color;
+    }
+
+    @media screen and (min-width: $tablet) {
+      display: flex;
+      flex-direction: row;
+    }
+    &.is-open {
+      display: none;
+    }
+  }
+  // Навигация
+  & .nav {
+    margin-bottom: 64px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.38;
+    /* identical to box height */
+    letter-spacing: 0.1em;
+  }
+  // Контакты
+  & .contacts {
+    margin-bottom: 64px;
   }
 }
