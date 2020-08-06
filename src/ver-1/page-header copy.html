@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>page-header</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.6.0/modern-normalize.min.css"
+    />
+    <link rel="stylesheet" href="/src/sass/main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <!-- лого иконка -->
+        <a class="icon-logo" href="#">
+          <svg width="68.93" height="53.46" aria-label="logo">
+            <use href="/src/images/sprite.svg#logo" />
+          </svg>
+        </a>
+
+        <!-- ,кнопка мобильного меню -->
+        <button
+          type="button"
+          class="menu-button"
+          aria-expanded="false"
+          aria-controls="header-nav"
+          data-menu-button
+        >
+          <svg
+            claass="menu-icon"
+            width="40"
+            height="40"
+            aria-label="кнопка мобильного меню"
+          >
+            <use
+              class="icon-menu"
+              href=". /images/sprite.svg#header-menu"
+            ></use>
+            <use
+              class="icon-close"
+              href=". /images/sprite.svg#menu-close"
+            ></use>
+          </svg>
+        </button>
+
+        <!-- <img src="./src/images/sprite.svg#header-menu" alt="" /> -->
+
+        <!-- . навигация по сайту -->
+        <nav class="header-nav" id="header-nav" data-menu>
+          <ul class="list site-navigation">
+            <li class="item">О нас</li>
+            <li class="item">Услуги и цены</li>
+            <li class="item">Мастера</li>
+            <li class="item">Контакты</li>
+          </ul>
+          <ul class="list header-contacts">
+            <li class="item">+38 044 111 11 11</li>
+            <li class="item">
+              <button class="button-style">онлайн-запись</button>
+            </li>
+          </ul>
+          <ul class="list header-social-links">
+            <li class="item">Instagram</li>
+            <li class="item">Youtube</li>
+          </ul>
+        </nav>
+      </div>
+
+      <section class="hero">
+        <p class="subtitle">A hair salon for men in Kyiv</p>
+
+        <h1>BarberShop</h1>
+
+        <p class="hero-text-item">
+          Мы эксперты в модных мужских стрижках. Работаем быстро, осторожно и со
+          вкусом.
+        </p>
+        <!-- навигация по слайдеру -->
+        <nav>
+          <ul>
+            <li>
+              <button>
+                Назад
+              </button>
+            </li>
+            <li>
+              <button>Вперед</button>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </header>
+    <script>
+      (() => {
+        const menuBtnRef = document.querySelector('[data-menu-button]');
+        const mobilemenuRef = document.querySelector('[data-menu]');
+
+        menuBtnRef.addEventListener('click', () => {
+          const expanded =
+            menuBtnRef.getAttribute('aria-expanded') === 'true' || false;
+
+          menuBtnRef.classList.toggle('is-open');
+          menuBtnRef.setAttribute('aria-expanded', !expanded);
+          mobilemenuRef.classList.toggle('is-open');
+        });
+      })();
+    </script>
+    <script>
+      (() => {
+        const refs = {
+          openModalBtn: document.querySelector('[data-modal-open]'),
+          closeModalBtn: document.querySelector('[data-modal-close]'),
+          modal: document.querySelector('[data-modal]'),
+        };
+
+        refs.openModalBtn.addEventListener('click', toggleModal);
+        refs.closeModalBtn.addEventListener('click', toggleModal);
+
+        function toggleModal() {
+          document.body.classList.toggle('modal-open'); //new
+          refs.modal.classList.toggle('is-hidden');
+        }
+      })();
+    </script>
+  </body>
+</html>

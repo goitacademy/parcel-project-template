@@ -1,0 +1,110 @@
+header {
+  //.  должен быть как секция  -  центрироваться и сжиматься
+  position: relative;
+
+  box-sizing: border-box;
+  max-width: $mobile; //| отзывчивость
+  height: 580px;
+  margin: 0 auto; //, выравнивает  по горизонтали
+  padding: 0;
+  overflow: hidden;
+}
+
+.header-content {
+  //. основное (все) содержание  хедера
+  position: absolute;
+  background-color: transparent;
+  display: flex;
+  padding: 40px 31px 0;
+  margin: 0;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.header-nav {
+  //. ul - плавающая навигация  хедера
+  position: absolute;
+  right: -100%;
+  top: 0;
+
+  width: 337px;
+  height: 100%;
+  margin: 0;
+  padding-left: 40px;
+
+  // transform: translateX();
+
+  background: $background-color;
+  box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.04), -2px 0px 4px rgba(0, 0, 0, 0.08),
+    -1px 0px 3px rgba(0, 0, 0, 0.16);
+
+  font-weight: 600;
+  font-size: 18px;
+  line-height: calc(25 / 18);
+  /* identical to box height */
+
+  text-align: start;
+  letter-spacing: 0.1rem;
+
+  color: $header-title-color;
+}
+
+.site-navigation {
+  //. ul - навигация по сайту  , часть  флекса
+  margin: 118px 0 64px;
+  padding: 0;
+
+  .item:not(:last-child) {
+    margin-bottom: 24px;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+  }
+}
+
+.list {
+  list-style: none;
+}
+
+.header-contacts {
+  padding: 0;
+  margin-bottom: 64px;
+
+  .item:not(:last-child) {
+    margin-bottom: 24px;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+  }
+}
+.header-social-links {
+  padding: 0;
+  font-size: 14px;
+  line-height: calc(19 / 14);
+  letter-spacing: 0.2rem;
+
+  .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+
+    &::before {
+      content: '';
+      display: block;
+
+      width: 60px;
+      height: 1px;
+
+      background: $header-title-color;
+
+      margin-right: 40px;
+    }
+    &:last-child::before {
+      visibility: hidden;
+    }
+  }
+}
