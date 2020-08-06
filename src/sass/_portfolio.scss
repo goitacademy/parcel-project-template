@@ -1,0 +1,125 @@
+// base-values
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Open Sans, sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: #303030;
+  background-color: #ffffff;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (max-width: 767px) {
+    width: 480px;
+    padding-left: 31px;
+    padding-right: 31px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 39px;
+    padding-right: 39px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+// portfolio
+.masters-portfolio {
+  padding-top: 84px;
+  padding-bottom: 84px;
+  @media screen and (min-width: 768px) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  @media screen and (min-width: 1200px) {
+    padding-top: 130px;
+    padding-bottom: 130px;
+  }
+  &__block-center {
+    position: relative;
+  }
+
+  &__item {
+    // @extend %list;
+    margin-top: 0px;
+    padding: 0px;
+    list-style: none;
+    @media screen and (max-width: 767px) {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  & img {
+    // @extend %image;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  &__heading {
+    // @include font(600, 11px, 1.9, 0.1em);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 80px;
+    margin-bottom: 44px;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.9;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    @media screen and (min-width: 768px) {
+      line-height: 1.36;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 1px;
+      transform: translate(calc(-100% - 20px), 10px);
+      background-color: #303030;
+      @media screen and (min-width: 768px) {
+        transform: translate(calc(-100% - 20px), 7px);
+      }
+    }
+  }
+}
+.masters-portfolio__item {
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 30px) / 2);
+    margin-right: 30px;
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+    &:nth-child(-n + 2) {
+      margin-bottom: 30px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    width: calc((100% - 90px) / 4);
+    &:nth-child(2n) {
+      margin-right: 30px;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &:nth-child(-n + 2) {
+      margin-bottom: 0px;
+    }
+  }
+}
