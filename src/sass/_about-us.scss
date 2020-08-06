@@ -1,5 +1,6 @@
 .about-us_container {
   display: flex;
+  padding: 130px 0px;
 }
 
 .about-us_img-wrapper {
@@ -7,6 +8,7 @@
   @media screen and (min-width: 768px),
     screen and (max-width: 767px) and (orientation: landscape) {
     display: block;
+    flex-shrink: 0;
   }
 
   @media screen and (min-width: 1280px) {
@@ -41,15 +43,13 @@
     screen and (max-width: 767px) and (orientation: landscape) {
     display: block;
     height: 235px;
-    // @include image-width(780, 330);
-    width: 100%;
+    @include image-width(768, 330);
     object-position: center;
     object-fit: cover;
   }
   @media screen and (min-width: 1280px) {
     height: 445px;
-    width: 100%;
-    // width: 270px;
+    width: 270px;
   }
 }
 
@@ -127,8 +127,6 @@
 }
 
 .about-us_button {
-  position: absolute;
-  bottom: 0;
   padding: 12px 20px;
   border: 1px solid $hover_color;
   border-radius: 25px;
@@ -146,5 +144,10 @@
   &:focus {
     background-color: $hover_color;
     color: $main_white;
+  }
+  @media screen and (min-width: 768px),
+    screen and (max-width: 767px) and (orientation: landscape) {
+    position: absolute;
+    bottom: 0;
   }
 }
