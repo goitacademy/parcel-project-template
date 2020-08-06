@@ -1,9 +1,120 @@
 h1 {
-    color: blue;
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 42px;
-    line-height: 49px;
-    letter-spacing: 0.05em;
+  color: blue;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 49px;
+  letter-spacing: 0.05em;
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: $bg-color;
+}
+body.modal-open {
+  overflow: hidden;
+}
+
+ul {
+  list-style: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $mobile;
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-left: 31px;
+  padding-right: 31px;
+
+  @media screen and (min-width: $mobile) {
+    max-width: $mobile;
+  }
+
+  @media screen and (min-width: $tablet) {
+    max-width: $tablet;
+    padding-left: 39px;
+    padding-right: 39px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    max-width: $desktop;
+    padding-left: 55px;
+    padding-right: 55px;
+  }
+}
+
+.big-title {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  font-family: $font-family;
+  font-weight: bold;
+
+  font-size: 28px;
+  line-height: 33px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: $primary-text-color;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 18px;
+  justify-content: space-between;
+
+  width: 160px;
+  height: 40px;
+  border: 1px solid $accent-color;
+  box-sizing: border-box;
+  border-radius: 25px;
+
+  font-family: $font-family-open-sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+
+  background-color: transparent;
+  color: $primary-text-color;
+
+  &:hover,
+  &:focus {
+    background: $accent-color;
+    color: $bg-color;
+  }
 }
