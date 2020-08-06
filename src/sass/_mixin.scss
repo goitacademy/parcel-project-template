@@ -1,7 +1,9 @@
+@use "sass:math";
 @function Margin-in-row($margin, $cols) {
   $result: $margin * ($cols - 1);
   @return $result;
 }
+
 @mixin Cardset-Responsive-1280-768-480(
   $ScreenWidth,
   $Margin-right,
@@ -59,5 +61,22 @@
         }
       }
     }
+  }
+}
+@function Image-ratio($parent, $picture) {
+  $result: $parent / $picture;
+  @return math.floor($result);
+}
+@function Image-whitespace($parent, $picture) {
+  $result: $parent - Image-ratio($parent, $picture) * $picture;
+  @return $result;
+}
+@mixin image-width($parent-width, $picture-width) {
+  @if $picture-width == 0 or $parent-width == 0 {
+    width: 100%;
+  } @else {
+    $whitespace: Image-whitespace($parent-width, $picture-width);
+    $ratio: Image-ratio($parent-width, $picture-width);
+    width: calc((100vw - #{$whitespace}px) / #{$ratio});
   }
 }
