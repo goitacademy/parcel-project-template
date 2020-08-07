@@ -42,7 +42,14 @@ ul {
   letter-spacing: 0.05em;
   font-family: $font-title;
 }
-.section-title {
+%before {
+  content: '';
+  display: block;
+  margin-right: 20px;
+  width: 60px;
+  height: 1px;
+}
+%section-title {
   display: flex;
   align-items: center;
   margin: 0;
@@ -52,13 +59,23 @@ ul {
   line-height: 1.36em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.section-title-dark-fone {
+  @extend %section-title;
   color: $translucent-text-dark-fone;
+
   &::before {
-    content: '';
-    display: block;
-    margin-right: 20px;
-    width: 60px;
-    height: 1px;
+    @extend %before;
     background: $translucent-text-dark-fone;
-  } //.section-title::before
-} //.section-title
+  }
+}
+.section-title-lite-fone {
+  @extend %section-title;
+  color: $primory-black;
+
+  &::before {
+    @extend %before;
+    background: $primory-black;
+  }
+}
