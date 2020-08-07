@@ -1,11 +1,18 @@
 .section-team {
   background-color: $sub_gray;
-}
-.section-title {
-  position: relative;
-}
-.slogon-title {
   padding-top: 84px;
+  padding-bottom: 100px;
+  @media screen and(min-width:$tablet ) {
+    padding-top: 100px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding-top: 130px;
+  }
+}
+
+.slogon-title {
+  position: relative;
+
   padding-left: 80px;
   margin-bottom: 20px;
 
@@ -15,10 +22,17 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
+  @media screen and (min-width: $tablet) {
+    padding-left: 239px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding-left: 80px;
+  }
+
   &::before {
     content: '';
     position: absolute;
-    top: 90px;
+    top: 5px;
     left: 0;
 
     margin-right: 20px;
@@ -28,15 +42,13 @@
     height: 1px;
 
     background: $main_black;
+
     @media screen and (min-width: $tablet) {
-      position: absolute;
-      top: 106px;
-      left: 159px;
+      margin-left: 159px;
     }
-  }
-  @media screen and (min-width: $tablet) {
-    padding-top: 100px;
-    padding-left: 239px;
+    @media screen and (min-width: $desktop) {
+      margin-left: 0;
+    }
   }
 }
 .team-title {
@@ -48,43 +60,50 @@
   font-size: 42px;
   line-height: 1.67;
   letter-spacing: 0.05em;
+
   @media screen and (min-width: $tablet) {
     padding-left: 159px;
   }
+  @media screen and (min-width: $desktop) {
+    padding-left: 0;
+  }
 }
 .team-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 159px;
-}
-
-.team-list {
-  width: 418px;
   @media screen and (min-width: $tablet) {
-    width: 450px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-left: 159px;
+    padding-right: 159px;
+  }
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    // padding-right: 55px;
+    // padding-left: 55px;
+  }
+}
+.team-item {
+  @include Cardset-Responsive-1280-768-480(0px, 31px, 31px, 1);
+  @include Cardset-Responsive-1280-768-480(768px, 31px, 31px, 1);
+  @include Cardset-Responsive-1280-768-480(1200px, 30px, 30px, 3);
+}
+.team-list {
+  padding-bottom: 84px;
+
+  &:last-child {
+    padding-bottom: 0;
   }
 }
 .team-picture {
-  min-width: 100%;
-  @media screen and (min-width: $tablet) {
-    object-position: center;
-    -o-object-fit: cover;
+  width: 100%;
+  height: 346px;
+  object-position: center;
+  object-fit: cover;
+  @media screen and (min-width: $desktop) {
+    height: 502px;
   }
-  //   @media screen and (min-width: 768px), (orientation: landscape) {
-  display: block;
-  //     height: 235px;
-  //     width: calc((100vw - 30px) / 2);
-  //     object-fit: cover;
-  //     object-position: top;
-  //   }
-  //   @media screen and (min-width: 1280px) {
-  //     height: 445px;
-  //     width: 270px;
-  //   }
 }
 .name-title {
   margin-top: 20px;
@@ -117,8 +136,8 @@
 
   text-align: center;
   padding-top: 20px;
-  padding-bottom: 84px;
 }
+
 .list-social:not(:last-child) {
   margin-right: 10px;
 }
@@ -138,12 +157,29 @@
   }
 }
 // Портфолио
-.before {
-  position: relative;
+.section-portfolio {
+  padding-top: 84px;
+  padding-bottom: 100px;
+  @media screen and(min-width:$tablet ) {
+    padding-top: 100px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding-top: 130px;
+  }
+  background-color: $main_white;
 }
 .portfolio-title {
   padding-bottom: 44px;
 }
 .portfolio-img {
-  padding-bottom: 30px;
+  display: block;
+  width: 100%;
+  height: 336px;
+  object-position: center;
+  object-fit: cover;
+}
+.portfolio-item {
+  @include Cardset-Responsive-1280-768-480(0px, 31px, 31px, 1);
+  @include Cardset-Responsive-1280-768-480(768px, 31px, 31px, 2);
+  @include Cardset-Responsive-1280-768-480(1200px, 30px, 30px, 4);
 }
