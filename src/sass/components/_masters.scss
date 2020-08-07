@@ -1,7 +1,3 @@
-.section.masters {
-  background-color: $primary-bg;
-}
-
 .container--masters {
   @media screen and (min-width: $tablet) {
     padding-left: 159px;
@@ -9,16 +5,22 @@
   }
 }
 
-// Позиционирование в "masters"
-.masters__list {
-  display: block;
+.masters {
+  background-color: $primary-bg;
 
-  @media screen and (min-width: $desktop) {
-    display: flex;
-    flex-wrap: wrap;
+  // Позиционирование в "masters"
+  //.masters__list
+  &__list {
+    display: block;
+
+    @media screen and (min-width: $desktop) {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 
-  & .masters__item {
+  //.masters__item
+  &__item {
     display: block;
 
     @media screen and (min-width: 481px) and (max-width: 1279px) {
@@ -31,13 +33,11 @@
     }
   }
 
-  & .masters__item:not(:last-child) {
+  //.masters__item:not(:last-child)
+  &__item:not(:last-child) {
     @media screen and (max-width: 1279px) {
       margin-bottom: 64px;
     }
-  }
-
-  & .masters__item:not(:last-child) {
     @media screen and (min-width: $desktop) {
       margin-right: 30px;
     }
@@ -47,73 +47,62 @@
 // Карточки masters
 .card {
   text-align: center;
+
+  //.card__title
+  &__title {
+    margin-top: 30px;
+    margin-bottom: 8px;
+    color: $primary-text-color;
+
+    font-family: $primary-font;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.39;
+  }
+
+  //.card__role
+  &__role {
+    margin-bottom: 30px;
+    color: $accent-color;
+
+    font-family: $primary-font;
+    font-size: 14px;
+    line-height: 1.36px;
+  }
 }
 
-.card__title {
-  margin-top: 30px;
-  margin-bottom: 8px;
-  color: $primary-text-color;
-
-  font-family: $primary-font;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.39;
-  letter-spacing: 0.02em;
-}
-
-.card__role {
-  margin-top: 0px;
-  margin-bottom: 30px;
-  color: $accent-color;
-
-  font-family: $primary-font;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.36px;
-  letter-spacing: 0.02em;
-}
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // Ссылки на соцсети (для карточек masters)
 .links {
   display: flex;
   justify-content: center;
-  padding: 0px 32px 24px;
+  padding: 0px 32px;
 
-  & > .links__item:not(:last-child) {
+  //.links__item:not(:last-child)
+  &__item:not(:last-child) {
     margin-right: 10px;
   }
-}
 
-.links__ellipse {
-  display: inline-flex;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  cursor: pointer;
-  background-color: $primary-white-color;
-}
+  //.links__ellipse
+  &__ellipse {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: $primary-white-color;
+  }
 
-.links__icon {
-  margin: auto;
-  width: 20px;
-  height: 20px;
-  fill: $primary-text-color;
+  //.links__icon
+  &__icon {
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    fill: $primary-text-color;
 
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  //                           ☝ $timming
-
-  .links__ellipse:hover &,
-  .links__ellipse:focus & {
+    transition: fill $timming;
+  }
+  &__ellipse:hover &__icon,
+  &__ellipse:focus &__icon {
     fill: $accent-color;
   }
 }
