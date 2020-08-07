@@ -4,9 +4,9 @@
   padding-bottom: 84px;
   width: 100%;
   background-repeat: no-repeat;
-  background-color: #111319;
+  background-color: $price-bg;
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: $mobile) {
     background-position: center;
     background-size: cover;
     background-image: url(../images/price-mob-480.png);
@@ -48,9 +48,15 @@
   }
 }
 // Описание с линией
-.price-description {
-  font-family: $secondary-font;
+.before-second-head-price {
+  position: relative;
   margin-bottom: 20px;
+}
+
+.price-description {
+  margin-left: 80px;
+  font-family: $secondary-font;
+
   font-style: normal;
   font-weight: 600;
   font-size: 11px;
@@ -61,26 +67,37 @@
   color: rgba(157, 164, 189, 0.6);
 
   &:before {
-    content: '';
-    display: inline-block;
-    height: 1px;
+    display: block;
     width: 60px;
-
-    background: rgba(157, 164, 189, 0.6);
-    margin-right: 20px;
-    vertical-align: middle;
+    content: '';
+    position: absolute;
+    border-bottom: 1px solid rgba(157, 164, 189, 0.6);
+    top: 49%;
+    left: 0;
   }
+
+  // &:before {
+  //   content: '';
+  //   display: inline-block;
+  //   height: 1px;
+  //   width: 60px;
+
+  //   background: rgba(157, 164, 189, 0.6);
+  //   margin-right: 20px;
+  //   vertical-align: middle;
+  // }
 }
+
 // Заголовок
 .price-title {
   font-family: $main-font;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 42px;
-  line-height: 49px;
+  line-height: 1.16;
   letter-spacing: 0.05em;
 
-  color: #ffffff;
+  color: $white-color;
   margin-bottom: 44px;
 }
 // Услуги с ценами
@@ -136,13 +153,12 @@
 
 .price-text {
   display: flex;
-  font-family: $secondary-font;
+  align-items: baseline;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 14px;
   line-height: 2.14;
-  letter-spacing: 0.02em;
-  color: #9da4bd;
+  color: $additional-text;
 
   @media screen and (min-width: $tablet) {
     font-size: 18px;
@@ -162,34 +178,7 @@
   order: 3;
 }
 
-Кнопка .button-link-text-black {
-  @extend %button-link-text-black;
-}
-
-.button-link-text-black:hover,
-.button-link-text-black:focus {
-  @extend %button-link-text-black-hov;
-}
-.price-link {
-  border: 1px solid #ff6c00;
-  box-sizing: border-box;
-  border-radius: 25px;
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: $white-color;
-  padding: 12px 20px;
-  min-width: 160px;
+.button-link-text-black {
   margin-left: auto;
   margin-right: auto;
-
-  &:hover,
-  &:focus {
-    background: $accent;
-    color: $white-color;
-  }
 }
