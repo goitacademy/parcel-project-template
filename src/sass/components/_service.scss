@@ -9,34 +9,30 @@ $fifth-bg: #090b13;
 .services {
   height: 826px;
   background-color: $tertiary-bg;
-  background-image: linear-gradient(to right, rgba($tertiary-bg, 0) 0%, rgba($tertiary-bg, 1) 100%), url(../images/price/price-bg-mob.jpg);
+  background-image: linear-gradient(to right, rgba($tertiary-bg, 0.8), rgba($tertiary-bg, 0.8)), url(../images/price/price-bg-mob.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
   @media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
-    background-image: linear-gradient(to right, rgba($tertiary-bg, 0) 0%, rgba($tertiary-bg, 1) 100%), url(../images/price/price-bg-mob@2x.jpg);
-  }
-
-  @media screen and (max-width: $mobile - 1px) {
-    height: auto;
+    background-image: linear-gradient(to right, rgba($tertiary-bg, 0.8), rgba($tertiary-bg, 0.8)), url(../images/price/price-bg-mob@2x.jpg);
   }
 
   @media screen and (min-width: $tablet) {
     height: 858px;
-    background-image: linear-gradient(to right, rgba($tertiary-bg, 0) 0%, rgba($tertiary-bg, 1) 100%), url(../images/price/price-bg-tab.jpg);
+    background-image: linear-gradient(to right, rgba($tertiary-bg, 0.8), rgba($tertiary-bg, 0.8)), url(../images/price/price-bg-tab.jpg);
 
     @media srceen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
-      background-image: linear-gradient(to right, rgba($tertiary-bg, 0) 0%, rgba($tertiary-bg, 1) 100%), url(../images/price/price-bg-tab@2x.jpg);
+      background-image: linear-gradient(to right, rgba($tertiary-bg, 0.8), rgba($tertiary-bg, 0.8)), url(../images/price/price-bg-tab@2x.jpg);
     }
   }
 
   @media screen and (min-width: $desktop) {
     height: 718px;
-    background-image: linear-gradient(to right, rgba($tertiary-bg, 0) 0%, rgba($tertiary-bg, 1) 100%), url(../images/price/price-bg-desk.jpg);
+    background-image: linear-gradient(to right, rgba($tertiary-bg, 0.8), rgba($tertiary-bg, 0.8)), url(../images/price/price-bg-desk.jpg);
 
     @media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
-      background-image: linear-gradient(to right, rgba($tertiary-bg, 0) 0%, rgba($tertiary-bg, 1) 100%), url(../images/price/price-bg-desk@2x.jpg);
+      background-image: linear-gradient(to right, rgba($tertiary-bg, 0.8), rgba($tertiary-bg, 0.8)), url(../images/price/price-bg-desk@2x.jpg);
     }
   }
 
@@ -98,17 +94,12 @@ $fifth-bg: #090b13;
   &__item {
     display: flex;
     flex-wrap: nowrap;
-    align-items: flex-end;
     font-size: 14px;
     line-height: 2.14;
 
     // .services__item:not(:last-child)
     &:not(:last-child) {
       margin-bottom: 20px;
-    }
-
-    @media screen and (max-width: 399px) {
-      font-size: 12px;
     }
 
     @media screen and (min-width: $tablet) {
@@ -121,22 +112,12 @@ $fifth-bg: #090b13;
   &__item-title {
     margin: 0;
     display: inline-flex;
-    flex-wrap: wrap;
-
-    @media screen and (max-width: $mobile - 1px) {
-      max-width: 50%;
-    }
-  }
-
-  // .services__item-price
-  &__item-price {
-    display: inline-flex;
-    flex-grow: 1;
     align-items: flex-end;
+    flex-grow: 1;
     white-space: nowrap;
-    margin: 0;
 
-    &::before {
+    // .services__item-title::after
+    &::after {
       content: '';
       display: inline-flex;
 
@@ -145,6 +126,21 @@ $fifth-bg: #090b13;
       margin-right: 6px;
       margin-left: 7px;
       background: rgba($secondary-text-color, 0.12);
+    }
+
+    @media screen and (max-width: $mobile - 1px) {
+      font-size: 3vw;
+      white-space: wrap;
+    }
+  }
+
+  // .services__item-price
+  &__item-price {
+    display: inline-flex;
+    margin: 0em;
+
+    @media screen and (max-width: $mobile - 1px) {
+      font-size: 3vw;
     }
   }
 }
@@ -155,8 +151,7 @@ $fifth-bg: #090b13;
   background: linear-gradient(to bottom, rgba($fourth-bg, 1) 0%, rgba($fourth-bg, 0.2) 100%);
   margin-bottom: 50px;
 
-  @media screen and (max-width: 399px) {
-    padding: 15px;
+  @media screen and (max-width: $mobile - 1px) {
   }
 
   @media screen and (min-width: $desktop) {
