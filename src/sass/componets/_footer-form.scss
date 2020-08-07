@@ -4,6 +4,10 @@
 
   font-family: Raleway;
   //   color: $bg-color;
+
+  @media screen and (min-width: 768px) {
+    padding: 100px 39px;
+  }
 }
 
 .title-footer {
@@ -30,6 +34,13 @@
   list-style: none;
 }
 
+.form-list {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
 .item-form {
   position: relative;
   margin-bottom: 44px;
@@ -47,10 +58,30 @@
       color: $bg-color;
     }
   }
+
+  @media screen and (min-width: 768px) {
+    &:not(:last-child) {
+      display: flex;
+      width: 330px;
+    }
+
+    &:first-child {
+      margin-right: 30px;
+    }
+
+    &:last-child {
+      width: 100%;
+    }
+  }
 }
 
 .form-input {
   width: 100%;
+
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid $bg-color;
+  }
   background-color: $bg-color-footer;
 
   border: none;
@@ -60,6 +91,11 @@
 
 .form-textarea {
   resize: none;
+
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid $bg-color;
+  }
 
   background-color: $bg-color-footer;
   border: none;
@@ -78,15 +114,22 @@
   position: absolute;
   left: 0;
   bottom: 8px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .comment {
   position: absolute;
   left: 0;
   bottom: 60px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-field {
+  &::focus-within > .form-label {
+    transform: translateY(-15px);
+  }
+
+  height: 24px;
   // position: absolute;
   color: rgba(157, 164, 189, 0.4);
 
@@ -109,7 +152,14 @@
 // bottom: 28px;
 // }
 
+.sms-label {
+  &::focus-within > .comment {
+    transform: translateY(-15px);
+  }
+}
+
 .form-button {
   justify-content: center;
   margin-top: 44px;
+  color: $bg-color;
 }
