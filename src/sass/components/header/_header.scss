@@ -37,12 +37,14 @@
   }
 }
 
-// .header-container {
-//   // position: relative;
-
-// }
-
 .logo {
+  transform: scale(1);
+  transition: transform $timing-animation;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+
   @media screen and (max-width: $mobile-max) {
     fill: $primary-white;
   }
@@ -61,113 +63,9 @@
   }
 }
 
-.auth-nav {
-  & .auth-mob:hover,
-  & .auth-mob:focus {
-    color: $accent-color;
-  }
-
-  @media screen and (max-width: $mobile-max) {
-    margin-bottom: 24px;
-  }
-
-  @media screen and (min-width: $tablet-min) {
-    justify-content: flex-end;
-  }
-}
-
-.menu-list {
-  & .link:hover,
-  & .link:focus {
-    color: $accent-color;
-  }
-
-  @media screen and (max-width: $mobile-max) {
-    margin-bottom: 64px;
-  }
-
-  @media screen and (min-width: $tablet-min) {
-    display: flex;
-    padding-top: 52px;
-    // padding-left: 24px;
-  }
-}
-
-.menu-item {
-  margin-top: 0;
-
-  @media screen and (max-width: $mobile-max) {
-    margin-bottom: 24px;
-  }
-
-  @media screen and (min-width: $tablet-min) {
-    margin-left: 24px;
-
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-}
-
-.menu-item .link {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.39;
-  letter-spacing: 0.1em;
-
-  color: $title-color;
-
-  @media screen and (min-width: $tablet-min) {
-    font-size: 12px;
-    line-height: 1.3;
-
-    color: $primary-white;
-  }
-}
-
-.connect {
-  display: flex;
-
-  margin-left: auto;
-  padding-top: 40px;
-
-  text-align: center;
-
-  @media screen and (max-width: $tablet-max) {
-    flex-direction: column-reverse;
-  }
-
-  @media screen and (min-width: $desktop) {
-    align-items: baseline;
-  }
-}
-
-.auth-mob {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.39;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-
-  color: $title-color;
-
-  @media screen and (min-width: $tablet-min) {
-    font-size: 12px;
-    line-height: 1.3;
-
-    color: $primary-white;
-  }
-
-  @media screen and (min-width: $desktop) {
-    margin-right: 40px;
-  }
-}
-
 .header-btn {
-  min-width: 200px;
-  height: 50px;
+  min-width: 194px;
+  height: 40px;
   padding: 12px 20px;
   border: none;
   outline: none;
@@ -180,7 +78,7 @@
 
   font-weight: 600;
   font-size: 12px;
-  line-height: 1.33%;
+  line-height: 1.33;
   letter-spacing: 0.09em;
   text-align: center;
   text-transform: uppercase;
@@ -190,91 +88,36 @@
   &:hover,
   &:focus {
     transform: scale(1.1);
+    background-color: $accent-color;
   }
 
   @media screen and (max-width: $mobile-max) {
     margin-bottom: 64px;
+    &:hover,
+    &:focus {
+      color: $primary-white;
+    }
   }
 
   @media screen and (min-width: $tablet-min) {
     min-width: 160px;
-    height: 50px;
+
     margin-bottom: 20px;
 
     color: $primary-white;
   }
 }
 
-.menu-links {
-  & .link:hover,
-  & .link:focus {
-    color: $accent-color;
-  }
-
-  @media screen and (min-width: $tablet-min) {
-    display: none;
-  }
-}
-
-.menu-links-item {
-  margin-top: 0;
-
-  @media screen and (max-width: $mobile-max) {
-    margin-bottom: 24px;
-  }
-}
-
-.menu-links-item:last-child {
-  @media screen and (max-width: $mobile-max) {
-    margin-bottom: 0;
-    margin-left: 100px;
-  }
-}
-
-.menu-links-item .link {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1.36;
-  letter-spacing: 0.2em;
-
-  color: $title-color;
-}
-
-.menu-links-item .link.line {
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1.36;
-  letter-spacing: 0.2em;
-
-  color: $title-color;
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 60px;
-    height: 1px;
-    border-radius: 2px;
-    margin-right: 40px;
-    padding: 0;
-    background-color: $title-color;
-  }
-}
-
 .background {
   @media screen and (max-width: $mobile-max) {
     position: relative;
-    // padding-bottom: 40px;
-    // padding-top: 40px;
-    // padding-left: 31px;
-    // padding-right: 31px;
 
     margin-top: 0;
+    max-width: 480px;
     height: 580px;
 
-    //   margin-left: auto;
-    //   margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
     background-color: grey;
 
     background-repeat: no-repeat;
@@ -297,11 +140,11 @@
     padding-bottom: 40px;
     margin-left: 159px;
 
-    background-color: grey;
+    // background-color: grey;
 
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center;
 
     background-image: linear-gradient(
         to right,
@@ -318,11 +161,11 @@
     padding-bottom: 40px;
     margin-left: 155px;
 
-    background-color: grey;
+    // background-color: grey;
 
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center;
 
     background-image: linear-gradient(
         to right,
@@ -335,97 +178,19 @@
   }
 }
 
-.main-content {
-  @media screen and (min-width: $tablet-min) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-bottom: 159px;
+@media screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  .background {
+    background-image: linear-gradient(
+        to right,
+        rgba(47, 48, 58, 0.8),
+        rgba(47, 48, 58, 0.8)
+      ),
+      url(../images/header/slider-3-2250.jpg),
+      url(../images/header/slider-2-2250.jpg),
+      url(../images/header/slider-1-2250.jpg);
   }
-
-  @media screen and (min-width: $desktop) {
-    margin-bottom: 179px;
-  }
-}
-
-.content {
-  max-width: 306px;
-
-  @media screen and (min-width: $tablet-min) {
-    margin-left: auto;
-    max-width: 355px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    margin-left: 100px;
-  }
-}
-
-.content-subtittle {
-  display: flex;
-  align-items: center;
-  margin-top: 0;
-  margin-bottom: 20px;
-
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 1.37;
-  letter-spacing: 0.1em;
-
-  text-transform: uppercase;
-
-  color: rgba(157, 164, 189, 0.6);
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 60px;
-    height: 1px;
-    border-radius: 2px;
-    margin-right: 20px;
-    padding: 0;
-    background-color: rgba(157, 164, 189, 0.6);
-  }
-}
-
-.content-tittle {
-  margin-top: 0;
-  margin-bottom: 20px;
-
-  font-family: Raleway;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 1.17;
-  letter-spacing: 0.05em;
-
-  color: $primary-white;
-}
-
-.content-text {
-  margin-top: 0;
-  margin-bottom: 0;
-
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.63;
-  letter-spacing: 0.02em;
-
-  color: $text-color-2;
-}
-
-.slider-nav {
-  @media screen and (max-width: $mobile-max) {
-    display: none;
-  }
-
-  @media screen and (min-width: $tablet-min) {
-    margin-left: auto;
-  }
-}
-
-.cont-nav {
-  display: flex;
-  flex-direction: column;
 }
 
 .navigation {
@@ -486,16 +251,6 @@
   }
 }
 
-// font-family: Open Sans;
-// font-style: normal;
-// font-weight: 600;
-// font-size: 11px;
-// line-height: 15px;
-// /* identical to box height */
-
-// text-align: right;
-// letter-spacing: 0.1em;
-
 .navigation-item .end {
   font-family: Open Sans;
   font-style: normal;
@@ -522,6 +277,7 @@
   }
 }
 
+// Sidebar
 .side {
   @media screen and (min-width: $tablet-min) {
     position: absolute;
@@ -548,6 +304,7 @@
 .side-links {
   display: flex;
   flex-direction: row-reverse;
+
   @media screen and (max-width: $mobile-max) {
     display: none;
   }
@@ -555,6 +312,11 @@
 
 .side-links-item {
   margin-left: 40px;
+
+  & .link:hover,
+  & .link:focus {
+    color: $accent-color;
+  }
 
   & .link {
     font-style: normal;
@@ -564,6 +326,7 @@
     letter-spacing: 0.2em;
 
     color: $title-color;
+    transition: color $timing-animation;
   }
 }
 
@@ -574,6 +337,13 @@
   font-size: 14px;
   line-height: 1.36;
   letter-spacing: 0.2em;
+
+  transition: color $timing-animation;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
 
   color: $title-color;
   &::before {
