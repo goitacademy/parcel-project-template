@@ -84,7 +84,7 @@
   position: relative;
 }
 .online-booking__list li + li {
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767px) and (orientation: portrait) {
     margin-top: 44px;
   }
 }
@@ -138,7 +138,8 @@
   padding-left: 40px;
   padding-bottom: 8px;
   &:not(:placeholder-shown),
-  &:focus {
+  &:focus,
+  &:hover {
     color: $main_white;
   }
 }
@@ -147,7 +148,8 @@
   padding-left: 75px;
   padding-bottom: 8px;
   &:not(:placeholder-shown),
-  &:focus {
+  &:focus,
+  &:hover {
     color: $main_white;
   }
 }
@@ -155,8 +157,10 @@
   @extend %style-input;
   padding-top: 15px;
   height: 76px;
+  resize: none;
   &:not(:placeholder-shown),
-  &:focus {
+  &:focus,
+  &:hover {
     color: $main_white;
   }
   @media screen and (min-width: 768px), (orientation: landscape) {
@@ -177,21 +181,24 @@
 .online-booking__user-name-label {
   @extend %style-label;
   .online-booking__user-name:not(:placeholder-shown) + &,
-  .online-booking__user-name:focus + & {
+  .online-booking__user-name:focus + &,
+  .online-booking__user-name:hover + & {
     color: $main_white;
   }
 }
 .online-booking__user-telephone-label {
   @extend %style-label;
   .online-booking__user-telephone:not(:placeholder-shown) + &,
-  .online-booking__user-telephone:focus + & {
+  .online-booking__user-telephone:focus + &,
+  .online-booking__user-telephone:hover + & {
     color: $main_white;
   }
 }
 .online-booking__user-masang-label {
   @extend %style-label;
   .online-booking__user-masang:not(:placeholder-shown) + &,
-  .online-booking__user-masang:focus + & {
+  .online-booking__user-masang:focus + &,
+  .online-booking__user-masang:hover + & {
     color: $main_white;
   }
 }
@@ -229,20 +236,23 @@
   }
 }
 .contacts--grid-parents {
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
+  @media screen and (max-width: 1279px) and (min-width: 768px),
+    (max-width: 767px) and (orientation: landscape) {
     display: grid;
     grid-template-areas: 'contacts time';
     grid-template-columns: 1fr 1fr;
   }
 }
 .contacts__container-contacts {
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
+  @media screen and (max-width: 1279px) and (min-width: 768px),
+    (max-width: 767px) and (orientation: landscape) {
     grid-area: contacts;
   }
 }
 
 .contacts__container-time {
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
+  @media screen and (max-width: 1279px) and (min-width: 768px),
+    (max-width: 767px) and (orientation: landscape) {
     grid-area: time;
     margin-top: 50px;
     justify-self: center;
@@ -311,6 +321,10 @@
   margin-left: 40px;
   @extend %footer-social-link--decoration-text;
   color: $main_black;
+  &:hover,
+  &:focus {
+    color: $hover_color;
+  }
 }
 .footer-social-link__copyright {
   @extend %footer-social-link--decoration-text;
