@@ -381,6 +381,51 @@ a {
   color: #ffffff;
 }
 
+h2 {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
+  letter-spacing: 0.05em;
+  color: #303030;
+  max-width: 330px;
+  padding-bottom: 20px;
+}
+
+h3 {
+  position: relative;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #303030;
+}
+
+h3::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 1px;
+  background-color: #303030;
+  -webkit-transform: translateX(-80px) translateY(11.5px);
+          transform: translateX(-80px) translateY(11.5px);
+}
+
+.text {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 26px;
+  letter-spacing: 0.02em;
+  color: #555555;
+}
+
 .hero-title {
   font-size: 48px;
   line-height: 1.17;
@@ -431,7 +476,7 @@ ul {
   padding: 0px;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 479px), (min-width: 480px) {
   .feature-container {
     background-color: #fff;
     margin-left: auto;
@@ -456,7 +501,7 @@ ul {
     content: '————';
     display: inline-block;
     color: #303030;
-    font-weight: 400;
+    font-weight: 400px;
   }
   .Why-we-header {
     font-family: Raleway;
@@ -490,6 +535,9 @@ ul {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     list-style: none;
+  }
+  .box-content {
+    padding: 20px 30px;
   }
   .features .item {
     background: #f7f7f7;
@@ -558,6 +606,9 @@ ul {
         flex-wrap: wrap;
     margin-left: 0px;
   }
+  .box-content {
+    padding: 20px 18px;
+  }
   .features .item {
     width: 170px;
     height: 133px;
@@ -567,18 +618,7 @@ ul {
 /* .mobile-wrapper {
   padding: 0 31px;
 } */
-.feature-content {
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 1.16;
-  text-align: center;
-  color: #303030;
-}
-
 .figure {
-  padding: 20px 35px;
   font-family: Open Sans;
   font-style: normal;
   font-weight: bold;
@@ -599,6 +639,16 @@ ul {
   line-height: 1.37;
   text-align: center;
   color: #ff6c00;
+}
+
+.feature-content {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.16;
+  text-align: center;
+  color: #303030;
 }
 
 .masters {
@@ -875,12 +925,19 @@ ul {
 
 .title-footer {
   margin-bottom: 44px;
+  white-space: nowrap;
+  width: 418px;
+  height: 49px;
   font-weight: bold;
   font-size: 42px;
   line-height: 1.17;
   text-align: center;
   letter-spacing: 0.05em;
   color: #ffffff;
+}
+
+.form {
+  text-align: center;
 }
 
 .list {
@@ -892,6 +949,13 @@ ul {
 .item-form {
   position: relative;
   margin-bottom: 44px;
+  height: 24px;
+  width: 418px;
+}
+
+.item-form:last-child {
+  height: 76px;
+  margin-bottom: 0;
 }
 
 .item-form:hover .form-field, .item-form:focus .form-field {
@@ -916,9 +980,16 @@ ul {
   height: 76px;
 }
 
-.form-field {
+.form-label {
   position: absolute;
+  left: 0;
   bottom: 8px;
+}
+
+.comment {
+  position: absolute;
+  left: 0;
+  bottom: 60px;
 }
 
 .form-field {
@@ -939,5 +1010,86 @@ ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: 44px;
+}
+
+@media screen and (min-width: 480px) {
+  .aboutus {
+    padding-top: 84px;
+    padding-bottom: 84px;
+  }
+  .aboutus-text-container {
+    padding-bottom: 40px;
+  }
+  .aboutus-text-container h3 {
+    padding-bottom: 20px;
+    padding-left: 80px;
+  }
+  .aboutus-text-container .var-text {
+    padding-bottom: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+    color: #555555;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .pricelist {
+    padding-top: 84px;
+    padding-bottom: 84px;
+    background-image: url("/images/section-2-prices/mob-prices-img.png");
+  }
+  .pricelist-container {
+    padding-bottom: 40px;
+  }
+  .pricelist-container h3 {
+    padding-bottom: 20px;
+    padding-left: 80px;
+    font-size: 11px;
+    line-height: 15px;
+    color: rgba(157, 164, 189, 0.6);
+  }
+  .pricelist-container h2 {
+    padding-bottom: 44px;
+  }
+  .pricelist-container .pricebox {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  .list-pricelist .item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .list-pricelist .item :first-child {
+    padding-right: 5px;
+  }
+  .list-pricelist .item :last-child {
+    padding-left: 5px;
+  }
+  .list-pricelist .item .text {
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
+    max-height: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 30px;
+    letter-spacing: 0.02em;
+    color: #9da4bd;
+  }
+  .list-pricelist .item .text-line {
+    width: 100%;
+    border-bottom: 1px solid rgba(157, 164, 189, 0.6);
+  }
 }
 /*# sourceMappingURL=main.css.map */
