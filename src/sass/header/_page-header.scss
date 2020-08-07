@@ -1,0 +1,72 @@
+.page-header {
+  position: relative;
+}
+.logo {
+  max-width: 68px;
+  height: 55px;
+}
+
+.main-nav {
+  @include typedisplay($display);
+  align-items: center;
+  @media screen and (max-width: 767px) {
+    padding: 40px 31px;
+  }
+}
+
+.menu-button {
+  @include typedisplay(inline-flex);
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  margin-left: auto;
+  border: none;
+  background-color: transparent;
+  @media screen and (min-width: 768px) {
+    @include typedisplay(none);
+  }
+  & .icon-crose {
+    @include typedisplay(none);
+  }
+  &.is-open .icon-crose {
+    @include typedisplay(block);
+  }
+  &.is-open .icon-menu {
+    @include typedisplay(none);
+  }
+}
+
+.menu-button:hover .icon-crose,
+.menu-button:focus .icon-crose {
+  fill: $accent-color;
+}
+.menu-button:hover .icon-menu,
+.menu-button:focus .icon-menu {
+  fill: $accent-color;
+}
+
+.menu-container {
+  &.is-open {
+    @include typedisplay(block);
+  }
+  @media screen and (max-width: 767px) {
+    @include typedisplay(none);
+    position: absolute;
+    top: 0;
+    left: 143px;
+    width: 337px;
+    padding-top: 118px;
+    padding-left: 40px;
+    background-color: $main-color;
+    box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.04),
+      -2px 0px 4px rgba(0, 0, 0, 0.08), -1px 0px 3px rgba(0, 0, 0, 0.16);
+  }
+}
+@media screen and (max-width: 767px) {
+  .site-nav {
+    margin-bottom: 60px;
+  }
+  .item-nav:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
