@@ -1,0 +1,50 @@
+// ! оформление кнопок
+// TODO: basic button styles
+%button {
+  min-width: 200px;
+  height: 50px;
+  padding: 10px 32px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  border: 1px solid $accent-color;
+  border-radius: 25px;
+
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33%;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+
+  transform: scale(1);
+  transition: transform $timing-animation;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+}
+// TODO: кнопка на білому фоні
+.button-bg-white {
+  @extend %button;
+  color: $title-color;
+  background-color: $primary-white;
+  transform: color $timing-animation, background-color $timing-animation;
+  &:hover,
+  &:focus {
+    color: $primary-white;
+    background-color: $accent-color;
+  }
+}
+// TODO: кнопка на темному фоні
+.button-bg-black {
+  @extend %button;
+  background-color: rgba(0, 0, 0, 0.007);
+  color: $primary-white;
+  transform: background-color $timing-animation;
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+  }
+}
