@@ -2,12 +2,18 @@
   width: 100%;
   margin-top: 20px;
   background-color: #191c26;
+
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
   color: $title-secondary-color;
 
   & h2 {
     font-family: 'Releway', sans-serif;
     font-weight: 700;
-    font-style: normal;
     font-size: 42px;
     line-height: 1.17;
     letter-spacing: 0.05em;
@@ -23,26 +29,28 @@
 .footer-appointment,
 .footer-contacts {
   width: 100%;
-  outline: 1px solid orange;
+  outline: 1px solid gold;
 }
 
 .form-appointment {
-  &__labels,
-  &__textarea {
+  &__labels {
+    display: flex;
     margin-top: 44px;
   }
 
-  &__labels {
-    display: flex;
-  }
-
   &__textarea {
+    position: relative;
+    height: 75px;
+    margin: 44px 0;
+    padding-right: 10px;
   }
 }
 
 .appointment-labels {
-  // outline: 1px solid gold;
+  position: relative;
   flex-basis: 50%;
+
+  text-transform: uppercase;
 
   &:last-child {
     margin-right: 10px;
@@ -50,7 +58,6 @@
   }
 
   &__input {
-    // outline: 1px solid tomato;
     width: 100%;
     padding-bottom: 8px;
 
@@ -63,7 +70,7 @@
     line-height: 1.36;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: $title-secondary-color;
+    color: rgba(157, 164, 189, 0.4);
 
     background-color: transparent;
 
@@ -72,8 +79,91 @@
 
     &:focus,
     &:hover {
-      outline: 1px solid tomato;
-      // border-color: $actualColorText;
+      outline: none;
+      border-bottom: 1px solid $title-secondary-color;
+      color: $title-secondary-color;
+    }
+    &:focus {
+      cursor: text;
+    }
+  }
+
+  &__text {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    padding-bottom: 8px;
+    pointer-events: none;
+
+    transform: translate(0px, -50%);
+
+    color: rgba(157, 164, 189, 0.4);
+    opacity: 1;
+    cursor: pointer;
+
+    .appointment-labels__input:focus ~ &,
+    .appointment-labels__input:not(:placeholder-shown) ~ & {
+      opacity: 0;
+    }
+    .appointment-labels__input:hover ~ &,
+    &:hover {
+      color: $title-secondary-color;
+    }
+  }
+}
+
+.appointment-textarea {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  resize: none;
+  cursor: pointer;
+  border: none;
+  border-bottom: 1px solid rgba(157, 164, 189, 0.4);
+  background-color: transparent;
+  outline: none;
+
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(157, 164, 189, 0.4);
+
+  &:hover,
+  &:focus {
+    color: $title-secondary-color;
+    border-bottom: 1px solid $title-secondary-color;
+  }
+  &:focus {
+    cursor: text;
+  }
+
+  &__text {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    pointer-events: none;
+
+    opacity: 1;
+
+    text-transform: uppercase;
+    color: rgba(157, 164, 189, 0.4);
+
+    .appointment-textarea:focus ~ &,
+    .appointment-textarea:not(:placeholder-shown) ~ & {
+      opacity: 0;
+    }
+    .appointment-textarea:hover ~ &,
+    &:hover {
+      color: $title-secondary-color;
     }
   }
 }
