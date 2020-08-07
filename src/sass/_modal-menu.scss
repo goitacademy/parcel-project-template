@@ -53,35 +53,43 @@
   height: 19px;
 }
 .menu-container {
+  display: none;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   width: 100%;
   font-family: $OpenSans;
   font-style: normal;
   z-index: 2;
 }
-
-@media screen and (max-width: $tablet) {
+@media screen and (min-width: $tablet), (orientation: landscape) {
   .menu-container {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    width: 337px;
-    height: 796px;
-
-    background-color: $main_white;
-
-    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16),
-      0px 2px 4px rgba(0, 0, 0, 0.08), 0px 4px 8px rgba(0, 0, 0, 0.04);
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16), 0px 2px 4px rgba(0, 0, 0, 0.08),
-      0px 4px 8px rgba(0, 0, 0, 0.04);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 
+@media screen and (orientation: landscape) {
+  .menu-container.is-open {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: none;
+  }
+}
 .menu-container.is-open {
   display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 337px;
+  height: 796px;
+  background-color: $main_white;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16),
+    0px 2px 4px rgba(0, 0, 0, 0.08), 0px 4px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16), 0px 2px 4px rgba(0, 0, 0, 0.08),
+    0px 4px 8px rgba(0, 0, 0, 0.04);
 }
+
+// .menu-container.is-open {
+//   display: block;
+// }
