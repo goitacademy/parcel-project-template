@@ -1,23 +1,81 @@
 .section.features {
-  display: flex;
-  flex-wrap: wrap;
+  @media screen and (min-width: $mobile) {
+    display: block;
+    justify-content: stretch;
+    align-content: stretch;
+  }
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
+
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: center;
+    margin: 0;
+  }
 }
 
 /*text*/
-.features {
+.advantages {
   display: block;
-  width: 523px;
-  text-align: start;
+
+  @media screen and (min-width: $mobile) {
+    width: 100%;
+    margin-bottom: 44px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    max-width: 500px;
+    text-align: start;
+  }
+
+  @media screen and (min-width: $desktop) {
+    max-width: 500px;
+    height: 293px;
+    text-align: start;
+    margin-left: 130px;
+  }
 }
-.section-title {
+
+.section-name {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
+
+  font-style: 400;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1px;
+  color: $primary-text-color;
+
+  &::before {
+    content: '';
+    width: 60px;
+    height: 1px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $primary-text-color;
+    margin-right: 20px;
+  }
 }
 
 .title {
   margin-top: 0;
   margin-bottom: 20px;
+  text-align: start;
+
+  @media screen and (min-width: $mobile) {
+    min-width: 100%;
+  }
+
+  @media screen and (min-width: $tablet) {
+    min-width: 500px;
+  }
 }
-.advantages-text {
+.benefits-text {
   margin-bottom: 0;
   font-family: $font-text;
   font-style: normal;
@@ -25,41 +83,64 @@
   font-size: 18px;
   line-height: 30px;
   letter-spacing: 0.02em;
-  text-align: right;
+
   color: $secondary-text-color;
+
+  @media screen and (min-width: $mobile) {
+    text-align: justify;
+  }
+
+  @media screen and (min-width: $tablet) {
+    text-align: right;
+  }
 }
 
 /*boxes*/
 .boxes {
   display: flex;
   flex-wrap: wrap;
-  width: 370px;
+  float: left;
+  max-width: 370px;
   height: 331px;
+
+  @media screen and (min-width: $mobile) {
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-left: 320px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-left: 0px;
+  }
 }
 
 .box {
   display: block;
-  width: calc((100% - 35px * 2) / 2);
+  max-width: calc((100% - 35px * 1) / 2);
   height: 133px;
   flex-shrink: 0;
-  padding: 20px 24px;
+  padding: 20px 24px 20px 24px;
   align-items: center;
   text-align: center;
   background-color: $secondary-background-color;
 
   &:nth-child(n) {
     margin-right: 35px;
-    margin-bottom: 35px;
-  }
-  &:nth-child(n + 1) {
-    margin-right: 30px;
-    margin-bottom: 30px;
   }
   &:nth-child(2n) {
     margin-top: 35px;
+    margin-right: 0px;
+  }
+  &:nth-child(n + 3) {
+    margin-top: 0px;
   }
   &:nth-child(3n) {
-    margin-bottom: 35px;
+    margin-bottom: 0px;
+  }
+  &:last-child {
+    margin-top: 35px;
     padding: 20px;
   }
 }

@@ -325,7 +325,7 @@ img {
 
 .title {
   font-weight: 700;
-  font-size: 48px;
+  font-size: 42px;
   line-height: 1.17;
   letter-spacing: 0.05em;
 }
@@ -447,31 +447,115 @@ svg {
   letter-spacing: 0.02em;
 }
 
-.section.features {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+@media screen and (min-width: 480px) {
+  .section.features {
+    display: block;
+    -webkit-box-pack: stretch;
+        -ms-flex-pack: stretch;
+            justify-content: stretch;
+    -ms-flex-line-pack: stretch;
+        align-content: stretch;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .section.features {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .section.features {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: row-reverse;
+            flex-flow: row-reverse;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0;
+  }
 }
 
 /*text*/
-.features {
+.advantages {
   display: block;
-  width: 523px;
-  text-align: start;
 }
 
-.section-title {
+@media screen and (min-width: 480px) {
+  .advantages {
+    width: 100%;
+    margin-bottom: 44px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .advantages {
+    max-width: 500px;
+    text-align: start;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .advantages {
+    max-width: 500px;
+    height: 293px;
+    text-align: start;
+    margin-left: 130px;
+  }
+}
+
+.section-name {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-bottom: 20px;
+  font-style: 400;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1px;
+  color: #303030;
+}
+
+.section-name::before {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #303030;
+  margin-right: 20px;
 }
 
 .title {
   margin-top: 0;
   margin-bottom: 20px;
+  text-align: start;
 }
 
-.advantages-text {
+@media screen and (min-width: 480px) {
+  .title {
+    min-width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    min-width: 500px;
+  }
+}
+
+.benefits-text {
   margin-bottom: 0;
   font-family: "Open Sans", sans-serif;
   font-style: normal;
@@ -479,8 +563,19 @@ svg {
   font-size: 18px;
   line-height: 30px;
   letter-spacing: 0.02em;
-  text-align: right;
   color: #555555;
+}
+
+@media screen and (min-width: 480px) {
+  .benefits-text {
+    text-align: justify;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .benefits-text {
+    text-align: right;
+  }
 }
 
 /*boxes*/
@@ -490,17 +585,39 @@ svg {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 370px;
+  float: left;
+  max-width: 370px;
   height: 331px;
+}
+
+@media screen and (min-width: 480px) {
+  .boxes {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .boxes {
+    margin-left: 320px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .boxes {
+    margin-left: 0px;
+  }
 }
 
 .box {
   display: block;
-  width: calc((100% - 35px * 2) / 2);
+  max-width: calc((100% - 35px * 1) / 2);
   height: 133px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  padding: 20px 24px;
+  padding: 20px 24px 20px 24px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -510,20 +627,23 @@ svg {
 
 .box:nth-child(n) {
   margin-right: 35px;
-  margin-bottom: 35px;
-}
-
-.box:nth-child(n + 1) {
-  margin-right: 30px;
-  margin-bottom: 30px;
 }
 
 .box:nth-child(2n) {
   margin-top: 35px;
+  margin-right: 0px;
+}
+
+.box:nth-child(n + 3) {
+  margin-top: 0px;
 }
 
 .box:nth-child(3n) {
-  margin-bottom: 35px;
+  margin-bottom: 0px;
+}
+
+.box:last-child {
+  margin-top: 35px;
   padding: 20px;
 }
 
