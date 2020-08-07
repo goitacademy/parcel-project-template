@@ -1,19 +1,167 @@
+h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+.page-header {
+    background-color: transparent;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .is-hidden {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;}
+
+        @media screen and (max-width: $mobile) {
+            padding-top: 40px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+}
+
+.header-link {
+    color: $primary-text-color;
+    transition: $animation-effect;
+
+    &:hover, &:focus {
+        color: $accent-color;
+    }
+}
+
+.header__contacts-link {
+    font-size: 14px;
+    line-height: 1.36em;
+    letter-spacing: 0.2em;
+    color: $primary-text-color;
+
+    &:hover, &:focus {
+        color: $accent-color;
+    }
+}
+
+.drop-down-menu {
+    @media screen and (max-width: $before-tablet) {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        background-color: $bg-color;
+    }
+}
+
+
+
+.drop-down-button {
+    @media screen and (min-width: $before-tablet) {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+    @media screen and (min-width: $tablet) {
+        display: none;
+      }
+  }
+
+  .drop-down-icon .icon-cross {
+    @media screen and (max-width: $before-tablet) {
+      display: none;
+
+    }
+  }
+
+  .is-hidden {
+    @media screen and (max-width: $before-tablet) {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      .drop-down-menu {
+        transform: scaleY(0);
+        opacity: 0;
+      }
+
+      + .drop-down-button {
+        .icon-menu {
+          display: block;
+          fill: $bg-color;
+        }
+        .icon-cross {
+          display: none;
+        }
+      }
+    }
+  }
+
 .hero-title {
+    margin-bottom: 20px;
+
+    font-family: $font-family;
     font-size: 48px;
-    line-height: 1.17;
+    line-height: 1.17em;
     letter-spacing: 0.05em;
     color: $bg-color;
 }
 
+.hero-title--second {
+    position: relative;
+    margin-bottom: 20px;
+
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.37em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(157, 164, 189, 0.6);
+
+    &::before {
+        position: absolute;
+        background-color: rgba(157, 164, 189, 0.6);
+        content: '';
+        width: 60px;
+        height: 1px;
+        top: 8px;
+        left: -80px;}
+}
+
+.container--hero {
+    margin-left: 31px;
+
+    @media screen and (max-width:$mobile) {
+        max-width: 310px;
+        margin-top: 5em;
+        margin-bottom: 180px;
+    }
+}
+
 .logo {
-    fill: $bg-color;
+        fill: $bg-color;
 
     @media screen and (min-width: $tablet){
         fill: $primary-text-color;
     }
 }
 
+.hero-info {
+    font-size: 16px;
+    line-height: 1.62em;
+    letter-spacing: 0.02em;
+    color: #9DA4BD;
+}
+
 .hero-overlay {
+    position: relative;
+
     max-width: 1125px;
     max-height: 680px;
     margin-right: auto;
@@ -26,6 +174,8 @@
   background-position: center;
 }
 
-header {
-    background-color:$bg-color;
+.header-nav {
+    font-size: 18px;
+    line-height: 1.39em;
+    letter-spacing: 0.1em;
 }
