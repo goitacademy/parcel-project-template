@@ -26,20 +26,34 @@
       text-align: center;
 
       .count {
-        margin-left: 25px;
         font-weight: 700;
         font-size: 42px;
         line-height: 1.35;
+
+        @media screen and (max-width: 260px) {
+          font-size: 24px;
+        }
+        @media screen and (max-width: 200px) {
+          font-size: 12px;
+        }
+        &::after {
+          display: inline-block;
+          content: '+';
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 1.37;
+          color: $accent-color;
+          margin-left: 2px;
+          transform: translateY(-23px);
+          @media screen and (max-width: 260px) {
+            transform: translateY(-13px);
+          }
+          @media screen and (max-width: 200px) {
+            transform: translateY(-3px);
+          }
+        }
       }
-      .plus {
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 1.37;
-        color: $accent-color;
-        margin-left: 2px;
-        margin-right: 20px;
-        transform: translateY(-16px);
-      }
+
       .text {
         max-width: 140px;
         font-weight: 600;
