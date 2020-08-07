@@ -2,22 +2,158 @@
     position: relative;
 }
 
-.container-sidebar {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    margin-right: 0;
-    width: 90px;
+.sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-top: 32px;
+    padding-bottom: 170px;
     height: 680px;
     background-color: $white-color;
+
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+    
+    @media screen and (min-width: $tablet) {
+        width: 159px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        width: 155px;
+    }
+}
+
+.hero-wrapper {
+    display: flex;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    background-image: url(../images/стрижка1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media screen and (max-width: 767px) {
+        min-height: 580px;
+    }
+
+    @media (min-resolution: 2dppx) {
+        background-image: url("../images/стрижка1-2x.jpg");
+    }
+
+    @media (min-width: $tablet) {
+        background-image: url("../images/стрижка2.jpg");
+
+        @media (min-resolution: 2dppx) {
+            background-image: url("../images/стрижка2-2x.jpg");
+        }
+    }
+
+    @media screen and (min-width: $tablet) {
+        display: flex;
+        justify-content: center;
+        min-height: 680px;
+    }
+
+    @media (min-width: $desktop) {
+        background-image: url("../images/стрижка3.jpg");
+    
+        @media (min-resolution: 2dppx) {
+            background-image: url("../images/стрижка3-2x.jpg");
+        }
+    }
+}
+
+.container-hero {
+    padding: 0;
+}
+
+.content-container {
+    @media screen and (max-width: 767px) {
+        padding-left: 31px;
+        max-width: 306px;
+    }
+
+    @media screen and (min-width: $tablet) {
+        max-width: 355px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        max-width: 500px;
+    }
+}
+
+.appeal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.36;
+    letter-spacing: 0.1em;
+    color: $text-color3;
+    text-transform: uppercase;
+
+    &::before {
+        content: '';
+        height: 1px;
+        width: 60px;
+        margin-right: 20px;
+        background-color: $text-color3;
+    }
+
+    @media screen and (min-width: $tablet) {
+        justify-content: start;
+    }
+}
+
+.title-hero {
+    margin-top: 17px;
+    font-family: $secondary-font;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.17;
+    letter-spacing: 0.05em;
+    color: $white-color;
+}
+
+.tagline {
+    margin-top: 17px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.63;
+    letter-spacing: 0.02em;
+    color: $text-color;
+}
+
+.icon-logo {
+    position: absolute;
+    top: 32px;
+    left: 50px;
+
+    @media screen and (max-width: 767px) {
+        fill: $white-color;
+    }
+
+    @media screen and (min-width: $tablet) {
+        width: 69px;
+        fill: $title-color;
+    }
 }
 
 .container-nav {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
 
     display: flex;
     align-items: center;
@@ -28,6 +164,10 @@
 }
 
 .menu-button {
+    position: absolute;
+    top: 48px;
+    right: 31px;
+
     display: inline-flex;
     margin: 0;
     margin-left: 309px;
@@ -52,13 +192,21 @@
     }
 }
 
+.icon-menu {
+    fill: $white-color;
+}
+
 .menu-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
     width: 40px;
     height: 40px;
+    fill: $title-color;
 }
 
 .menu-container {
-    z-index: 1;
     @media screen and (max-width: 767px) {
         display: none;
 
@@ -66,7 +214,9 @@
         top: 100%;
         right: 0;
 
+        padding-top: 48px;
         width: 337px;
+        height: 796px;
 
         background-color: $white-color;
         box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.04),
@@ -86,10 +236,12 @@
 }
 
 .site-nav {
-    margin-left: 40px;
     padding: 0;
 
     @media screen and (max-width: 767px) {
+        text-align: start;
+        margin-left: 40px;
+
         &-item + &-item {
             margin-top: 24px;
         }
@@ -97,9 +249,9 @@
 
     @media screen and (min-width: $tablet) {
         display: flex;
+        margin-left: 40px;
         margin-top: 0;
         margin-bottom: 0;
-        padding: 0;
 
         &-item + &-item {
             margin-left: 24px;
@@ -124,9 +276,13 @@
     line-height: 1.33;
     letter-spacing: 0.1em;
     text-decoration: none;
-    color: $white-color;
+
+    @media screen and (max-width: 767px) {
+        color: $title-color;
+    }
 
     @media screen and (min-width: $tablet) {
+        color: $white-color;
         padding-top: 52px;
         padding-bottom: 52px;
     }
@@ -138,6 +294,8 @@
 
 .booking-nav {
     @media screen and (max-width: 767px) {
+        text-align: start;
+        padding-left: 40px;
         margin-top: 64px;
         margin-bottom: 64px;
     }
@@ -146,6 +304,7 @@
         display: flex;
         flex-direction: column-reverse;
         padding-top: 40px;
+        padding-right: 39px;
         margin-left: 37px;
     }
 
@@ -154,15 +313,37 @@
         flex-direction: inherit;
         align-items: center;
         padding: 0;
-        margin-left: 322px;
+        margin-right: 55px;
+        margin-left: 250px;
     }
 }
 
 .social-channel {
-    @media screen and (max-width: 767px) {
+    display: flex;
+    align-items: center;
+    transform: rotate(-90deg);
+
+    @media screen and (min-width: $tablet) {
         &-item + &-item {
-            margin-top: 24px;
+            margin-left: 40px;
         }
+    }
+}
+
+.Instagram {
+        display: flex;
+        align-items: center;
+
+    @media screen and (min-width: $tablet) {
+        justify-content: center;
+    }
+
+    &::before {
+        content: '';
+        height: 1px;
+        width: 60px;
+        margin-right: 20px;
+        background-color: $title-color;
     }
 }
 
@@ -173,6 +354,13 @@
     letter-spacing: 0.1em;
     color: $title-color;
     text-decoration: none;
+
+    @media screen and (max-width: 767px) {
+        margin-bottom: 24px;
+        &:hover {
+            color: $hover-color;
+        }
+    }
 
     @media screen and (min-width: $tablet) {
         margin-top: 20px;
@@ -210,6 +398,11 @@
         background-color: inherit;
         color: $white-color;
     }
+
+    &:hover {
+        color: $white-color;
+        background-color: $hover-color;
+    }
 }
 
 .social-link {
@@ -219,89 +412,29 @@
     letter-spacing: 0.2em;
     color: $title-color;
     text-decoration: none;
+
+    &:hover {
+        color: $hover-color;
+    }
 }
 
-.hero {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-
-    background-image: url(../images/стрижка1.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-
+.social-list {
     @media screen and (max-width: 767px) {
-        min-height: 580px;
-    }
+        display: block;
+        width: 100%;
+        padding-left: 40px;
+        padding-right: 105px;
 
-    @media (min-resolution: 2dppx) {
-        background-image: url("../images/стрижка1-2x.jpg");
-    }
-
-    @media (min-width: $tablet) {
-        background-image: url("../images/стрижка2.jpg");
-
-        @media (min-resolution: 2dppx) {
-            background-image: url("../images/стрижка2-2x.jpg");
-        }
-    }
-
-    @media (min-width: $desktop) {
-        background-image: url("../images/стрижка3.jpg");
-    
-        @media (min-resolution: 2dppx) {
-            background-image: url("../images/стрижка3-2x.jpg");
+        &-item + &-item {
+            margin-top: 24px;
         }
     }
 
     @media screen and (min-width: $tablet) {
-        display: flex;
-        justify-content: center;
-        min-height: 680px;
-    }
-}
-
-.content-container {
-    @media screen and (max-width: 767px) {
-        padding-left: 31px;
-        max-width: 306px;
+        display: none;
     }
 
-    @media screen and (min-width: $tablet) {
-        max-width: 355px;
+    .Youtube {
+        padding-left: 40px;
     }
-
-    @media screen and (min-width: $desktop) {
-        max-width: 500px;
-    }
-}
-
-.appeal {
-    font-weight: 600;
-    font-size: 11px;
-    line-height: 1.36;
-    letter-spacing: 0.1em;
-    color: $text-color3;
-    text-transform: uppercase;
-}
-
-.title-hero {
-    margin-top: 17px;
-    font-family: $secondary-font;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 1.17;
-    letter-spacing: 0.05em;
-    color: $white-color;
-}
-
-.tagline {
-    margin-top: 17px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.63;
-    letter-spacing: 0.02em;
-    color: $text-color;
 }
