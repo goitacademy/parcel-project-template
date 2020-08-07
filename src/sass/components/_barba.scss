@@ -1,19 +1,22 @@
 .barba {
   padding-top: 85px;
   padding-bottom: 85px;
-}
 
-.barba_titel_container {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 45px;
   @media screen and(min-width: $tablet) {
-    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @media screen and(min-width: $desktop) {
+    padding-top: 130px;
+    padding-bottom: 130px;
   }
 }
 
 .barba_title {
-  margin-left: 20px;
+  position: relative;
+  margin-left: 80px;
+  margin-bottom: 45px;
   @include font(600, 11px, 1.91);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -21,6 +24,19 @@
 
   @media screen and(min-width: $tablet) {
     line-height: 1.37;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -80px;
+    height: 1px;
+    width: 60px;
+    background-color: $title-main-color;
+
+    @media screen and(min-width:$tablet) {
+      top: 5px;
+    }
   }
 }
 
