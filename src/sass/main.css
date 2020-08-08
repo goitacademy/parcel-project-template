@@ -381,46 +381,6 @@ a {
   color: #ffffff;
 }
 
-/*h2 {
-  font-family: $font-family;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 28px;
-  line-height: 33px;
-  letter-spacing: 0.05em;
-  color: $primary-text-color;
-  max-width: 330px;
-  padding-bottom: 20px;
-}
-h3 {
-  position: relative;
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 15px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: $primary-text-color;
-  &::before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 60px;
-    height: 1px;
-    background-color: $primary-text-color;
-    transform: translateX(-80px) translateY(11.5px);
-  }
-}
-.text {
-  font-family: $font-family-open-sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 26px;
-  letter-spacing: 0.02em;
-  color: $second-text-color;
-}*/
 h1, h2, p {
   margin: 0;
   padding: 0;
@@ -1397,6 +1357,23 @@ ul {
   }
 }
 
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1280px) {
+  .footer-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: #191c26;
+  }
+}
+
 .footer-content {
   padding: 84px 31px;
   background-color: #191c26;
@@ -1411,8 +1388,10 @@ ul {
 
 @media screen and (min-width: 1280px) {
   .footer-content {
-    width: 600px;
+    min-width: 50%;
     padding: 130px 15px;
+    margin-left: 16px;
+    margin-right: 1px;
   }
 }
 
@@ -1437,6 +1416,12 @@ ul {
 
 .form {
   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    text-align: left;
+  }
 }
 
 .list {
@@ -1579,19 +1564,68 @@ ul {
   color: #ffffff;
 }
 
+@media screen and (max-width: 767px) {
+  .aboutus .aboutus-image-container-tablet {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 480px) {
   .aboutus {
     padding-top: 84px;
     padding-bottom: 84px;
   }
-  .aboutus-text-container {
-    padding-bottom: 40px;
+  .aboutus .text {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+    color: #555555;
+    display: block;
+    max-width: 397px;
   }
-  .aboutus-text-container h3 {
+  .aboutus .title {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 33px;
+    letter-spacing: 0.05em;
+    color: #303030;
+    max-width: 330px;
+    padding-bottom: 20px;
+  }
+  .aboutus .pretitle {
+    position: relative;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #303030;
+  }
+  .aboutus .pretitle::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: #303030;
+    -webkit-transform: translateX(-80px) translateY(7px);
+            transform: translateX(-80px) translateY(7px);
+  }
+  .aboutus .aboutus-text-container .button {
+    margin-top: 40px;
+  }
+  .aboutus .aboutus-text-container .pretitle {
     padding-bottom: 20px;
     padding-left: 80px;
   }
-  .aboutus-text-container .var-text {
+  .aboutus .aboutus-text-container .var-text {
     padding-bottom: 20px;
     font-family: "Open Sans", sans-serif;
     font-style: normal;
@@ -1603,28 +1637,161 @@ ul {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .aboutus {
+    padding-top: 100px;
+    padding-bottom: 103px;
+  }
+  .aboutus .text {
+    max-width: 330px;
+  }
+  .aboutus .aboutus-container {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+  .aboutus .aboutus-container .aboutus-image-container-tablet {
+    min-width: 330px;
+    padding-right: 30px;
+    height: 500px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .aboutus .aboutus-container .aboutus-image-container-tablet .image {
+    width: 330px;
+    height: 235px;
+    -o-object-fit: fill;
+       object-fit: fill;
+  }
+  .aboutus .aboutus-text-container {
+    max-width: 330px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .aboutus {
+    padding-top: 130px;
+    padding-bottom: 130px;
+  }
+  .aboutus .aboutus-container {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+  .aboutus .aboutus-container .aboutus-image-container-tablet {
+    display: none;
+  }
+  .aboutus .aboutus-container .aboutus-image-container-desktop {
+    margin-right: 64px;
+    height: 445px;
+    min-width: 570px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .aboutus .aboutus-container .aboutus-image-container-desktop .image {
+    min-width: 270px;
+    min-height: 445px;
+    -o-object-fit: fill;
+       object-fit: fill;
+  }
+  .aboutus .text {
+    max-width: 500px;
+  }
+  .aboutus .title {
+    font-size: 42px;
+    line-height: 49px;
+    max-width: 500px;
+  }
+  .aboutus .aboutus-text-container {
+    max-width: 500px;
+  }
+  .aboutus .aboutus-text-container .var-text {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
 @media screen and (min-width: 480px) {
   .pricelist {
     padding-top: 84px;
     padding-bottom: 84px;
     background-image: url("/images/section-2-prices/mob-prices-img.png");
+    background-color: #2f303a;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-  .pricelist-container {
-    padding-bottom: 40px;
+  .pricelist .text {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+    color: #555555;
   }
-  .pricelist-container h3 {
+  .pricelist-container .pretitle {
     padding-bottom: 20px;
     padding-left: 80px;
     font-size: 11px;
     line-height: 15px;
     color: rgba(157, 164, 189, 0.6);
+    position: relative;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
-  .pricelist-container h2 {
+  .pricelist-container .pretitle::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: rgba(157, 164, 189, 0.6);
+    -webkit-transform: translateX(-80px) translateY(7px);
+            transform: translateX(-80px) translateY(7px);
+  }
+  .pricelist-container .title {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 49px;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    max-width: 330px;
+    padding-bottom: 20px;
     padding-bottom: 44px;
   }
   .pricelist-container .pricebox {
-    padding-right: 30px;
-    padding-left: 30px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#171a24), to(rgba(23, 26, 36, 0.2)));
+    background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
+    margin-bottom: 50px;
+  }
+  .pricelist-container .first-pricebox {
+    padding: 30px 30px 0 30px;
+  }
+  .pricelist-container .second-pricebox {
+    padding: 0 30px 30px 30px;
+  }
+  .pricelist-container .button {
+    display: block;
+    color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
   }
   .list-pricelist .item {
     display: -webkit-box;
@@ -1633,6 +1800,7 @@ ul {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    padding-bottom: 20px;
   }
   .list-pricelist .item :first-child {
     padding-right: 5px;
@@ -1644,7 +1812,7 @@ ul {
     min-width: -webkit-max-content;
     min-width: -moz-max-content;
     min-width: max-content;
-    max-height: 20px;
+    max-height: 25px;
     font-family: "Open Sans", sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -1659,9 +1827,25 @@ ul {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .pricelist {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 .address-container {
   padding-top: 84px;
   padding-bottom: 84px;
+  width: 100%;
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(25, 28, 38, 0.8)), to(rgba(25, 28, 38, 0.8))), url(..//images/footer/bg-footer.jpg);
   background-image: linear-gradient(to right, rgba(25, 28, 38, 0.8), rgba(25, 28, 38, 0.8)), url(..//images/footer/bg-footer.jpg);
   background-repeat: no-repeat;
@@ -1675,6 +1859,8 @@ ul {
     padding-left: 100px;
     padding-top: 130px;
     padding-bottom: 130px;
+    min-width: 625px;
+    width: 100%;
   }
 }
 
@@ -1759,7 +1945,18 @@ ul {
   font-size: 18px;
   line-height: 1.67;
   letter-spacing: 0.02em;
+  cursor: pointer;
   color: #9da4bd;
+}
+
+.links:hover, .links:focus {
+  color: #ff6c00;
+}
+
+@media screen and (min-width: 1280px) {
+  .links {
+    width: 230px;
+  }
 }
 
 .meil {
@@ -1828,8 +2025,18 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-top: 56px;
   padding-bottom: 56px;
+}
+
+@media screen and (max-width: 767px) {
+  .copyright {
+    padding-top: 79px;
+    padding-bottom: 44px;
+  }
 }
 
 .ft-text {
@@ -1854,10 +2061,17 @@ ul {
   padding-bottom: 56px;
 }
 
+@media screen and (max-width: 767px) {
+  .social-networks {
+    padding-top: 44px;
+    padding-bottom: 79px;
+  }
+}
+
 .before-item {
   display: block;
   position: relative;
-  margin-left: 40px;
+  padding-right: 40px;
 }
 
 .before-item::before {
@@ -1867,10 +2081,14 @@ ul {
   width: 60px;
   height: 1px;
   top: 8px;
-  left: -80px;
+  left: -100px;
 }
 
 .social-networks-name {
   color: #303030;
+}
+
+.social-networks-name:hover, .social-networks-name:focus {
+  color: #ff6c00;
 }
 /*# sourceMappingURL=main.css.map */
