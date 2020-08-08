@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-  
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,14 +14,32 @@
   <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
   <include src="./partials/page-header.html"></include>
   <main>
-  <include src="./partials/about.html"></include>
-  <include src="./partials/section-gallery.html"></include>
-  <include src="./partials/contacts.html"></include>
+    <include src="./partials/about.html"></include>
+    <include src="./partials/section-gallery.html"></include>
+    <include src="./partials/contacts.html"></include>
   </main>
   <include src="./partials/copyrights.html"></include>
 
   <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
   <script src="./index.js"></script>
   <script src="./menu.js"></script>
+  <script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) { myIndex = 1 }
+      x[myIndex - 1].style.display = "block";
+      setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+  </script>
+
 </body>
+
 </html>
