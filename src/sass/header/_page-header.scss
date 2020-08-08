@@ -1,5 +1,4 @@
 .page-header {
-  text-align: center;
   &.overlay {
     height: 580px;
 
@@ -21,6 +20,7 @@
         url(../images/Slider-img-3@2x.jpg);
     }
     @media screen and (min-width: 768px) {
+      margin-right: 0;
       height: 680px;
       max-width: 609px;
       background-image: linear-gradient(
@@ -124,22 +124,48 @@
       box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.04),
         -2px 0px 4px rgba(0, 0, 0, 0.08), -1px 0px 3px rgba(0, 0, 0, 0.16);
     }
+    @media screen and (min-width: 768px) {
+      @include typedisplay($display);
+      align-items: center;
+      padding-top: 40px;
+      padding-left: 9px;
+      margin-bottom: 192px;
+    }
   }
-  .menu-container::after body {
+  /*.menu-container::after body {
     @media screen and (max-width: 767px) {
       background-color: rgba(25, 28, 38, 0.2);
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04),
         0px 2px 4px rgba(0, 0, 0, 0.08), 0px 1px 3px rgba(0, 0, 0, 0.16);
     }
   }
+  */
 
   .site-nav {
     font-weight: 600;
     line-height: 1.39;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.1em;
 
     @media screen and (max-width: 767px) {
       margin-bottom: 64px;
+    }
+    @media screen and (min-width: 768px) {
+      @include typedisplay($display);
+      margin-right: 47px;
+      font-size: 12px;
+      line-height: 1.33;
+      color: $main-color;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .item-nav:hover,
+    .item-nav:focus {
+      cursor: pointer;
+      color: $accent-color;
+    }
+    .item-nav:not(:last-child) {
+      margin-right: 24px;
     }
   }
 
@@ -154,14 +180,28 @@
   .address-link {
     font-weight: 600;
     line-height: 1.39;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      @include typedisplay($display);
+      top: 100px;
+      right: 58px;
+      font-size: 12px;
+      line-height: 1.33;
+      color: $main-color;
+    }
+  }
+  .address-link:hover,
+  .address-link:focus {
+    color: $accent-color;
+    cursor: pointer;
   }
 
   .button-header {
     display: inline-block;
     padding: 12px 37px;
-    margin-bottom: 64px;
 
     font-weight: 600;
     font-size: 12px;
@@ -173,11 +213,20 @@
 
     border: 1px solid $accent-color;
     border-radius: 25px;
+    @media screen and (max-width: 767px) {
+      margin-bottom: 64px;
+    }
+    @media screen and (min-width: 768px) {
+      padding: 12px 20px;
+      color: $main-color;
+    }
   }
 
-  .button-header:hover {
+  .button-header:hover,
+  .button-header:focus {
     background-color: $accent-color;
     color: $main-color;
+    cursor: pointer;
   }
 
   .header-social {
@@ -189,6 +238,7 @@
     }
     @media screen and (min-width: 768px) {
       position: absolute;
+      top: 370px;
       left: 0;
       transform: rotate(-90deg);
     }
@@ -205,6 +255,12 @@
       }
     }
   }
+
+  .header-social-links:hover,
+  .header-social-links:focus {
+    cursor: pointer;
+    color: $accent-color;
+  }
   .header-social::after {
     position: absolute;
     display: flex;
@@ -216,6 +272,7 @@
     top: 8.5px;
     @media screen and (min-width: 768px) {
       left: -100px;
+      top: 6.5px;
     }
   }
 
@@ -223,6 +280,10 @@
     position: relative;
     padding-left: 31px;
     padding-right: 143px;
+    @media screen and (min-width: 768px) {
+      padding-left: 120px;
+      padding-right: 134px;
+    }
   }
 
   .header-title {
@@ -266,12 +327,73 @@
 
   .header-bottom {
     display: none;
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      @include typedisplay($display);
+      top: 616px;
+      right: 39px;
+    }
   }
 
+  @media screen and (min-width: 768px) {
+    .header-links {
+      @include typedisplay($display);
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 1.36;
+      letter-spacing: 0.1em;
+
+      color: $subtitle-text-color;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .back-link {
+      position: relative;
+      width: 60px;
+      padding-bottom: 8px;
+      margin-right: 26px;
+      &::after {
+        position: absolute;
+        display: flex;
+        content: '';
+        bottom: 0;
+        border: 1px solid $subtitle-text-color;
+        width: 100%;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .next-link {
+      position: relative;
+      width: 60px;
+      padding-bottom: 8px;
+      text-align: right;
+      &::after {
+        position: absolute;
+        display: flex;
+        content: '';
+        bottom: 0;
+        border: 1px solid $subtitle-text-color;
+        width: 100%;
+      }
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        color: $main-color;
+      }
+      &:hover &::after,
+      &:hover &::focus {
+        border-color: $main-color;
+        cursor: pointer;
+      }
+    }
+  }
   .slider-navigation {
     position: absolute;
     right: 46px;
-    top: 50%;
+    top: 275px;
 
     & .navigation {
       border: 1px solid $second-text-color;
@@ -283,6 +405,9 @@
       &:not(:last-child) {
         margin-bottom: 12px;
       }
+    }
+    @media screen and (min-width: 768px) {
+      top: 325px;
     }
   }
 }
