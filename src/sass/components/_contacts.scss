@@ -1,20 +1,23 @@
 .contacts-form-section {
-  // TO DO: вставити картинки з проекту
-  background-image: url('../images/price-and-service/price-overley.svg'),
-    url('../images/price-and-service/price-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  @media screen and (min-width: $tablet-min) {
-    background-image: url('../images/price-and-service/overley-tablet.svg'),
-      url('../images/price-and-service/price-bg.jpg');
-  }
-
   @media screen and (min-width: $desktop) {
-    background-image: url('../images/price-and-service/overley-desc.svg'),
-      url('../images/price-and-service/price-bg.jpg');
+    display: flex;
   }
+  // TO DO: вставити картинки з проекту
+  // background-image: url('../images/price-and-service/price-overley.svg'),
+  //   url('../images/price-and-service/price-bg.jpg');
+  // background-size: cover;
+  // background-position: center;
+  // background-repeat: no-repeat;
+
+  // @media screen and (min-width: $tablet-min) {
+  //   background-image: url('../images/price-and-service/overley-tablet.svg'),
+  //     url('../images/price-and-service/price-bg.jpg');
+  // }
+
+  // @media screen and (min-width: $desktop) {
+  //   background-image: url('../images/price-and-service/overley-desc.svg'),
+  //     url('../images/price-and-service/price-bg.jpg');
+  // }
 }
 
 .form-сontainer {
@@ -29,9 +32,17 @@
   //     padding: 0 39px 0 39px;
   //   }
 
-  //   @media screen and (min-width: $desktop) {
-  //     padding: 0 55px 0 55px;
-  //   }
+  @media screen and (min-width: $desktop) {
+    // padding: 0 55px 0 55px;
+    width: 50%;
+  }
+}
+
+.contacts-time-сontainer {
+  @media screen and (min-width: $desktop) {
+    // padding: 0 55px 0 55px;
+    width: 50%;
+  }
 }
 
 .contacts-сontainer {
@@ -41,7 +52,7 @@
 }
 
 .form-title {
-  margin: 0;
+  margin: 0 0 44px 0;
   padding: 0;
   font-family: Raleway;
   font-style: normal;
@@ -55,9 +66,16 @@
   color: $primary-white;
 }
 
+.form-field:not(:last-child) {
+  margin-bottom: 44px;
+}
+
+// .form-label {
+//   position: relative;
+// }
+
 .form-input {
   // TO DO: hover color of placeholder: white
-  margin-top: 44px;
   width: 100%;
 
   font-family: Open Sans;
@@ -67,17 +85,31 @@
   /* 15px, identical to box height */
 
   letter-spacing: 0.1em;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 
-  color: rgba(189, 157, 181, 0.4);
+  color: $text-color-2;
   background-color: rgba(189, 157, 181, 0);
-  cursor: pointer;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid $text-color-2;
+  outline: none;
 
   &:hover,
   &:focus {
+    cursor: pointer;
     color: $primary-white;
+    border-color: $primary-white;
   }
 }
+
+.form-input:focus::-webkit-input-placeholder {
+  color: $primary-white;
+}
+
+// placeholder {
+//   color: transparent;
+// }
 
 .buttton-box {
   display: flex;
@@ -87,7 +119,9 @@
 }
 
 .address-item {
-  margin-top: 20px;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
   & > a {
     font-family: Open Sans;
     font-weight: 400;
@@ -99,6 +133,14 @@
     color: $text-color-2;
     text-decoration: none;
   }
+  &-link {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.icon-form {
+  margin-right: 16px;
 }
 
 .mail {
