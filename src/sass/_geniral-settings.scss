@@ -7,20 +7,20 @@ body {
   letter-spacing: 0.1em;
 }
 
-h2 {
-  display: block;
-  padding: 0px;
-  margin: 0px;
-  margin-bottom: 44px;
-
-  font-family: $font-title;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 42px;
-  line-height: 1.17em;
-  letter-spacing: 0.05em;
-}
-
+//h2 {
+//  display: block;
+//  padding: 0px;
+//  margin: 0px;
+//  margin-bottom: 44px;
+//
+//  font-family: $font-title;
+//  font-style: normal;
+//  font-weight: bold;
+//  font-size: 42px;
+//  line-height: 1.17em;
+//  letter-spacing: 0.05em;
+//}
+//
 img {
   display: block;
   max-width: 100%;
@@ -32,8 +32,10 @@ ul {
   margin: 0px;
   padding-inline-start: 0;
 }
-
-.title {
+//Шаблон Большого заголовка H2
+%title {
+  display: block;
+  padding: 0;
   margin-top: 0;
   margin-bottom: 44px;
   font-weight: bold;
@@ -42,6 +44,16 @@ ul {
   letter-spacing: 0.05em;
   font-family: $font-title;
 }
+
+.title-dark-fone {
+  @extend %title;
+  color: $primory-white;
+}
+.title-lite-fone {
+  @extend %title;
+  color: $primory-black;
+}
+//Шаблон для заголовка с псевдоклассом полоска слева
 %before {
   content: '';
   display: block;
@@ -78,4 +90,42 @@ ul {
     @extend %before;
     background: $primory-black;
   }
+}
+
+//Шаблон для текста под большим заголовком, цитаты
+%citation {
+  font-family: $font-text;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.67;
+
+  letter-spacing: 0.02em;
+}
+
+.citation-dark-fone {
+  @extend %citation;
+  color: $primory-text-color-dark-fone;
+}
+.citation-lite-fone {
+  @extend %citation;
+  color: $primory-text-color-lite-fone;
+}
+//Шаблон для обычного текста,по макету он самый маленький
+%text {
+  font-family: $font-text;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.86;
+  letter-spacing: 0.02em;
+}
+.text-lite-fone {
+  @extend %text;
+  color: $primory-text-color-dark-fone;
+}
+
+.text-lite-fone {
+  @extend %text;
+  color: $primory-text-color-lite-fone;
 }
