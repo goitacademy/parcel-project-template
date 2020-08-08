@@ -1,10 +1,268 @@
-.footer-form {
-  margin: 0;
-  padding: 84px 31px;
-  width: $mobile-breakpoint;
-  background-color: $background-footer;
 
-  span {
+.footer-form {
+  @extend .conteiner;
+  background-color: $background-footer;
+  h2 {
     text-align: center;
+    color: $footer-accent-color;
+    margin: 0px;
+    @media screen and (min-width: $tablet-breakpoint) {
+      text-align: left;
+    }
+  }
+  input {
+    @extend .label-text;
+    color: $footer-accent-color;
+    height: 24px;
+    border: none;
+    width: 100%;
+    margin-top: 44px;
+    background-color: $background-footer;
+    @media screen and (min-width: $tablet-breakpoint) {
+      width: 330px;
+    }
+    @media screen and (min-width: $desktop-breakpoint) {
+      width: 260px;
+    }
+  }
+  textarea {
+    @extend .label-text;
+    color: $footer-accent-color;
+    width: 100%;
+    margin-top: 44px;
+    border: none;
+    background-color: $background-footer;
+  }
+  button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    @extend .button-style;
+    @extend .botton-text;
+    background-color: $background-footer;
+    @media screen and (min-width: $tablet-breakpoint) {
+      margin-left: 0px;
+    }
+  }
+  button:hover {
+    background: $background-button;
   }
 }
+
+.footer-input {
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  label {
+    @extend .label-text;
+    position: absolute;
+    bottom: 8px;
+    left: 0px;
+  }
+  input:focus + label,
+  input:not(:placeholder-shown) + label {
+    color: $footer-accent-color;
+    transform: translateY(-20px);
+  }
+  input:focus + .line-input,
+  input:not(:placeholder-shown) + .line-input {
+    color: $footer-accent-color;
+  }
+  textarea:focus + label,
+  textarea:not(:placeholder-shown) + label {
+    color: $footer-accent-color;
+    transform: translateY(-35px);
+  }
+}
+
+.footer-input:hover label {
+  color: $footer-accent-color;
+}
+
+.footer-input:hover .line-input {
+  background-color: $footer-accent-color;
+}
+
+.line-input {
+  width: 100%;
+  height: 1px;
+  background: rgba(157, 164, 189, 0.4);
+}
+
+.footer-contact {
+  @extend .conteiner;
+  h2 {
+    text-align: center;
+    color: $footer-accent-color;
+    margin: 0px;
+    @media screen and (min-width: $tablet-breakpoint) {
+      text-align: left;
+    }
+  }
+  a {
+    @extend .footer-contact-text;
+    display: flex;
+    align-items: center;
+  }
+  ul {
+    margin-top: 40px;
+  }
+  li {
+    margin-top: 20px;
+  }
+  svg {
+    margin-right: 16px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.work-time {
+  margin-top: 44px;
+  div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  hr {
+    margin-left: 0px;
+    margin-right: 20px;
+    border: none;
+    width: 60px;
+    height: 1px;
+    background-color: rgba(157, 164, 189, 0.4);
+  }
+  p {
+    @extend .footnote-text;
+    color: $footer-accent-color;
+  }
+  span {
+    @extend .footer-contact-text;
+    display: block;
+    margin-top: 20px;
+  }
+}
+
+.bottom-line {
+  @extend .conteiner;
+  padding: 44px 31px 79px 31px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  ul {
+    display: flex;
+  }
+  li {
+    margin-left: 40px;
+  }
+  a {
+    @extend .footer-soc-text;
+  }
+}
+
+.input-tablet {
+  @media screen and (min-width: $tablet-breakpoint) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.footer-box {
+  @extend .conteiner;
+  padding: 0px;
+  @media screen and (min-width: $desktop-breakpoint) {
+    max-width: $desktop-breakpoint;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.footer-form,
+.footer-contact {
+  @media screen and (min-width: $desktop-breakpoint) {
+    margin: 0px;
+  }
+}
+
+.footer-contact {
+  @media screen and (min-width: $tablet-breakpoint) {
+    padding: 100px 39px 100px 39px;
+  }
+  @media screen and (min-width: $desktop-breakpoint) {
+    min-width: 625px;
+    padding: 130px 100px 130px 100px;
+  }
+}
+
+.footer-form {
+  @media screen and (min-width: $tablet-breakpoint) {
+    padding: 100px 39px 100px 39px;
+  }
+  @media screen and (min-width: $desktop-breakpoint) {
+    width: 100%;
+    padding: 130px 40px 193px 55px;
+  }
+}
+
+.desktop-contact {
+  @media screen and (min-width: $tablet-breakpoint) {
+    max-width: 1279px;
+    display: flex;
+  }
+  @media screen and (min-width: $desktop-breakpoint) {
+    display: block;
+  }
+  ul {
+    @media screen and (min-width: $tablet-breakpoint) {
+      max-width: 1279px;
+      width: 330px;
+      padding-right: 50px;
+    }
+  }
+}
+
+.work-time {
+  @media screen and (min-width: $tablet-breakpoint) {
+    max-width: 1279px;
+    margin-left: 30px;
+    padding-top: 20px;
+  }
+  @media screen and (min-width: $desktop-breakpoint) {
+    margin-left: 0px;
+  }
+}
+
+.footer-contact {
+  background-size: contain;
+  background-image: url(../images/footer-mob480.png);
+  background-color: #191c26;
+}
+
+@media (min-resolution: 2dppx) {
+  .footer-contact {
+    background-image: url(../images/footer-mob480@x2.png);
+  }
+}
+
+@media screen and (min-width: $tablet-breakpoint) {
+  .footer-contact {
+    background-image: url(../images/footer-tabl768.png);
+  }
+  @media (min-resolution: 2dppx) {
+    .footer-contact {
+      background-image: url(../images/footer-tabl768@x2.png);
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-breakpoint) {
+  .footer-contact {
+    background-image: url(../images/footer-desk625.png);
+  }
+  @media (min-resolution: 2dppx) {
+    .footer-contact {
+      background-image: url(../images/footer-desk625@x2.png);
+    }
+  }
+}
+
+
