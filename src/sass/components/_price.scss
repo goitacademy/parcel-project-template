@@ -1,3 +1,14 @@
+.container {
+    @media screen and (min-width: 768px) {
+        padding-left: 39px;
+        padding-right: 39px;
+    }
+    @media screen and (min-width: 1280px) {
+        padding-left: 55px;
+        padding-right: 55px;
+    }
+}
+ /*субзаголовок*/
 .subtitle-price {
     font-weight: 600;
     font-size: 11px;
@@ -5,7 +16,6 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: rgba(157, 164, 189, 0.6);
-    margin-top: 84px;
     margin-bottom: 20px;
 }
 
@@ -18,7 +28,7 @@
     background: rgba(157, 164, 189, 0.6);
     margin-right: 20px;
 }
-
+/*заглавие*/
 .title-price {
     font-weight: bold;
     font-size: 42px;
@@ -27,30 +37,40 @@
     color: #FFFFFF;
     margin-bottom: 44px;
 }
-
+ /*див для прайса*/
 .pricelist-div {
     margin-bottom: 50px;
+    padding: 30px;
+    background: linear-gradient(180deg, #171A24 0%, rgba(23, 26, 36, 0.2) 100%);
+    @media screen and (min-width: 768px) {
+          padding-left: 40px;
+          padding-right: 40px;
+    }
+    @media screen and (min-width: 1280px) {
+        display: flex;
+        flex-direction: row;
+    }
 }
-
+ /*части прайса*/
 .price-first,
 .price-second {
     display: inline-flex;
     flex-direction: column;
-    background-color: linear-gradient(180deg, #171A24 0%, rgba(23, 26, 36, 0.2) 100%);
 }
 
 .price-first {
-    padding: 0;
-    padding-top: 30px;
-    padding-bottom: 10px;
+    @media screen and (max-width: 1279px) {
+        padding-bottom: 10px;
+    }
 }
+    
 
 .price-second {
-    padding: 0;
-    padding-top: 10px;
-    padding-bottom: 30px;
+    @media screen and (max-width: 1279px) {
+        padding-top: 10px;  
+    }
 }
-
+ /*строки в пайсе*/
 .price-item {
     display: inline-block;
     flex-direction: row;
@@ -63,17 +83,48 @@
         margin-bottom: 20px;
     }
 }
-
-.price-span::before {
-    content: "";
-    display: inline-block;
-    width: 50%;
-    height: 1px;
-    background: rgba(157, 164, 189, 0.6);
+ /* подчеркивание в строках*/
+.price-span1::before {
+    width: 145px;
+    @extend %price-span;
 }
 
+.price-span2::before {
+    width: 149px;
+    @extend %price-span;
+}
 
+.price-span3::before {
+    width: 178px;
+    @extend %price-span;
+}
 
+.price-span4::before {
+    width: 91px;
+    @extend %price-span;
+}
+
+.price-span5::before {
+    width: 144px;
+    @extend %price-span;
+}
+
+.price-span6::before {
+    width: 119px;
+    @extend %price-span;
+}
+
+.price-span7::before {
+    width: 74px;
+    @extend %price-span;
+}
+
+.price-span8::before {
+    width: 89px;
+    @extend %price-span;
+}
+
+ /*ссылка*/
 .price-button {
     display: flex;
     align-items: center;
@@ -89,12 +140,27 @@
     border: 1px solid #FF6C00;
     box-sizing: border-box;
     border-radius: 25px;
-    margin-bottom: 84px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-.price {
-    padding-left: 31px;
-    padding-right: 31px;
+ /*секция*/
+.section-price {
     align-items: center;
-    
+    padding-top: 84px;
+    padding-bottom: 84px;
+    background-color: #171A24;
+    background-image: linear-gradient(rgba(25, 28, 38, 0.2), rgba(25, 28, 38, 0.2)), url('/images/price/mobileprice.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    @media screen and (min-width: 768px) {
+        background-image: linear-gradient(rgba(25, 28, 38, 0.2), rgba(25, 28, 38, 0.2)), url('/images/price/tabletprice.jpg');
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    @media screen and (min-width: 1280px) {
+        background-image: linear-gradient(rgba(25, 28, 38, 0.2), rgba(25, 28, 38, 0.2)), url('/images/price/desktopprice.jpg');
+        padding-top: 130px;
+        padding-bottom: 130px;
+    }
 }
