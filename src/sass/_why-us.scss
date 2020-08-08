@@ -1,9 +1,13 @@
 .why-us {
   padding: 78px 0 90px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 800px;
 
   @media screen and (min-width: $desktop) {
-    display: flex;
-    justify-content: center;
+    flex-direction: row;
+    max-width: 1000px;
   }
 
   &-main {
@@ -20,10 +24,9 @@
 
   &-statistics {
     max-width: 480px;
-
-    @media screen and (min-width: $phone) {
-      float: right;
-      order: 1;
+    align-self: flex-end;
+    @media screen and (min-width: $desktop) {
+      align-self: auto;
     }
   }
 
@@ -45,7 +48,7 @@
   }
 
   &-slogan {
-    margin: 0 0 20px 80px;
+    margin-bottom: 20px;
 
     font-weight: 600;
     font-size: 11px;
@@ -55,12 +58,12 @@
 
     &::before {
       content: '';
-      display: block;
-      position: absolute;
-      top: 5px;
-      left: 0;
+      margin-right: 20px;
+      display: inline-block;
       width: 60px;
-      border: 1px solid $main_black;
+      height: 1px;
+      vertical-align: middle;
+      background-color: $main_black;
     }
   }
 }
