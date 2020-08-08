@@ -4,21 +4,14 @@ h1, h2, p {
 }
 
 .page-header {
-    background-color: transparent;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
 
-    .is-hidden {
-        @media screen and (min-width: $tablet) {opacity: 1;
-            visibility: visible;
-            pointer-events: all;}
-        }
-
-
         @media screen and (max-width: $before-tablet) {
+            position: relative;
             padding-top: 30px;
             padding-left: 20px;
             padding-right: 20px;
@@ -39,6 +32,13 @@ h1, h2, p {
         }
 
 }
+.nav-list{
+    @media screen and (max-width: $before-tablet) {
+        li + li {
+            margin-top: 24px;
+        }
+    }
+}
 
 .header-link {
     color: $primary-text-color;
@@ -53,7 +53,20 @@ h1, h2, p {
     }
 }
 
-.header__contacts-link {
+.header
+{
+    &__conacts-list {
+        @media screen and (max-width: $before-tablet) {
+            margin-top: 64px;
+
+        li + li {
+            margin-top: 24px;
+        }
+        }
+
+    }
+
+    &__contacts-link {
     font-size: 14px;
     line-height: 1.36em;
     letter-spacing: 0.2em;
@@ -63,9 +76,54 @@ h1, h2, p {
         color: $accent-color;
     }
 
+
     @media screen and (min-width: $tablet) {
         color: $h2-alt-text-color;
     }
+}}
+
+.header-soc {
+    &__list {
+        font-style: normal;
+        font-size: 14px;
+        line-height: 1.36em;
+        letter-spacing: 0.2em;
+
+        @media screen and (max-width: $before-tablet) {
+            margin-top: 50px;
+
+            li + li {
+                margin-top: 24px;
+            }
+        }
+    }
+
+    &__item {
+
+        &--line {
+            position: relative;
+            margin-left: 80px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: rgba(157, 164, 189, 0.6);
+
+                width: 60px;
+            height: 1px;
+            top: 8px;
+            left: -80px;
+            }
+        }
+    }
+
+    .youtube {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+
 }
 
 .header-container {
@@ -74,73 +132,76 @@ h1, h2, p {
     }
 }
 
-.drop-down-menu {
+.menu-container {
+    background-color: transparent;
     @media screen and (max-width: $before-tablet) {
+
         display: none;
         position: absolute;
+        transform: scaleY(0);
         right: 0;
-        top: 60px;
+        top: 0;
+
+        padding: 115px 40px 220px;
         min-width: 200px;
         max-width: 357px;
         background-color: $bg-color;
+        z-index: 2;
 
-        transform-origin: top;
+        &.is-open {
+            display: block;
+            transform-origin: top;
     transform: scaleY(1);
-    opacity: 1;
-    transition: transform $animation-effect, opacity $animation-effect;
+    transition: transform $animation-effect;
+        }
     }
 }
 
-
-
 .drop-button {
-    @media screen and (min-width: $before-tablet) {
+    @media screen and (max-width: $before-tablet) {
     width: 40px;
     height: 40px;
     border: none;
-    background-color: transparent;
+background-color: transparent;
     outline: none;
 
     display: inline-flex;
     align-items: center;
     margin-left: auto;
+
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    z-index: 3;
 }
 
     @media screen and (min-width: $tablet) {
         display: none;
       }
+
+      .icon-cross {
+        display: none;
+    }
+    &.is-open .icon-cross {
+        display: block;
+    }
+
+    &.is-open .icon-menu {
+        display: none;
+    }
+
   }
 
   .drop-down-icon .icon-menu {
+    fill: white;
+
     @media screen and (min-width: $before-tablet) {
       display: none;
 
     }
   }
 
-  .is-hidden {
-    @media screen and (max-width: $before-tablet) {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
 
-      .drop-down-menu {
-        transform: scaleY(0);
-        opacity: 0;
-      }
-
-      + .drop-button {
-        .icon-menu {
-          display: block;
-          fill: $bg-color;
-          background-color: transparent;
-        }
-        .icon-cross {
-          display: none;
-        }
-      }
-    }
-  }
 
 .hero-title {
     margin-bottom: 20px;
