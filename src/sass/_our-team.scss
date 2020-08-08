@@ -1,19 +1,20 @@
 .section-team {
   background-color: $sub_gray;
   padding-top: 84px;
-  padding-bottom: 100px;
+  padding-bottom: 84px;
   @media screen and(min-width:$tablet ) {
     padding-top: 100px;
+    padding-bottom: 100px;
   }
   @media screen and (min-width: $desktop) {
     padding-top: 130px;
+    padding-bottom: 130px;
   }
 }
 
 .slogon-title {
   position: relative;
 
-  padding-left: 80px;
   margin-bottom: 20px;
 
   font-weight: 600;
@@ -22,38 +23,26 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
-  @media screen and (min-width: $tablet) {
-    padding-left: 239px;
-  }
-  @media screen and (min-width: $desktop) {
-    padding-left: 80px;
-  }
-
   &::before {
     content: '';
-    position: absolute;
-    top: 5px;
-    left: 0;
-
     margin-right: 20px;
-
-    display: block;
+    display: inline-block;
     width: 60px;
     height: 1px;
-
+    vertical-align: middle;
     background: $main_black;
-
-    @media screen and (min-width: $tablet) {
-      margin-left: 159px;
-    }
-    @media screen and (min-width: $desktop) {
-      margin-left: 0;
-    }
+  }
+}
+.padding-slogon {
+  @media screen and (min-width: $tablet) {
+    padding-left: 159px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding-left: 0px;
   }
 }
 .team-title {
-  padding: 0 0 44px 0;
-
+  margin-bottom: 44px;
   font-family: $Raleway;
   font-style: normal;
   font-weight: 700;
@@ -69,40 +58,30 @@
   }
 }
 .team-item {
-  @media screen and (min-width: $tablet) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 159px;
-    padding-right: 159px;
-  }
-  @media screen and (min-width: $desktop) {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    // padding-right: 55px;
-    // padding-left: 55px;
-  }
-}
-.team-item {
-  @include Cardset-Responsive-1280-768-480(0px, 31px, 31px, 1);
+  @include Cardset-Responsive-1280-768-480(480px, 31px, 31px, 1);
   @include Cardset-Responsive-1280-768-480(768px, 31px, 31px, 1);
-  @include Cardset-Responsive-1280-768-480(1200px, 30px, 30px, 3);
+  @include Cardset-Responsive-1280-768-480(1280px, 30px, 30px, 3);
 }
 .team-list {
-  padding-bottom: 84px;
-
   &:last-child {
     padding-bottom: 0;
   }
 }
 .team-picture {
-  width: 100%;
   height: 346px;
-  object-position: center;
+  object-position: top;
   object-fit: cover;
+  margin: 0 auto;
+  @include image-width(480, 418);
+  @media screen and (min-width: $tablet),
+    (max-width: $tablet - 1px) and (orientation: landscape) {
+    @include image-width(768, 450);
+    max-width: 700px;
+  }
   @media screen and (min-width: $desktop) {
-    height: 502px;
+    height: 346px;
+    max-width: 370px;
+    object-position: center;
   }
 }
 .name-title {
@@ -149,7 +128,8 @@
   justify-content: center;
   align-items: center;
 
-  background-color: $main_white;
+  background: $main_white;
+  transition: $transition;
 
   &:hover,
   &:focus {
@@ -159,17 +139,19 @@
 // Портфолио
 .section-portfolio {
   padding-top: 84px;
-  padding-bottom: 100px;
+  padding-bottom: 84px;
   @media screen and(min-width:$tablet ) {
     padding-top: 100px;
+    padding-bottom: 100px;
   }
   @media screen and (min-width: $desktop) {
     padding-top: 130px;
+    padding-bottom: 130px;
   }
   background-color: $main_white;
 }
 .portfolio-title {
-  padding-bottom: 44px;
+  margin-bottom: 44px;
 }
 .portfolio-img {
   display: block;
@@ -181,5 +163,5 @@
 .portfolio-item {
   @include Cardset-Responsive-1280-768-480(0px, 31px, 31px, 1);
   @include Cardset-Responsive-1280-768-480(768px, 31px, 31px, 2);
-  @include Cardset-Responsive-1280-768-480(1200px, 30px, 30px, 4);
+  @include Cardset-Responsive-1280-768-480(1280px, 30px, 30px, 4);
 }

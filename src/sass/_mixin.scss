@@ -29,7 +29,7 @@
     }
   } @else {
     @if ($ScreenWidth < 1280 and $ScreenWidth > 767) {
-      @media screen and (min-width: #{$ScreenWidth}), screen and (max-width: #{$ScreenWidth} - 1px) and (orientation: landscape) {
+      @media screen and (min-width: #{$ScreenWidth}), screen and (max-width: $ScreenWidth - 1px) and (orientation: landscape) {
         & > li {
           width: calc((100% - #{$margin-in-row}) / #{$Columns});
           &:nth-child(n) {
@@ -83,14 +83,16 @@
 
 @mixin order-button($color: $main_white, $hover: $hover_color) {
   display: block;
-  padding: 12px 20px;
+  padding: 12px 0px;
+  width: 160px;
   border: 1px solid $hover;
   border-radius: 25px;
   color: $color;
   text-align: center;
+  transition: $transition;
   &:hover,
   &:focus {
-    background-color: $hover;
+    background: $hover;
     & button {
       outline: none;
       color: $color;
@@ -108,5 +110,7 @@
     letter-spacing: 0.09em;
     text-transform: uppercase;
     border: none;
+    cursor: pointer;
+    transition: inherit;
   }
 }
