@@ -11,14 +11,8 @@ h1, h2, p {
     align-items: center;
 
 
-    .is-hidden {
-        @media screen and (min-width: $tablet) {opacity: 1;
-            visibility: visible;
-            pointer-events: all;}
-        }
-
-
         @media screen and (max-width: $before-tablet) {
+            position: relative;
             padding-top: 30px;
             padding-left: 20px;
             padding-right: 20px;
@@ -30,6 +24,7 @@ h1, h2, p {
             padding-right: 39px;
 
             color: $h2-alt-text-color;
+
         }
 
         @media screen and (min-width: $desktop) {
@@ -38,6 +33,54 @@ h1, h2, p {
             padding-right: 55px;
         }
 
+}
+.header-nav {
+    font-size: 18px;
+    line-height: 1.39em;
+    letter-spacing: 0.1em;
+
+    @media screen and (min-width: $tablet) {
+        font-size: 12px;
+    line-height: 1.33em;
+    letter-spacing: 0.1em;
+    }
+}
+
+.nav-list{
+    @media screen and (max-width: $before-tablet) {
+        li + li {
+            margin-top: 24px;
+        }
+    }
+
+    @media screen and (min-width: $tablet) {
+        display: flex;
+        margin-right: 5em;
+        margin-left: 25px;
+        li + li {
+            margin-left: 30px;
+        }
+    }
+        @media screen and (min-width: 800px) and (max-width: 900px){
+
+            margin-right: 8em;
+    }
+
+    @media screen and (min-width: 901px) and (max-width: 1000px){
+        margin-right: 17em;
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1200px){
+    margin-right: 25em;
+}
+
+@media screen and (min-width: 1201px) and (max-width: $desktop){
+    margin-right: 35em;
+}
+
+@media screen and (min-width: $desktop) {
+    margin-left: 130px;
+}
 }
 
 .header-link {
@@ -53,7 +96,45 @@ h1, h2, p {
     }
 }
 
-.header__contacts-link {
+.header
+{
+    &__conacts-list {
+        @media screen and (max-width: $before-tablet) {
+            margin-top: 64px;
+
+        li + li {
+            margin-top: 24px;
+        }
+        }
+        @media screen and (min-width: $tablet) {
+            display: flex;
+            flex-direction: column-reverse;
+
+            justify-content: start;
+            align-items: center;
+
+            @media screen and (min-width: $tablet) and (max-width: $before-desktop){
+                li + li {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+            @media screen and (min-width: $desktop) {
+                margin-left: 300px;
+                align-items: baseline;
+                justify-content: space-evenly;
+
+                flex-direction: row;
+
+                li + li {
+                    margin-left: 40px;
+                }
+            }
+        }
+
+    &__contacts-link {
+        display: block;
     font-size: 14px;
     line-height: 1.36em;
     letter-spacing: 0.2em;
@@ -63,84 +144,189 @@ h1, h2, p {
         color: $accent-color;
     }
 
+
     @media screen and (min-width: $tablet) {
         color: $h2-alt-text-color;
+        font-size: 12px;
+    line-height: 1.33em;
+    letter-spacing: 0.1em;
     }
-}
+}}
 
 .header-container {
     @media screen and (min-width: $tablet) {
+        display: flex;
         flex-direction: row;
+        position: absolute;
+        left: 180px;
+        top: 50px;
+        min-width: 610px;
     }
 }
 
-.drop-down-menu {
+.soc-container {
+    @media screen and (min-width: $tablet) {
+        transform: rotate(-90deg);
+        background-color: $bg-color;
+        position: absolute;
+        top: 70px;
+        left: -450px;
+        z-index: 1;
+
+        min-height: 160px;
+        min-width: 1060px;
+
+        padding-top: 70px;
+        padding-bottom: 70px;
+        padding-left: 40px;
+    }
+    @media screen and (min-width: $desktop) {
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+
+}
+.header-soc {
+
+    &__list {
+
+        font-style: normal;
+        font-size: 14px;
+        line-height: 1.36em;
+        letter-spacing: 0.2em;
+
+        @media screen and (max-width: $before-tablet) {
+            margin-top: 50px;
+
+            li + li {
+                margin-top: 24px;
+            }
+        }
+
+        @media screen and (min-width: $tablet) {
+            font-size: 11px;
+            color: $primary-text-color;
+            display: flex;
+
+            li + li {
+                margin-left: 40px;
+            }
+        }
+    }
+
+    &__item {
+
+        &--line {
+            position: relative;
+            margin-left: 80px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: rgba(157, 164, 189, 0.6);
+
+                width: 60px;
+            height: 1px;
+            top: 8px;
+            left: -80px;
+            }
+        }
+    }
+
+    .youtube {
+        @media screen and (max-width: $before-tablet) {
+            display: block;
+        padding-left: 50px;
+        }
+    }
+}
+
+.logo {
+    fill: $bg-color;
+
+@media screen and (min-width: $tablet){
+    fill: $primary-text-color;
+    z-index: 2;
+    position: absolute;
+    top: 30px;
+    left: 50px;
+}
+@media screen and (min-width: $desktop){
+    left: 80px;
+}
+}
+
+.menu-container {
+    background-color: transparent;
     @media screen and (max-width: $before-tablet) {
+
         display: none;
         position: absolute;
+        transform: scaleY(0);
         right: 0;
-        top: 60px;
+        top: 0;
+
+        padding: 115px 40px 220px;
         min-width: 200px;
         max-width: 357px;
         background-color: $bg-color;
+        z-index: 4;
 
-        transform-origin: top;
+        &.is-open {
+            display: block;
+            overflow: hidden;
+            transform-origin: top;
     transform: scaleY(1);
-    opacity: 1;
-    transition: transform $animation-effect, opacity $animation-effect;
+    transition: transform $animation-effect;
+        }
     }
 }
 
-
-
 .drop-button {
-    @media screen and (min-width: $before-tablet) {
+    @media screen and (max-width: $before-tablet) {
     width: 40px;
     height: 40px;
     border: none;
-    background-color: transparent;
+background-color: transparent;
     outline: none;
 
     display: inline-flex;
     align-items: center;
     margin-left: auto;
+
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    z-index: 5;
 }
 
     @media screen and (min-width: $tablet) {
         display: none;
       }
+
+      .icon-cross {
+        display: none;
+    }
+    &.is-open .icon-cross {
+        display: block;
+    }
+
+    &.is-open .icon-menu {
+        display: none;
+    }
+
   }
 
   .drop-down-icon .icon-menu {
+    fill: white;
+
     @media screen and (min-width: $before-tablet) {
       display: none;
 
     }
   }
 
-  .is-hidden {
-    @media screen and (max-width: $before-tablet) {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-
-      .drop-down-menu {
-        transform: scaleY(0);
-        opacity: 0;
-      }
-
-      + .drop-button {
-        .icon-menu {
-          display: block;
-          fill: $bg-color;
-          background-color: transparent;
-        }
-        .icon-cross {
-          display: none;
-        }
-      }
-    }
-  }
+//   Hero section
 
 .hero-title {
     margin-bottom: 20px;
@@ -150,6 +336,11 @@ h1, h2, p {
     line-height: 1.17em;
     letter-spacing: 0.05em;
     color: $bg-color;
+
+    @media screen and (min-width:$tablet) {
+        font-size: 72px;
+        line-height: 1.18em;
+    }
 }
 
 .hero-title--second {
@@ -172,6 +363,10 @@ h1, h2, p {
         height: 1px;
         top: 8px;
         left: -80px;}
+
+        @media screen and (min-width:$tablet) {
+            font-size: 11px;
+        }
 }
 
 .container--hero {
@@ -184,26 +379,24 @@ h1, h2, p {
     }
 
     @media screen and (min-width:520px) and(max-width:600px){
-        padding-left: 50px;
+        margin-left: 50px;
     }
 
     @media screen and (min-width:601px) and(max-width:$before-tablet){
-        padding-left: 80px;
+       margin-left: 80px;
     }
 
     @media screen and (min-width:$tablet) {
         max-width: 355px;
-        padding-top: 200px;
+        margin-left: 120px;
+        margin-top: 270px;
         padding-bottom: 245px;
     }
-}
 
-.logo {
-        fill: $bg-color;
-
-    @media screen and (min-width: $tablet){
-        fill: $primary-text-color;
+    @media screen and (min-width:$desktop) {
+        margin-left: 100px;
     }
+
 }
 
 .hero-info {
@@ -211,10 +404,15 @@ h1, h2, p {
     line-height: 1.62em;
     letter-spacing: 0.02em;
     color: #9DA4BD;
+
+    @media screen and (min-width:$desktop) {
+        font-size: 18px;
+    line-height: 1.67em;
+    }
 }
 
 .hero-overlay {
-    position: relative;
+    // position: relative;
 
     max-width: 1125px;
     max-height: 680px;
@@ -238,6 +436,7 @@ h1, h2, p {
 
 
       @media screen and (min-width: $tablet) {
+        margin-left: 160px;
         background-image:
         url(..//images/header-slider/tabl-slider-img-3.jpg);
 
@@ -250,6 +449,7 @@ h1, h2, p {
       }
 
       @media screen and (min-width: $desktop) {
+        margin-left: 250px;
         background-image:
         url(..//images/header-slider/desk-slider-img-3.jpg);
 
@@ -262,8 +462,21 @@ h1, h2, p {
       }
 }
 
-.header-nav {
-    font-size: 18px;
-    line-height: 1.39em;
-    letter-spacing: 0.1em;
-}
+
+.backdrop {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(25, 28, 38, 0.2);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 1px 3px rgba(0, 0, 0, 0.16);
+    opacity: 1;
+
+    &.is-hidden {
+      opacity: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+  }

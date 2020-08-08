@@ -1,27 +1,143 @@
+@media screen and (max-width: $before-tablet) {
+  .aboutus .aboutus-image-container-tablet {
+    display: none;
+  }
+}
 @media screen and (min-width: $mobile) {
   .aboutus {
     padding-top: 84px;
     padding-bottom: 84px;
-  }
-  .aboutus-text-container {
-    padding-bottom: 40px;
-    & h3 {
-      padding-bottom: 20px;
-      padding-left: 80px;
-    }
-    & .var-text {
-      padding-bottom: 20px;
+    .text {
       font-family: $font-family-open-sans;
       font-style: normal;
       font-weight: normal;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 26px;
       letter-spacing: 0.02em;
       color: $second-text-color;
+      display: block;
+      max-width: 397px;
+    }
+    .title {
+      font-family: $font-family;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 28px;
+      line-height: 33px;
+      letter-spacing: 0.05em;
+      color: $primary-text-color;
+      max-width: 330px;
+      padding-bottom: 20px;
+    }
+    .pretitle {
+      position: relative;
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 15px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $primary-text-color;
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 60px;
+        height: 1px;
+        background-color: $primary-text-color;
+        transform: translateX(-80px) translateY(7px);
+      }
+    }
+    .aboutus-text-container {
+      & .button {
+        margin-top: 40px;
+      }
+      & .pretitle {
+        padding-bottom: 20px;
+        padding-left: 80px;
+      }
+      & .var-text {
+        padding-bottom: 20px;
+        font-family: $font-family-open-sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0.02em;
+        color: $second-text-color;
+      }
     }
   }
 }
+
 @media screen and (min-width: $tablet) {
+  .aboutus {
+    .text {
+      max-width: 330px;
+    }
+    padding-top: 100px;
+    padding-bottom: 103px;
+    & .aboutus-container {
+      display: inline-flex;
+      .aboutus-image-container-tablet {
+        min-width: 330px;
+        padding-right: 30px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        & .image {
+          width: 330px;
+          height: 235px;
+          object-fit: fill;
+        }
+      }
+    }
+    .aboutus-text-container {
+      max-width: 330px;
+    }
+  }
 }
+
 @media screen and (min-width: $desktop) {
+  .aboutus {
+    padding-top: 130px;
+    padding-bottom: 130px;
+    & .aboutus-container {
+      display: inline-flex;
+      & .aboutus-image-container-tablet {
+        display: none;
+      }
+
+      & .aboutus-image-container-desktop {
+        margin-right: 64px;
+        height: 445px;
+        min-width: 570px;
+        display: inline-flex;
+        justify-content: space-between;
+        & .image {
+          min-width: 270px;
+          min-height: 445px;
+          object-fit: fill;
+        }
+      }
+    }
+    .text {
+      max-width: 500px;
+    }
+    .title {
+      font-size: 42px;
+      line-height: 49px;
+      max-width: 500px;
+    }
+
+    .aboutus-text-container {
+      max-width: 500px;
+      & .var-text {
+        font-size: 18px;
+        line-height: 30px;
+      }
+    }
+  }
 }
