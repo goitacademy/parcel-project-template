@@ -1,14 +1,25 @@
+.footer > .container {
+  width: 100%;
+  background-color: $dark-bacground-color;
+}
+
 /*блок контакты */
 .footer-contacts {
   @extend %footer-bg;
-  padding: 84px 34px 84px 34px;
+  padding: 84px 0;
   width: 100%;
-  height: 557px;
-  background-color: $dark-bacground-color;
-  background-image: url('/images/footer-bg/footer_bg_desk_w625.png');
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  @media screen and (min-width: 768px) {
+    padding: 100px 0;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 130px 255px 130px 100px;
+    min-width: 625px;
+  }
 }
 
 /*заголовок блока */
@@ -23,12 +34,39 @@
   line-height: 49px;
   text-align: center;
   letter-spacing: 0.05em;
+
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
 }
 
 /*контакты */
 .footer-address {
   margin-bottom: 44px;
+
+  @media screen and (min-width: 768px) {
+    width: 330px;
+  }
+
+  ul {
+    margin: 0;
+  }
+  @media screen and (min-width: 768px) {
+    .footer-address-text {
+      width: 200px;
+    }
+  }
 }
+
+.footer-address-container {
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+  @media screen and (min-width: 1280px) {
+    display: block;
+  }
+}
+
 .footer-icon {
   margin-right: 20px;
 }
@@ -48,11 +86,8 @@
   color: $footer-text-color;
 }
 
-.footer-address-item:not(:last-child) {
+.footer-address-item {
   margin-bottom: 20px;
-}
-.footer-address-item:last-child {
-  margin-bottom: 0;
 }
 
 .footer-text {
@@ -74,4 +109,7 @@
   width: 60px;
   height: 1px;
   background: rgba(157, 164, 189, 0.4);
+}
+
+@media screen and (min-width: 768px) {
 }

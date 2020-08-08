@@ -3,32 +3,38 @@
  * Главный файл стилей.
  * Все паршалы подключаются сюда.
  */
+@media screen and (min-width: 1280px) {
+  .footer-contacts {
+    background-image: url("/images/footer-bg/footer_bg_desk_w625.png");
+  }
+}
+
 @media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (min-resolution: 192dpi), screen and (min-width: 1280px) and (min-resolution: 2dppx) {
-  .footer__contacts {
+  .footer-contacts {
     background-image: url("/images/footer-bg/footer_bg_desk_w625@2x.png");
   }
 }
 
-@media screen and (min-width: 768px) {
-  .footer__contacts {
+@media screen and (max-width: 1279px) {
+  .footer-contacts {
     background-image: url("/images/footer-bg/footer_bg_tab_w768.png");
   }
 }
 
-@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
-  .footer__contacts {
+@media screen and (max-width: 1279px) and (min-device-pixel-ratio: 2), screen and (max-width: 1279px) and (-webkit-min-device-pixel-ratio: 2), screen and (max-width: 1279px) and (min-resolution: 192dpi), screen and (max-width: 1279px) and (min-resolution: 2dppx) {
+  .footer-contacts {
     background-image: url("/images/footer-bg/footer_bg_tab_w768@2x.png");
   }
 }
 
-@media screen and (max-width: 480px) {
-  .footer__contacts {
+@media screen and (max-width: 767px) {
+  .footer-contacts {
     background-image: url("/images/footer-bg/footer_bg_mob_w480.png");
   }
 }
 
-@media screen and (max-width: 480px) and (min-device-pixel-ratio: 2), screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2), screen and (max-width: 480px) and (min-resolution: 192dpi), screen and (max-width: 480px) and (min-resolution: 2dppx) {
-  .footer__contacts {
+@media screen and (max-width: 767px) and (min-device-pixel-ratio: 2), screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2), screen and (max-width: 767px) and (min-resolution: 192dpi), screen and (max-width: 767px) and (min-resolution: 2dppx) {
+  .footer-contacts {
     background-image: url("/images/footer-bg/footer_bg_mob_w480@2x.png");
   }
 }
@@ -209,12 +215,16 @@ img {
 @media screen and (min-width: 768px) {
   .container {
     width: 768px;
+    padding-left: 39px;
+    padding-right: 39px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
     width: 1280px;
+    padding-left: 55px;
+    padding-right: 55px;
   }
 }
 
@@ -262,13 +272,29 @@ p {
   margin-right: 20px;
 }
 
-.footer__form {
-  padding: 84px 31px 84px 31px;
+/* блок онлайн-записи */
+.footer-form {
+  padding: 84px 0;
   height: 557px;
-  background-color: #191c26;
+  width: 100%;
 }
 
-.footer-form__title {
+@media screen and (min-width: 768px) {
+  .footer-form {
+    padding: 100px 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer-form {
+    padding: 130px 40px 130px 0;
+    height: 644px;
+  }
+}
+
+/* заголовок блока */
+.footer-form-title {
+  margin-bottom: 44px;
   font-family: "Raleway", sans-serif;
   color: #ffffff;
   font-style: normal;
@@ -279,8 +305,103 @@ p {
   letter-spacing: 0.05em;
 }
 
+@media screen and (min-width: 768px) {
+  .footer-form-title {
+    text-align: left;
+  }
+}
+
+/* форма отправки данных */
+.footer-form-field {
+  display: block;
+  width: 100%;
+  min-height: 24px;
+  border: none;
+  outline: 0;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.footer-form-field:focus + .footer-form-label,
+.footer-form-field:not(:placeholder-shown) + .footer-form-label {
+  visibility: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-form-field {
+    width: 330px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer-form-field {
+    width: 270px;
+  }
+}
+
+.footer ul {
+  padding: 0;
+}
+
+.footer textarea {
+  resize: none;
+}
+
+.footer-form-row {
+  position: relative;
+  display: block;
+  margin-bottom: 44px;
+  border-bottom: 1px solid rgba(157, 164, 189, 0.4);
+}
+
+.footer-form-row:focus, .footer-form-row:hover {
+  border-bottom: 1px solid #fff;
+}
+
+.footer-form-row:hover .footer-form-label,
+.footer-form-row:focus .footer-form-label {
+  color: #ffffff;
+}
+
+.footer-form-row:first-child {
+  margin-right: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-form-block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.footer-form-label {
+  position: absolute;
+  top: 0;
+  color: rgba(157, 164, 189, 0.4);
+}
+
+/* форма для сообдещий */
+.footer-form-comment {
+  display: block;
+  width: 100%;
+  min-height: 76px;
+  padding: 0;
+  color: #ffffff;
+  border: none;
+  outline: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.footer-form-comment:focus + .footer-form-label,
+.footer-form-comment:not(:placeholder-shown) + .footer-form-label {
+  visibility: hidden;
+}
+
 /*кнопка отправки */
-.footer-form__button {
+.footer-form-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -288,6 +409,7 @@ p {
   margin-right: auto;
   padding: 12px 38px;
   min-width: 160px;
+  height: 40px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -308,27 +430,40 @@ p {
   cursor: pointer;
 }
 
-/* форма отправки */
-.footer-form__field {
-  display: block;
-  width: 100%;
-  border: none;
-  outline: 0;
-  background-color: transparent;
-  border-bottom: 1px solid #31353f;
+.footer-form-button:focus, .footer-form-button:hover {
+  background-color: #ff6c00;
 }
 
-.footer__contacts {
-  padding: 84px 0 84px 0;
-  height: 557px;
+.footer > .container {
+  width: 100%;
   background-color: #191c26;
-  background-image: url("/images/footer-bg/footer_bg_desk_w625.png");
+}
+
+/*блок контакты */
+.footer-contacts {
+  padding: 84px 0;
+  width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
-.footer-contacts__title {
+@media screen and (min-width: 768px) {
+  .footer-contacts {
+    padding: 100px 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer-contacts {
+    padding: 130px 255px 130px 100px;
+    min-width: 625px;
+  }
+}
+
+/*заголовок блока */
+.footer-contacts-title {
+  margin-bottom: 44px;
   font-family: "Raleway", sans-serif;
   color: #ffffff;
   font-style: normal;
@@ -339,7 +474,60 @@ p {
   letter-spacing: 0.05em;
 }
 
-.footer-adress__item {
+@media screen and (min-width: 768px) {
+  .footer-contacts-title {
+    text-align: left;
+  }
+}
+
+/*контакты */
+.footer-address {
+  margin-bottom: 44px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-address {
+    width: 330px;
+  }
+}
+
+.footer-address ul {
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-address .footer-address-text {
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer-address-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer-address-container {
+    display: block;
+  }
+}
+
+.footer-icon {
+  margin-right: 20px;
+}
+
+.footer-address-contacts,
+.footer-address-item,
+.footer-hours {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -347,5 +535,138 @@ p {
   line-height: 30px;
   letter-spacing: 0.02em;
   color: #9da4bd;
+}
+
+.footer-address-item {
+  margin-bottom: 20px;
+}
+
+.footer-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.footer-text::before {
+  content: '';
+  margin-right: 20px;
+  width: 60px;
+  height: 1px;
+  background: rgba(157, 164, 189, 0.4);
+}
+
+@media screen and (min-width: 1280px) {
+  .footer-block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+/*подвал */
+.footer-bottom .container {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 44px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-bottom .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 56px 36px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.footer-social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.footer-social .link {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 15px;
+  letter-spacing: 0.2em;
+  color: #303030;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-social {
+    margin-bottom: 0;
+  }
+}
+
+.footer-social-insta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 40px;
+}
+
+.footer-copyright {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 15px;
+  letter-spacing: 0.2em;
+  color: #9da4bd;
+}
+
+.footer-copyright-icon {
+  margin-right: 6px;
+}
+
+.footer-social-insta::before {
+  content: '';
+  margin-right: 20px;
+  width: 60px;
+  height: 1px;
+  background: #303030;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-social-insta::before {
+    margin-right: 40px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
