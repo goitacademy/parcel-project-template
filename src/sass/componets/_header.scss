@@ -10,24 +10,46 @@ h1, h2, p {
     justify-content: space-between;
     align-items: center;
 
-    .is-hidden {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: all;}
 
-        @media screen and (max-width: $mobile) {
+    .is-hidden {
+        @media screen and (min-width: $tablet) {opacity: 1;
+            visibility: visible;
+            pointer-events: all;}
+        }
+
+
+        @media screen and (max-width: $before-tablet) {
             padding-top: 30px;
             padding-left: 20px;
             padding-right: 20px;
         }
+
+        @media screen and (min-width: $tablet) {
+            padding-top: 40px;
+            padding-left: 39px;
+            padding-right: 39px;
+
+            color: $h2-alt-text-color;
+        }
+
+        @media screen and (min-width: $desktop) {
+            padding-top: 40px;
+            padding-left: 55px;
+            padding-right: 55px;
+        }
+
 }
 
 .header-link {
     color: $primary-text-color;
-    transition: $animation-effect;
+    transition: all $animation-effect;
 
     &:hover, &:focus {
         color: $accent-color;
+    }
+
+    @media screen and (min-width: $tablet) {
+        color: $h2-alt-text-color;
     }
 }
 
@@ -40,6 +62,16 @@ h1, h2, p {
     &:hover, &:focus {
         color: $accent-color;
     }
+
+    @media screen and (min-width: $tablet) {
+        color: $h2-alt-text-color;
+    }
+}
+
+.header-container {
+    @media screen and (min-width: $tablet) {
+        flex-direction: row;
+    }
 }
 
 .drop-down-menu {
@@ -47,15 +79,21 @@ h1, h2, p {
         display: none;
         position: absolute;
         right: 0;
-        top: 0;
-        width: 100%;
+        top: 60px;
+        min-width: 200px;
+        max-width: 357px;
         background-color: $bg-color;
+
+        transform-origin: top;
+    transform: scaleY(1);
+    opacity: 1;
+    transition: transform $animation-effect, opacity $animation-effect;
     }
 }
 
 
 
-.drop-down-button {
+.drop-button {
     @media screen and (min-width: $before-tablet) {
     width: 40px;
     height: 40px;
@@ -73,8 +111,8 @@ h1, h2, p {
       }
   }
 
-  .drop-down-icon .icon-cross {
-    @media screen and (min-width: $tablet) {
+  .drop-down-icon .icon-menu {
+    @media screen and (min-width: $before-tablet) {
       display: none;
 
     }
@@ -91,7 +129,7 @@ h1, h2, p {
         opacity: 0;
       }
 
-      + .drop-down-button {
+      + .drop-button {
         .icon-menu {
           display: block;
           fill: $bg-color;
@@ -139,10 +177,24 @@ h1, h2, p {
 .container--hero {
     padding-left: 31px;
 
-    @media screen and (max-width:$mobile) {
+    @media screen and (max-width:$before-tablet) {
         max-width: 310px;
         padding-top: 110px;
         padding-bottom: 180px;
+    }
+
+    @media screen and (min-width:520px) and(max-width:600px){
+        padding-left: 50px;
+    }
+
+    @media screen and (min-width:601px) and(max-width:$before-tablet){
+        padding-left: 80px;
+    }
+
+    @media screen and (min-width:$tablet) {
+        max-width: 355px;
+        padding-top: 200px;
+        padding-bottom: 245px;
     }
 }
 
@@ -174,6 +226,40 @@ h1, h2, p {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  @media screen and (max-width: $before-tablet){
+    @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+      background-image:
+      url(..//images/header-slider/mobile-slider-img-3@2x.jpg);
+    }
+  }
+
+
+      @media screen and (min-width: $tablet) {
+        background-image:
+        url(..//images/header-slider/tabl-slider-img-3.jpg);
+
+        @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+      background-image:
+      url(..//images/header-slider/tabl-slider-img-3@2x.jpg);
+    }
+      }
+
+      @media screen and (min-width: $desktop) {
+        background-image:
+        url(..//images/header-slider/desk-slider-img-3.jpg);
+
+        @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+      background-image:
+      url(..//images/header-slider/desk-slider-img-3@2x.jpg);
+    }
+      }
 }
 
 .header-nav {
