@@ -154,7 +154,7 @@ header {
   }
 
   @media screen and (min-width: 768px) {
-    display: flex;
+    // display: flex;
     align-items: center;
     margin-left: 65px;
   }
@@ -164,9 +164,14 @@ header {
   }
 
   &.is-open {
-    display: block;
+    // display: block;
     left: 30%;
     // transform: translateX(0);
+
+    @media screen and (min-width: 768px) {
+      align-items: center;
+      margin-left: 65px;
+    }
   }
 }
 
@@ -256,6 +261,13 @@ header {
 }
 .icon-close {
   fill: $form-background-color;
+}
+
+.menu-button.is-open {
+  position: absolute;
+  right: 31px;
+  top: 48px;
+  transition: color 250ms linear;
 }
 
 .menu-button .icon-close {
@@ -532,11 +544,25 @@ header {
     color: rgba(157, 164, 189, 0.6);
     margin-right: 26px;
     border-bottom: 1px solid rgba(157, 164, 189, 0.6);
+
+    transition: color 250ms linear;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
   }
 
   &.forward {
     color: $alternative-tittle-color;
     border-bottom: 1px solid $alternative-tittle-color;
+
+    transition: color 250ms linear;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
   }
 }
 
