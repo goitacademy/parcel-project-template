@@ -1,44 +1,57 @@
-.container {
-  width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.photo-list {
-  list-style: none;
-  display: block;
-  margin-left: 31px;
+.conteiner-beard {
+  margin: 0px auto 0px;
 
-  padding: 0px;
-}
-.photo-item {
-  width: 480px;
-  margin-bottom: 30px;
-  margin-right: auto;
-  margin-left: auto;
-  display: block;
+  @media screen and (max-width: 479px) {
+    padding: 42px 15px;
+  }
 
-  &:last-child {
-    margin-bottom: 84px;
+  @media screen and (min-width: $mobile-breakpoint) {
+    max-width: $mobile-breakpoint;
+    padding: 42px 15px;
+  }
+
+  @media screen and (min-width: $tablet-breakpoint) {
+    max-width: $tablet-breakpoint;
+    padding: 100px 40px;
+  }
+
+  @media screen and (min-width: $desktop-breakpoint) {
+    max-width: $desktop-breakpoint;
+
+    padding: 130px 40px;
   }
 }
+
+.photo-list {
+  margin-top: 44px;
+  @media screen and (min-width: $tablet-breakpoint) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.photo-list-item {
+  @media screen and (max-width: $tablet-breakpoint) {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+  @media screen and (min-width: $tablet-breakpoint) {
+    width: calc((100% - 15px * 4) / 2);
+    margin: 15px;
+  }
+  @media screen and (min-width: $desktop-breakpoint) {
+    width: calc((100% - 15px * 8) / 4);
+  }
+}
+
+// .photo-item {
+//   width: 480px;
+//   margin-right: auto;
+//   margin-left: auto;
+// }
 
 .image {
   width: 418px;
   height: 360px;
-}
-
-.beard-section-text {
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 1.36;
-
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-
-  color: #303030;
 }
