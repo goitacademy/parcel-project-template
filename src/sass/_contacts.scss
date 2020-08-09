@@ -1,7 +1,6 @@
-li {
-  list-style: none;
+.contacts-section li {
+  list-style-type: none;
 }
-
 .online-booking_contacts {
   @media screen and (min-width: $desktop) {
     display: flex;
@@ -22,6 +21,7 @@ li {
       rgba(25, 28, 38, 0.8)
     ),
     url(../images/mobile/mobile-footer@1x.jpg);
+
   @media screen and (min-width: $desktop) {
     width: calc(#{$desktop} / 2);
   }
@@ -77,18 +77,27 @@ li {
   @media screen and (min-width: $tablet) {
     display: flex;
     margin: -15px;
+
+    flex-direction: column;
+  }
+}
+
+.secondary-contacts-collecting-container {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-direction: row;
   }
   @media screen and (min-width: $desktop) {
     flex-direction: column;
   }
 }
-.secondary-contacts-collecting-container {
+.adress-tel-mail-container {
   @media screen and (min-width: $tablet) {
     width: calc((100% - 15px * 4) / 2);
     margin: 15px;
   }
   @media screen and (min-width: $desktop) {
-    width: 100%;
+    width: 50%;
   }
 }
 .work-time-container {
@@ -97,16 +106,10 @@ li {
   }
 }
 
-.contacts-title {
+.contacts-section .title-dark-fone {
   margin: 0px;
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 42px;
-  line-height: 1.17em;
+  margin-left: 15px;
   text-align: center;
-  letter-spacing: 0.05em;
-  color: #ffffff;
   @media screen and (min-width: $tablet) {
     text-align: start;
   }
@@ -129,18 +132,32 @@ li {
 .tel-link {
   text-decoration: none;
 }
-.comma {
+.adress-link-container {
+  @media screen and (min-width: $tablet) {
+    width: 80%;
+  }
   @media screen and (min-width: $desktop) {
+    width: 100%;
+  }
+}
+.comma {
+  @media screen and (min-width: $tablet) {
     opacity: 0;
   }
 }
 .contacts-icon-map-pin,
 .contacts-icon-phone,
 .contacts-icon-mail {
-  margin-right: 20px;
+  position: absolute;
+  left: -40px;
   fill: none;
   width: 24px;
   height: 24px;
+}
+.contacts-icon-map-pin {
+  @media screen and (min-width: $tablet) {
+    top: 6px;
+  }
 }
 
 .work-time-title {
@@ -161,12 +178,16 @@ li {
   }
 }
 .adress-link {
+  position: relative;
   margin-top: 40px;
+  margin-left: 40px;
 }
 
 .tel-link,
 .email-link {
+  position: relative;
   margin-top: 20px;
+  margin-left: 40px;
 }
 .work-time-information {
   margin-top: 20px;
