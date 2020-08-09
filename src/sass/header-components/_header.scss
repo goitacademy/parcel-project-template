@@ -59,7 +59,7 @@ header {
           rgba(25, 28, 38, 0.2),
           rgba(25, 28, 38, 0.2)
         ),
-        url(../images/header/tablet-slider-img1-1218x1360.jpg);
+        url(); //!! - проверить изоюражение  и источник
     }
   }
   @media screen and(min-width:$desktop) {
@@ -117,7 +117,7 @@ header {
 
   margin-left: 60px;
   background-color: transparent;
-
+  z-index: 50;
   font-weight: 600;
   font-size: 12px;
   line-height: calc(16 / 12);
@@ -135,25 +135,20 @@ header {
     }
   }
 
-  .is-open {
-    display: block;
-  }
-
   @media screen and (max-width: 767px) {
-    display: none; //! надо при нажатии кнопки менять на "display block"
+    display: none; //| скрывает меню до фокуса
 
     //, расставляет меню для моб.
     position: absolute;
-    left: 100%;
+    right: 0;
     top: 0;
-    width: 337px;
-    height: 100%;
-    margin: 0;
-    padding-left: 40px;
+    height: 100vh;
+    max-width: 480px;
 
-    background-color: rgba(25, 28, 38, 0.2);
+    background-color: rgba(25, 28, 38, 0.2); //!! - не реагирует
+
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08),
-      0px 1px 3px rgba(0, 0, 0, 0.16);
+      0px 1px 3px rgba(0, 0, 0, 0.16); //!  не реагирует
 
     font-weight: 600;
     font-size: 18px;
@@ -164,165 +159,172 @@ header {
 
     color: $header-title-color;
 
-    .site-navigation {
-      //. ul - навигация по сайту  , часть  флекса
-      margin: 118px 0 64px;
-      padding: 0;
+    .hd-menu-container {
+      max-width: 100%; //!!!!!!!!! - не  реагирет
+      height: 100%;
+      margin: 0;
+      padding-top: 118px;
+      padding-left: 40px;
+      background-color: #fff;
 
-      .item:not(:last-child) {
-        margin-bottom: 24px;
-      }
-      .item:hover,
-      .item:focus {
-        color: $accent-color;
-      }
-    }
+      .site-navigation {
+        //. ul - навигация по сайту  , часть  флекса
+        margin: 0 0 64px;
 
-    //
-    .header-contacts {
-      //. ul - контакты и кнопка подписки
-      padding: 0;
-      margin-bottom: 64px;
+        padding: 0;
 
-      .item:not(:last-child) {
-        margin-bottom: 24px;
-
-        &:hover,
-        &:focus {
+        .item:not(:last-child) {
+          margin-bottom: 24px;
+        }
+        .item:hover,
+        .item:focus {
           color: $accent-color;
         }
       }
-    }
-    //
-    .header-social-links {
-      //. ul - соцсети
-      padding: 0;
-      font-size: 14px;
-      line-height: calc(19 / 14);
-      letter-spacing: 0.2rem;
 
-      .item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 24px;
+      .header-contacts {
+        //. ul - контакты и кнопка подписки
+        padding: 0;
+        margin-bottom: 64px;
 
-        &::before {
-          content: '';
-          display: block;
+        .item:not(:last-child) {
+          margin-bottom: 24px;
 
-          width: 60px;
-          height: 1px;
-
-          background: $header-title-color;
-
-          margin-right: 40px;
+          &:hover,
+          &:focus {
+            color: $accent-color;
+          }
         }
-        &:last-child::before {
-          visibility: hidden;
+      }
+      //
+      .header-social-links {
+        //. ul - соцсети
+        padding: 0;
+        font-size: 14px;
+        line-height: calc(19 / 14);
+        letter-spacing: 0.2rem;
+
+        .item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 24px;
+
+          &::before {
+            content: '';
+            display: block;
+
+            width: 60px;
+            height: 1px;
+
+            background: $header-title-color;
+
+            margin-right: 40px;
+          }
+          &:last-child::before {
+            visibility: hidden;
+          }
         }
       }
     }
   }
 
   @media screen and (min-width: $tablet) {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    background-color: transparent;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: calc(16 / 12);
-
-    letter-spacing: 0.1rem;
-
-    letter-spacing: 0.07rem;
-
-    color: $background-color;
-
-    .site-navigation {
-      //. ul - навигация по сайту  , часть  флекса
+    .hd-menu-container {
       display: flex;
       justify-content: start;
-      padding: 0;
-
-      margin: 0 0 35px 0;
-
-      //. отступы для элементов навигации
-      .item:not(:last-child) {
-        margin-right: 24px;
-      }
-
-      //. ховер для элементов навигации
-      .item:hover,
-      .item:focus {
-        color: $accent-color;
-        cursor: pointer;
-      }
-    }
-    .header-contacts {
-      //. ul - контакты и кнопка подписки
-      display: flex;
-      flex-direction: column-reverse;
       align-items: center;
-      padding: 0;
-      // margin: 0 0 0 40px;
-      margin: 0 0 0 47px;
-      //. отступы для элементов контактов (+кнопка подписки)
-      .item:not(:last-child) {
-        margin-top: 20px;
+      background-color: transparent;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: calc(16 / 12);
+      letter-spacing: 0.07rem;
+      color: $background-color;
 
+      .site-navigation {
+        //. ul - навигация по сайту  , часть  флекса
+        display: flex;
+        justify-content: start;
         padding: 0;
 
-        //. ховет для элементов контактов (+ кнопка подписки)
-        &:hover,
-        &:focus {
+        margin: 0 0 35px 0;
+
+        //. отступы для элементов навигации
+        .item:not(:last-child) {
+          margin-right: 24px;
+        }
+
+        //. ховер для элементов навигации
+        .item:hover,
+        .item:focus {
           color: $accent-color;
           cursor: pointer;
         }
       }
-    }
-
-    .header-social-links {
-      //. ul - соцсети
-
-      //. позиционирование списка соцсетей
-      position: absolute;
-      bottom: 0;
-      left: 89px;
-      transform: rotate(-90deg);
-      transform-origin: left;
-
-      display: flex;
-      padding: 0;
-      font-size: 11px;
-      line-height: calc(15 / 11);
-      letter-spacing: 0.2rem;
-
-      color: $header-title-color;
-
-      .item {
-        //. элемент соцсетей
+      .header-contacts {
+        //. ul - контакты и кнопка подписки
         display: flex;
+        flex-direction: column-reverse;
         align-items: center;
-        margin: 0;
+        padding: 0;
+        // margin: 0 0 0 40px;
+        margin: 0 0 0 47px;
+        //. отступы для элементов контактов (+кнопка подписки)
+        .item:not(:last-child) {
+          margin-top: 20px;
 
-        //. псевдоэлемент соцсетей
-        &::before {
-          content: '';
-          display: block;
-          width: 60px;
-          height: 1px;
-          background-color: $header-title-color;
-          margin: 0 40px;
+          padding: 0;
+
+          //. ховет для элементов контактов (+ кнопка подписки)
+          &:hover,
+          &:focus {
+            color: $accent-color;
+            cursor: pointer;
+          }
         }
+      }
 
-        //. отступы для элементов соцсетей
-        &:last-child {
-          margin-left: 40px;
-        }
+      .header-social-links {
+        //. ul - соцсети
 
-        &:last-child::before {
-          display: none;
+        //. позиционирование списка соцсетей
+        position: absolute;
+        bottom: 0;
+        left: 89px;
+        transform: rotate(-90deg);
+        transform-origin: left;
+
+        display: flex;
+        padding: 0;
+        font-size: 11px;
+        line-height: calc(15 / 11);
+        letter-spacing: 0.2rem;
+
+        color: $header-title-color;
+
+        .item {
+          //. элемент соцсетей
+          display: flex;
+          align-items: center;
+          margin: 0;
+
+          //. псевдоэлемент соцсетей
+          &::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background-color: $header-title-color;
+            margin: 0 40px;
+          }
+
+          //. отступы для элементов соцсетей
+          &:last-child {
+            margin-left: 40px;
+          }
+
+          &:last-child::before {
+            display: none;
+          }
         }
       }
     }
@@ -330,31 +332,32 @@ header {
 
   @media screen and (min-width: $desktop) {
     margin-left: 71px;
+    .hd-menu-container {
+      .site-navigation {
+        //. ul - навигация по сайту  , часть  флекса
+        display: flex;
 
-    .site-navigation {
-      //. ul - навигация по сайту  , часть  флекса
-      display: flex;
-
-      justify-content: start;
-      padding: 0;
-      margin: 0;
-
-      .item:not(:last-child) {
-        margin-right: 40px;
-      }
-    }
-    .header-contacts {
-      //. ul - контакты и кнопка подписки
-      flex-direction: row;
-      // align-items: center;
-      padding-left: 322px;
-      margin: 0;
-      // margin: 0 0 0 300px;
-
-      .item:not(:last-child) {
-        margin: 0 40px 0 0;
-
+        justify-content: start;
         padding: 0;
+        margin: 0;
+
+        .item:not(:last-child) {
+          margin-right: 40px;
+        }
+      }
+      .header-contacts {
+        //. ul - контакты и кнопка подписки
+        flex-direction: row;
+        // align-items: center;
+        padding-left: 322px;
+        margin: 0;
+        // margin: 0 0 0 300px;
+
+        .item:not(:last-child) {
+          margin: 0 40px 0 0;
+
+          padding: 0;
+        }
       }
     }
   }
@@ -368,4 +371,8 @@ header {
   position: absolute;
   bottom: 49px;
   right: 55px;
+}
+
+.is-open {
+  display: block;
 }
