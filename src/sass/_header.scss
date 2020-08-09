@@ -35,8 +35,6 @@
   flex-grow: 1;
 
   @media screen and (max-width: 767px) {
-    /*position: relative;
-    z-index: 5;*/
     justify-content: space-between;
     height: 60px;
   }
@@ -49,7 +47,7 @@
 
 .logo {
   @media screen and (min-width: $tablet-breakpoint) {
-    --color1: currentColor;
+    --color5: currentColor;
     fill: $primary-text-color;
     margin-right: 64px;
   }
@@ -65,20 +63,17 @@
     background-color: $wite-text-cocor;
     position: absolute;
     top: 0;
-    left: 40%;
+    left: 30%;
 
-    max-width: calc(100% - 5px);
     max-width: 337px;
     width: 100%;
     height: 796px;
+    padding-top: 118px;
+    padding-left: 40px;
 
     &.is-open {
       display: block;
     }
-  }
-  @media screen and (max-width: 767px) {
-    padding-top: 118px;
-    padding-left: 40px;
   }
 
   @media screen and (min-width: $tablet-breakpoint) {
@@ -142,34 +137,19 @@
 }
 
 /* Contacts Sidebar*/
+
 .sidebar {
-  outline: 2px solid red;
   display: flex;
   align-items: center;
 
-  font-family: Open Sans;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: $primary-text-color;
-
   @media screen and (max-width: 767px) {
-    margin-bottom: 64px;
-
-    font-size: 14px;
-    line-height: 1.36;
     align-items: flex-start;
-
-    .social:not(:last-child) {
-      margin-bottom: 24px;
-    }
   }
 
   @media screen and (min-width: $tablet-breakpoint) {
-    /*align-self: flex-end;*/
-
     position: absolute;
     bottom: -220%;
-    right: 45%;
+    right: 46%;
 
     padding-left: 40px;
     max-width: 680px;
@@ -182,15 +162,30 @@
     transform: rotate(-90deg);
   }
 
-  @media screen and (max-width: 767px) {
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-
   @media screen and (min-width: 1280px) {
     position: absolute;
     bottom: -220%;
-    right: 68%;
+    right: 66.5%;
+  }
+
+  .hero-sid {
+    display: flex;
+
+    font-family: Open Sans;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: $primary-text-color;
+
+    @media screen and (max-width: 767px) {
+      font-size: 14px;
+      line-height: 1.36;
+
+      flex-direction: column;
+
+      .social:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
   }
 
   .social {
@@ -200,6 +195,8 @@
   }
 
   .sid-item {
+    display: block;
+
     &:hover,
     &:focus {
       color: $hover-text-color;
@@ -242,6 +239,8 @@
   transition: color $time-animation;
 
   @media screen and (max-width: 767px) {
+    font-size: 18px;
+    line-height: 1.38;
     margin-bottom: 24px;
     color: $primary-text-color;
   }
@@ -322,8 +321,12 @@
   @media screen and (max-width: 767px) {
     position: absolute;
     z-index: 5;
-    right: 0;
-    top: 0;
+    right: 5%;
+    top: 50%;
+  }
+
+  .icon-close {
+    fill: $title-color;
   }
 }
 
@@ -426,8 +429,6 @@
   text-transform: uppercase;
   color: $title-text-color;
 
-  margin-bottom: 20px;
-
   @media screen and (max-width: 767px) {
     font-size: 11px;
     line-height: 1.36;
@@ -484,11 +485,13 @@
   @media screen and (min-width: $tablet-breakpoint) {
     font-size: 16px;
     line-height: 1.6;
+    margin-bottom: 181px;
   }
 
   @media screen and (min-width: $desktop-breakpoint) {
     font-size: 18px;
     line-height: 1.67;
+    margin-bottom: 142px;
   }
 }
 
@@ -509,22 +512,19 @@
   }
 }
 
+/*Slider button*/
 .button-slider {
   display: flex;
-
+  justify-content: flex-end;
   @media screen and (max-width: 780px) {
     display: none;
   }
-
-  /*  @media screen and (min-width: 780px) {
-    position: relative;
-  }*/
 }
 
 .slider-back,
 .slider-next {
   display: block;
-  border: 2px solid $wite-text-cocor;
+  border: 1px solid $wite-text-cocor;
   border-left: 0px;
   border-right: 0px;
   border-top: 0px;
@@ -533,12 +533,13 @@
 
   &:hover,
   &:focus {
-    border: 2px solid $title-text-color;
+    border: 1px solid $title-text-color;
     border-left: 0px;
     border-right: 0px;
     border-top: 0px;
   }
 }
+
 .slider-back {
   padding-right: 20px;
   margin-right: 26px;
@@ -546,4 +547,34 @@
 
 .slider-next {
   padding-left: 20px;
+}
+
+/*Hero line*/
+.hero-line {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.hero-contents {
+  display: inline-block;
+}
+
+/*Line styles*/
+.hero-hr,
+.hero-hr-sid {
+  margin-left: 0px;
+  border: none;
+  width: 60px;
+  height: 1px;
+}
+
+.hero-hr {
+  margin-right: 20px;
+  background-color: $title-text-color;
+}
+
+.hero-hr-sid {
+  margin-right: 40px;
+  background-color: $title-color;
 }
