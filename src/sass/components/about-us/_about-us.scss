@@ -2,69 +2,48 @@
   &-background {
     background-color: $primary-white;
   }
-}
-
-
-
-
-
-
-.section-about {
-    padding: 31px 84px;
-   // background-color: $primary-white;
+  &-container {
+    @extend %container;
+    padding: 84px 31px;
 
     @media screen and (min-width: $tablet-min) {
-        padding: 39px 100px;
-      }
-
-    @media screen and (min-width: $desktop) {
-        padding: 95px 119px 51px 141px;
-    } 
-    
-    @media screen and (min-width: $desktop) {
-        display: flex;
-     } 
-
-}
-
-.container {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0;
-     
-    @media screen and (min-width: $mobile) {
-        width: 480px;
+      padding: 100px 39px;
     }
+
+    @media screen and (min-width: $desktop) {
+      padding: 119px 51px 141px 95px;
+      //display: flex;
+    }
+  }
+  &-list {
+    margin: -15px;
+    @media screen and (max-width: $mobile-max) {
+      display: none;
+    }
+    @media screen and (min-width: $desktop) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  &-item {
+    margin: 15px;
+    @media screen and (min-width: $desktop) {
+        width: calc((50% - 4 * 15px) / 2);
+    }  
+  }
+
+
+  &-subtitle {
+    @extend %subtitle;
+    font-family: Open Sans;
+    padding-bottom: 20px;
+  }
+  &-title {
+    @extend %h;
+    padding-bottom: 20px;
+
+  }
   
-    @media screen and (min-width: $tablet-min) {
-      width: 768px;
-    }
-  
-    @media screen and (min-width: $desktop) {
-       width: 1280px;
-    }
-}
-
-.text-befor {
-    
-  font-family: Open Sans;
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 1.07;
-
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-
-  color: $title-color;
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 60px;
-    height: 4px;
-    color: $title-color;
-    margin-right: 20px;
-    padding: 0;
-    }
 }
 
 .section-title {
