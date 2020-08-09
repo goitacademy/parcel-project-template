@@ -18,28 +18,27 @@
   }
 }
 
-// Общие стили
 html {
   box-sizing: border-box;
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
-button {
-  border: none;
-  outline: none;
-  background-color: none;
-
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #555555;
+  background-color: #ffffff;
   cursor: pointer;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  font-style: normal;
 }
 
 address {
@@ -51,8 +50,52 @@ address {
   padding: 0;
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
 img {
   display: block;
   min-width: 100%;
   height: auto;
+}
+
+.section-tittle {
+  position: relative;
+  margin-left: 80px;
+  margin-top: 0px;
+
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  line-height: 1.9;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: $tittle-color;
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    width: 60px;
+    height: 1px;
+    top: 0;
+    left: 0;
+    transform: translate(-80px, 7px);
+
+    background-color: $tittle-color;
+  }
+
+  @media screen and (min-width: 720px) {
+    line-height: 1.36;
+  }
 }
