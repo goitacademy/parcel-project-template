@@ -1,68 +1,49 @@
 /*Heder conteiner*/
-.header {
-  display: flex;
-  max-width: 1280px;
-}
 .header.conteiner {
   padding: 0;
-  margin: 0;
+  margin: auto;
 }
 
 .conteiner-wrap {
   position: absolute;
-  left: 0;
-  right: 0;
-  outline: 2px solid blue;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
 
   padding-top: 40px;
+  padding-bottom: 0px;
 
-  @media screen and (max-width: 480px) {
-    max-width: 480px;
-    width: 100%;
+  @media screen and (max-width: $mobile-breakpoint) {
     padding-left: 31px;
     padding-right: 31px;
   }
 
-  @media screen and (min-width: 768px) {
-    max-width: 768px;
-    width: 100%;
+  @media screen and (min-width: $tablet-breakpoint) {
     padding-left: 39px;
     padding-right: 39px;
   }
 
-  @media screen and (min-width: 1280px) {
-    max-width: 1280px;
-    width: 100%;
+  @media screen and (min-width: $desktop-breakpoint) {
     padding-left: 55px;
     padding-right: 55px;
   }
 }
+
 .conteiner-navigation {
   display: flex;
   align-items: center;
   flex-grow: 1;
 
   @media screen and (max-width: 767px) {
+    /*position: relative;
+    z-index: 5;*/
     justify-content: space-between;
     height: 60px;
   }
 
-  @media screen and (max-width: 480px) {
-    max-width: 480px;
-    width: 100%;
-  }
-
-  @media screen and (min-width: 768px) {
-    max-width: 768px;
-    width: 100%;
-
+  @media screen and (min-width: $tablet-breakpoint) {
     justify-content: center;
     height: 80px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    max-width: 1280px;
-    width: 100%;
   }
 }
 
@@ -83,21 +64,30 @@
     display: none;
     background-color: $wite-text-cocor;
     position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 100%;
-    height: 393px;
+    top: 0;
+    left: 40%;
+
+    max-width: calc(100% - 5px);
+    max-width: 337px;
+    width: 100%;
+    height: 796px;
 
     &.is-open {
       display: block;
     }
   }
+  @media screen and (max-width: 767px) {
+    padding-top: 118px;
+    padding-left: 40px;
+  }
+
   @media screen and (min-width: $tablet-breakpoint) {
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
   }
 }
+
 .nav {
   display: flex;
   flex-grow: 1;
@@ -108,35 +98,35 @@
   letter-spacing: 0.1em;
 
   @media screen and (max-width: 767px) {
+    margin-bottom: 64px;
+    flex-direction: column;
+    align-items: flex-start;
+
     font-size: 18px;
     line-height: 1.39;
     text-align: center;
     color: $primary-text-color;
+
+    .menu:not(:last-child) {
+      margin-bottom: 24px;
+    }
   }
 
   @media screen and (min-width: 768px) {
     font-size: 12px;
     line-height: 1.33;
     color: $wite-text-cocor;
-  }
-
-  @media screen and (min-width: 768px) {
-    /*  max-width: 768px;
-    width: 100%;*/
 
     .menu:not(:last-child) {
       margin-right: 24px;
     }
   }
-  @media screen and (min-width: 1200px) {
-    /* max-width: 1200px;
-    width: 100%;*/
 
+  @media screen and (min-width: 1280px) {
     .menu:not(:last-child) {
       margin-right: 40px;
     }
   }
-
   .nav-item {
     &:hover,
     &:focus {
@@ -163,8 +153,15 @@
   color: $primary-text-color;
 
   @media screen and (max-width: 767px) {
+    margin-bottom: 64px;
+
     font-size: 14px;
     line-height: 1.36;
+    align-items: flex-start;
+
+    .social:not(:last-child) {
+      margin-bottom: 24px;
+    }
   }
 
   @media screen and (min-width: $tablet-breakpoint) {
@@ -185,10 +182,15 @@
     transform: rotate(-90deg);
   }
 
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
   @media screen and (min-width: 1280px) {
     position: absolute;
     bottom: -220%;
-    right: 65%;
+    right: 68%;
   }
 
   .social {
@@ -212,6 +214,12 @@
   display: flex;
   align-items: center;
 
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 64px;
+  }
+
   @media screen and (min-width: 780px) {
     flex-direction: column-reverse;
     justify-content: space-evenly;
@@ -232,6 +240,11 @@
   text-transform: uppercase;
   color: $wite-text-cocor;
   transition: color $time-animation;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 24px;
+    color: $primary-text-color;
+  }
 
   @media screen and (min-width: $desktop-breakpoint) {
     padding-right: 40px;
@@ -269,7 +282,11 @@
     color: $wite-text-cocor;
   }
 
-  @media screen and (min-width: $tablet-breakpoint) and (max-width: 1199px) {
+  @media screen and (max-width: 767px) {
+    color: $primary-text-color;
+  }
+
+  @media screen and (min-width: $tablet-breakpoint) and (max-width: 1280px) {
     margin-bottom: 20px;
   }
 }
@@ -286,7 +303,7 @@
   padding: 0;
   background-color: transparent;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
 
@@ -301,6 +318,13 @@
   &.is-open .icon-close {
     display: none;
   }
+
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    top: 0;
+  }
 }
 
 /* Hero */
@@ -313,10 +337,14 @@
   background-position: center;
   background-repeat: no-repeat;
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     max-width: 480px;
     width: 100%;
     height: 580px;
+
+    padding-top: 208px;
+    padding-left: 31px;
+
     background-image: url('../images/mob-slider3.jpg');
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -336,10 +364,15 @@
     }
   }
 
-  @media screen and (min-width: 481px) {
+  @media screen and (min-width: 768px) {
     height: 680px;
     max-width: 609px;
     width: 100%;
+
+    margin-left: 159px;
+    padding-top: 272px;
+    padding-left: 120px;
+
     background-image: url('../images/tabl-slider3.jpg');
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -359,9 +392,12 @@
     }
   }
 
-  @media screen and (min-width: 609px) {
+  @media screen and (min-width: 1280px) {
     max-width: 1125px;
     width: 100%;
+    margin-left: 155px;
+    padding-left: 100px;
+
     background-image: url('../images/desk-slider3.jpg');
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -379,22 +415,6 @@
       screen and (min-resolution: 3dppx) {
       background-image: url('../images/desk-slider3@3x.jpg');
     }
-  }
-
-  @media screen and (max-width: 767px) {
-    padding-top: 208px;
-    padding-left: 31px;
-  }
-
-  @media screen and (min-width: $tablet-breakpoint) {
-    margin-left: 159px;
-    padding-top: 272px;
-    padding-left: 120px;
-  }
-
-  @media screen and (min-width: $desktop-breakpoint) {
-    margin-left: 155px;
-    padding-left: 100px;
   }
 }
 
