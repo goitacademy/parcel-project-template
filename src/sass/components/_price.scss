@@ -39,13 +39,15 @@
 }
  /*див для прайса*/
 .pricelist-div {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 50px;
-    padding: 30px;
+    /*padding: 30px;*/
     background: linear-gradient(180deg, #171A24 0%, rgba(23, 26, 36, 0.2) 100%);
-    @media screen and (min-width: 768px) {
+    /*@media screen and (min-width: 768px) {
           padding-left: 40px;
           padding-right: 40px;
-    }
+    }*/
     @media screen and (min-width: 1280px) {
         display: flex;
         flex-direction: row;
@@ -56,130 +58,59 @@
 .price-second {
     display: inline-flex;
     flex-direction: column;
+    
 }
 
 .price-first {
+    padding-top: 30px;
     @media screen and (max-width: 1279px) {
         padding-bottom: 10px;
     }
     @media screen and (min-width: 1280px) {
           padding-right: 40px;
+          width: 585px;
+          background: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
     }
 }
     
 
 .price-second {
+    padding-bottom: 30px;
     @media screen and (max-width: 1279px) {
         padding-top: 10px;  
     }
     @media screen and (min-width: 1280px) {
            padding-left: 40px;
+           width: 585px;
+           background: linear-gradient(180deg, #090b13 0%, rgba(9, 11, 19, 0.2) 100%);
     }
 }
 
  /*строки в пайсе*/
 .price-item {
-    display: inline-block;
-    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+
+.price-text {
     font-weight: normal;
     font-size: 14px;
     line-height: 30px;
     letter-spacing: 0.02em;
     color: #9DA4BD;
-    &:not(:last-child) {
-        margin-bottom: 20px;
-    }
     @media screen and (min-width: 768px) {
         font-size: 18px;
     }
 }
- /* подчеркивание в строках*/
-.price-span1::before {
-    width: 145px;
-    @extend %price-span;
-    @media screen and (min-width: 768px) {
-        width: 340px;
-    }
-    @media screen and (min-width: 1280px) {
-        width: 235px;
-    }
-}
 
-.price-span2::before {
-    width: 149px;
-    @extend %price-span;
-    @media screen and (min-width: 768px) {
-        width: 347px;
-    }
-    @media screen and (min-width: 1280px) {
-        width: 242px;
-    }
-}
-
-.price-span3::before {
-    width: 178px;
-    @extend %price-span;
-    @media screen and (min-width: 768px) {
-        width: 376px;
-    }
-    @media screen and (min-width: 1280px) {
-        width: 271px;
-    }
-}
-
-.price-span4::before {
-    width: 91px;
-    @extend %price-span;
-    @media screen and (min-width: 768px) {
-        width: 270px;
-    }
-    @media screen and (min-width: 1280px) {
-        width: 165px;
-    }
-}
-
-.price-span5::before {
-    width: 144px;
-    @extend %price-span;
-    @media screen and (min-width: 768px) {
-        width: 337px;
-    }
-    @media screen and (min-width: 1280px) {
-        width: 234px;
-    }
-}
-
-.price-span6::before {
-    width: 119px;
-    @extend %price-span;
-    @media screen and (min-width: 768px) {
-        width: 306px;
-    }
-    @media screen and (min-width: 1280px) {
-        width: 202px;
-    }
-}
-
-.price-span7::before {
-    width: 74px;
-    @extend %price-span;
-    @media screen and (min-width: 768px) {
-        width: 247px;
-    }
-    @media screen and (min-width: 1280px) {
-        width: 143px;
-    }
-}
-
-.price-span8::before {
-    width: 89px;
-    @extend %price-span;
-    @media screen and (min-width: 768px) {
-        width: 267px;
-    }
-    @media screen and (min-width: 1280px) {
-        width: 163px;
-    }
+/*подчеркивание*/
+.price-span {
+    flex-grow: 1;
+    margin: 0 6px;
+    border-bottom: 1px solid rgba(157, 164, 189, 0.12);
 }
 
  /*ссылка*/
