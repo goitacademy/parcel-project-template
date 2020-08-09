@@ -2,14 +2,12 @@ li {
   list-style: none;
 }
 
-/*a {
-  text-decoration: none;
-}*/
 .online-booking_contacts {
   @media screen and (min-width: $desktop) {
     display: flex;
-
-    max-width: 1280px;
+    justify-content: center;
+    background-color: #191c26;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -25,7 +23,7 @@ li {
     ),
     url(../images/mobile/mobile-footer@1x.jpg);
   @media screen and (min-width: $desktop) {
-    width: 50%;
+    width: calc(#{$desktop} / 2);
   }
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
@@ -75,7 +73,7 @@ li {
     padding-left: 100px;
   }
 }
-.secondary-contacts-collecting-container {
+.primary-contacts-collecting-container {
   @media screen and (min-width: $tablet) {
     display: flex;
     margin: -15px;
@@ -84,17 +82,19 @@ li {
     flex-direction: column;
   }
 }
-
-.work-time-container,
-.primary-contacts-collecting-container {
+.secondary-contacts-collecting-container {
   @media screen and (min-width: $tablet) {
     width: calc((100% - 15px * 4) / 2);
     margin: 15px;
   }
+  @media screen and (min-width: $desktop) {
+    width: 100%;
+  }
 }
-
-.contacts a {
-  display: inline-block;
+.work-time-container {
+  @media screen and (min-width: $tablet) {
+    margin: 15px;
+  }
 }
 
 .contacts-title {
@@ -115,19 +115,39 @@ li {
 .tel-link,
 .email-link,
 .work-time-information {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   font-family: Open Sans;
   font-size: 18px;
+  font-weight: normal;
   line-height: 1.67em;
   letter-spacing: 0.02em;
   color: #9da4bd;
 }
-
 .adress-link,
 .tel-link {
   text-decoration: none;
 }
+.comma {
+  @media screen and (min-width: $desktop) {
+    opacity: 0;
+  }
+}
+.contacts-icon-map-pin,
+.contacts-icon-phone,
+.contacts-icon-mail {
+  margin-right: 20px;
+  fill: #9da4bd;
+  width: 24px;
+  height: 24px;
+}
 
 .work-time-title {
+  display: flex;
+  align-items: center;
+  margin-top: 44px;
+  margin-bottom: 0px;
   font-family: Open Sans;
   font-weight: 600;
   font-size: 11px;
@@ -135,14 +155,15 @@ li {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
+  &::before {
+    background: rgba(157, 164, 189, 0.4);
+    @extend %before;
+  }
 }
 .adress-link {
   margin-top: 40px;
 }
-.work-time-title {
-  margin-top: 44px;
-  margin-bottom: 0px;
-}
+
 .tel-link,
 .email-link {
   margin-top: 20px;
