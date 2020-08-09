@@ -1,0 +1,74 @@
+// Выпадающее меню на мобилке
+
+.mobile-menu {
+  @media screen and (max-width: $mobile) {
+    display: none;
+    position: absolute;
+    padding-top: 118px;
+    padding-left: 40px;
+    top: 0;
+    right: 0;
+    width: 337px;
+    height: 796px;
+    background-color: $primory-white;
+    box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.04),
+      -2px 0px 4px rgba(0, 0, 0, 0.08), -1px 0px 3px rgba(0, 0, 0, 0.16);
+    // transform: translateY(-150%);
+    // transition-duration: 25000ms;
+    // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.is-open {
+      display: block;
+      // transition-duration: 25000ms;
+      // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateY(0);
+      overflow: visible;
+    }
+  }
+  @media screen and (min-width: 481px) {
+    display: flex;
+  }
+  @media screen and (min-width: 769px) {
+    align-items: baseline;
+  }
+}
+
+.mobile-menu-button {
+  @media screen and (max-width: $mobile) {
+    position: absolute;
+    display: inline-flex;
+
+    padding: 0;
+    right: 27px;
+    top: 46px;
+    border-style: none;
+    border-width: 0;
+    background-color: transparent;
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: ease;
+    color: $primory-white;
+    z-index: 1;
+
+    &:hover,
+    &:focus {
+      outline-style: none;
+    }
+  }
+  @media screen and (min-width: 481px) {
+    display: none;
+  }
+}
+
+.mobile-menu-button .icon-close {
+  display: none;
+}
+
+.mobile-menu-button.is-open .icon-close {
+  display: block;
+  color: $primory-black;
+}
+
+.mobile-menu-button.is-open .icon-menu {
+  display: none;
+}
