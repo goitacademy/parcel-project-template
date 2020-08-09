@@ -1,0 +1,349 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+
+  font-weight: 600;
+  letter-spacing: 0.1em;
+
+  &__inner {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media screen and (max-width: $tablet - 1px) {
+      max-width: 92%;
+      padding-top: 40px;
+      // padding: 40px 39px 0 39px;
+    }
+
+    @media screen and (min-width: $tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 95%;
+    }
+
+    @media screen and (min-width: $desktop) {
+      width: 94%;
+    }
+
+    @media screen and (min-width: 1600px) {
+      width: 1474px;
+    }
+  }
+
+  &__mob {
+    @media screen and (max-width: $tablet - 1px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+  }
+
+  &__button-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
+    border: none;
+    outline: none;
+    border-radius: 4px;
+
+    fill: $primary-text-color;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 100;
+
+    @media screen and (min-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &__side {
+    @media screen and (max-width: $tablet - 1px) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      padding: 118px 105px 80px 40px;
+      z-index: 10;
+
+      background-color: $primary-white-color;
+      box-shadow: -1px 0px 3px rgba(#000, 0.16), -2px 0px 4px rgba(#000, 0.08), -4px 0px 8px rgba(#000, 0.04);
+
+      transform: translateX(100%);
+
+      transition: transform $timming;
+
+      &.is-open {
+        transform: translateX(0);
+        overflow-y: scroll;
+      }
+    }
+
+    @media screen and (min-width: $tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-grow: 1;
+      margin-left: 64px;
+
+      font-size: 12px;
+      line-height: 1.33;
+    }
+
+    @media screen and (min-width: 850px) {
+      margin-left: 70px;
+    }
+  }
+
+  &__nav-list {
+    @media screen and (max-width: $tablet - 1px) {
+      margin-bottom: 64px;
+      font-size: 18px;
+      line-height: 1.39;
+    }
+
+    @media screen and (min-width: $tablet) {
+      display: flex;
+    }
+  }
+
+  &__nav-item {
+    @media screen and (max-width: $tablet - 1px) {
+      margin-bottom: 24px;
+    }
+
+    @media screen and (min-width: $tablet) and (max-width: $desktop - 1px) {
+      &:not(:first-child) {
+        margin-left: 24px;
+      }
+    }
+
+    @media screen and (min-width: $desktop) {
+      &:not(:first-child) {
+        margin-left: 40px;
+      }
+    }
+  }
+
+  &__nav-link {
+    transition: color $timming;
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+
+    color: $primary-text-color;
+
+    @media screen and (min-width: $tablet) {
+      display: block;
+      padding: 13px 0px;
+      color: $primary-white-color;
+    }
+  }
+}
+
+// logo
+.logo {
+  fill: $primary-white-color;
+
+  @media screen and (min-width: $tablet) {
+    fill: $primary-text-color;
+  }
+}
+
+// backdrop for mob menu
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(25, 28, 38, 0.2);
+  z-index: 5;
+
+  transition: opacity $timming;
+
+  @media screen and (max-width: $tablet - 1px) {
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  @media screen and (min-width: $tablet) {
+    position: static;
+    background-color: transparent;
+  }
+}
+
+// backdrop modal
+.modal-open {
+  @media screen and (max-width: $tablet - 1px) {
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: $tablet - 1px) {
+  .header__button-menu .icon-cross {
+    display: none;
+  }
+
+  .header__button-menu.is-open .icon-cross {
+    display: block;
+  }
+
+  .header__button-menu.is-open {
+    fill: $primary-text-color;
+  }
+
+  .header__button-menu.is-open .icon-menu {
+    display: none;
+  }
+
+  .backdrop.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .header__button-menu .icon-menu,
+  .icon-cross {
+    transition: fill $timming;
+  }
+
+  .header__button-menu {
+    .icon-cross {
+      fill: $primary-text-color;
+    }
+  }
+
+  .header__button-menu:hover,
+  .header__button-menu:focus {
+    .icon-menu,
+    .icon-cross {
+      fill: $accent-color;
+    }
+  }
+}
+
+.header__social-link,
+.tel {
+  transition: color $timming;
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+
+  color: $primary-text-color;
+
+  @media screen and (min-width: $tablet) {
+    color: $primary-white-color;
+  }
+}
+
+.tel {
+  @media screen and (min-width: $desktop) {
+    padding: 15px 0;
+  }
+}
+
+@media screen and (max-width: $tablet - 1px) {
+  .sideBar {
+    .tel {
+      margin-bottom: 24px;
+    }
+
+    .header__contacts {
+      margin-bottom: 64px;
+    }
+  }
+}
+
+.header__social {
+  display: none;
+
+  @media screen and (max-width: $tablet - 1px) {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+  }
+}
+
+.header__social-item {
+  &:first-child::before {
+    content: '';
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    margin-right: 20px;
+    background-color: #303030;
+  }
+
+  &:first-child {
+    display: flex;
+    align-items: center;
+  }
+
+  @media screen and (max-width: $tablet - 1px) {
+    &:first-child {
+      margin-bottom: 24px;
+    }
+
+    &:not(:first-child) {
+      margin-right: 15px;
+    }
+  }
+}
+
+.header__contacts {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: $tablet) {
+    margin-left: auto;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1px) {
+    flex-direction: column-reverse;
+    align-items: center;
+
+    .button {
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    flex-direction: row;
+    align-items: center;
+    padding: 37px 0;
+
+    .button {
+      margin-left: 40px;
+    }
+  }
+}
+
+.iconBack {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+
+  fill: #fff;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
