@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*! modern-normalize v0.6.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*
 Document
@@ -936,8 +935,16 @@ h1, h2, p {
 
 @media screen and (min-width: 480px) {
   .aboutus {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     padding-top: 84px;
     padding-bottom: 84px;
+  }
+  .aboutus .aboutus-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   .aboutus .text {
     font-family: "Open Sans", sans-serif;
@@ -1010,9 +1017,9 @@ h1, h2, p {
     max-width: 330px;
   }
   .aboutus .aboutus-container {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   .aboutus .aboutus-container .aboutus-image-container-tablet {
     min-width: 330px;
@@ -1046,9 +1053,9 @@ h1, h2, p {
     padding-bottom: 130px;
   }
   .aboutus .aboutus-container {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   .aboutus .aboutus-container .aboutus-image-container-tablet {
     display: none;
@@ -1245,26 +1252,8 @@ h1, h2, p {
   }
 }
 
-h2 {
-  margin: 0px;
-  max-width: 420px;
-}
-
-h3 {
-  margin: 0px;
-}
-
-p {
-  margin: 0px;
-}
-
-ul {
-  margin: 0px;
-  padding: 0px;
-}
-
 @media screen and (max-width: 479px), (min-width: 480px) {
-  .feature-container {
+  .features-container {
     background-color: #fff;
     margin-left: auto;
     margin-right: auto;
@@ -1273,7 +1262,7 @@ ul {
   }
   .old-school {
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 80px;
     margin-bottom: 20px;
     font-family: Open Sans;
     font-style: normal;
@@ -1284,10 +1273,17 @@ ul {
     text-transform: uppercase;
     color: #303030;
   }
+  .old {
+    position: relative;
+  }
   .old::before {
-    content: '————';
-    display: inline-block;
-    color: #303030;
+    position: absolute;
+    content: '';
+    width: 60px;
+    height: 1px;
+    top: 11px;
+    left: -2px;
+    background-color: #303030;
     font-weight: 400px;
   }
   .Why-we-header {
@@ -1297,7 +1293,10 @@ ul {
     font-size: 42px;
     line-height: 1.16;
     letter-spacing: 0.05em;
+    margin-top: 0px;
     margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
     color: #303030;
   }
   .Why-we {
@@ -1322,6 +1321,8 @@ ul {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     list-style: none;
+    margin: 0px;
+    padding: 0px;
   }
   .box-content {
     padding: 20px 30px;
@@ -1338,7 +1339,7 @@ ul {
 }
 
 @media screen and (min-width: 768px) {
-  .feature-container {
+  .features-container {
     padding: 0 40px;
     width: 768px;
   }
@@ -1367,9 +1368,7 @@ ul {
 }
 
 @media screen and (min-width: 1280px) {
-  .feature-container {
-    width: 1280px;
-    padding: 0 55px;
+  .features-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1383,7 +1382,7 @@ ul {
     padding-bottom: 130px;
   }
   .feature-about {
-    margin-left: 100px;
+    margin-left: 150px;
     margin-right: 0px;
   }
   .box-list {
@@ -1535,7 +1534,6 @@ ul {
   .masters-list {
     margin-bottom: 64px;
   }
-  
   .masters-list:last-child {
     margin-bottom: 0px;
   }
@@ -1727,8 +1725,6 @@ ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
     background-color: #191c26;
   }
 }
@@ -1747,7 +1743,7 @@ ul {
 
 @media screen and (min-width: 1280px) {
   .footer-content {
-    width: 600px;
+    min-width: 50%;
     padding: 130px 15px;
     margin-left: 16px;
     margin-right: 1px;
