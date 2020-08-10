@@ -181,7 +181,7 @@
     letter-spacing: 0.1em;
     color: $title-main-color;
 
-    right: -100%;
+    right: -125%;
     transition: right 0.2s;
   }
 
@@ -291,12 +291,16 @@
 .header-description {
   position: relative;
 
-  @include font(600, 11px, 1.33);
+  @include font(600, 10px, 1.33);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: rgba(157, 164, 189, 0.6);
 
   margin-left: 80px;
+
+  @media screen and(min-width: $mobile) {
+    @include font(600, 11px, 1.33);
+  }
 
   &::before {
     content: '';
@@ -312,11 +316,14 @@
 
 .header-title {
   margin-top: 20px;
-
+  @include font(bold, 42px, 1.33);
   font-family: Raleway;
-  @include font(bold, 48px, 1.33);
   letter-spacing: 0.05em;
   color: $title-secondary-color;
+
+  @media screen and(min-width: $mobile) {
+    @include font(bold, 48px, 1.33);
+  }
 
   @media screen and(min-width: $desktop) {
     @include font(bold, 72px, 1.33);
@@ -324,11 +331,14 @@
 }
 
 .who-are-we {
-  @include font(normal, 16px, 1.33);
+  @include font(normal, 15px, 1.33);
   letter-spacing: 0.02em;
   color: $secondary-color;
+  width: 280px;
 
-  width: 306px;
+  @media screen and(min-width: $mobile) {
+    @include font(normal, 16px, 1.33);
+  }
 
   @media screen and(min-width: $tablet) {
     width: 355px;
