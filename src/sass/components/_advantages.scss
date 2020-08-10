@@ -18,6 +18,18 @@
 .advantages {
   display: block;
 
+  .section-name {
+    &::before {
+      content: '';
+      width: 60px;
+      height: 1px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: $primary-text-color;
+      margin-right: 20px;
+    }
+  }
+
   @media screen and (min-width: $mobile) {
     width: 100%;
     margin-bottom: 44px;
@@ -36,28 +48,17 @@
   }
 }
 
-.section-name {
+.advantages .section-name {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
 
-  font-style: 400;
   font-weight: 600;
   font-size: 11px;
   line-height: 1.36;
   letter-spacing: 0.1px;
   color: $primary-text-color;
-
-  &::before {
-    content: '';
-    width: 60px;
-    height: 1px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: $primary-text-color;
-    margin-right: 20px;
-  }
 }
 
 .title {
@@ -97,16 +98,15 @@
 .boxes {
   display: flex;
   flex-wrap: wrap;
-  max-width: 370px;
+  // max-width: 370px;
   height: 331px;
-
   @media screen and (min-width: $mobile) {
     justify-content: center;
     margin-right: 0;
   }
 
   @media screen and (min-width: $tablet) {
-    margin-left: 320px;
+    margin-left: 239px;
   }
   @media screen and (min-width: $desktop) {
     margin-left: 0px;
@@ -115,31 +115,46 @@
 
 .box {
   display: block;
-  max-width: calc((100% - 35px * 1) / 2);
+  // width: calc((100% - 2 * 15px) / 2);
+  width: 193px;
+
   height: 133px;
-  flex-shrink: 0;
   padding: 20px 24px 20px 24px;
-  align-items: center;
   text-align: center;
   background-color: $secondary-background-color;
 
-  &:nth-child(n) {
-    margin-right: 35px;
+  &:nth-child(odd) {
+    margin-right: 30px;
   }
+
   &:nth-child(2n) {
     margin-top: 35px;
-    margin-right: 0px;
   }
-  &:nth-child(n + 3) {
-    margin-top: 0px;
+
+  @media screen and (min-width: $tablet) {
+    width: 210px;
   }
-  &:nth-child(3n) {
-    margin-bottom: 0px;
+  @media screen and (min-width: $desktop) {
+    width: 170px;
   }
-  &:last-child {
-    margin-top: 35px;
-    padding: 20px;
-  }
+
+  // &:nth-child(n) {
+  //   margin-right: 35px;
+  // }
+  // &:nth-child(2n) {
+  //   margin-top: 35px;
+  //   margin-right: 0px;
+  // }
+  // &:nth-child(n + 3) {
+  //   margin-top: 0px;
+  // }
+  // &:nth-child(3n) {
+  //   margin-bottom: 0px;
+  // }
+  // &:last-child {
+  //   margin-top: 35px;
+  //   padding: 20px;
+  // }
 }
 
 .box-feature {
@@ -150,6 +165,15 @@
   margin-bottom: 0;
   margin-top: 0;
   color: $primary-text-color;
+
+  sup {
+    display: inline-flex;
+    margin-top: 27px;
+    padding-left: 2px;
+    font-weight: 600;
+    font-size: 16px;
+    color: $accent-color;
+  }
 }
 
 .box-text {
@@ -159,16 +183,15 @@
   font-size: 11px;
   line-height: 15px;
   text-align: center;
-  margin-top: 6;
+  margin-top: 6px;
   margin-bottom: 0;
   color: $secondary-text-color;
 }
 
-sup {
-  display: inline-flex;
-  margin-top: 27px;
-  padding-left: 2px;
-  font-weight: 600;
-  font-size: 16px;
-  color: $accent-color;
+@media screen and (min-width: $tablet) {
+  .advantages {
+    .section-name {
+      margin-bottom: 20px;
+    }
+  }
 }
