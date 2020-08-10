@@ -1,5 +1,4 @@
 .page-header {
-  text-align: center;
   &.overlay {
     height: 580px;
 
@@ -20,9 +19,10 @@
         ),
         url(../images/Slider-img-3@2x.jpg);
     }
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
       height: 680px;
       max-width: 609px;
+      margin-right: 0;
       background-image: linear-gradient(
           to right,
           rgba(25, 28, 38, 0.2),
@@ -41,6 +41,28 @@
           url(../images/Slider-img-3-tablet@2x.jpg);
       }
     }
+    @media screen and (min-width: 1200px) {
+      height: 680px;
+      max-width: 1125px;
+      margin-right: 0;
+      background-image: linear-gradient(
+          to right,
+          rgba(25, 28, 38, 0.2),
+          rgba(25, 28, 38, 0.2)
+        ),
+        url(../images/Slider-img-3-desktop.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      @media screen and (min-resolution: 2dppx) {
+        background-image: linear-gradient(
+            to right,
+            rgba(25, 28, 38, 0.2),
+            rgba(25, 28, 38, 0.2)
+          ),
+          url(../images/Slider-img-3-desktop@2x.jpg);
+      }
+    }
   }
 
   .header-left {
@@ -52,6 +74,12 @@
       width: 90px;
       height: 680px;
       background-color: $main-color;
+    }
+    @media screen and (min-width: 1200px) and (max-width: 1279px) {
+      @include typedisplay($display);
+      justify-content: center;
+      left: 27px;
+      width: 0;
     }
   }
 
@@ -66,8 +94,9 @@
 
   .main-nav {
     @include typedisplay($display);
-    align-items: center;
+
     @media screen and (max-width: 767px) {
+      align-items: center;
       padding: 40px 31px;
       margin-bottom: 73px;
     }
@@ -124,22 +153,59 @@
       box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.04),
         -2px 0px 4px rgba(0, 0, 0, 0.08), -1px 0px 3px rgba(0, 0, 0, 0.16);
     }
+    @media screen and (min-width: 768px) {
+      @include typedisplay($display);
+      align-items: center;
+      padding-top: 40px;
+      padding-left: 24px;
+      margin-bottom: 192px;
+    }
+    @media screen and (min-width: 1200px) {
+      padding-top: 40px;
+      padding-left: 40px;
+      margin-bottom: 184px;
+    }
   }
-  .menu-container::after body {
+  /*.menu-container::after body {
     @media screen and (max-width: 767px) {
       background-color: rgba(25, 28, 38, 0.2);
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04),
         0px 2px 4px rgba(0, 0, 0, 0.08), 0px 1px 3px rgba(0, 0, 0, 0.16);
     }
   }
+  */
 
   .site-nav {
     font-weight: 600;
     line-height: 1.39;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.1em;
 
     @media screen and (max-width: 767px) {
       margin-bottom: 64px;
+    }
+    @media screen and (min-width: 768px) {
+      @include typedisplay($display);
+      margin-right: 47px;
+      font-size: 12px;
+      line-height: 1.33;
+      color: $main-color;
+    }
+    @media screen and (min-width: 1200px) {
+      margin-right: 322px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .item-nav:hover,
+    .item-nav:focus {
+      cursor: pointer;
+      color: $accent-color;
+    }
+    .item-nav:not(:last-child) {
+      margin-right: 24px;
+      @media screen and (min-width: 1200px) {
+        margin-right: 40px;
+      }
     }
   }
 
@@ -154,14 +220,34 @@
   .address-link {
     font-weight: 600;
     line-height: 1.39;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      position: absolute;
+      @include typedisplay($display);
+      top: 100px;
+      right: 58px;
+      font-size: 12px;
+      line-height: 1.33;
+      color: $main-color;
+    }
+    @media screen and (min-width: 1200px) {
+      margin-right: 40px;
+      font-size: 12px;
+      line-height: 1.33;
+      color: $main-color;
+    }
+  }
+  .address-link:hover,
+  .address-link:focus {
+    color: $accent-color;
+    cursor: pointer;
   }
 
   .button-header {
     display: inline-block;
     padding: 12px 37px;
-    margin-bottom: 64px;
 
     font-weight: 600;
     font-size: 12px;
@@ -173,11 +259,20 @@
 
     border: 1px solid $accent-color;
     border-radius: 25px;
+    @media screen and (max-width: 767px) {
+      margin-bottom: 64px;
+    }
+    @media screen and (min-width: 768px) {
+      padding: 12px 20px;
+      color: $main-color;
+    }
   }
 
-  .button-header:hover {
+  .button-header:hover,
+  .button-header:focus {
     background-color: $accent-color;
     color: $main-color;
+    cursor: pointer;
   }
 
   .header-social {
@@ -189,8 +284,12 @@
     }
     @media screen and (min-width: 768px) {
       position: absolute;
+      top: 370px;
       left: 0;
       transform: rotate(-90deg);
+    }
+    @media screen and (min-width: 1200px) and (max-width: 1279px) {
+      left: -50px;
     }
   }
   .header-social-links {
@@ -205,6 +304,12 @@
       }
     }
   }
+
+  .header-social-links:hover,
+  .header-social-links:focus {
+    cursor: pointer;
+    color: $accent-color;
+  }
   .header-social::after {
     position: absolute;
     display: flex;
@@ -216,6 +321,7 @@
     top: 8.5px;
     @media screen and (min-width: 768px) {
       left: -100px;
+      top: 6.5px;
     }
   }
 
@@ -223,6 +329,14 @@
     position: relative;
     padding-left: 31px;
     padding-right: 143px;
+    @media screen and (min-width: 768px) {
+      padding-left: 120px;
+      padding-right: 134px;
+    }
+    @media screen and (min-width: 1200px) {
+      padding-left: 100px;
+      padding-right: 525px;
+    }
   }
 
   .header-title {
@@ -234,6 +348,10 @@
     line-height: 1.17;
     letter-spacing: 0.05em;
     color: $main-color;
+    @media screen and (min-width: 1200px) {
+      font-size: 72px;
+      line-height: 1.18;
+    }
   }
 
   .header-subtitle {
@@ -260,18 +378,79 @@
   }
   .header-description {
     font-size: 16px;
-    line-height: 26px;
+    line-height: 1.63;
     color: $second-text-color;
+    @media screen and (min-width: 1200px) {
+      font-size: 18px;
+      line-height: 1.67;
+    }
   }
 
   .header-bottom {
     display: none;
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      @include typedisplay($display);
+      top: 616px;
+      right: 39px;
+    }
   }
 
+  @media screen and (min-width: 768px) {
+    .header-links {
+      @include typedisplay($display);
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 1.36;
+      letter-spacing: 0.1em;
+
+      color: $subtitle-text-color;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .back-link {
+      position: relative;
+      width: 60px;
+      padding-bottom: 8px;
+      margin-right: 26px;
+      &::after {
+        position: absolute;
+        display: flex;
+        content: '';
+        bottom: 0;
+        border: 1px solid $subtitle-text-color;
+        width: 100%;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .next-link {
+      position: relative;
+      width: 60px;
+      padding-bottom: 8px;
+      text-align: right;
+      color: $main-color;
+      &::after {
+        position: absolute;
+        display: flex;
+        content: '';
+        bottom: 0;
+        border: 1px solid $main-color;
+        width: 100%;
+      }
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        color: $main-color;
+      }
+    }
+  }
   .slider-navigation {
     position: absolute;
     right: 46px;
-    top: 50%;
+    top: 275px;
 
     & .navigation {
       border: 1px solid $second-text-color;
@@ -283,6 +462,9 @@
       &:not(:last-child) {
         margin-bottom: 12px;
       }
+    }
+    @media screen and (min-width: 768px) {
+      top: 325px;
     }
   }
 }
