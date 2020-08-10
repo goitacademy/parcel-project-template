@@ -104,19 +104,23 @@ header {
     padding: 32px 0 0 50px;
     justify-content: start;
   }
+}
 
-  @media screen and (min-width: $tablet) {
-    padding: 32px 0 0 55px;
-    //
-  }
+.header-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  // height: 100%;
+  background-color: rgba(25, 28, 38, 0.2);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08),
+    0px 1px 3px rgba(0, 0, 0, 0.16);
+  // overflow: scroll;
 }
 
 .header-nav {
   //. nav - плавающая навигация  хедера (навигация, контакты и подписка , соцсети)
-
-  //, Позиционирование меню
-
-  //, -----------------------
 
   margin-left: 60px;
   background-color: transparent;
@@ -127,31 +131,16 @@ header {
   letter-spacing: 0.1rem;
   color: $background-color;
 
-  .header-social {
-    //. ссылка на соцсети (цвет/ ховер)
-    text-decoration: none;
-    color: $header-title-color;
-
-    &:hover,
-    &:focus {
-      color: $accent-color;
-    }
-  }
-
   @media screen and (max-width: 767px) {
-    display: none; //| скрывает меню до фокуса
+    display: none;
 
     //, расставляет меню для моб.
     position: absolute;
     right: 0;
     top: 0;
     height: 100vh;
-    max-width: 480px;
-
-    background-color: rgba(25, 28, 38, 0.2); //!! - не реагирует
-
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08),
-      0px 1px 3px rgba(0, 0, 0, 0.16); //!  не реагирует
+    width: 70%;
+    margin-left: 103px;
 
     font-weight: 600;
     font-size: 18px;
@@ -163,7 +152,7 @@ header {
     color: $header-title-color;
 
     .hd-menu-container {
-      max-width: 100%; //!!!!!!!!! - не  реагирует
+      // width: 100%;
       height: 100%;
       margin: 0;
       padding-top: 118px;
@@ -378,4 +367,21 @@ header {
 
 .is-open {
   display: block;
+}
+
+.header-links {
+  //. ссылка на соцсети (цвет/ ховер)
+  text-decoration: none;
+  color: $header-title-color;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+.revers {
+  color: $background-color;
+  @media screen and(max-width:767px) {
+    color: $header-title-color;
+  }
 }
