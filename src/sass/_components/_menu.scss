@@ -1,0 +1,55 @@
+.menu-svg {
+  fill: $dark-background-color;
+}
+.menu-button {
+  display: none;
+  z-index: 3;
+  cursor: pointer;
+
+  @media screen and (max-width: $desktop - 1px) {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+}
+.menu-container {
+  @media screen and (max-width: $desktop - 1px) {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    padding-top: 108px;
+    padding-left: 15px;
+    padding-right: 15px;
+    z-index: 2;
+
+    background: rgba(17, 21, 24, 0.9);
+    &.is-open {
+      display: block;
+    }
+  }
+  @media screen and(min-width: $tablet) and (max-width: $desktop - 1px) {
+    text-align: center;
+  }
+  @media screen and(min-width: $desktop) {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+}
+
+.icon-close {
+  display: none;
+}
+.menu-button.is-open .icon-close {
+  display: block;
+  fill: $light-background-color;
+}
+.menu-button.is-open .icon-menu {
+  display: none;
+}
