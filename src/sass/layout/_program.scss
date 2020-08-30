@@ -22,9 +22,9 @@
     margin-bottom: 50px;
   }
   &-list {
-    text-align: center;
     position: relative;
     padding-left: 26px;
+    margin-left: 74px;
   }
 }
 .program-accent {
@@ -43,25 +43,92 @@
 
   position: absolute;
   top: 8px;
-  left: 20px;
+  left: 0px;
   width: 1px;
   height: 92%;
   background-color: $white;
 }
 .program-feature {
   position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    background-color: $accent;
+    top: 7px;
+    left: -32px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
 }
-.program-feature::before {
-  content: '';
-  position: absolute;
-  display: block;
-  background-color: $accent;
-  top: 7px;
-  left: 15px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+
+.program-descriprion-list > .program-descriprion-item:not(:last-child) {
+  margin-bottom: 8px;
 }
-.program-feature:not(:last-child) {
-  margin-bottom: 40px;
+
+@media screen and (min-width: 728px) and (max-width: 1353px) {
+  .program {
+    padding-top: 60px;
+    padding-bottom: 50px;
+    &-title {
+      text-align: start;
+      font-size: 26px;
+      line-height: 1.3;
+
+      letter-spacing: 0.03em;
+    }
+  }
+
+  .program-descriprion-list {
+    display: flex;
+  }
+  .program-descriprion-item {
+    width: 33%;
+  }
+
+  .program-descriprion-list > .program-descriprion-item:not(:last-child) {
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (min-width: 1353px) {
+  .program {
+    position: relative;
+    padding-left: 183px;
+    padding-right: 183px;
+    padding-top: 120px;
+    padding-bottom: 60px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 230px;
+      height: 1px;
+      width: 100%;
+      background-color: $white;
+    }
+    &-title {
+      position: relative;
+      text-align: start;
+      font-size: 46px;
+      margin-bottom: 100px;
+    }
+  }
+
+  .program-list {
+    margin-left: 0px;
+    display: flex;
+  }
+  .program-feature:not(:last-child) {
+    margin-right: 30px;
+  }
+  .program-descriprion-item {
+    width: 20%;
+  }
+  .program-list::before {
+    display: none;
+  }
 }
