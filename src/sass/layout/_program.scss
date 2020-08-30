@@ -1,13 +1,25 @@
+.container-program {
+  margin-bottom: 50px;
+}
 .program {
-  background-color: $bg-color;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $bg-color;
+    width: 100%;
+    height: 88%;
+    z-index: -1;
+  }
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 39px;
   &-subtitle {
     color: $white;
     font-weight: bold;
     font-size: 14px;
     line-height: 2;
-
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -33,14 +45,12 @@
   font-weight: 700;
   font-size: 12px;
   line-height: 1.6;
-
   letter-spacing: 0.08em;
   margin-bottom: 5px;
 }
 
 .program-list::before {
   content: '';
-
   position: absolute;
   top: 8px;
   left: 0px;
@@ -69,6 +79,18 @@
 .program-descriprion-list > .program-descriprion-item:not(:last-child) {
   margin-bottom: 8px;
 }
+@media screen and (max-width: 727px) {
+  .program {
+    position: relative;
+    &::after {
+      content: '';
+      background-image: url(./../images/lesson-mobile.png);
+      background-repeat: no-repeat;
+      background-position-y: 76%;
+      background-position-x: 100%;
+    }
+  }
+}
 
 @media screen and (min-width: 728px) and (max-width: 1353px) {
   .program {
@@ -78,7 +100,6 @@
       text-align: start;
       font-size: 26px;
       line-height: 1.3;
-
       letter-spacing: 0.03em;
     }
   }
