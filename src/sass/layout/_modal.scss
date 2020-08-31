@@ -1,0 +1,223 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    overflow-y: scroll;
+
+    background: rgba(0, 0, 0, 0.2);
+
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    min-height: 581px;
+    width: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+
+    padding: 40px;
+
+    // background: $primary-background-color;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    @media screen and (min-width:1200px) {
+        width: 528px;
+    }
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+.cross-button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+
+    .icon-close {
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &:hover .icon-close {
+        // fill: $accent-color;
+    }
+}
+
+.modal-title {
+    margin-bottom: 12px;
+
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+    // color: $title-color-light-theme;
+}
+
+.form-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-label {
+    margin-bottom: 4px;
+    font-size: 12px;
+}
+
+.form-input {
+    padding-left: 42px;
+    height: 40px;
+
+    font-size: 14px;
+
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    outline: none;
+
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        // border-color: $accent-color;
+    }
+}
+
+.modal-icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input:hover+.modal-icon,
+.form-input:focus+.modal-icon {
+    // fill: $accent-color;
+}
+
+.form-textarea {
+    width: 370px;
+    height: 120px;
+    padding: 12px 16px;
+
+    font-size: 14px;
+
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    outline: none;
+    resize: none;
+
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        // border-color: $accent-color;
+    }
+
+    @media screen and (min-width:1200px) {
+        width: 448px;
+    }
+}
+
+.form-wrapper-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-input {
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.form-label-checkbox {
+    display: flex;
+    align-items: center;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 11px;
+
+    @media screen and (min-width:1200px) {
+        // font-size: $text-font-size;
+    }
+
+    &::before {
+        display: block;
+        content: "";
+        width: 16px;
+        height: 15px;
+        margin-right: 8px;
+
+        border: 1px solid $title-color-light-theme;
+        border-radius: 4px;
+    }
+}
+
+.checkbox-input:checked+.form-label-checkbox::before {
+    // background-color: $accent-color;
+    background-image: url(../images/icon-check.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-color: transparent;
+}
+
+.modal-icon {
+    position: absolute;
+    bottom: 11px;
+    left: 12px;
+}
+
+.checkbox-link {
+    margin-left: 3px;
+
+    text-decoration: underline;
+    color: $accent-color;
+}
+
+.modal-button {
+    display: inline-block;
+    min-width: 200px;
+    padding: 10px 55px;
+    margin-top: 30px;
+
+    border-radius: 4px;
+    cursor: pointer;
+    color: $title-color-dark-theme;
+    background-color: $accent-color;
+    border-color: transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+    font-weight: 700;
+    font-size: $name-font-size;
+    line-height: 1.8;
+    letter-spacing: 0.06em;
+}
+
+.form-wrapper-button {
+    display: flex;
+    justify-content: center;
+}
