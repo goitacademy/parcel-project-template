@@ -1,4 +1,2 @@
 icecream-project 
-=======
-
->>>>>>> Project Go-IT
+Project Go-IT
