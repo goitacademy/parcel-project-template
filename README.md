@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
 icecream-project 
 =======
 
->>>>>>> Stashed changes
+>>>>>>> Project Go-IT
