@@ -30,7 +30,6 @@
   padding-left: 57px;
   margin-bottom: 30px;
 
-  /*font-family: 'DM Sans';*/
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -64,4 +63,58 @@
   font-size: 14px;
   line-height: 1.86;
   color: $primary-text-color;
+}
+
+.slider-radio-btn {
+  display: none;
+}
+
+.reviews-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.slides {
+  width: 100%;
+  display: none;
+}
+
+.reviews-slider-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 170px;
+  label {
+    cursor: pointer;
+    position: relative;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    &:not(:last-child) {
+      margin-right: 18px;
+    }
+  }
+}
+
+.check-svg {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reviews-slider-controls label:hover,
+.reviews-slider-controls label:focus,
+#slide1:checked ~ .reviews-slider-controls label:nth-of-type(1),
+#slide2:checked ~ .reviews-slider-controls label:nth-of-type(2),
+#slide3:checked ~ .reviews-slider-controls label:nth-of-type(3) {
+  background-color: transparent;
+  .check-svg {
+    display: block;
+  }
+}
+
+#slide1:checked ~ .reviews-slider > .review-slide1,
+#slide2:checked ~ .reviews-slider > .review-slide2,
+#slide3:checked ~ .reviews-slider > .review-slide3 {
+  display: block;
 }
