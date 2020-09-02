@@ -1,129 +1,268 @@
 /* HERO SECTION */
 .hero {
   background: $tertiary-background-color;
-  padding-top: 118px;
-  padding-bottom: 118px;
   margin-left: auto;
   margin-right: auto;
-  background-size: cover;
-  background-repeat: no-repeat;
 
-  //   &-title {
-  //     margin-bottom: 30px;
-  //   }
+  &-title-accent {
+    color: $secondary-text-color;
+  }
 
-  background-image: url('../images/hero/desktop/milk-desktop.png'),
-    url('../images/hero/desktop/ice-cream-desktop.png'),
-    url('../images/hero/desktop/girl-desktop.png'),
-    url('../images/hero/desktop/ellipse-desktop.png');
-  background-size: 188px, 236px, 293px, 538px;
-  background-position: bottom left, center, bottom right, center;
-  background-repeat: no-repeat;
+  &-navigation {
+    display: flex;
+    // margin-bottom: 112px;
+  }
+
+  &-navigation-item {
+    display: block;
+    text-align: center;
+    background-color: $primary-background-color;
+    border-radius: 20px;
+    border-style: unset;
+  }
+
+  &-navigation-item-link {
+    font-family: $primary-font-family;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.286;
+    letter-spacing: 0.03em;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    border-radius: 20px;
+    border-style: unset;
+    cursor: pointer;
+
+    @include transition(color);
+    @include transition(background);
+
+    &:hover.first,
+    &:focus.first {
+      background: $hover-background-color-first;
+      color: $primary-text-color;
+    }
+
+    &:hover.second,
+    &:focus.second {
+      background: $hover-background-color-second;
+      color: $secondary-text-color;
+    }
+
+    &.first {
+      color: $primary-text-color;
+      background: $button-background-color;
+    }
+
+    &.second {
+      color: $secondary-text-color;
+      background: $primary-background-color;
+    }
+  }
 }
 
-// @media screen and (max-width: 1199px) {
-//   .hero {
-//     width: 768px;
-//     height: 400px;
-//     background-image: linear-gradient(
-//         rgba(47, 48, 58, 0.8),
-//         rgba(47, 48, 58, 0.8)
-//       ),
-//       url('../images/hero/tablet-header.jpg');
-//     background-size: contain;
+@media screen and (max-width: 1199px) {
+  .hero {
+    width: 768px;
+    height: 399px;
+    padding-top: 102px;
 
-//     &-title {
-//       @include hero-title();
-//     }
-//   }
-//   @media screen and (min-device-pixel-ratio: 2),
-//     screen and (min-resolution: 192dpi),
-//     screen and (min-resolution: 2dppx) {
-//     .hero {
-//       background-image: linear-gradient(
-//           rgba(47, 48, 58, 0.8),
-//           rgba(47, 48, 58, 0.8)
-//         ),
-//         url('../images/hero/tablet-header@2x.jpg');
-//     }
-//   }
-// }
+    background-image: url('../images/hero/tablet/milk-tablet.png'),
+      url('../images/hero/tablet/ice-cream-tablet.png'),
+      url('../images/hero/tablet/girl-tablet.png'),
+      url('../images/hero/tablet/ellipse-tablet.png');
+    background-size: 124px, 143px, 168px, 324px;
+    background-position: bottom 28px left 36px, bottom right 247px,
+      bottom right 34px, bottom 46px right 137px;
+    background-repeat: no-repeat;
 
-// @media screen and (max-width: 767px) {
-//   .hero {
-//     width: 480px;
-//     height: 400px;
-//     background-image: linear-gradient(
-//         rgba(47, 48, 58, 0.8),
-//         rgba(47, 48, 58, 0.8)
-//       ),
-//       url('../images/hero/mobile-header.jpg');
-//   }
+    &-title {
+      margin-bottom: 20px;
+      @include hero-title(22px, 1.136);
+    }
 
-//   @media screen and (min-device-pixel-ratio: 2),
-//     screen and (min-resolution: 192dpi),
-//     screen and (min-resolution: 2dppx) {
-//     .hero {
-//       background-image: linear-gradient(
-//           rgba(47, 48, 58, 0.8),
-//           rgba(47, 48, 58, 0.8)
-//         ),
-//         url('../images/hero/mobile-header@2x.jpg');
-//     }
-//   }
-// }
+    &-title-accent {
+      @include hero-title-accent(34px, 0.912);
+    }
 
-// @media screen and (max-width: 479px) {
-//   .hero {
-//     width: 100%;
-//     height: auto;
-//     background-image: linear-gradient(
-//         rgba(47, 48, 58, 0.8),
-//         rgba(47, 48, 58, 0.8)
-//       ),
-//       url('../images/hero/mobile-header.jpg');
-//     background-size: cover;
-//   }
+    &-navigation-item:not(:last-child) {
+      margin-right: 8px;
+    }
 
-//   @media screen and (min-device-pixel-ratio: 2),
-//     screen and (min-resolution: 192dpi),
-//     screen and (min-resolution: 2dppx) {
-//     .hero {
-//       background-image: linear-gradient(
-//           rgba(47, 48, 58, 0.8),
-//           rgba(47, 48, 58, 0.8)
-//         ),
-//         url('../images/hero/mobile-header@2x.jpg');
-//     }
-//   }
-// }
+    .hero-description-wrapper {
+      width: 114px;
+      margin-left: 120px;
+    }
+  }
 
-// @media screen and (min-width: 1200px) {
-//   .hero {
-//     padding-top: 200px;
-//     padding-bottom: 200px;
-//     max-width: 1600px;
-//     max-height: 600px;
-//     background-image: linear-gradient(
-//         rgba(47, 48, 58, 0.8),
-//         rgba(47, 48, 58, 0.8)
-//       ),
-//       url('../images/hero/desktop-header.jpg');
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .hero {
+      background-image: url('../images/hero/tablet/milk-tablet@2x.png'),
+        url('../images/hero/tablet/ice-cream-tablet@2x.png'),
+        url('../images/hero/tablet/girl-tablet@2x.png'),
+        url('../images/hero/tablet/ellipse-tablet@2x.png');
+      background-size: 124px, 143px, 168px, 324px;
+      background-position: bottom 28px left 36px, bottom right 247px,
+        bottom right 34px, bottom 46px right 137px;
+      background-repeat: no-repeat;
+    }
+  }
+}
 
-//     &-title {
-//       @include hero-title-desktop();
-//     }
-//   }
+@media screen and (max-width: 767px) {
+  .hero {
+    width: 320px;
+    height: 502px;
+    padding-top: 83px;
+    padding-bottom: 160px;
+    background-image: url('../images/hero/mobile/ice-cream-mobile.png'),
+      url('../images/hero/mobile/ellipse-mobile.png');
+    background-size: 171px, 284px;
+    background-position: bottom right 32px, bottom 75px left 36px;
+    background-repeat: no-repeat;
 
-//   @media screen and (min-device-pixel-ratio: 2),
-//     screen and (min-resolution: 192dpi),
-//     screen and (min-resolution: 2dppx) {
-//     .hero {
-//       background-image: linear-gradient(
-//           rgba(47, 48, 58, 0.8),
-//           rgba(47, 48, 58, 0.8)
-//         ),
-//         url('../images/hero/desktop-header@2x.jpg');
-//     }
-//   }
-// }
+    &-title {
+      margin-bottom: 19px;
+      @include hero-title(26px, 1.154);
+    }
+
+    &-title-accent {
+      @include hero-title-accent(48px, 0.958);
+    }
+
+    .container {
+      padding-top: 137px;
+    }
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .hero {
+      background-image: url('../images/hero/mobile/ice-cream-mobile@2x.png'),
+        url('../images/hero/mobile/ellipse-mobile@2x.png');
+      background-size: 171px, 284px;
+      background-position: bottom right 32px, bottom 75px left 36px;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .hero-description-wrapper {
+    display: none;
+  }
+
+  .advantages-list {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    padding-bottom: 34px;
+
+    &-navigation {
+      margin-bottom: 66px;
+    }
+  }
+
+  .hero-description-wrapper {
+    display: block;
+  }
+
+  .hero-description {
+    font-family: $primary-font-family;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 1.5;
+    color: $primary-text-color;
+    margin-bottom: 7px;
+  }
+
+  .hero-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .advantages-list {
+    display: block;
+
+    &-item:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    &-item-number {
+      font-family: $secondary-font-family;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 1.143;
+      text-align: right;
+      color: $secondary-text-color;
+      // background: #FFFFFF;
+      // transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+
+    &-item-description {
+      font-family: $primary-font-family;
+      font-weight: 400;
+      font-size: 8px;
+      line-height: 1.286;
+      text-align: right;
+      color: $primary-text-color;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero {
+    padding-top: 171px;
+    padding-bottom: 56px;
+    max-width: 1600px;
+    max-height: 665px;
+    background-image: url('../images/hero/desktop/milk-desktop.png'),
+      url('../images/hero/desktop/ice-cream-desktop.png'),
+      url('../images/hero/desktop/girl-desktop.png'),
+      url('../images/hero/desktop/ellipse-desktop.png');
+    background-size: 188px, 236px, 293px, 538px;
+    background-position: bottom 45px left 77px, bottom center,
+      bottom right 109px, bottom 75px center;
+    background-repeat: no-repeat;
+
+    &-title {
+      margin-bottom: 25px;
+      @include hero-title(38px, 1.158);
+    }
+
+    &-title-accent {
+      @include hero-title-accent(58px, 1.04);
+    }
+    &-navigation {
+      margin-bottom: 112px;
+    }
+
+    &-navigation-item:not(:last-child) {
+      margin-right: 15px;
+    }
+    .hero-description-wrapper {
+      width: 200px;
+      margin-left: 220px;
+    }
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .hero {
+      background-image: url('../images/hero/desktop/milk-desktop@2x.png'),
+        url('../images/hero/desktop/ice-cream-desktop@2x.png'),
+        url('../images/hero/desktop/girl-desktop@2x.png'),
+        url('../images/hero/desktop/ellipse-desktop@2x.png');
+      background-size: 188px, 236px, 293px, 538px;
+      background-position: bottom 45px left 77px, bottom center,
+        bottom right 109px, bottom 75px center;
+      background-repeat: no-repeat;
+    }
+  }
+}
