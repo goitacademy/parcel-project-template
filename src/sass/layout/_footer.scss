@@ -1,5 +1,8 @@
 .footer-contact-list {
   text-align: center;
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
   &-item {
     text-align: left;
     background: #ffffff;
@@ -8,6 +11,15 @@
     @media screen and (max-width: 767px) {
       padding: 43px 21px 43px 21px;
       margin-bottom: 20px;
+    }
+    @media screen and (min-width: 768px) {
+      padding: 50px 32px 50px 31px;
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+    & > .schedule-list-wrapper {
+      margin-bottom: 10px;
     }
   }
   &-header {
@@ -23,6 +35,7 @@
     line-height: 1.86;
     text-align: center;
     letter-spacing: 0.04em;
+
     &.bg-green {
       background-color: #c2e297;
     }
@@ -33,6 +46,9 @@
     letter-spacing: 0.04em;
     color: $text-light-theme-color;
     margin-bottom: 10px;
+    @media screen and(min-width:768px) {
+      font-size: 14px;
+    }
   }
   &-text {
     font-weight: 500;
@@ -40,13 +56,19 @@
     line-height: 1.83;
     letter-spacing: 0.04em;
     color: $description-color;
-    margin-bottom: 25px;
+    @media screen and(min-width:768px) {
+      font-size: 14px;
+      line-height: 1.66;
+    }
+
     &::after {
-      content: ' ';
+      content: '';
+      display: block;
       width: 100%;
       height: 1px;
       background: #e1e1e1;
       margin-bottom: 25px;
+      margin-top: 25px;
     }
   }
 
@@ -55,19 +77,36 @@
     line-height: 1.86;
     letter-spacing: 0.04em;
     color: $text-light-theme-color;
+    @media screen and(min-width:768px) {
+      font-size: 14px;
+    }
   }
   &-schedule-time {
     font-size: 16px;
     line-height: 186%;
     color: #ffa5ba;
+    @media screen and(min-width:768px) {
+      font-size: 14px;
+    }
   }
 }
-.schedule-list-wrapper {
+.schedule-time-wrapper {
   margin-bottom: 25px;
-  &:not(:last-child) {
-    margin-bottom: 10px;
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #e1e1e1;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    @media screen and(min-width:768px) {
+      margin-bottom: 30px;
+      margin-top: 30px;
+    }
   }
 }
+
 .footer-adress-list-link {
   text-decoration: none;
   color: $description-color;
@@ -76,4 +115,7 @@
   font-size: 16px;
   line-height: 1.83;
   letter-spacing: 0.04em;
+  @media screen and(min-width:768px) {
+    font-size: 14px;
+  }
 }
