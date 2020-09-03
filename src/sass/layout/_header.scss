@@ -1,12 +1,242 @@
+/* ШАПКА САЙТА */
+
 .header {
-  position: relative;
   background: #ffb8ca;
 
   .container {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     padding-top: 6px;
+  }
+}
+
+.menu-button {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  z-index: 1000000;
+}
+
+.menu-button .burger-close {
+  display: none;
+}
+
+.menu-button.is-open .burger-close {
+  display: block;
+}
+
+.menu-button.is-open .burger {
+  display: none;
+}
+
+.header-menu-buy-btn {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  height: 44px;
+  margin-bottom: 19px;
+
+  background: #ffffff;
+  border-radius: 22px;
+  border: none;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+
+  color: #d41443;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: #ecebeb;
+  }
+}
+
+.navigation-list-item-link {
+  padding-top: 12px;
+  padding-right: 21px;
+  padding-bottom: 12px;
+  padding-left: 21px;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #ffffff;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    color: $main-title-color;
+  }
+}
+
+.current-page-link {
+  color: $main-title-color;
+}
+
+@media screen and (max-width: 767px) {
+  .header-menu-buy-btn {
+    width: 209px;
+    .header-button-element {
+      margin-left: 16px;
+    }
+  }
+
+  .header-buy-btn {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header .container {
+    padding-top: 37px;
+    justify-content: flex-start;
+  }
+
+  .logo {
+    margin-right: 291px;
+  }
+
+  .header-menu-buy-btn {
+    width: 186px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .menu-container {
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 60px;
+    padding-bottom: 171px;
+    width: 250px;
+    max-width: 100%;
+    height: 502px;
+    background: #e17992;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.29;
+    &.is-open {
+      display: block;
+      z-index: 10000;
+    }
+  }
+
+  .navigation-list-item {
+    text-align: left;
+  }
+
+  .navigation-list-item:nth-child(2n - 1) {
+    border-top: 1px solid #e18298;
+    border-bottom: 1px solid #e18298;
+  }
+
+  .navigation-list-item-link {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.29;
+    padding-top: 12px;
+    padding-right: 21px;
+    padding-bottom: 12px;
+    padding-left: 21px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .header-buy-btn {
+    position: relative;
+    align-items: center;
+    width: 160px;
+    max-width: 100%;
+    height: 44px;
+    margin-left: 30px;
+
+    background: #ffffff;
+    border-radius: 22px;
+    border: none;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.31;
+
+    color: $main-title-color;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    .header-button-element {
+      margin-left: 12px;
+    }
+    &:hover,
+    &:focus {
+      background-color: #ecebeb;
+    }
+  }
+
+  .header-button-element {
+    margin-left: 14px;
+  }
+
+  .menu-container {
+    width: 254px;
+    height: 1020px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header .container {
+    justify-content: flex-end;
+  }
+
+  .logo {
+    position: absolute;
+    left: 46px;
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  .header-buy-btn {
+    display: none;
+  }
+
+  .menu-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-menu-buy-btn {
+    width: 118px;
+    order: 2;
+    margin-bottom: 0;
+    .header-button-element {
+      margin-left: 12px;
+    }
+  }
+
+  .navigation-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
+    margin-right: 110px;
+  }
+
+  .navigation-list-item:not(:last-child) {
+    margin-right: 35px;
+  }
+
+  .navigation-list-item-link {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.31;
+    padding: 0;
   }
 }
