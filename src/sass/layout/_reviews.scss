@@ -1,3 +1,41 @@
+@keyframes animation-slide {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.reviews .container {
+  position: relative;
+  @media screen and(max-width:767px) {
+    padding-top: 154px;
+  }
+  @media screen and(min-width:768px) {
+    padding-top: 279px;
+  }
+  @media screen and(min-width:1200px) {
+    padding-top: 382px;
+  }
+}
+
+.reviews-collage {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
+  @media screen and(max-width:767px) {
+    top: -48px;
+  }
+  @media screen and (min-width: 768px) {
+    top: -106px;
+  }
+  @media screen and(min-width:1200px) {
+    top: -162px;
+  }
+}
+
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -137,11 +175,10 @@
 .reviews-slider {
   width: 100%;
   overflow: hidden;
-  position: relative;
 }
 .slides {
-  width: 100%;
   display: none;
+  width: 100%;
 }
 
 .reviews-slider-controls {
@@ -150,11 +187,11 @@
   margin-bottom: 170px;
   label {
     cursor: pointer;
-    position: relative;
     height: 12px;
     width: 12px;
     border-radius: 50%;
     background-color: #d9d9d9;
+    transition: background-color 250ms linear;
     &:not(:last-child) {
       margin-right: 18px;
     }
@@ -162,9 +199,11 @@
 }
 
 .check-svg {
-  display: none;
+  display: block;
+  opacity: 0;
   margin-left: auto;
   margin-right: auto;
+  transition: opacity 250ms linear;
 }
 
 .reviews-slider-controls label:hover,
@@ -174,7 +213,7 @@
 #slide3:checked ~ .reviews-slider-controls label:nth-of-type(3) {
   background-color: transparent;
   .check-svg {
-    display: block;
+    opacity: 1;
   }
 }
 
@@ -182,4 +221,6 @@
 #slide2:checked ~ .reviews-slider > .review-slide2,
 #slide3:checked ~ .reviews-slider > .review-slide3 {
   display: block;
+  animation-name: animation-slide;
+  animation-duration: 250ms;
 }
