@@ -94,6 +94,15 @@
       width: 114px;
       margin-left: 120px;
     }
+
+    .hero-description {
+      font-family: $primary-font-family;
+      font-weight: 400;
+      font-size: 8px;
+      line-height: 1.5;
+      color: $primary-text-color;
+      margin-bottom: 7px;
+    }
   }
 
   @media screen and (min-device-pixel-ratio: 2),
@@ -172,15 +181,6 @@
     display: block;
   }
 
-  .hero-description {
-    font-family: $primary-font-family;
-    font-weight: 400;
-    font-size: 8px;
-    line-height: 1.5;
-    color: $primary-text-color;
-    margin-bottom: 7px;
-  }
-
   .hero-wrapper {
     display: flex;
     justify-content: space-between;
@@ -189,17 +189,36 @@
   .advantages-list {
     display: block;
 
+    &-item {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        top: -4px;
+        right: -7px;
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        background: $primary-background-color;
+        border-radius: 50%;
+        z-index: 1;
+      }
+    }
+
     &-item:not(:last-child) {
-      margin-bottom: 15px;
+      margin-bottom: 13px;
     }
 
     &-item-number {
+      position: relative;
       font-family: $secondary-font-family;
       font-weight: 400;
       font-size: 28px;
       line-height: 1.143;
       text-align: right;
       color: $secondary-text-color;
+      z-index: 5;
       // background: #FFFFFF;
       // transform: matrix(-1, 0, 0, 1, 0, 0);
     }
@@ -208,7 +227,7 @@
       font-family: $primary-font-family;
       font-weight: 400;
       font-size: 8px;
-      line-height: 1.286;
+      line-height: 1.25;
       text-align: right;
       color: $primary-text-color;
     }
@@ -264,5 +283,53 @@
         bottom right 109px, bottom 75px center;
       background-repeat: no-repeat;
     }
+  }
+
+  .advantages-list {
+    &-item {
+      &::after {
+        // position: absolute;
+        top: -7px;
+        right: -14px;
+        // content: '';
+        // display: block;
+        width: 30px;
+        height: 30px;
+        // background: $primary-background-color;
+        // border-radius: 50%;
+      }
+    }
+    &-item:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    &-item-number {
+      font-family: $secondary-font-family;
+      font-weight: 400;
+      font-size: 46px;
+      line-height: 1.152;
+      text-align: right;
+      color: $secondary-text-color;
+      // background: #FFFFFF;
+      // transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+
+    &-item-description {
+      font-family: $primary-font-family;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.286;
+      text-align: right;
+      color: $primary-text-color;
+    }
+  }
+
+  .hero-description {
+    font-family: $primary-font-family;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.429;
+    color: $primary-text-color;
+    margin-bottom: 20px;
   }
 }
