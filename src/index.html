@@ -794,6 +794,17 @@
       // Trigger pagination creator
       mySiema.addPagination();
     </script>
+    <!-- Скрипт добавляет класс is-open для кнопок слайдера -->
+    <script>
+      (() => {
+        const menuBtnRef = document.querySelector('[slider-button]');
+        menuBtnRef.addEventListener('click', () => {
+          const expanded =
+            menuBtnRef.getAttribute('aria-expanded') === 'true' || false;
+          menuBtnRef.classList.toggle('is-open');
+          menuBtnRef.setAttribute('aria-expanded', !expanded);
+        });
+      })();
     </script>
   </body>
 </html>
