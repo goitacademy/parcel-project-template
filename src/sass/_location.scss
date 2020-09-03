@@ -1,31 +1,186 @@
+// можно добавить в плейсхолдер стилизация текста
+// font-style: normal;
+// font-weight: 500;
+// font-size: 12px;
+// line-height: 1.83;
+// letter-spacing: 0.04em;
+
+// общий стиль на шрифты, задний фон, нижний падинг
+.location {
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.83;
+  letter-spacing: 0.04em;
+  background-color: $footer-background;
+  // закоментить перед отправкой
+  padding-top: 100px;
+  padding-bottom: 113px;
+}
+.location-container {
+  margin: 0 auto;
+}
+// стилизация контейнера в котором все описание
 .location-place-item {
+  max-width: 220px;
+  background-color: $links-text-color;
   padding-left: 20px;
   padding-right: 21px;
   padding-top: 43px;
   padding-bottom: 43px;
   box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
   border-radius: 24px;
-  margin: 0 auto;
+  margin-bottom: 20px;
 }
+// стилизация заголовков(видов локации(кафе-фудтрак))
 .location-place-item-title {
+  display: inline-block;
+  font-family: $main-font;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.83;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $links-text-color;
+  background: #f0d1a5;
+  border-radius: 6px;
+  width: 80px;
+  text-align: center;
   margin-bottom: 25px;
 }
+.foodtruck-title {
+  background: #c2e297;
+  width: 130px;
+}
+
+// нижний отступ к веремени работы
+.location-place-item-container {
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+// отступ от тега города к описанию
 .location-place-item-container-city {
   margin-bottom: 10px;
 }
-.location-place-item-container {
-  margin-bottom: 50px;
+.location-place-item-container-about {
+  position: relative;
+  line-height: 1.5;
+  color: $section-text;
 }
+
+// нижний отступ времени работы
 .location-place-item-tametable {
-  margin-bottom: 50px;
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
 }
-@media screen and (max-width: 319px) {
-  .location-place-item {
-    max-width: 220px;
+
+// отступ между будними днями-временем и выходными днями-временем
+.location-place-item-tametable-items {
+  margin-bottom: 10px;
+}
+
+// стилизация времени работы
+.location-place-item-tametable-time {
+  text-transform: uppercase;
+  color: $subtitle-color;
+}
+
+// стилизация контейнера адресс
+.location-address {
+  font-style: normal;
+  & > a {
+    line-height: 1.5;
+    color: $section-text;
   }
 }
-@media screen and (min-width: 320px) {
+
+// стилизация кнопок
+.location-btn {
+  display: block;
+  width: 162px;
+  background-color: #d41342;
+  color: $links-text-color;
+}
+.location-btn-franchise {
+  display: block;
+  width: 161px;
+  background-color: $links-text-color;
+  color: #d41342;
+}
+
+@media screen and (max-width: 767px) and(min-width: 320px) {
+  .location-container {
+    width: 320px;
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+  // отступ к кнопкам
+  .location-place {
+    margin-bottom: 54px;
+  }
+  .location-btn {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .location-container {
+    width: 696px;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+  .location-place {
+    width: 100%;
+    display: flex;
+    margin-bottom: 81px;
+  }
+  .location-place-item:not(:last-child) {
+    margin-right: 20px;
+  }
+  .location-place-item-title {
+    @include font($fs: 16px, $fw: 500, $lh: 1.875);
+    width: 73px;
+  }
+  .foodtruck-title {
+    width: 138px;
+  }
   .location-place-item {
-    width: 220px;
+    padding-left: 31px;
+    padding-right: 32px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .location-place {
+    font-size: 14px;
+  }
+  .location-place-item-container-about {
+    line-height: 1.642;
+  }
+  .location-address,
+  .location-place-item-tametable {
+    line-height: 1.857;
+  }
+  .location-button {
+    display: flex;
+    justify-content: center;
+  }
+  .location-btn {
+    width: 192px;
+  }
+  .location-btn-franchise {
+    width: 174px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .location-container {
+    width: 970px;
+    padding-left: 115px;
+    padding-right: 115px;
+  }
+  .location-place-item {
+    width: 330px;
   }
 }
