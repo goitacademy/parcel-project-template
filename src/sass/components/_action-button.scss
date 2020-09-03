@@ -1,0 +1,88 @@
+/*
+==========================ИНСТРУКЦИЯ! : ===========================================
+чтобы подключить кнопку необходимо добавить в классы вашей кнопки следующие классы:
+
+    --> .action-button ---абсолютно для всех кнопок (красных, белых, с стрелочкой).
+    --> .second-button ---подключить данный класс дополнительно, для белых кнопок.
+    --> .arrow ---подключить дааный класс дополнительно, для кнопок с стрелочкой. 
+
+Стили кнопок расчитаны для тегов "a" и "button".
+
+======!!!возможно требуется fix border-radius после добавления font. !!!========= 
+в макете он там от балды его рисует. 
+*/
+.action-button{
+    display: inline-block;
+    border-radius: 40px;
+    background-color: $main-title-color;
+    color: $primary-white-color;
+    &.second-button{
+        background: $primary-white-color;
+        color: $main-title-color;
+        &:hover,
+        &:focus{
+            background-color: $hover-color;
+        }
+        svg{
+            fill: $main-title-color3;
+        }
+    }
+    &:hover,
+    &:focus{
+        background-color: $accent-color;
+    }
+    &.arrow{
+        font-size: 16px;
+        line-height: 1.31em;
+
+        padding-top: 16px;
+        padding-bottom: 17px;
+        padding-right: 35px;
+        padding-left: 35px;
+        display: flex;
+        align-items: center;
+        //для кнопки <button> стили border
+        border: none;
+        border-radius: 44px;
+        svg{
+            width: 5px;
+            height: 8px;
+            margin-left: 14px;
+            fill: $primary-white-colorf;
+        }
+    } 
+}
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .action-button{
+        &.arrow{
+            //нужно подогнать паддинги по реальной странице, чтобы она правильно растянулась.   
+            padding-right: 42px;
+            padding-left: 52px;
+        }
+        svg{
+            margin-left: 20px;
+        }
+    }
+}
+@media screen and (min-width: 768px){
+    .action-button{
+        font-size: 8px;
+        line-height: 1.25em;
+
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+}
+@media screen and (min-width: 1200px){
+    .action-button{
+        font-size: 14px;
+        line-height: 1.28em;
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 22px;
+        padding-left: 22px;
+    }
+}
