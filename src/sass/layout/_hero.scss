@@ -2,14 +2,20 @@
   position: relative;
   background-color: #ffb8ca;
   z-index: -1;
+  overflow: hidden;
 }
 
 .hero-content {
   padding-top: 193px;
   padding-bottom: 160px;
-  padding-left: 6.25%;
+  margin-right: auto;
+  margin-left: auto;
+  @media screen and (min-width: 480px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   position: relative;
-  overflow: hidden;
 
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     padding-top: 102px;
@@ -20,7 +26,7 @@
 
     background-size: 168px 133px, 124px 126px;
     background-repeat: no-repeat;
-    background-position: bottom 0px right 20px, top 10px left 10px;
+    background-position: bottom 0px right 20px, bottom 27px left 34px;
 
     // background-image: url('../images/hero/tablet/girl-ice.png');
   }
@@ -36,7 +42,8 @@
   text-transform: uppercase;
   color: #ffffff;
   margin-bottom: 19px;
-  z-index: -1;
+  // z-index: -1;
+
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     font-size: 22px;
     line-height: 1.13;
@@ -103,4 +110,58 @@
   .hero-button:not(:last-child) {
     margin-right: 8px;
   }
+}
+
+/*********Список**********/
+.hero-list-of-number {
+  display: none;
+  margin-left: auto;
+  position: relative;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.hero-list-number {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:last-child) {
+    margin-bottom: 13px;
+  }
+
+  &::after {
+    content: ' ';
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
+    z-index: -1;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    transform: translateX(50%);
+  }
+
+  .hero-list-number-first {
+    font-family: Titan One;
+    font-size: 28px;
+    line-height: 1.14;
+    text-align: right;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #d41443;
+  }
+  .hero-list-number-description {
+    font-family: DM Sans;
+    font-size: 8px;
+    line-height: 1.25;
+    color: #ffffff;
+    text-align: right;
+  }
+}
+
+.hero-info-block {
+  display: flex;
 }
