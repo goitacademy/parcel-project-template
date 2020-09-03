@@ -1,34 +1,26 @@
 footer {
   background-color: $footer-background;
 
-  &::before {
+  &::after {
     content: '';
     position: relative;
+    top: -88px;
     display: block;
     width: inherit;
     border: 1px solid #e1e1e1;
 
-    transform: translateY(347px);
-    // transform: translateY(17350%);
-
     @media screen and (min-width: 768px) {
-      transform: translateY(312px);
-      //   transform: translateY(15600%);
+      top: -73px;
     }
 
     @media screen and (min-width: 1200px) {
-      transform: translateY(267px);
-      //   transform: translateY(13400%);
+      top: -45px;
     }
   }
 
   &.container {
     margin: 0px;
     background-color: $footer-background;
-
-    // @media screen and (min-width: 319px) {
-    //   width: 320px;
-    // }
 
     @media screen and (min-width: 768px) {
       width: 768px;
@@ -70,7 +62,7 @@ footer {
     }
 
     @media screen and (min-width: 1200px) {
-      //   width: 100%;
+      width: 100%;
       margin-top: 9px;
       margin-bottom: 15px;
       @include font(30px, 500, 1.133);
@@ -125,16 +117,14 @@ footer {
   }
 
   &-item {
-    &:first-child {
-      margin-right: 24px;
+    &:not(:last-child) {
+      margin-right: 28px;
+
       @media screen and (min-width: 768px) {
         margin-right: 30px;
       }
-    }
-    &:last-child {
-      margin-left: 25px;
-      @media screen and (min-width: 768px) {
-        margin-left: 30px;
+      @media screen and (min-width: 1200px) {
+        margin-right: 25px;
       }
     }
   }
@@ -236,12 +226,4 @@ footer {
       margin-right: 4px;
     }
   }
-
-  //   &::before {
-  //     margin-bottom: 9px;
-  //     content: '';
-  //     display: block;
-  //     width: 1200px;
-  //     border: 1px solid green;
-  //   }
 }
