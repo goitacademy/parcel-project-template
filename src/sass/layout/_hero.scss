@@ -1,6 +1,254 @@
 .hero{
     background-color: $hero-main-color;
-    .next{
-        
+    .container{
+        position: relative;
+        background-repeat: no-repeat;
+    }
+}   
+.hero-title{
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $primary-white-color;
+    > span {
+        color: $main-title-color;
+    }
+}
+.counter-wrapper{
+    position: absolute;
+}
+.counter-item{
+    display: block;
+    position: relative;
+    &::after{
+        content: "";
+        position: absolute;
+        background-color: $primary-white-color;
+
+    }
+}
+.counter-number{
+    position: relative;
+    z-index: 5;
+    font-family: $title-font;
+    color: $main-title-color;
+    text-align: right;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+.counter-description{
+    color: $primary-white-color;
+    text-align: right;
+}
+// =================Mobile Device ==================
+@media screen and (max-width: 767px){
+    .counter-wrapper, .about-wrapper{
+        display: none;
+    }
+    .hero-wrapper{
+        padding-top: 193px;
+        padding-bottom: 160px;
+    } 
+    .hero-title{
+        font-size: 26px;
+        line-height: 1.15;
+        > span {
+            font-size: 48px;
+            line-height: 0.96;
+        }
+    }
+    .hero{
+        .action-button{
+            font-size: 8px;
+            line-height: 1.25;
+
+            padding-top: 7px;
+            padding-bottom: 7px;
+            padding-right: 14px;
+            padding-left: 14px;
+        }
+        .container{
+            background-image: url(/images/hero/icecream-mob.png),
+            url(/images/hero/ellipse.svg);
+            background-size: 172px 410px, 346px 344px;
+            background-position:  right 32px bottom, left 36px bottom 75px;
+        }
+    }
+}
+@media screen and (min-device-pixel-ratio: 2), 
+screen and (min-resolution: 192dpi), 
+screen and (min-resolution: 2dppx), 
+screen and (max-width: 767px){
+    .hero{ 
+        .container{
+            background-image: url(/images/hero/icecream-mob@2x.png),
+            url(/images/hero/soo-tasty.png),
+            url(/images/hero/cup-milk.png),
+            url(/images/hero/ellipse.svg);
+            background-size: 172px 410px,0 0, 0 0, 346px 344px;
+            background-position:  right 32px bottom, left 36px bottom 75px;
+        }
+    }
+}
+//=============== TABLET ==============================
+@media screen and (min-width: 767px){
+    .counter-wrapper, .about-wrapper{
+        display: block;
+    }
+    .hero-wrapper{
+        padding-top: 102px;
+    }
+    .hero-title{
+        font-size: 22px;
+        line-height: 1.13;
+        > span {
+            font-size: 32px;
+            line-height: 0.96;
+        }
+    } 
+    .hero{
+        .container{
+            background-image: url(/images/hero/icecream-tablet.png),
+            url(/images/hero/soo-tasty-tablet.png),
+            url(/images/hero/cup-milk-tablet.png),
+            url(/images/hero/ellipse.svg);
+            background-size: 143px 336px, 168px 133px, 124px 126px, 324px 322px;
+            background-position: right 247px bottom, right 34px bottom, left 34px bottom 28px, right 137px bottom 46px;
+        }
+        .next{
+            .next-svg{
+                width: 5px;
+                height: 4px;
+            }
+            width: 18px;
+            height: 18px;
+        }
+    }
+    .about-wrapper{
+        margin-top: 66px;
+        padding-left: 120px;
+        padding-bottom: 34px;
+    }
+    .about-description{
+        width: 114px;
+        color: $primary-white-color;
+        font-size: 8px;
+        line-height: 1.5;
+    }
+    .counter-wrapper{
+        right: 12px;
+        top: 94px;
+    }
+    .counter-item{
+        &::after{     
+            top: -2px;
+            right: -10px;
+            width: 16px;
+            height: 16px;
+            border-radius: 8px;
+        }
+        &:not(:last-child){
+            margin-bottom: 14px;
+        }
+    }
+    .counter-number{
+        font-size: 28px;
+        line-height: 1.14;
+    }
+    .counter-description{
+        font-size: 8px;
+        line-height: 1.25; 
+    }
+}
+@media screen and (min-device-pixel-ratio: 2), 
+screen and (min-resolution: 192dpi), 
+screen and (min-resolution: 2dppx), 
+screen and (min-width: 768px){
+    .hero{ 
+        .container{
+            background-image: url(/images/hero/icecream-tablet@2x.png),
+            url(/images/hero/soo-tasty-tablet@2x.png),
+            url(/images/hero/cup-milk-tablet@2x.png),
+            url(/images/hero/ellipse.svg); 
+        }
+    }
+}
+//=========================DESKTOP =======================
+@media screen and (min-width: 1200px){
+    .hero{      
+        .container{
+            background-image: url(/images/hero/icecream.png),
+            url(/images/hero/soo-tasty.png),
+            url(/images/hero/cup-milk.png),
+            url(/images/hero/ellipse.svg);
+            background-size: 236px 557px, 293px 232px, 188px 191px, 538px 538px;
+            background-position: right 410px bottom, right 69px bottom, left 37px bottom 45px, right 227px bottom 75px;
+        }
+        .next{
+            .next-svg{
+                width: 7px;
+                height: 6px;
+            }
+            width: 26px;
+            height: 26px;
+        }        
+    }
+    .hero-title{
+        font-size: 38px;
+        line-height: 1.15;
+        > span {
+            font-size: 58px;
+            line-height: 0.96;
+        }
+    }
+    .about-wrapper{
+        margin-top: 112px;
+        padding-left: 180px;
+        padding-bottom: 102px;
+    }
+    .about-description{
+        width: 200px;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    .hero-wrapper{
+        padding-top: 171px;
+    } 
+    .counter-wrapper{
+        right: 47px;
+        top: 156px;
+    }
+    .counter-item{
+        &::after{        
+            top: -4px;
+            right: -18px;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+        }
+        &:not(:last-child){
+            margin-bottom: 15px;
+        }
+    }
+    .counter-number{
+        font-size: 46px;
+        line-height: 1.15;
+    }
+    .counter-description{
+        font-size: 14px;
+        line-height: 1.28;
+ 
+    }
+}
+@media screen and (min-device-pixel-ratio: 2), 
+screen and (min-resolution: 192dpi), 
+screen and (min-resolution: 2dppx), 
+screen and (min-width: 1200px){
+    .hero{ 
+        .container{
+            background-image: url(/images/hero/icecream@2x.png),
+            url(/images/hero/soo-tasty@2x.png),
+            url(/images/hero/cup-milk@2x.png),
+            url(/images/hero/ellipse.svg);
+        }
     }
 }
