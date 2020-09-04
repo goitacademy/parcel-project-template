@@ -1,0 +1,95 @@
+$primary-white-color: #ffffff;
+$accent-color: #d41443;
+$timing-cube: cubic-bezier(0.4, 0, 0.2, 1);
+
+//
+//КНОПОЧКИИИИИИ :)))
+//
+// button-white -------- класс для кнопки, которая изначально белого цвета
+//
+// button-red -------- класс для кнопки, которая изначально красного цвета
+//
+// button-name -------- для отсупа, если в кнопке есть icon-vector
+//
+// ШИРИНУ и ВЫСОТУ кнопки изменяйте локально согласно вашей секции
+//
+// ПРИМЕР кода кнопки для HTML, чтобы поиграться находиться в -  partials/button-test.html
+//
+
+%button {
+  background-color: $primary-white-color;
+  color: $accent-color;
+
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.312;
+  text-align: center;
+
+  padding: 10px 32px;
+
+  width: 200px;
+  border-color: transparent;
+
+  border-radius: 22px;
+
+  cursor: pointer;
+
+  transition: all 250ms $timing-cube;
+}
+
+.button-name {
+  margin-right: 14px;
+}
+
+// WHITE  BUTTON
+
+.button-white .icon-vector {
+  stroke: $accent-color;
+}
+
+.button-white {
+  @extend %button;
+
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
+  &:hover,
+  &:focus {
+    background-color: #ECEBEB;
+    color: $accent-color;
+  }
+
+  &:hover .icon-vector,
+  &:focus .icon-vector {
+    stroke: $accent-color;
+  }
+}
+
+// RED  BUTTON
+
+.button-red .icon-vector {
+  stroke: $primary-white-color;
+}
+
+.button-red {
+  @extend %button;
+  background-color: $accent-color;
+  color: $primary-white-color;
+
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
+  &:hover,
+  &:focus {
+    background-color: $primary-white-color;
+    color: $accent-color;
+  }
+
+  &:hover .icon-vector,
+  &:focus .icon-vector {
+    stroke: $accent-color;
+  }
+}
