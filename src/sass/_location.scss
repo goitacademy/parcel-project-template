@@ -19,8 +19,11 @@
   padding-bottom: 113px;
 }
 .location-container {
+  padding-right: 50px;
+  padding-left: 50px;
   margin: 0 auto;
 }
+
 // стилизация контейнера в котором все описание
 .location-place-item {
   box-sizing: border-box;
@@ -28,13 +31,14 @@
   background-color: $links-text-color;
   box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
   border-radius: 24px;
+  margin: 0 auto;
   margin-bottom: 20px;
 }
+
 // стилизация заголовков(видов локации(кафе-фудтрак))
 .location-place-item-title {
   display: inline-block;
   font-family: $main-font;
-
   font-style: normal;
   font-weight: 500;
   line-height: 1.83;
@@ -43,7 +47,6 @@
   color: $links-text-color;
   background: #f0d1a5;
   border-radius: 6px;
-
   text-align: center;
   margin-bottom: 25px;
 }
@@ -72,6 +75,7 @@
 .location-address {
   font-style: normal;
   & > a {
+    white-space: wrap;
     line-height: 1.5;
     color: $section-text;
   }
@@ -89,13 +93,8 @@
   color: #d41342;
 }
 
-@media screen and(max-width: 767px) {
-  .location-container {
-    max-width: 320px;
-    padding-right: 50px;
-    padding-left: 50px;
-  }
-  // отступ и стилизация кнопок
+@media screen and (max-width: 767px) {
+  // отступ к кнопкам
   .location-place {
     margin-bottom: 54px;
   }
@@ -132,18 +131,23 @@
     width: 161px;
   }
 }
-@media screen and (max-width: 1199px) and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .location-place {
+    display: flex;
+  }
+}
+@media screen and (max-width: 1279px) and (min-width: 768px) {
   .location-container {
     width: 768px;
     padding-left: 36px;
     padding-right: 36px;
   }
   .location-place {
-    display: flex;
     font-size: 14px;
     margin-bottom: 81px;
   }
   .location-place-item {
+    width: 220px;
     padding: 50px 31px;
   }
   .location-place-item:not(:last-child) {
@@ -176,7 +180,12 @@
   .location-place-item-tametable-items {
     margin-bottom: 14px;
   }
-
+  .location-button {
+    display: flex;
+    justify-content: center;
+    width: 380px;
+    margin: 0 auto;
+  }
   .location-btn {
     width: 192px;
   }
@@ -185,14 +194,18 @@
   }
 }
 
-// @media screen and (min-width: 1200px) {
-//   .location-container {
-//     width: 1280px;
-//     padding-left: 115px;
-//     padding-right: 115px;
-//     margin: 0 auto;
-//   }
-//   .location-place-item {
-//     width: 330px;
-//   }
-// }
+@media screen and (min-width: 1280px) {
+  .location-container {
+    width: 1200px;
+    padding-left: 115px;
+    padding-right: 115px;
+  }
+  .location-place {
+    font-size: 16px;
+    margin-bottom: 86px;
+  }
+  .location-place-item {
+    width: 330px;
+    padding: 52px 43px;
+  }
+}
