@@ -4,15 +4,13 @@
  * Все паршалы подключаются сюда.
  */
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
 }
@@ -81,5 +79,315 @@ h1 {
 .social-img {
   stroke: yellow;
   fill: none;
+}
+
+/* Собственно сам слайдер */
+.slider {
+  padding-top: 154px;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+.slider-list {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 50px;
+  padding-left: 0;
+}
+
+.wrapper {
+  position: relative;
+  background-color: #fafafa;
+  padding-top: 43px;
+  padding-right: 66px;
+  padding-left: 57px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.slider-text {
+  position: relative;
+  font-family: 'DM Sans', sans-serif;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 31px;
+  /* or 31px */
+  background-image: url(../images/slider/text-line.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  z-index: 200;
+}
+
+.slider-quotes {
+  top: 28px;
+  left: 61px;
+  position: absolute;
+  width: 54px;
+  height: 40px;
+  fill: tomato;
+  z-index: 1;
+}
+
+.slider-dots-image {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 73px;
+  height: 4px;
+  width: 32px;
+  background-image: url(../images/slider/dots.png);
+}
+
+.slider-item-name {
+  font-family: 'DM Sans';
+  position: absolute;
+  top: 420px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 26px;
+  text-align: center;
+}
+
+.sim-slider-element {
+  margin: 0 auto;
+}
+
+/* Картинка мастабируется по отношению к родительскому элементу */
+.slider .item img {
+  object-fit: cover;
+  width: 85px;
+  height: 85px;
+  border: none;
+  box-shadow: none;
+}
+
+.slider .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Заголовок слайда */
+/* Кружочки */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.slider-dots_item:not(:last-child) {
+  margin-right: 18px;
+}
+
+.slider-dots_item {
+  display: block;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider-dots_item::after {
+  display: block;
+  transition: background-color 0.6s ease;
+  content: '';
+  height: 12px;
+  width: 12px;
+  fill: #ddd;
+  background-image: url(../images/slider/dots.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.slider-dots_item.active::after {
+  opacity: 0;
+}
+
+.active,
+.slider-dots_item:focus {
+  background-image: url(../images/slider/dots-home.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: unset;
+}
+
+/* Анимация слайдов */
+.slider .slider-item {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .slider {
+    padding-top: 279px;
+  }
+  .wrapper {
+    padding-top: 30px;
+    width: 524px;
+  }
+  .slider-text {
+    background-image: url(../images/slider/text-line-tablet.png);
+  }
+  .slider-list {
+    margin-bottom: 52px;
+  }
+  .slider-item-name {
+    top: 300px;
+  }
+  .slider-quotes {
+    top: 15px;
+    left: 40px;
+  }
+  .picture-wrapper {
+    margin-bottom: 20px;
+  }
+  .slider-dots-image {
+    margin-bottom: 74px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .slider {
+    padding-top: 38;
+  }
+  .wrapper {
+    width: 822px;
+  }
+  .slider-text {
+    background-image: url(../images/slider/text-line-pc.png);
+  }
+  .slider-list {
+    margin-bottom: 47px;
+  }
+  .slider-item-name {
+    top: 265px;
+  }
+  .slider-dots-image {
+    margin-bottom: 81px;
+  }
+}
+
+.social-svg-item {
+  fill: #fea5bb;
+  width: 32px;
+  height: 32px;
+}
+
+.footer-part2 {
+  border-bottom: 1px solid;
+  border-color: #e1e1e1;
+  width: 100%;
+}
+
+@media screen and (min-width: 320px) {
+  .footer {
+    background-color: #fff5f6;
+    padding-top: 113px;
+    padding-bottom: 25px;
+  }
+}
+
+.home-ice {
+  font-family: "Titan One", cursive;
+  color: #ffa5ba;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.17;
+  text-transform: uppercase;
+  padding-right: 46px;
+  padding-left: 2px;
+  margin-bottom: 17px;
+}
+
+.with-passion {
+  font-family: "Titan One", cursive;
+  color: #d41443;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 80px;
+  margin-bottom: 43px;
+}
+
+.footer-part1 {
+  margin-bottom: 46px;
+}
+
+.social-list {
+  display: flex;
+  justify-content: end;
+}
+
+.social-list-item:not(:last-child) {
+  margin-right: 28.24px;
+}
+
+.social-list-item-link :focus,
+.social-list-item-link :hover {
+  fill: #d41443;
+}
+
+.footer-part2 {
+  margin-bottom: 22px;
+}
+
+.phone-number {
+  margin-bottom: 43px;
+  text-align: end;
+}
+
+.phone-span {
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.83;
+  color: #000000;
+}
+
+.number {
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.83;
+  color: #d41443;
+}
+
+.all-rights {
+  margin: 0 auto;
+  width: 150px;
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #907e82;
+  text-align: center;
 }
 /*# sourceMappingURL=main.css.map */
