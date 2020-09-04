@@ -381,7 +381,6 @@ p {
   height: 44px;
   border: 1px solid transparent;
   margin-top: 10px;
-  padding-top: 10px;
   margin-left: 50px;
   padding-bottom: 6px;
   text-align: center;
@@ -390,8 +389,7 @@ p {
 
 .cow .primary-button:hover,
 .cow .primary-button:focus {
-  background-color: #d41342;
-  color: #ffffff;
+  background-color: #ecebeb;
 }
 
 @media screen and (min-width: 768px) {
@@ -407,8 +405,10 @@ p {
 
 @media screen and (min-width: 1200px) {
   .cow .primary-button {
-    margin-top: 45px;
+    margin-top: 0px;
     margin-bottom: 146px;
+    margin-left: 50%;
+    margin-right: 50%;
   }
 }
 
@@ -513,6 +513,9 @@ p {
   .header-buy-btn {
     display: none;
   }
+  .close-tablet {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -527,6 +530,13 @@ p {
   }
   .header-menu-buy-btn {
     width: 186px;
+  }
+  .close-tablet {
+    -webkit-transform: translate(205px, -40px);
+            transform: translate(205px, -40px);
+  }
+  .menu-button.is-open .mobile-button > .burger-close {
+    display: none;
   }
 }
 
@@ -1002,8 +1012,8 @@ p {
 
 .list-item-img-products {
   position: absolute;
-  -webkit-transform: translate(-34px, -109%);
-          transform: translate(-34px, -109%);
+  -webkit-transform: translate(-21px, -109%);
+          transform: translate(-21px, -109%);
 }
 
 .list-item-title-products {
@@ -1102,6 +1112,9 @@ p {
     padding-right: 11px;
     padding-left: 11px;
   }
+  .list-item-products:not(:last-child) {
+    margin-right: 20px;
+  }
   .list-item-img-products {
     width: 220px;
     -webkit-transform: translate(-10px, -114%);
@@ -1115,12 +1128,6 @@ p {
   }
   .list-item-subtitle-products {
     line-height: 176%;
-  }
-}
-
-@media screen and (max-width: 1199px) {
-  .list-item-products:not(:last-child) {
-    margin-right: 20px;
   }
 }
 
@@ -1247,6 +1254,11 @@ p {
   color: #907e82;
 }
 
+.icon-vector-cow {
+  text-align: center;
+  margin-left: 13px;
+}
+
 .milk::before,
 .apple::before,
 .ice-product::before {
@@ -1289,6 +1301,8 @@ p {
   font-size: 12px;
   line-height: 1.7;
   color: #000000;
+  margin-top: 20px;
+  text-transform: none;
 }
 
 .icon-milk,
@@ -1316,9 +1330,6 @@ p {
     padding-bottom: 242px;
     padding-right: 36px;
     padding-left: 36px;
-  }
-  .img-milk {
-    display: none;
   }
   .section-title {
     font-size: 26px;
@@ -1375,6 +1386,10 @@ p {
     line-height: 1.74;
     text-transform: none;
   }
+  .picture-cow {
+    min-width: 340px;
+    min-height: 339px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -1392,6 +1407,29 @@ p {
   .ice-product::before {
     margin-top: 0px;
     margin-bottom: 40px;
+  }
+  .picture-cow {
+    min-width: 516px;
+    min-height: 516px;
+  }
+  .main-text {
+    font-size: 16px;
+  }
+  .additional-text {
+    line-height: 1.94;
+  }
+  .additional-text-low {
+    margin-top: 40px;
+  }
+  .list-item-title {
+    font-size: 58px;
+    line-height: 1.14;
+    letter-spacing: 0.04em;
+  }
+  .list-item-text {
+    font-size: 16px;
+    line-height: 1.76;
+    letter-spacing: 0.02em;
   }
 }
 
@@ -1523,6 +1561,10 @@ p {
   fill: #d9d9d9;
 }
 
+.slider-navigation-icon.home {
+  fill: #d31342;
+}
+
 .slider-list {
   position: relative;
   display: -webkit-box;
@@ -1626,7 +1668,9 @@ p {
   visibility: visible;
 }
 
-#slide-img-1:checked ~ .slider-navigation-bar .slider-navigation-icon.home {
+#slide-img-1:checked ~ .slider-navigation-icon.home,
+#slide-img-2:checked ~ .slider-navigation-icon.ellipse2,
+#slide-img-3:checked ~ .slider-navigation-icon.ellipse3 {
   fill: #d31342;
 }
 
@@ -1635,7 +1679,7 @@ address {
   font-style: normal;
 }
 
-.cafe-big-container {
+.cafe-address-section {
   background-color: #fff5f6;
 }
 
@@ -1682,6 +1726,8 @@ address {
     padding-right: 21px;
     padding-bottom: 43px;
     padding-left: 20px;
+    position: relative;
+    top: -84px;
   }
   .cafe-address-container:not(:last-child) {
     margin-bottom: 20px;
@@ -1769,6 +1815,8 @@ address {
     padding-right: 32px;
     padding-bottom: 50px;
     padding-left: 31px;
+    position: relative;
+    top: -78px;
   }
   .cafe-name {
     font-size: 16px;
@@ -1816,12 +1864,14 @@ address {
     font-size: 14px;
     line-height: 26px;
     color: #000000;
+    display: block;
   }
   .cafe-work:not(:last-child) {
     margin-bottom: 16px;
   }
   .cafe-underline-indent {
     padding-top: 30px;
+    display: block;
   }
   .cafe-time {
     display: block;
@@ -1839,15 +1889,25 @@ address {
 }
 
 @media screen and (min-width: 1200px) {
+  .cafe-address-section {
+    height: 775px;
+  }
   .cafe-address-container:not(:last-child) {
-    margin-right: 31px;
+    margin-right: 30px;
   }
   .cafe-address-container {
-    width: 320px;
+    width: 330px;
     padding-top: 51px;
-    padding-right: 46px;
+    padding-right: 42px;
     padding-bottom: 62px;
-    padding-left: 46px;
+    padding-left: 42px;
+    position: relative;
+    top: -102px;
+  }
+  .cafe-big-container {
+    background-image: url("/images/contacts/contacts.png");
+    background-repeat: no-repeat;
+    background-size: contain;
   }
   .cafe-town {
     font-size: 16px;
@@ -1898,6 +1958,196 @@ address {
   background-color: #C2E297;
 }
 
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .cafe-buttons {
+    display: block;
+    margin-bottom: 158px;
+    position: relative;
+    top: -30px;
+  }
+  .cafe-button-one {
+    width: 161px;
+    height: 44px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    border: none;
+    color: #FFFFFF;
+    background-color: #D41342;
+    border-radius: 22px;
+    padding-left: 17px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cafe-button-one:hover, .cafe-button-one:focus {
+    background-color: #D41443;
+  }
+  .cafe-button-two {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: #FFFFFF;
+    border-radius: 22px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    border: none;
+    color: #D41443;
+    padding-left: 38px;
+    width: 161px;
+    height: 44px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cafe-button-two:hover, .cafe-button-two:focus {
+    background-color: #D41443;
+    color: #FFFFFF;
+  }
+  .cafe-button-svg {
+    margin-left: 13px;
+  }
+  .cafe-mob-svg {
+    margin-left: 8px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .cafe-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 158px;
+  }
+  .cafe-button-one {
+    margin-left: 196px;
+  }
+  .cafe-button-one {
+    width: 192px;
+    height: 44px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #D41342;
+    border-radius: 22px;
+    padding-left: 30px;
+  }
+  .cafe-button-svg {
+    fill: #FFFFFF;
+    margin-left: 13px;
+  }
+  .cafe-button-svg:hover, .cafe-button-svg:focus {
+    fill: #fdfdfd;
+  }
+  .cafe-button-two {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: #FFFFFF;
+    border-radius: 22px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    color: #D41443;
+    padding-left: 38px;
+    width: 174px;
+    height: 44px;
+  }
+  .cafe-button-svg {
+    fill: #D41443;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .cafe-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 158px;
+  }
+  .cafe-button-one {
+    margin-left: 196px;
+  }
+  .cafe-button-one {
+    width: 192px;
+    height: 44px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #D41342;
+    border-radius: 22px;
+    padding-left: 30px;
+  }
+  .cafe-button-svg {
+    fill: #FFFFFF;
+    margin-left: 13px;
+  }
+  .cafe-button-svg:hover, .cafe-button-svg:focus {
+    fill: #fdfdfd;
+  }
+  .cafe-button-two {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: #FFFFFF;
+    border-radius: 22px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    color: #D41443;
+    padding-left: 38px;
+    width: 174px;
+    height: 44px;
+  }
+  .cafe-button-svg {
+    fill: #D41443;
+  }
+}
+
 footer {
   margin: 0 auto;
   background-color: #fff5f6;
@@ -1917,22 +2167,6 @@ footer .container {
 @media screen and (min-width: 1200px) {
   footer .container {
     padding-bottom: 10px;
-  }
-}
-
-/*Таня! Забери, будь ласка, ці кнопки*/
-.footer-buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 113px;
-}
-
-@media screen and (min-width: 768px) {
-  .footer-buttons {
-    margin-bottom: 165px;
   }
 }
 
@@ -2071,10 +2305,11 @@ footer .container {
       -ms-flex-align: center;
           align-items: center;
   background-color: #ffa5ba;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footer-soc-list-item-link:hover,
-.footer-soc-list-item-link:focus {
+.footer-soc-list-item-link:hover, .footer-soc-list-item-link:focus {
   background-color: #d41443;
 }
 
