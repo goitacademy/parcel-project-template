@@ -51,6 +51,11 @@
     color:$main-title-color;
     background-color:$links-text-color;
     padding: 0 14px;
+
+    &:hover,
+    &:focus {
+        background-color:  #ECEBEB; 
+    }
 }
 
 .hero-btn-list{
@@ -68,9 +73,9 @@
         background-image: 
         url("../images/hero/mobile-icecream.png"),
         url("../images/hero/mobile-pink-circle.png");
-        background-size: 171px, 346px;
+        background-size: 171px, 284px;
         background-repeat: no-repeat;
-        background-position: bottom 0px right 32px, right 0px top 83px; 
+        background-position: bottom 0px right 32px, right 0px top 97px; 
     }
 
  // MOBILE
@@ -130,12 +135,26 @@
     }
 
     .facilities-block {
+        position:relative;
+        z-index: 2;
+
         span{
             display: block;
         }
 
         &:not(:last-child) {
             margin-bottom: 14px;
+        }
+        &::after {
+            content:"";
+            position:absolute;
+            border-radius:50%;
+            background-color:$links-text-color;
+            width:16px;
+            height:16px;
+            top:-3px;
+            right:-8px;
+            z-index: -1;
         }
     }
 
@@ -249,12 +268,27 @@
     }
 
     .facilities-block {
+        position:relative;
+        z-index: 2;
+
         span{
             display: block;
         }
 
         &:not(:last-child) {
             margin-bottom: 18px;
+        }
+
+        &::after {
+            content:"";
+            position:absolute;
+            border-radius:50%;
+            background-color:$links-text-color;
+            width:30px;
+            height:30px;
+            top:-6px;
+            right:-15px;
+            z-index: -1;
         }
     }
 
