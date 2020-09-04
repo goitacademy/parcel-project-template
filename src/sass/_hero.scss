@@ -1,31 +1,15 @@
 .hero {
     background:$hero-background;
-    background-image: 
-    url("../images/hero/icecream.png"),
-    url("../images/hero/girl.png"),
-    url("../images/hero/pink-circle.png"),
-    url("../images/hero/milk-carafe.png");
-    background-size: 236px, 293px, 538px, 188px;
-    background-repeat: no-repeat;
-    background-position: top 108px right 450px, top 433px right 109px, top 52px right 267px, top 429px left 77px;
-    padding-top: 160px;
-    padding-bottom: 56px;
 }
-
-
-.presentation {
-    display:flex;
-    justify-content: space-between;
-}
-
+ 
 .hero-title {
-width:277px;
-margin-bottom:25px;
-}
+    width:218px;
+    margin-bottom:19px;
+    }
 
 .title-start {
     font-family: Titan One;
-    @include font ($fs:38px, $fw: 400, $lh: 1.157);
+    @include font ($fs:26px, $fw: 400, $lh: 1.154);
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color:$links-text-color;
@@ -33,74 +17,304 @@ margin-bottom:25px;
 
 .title-main-word {
     font-family: Titan One;
-    @include font ($fs:58px, $fw: 400, $lh: 0.896);
+    @include font ($fs:48px, $fw: 400, $lh: 0.958);
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color:$main-title-color;
 }
 
-.hero-btn-list{
-    display:flex;
-    margin-bottom: 112px;        
-}
-
-.hero-btn-list-item {
-    &:not(:last-child) {
-        margin-right: 15px;
-    }
-}
 .hero-btn-pink {
     display: block;
     margin: 0 auto;
-    height: 40px;
+    height: 24px;
     border-radius: 20px;
     border: none;
     cursor: pointer;
-    @include font(14px, 400, 1.286);
+    font-family:  DM Sans;
+    @include font(8px, 400, 1.25);
     text-align: center;
     color:$links-text-color;
     background-color:$main-title-color;
-    padding: 0 24px;
+    padding: 0 15px;
 }
 
 .hero-btn-white {
     display: block;
     margin: 0 auto;
-    height: 40px;
+    height: 24px;
     border-radius: 20px;
     border: none;
     cursor: pointer;
-    @include font(14px, 400, 1.286);
+    font-family:  DM Sans;
+    @include font(8px, 400, 1.25);
     text-align: center;
     color:$main-title-color;
     background-color:$links-text-color;
-    padding: 0 21px;
+    padding: 0 14px;
+
+    &:hover,
+    &:focus {
+        background-color:  #ECEBEB; 
+    }
 }
 
-.hero-paragraph {
-    font-family:  DM Sans;
-    @include font ($fs:14px, $fw: 400, $lh: 1.429);
-    color: $links-text-color;
-    width: 200px;
-    height:78px;
-    margin-bottom: 20px;
+.hero-btn-list{
+    display:flex;      
 }
 
-.facilities-block {
-    display:flex;
-    flex-wrap: wrap;
+.hero-btn-list-item {
+    &:not(:last-child) {
+        margin-right: 8px;
+    }
+}
+.hero-container {
+        padding-top: 193px;
+        padding-bottom: 160px;
+        background-image: 
+        url("../images/hero/mobile-icecream.png"),
+        url("../images/hero/mobile-pink-circle.png");
+        background-size: 171px, 284px;
+        background-repeat: no-repeat;
+        background-position: bottom 0px right 32px, right 0px top 97px; 
+    }
+
+ // MOBILE
+@media screen and (max-width: 767px) {
+    .mb-hide {
+      display: none;
+      }
+  }
+
+
+
+ // TABLET
+@media screen and (min-width: 768px) {
+    .hero-container {
+        padding-top: 96px;
+        padding-bottom: 34px;
+        background-image: 
+        url("../images/hero/tablet-icecream.png"),
+        url("../images/hero/tablet-girl.png"),
+        url("../images/hero/tablet-pink-circle.png"),
+        url("../images/hero/tablet-milk-carafe.png");
+        background-size: 143px, 168px, 324px, 124px;
+        background-repeat: no-repeat;
+        background-position: bottom 0px left 370px, bottom 0px right 34px, bottom 46px right 137px, bottom 28px left 40px;
+    }
+
+    .presentation {
+        display:flex;
+        justify-content: space-between;
+    } 
+    .hero-title {
+        width:162px;
+        margin-bottom:20px;
+        }
+
+    .title-start {
+        @include font ($fs:22px, $fw: 400, $lh: 1.136);
+    }
+    
+    .title-main-word {
+        @include font ($fs:34px, $fw: 400, $lh: 0.912);
+    }
+
+    .hero-btn-list{
+        display:flex;
+        margin-bottom: 66px;        
+    }
+
+    .hero-paragraph {
+        font-family:  DM Sans;
+        @include font ($fs:8px, $fw: 400, $lh: 1.5);
+        color: $links-text-color;
+        width: 114px;
+        height: 48px;
+        margin-left: 120px;
+        margin-bottom: 20px;
+    }
+
+    .facilities-block {
+        position:relative;
+        z-index: 2;
+
+        span{
+            display: block;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 14px;
+        }
+        &::after {
+            content:"";
+            position:absolute;
+            border-radius:50%;
+            background-color:$links-text-color;
+            width:16px;
+            height:16px;
+            top:-3px;
+            right:-8px;
+            z-index: -1;
+        }
+    }
+
+    .facilities-list {
+        text-align:right;
+    }
+
+    .facilities-amount {
+        font-family: Titan One;
+        @include font ($fs:28px, $fw: 400, $lh: 1.142);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color:$main-title-color; 
+    }
+
+    .facilities-type {
+        font-family:  DM Sans;
+        @include font ($fs:8px, $fw: 400, $lh: 1.25);
+        color: $links-text-color;
+    }
+
+    .hero-arrow {
+        stroke:$main-title-color;
+    }
+
+    .arrow-link {
+        margin-left: 120px;
+    }
 }
 
-.facilities-amount {
-    font-family: Titan One;
-    @include font ($fs:46px, $fw: 400, $lh: 1.152);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color:$main-title-color; 
-}
+// DESKTOP
+    @media screen and (min-width:1200px) {
+    .hero-container {
+        padding-top: 160px;
+        padding-bottom: 56px;
+        background-image: 
+        url("../images/hero/desktop-icecream.png"),
+        url("../images/hero/desktop-girl.png"),
+        url("../images/hero/desktop-pink-circle.png"),
+        url("../images/hero/desktop-milk-carafe.png");
+        background-size: 236px, 293px, 538px, 188px;
+        background-repeat: no-repeat;
+        background-position: bottom 0px left 594px, bottom 0px right 110px, top 52px right 269px, bottom 56px left 75px;
+    }
 
-.facilities-type {
-    font-family:  DM Sans;
-    @include font ($fs:14px, $fw: 400, $lh: 1.286);
-    color: $links-text-color;
+    .presentation {
+        display:flex;
+        justify-content: space-between;
+    } 
+
+    .hero-title {
+    width:277px;
+    margin-bottom:25px;
+    }
+
+    .title-start {
+        @include font ($fs:38px, $fw: 400, $lh: 1.157);
+    }
+
+    .title-main-word {
+        @include font ($fs:58px, $fw: 400, $lh: 0.896);
+    }
+
+    .hero-btn-list{
+        display:flex;
+        margin-bottom: 112px;        
+    }
+
+    .hero-btn-list-item {
+        &:not(:last-child) {
+            margin-right: 15px;
+        }
+    }
+
+    .hero-btn-pink {
+        display: block;
+        margin: 0 auto;
+        height: 40px;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        @include font(14px, 400, 1.286);
+        text-align: center;
+        color:$links-text-color;
+        background-color:$main-title-color;
+        padding: 0 24px;
+    }
+
+    .hero-btn-white {
+        display: block;
+        margin: 0 auto;
+        height: 40px;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        @include font(14px, 400, 1.286);
+        text-align: center;
+        color:$main-title-color;
+        background-color:$links-text-color;
+        padding: 0 21px;
+    }
+
+    .hero-paragraph {
+        font-family:  DM Sans;
+        @include font ($fs:14px, $fw: 400, $lh: 1.429);
+        color: $links-text-color;
+        width: 200px;
+        height:78px;
+        margin-left: 180px;
+        margin-bottom: 20px;
+    }
+
+    .facilities-block {
+        position:relative;
+        z-index: 2;
+
+        span{
+            display: block;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 18px;
+        }
+
+        &::after {
+            content:"";
+            position:absolute;
+            border-radius:50%;
+            background-color:$links-text-color;
+            width:30px;
+            height:30px;
+            top:-6px;
+            right:-15px;
+            z-index: -1;
+        }
+    }
+
+    .facilities-list {
+        text-align:right;
+    }
+
+    .facilities-amount {
+        font-family: Titan One;
+        @include font ($fs:46px, $fw: 400, $lh: 1.152);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color:$main-title-color; 
+    }
+
+    .facilities-type {
+        font-family:  DM Sans;
+        @include font ($fs:14px, $fw: 400, $lh: 1.286);
+        color: $links-text-color;
+    }
+
+    .hero-arrow {
+        stroke:$main-title-color;
+    }
+
+    .arrow-link {
+        margin-left: 180px;
+    }
 }
