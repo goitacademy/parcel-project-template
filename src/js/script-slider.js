@@ -64,7 +64,7 @@
         numActive = 1;
       }
       currentSlide(numActive);
-    }, 2000);
+    }, 4000);
   }
   if (!intervalId) {
     sliderStart();
