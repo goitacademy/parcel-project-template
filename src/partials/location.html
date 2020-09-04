@@ -1,8 +1,8 @@
 <section class="location">
-  <div class="container">
+  <div>
     <h2 hidden>Our location</h2>
 
-    <ul class="list">
+    <ul class="location-list-item-container list">
       <li class="location-wrapper">
         <ul class="list">
           <li>
@@ -26,7 +26,7 @@
               </li>
               <li>
                 <ul class="list">
-                  <li><b>Saturday - Sunday</b></li>
+                  <li class="location-list-date"><b>Saturday - Sunday</b></li>
                   <li class="location-list-time">
                     <time>08:00 AM</time> - <time>16:00 PM</time>
                   </li>
@@ -75,7 +75,7 @@
               </li>
               <li>
                 <ul class="list">
-                  <li><b>Saturday - Sunday</b></li>
+                  <li class="location-list-date"><b>Saturday - Sunday</b></li>
                   <li class="location-list-time">
                     <time>08:00 AM</time> - <time>16:00 PM</time>
                   </li>
@@ -124,7 +124,7 @@
               </li>
               <li>
                 <ul class="list">
-                  <li><b>Saturday - Sunday</b></li>
+                  <li class="location-list-date"><b>Saturday - Sunday</b></li>
                   <li class="location-list-time">
                     <time>08:00 AM</time> - <time>16:00 PM</time>
                   </li>
@@ -151,45 +151,13 @@
       </li>
     </ul>
   </div>
+  <div class="btn-wrapper">
+    <button class="location-btn primary" type="button">
+      <span class="location-btn-primary-text">Our Locations </span>
+      <svg class="location-btn-primary-svg">
+        <use href="./images/sprite/sprite.svg#icon-next"></use>
+      </svg>
+    </button>
+    <button class="location-btn secondary" type="button">Franchise</button>
+  </div>
 </section>
-<script>
-  /* Индекс слайда по умолчанию */
-  var slideIndex = 1;
-  showSlides(slideIndex);
-
-  /* Функция увеличивает индекс на 1, показывает следующй слайд*/
-  function plusSlide() {
-    showSlides((slideIndex += 1));
-  }
-
-  /* Функция уменьшяет индекс на 1, показывает предыдущий слайд*/
-  function minusSlide() {
-    showSlides((slideIndex -= 1));
-  }
-
-  /* Устанавливает текущий слайд */
-  function currentSlide(n) {
-    showSlides((slideIndex = n));
-  }
-
-  /* Основная функция слайдера */
-  function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName('slider-item');
-    var dots = document.getElementsByClassName('slider-dots_item');
-    if (n > slides.length) {
-      slideIndex = 1;
-    }
-    if (n < 1) {
-      slideIndex = slides.length;
-    }
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'none';
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(' active', '');
-    }
-    slides[slideIndex - 1].style.display = 'block';
-    dots[slideIndex - 1].className += ' active';
-  }
-</script>
