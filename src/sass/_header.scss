@@ -1,6 +1,7 @@
 .header {
   position: relative;
 }
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -23,24 +24,44 @@
   font-style: normal;
   @include font(16px, 700, 1.313);
   color: #ffffff;
+  padding-top: 13px;
+  padding-bottom: 11px;
 }
 
 .nav-item-active {
   color: $main-title-color;
 }
+
 .menu-btn {
-  display: none;
+  // display: none;
+  // position: relative;
+  position: absolute;
+
   width: 20px;
   height: 14px;
 
   border: none;
   background-color: transparent;
   cursor: pointer;
+
+  &.is-open {
+    .icon-close {
+      display: block;
+    }
+
+    .icon-burger {
+      display: none;
+    }
+  }
+}
+
+.icon-close {
+  display: none;
 }
 
 .header-btn {
   height: 44px;
-  width: 159px;
+  width: 160px;
   border-radius: 22px;
   border: none;
   cursor: pointer;
@@ -64,6 +85,48 @@
   // display: inline;
 }
 
+// мобильная и планшет
+@media screen and (min-width: 320px) and (max-width: 1199px) {
+  .header-container {
+    padding-top: 37px;
+    width: 700px;
+  }
+
+  .navigation-list {
+    display: block;
+  }
+
+  .menu-wrapper {
+    position: absolute;
+    top: 123px;
+    right: 0;
+    display: none;
+    background: #e17992;
+    &.is-open {
+      // transform: translateX(172px);
+      display: block;
+
+      ~ .header-btn {
+        transform: translateY(50%);
+      }
+    }
+  }
+
+  .menu-btn {
+    right: 197px;
+  }
+
+  .header-btn {
+    position: absolute;
+    // position: relative;
+    // top: 50%;
+    right: 0;
+    // width: 160px;
+    // is-open  transform: translateY(50%);
+  }
+}
+
+// десктоп
 @media screen and (min-width: 1200px) {
   .header {
     padding-left: 46px;
@@ -72,9 +135,46 @@
   .header-container {
     width: 1119px;
   }
+
+  .menu-btn {
+    display: none;
+  }
+  // .menu-wrapper {
+  //   display: flex;
+  //   align-items: center;
+  // }
+
+  // .header-navigation {
+  //   margin-right: 110px;
+  // }
 }
-@media screen and (max-width: 767px) {
+
+//только мобильная
+@media screen and (min-width: 1px) and (max-width: 767px) {
   .header-container {
     padding-top: 6px;
+    max-width: 280px;
+    width: 100%;
+  }
+  .menu-btn {
+    right: 0;
+  }
+
+  .header-btn {
+    display: none;
+  }
+
+  .menu-wrapper {
+    // position: absolute;
+    // top: 123px;
+    // right: 0;
+    // display: none;
+
+    &.is-open {
+      ~ .header-btn {
+        display: block;
+        transform: translateY(100%);
+      }
+    }
   }
 }
