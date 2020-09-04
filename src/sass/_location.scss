@@ -18,15 +18,13 @@
   padding-top: 100px;
   padding-bottom: 113px;
 }
-
+.location-container {
+  margin: 0 auto;
+}
 // стилизация контейнера в котором все описание
 .location-place-item {
   max-width: 220px;
   background-color: $links-text-color;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 43px;
-  padding-bottom: 43px;
   box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
   border-radius: 24px;
   margin-bottom: 20px;
@@ -35,7 +33,7 @@
 .location-place-item-title {
   display: inline-block;
   font-family: $main-font;
-  font-size: 12px;
+
   font-style: normal;
   font-weight: 500;
   line-height: 1.83;
@@ -44,41 +42,23 @@
   color: $links-text-color;
   background: #f0d1a5;
   border-radius: 6px;
-  width: 80px;
+
   text-align: center;
   margin-bottom: 25px;
 }
 .foodtruck-title {
   background: #c2e297;
-  width: 130px;
 }
 
 // нижний отступ к веремени работы
-.location-place-item-container {
-  border-bottom: 1px solid #e1e1e1;
-  padding-bottom: 25px;
-  margin-bottom: 25px;
-}
-// отступ от тега города к описанию
-.location-place-item-container-city {
-  margin-bottom: 10px;
-}
-.location-place-item-container-about {
-  position: relative;
-  line-height: 1.5;
-  color: $section-text;
-}
-
-// нижний отступ времени работы
+.location-place-item-container,
 .location-place-item-tametable {
   border-bottom: 1px solid #e1e1e1;
-  padding-bottom: 25px;
-  margin-bottom: 25px;
 }
-
-// отступ между будними днями-временем и выходными днями-временем
-.location-place-item-tametable-items {
-  margin-bottom: 10px;
+//стилизация текста о кафе
+.location-place-item-container-about {
+  line-height: 1.5;
+  color: $section-text;
 }
 
 // стилизация времени работы
@@ -99,42 +79,71 @@
 // стилизация кнопок
 .location-btn {
   display: block;
-  width: 162px;
   background-color: #d41342;
   color: $links-text-color;
 }
 .location-btn-franchise {
   display: block;
-  width: 161px;
   background-color: $links-text-color;
   color: #d41342;
 }
 
-@media screen and (max-width: 767px) and(min-width: 320px) {
+@media screen and(max-width: 767px) {
   .location-container {
-    width: 320px;
+    max-width: 320px;
     padding-right: 50px;
     padding-left: 50px;
   }
-  // отступ к кнопкам
+  // отступ и стилизация кнопок
   .location-place {
     margin-bottom: 54px;
   }
-  .location-btn {
+  .location-place-item {
+    padding: 43px 20px;
+  }
+  .location-place-item-title {
+    font-size: 12px;
+    width: 80px;
+  }
+  .foodtruck-title {
+    width: 130px;
+  }
+  // отступ от тега города к описанию
+  .location-place-item-container-city {
     margin-bottom: 10px;
   }
+
+  .location-place-item-container,
+  .location-place-item-tametable {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+  }
+  // отступ между будними днями-временем и выходными днями-временем
+  .location-place-item-tametable-items {
+    margin-bottom: 10px;
+  }
+
+  .location-btn {
+    width: 162px;
+    margin-bottom: 10px;
+  }
+  .location-btn-franchise {
+    width: 161px;
+  }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1199px) {
   .location-container {
-    width: 696px;
+    width: 768px;
     padding-left: 36px;
     padding-right: 36px;
   }
   .location-place {
-    width: 100%;
     display: flex;
     font-size: 14px;
     margin-bottom: 81px;
+  }
+  .location-place-item {
+    padding: 50px 31px;
   }
   .location-place-item:not(:last-child) {
     margin-right: 20px;
@@ -146,23 +155,27 @@
   .foodtruck-title {
     width: 138px;
   }
-  .location-place-item {
-    padding-left: 31px;
-    padding-right: 31px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+  .location-place-item-container-city {
+    margin-bottom: 14px;
   }
+
   .location-place-item-container-about {
     line-height: 1.642;
+  }
+  .location-place-item-container,
+  .location-place-item-tametable {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
   }
   .location-address,
   .location-place-item-tametable {
     line-height: 1.857;
   }
-  .location-button {
-    display: flex;
-    justify-content: center;
+  // отступ между будними днями-временем и выходными днями-временем
+  .location-place-item-tametable-items {
+    margin-bottom: 14px;
   }
+
   .location-btn {
     width: 192px;
   }
@@ -170,10 +183,15 @@
     width: 174px;
   }
 }
-@media screen and (max-width: 1199px) {
-  .location-container {
-    width: 768px;
-    padding-left: 36px;
-    padding-right: 36px;
-  }
-}
+
+// @media screen and (min-width: 1200px) {
+//   .location-container {
+//     width: 1280px;
+//     padding-left: 115px;
+//     padding-right: 115px;
+//     margin: 0 auto;
+//   }
+//   .location-place-item {
+//     width: 330px;
+//   }
+// }
