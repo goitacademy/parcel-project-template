@@ -1,5 +1,6 @@
 .footer-contact-list {
   text-align: center;
+  margin-bottom: 54px;
   @media screen and (min-width: 768px) {
     display: flex;
     width: 100%;
@@ -11,7 +12,9 @@
     border-radius: 24px;
     @media screen and (max-width: 767px) {
       padding: 43px 21px 43px 21px;
-      margin-bottom: 20px;
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
     }
     @media screen and (min-width: 768px) {
       width: calc((100% - (20px) * 2));
@@ -130,5 +133,55 @@
   letter-spacing: 0.04em;
   @media screen and(min-width:768px) and(max-width:1199px) {
     font-size: 14px;
+  }
+}
+.footer-button {
+  display: inline-block;
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.31;
+  text-align: center;
+  color: $dark-accent-color;
+  background-color: #ffff;
+  border: 0;
+  border-radius: 20px;
+  padding: 11px 17px;
+
+  @media screen and (min-width: 1200px) {
+    font-size: 14px;
+    line-height: 1.286;
+  }
+
+  &:hover,
+  &:focus {
+    color: #d41443;
+    background-color: #ecebeb;
+  }
+  &::after {
+    content: '>';
+    // background-image: url(../images/button-icon.svg);
+    margin-left: 15px;
+    width: 8px;
+    height: 10px;
+  }
+  &-item {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    &:first-child {
+      .footer-button {
+        color: $text-dark-theme-color;
+        background-color: $dark-accent-color;
+        &:hover,
+        &:focus {
+          color: $text-dark-theme-color;
+          background-color: red;
+        }
+      }
+    }
+  }
+  &-list {
+    text-align: center;
   }
 }
