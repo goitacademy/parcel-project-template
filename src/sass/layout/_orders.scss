@@ -27,20 +27,43 @@
 
   font-weight: 500;
   font-size: 12px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 16px;
+  }
 }
 
 .order-thumb {
   background-color: $title-section-theme-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .order {
   position: relative;
   transform: translateY(-7%);
-  width: 220px;
+  min-width: 220px;
+  margin-left: 0;
+  padding-bottom: 29px;
 
-  display: block;
   font-family: $main-font;
   font-style: normal;
+
+  @media screen and (min-width: 768px) {
+    transform: translateY(-15%);
+    padding-bottom: 80px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    transform: translateY(-17%);
+    padding-bottom: 93px;
+  }
 }
 
 .order-header {
@@ -49,10 +72,21 @@
 
 .order-items-pack {
   display: block;
+
+  margin-bottom: 54px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 81px;
+  }
 }
 
 .order-item {
   padding: 43px 20px;
+  margin-bottom: 20px;
 
   width: 220px;
 
@@ -60,8 +94,27 @@
   border-radius: 24px;
 
   background-color: $text-main-color-white;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+    margin-right: 25px;
+    padding: 50px 32px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 330px;
+    padding: 50px 44px;
+    margin-right: 31px;
+  }
 }
 
+.order-item:last-child {
+  margin-bottom: 0;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 0;
+  }
+}
 .order-item-header {
   display: inline-block;
   padding-left: 14px;
@@ -78,6 +131,15 @@
   &.food-truck {
     background-color: $backgraund-order-food-truck;
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    margin-bottom: 30px;
+
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 .order-item-city {
@@ -92,6 +154,13 @@
   line-height: 150%;
 
   color: $text-main-color-grey;
+
+  @media screen and (min-width: 768px) {
+    line-height: 166%;
+  }
+  @media screen and (min-width: 1200px) {
+    line-height: 183%;
+  }
 }
 
 .order-item-description::after,
@@ -128,25 +197,52 @@
 .order-buttons {
   @extend %align-center;
   flex-direction: column;
+
+  cursor: pointer;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
 .order-main-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 17px;
+  min-width: 161px;
   margin-bottom: 10px;
+
+  span {
+    font-size: 30px;
+    font-weight: 700px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+    margin-right: 14.5px;
+    line-height: 183%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-right: 15px;
+  }
 }
 
-@media screen and (min-width: 768px) {
-  .order-items-pack {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.order-main-button .order-pointer {
+  fill: $text-main-color-white;
+  // border: 2px solid $text-main-color-white;
+}
+
+.order-secondary-button .order-pointer {
+  fill: $text-main-color-white;
+  // border: 2px solid $text-main-color-white;
 }
 
 @media screen and (max-width: 767px) {
-  .order-item:not(:last-child) {
-    margin-bottom: 20px;
-  }
-  .order-item:last-child {
-    margin-bottom: 54px;
+  .order-buttons .button:not(:last-child) {
+    margin-bottom: 10px;
   }
 }
