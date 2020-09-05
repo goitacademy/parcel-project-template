@@ -1,0 +1,232 @@
+//MAIN-NAV
+
+header {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+}
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 32px;
+  @media screen and (max-width: 1279px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 0;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+}
+
+.button-hov:hover,
+.button-hov:focus {
+  background-color: $accent-color;
+  transition: $time-function;
+}
+
+.menu-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  height: 20px;
+  background-color: transparent;
+  align-items: center;
+  margin-left: auto;
+  padding: 10px 0;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  &-cross {
+    display: none;
+  }
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+}
+
+.menu-button--is-open .menu-button-cross {
+  display: block;
+  position: absolute;
+  z-index: 3;
+  cursor: pointer;
+}
+.menu-button--is-open .menu-button-menu {
+  display: none;
+}
+
+.menu-container {
+  display: none;
+  z-index: 1;
+  &--is-open {
+    display: block;
+  }
+  @media screen and (max-width: 1279px) {
+    position: absolute;
+    top: 0;
+    right: 25%;
+    width: 254px;
+    height: 500px;
+    padding-top: 60px;
+    text-align: center;
+    overflow: hidden;
+    background-color: $menu-bacground;
+  }
+  @media screen and (max-width: 767px) {
+    top: 0;
+    right: 0;
+    right: 20px;
+    width: 250px;
+    height: 502px;
+  }
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .menu-button--is-open {
+    &.menu-button {
+      transform: translate(-18px, -23px);
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .menu-button--is-open {
+    &.menu-button {
+      transform: translate(-28px, -23px);
+    }
+  }
+}
+
+//SAIT NAV
+
+.sait-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-item {
+    z-index: 2;
+  }
+  @media screen and (max-width: 1279px) {
+    display: inline;
+  }
+  @media screen and (min-width: 1279px) {
+    margin-left: 110px;
+    &-item:not(:last-child) {
+      margin-right: 35px;
+    }
+  }
+}
+
+.sait-nav-link {
+  position: relative;
+  display: inline-block;
+
+  color: $bacground-light;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  &:hover,
+  &:focus {
+    color: $accent-color;
+    transition: $time-function;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+.buy {
+  margin-right: 13.33px;
+}
+.button-buy {
+  width: 159px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  border-radius: 22px;
+  border: none;
+  padding: 12px 37px;
+  margin-left: 30px;
+  color: $accent-color;
+  background-color: $bacground-light;
+
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.31;
+  align-items: center;
+  cursor: pointer;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: 110px;
+  }
+}
+.button-buy-menu {
+  width: 159px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 22px;
+  border: none;
+  padding: 12px 37px;
+  color: $accent-color;
+  background-color: $bacground-light;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.31;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 18%;
+  margin-bottom: 20px;
+  @media screen and (min-width: 1279px) {
+    display: none;
+  }
+  @media screen and (min-width: 1279px) {
+  }
+}
+@media screen and (max-width: 1279px) {
+  .sait-nav-link {
+    padding-left: 21px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 42px;
+    border-top: 1px solid #e18298;
+  }
+  .sait-nav-link {
+    &:last-child {
+      border-bottom: 1px solid #e18298;
+    }
+  }
+  .menu-button--is-open {
+    .button-buy {
+      display: block;
+      position: absolute;
+      z-index: 4;
+    }
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .button-buy {
+    display: none;
+  }
+}
