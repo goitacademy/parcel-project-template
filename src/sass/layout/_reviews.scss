@@ -1,22 +1,37 @@
 .reviews {
     .container {
-        width: 320px;
-        min-width: 320px;
+         width: 100%;
+         padding-bottom: 43px;
+         padding-top: 40px;
+         @media screen and (min-width: 768px) {
+            padding-top: 61px;
+            padding-bottom: 60px;
+         }
+         @media screen and (min-width: 1200px) {
+            padding-top: 62px;
+            padding-bottom: 76px;
+                    }
     }
 }
 .review-card-photo-wrapper {
     width: 85px;
     height: 85px;
     border-radius: 50%;
+    overflow: hidden;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 29px;
+    @media screen and (min-width: 768px) {
+        .review-card-photo-wrapper {
+                 margin-bottom: 19px;
+        }
+        @media screen and (min-width: 1200px) {
+            .review-card-photo-wrapper {
+                     margin-bottom: 15px;
+            }
+        }
 }
-
-// @media screen and (min-width: 768px) {
-//     width: 85px;
-//     height: 85px;  
-// }
-
+}
 .review-card {
     width: 100%;
    
@@ -25,49 +40,65 @@
     display: block;
 }
 .review-card-feedback-wrapper {
-    // position: relative;
-    background-image: 1px solid #E1E1E1;;
-    background-repeat: repeat;
-
-}
-.review-card-feedback {
-// width: 100%;
-position: relative;
-padding-left: 50px;
+    padding-left: 50px;
 padding-right: 50px;
+padding-top: 40px;
+padding-bottom: 20px;
+    background-color: #FAFAFA;
+    margin-bottom: 30px;
+    @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+    padding-left: 40px;
+    padding-right: 36px;
+    padding-top: 30px;
+    padding-bottom: 28px;
+    }
+    @media screen and (min-width: 1200px) {
+        margin-bottom: 15px;
+        padding-left: 50px;
+        padding-right: 54px;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        }
+        }
+.review-card-feedback {
+    background-image: linear-gradient(to bottom, transparent 26px, #E1E1E1 27px, transparent 28px,);
+    background-size: 100% 30px;
+    &::before {
+        content: " ";
+         position: absolute;
+        left: 11px;
+        top:-15px;
+        z-index: -1;
+        display: block;
+        background-image: url(../images/reviews/quotes.svg);
+    width: 54px;
+    height: 40px;
+    // fill: #E1E1E1;
+    @media screen and (min-width: 768px) {
+        left: -20px;
+        top:-17px;
+    }
+    @media screen and (min-width: 1200px) {
+        left: -9px;
+        top:-15px;
+    }
+    }
+position: relative;
+z-index: 1;
 font-weight: 500;
 font-size: 12px;
 line-height: 2.55;
 text-align: center;
 color: $first-text-color;
-background-color: #FAFAFA;
-margin-bottom: 30px;
-&::before {
-    content: " ";
-    display: block;
-    background-image: url(../images/sprite.svg#icon-quotes);
-width: 54px;
-height: 40px;
-// fill: brown;
-}
-// &::after {
-//     content: " ";
-//     position: absolute;
-//     display: block;
-//     top: 0;
-//     left: 0;
-//     content: "";
-//     width: 100%;
-//     height: 4px;
-//    background: tomato;
-//     border-radius: 2px;
-//    }
-}
-.decor {
-    display: block;
-    fill: chocolate;
-    width: 54px;
-    height: 40px;
+@media screen and (min-width: 768px) {
+     font-size: 14px;
+    line-height: 2.16;
+    }
+    @media screen and (min-width: 1200px) {
+        font-size: 16px;
+       line-height: 1.86;
+       }
 }
 
 .three-dots {
@@ -75,8 +106,16 @@ height: 40px;
     margin-left:auto;
     margin-right: auto;
     margin-bottom: 18px;
+    @media screen and (min-width: 768px) {
+        margin-bottom: 14px;
+    }
+    @media screen and (min-width: 1200px) {
+        margin-bottom: 15px;
+    }
 }
 .review-card-author {
+    background-repeat: no-repeat;
+    background-position-x: center;
 position: relative;
 font-weight: 500;
   font-size: 14px;
@@ -84,9 +123,57 @@ line-height: 1.86;
 text-align: center;
 color: $first-text-color;
 margin-bottom: 30px;
-// &::before {
-//     @extend %three-dots;
-//     top: 0;
-//     left: 50%;
-//    }
+@media screen and (min-width: 768px) {
+margin-bottom: 35px;
 }
+}
+
+.review-card-slider {
+    display: flex;
+   justify-content: center;
+}
+.review-list-label:not(:last-child) {
+ margin-right: 18px;
+}
+
+.review-slider-button-house {
+    display: none;
+    width: 13px;
+    height:12px;
+    .review-list-btn:checked + & {
+        display: block;
+    }
+}
+
+.review-slider-button-dot {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+    &:hover {
+        background-color: $slider-accent-color;
+    }
+    .review-list-btn:checked ~ & {
+        display: none;
+    }
+}
+// .review-list-btn {
+//     display: flex;
+//     width: 16px;
+//     height: 15px;
+//     border: 1.5px solid $title-light-theme-color;
+//     border-radius: 2px;
+//     margin-right: 8px;
+//     background-color: transparent;
+//     background-origin: border-box;
+//     background-position: 1.5px 2.5px;
+//     background-repeat: no-repeat;
+//     background-size: 13px 12px; 
+//     transition-property: background-color, border;
+//     @include animation (); 
+//     .form-checkbox:checked + & {
+//         border: transparent;
+//         background-color: $svg-color-accent;
+//              }
+//             }
