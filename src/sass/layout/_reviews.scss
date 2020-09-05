@@ -17,6 +17,7 @@
     width: 85px;
     height: 85px;
     border-radius: 50%;
+    overflow: hidden;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 29px;
@@ -131,17 +132,21 @@ margin-bottom: 35px;
     display: flex;
    justify-content: center;
 }
+.review-list-label:not(:last-child) {
+ margin-right: 18px;
+}
 
-.review-slider-button {
-    display: block;
+.review-slider-button-house {
+    display: none;
     width: 13px;
     height:12px;
-    
+    .review-list-btn:checked + & {
+        display: block;
+    }
 }
 
 .review-slider-button-dot {
     display: block;
-    margin-left: 18px;
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -149,4 +154,26 @@ margin-bottom: 35px;
     &:hover {
         background-color: $slider-accent-color;
     }
+    .review-list-btn:checked ~ & {
+        display: none;
+    }
 }
+// .review-list-btn {
+//     display: flex;
+//     width: 16px;
+//     height: 15px;
+//     border: 1.5px solid $title-light-theme-color;
+//     border-radius: 2px;
+//     margin-right: 8px;
+//     background-color: transparent;
+//     background-origin: border-box;
+//     background-position: 1.5px 2.5px;
+//     background-repeat: no-repeat;
+//     background-size: 13px 12px; 
+//     transition-property: background-color, border;
+//     @include animation (); 
+//     .form-checkbox:checked + & {
+//         border: transparent;
+//         background-color: $svg-color-accent;
+//              }
+//             }
