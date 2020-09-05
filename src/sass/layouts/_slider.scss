@@ -1,0 +1,220 @@
+.slider {
+  padding-top: 154px;
+  margin: auto;
+  padding-bottom: 170px;
+}
+.slider-list {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 50px;
+  padding-left: 0;
+}
+.wrapper {
+  position: relative;
+  background-color: #fafafa;
+  padding-top: 43px;
+  padding-right: 66px;
+  padding-left: 57px;
+  padding-bottom: 20px;
+
+  margin: 0 auto;
+  width: 100%;
+}
+.slider-text {
+  position: relative;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 31px;
+  background-image: url(../images/slider/text-line.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  z-index: 200;
+}
+
+.slider-quotes {
+  top: 28px;
+  left: 61px;
+  position: absolute;
+  width: 54px;
+  height: 40px;
+  fill: tomato;
+  z-index: 1;
+}
+.slider-dots-image {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 73px;
+  height: 4px;
+  width: 32px;
+  background-image: url(../images/slider/dots.png);
+}
+.slider-item-name {
+  position: absolute;
+  top: 460px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 26px;
+  text-align: center;
+}
+.sim-slider-element {
+  margin: 0 auto;
+}
+/* Картинка мастабируется по отношению к родительскому элементу */
+.slider .item img {
+  object-fit: cover;
+  width: 85px;
+  height: 85px;
+  border: none;
+  box-shadow: none;
+}
+
+.slider .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Заголовок слайда */
+// .slideText {
+//   position: absolute;
+//   color: #fff;
+//   font-size: 35px;
+//   /* Выравнивание текста по горизонтали и по вертикали*/
+//   left: 50%;
+//   top: 50%;
+//   transform: translate(-50%, -50%);
+//   /* Тень*/
+//   text-shadow: 1px 1px 1px #000, 0 0 1em #000;
+// }
+/* Кружочки */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.slider-dots_item:not(:last-child) {
+  margin-right: 18px;
+}
+.slider-dots_item {
+  display: block;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.slider-dots_item::after {
+  display: block;
+  transition: background-color 0.6s ease;
+  content: '';
+  height: 12px;
+  width: 12px;
+  fill: #ddd;
+  background-image: url(../images/slider/dots.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.slider-dots_item.active::after {
+  opacity: 0;
+}
+.active,
+.slider-dots_item:focus {
+  background-image: url(../images/slider/dots-home.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: unset;
+}
+
+/* Анимация слайдов */
+.slider .slider-item {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.picture-wrapper {
+  margin-bottom: 29px;
+}
+@media screen and (min-width: 768px) {
+  .slider-text {
+    font-size: 14px;
+    line-height: 30px;
+  }
+  .slider {
+    padding-top: 279px;
+  }
+  .wrapper {
+    padding-top: 30px;
+    width: 524px;
+  }
+  .slider-text {
+    background-image: url(../images/slider/text-line-tablet.png);
+  }
+  .slider-list {
+    margin-bottom: 52px;
+  }
+  .slider-item-name {
+    font-size: 16px;
+    line-height: 30px;
+    top: 320px;
+  }
+  .slider-quotes {
+    top: 15px;
+    left: 40px;
+  }
+  .picture-wrapper {
+    margin-bottom: 20px;
+  }
+  .slider-dots-image {
+    margin-bottom: 74px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .slider {
+    padding-top: 382px;
+  }
+  .wrapper {
+    width: 822px;
+  }
+  .slider-text {
+    font-size: 16px;
+    line-height: 30px;
+    background-image: url(../images/slider/text-line-pc.png);
+  }
+  .slider-list {
+    margin-bottom: 47px;
+  }
+  .slider-item-name {
+    font-size: 20px;
+    line-height: 37px;
+    top: 285px;
+  }
+  .slider-dots-image {
+    margin-bottom: 81px;
+  }
+}
