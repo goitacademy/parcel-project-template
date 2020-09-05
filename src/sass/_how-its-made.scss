@@ -1,5 +1,7 @@
 .how-made {
-      &-subtitle, &-title {
+    background-color: #FFF5F6; 
+
+    &-subtitle, &-title {
         font-family: $titles-subtitles-font;
         font-style: normal;
         font-weight: normal;
@@ -20,12 +22,20 @@
     &-btn {
         justify-content: center;
         align-items: center;
+        color: $main-title-color;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
         &:hover, &:focus {
             background-color: #ECEBEB;
         }
 
+        &-svg {
+            border: 2px solid #D41443
+        }
+
         &-arrow {
             margin-left: 14px;
+            stroke: $main-title-color;
+            
         }
     }
 
@@ -40,17 +50,31 @@
     .description-text {
         color: $section-text;
     }
+
+    &-gallery-section {
+        position: relative;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+    }
+
+    &-gallery {
+        position: absolute;
+    }
 }
 
-.how-made-gallery {
-    position: absolute;
-}
+// .how-made-gallery {
+//     position: absolute;
+// }
 
 @media screen and (min-width: 320px) {
     .how-made { 
-        padding-top: 125px;  
         padding-bottom: 0px;
-        
+
+        .container {
+            padding-top: 125px;  
+            padding-bottom: 145px;
+        }
 
         &-subtitle {
             font-size: 18px;
@@ -66,8 +90,8 @@
     
         .lead-description, .description-text {
             font-weight: 500;
-            font-size: 14px;
-            line-height: 1.79;
+            font-size: 12px;
+            line-height: 1.58;
             margin-bottom: 47px;
         }
         
@@ -107,12 +131,12 @@
             }
         }
 
-        &-facts {
-            padding-bottom: 97px;
+        &-gallery-section {
+            height: 154px;
         }
 
         &-gallery {
-            left: -20px;
+            top: -48px;
         }
     }
 
@@ -128,7 +152,12 @@
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .how-made {  
-        background: #FFF5F6 url(../images/how-its-made/mobile/mobile-how-made-2.png) no-repeat right 0px top 766px scroll;
+        background: #FFF5F6 url(../images/how-its-made/mobile/mobile-how-made-2.png) no-repeat left 0px top 766px scroll;
+
+        &-history {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
     }
 
     .cow-block-img {
@@ -136,20 +165,18 @@
     }
 
     .cow-block-picture {
-        width: 280px;
-    }
-
-    .lead-description, .description-text {
-        margin-right: 30px;
-        margin-left: 30px;
+        min-width: 280px;
     }
 }
 
 
 @media screen and (min-width: 768px) {
     .how-made {
-        background-color: #FFF5F6;
-        padding-top: 130px;  
+        .container {
+            padding-top: 130px; 
+            padding-bottom: 246px;
+            background-color: #FFF5F6;    
+        }
 
         &-subtitle {
             font-size: 26px;
@@ -211,15 +238,13 @@
             }
         }
 
-        &-facts {
-            padding-bottom: 140px;
+        &-gallery-section {
+            height: 279px;
         }
 
         &-gallery {
-            left: -34px;
+            top: -106px;
         }
-
-
     }
 
     .cow-block {
@@ -242,9 +267,11 @@
 
 @media screen and (min-width: 1200px) {
     .how-made {  
-        padding-top: 125px;  
-        background: #FFF5F6 url(../images/how-its-made/desktop/desktop-how-made-2.png) no-repeat right 0px top 342px scroll;
-        background-repeat: no-repeat;
+        .container {
+            padding-top: 125px; 
+            padding-bottom: 310px;
+            background: #FFF5F6 url(../images/how-its-made/desktop/desktop-how-made-2.png) no-repeat right 0px top 342px scroll;
+        }
 
         &-subtitle {
             font-size: 30px;
@@ -268,8 +295,7 @@
             margin-bottom: 35px;
 
         }
-
-        
+      
         .description-text {
             letter-spacing: 0.04em;
             margin-bottom: 45px;
@@ -299,10 +325,13 @@
             }
         }
 
-        &-gallery {
-            left: -115px;
+        &-gallery-section {
+            height: 382px;
         }
 
+        &-gallery {
+            top: -171px;
+        }
     }
 
     .cow-block {
