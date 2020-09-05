@@ -67,12 +67,15 @@ header {
 }
 
 .menu-container {
-  display: none;
-  z-index: 1;
-  &--is-open {
-    display: block;
-  }
   @media screen and (max-width: 1279px) {
+    transform: translateY(-100%);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    &--is-open {
+      display: block;
+      transform: translateY(0);
+      transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
     position: absolute;
     top: 0;
     right: 25%;
@@ -150,6 +153,10 @@ header {
   }
 }
 .buy {
+  font-family: $main-font;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.31;
   margin-right: 13.33px;
 }
 .button-buy {
@@ -171,11 +178,16 @@ header {
   line-height: 1.31;
   align-items: center;
   cursor: pointer;
-  @media screen and (max-width: 767px) {
-    display: none;
+  &:focus,
+  &:hover {
+    background-color: $accent-color-second;
+    transition: $time-function;
   }
   @media screen and (min-width: 1280px) {
     margin-left: 110px;
+  }
+  @media screen and (max-width: 767px) {
+    display: none;
   }
 }
 .button-buy-menu {
@@ -189,13 +201,16 @@ header {
   padding: 12px 37px;
   color: $accent-color;
   background-color: $bacground-light;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.31;
+
   align-items: center;
   cursor: pointer;
   margin-left: 18%;
   margin-bottom: 20px;
+  &:focus,
+  &:hover {
+    background-color: $accent-color-second;
+    transition: $time-function;
+  }
   @media screen and (min-width: 1279px) {
     display: none;
   }
@@ -222,11 +237,5 @@ header {
       position: absolute;
       z-index: 4;
     }
-  }
-}
-
-@media screen and (max-width: 1279px) {
-  .button-buy {
-    display: none;
   }
 }
