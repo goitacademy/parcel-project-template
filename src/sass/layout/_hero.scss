@@ -5,13 +5,15 @@
 }
 
 .hero-section {
-  height: 446px;
+  height: 502px;
 
   @media screen and (min-width: 768px) {
-    height: 400px;
+    position: relative;
+    height: 399 px;
   }
 
   @media screen and (min-width: 1200px) {
+    position: relative;
     height: 665px;
   }
 
@@ -26,11 +28,9 @@
     z-index: 100;
 
     @media screen and (min-width: 768px) {
-      left: 34px;
       bottom: 28px;
     }
     @media screen and (min-width: 1200px) {
-      left: 77px;
       bottom: 45px;
     }
 
@@ -43,20 +43,16 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: $text-dark-theme-color;
-      margin-bottom: 19px;
 
       @media screen and (min-width: 768px) {
         max-width: 162px;
         font-size: 22px;
         line-height: 1.136;
-        margin-bottom: 20px;
       }
       @media screen and (min-width: 1200px) {
         max-width: 277px;
         font-size: 38px;
         line-height: 1.158;
-        margin-left: 38px;
-        margin-bottom: 25px;
       }
 
       & span {
@@ -75,6 +71,19 @@
       }
     }
 
+    &-buttons {
+      margin-top: 28px;
+      @media screen and (min-width: 768px) {
+        margin-top: 29px;
+        margin-bottom: 28px;
+      }
+
+      @media screen and (min-width: 1200px) {
+        margin-top: 34px;
+        margin-bottom: 65px;
+      }
+    }
+
     &-btn {
       font-family: $main-font;
       font-weight: 400;
@@ -86,12 +95,11 @@
       border: 0;
       border-radius: 20px;
       padding: 9px 15px;
-      margin-bottom: 19px;
+      transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
       @media screen and (min-width: 1200px) {
         font-size: 14px;
         line-height: 1.286;
-        margin-bottom: 56px;
       }
 
       &:first-of-type {
@@ -103,10 +111,6 @@
         &:focus {
           color: $text-dark-theme-color;
           background-color: #c7133e;
-        }
-
-        @media screen and (min-width: 1200px) {
-          margin-left: 38px;
         }
       }
 
@@ -121,10 +125,13 @@
       @media screen and (min-width: 768px) {
         display: flex;
         align-items: flex-end;
+
         &-img {
-          & img {
-            width: 124px;
-            height: 126px;
+          @media screen and (min-width: 768px) {
+            & img {
+              width: 124px;
+              height: 126px;
+            }
           }
           @media screen and (min-width: 1200px) {
             margin-right: 30px;
@@ -156,6 +163,10 @@
           }
         }
       }
+
+      @media screen and (min-width: 1200px) {
+        margin-left: -38px;
+      }
     }
   }
 
@@ -165,7 +176,7 @@
     bottom: 0;
     z-index: 1;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
       left: 378px;
     }
 
@@ -176,32 +187,16 @@
 
   &-img-bg {
     position: absolute;
-    right: -61px;
+    right: 0;
     bottom: 75px;
-    overflow: hidden;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
       left: 307px;
       bottom: 46px;
     }
 
     @media screen and (min-width: 1200px) {
       left: 475px;
-    }
-  }
-
-  &-img-girl {
-    position: absolute;
-    bottom: 0;
-
-    @media screen and (min-width: 768px) {
-      display: block;
-      left: 566px;
-    }
-
-    @media screen and (min-width: 1200px) {
-      display: block;
-      left: 878px;
     }
   }
 
@@ -241,6 +236,7 @@
         font-weight: 400;
         letter-spacing: 0.04em;
         color: $dark-accent-color;
+
         @media screen and (min-width: 768px) {
           font-size: 28px;
           line-height: 1.143;
@@ -251,6 +247,7 @@
           line-height: 1.152;
         }
       }
+
       & .text {
         font-family: $main-font;
         text-align: center;
@@ -282,6 +279,21 @@
             height: 30px;
           }
         }
+      }
+    }
+
+    &-img-girl {
+      position: absolute;
+      bottom: 0;
+
+      @media screen and (min-width: 768px) {
+        display: block;
+        left: 566px;
+      }
+
+      @media screen and (min-width: 1200px) {
+        display: block;
+        left: 878px;
       }
     }
   }
