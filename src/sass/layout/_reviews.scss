@@ -11,6 +11,8 @@
          @media screen and (min-width: 1200px) {
             padding-top: 124px;
             padding-bottom: 76px;
+            padding-left: 176px;
+            padding-right: 176px;
                     }
     }
 }
@@ -21,6 +23,7 @@
     align-items: flex-end;
     justify-content: center;
     flex-wrap: wrap;
+  
        }
    .review-placeholder {
        visibility: hidden;
@@ -33,9 +36,10 @@
     position: absolute;
     top: 0;
     transform: translateX(-200%);
+    opacity: 0;
     width: 100%;
-                     transition-property: transform;
-                transition-duration: $transition-time;
+                     transition-property: transform, opacity;
+                transition-duration: $transition-time-slider;
                 transition-timing-function: $transition-function;
                   }
 
@@ -58,36 +62,40 @@
         }
 }
 }
-
     .reviews .review-btn-1:checked ~ .review-list-1 {
          left: 50%;
-        transform: translateX(-50%);}
+         transform: translateX(-50%);
+         opacity: 1;
+        }
 
         .reviews .review-btn-1:not(:checked) ~ .review-list-1 {
             animation-name: review-hiding;
-            animation-duration: $transition-time;
+            animation-duration: $transition-time-slider;
             animation-timing-function: $transition-function;
             animation-fill-mode: none;
         }
-              
+         
+
     .reviews .review-btn-2:checked ~ .review-list-2 {
         left: 50%;
         transform: translateX(-50%);
+        opacity: 1;
     }
     .reviews .review-btn-2:not(:checked) ~ .review-list-2 
     {   
         animation-name: review-hiding;
-        animation-duration: $transition-time;
+        animation-duration: $transition-time-slider;
         animation-timing-function: $transition-function;
         animation-fill-mode: none;
     }
     .reviews .review-btn-3:checked ~ .review-list-3 {
         left: 50%;
         transform: translateX(-50%);
+        opacity: 1;
     }
     .reviews .review-btn-3:not(:checked) ~ .review-list-3 
     {   animation-name: review-hiding;
-        animation-duration: $transition-time;
+        animation-duration: $transition-time-slider;
         animation-timing-function: $transition-function;
         animation-fill-mode: none;
     }
@@ -167,18 +175,21 @@ color: $first-text-color;
     }
 }
 .review-card-author {
-    background-repeat: no-repeat;
-    background-position-x: center;
-position: relative;
+//   position: relative;
 font-weight: 500;
   font-size: 14px;
+  font-style: normal;
 line-height: 1.86;
 text-align: center;
 color: $first-text-color;
 margin-bottom: 30px;
 @media screen and (min-width: 768px) {
 margin-bottom: 35px;
+font-size: 16px;
 }
+@media screen and (min-width: 1200px) {
+    font-size: 20px;
+    }
 }
 
 .review-card-slider {
@@ -230,10 +241,14 @@ margin-bottom: 35px;
 @keyframes review-hiding {
     0% {left:50%;
         transform: translateX(-50%);
+        opacity: 1;
     }
-  
+  30% {
+   opacity: 0.4;   
+}
     100% {
         transform: translateX(+200%);
+        opaсity: 0;
         visibility: hidden;
     }
       }
