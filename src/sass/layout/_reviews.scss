@@ -2,17 +2,43 @@
     .container {
          width: 100%;
          padding-bottom: 43px;
-         padding-top: 40px;
+         padding-top: 80px;
+         overflow: hidden;
          @media screen and (min-width: 768px) {
-            padding-top: 61px;
+            padding-top: 121px;
             padding-bottom: 60px;
          }
          @media screen and (min-width: 1200px) {
-            padding-top: 62px;
+            padding-top: 124px;
             padding-bottom: 76px;
                     }
     }
 }
+
+.review-list-wrapper {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+       }
+   .review-placeholder {
+       visibility: hidden;
+        margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+     }
+
+.review-list-item {
+    position: absolute;
+    top: 0;
+    transform: translateX(-200%);
+    width: 100%;
+                     transition-property: transform;
+                transition-duration: $transition-time;
+                transition-timing-function: $transition-function;
+                  }
+
 .review-card-photo-wrapper {
     width: 85px;
     height: 85px;
@@ -32,13 +58,40 @@
         }
 }
 }
-.review-card {
-    width: 100%;
-   
-  }
-.review-list {
-    display: block;
-}
+
+    .reviews .review-btn-1:checked ~ .review-list-1 {
+         left: 50%;
+        transform: translateX(-50%);}
+
+        .reviews .review-btn-1:not(:checked) ~ .review-list-1 {
+            animation-name: review-hiding;
+            animation-duration: $transition-time;
+            animation-timing-function: $transition-function;
+            animation-fill-mode: none;
+        }
+              
+    .reviews .review-btn-2:checked ~ .review-list-2 {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .reviews .review-btn-2:not(:checked) ~ .review-list-2 
+    {   
+        animation-name: review-hiding;
+        animation-duration: $transition-time;
+        animation-timing-function: $transition-function;
+        animation-fill-mode: none;
+    }
+    .reviews .review-btn-3:checked ~ .review-list-3 {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .reviews .review-btn-3:not(:checked) ~ .review-list-3 
+    {   animation-name: review-hiding;
+        animation-duration: $transition-time;
+        animation-timing-function: $transition-function;
+        animation-fill-mode: none;
+    }
+     
 .review-card-feedback-wrapper {
     padding-left: 50px;
 padding-right: 50px;
@@ -132,48 +185,55 @@ margin-bottom: 35px;
     display: flex;
    justify-content: center;
 }
+.review-card-slider {
+    padding-top: 350;
+}
 .review-list-label:not(:last-child) {
  margin-right: 18px;
 }
 
 .review-slider-button-house {
-    display: none;
+    opacity: 0;
+    display: block;
+    transform: scale(0);
+    position: absolute;
+    transition-property: opacity transform;
+    transition-duration: $transition-time;
+    transition-timing-function: $transition-function;
     width: 13px;
     height:12px;
     .review-list-btn:checked + & {
-        display: block;
+        position: relative;
+        transform: scale(1);
+               opacity: 1;
     }
 }
 
 .review-slider-button-dot {
-    display: block;
+     display: block;
+    opacity: 1;
     width: 12px;
     height: 12px;
     border-radius: 50%;
     background-color: #D9D9D9;
+    transition-property: background-color;
+    transition-duration: $transition-time;
+    transition-timing-function: $transition-function;
+    .review-list-btn:checked ~ & {
+        opacity: 0;
+        display: none;
+             }
     &:hover {
         background-color: $slider-accent-color;
     }
-    .review-list-btn:checked ~ & {
-        display: none;
-    }
 }
-// .review-list-btn {
-//     display: flex;
-//     width: 16px;
-//     height: 15px;
-//     border: 1.5px solid $title-light-theme-color;
-//     border-radius: 2px;
-//     margin-right: 8px;
-//     background-color: transparent;
-//     background-origin: border-box;
-//     background-position: 1.5px 2.5px;
-//     background-repeat: no-repeat;
-//     background-size: 13px 12px; 
-//     transition-property: background-color, border;
-//     @include animation (); 
-//     .form-checkbox:checked + & {
-//         border: transparent;
-//         background-color: $svg-color-accent;
-//              }
-//             }
+@keyframes review-hiding {
+    0% {left:50%;
+        transform: translateX(-50%);
+    }
+  
+    100% {
+        transform: translateX(+200%);
+        visibility: hidden;
+    }
+      }
