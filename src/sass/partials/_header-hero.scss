@@ -1,7 +1,7 @@
 //breakpoints
 $mobile: 320px;
 $tablet: 768px;
-$desktop: 1354px;
+$desktop: 1314px;
 
 //utils
 .container {
@@ -21,23 +21,30 @@ $desktop: 1354px;
   }
 }
 
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
 //buttons
 .btn {
   margin-top: 0;
   margin-bottom: 30px;
   display: block;
 
-  padding: 14px 7px;
+  padding-top: 14px;
+  padding-bottom: 14px;
   margin-left: auto;
   margin-right: auto;
 
   background-color: $accent-color;
   border: $accent-color;
 
+  width: 260px;
+
   font-weight: bold;
   font-size: 12px;
   line-height: 1.25;
-  display: flex;
   align-items: center;
   text-align: center;
   letter-spacing: 0.08em;
@@ -49,7 +56,30 @@ $desktop: 1354px;
   }
 }
 
-.btn.tablet {
+.btn-consult {
+  margin-top: 0;
+  display: block;
+
+  padding: 14px 7px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: transparent;
+  border: 2px solid $accent-color;
+
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: $accent-color;
+}
+
+.btn-consult.tablet {
   @media screen and (max-width: $tablet) {
     display: none;
   }
@@ -60,6 +90,12 @@ $desktop: 1354px;
   @media screen and (min-width: $tablet) and (max-width: $desktop) {
     margin-right: 40px;
     margin-bottom: 0;
+  }
+}
+
+.menu-container .btn-consult {
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    display: none;
   }
 }
 
@@ -86,10 +122,16 @@ $desktop: 1354px;
 
 .page-navigation {
   padding-top: 34px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  .page-navigation-logo {
+    @media screen and (min-width: $desktop) {
+      margin-right: 160px;
+    }
+  }
 }
 
 .menu-container {
@@ -136,7 +178,161 @@ $desktop: 1354px;
 }
 
 .header-menu {
-  @media screen and (min-width: $desktop) {
-    display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  margin-bottom: 50px;
+  @media screen and (max-width: $tablet) {
+    width: $mobile;
   }
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    max-width: 335px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+
+    margin-right: 60px;
+  }
+}
+
+.header-menu-link {
+  font-weight: 800;
+  line-height: 180%;
+  letter-spacing: 0.03em;
+  color: $primary-white-color;
+
+  @media screen and (max-width: $tablet) {
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-size: 26px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.21;
+    text-transform: uppercase;
+
+    color: $secondary-text-color;
+  }
+}
+
+.header-menu-item:not(:last-child) {
+  @media screen and (min-width: $desktop) {
+    margin-right: 40px;
+  }
+}
+
+.mobile-menu-header {
+  margin-bottom: 50px;
+}
+
+//hero
+.hero-header {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 136%;
+  letter-spacing: 0.03em;
+
+  color: $primary-text-color;
+}
+
+.hero-motivation-text {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.57;
+  letter-spacing: 0.08em;
+  .grey {
+    font-weight: 500;
+    color: #b9b9b9;
+  }
+  .black {
+    color: black;
+  }
+  .orange {
+    color: orangered;
+  }
+}
+
+.hero-img {
+  display: block;
+  margin-bottom: 77px;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (min-width: $tablet) {
+    width: 375px;
+    margin: 0;
+  }
+}
+
+.header-advantages {
+  margin: 0;
+  list-style: none;
+  padding: 0 30px;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+  }
+}
+
+.header-advantages .item {
+  display: inline-block;
+  position: relative;
+  min-height: 60px;
+  vertical-align: middle;
+  width: 200px;
+
+  &::before {
+    content: '';
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &:nth-child(-n + 2) {
+    margin-bottom: 22px;
+    @media screen and (min-width: $tablet) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.icon-1::before {
+  background-image: url(../../images/header-hero/advantages-logo1.svg);
+}
+.icon-2::before {
+  background-image: url(../../images/header-hero/advantages-logo2.svg);
+}
+.icon-3::before {
+  background-image: url(../../images/header-hero/advantages-logo3.svg);
+}
+
+.advantages-title {
+  padding-left: 68px;
+  margin: 0;
+  position: absolute;
+
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: 0.08em;
+
+  color: #111518;
 }
