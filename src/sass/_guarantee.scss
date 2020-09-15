@@ -19,6 +19,10 @@
   padding-bottom: 31px;
 }
 
+.guarantee__list {
+  position: relative;
+}
+
 .guarantee__item {
   font-weight: 500;
   font-size: 12px;
@@ -30,8 +34,58 @@
   &:not(:last-child) {
     margin-bottom: 23px;
   }
+
+  & .guarantee__star:hover::after {
+    overflow: visible;
+    opacity: 1;
+  }
+
+  &:not(:last-child)::after {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    border-width: 1px;
+    border-color: #b9b9b9;
+    border-style: dashed;
+    width: 1px;
+    height: 90%;
+    top: 27px;
+    left: 7px;
+  }
+}
+
+.guarantee__star {
+  color: $span-text-color;
+  position: relative;
+
+  &::after {
+    display: block;
+    content: 'При условии посещения 80% занятий и выполнения 100% заданий';
+    width: 250px;
+    position: absolute;
+    font-size: 12px;
+    padding: 10px;
+    bottom: 18px;
+
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: $h-text-color;
+    overflow: hidden;
+
+    transition: overflow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
 
 .guarantee__span {
   color: $span-text-color;
+}
+
+.guarantee__icon {
+  position: absolute;
+  height: 20px;
+  width: 15px;
+  left: 0;
+  top: 0;
 }
