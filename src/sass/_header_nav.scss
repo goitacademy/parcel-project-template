@@ -2,12 +2,30 @@
   display: flex;
   padding: 45px 0 59px 0;
   justify-content: space-between;
-  align-self: center;
+  align-items: center;
   background-color: white;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 29px;
+
+    @media screen and (min-width: 690px) {
+      width: 128px;
+      height: 45px;
+      margin-right: 239px;
+    }
+
+    @media screen and (min-width: 1320px) {
+      margin-right: 144px;
+    }
+  }
 
   .navigation-list {
     display: flex;
     align-items: center;
+    margin: 0;
     @media screen and (max-width: 1319px) {
       display: none;
     }
@@ -18,8 +36,14 @@
   .header-button {
     display: none;
 
+    &:hover {
+      background-color: $accent-color;
+      color: $fourth-text-color;
+    }
+
     @media screen and (min-width: 690px) {
       display: block;
+      margin-right: 40px;
       width: 260px;
       height: 48px;
       background-color: #fff;
@@ -41,43 +65,56 @@
       letter-spacing: 0.14em;
     }
   }
+}
 
-  .logo {
-    display: flex;
-    align-items: center;
-    width: 80px;
-    height: 29px;
+.navigation-list-item {
+  &:not(:last-child) {
+    margin-right: 40px;
+    padding: 15px 0;
+  }
 
-    @media screen and (min-width: 690px) {
-      width: 128px;
-      height: 45px;
-      margin-right: 239px;
+  .navigation-link {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+    color: $fourth-text-color;
+
+    &:hover {
+      color: $accent-color;
     }
 
     @media screen and (min-width: 1320px) {
-      margin-right: 144px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 1.21;
+      text-transform: uppercase;
+      color: $primary-text-color;
     }
   }
 }
 
-.navigation-list-item {
-  font-style: normal;
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 1.8;
-  letter-spacing: 0.03em;
-  color: $fourth-text-color;
+.mobile-button {
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  border: none;
 
   @media screen and (min-width: 1320px) {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 1.21;
-    text-transform: uppercase;
-    color: $primary-text-color;
-
-    &:not(:last-child) {
-      margin-right: 40px;
-    }
+    display: none;
   }
+
+  .close-icon {
+    display: none;
+  }
+}
+
+.mobile-button.is-open .close-icon {
+  display: block;
+}
+
+.mobile-button.is-open .menu-icon {
+  display: none;
 }
