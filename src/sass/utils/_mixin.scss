@@ -1,0 +1,59 @@
+@mixin transition($property) {
+  transition: $property $time-tranforming $form-transforming;
+}
+// пример:
+// @include transition(translate)
+
+@mixin flex($box-form, $alight-position, $jc-form) {
+  display: $box-form;
+  align-items: $alight-position;
+  justify-content: $jc-form;
+}
+// пример:
+// @include flex(flex, center, space-between)
+
+@mixin font($fweight, $fs, $lheight, $lspacing) {
+  font-weight: $fweight;
+  font-size: $fs;
+  line-height: $lheight;
+  letter-spacing: $lspacing;
+}
+// пример:
+// @include font(700, 46px, 1.56, 0.03em)
+
+@mixin vis-hidden() {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@mixin for-size($range) {
+  $phone: 320px;
+  $tablet: 768px;
+  $desktop: 1680px;
+
+  @if $range == phone-responsive {
+    @media (max-width: #{$phone - 1}) {
+      @content;
+    }
+  } @else if $range == phone {
+    @media (min-width: $phone) {
+      @content;
+    }
+  } @else if $range == tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if $range == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+}
+// пример:
+// @include for-size(desktop) {...}
