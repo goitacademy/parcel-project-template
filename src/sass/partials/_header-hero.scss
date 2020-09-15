@@ -40,8 +40,6 @@ a {
   background-color: $accent-color;
   border: $accent-color;
 
-  width: 260px;
-
   font-weight: bold;
   font-size: 12px;
   line-height: 1.25;
@@ -51,8 +49,21 @@ a {
   text-transform: uppercase;
 
   color: $primary-white-color;
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    width: 260px;
+    height: 48px;
+    margin-left: 0;
+  }
   @media screen and (min-width: $desktop) {
+    width: 354px;
+    height: 70px;
     margin-bottom: 0;
+    margin-left: 0;
+
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.14em;
   }
 }
 
@@ -238,12 +249,25 @@ a {
 .hero-header {
   margin-top: 0;
   margin-bottom: 30px;
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 136%;
-  letter-spacing: 0.03em;
 
+  letter-spacing: 0.03em;
+  font-weight: 800;
   color: $primary-text-color;
+
+  @media screen and (max-width: $tablet) {
+    font-size: 20px;
+    line-height: 136%;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    font-size: 26px;
+    line-height: 130%;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 58px;
+    line-height: 130%;
+  }
 }
 
 .hero-motivation-text {
@@ -253,15 +277,22 @@ a {
   font-size: 14px;
   line-height: 1.57;
   letter-spacing: 0.08em;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+    line-height: 164.9%;
+    letter-spacing: 0.08em;
+  }
+
   .grey {
     font-weight: 500;
-    color: #b9b9b9;
+    color: $secondary-text-color;
   }
   .black {
-    color: black;
+    color: $primary-text-color;
   }
   .orange {
-    color: orangered;
+    color: $accent-color;
   }
 }
 
@@ -270,40 +301,64 @@ a {
   margin-bottom: 77px;
   margin-left: auto;
   margin-right: auto;
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
     width: 375px;
+    height: auto;
+    margin: 0;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 841px;
+    height: auto;
     margin: 0;
   }
 }
 
 .header-advantages {
-  margin: 0;
+  padding: 0;
+  margin-bottom: 50px;
+  margin-top: 0;
   list-style: none;
-  padding: 0 30px;
+  padding: 0 40px;
+
   @media screen and (min-width: $tablet) {
     display: flex;
     justify-content: space-between;
     padding: 0;
   }
+
+  @media screen and (min-width: $desktop) {
+    justify-content: space-between;
+  }
 }
 
-.header-advantages .item {
+.header-advantages .advantages-item {
   display: inline-block;
   position: relative;
   min-height: 60px;
   vertical-align: middle;
   width: 200px;
 
+  @media screen and (min-width: $desktop) {
+    width: calc(100% / 3);
+  }
+
   &::before {
     content: '';
     background-repeat: no-repeat;
     background-position: 0 center;
     display: inline-block;
-    height: 60px;
-    width: 60px;
+
     position: absolute;
     top: 0;
     left: 0;
+    @media screen and (max-width: $desktop) {
+      height: 60px;
+      width: 60px;
+    }
+    @media screen and (min-width: $desktop) {
+      height: 103px;
+      width: 103px;
+    }
   }
 
   &:nth-child(-n + 2) {
@@ -314,14 +369,29 @@ a {
   }
 }
 
-.icon-1::before {
-  background-image: url(../../images/header-hero/advantages-logo1.svg);
+.adv-icon-1::before {
+  @media screen and (max-width: $desktop) {
+    background-image: url(../images/header-hero/advantages-logo1.svg);
+  }
+  @media screen and (min-width: $desktop) {
+    background-image: url(../images/header-hero/advantages-logo1-big.svg);
+  }
 }
-.icon-2::before {
-  background-image: url(../../images/header-hero/advantages-logo2.svg);
+.adv-icon-2::before {
+  @media screen and (max-width: $desktop) {
+    background-image: url(../images/header-hero/advantages-logo2.svg);
+  }
+  @media screen and (min-width: $desktop) {
+    background-image: url(../images/header-hero/advantages-logo2-big.svg);
+  }
 }
-.icon-3::before {
-  background-image: url(../../images/header-hero/advantages-logo3.svg);
+.adv-icon-3::before {
+  @media screen and (max-width: $desktop) {
+    background-image: url(../images/header-hero/advantages-logo3.svg);
+  }
+  @media screen and (min-width: $desktop) {
+    background-image: url(../images/header-hero/advantages-logo3-big.svg);
+  }
 }
 
 .advantages-title {
@@ -330,9 +400,42 @@ a {
   position: absolute;
 
   font-weight: bold;
-  font-size: 14px;
-  line-height: 1.43;
+
   letter-spacing: 0.08em;
 
   color: #111518;
+
+  @media screen and (max-width: $desktop) {
+    font-size: 14px;
+    line-height: 1.43;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 420px;
+    padding-left: 84px;
+    font-size: 20px;
+    line-height: 164.9%;
+
+    top: 30%;
+    // transform: translateY(-50%);
+  }
+}
+
+.hero-section {
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 117px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.hero-text-wrap {
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    display: flex;
+    flex-direction: column;
+    max-width: 280px;
+  }
+  @media screen and (min-width: $desktop) {
+    max-width: 642px;
+  }
 }
