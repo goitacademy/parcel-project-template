@@ -1,7 +1,15 @@
 section.main-problems{
     background-color: $title-black;
 
-    // height: 545px;
+    height: 545px;
+
+    @include for-size(tablet) {
+        height: 340px;
+    }
+
+    @include for-size(desktop) {
+        height: 560px;
+    }
 }
 
 .main-problems {
@@ -60,45 +68,70 @@ section.main-problems{
     box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 
     @include for-size(tablet) {
-        padding: 30px 100px;
+        // padding-top: 30px;
+        // padding-right: 110px;
+        // padding-bottom: 26px;
+        // padding-left: 96px;
+        padding: 40px 100px;
     }
 
     @include for-size(desktop) {
-        padding: 70px 110px;
+        padding: 70px 113px;
     }
 }
 
 .main-problems-list{
     margin: 0;
 	padding: 0;
-	list-style: none;
+    list-style: none;
+    
+    @media (min-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 .main-problems-item{
 
     &:not(:last-child){
         margin-bottom: 10px;
+
+        @media (min-width: 768px) {
+            margin-bottom: 0;
+        }
     }
 
-    // @include for-size(tablet) {
-    //     width: calc((100% - 22px) / 2);
-    // }
+    @include for-size(tablet) {
+        width: calc((100% - 40px) / 2);
+    }
 
-    // &:not(:nth-child(2n)) {
-    //     @media screen and (min-width: 768px) and (max-width: 1314px){
-    //         margin-right: 22px;
-    //     }
-    // }
+    &:not(:nth-child(2n)) {
+        @media screen and (min-width: 768px) and (max-width: 1314px){
+            margin-right: 40px;
+        }
+    }
 
-    // &:not(:nth-child(-n + 2)) {
-    //     @media screen and (min-width: 768px) and (max-width: 1314px){
-    //         margin-top: 32px;
-    //     }
-    // }
+    &:not(:nth-child(-n + 2)) {
+        @media screen and (min-width: 768px) and (max-width: 1314px){
+            margin-top: 24px;
+        }
+    }
 
-    // @include for-size(desktop) {
-    //     width: calc((100% - 2 * 40px) / 3);
-    // }
+    @include for-size(desktop) {
+        width: calc((100% - 2 * 40px) / 3);
+    }
+
+    &:not(:nth-child(3n)) {
+        @include for-size(desktop) {
+            margin-right: 40px;
+        }
+    }
+
+    &:not(:nth-child(-n + 3)) {
+        @include for-size(desktop) {
+            margin-top: 32px;
+        }
+    }
 }
 
 .main-problems-number{
