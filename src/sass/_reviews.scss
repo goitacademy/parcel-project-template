@@ -1,4 +1,6 @@
 .reviews-container {
+  position: relative;
+
   padding-top: 50px;
   padding-bottom: 50px;
   text-align: center;
@@ -14,12 +16,45 @@
 }
 
 .reviews-scroll {
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 
 .reviews-slide {
   box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+  padding: 30px 20px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $tablet) {
+    padding: 40px;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 50px 112px 51px 82px;
+    margin-bottom: 40px;
+  }
+}
+
+.reviews-item {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.reviews-item-icon {
+  @media screen and (min-width: $tablet) {
+    width: 150px;
+    margin-right: 46px;
+  }
+}
+
+.reviews-item-content {
+  @media screen and (min-width: $tablet) {
+    width: 412px;
+    text-align: left;
+  }
 }
 
 .reviews-header {
@@ -32,6 +67,12 @@
 
   margin-top: 0;
   margin-bottom: 40px;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 46px;
+
+    margin-bottom: 50px;
+  }
 }
 
 .reviews-img-big {
@@ -40,6 +81,10 @@
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 20px;
+
+  @media screen and (min-width: $tablet) {
+    width: 150px;
+  }
 }
 
 .reviews-vk {
@@ -57,6 +102,13 @@
 
   margin-top: 0;
   margin-bottom: 10;
+  @media screen and (min-width: $desktop) {
+    font-size: 30px;
+    line-height: 37px;
+    /* identical to box height */
+
+    letter-spacing: 0.08em;
+  }
 }
 
 .reviews-univer {
@@ -73,19 +125,45 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.67;
-  text-align: center;
+
+  letter-spacing: 0em;
 
   color: #3d3d3d;
 
   margin-top: 0;
-  margin-bottom: 50;
+  margin-bottom: 0;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 0;
+  }
+}
+
+.reviews-link {
+  display: inline-block;
+  color: $span-text-color;
+  text-decoration: underline;
 }
 
 .reviews-dot {
   margin-right: 10px;
 }
 
-.reviews-link {
-  color: $span-text-color;
-  text-decoration: underline;
+.reviews-left {
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    top: 280px;
+    left: 0;
+  }
+}
+
+.reviews-right {
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    top: 280px;
+    right: 0px;
+  }
+}
+
+.reviews-dot.active {
+  border-radius: 50%;
+  border: 2px solid $acent-color;
 }
