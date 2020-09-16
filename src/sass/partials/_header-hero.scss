@@ -39,17 +39,28 @@ a {
   margin-right: auto;
 
   background-color: $accent-color;
-  border: $accent-color;
+  border: 2px solid $accent-color;
 
   font-weight: bold;
   font-size: 12px;
   line-height: 1.25;
+  display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 
   color: $primary-white-color;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (max-width: $tablet) {
+    width: 260px;
+    height: 48px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   @media screen and (min-width: $tablet) and (max-width: $desktop) {
     width: 260px;
@@ -65,6 +76,11 @@ a {
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.14em;
+  }
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: $accent-color;
   }
 }
 
@@ -85,13 +101,18 @@ a {
   font-weight: bold;
   font-size: 12px;
   line-height: 1.25;
-
+  display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 
   color: $accent-color;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  cursor: pointer;
 
   @media screen and (max-width: $tablet) {
     width: 260px;
@@ -101,6 +122,12 @@ a {
   @media screen and (min-width: $desktop) {
     font-size: 14px;
     line-height: 1.21;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $primary-white-color;
   }
 }
 
@@ -193,6 +220,8 @@ a {
     height: 100%;
 
     z-index: 98;
+
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   @media screen and (min-width: $desktop) {
     display: flex;
@@ -258,6 +287,8 @@ a {
   line-height: 180%;
   letter-spacing: 0.03em;
   color: $primary-white-color;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (max-width: $tablet) {
     font-size: 20px;
@@ -500,7 +531,7 @@ a {
   @media screen and (min-width: $tablet) and (max-width: $desktop) {
     display: flex;
     flex-direction: column;
-    max-width: 280px;
+    max-width: 290px;
   }
   @media screen and (min-width: $desktop) {
     max-width: 642px;
