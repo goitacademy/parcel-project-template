@@ -13,12 +13,28 @@
 }
 
 .hero-bg-img {
-  // width: 1314px;
-  // height: 878px;
-  // background-image: url();
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-position: center;
+  position: absolute;
+  top: -59px;
+  z-index: -1;
+  width: $phone-width;
+  height: 618px;
+  background-image: url(../images/mobile/Vector-mob.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include for-size(tablet) {
+    top: -88px;
+    width: $tablet-width;
+    height: 557px;
+    background-image: url(../images/tablet/Vector-tab.jpg);
+  }
+
+  @include for-size(desktop) {
+    width: $desktop-width;
+    height: 878px;
+    background-image: url(../images/desktop/Vector-desk.jpg);
+  }
 }
 
 .hero-title {
@@ -76,13 +92,16 @@
   }
 
   &-accent {
+    display: block;
     color: $accent;
   }
 }
 
 .hero-btn {
+  display: block;
   width: 260px;
   padding: 14px 0;
+  margin-bottom: 143px;
   font-weight: 700;
   font-size: 12px;
   line-height: 1.25;
@@ -100,7 +119,7 @@
   }
 
   @include for-size(phone) {
-    display: block;
+    margin-bottom: 285px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -111,6 +130,7 @@
     line-height: 1.214;
     letter-spacing: 0.14em;
     padding: 23px;
+    margin-bottom: 241px;
   }
 }
 
@@ -152,10 +172,10 @@
     min-height: 60px;
     margin-right: 10px;
     background-image: url(../images/border-icon.svg);
-    
+
     @include for-size(desktop) {
-    min-width: 100px;
-    min-height: 102px;
+      min-width: 100px;
+      min-height: 102px;
       background-image: url(../images/border-icon-desk.svg);
     }
   }
