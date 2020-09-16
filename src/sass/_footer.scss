@@ -8,7 +8,7 @@
   background-repeat: no-repeat;
   background-position: center;
 
-  & > h2 {
+  & h2 {
     font-weight: 800;
     font-size: 14px;
     line-height: 1.36;
@@ -49,9 +49,22 @@
         ),
         url(../images/mobile/footer_background-320@2x.png);
     }
+
+    & h2 {
+      font-size: 14px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    & p {
+      font-size: 12px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 
   @include tablet {
+    padding-top: 50px;
     padding-bottom: 71px;
     background-repeat: no-repeat;
     background-image: linear-gradient(
@@ -69,21 +82,23 @@
         url(../images/tablet/footer_background-768@2x.png);
     }
 
-    & > h2 {
+    & h2 {
       font-size: 26px;
       line-height: 1.3;
+      padding-left: 40px;
+      padding-right: 40px;
     }
 
     & p {
       font-size: 14px;
       line-height: 17px;
+      padding-left: 158px;
+      padding-right: 158px;
     }
   }
 
   @include desktop {
     padding-top: 100px;
-    padding-left: 295px;
-    padding-right: 295px;
     padding-bottom: 62px;
     background-repeat: no-repeat;
     background-image: linear-gradient(
@@ -101,13 +116,17 @@
         url(../images/desktop/footer_background-1200@2x.png);
     }
 
-    & > h2 {
+    & h2 {
       font-size: 46px;
+      padding-left: 110px;
+      padding-right: 110px;
     }
 
     & p {
       font-size: 30px;
       line-height: 37px;
+      padding-left: 295px;
+      padding-right: 295px;
     }
   }
 }
@@ -117,7 +136,10 @@
 .footer-contacts {
   display: flex;
   flex-wrap: wrap;
-  justify-content: baseline;
+
+  @include mobile {
+    justify-content: center;
+  }
 
   @include tablet {
     flex-wrap: nowrap;
@@ -149,6 +171,7 @@
 }
 
 .footer-number {
+  position: relative;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -158,13 +181,61 @@
   color: $second-bg-color;
   padding-top: 21px;
 
+  &::before {
+    content: '';
+    left: -30px;
+    right: 10px;
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    display: block;
+    background: url('./../images/icon/icon_mobile-320.svg') no-repeat;
+    width: 20px;
+    height: 20px;
+  }
+
+  &::after {
+    content: '';
+    top: 60%;
+    position: absolute;
+    transform: translateY(-50%);
+    left: 40%;
+    width: 40px;
+    height: 40px;
+    background: url('./../images/icon/icon_instagram.svg') no-repeat;
+  }
+
   @include mobile {
+    padding-bottom: 101px;
   }
 
   @include tablet {
     font-size: 20px;
     line-height: 1.2;
     padding-left: 236px;
+    padding-top: 51px;
+
+    &::before {
+      content: '';
+      left: 202px;
+      width: 24px;
+      height: 24px;
+      top: 47%;
+      background: url('./../images/icon/icon_mobile-768.svg') no-repeat;
+    }
+
+    &::after {
+      content: '';
+      top: 50%;
+      position: absolute;
+      transform: translateY(-50%);
+      left: 105%;
+      width: 40px;
+      height: 40px;
+
+      border-right-style: 1px solid;
+      background: url('./../images/icon/icon_instagram.svg') no-repeat;
+    }
   }
 
   @include desktop {
@@ -172,24 +243,82 @@
     line-height: 1.23;
     padding-top: 56px;
     padding-left: 335px;
+
+    &::before {
+      content: '';
+      top: 50%;
+      transform: translateY(-50%);
+      left: 290px;
+      right: 15px;
+      width: 30px;
+      height: 30px;
+      background: url('./../images/icon/icon_mobile.svg') no-repeat;
+    }
+
+    &::after {
+      content: '';
+      top: 50%;
+      transform: translateY(-50%);
+      left: 740px;
+      width: 40px;
+      height: 40px;
+      background: url('./../images/icon/icon_instagram.svg') no-repeat;
+    }
+  }
+
+  a {
+    color: inherit;
+
+    @include tablet {
+      &::after {
+        content: '';
+        top: 50%;
+        transform: translateY(-50%);
+        padding-left: 26px;
+        width: 1px;
+        height: 40px;
+        border-right: 1px solid $primary-text-color;
+      }
+    }
+
+    @include desktop {
+      &::after {
+        content: '';
+        top: 50%;
+        transform: translateY(-50%);
+        padding-left: 16px;
+        width: 1px;
+        height: 40px;
+        border-right: 1px solid $primary-text-color;
+      }
+    }
   }
 }
 
 .footer-copyright {
+  font-style: normal;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
   text-align: center;
+  vertical-align: center;
+  color: $primary-text-color;
   background-color: $second-bg-color;
+
+  @include mobile {
+    font-size: 14px;
+    line-height: 2;
+  }
 
   @include tablet {
     text-align: left;
-    height: 70px;
-    padding-left: 40px;
     padding-top: 22px;
     padding-bottom: 21px;
   }
 
   @include desktop {
     text-align: left;
-    padding-left: 183px;
     padding-top: 22px;
     padding-bottom: 21px;
   }
