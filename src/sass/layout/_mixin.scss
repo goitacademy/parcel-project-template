@@ -8,12 +8,13 @@
     @else if $size == tablet-landscape-up {
       @media (min-width: 768px) { @content; }
     }
-     @else if $size == desktop-up {
-      @media (min-width: 1200px) { @content; }
-    } 
-    @else if $size == big-desktop-up {
-      @media (min-width: 1800px) { @content; }
+    @else if $size == tablet {
+      @media (max-width: 1315px) { @content; }
     }
+     @else if $size == desktop-up {
+      @media (min-width: 1316px) { @content; }
+    } 
+    
   }
 // usage 
 // .my-box {
@@ -23,3 +24,12 @@
 //       padding: 20px;
 //     }
 //   }
+@mixin mobile {
+  @media screen and (max-width: 767px) { @content; }
+}
+@mixin tablet {
+  @media screen and (min-width: 768px) and (max-width:1315px) { @content; }
+}
+@mixin desktop {
+  @media (min-width: 1316px) { @content; }
+}
