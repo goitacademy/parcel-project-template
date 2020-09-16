@@ -1,8 +1,16 @@
 .program-container {
-  max-width: 320px;
   // width: 100%;
   padding: 0 20px;
   margin: 0 auto;
+
+  @media screen and (max-width: 767px) {
+    max-width: 320px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 0 40px;
+  }
 }
 
 .program-section {
@@ -13,7 +21,18 @@
   background-image: url(../images/program/program.png);
   background-repeat: no-repeat;
   background-position: bottom 440px right 0;
+  background-size: 120px 137px;
   background-color: $primary-text-color;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/program/program@2x.png);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-top: 60px;
+  }
 }
 
 .program-section-title {
@@ -27,6 +46,13 @@
   letter-spacing: 0.03em;
 
   color: $primary-white-color;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 52px;
+
+    font-size: 26px;
+    text-align: start;
+  }
 }
 
 .program-list {
@@ -42,6 +68,15 @@
     width: 1px;
     height: 91%;
     background-color: $primary-white-color;
+
+    @media screen and(min-width:768px) {
+      left: -50px;
+      height: 86%;
+    }
+  }
+
+  @media screen and(min-width:768px) {
+    margin: 0 0 0 120px;
   }
 }
 
@@ -71,16 +106,36 @@
     height: 12px;
     border-radius: 50%;
     background-color: $accent-color;
+
+    @media screen and(min-width:768px) {
+      left: -55px;
+    }
   }
 }
 
 .skill-list {
   padding: 0;
   margin: 0;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 }
 
-.skill-item:not(:last-child) {
-  margin-bottom: 20px;
+@media screen and (max-width: 767px) {
+  .skill-item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.skill-item {
+  @media screen and (min-width: 768px) {
+    width: 176px;
+
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
 }
 
 .skill-title {
@@ -103,6 +158,10 @@
 
     background-color: $accent-color;
   }
+
+  @media screen and (min-width: 768px) {
+    line-height: 1.6;
+  }
 }
 
 .skill-text {
@@ -121,8 +180,16 @@
 .why-section {
   position: absolute;
   bottom: -231px;
-  left: 20px;
-  right: 20px;
+  left: 50%;
+  width: 280px;
+  margin: auto;
+
+  transform: translateX(-50%);
+
+  @media screen and(min-width: 768px) {
+    bottom: -252px;
+    width: 688px;
+  }
 }
 
 .why-section-title {
@@ -136,13 +203,17 @@
 
   color: $primary-white-color;
 
-  @media screen and(max-width: 354px) {
+  @media screen and(max-width: 399px) {
     width: 180px;
   }
 
-  @media screen and(min-width: 355px) {
-    margin-bottom: 40px;
+  @media screen and(min-width: 400px) {
     text-align: center;
+  }
+
+  @media screen and(min-width: 768px) {
+    font-size: 26px;
+    line-height: 130%;
   }
 }
 
@@ -151,10 +222,34 @@
 
   background: $primary-white-color;
   box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+
+  @media screen and(min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 98px;
+  }
 }
 
-.why-item:not(:last-child) {
-  margin-bottom: 20px;
+@media screen and(max-width: 768px) {
+  .why-item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.why-item {
+  @media screen and(min-width: 768px) {
+    width: calc((100% - 20px) / 2);
+  }
+}
+
+@media screen and(min-width: 768px) {
+  .why-item:nth-child(2n + 1) {
+    margin-right: 20px;
+  }
+
+  .why-item:not(:nth-child(n + 5)) {
+    margin-bottom: 30px;
+  }
 }
 
 .why-name {
