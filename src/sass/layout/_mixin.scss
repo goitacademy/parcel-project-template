@@ -1,0 +1,35 @@
+@mixin for-size($size) {
+    @if $size == phone-only {
+      @media (max-width: 479px) { @content; }
+    } 
+    @else if $size == tablet-portrait-up {
+      @media (min-width: 480px) { @content; }
+    } 
+    @else if $size == tablet-landscape-up {
+      @media (min-width: 768px) { @content; }
+    }
+    @else if $size == tablet {
+      @media (max-width: 1315px) { @content; }
+    }
+     @else if $size == desktop-up {
+      @media (min-width: 1316px) { @content; }
+    } 
+    
+  }
+// usage 
+// .my-box {
+//     padding: 10px;
+    
+//     @include for-size(desktop-up) {
+//       padding: 20px;
+//     }
+//   }
+@mixin mobile {
+  @media screen and (max-width: 767px) { @content; }
+}
+@mixin tablet {
+  @media screen and (min-width: 768px) and (max-width:1315px) { @content; }
+}
+@mixin desktop {
+  @media (min-width: 1316px) { @content; }
+}
