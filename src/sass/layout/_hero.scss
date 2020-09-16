@@ -118,6 +118,15 @@
   margin: 0;
   padding: 0;
   list-style: none;
+
+  @include for-size(tablet) {
+    display: flex;
+    flex-direction: row;
+  }
+  @include for-size(desktop) {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 .hero-item {
@@ -137,11 +146,18 @@
   line-height: 1.43;
   letter-spacing: 0.08em;
 
-  &::before{
+  &::before {
     content: '';
     min-width: 59px;
     min-height: 60px;
     margin-right: 10px;
+    background-image: url(../images/border-icon.svg);
+    
+    @include for-size(desktop) {
+    min-width: 100px;
+    min-height: 102px;
+      background-image: url(../images/border-icon-desk.svg);
+    }
   }
 
   @include for-size(desktop) {
