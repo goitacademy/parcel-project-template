@@ -1,0 +1,23 @@
+@mixin flex($justify-content:center, $align-item:center, $direction:row, $display:flex) {
+  display: $display;
+  justify-content: $justify-content;
+  align-items: $align-item;
+  flex-direction: $direction;
+}
+@mixin font($font-weight, $font-size, $line-height, $letter-spacing:0.08) {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
+@mixin adaptive($from-width, $to-width:0) {
+  @if $to-width != 0 {
+    @media screen and (min-width: $from-width) and (max-width: $to-width){
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $from-width) {
+      @content;
+    }
+  }
+}
