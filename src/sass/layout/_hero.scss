@@ -12,22 +12,36 @@
   }
 }
 
+.hero-bg-img {
+  // width: 1314px;
+  // height: 878px;
+  // background-image: url();
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: center;
+}
+
 .hero-title {
   margin-top: 0;
   margin-bottom: 30px;
+  width: 280px;
+
   font-weight: 800;
   font-size: 20px;
   line-height: 1.36;
   letter-spacing: 0.03em;
 
   @include for-size(tablet) {
+    width: 332px;
+    margin-left: 2px;
     font-size: 26px;
     line-height: 1.3;
   }
 
   @include for-size(desktop) {
+    width: 642px;
     margin-bottom: 24px;
-
+    margin-left: 2px;
     font-size: 58px;
   }
 }
@@ -35,15 +49,23 @@
 .hero-text {
   margin-top: 0;
   margin-bottom: 30px;
+  width: 280px;
 
   font-weight: 700;
   font-size: 14px;
   line-height: 1.57;
   letter-spacing: 0.08em;
 
-  @include for-size(desktop) {
-    margin-bottom: 40px;
+  @include for-size(tablet) {
+    width: 332px;
+    margin-left: 2px;
+  }
 
+  @include for-size(desktop) {
+    display: block;
+    margin-bottom: 40px;
+    margin-left: 2px;
+    width: 536px;
     font-size: 20px;
     line-height: 1.65;
   }
@@ -61,7 +83,6 @@
 .hero-btn {
   width: 260px;
   padding: 14px 0;
-
   font-weight: 700;
   font-size: 12px;
   line-height: 1.25;
@@ -78,6 +99,11 @@
     border: 2px solid $accent;
   }
 
+  @include for-size(phone) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   @include for-size(desktop) {
     width: 354px;
@@ -85,11 +111,6 @@
     line-height: 1.214;
     letter-spacing: 0.14em;
     padding: 23px;
-  }
-  @include for-size(phone) {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -99,17 +120,29 @@
   list-style: none;
 }
 
-.hero-item:not(:last-child) {
-  margin-bottom: 30px;
+.hero-item {
+  margin-left: 32px;
+  margin-right: 32px;
+
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
 }
 
 .hero-subtitle {
-  margin-top: 0;
-  margin-bottom: 30px;
+  display: flex;
+  margin: 0;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.43;
   letter-spacing: 0.08em;
+
+  &::before{
+    content: '';
+    min-width: 59px;
+    min-height: 60px;
+    margin-right: 10px;
+  }
 
   @include for-size(desktop) {
     font-size: 20px;
