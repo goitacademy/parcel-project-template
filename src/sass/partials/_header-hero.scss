@@ -1,0 +1,545 @@
+//breakpoints
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1314px;
+
+//Utils
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: $mobile) {
+    width: $mobile;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: $tablet;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: $desktop;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+//buttons
+.btn {
+  margin-top: 0;
+  margin-bottom: 30px;
+  display: block;
+
+  padding-top: 14px;
+  padding-bottom: 14px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: $accent-color;
+  border: 2px solid $accent-color;
+
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: $primary-white-color;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (max-width: $tablet) {
+    width: 260px;
+    height: 48px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    width: 260px;
+    height: 48px;
+    margin-left: 0;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 354px;
+    height: 70px;
+    margin-bottom: 0;
+    margin-left: 0;
+
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.14em;
+  }
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: $accent-color;
+  }
+}
+
+.btn-consult {
+  margin-top: 0;
+  display: block;
+
+  padding: 14px 7px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: transparent;
+  border: 2px solid $accent-color;
+
+  width: 336px;
+  height: 70px;
+
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: $accent-color;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  cursor: pointer;
+
+  @media screen and (max-width: $tablet) {
+    width: 260px;
+    height: 48px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 14px;
+    line-height: 1.21;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $primary-white-color;
+  }
+}
+
+.btn-consult.tablet {
+  @media screen and (max-width: $tablet) {
+    display: none;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    width: 260px;
+    height: 48px;
+    margin-right: 40px;
+    margin-bottom: 0;
+  }
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.menu-container .btn-consult {
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    display: none;
+  }
+}
+
+.mobile-menu-button {
+  height: 40px;
+  width: 40px;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.icon-cross {
+  fill: white;
+}
+//navigation section
+
+.page-header {
+  padding-bottom: 50px;
+  background-color: $primary-white-color;
+  background-image: url(../images/header-hero/background-img.png);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -250px;
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    background-image: url(../images/header-hero/background-img-tab.png);
+    background-position-y: -160px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    background-image: url(../images/header-hero/background-img-tab.png);
+    background-position-y: -230px;
+  }
+}
+
+.page-navigation {
+  padding-top: 34px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  .page-navigation-logo {
+    @media screen and (min-width: $desktop) {
+      margin-right: 104px;
+    }
+  }
+}
+
+.menu-container {
+  @media screen and (max-width: $desktop) {
+    padding-top: 34px;
+    background: rgba(17, 21, 24, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: 98;
+
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @media screen and (min-width: $desktop) {
+    display: flex;
+  }
+
+  &.is-hidden {
+    @media screen and (max-width: $desktop) {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+
+  .page-navigation-logo {
+    @media screen and (min-width: $desktop) {
+      display: none;
+    }
+  }
+}
+
+.mobile-menu-logo {
+  width: auto;
+}
+
+.header-btn-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.header-menu {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  margin-bottom: 50px;
+  @media screen and (max-width: $tablet) {
+    width: $mobile;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    max-width: 335px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+
+    margin-right: 60px;
+  }
+}
+
+.header-menu-link {
+  font-weight: 800;
+  line-height: 180%;
+  letter-spacing: 0.03em;
+  color: $primary-white-color;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (max-width: $tablet) {
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-size: 26px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.21;
+    text-transform: uppercase;
+
+    color: $secondary-text-color;
+  }
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.header-menu-item:not(:last-child) {
+  @media screen and (min-width: $desktop) {
+    margin-right: 40px;
+  }
+}
+
+.mobile-menu-header {
+  margin-bottom: 50px;
+}
+
+//hero
+.hero-header {
+  margin-top: 0;
+  margin-bottom: 30px;
+
+  letter-spacing: 0.03em;
+  font-weight: 800;
+  color: $primary-text-color;
+
+  @media screen and (max-width: $tablet) {
+    font-size: 20px;
+    line-height: 136%;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    font-size: 26px;
+    line-height: 130%;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 58px;
+    line-height: 130%;
+  }
+}
+
+.hero-motivation-text {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.57;
+  letter-spacing: 0.08em;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+    line-height: 164.9%;
+    letter-spacing: 0.08em;
+  }
+
+  .grey {
+    font-weight: 500;
+    color: $secondary-text-color;
+  }
+  .black {
+    color: $primary-text-color;
+  }
+  .orange {
+    color: $accent-color;
+  }
+}
+
+.hero-img {
+  display: block;
+  margin-bottom: 77px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (max-width: $tablet) {
+    width: 208px;
+    height: auto;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    width: 400px;
+    height: auto;
+    margin: 0;
+  }
+  @media screen and (min-width: $desktop) {
+    width: calc(100% / 2);
+    height: auto;
+    margin: 0;
+  }
+}
+
+.header-advantages {
+  padding: 0;
+  margin-top: 0;
+  list-style: none;
+  padding: 0 40px;
+
+  @media screen and (max-width: $tablet) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 210px;
+    padding: 0;
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  @media screen and (min-width: $desktop) {
+    justify-content: space-between;
+    height: 103px;
+  }
+}
+
+.header-advantages .advantages-item {
+  display: inline-block;
+  position: relative;
+  min-height: 60px;
+  vertical-align: middle;
+  width: 200px;
+
+  &::before {
+    content: '';
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    display: inline-block;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    @media screen and (max-width: $desktop) {
+      height: 60px;
+      width: 60px;
+    }
+    @media screen and (min-width: $desktop) {
+      height: 103px;
+      width: 103px;
+    }
+  }
+
+  &:nth-child(-n + 2) {
+    margin-bottom: 22px;
+    @media screen and (min-width: $tablet) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .advantages-item:nth-of-type(1) {
+    width: 420px;
+  }
+  .advantages-item:nth-of-type(2) {
+    width: 340px;
+  }
+  .advantages-item:nth-of-type(3) {
+    width: 350px;
+  }
+}
+
+.adv-icon-1::before {
+  @media screen and (max-width: $desktop) {
+    background-image: url(../images/header-hero/advantages-logo1.svg);
+  }
+  @media screen and (min-width: $desktop) {
+    background-image: url(../images/header-hero/advantages-logo1-big.svg);
+  }
+}
+.adv-icon-2::before {
+  @media screen and (max-width: $desktop) {
+    background-image: url(../images/header-hero/advantages-logo2.svg);
+  }
+  @media screen and (min-width: $desktop) {
+    background-image: url(../images/header-hero/advantages-logo2-big.svg);
+  }
+}
+.adv-icon-3::before {
+  @media screen and (max-width: $desktop) {
+    background-image: url(../images/header-hero/advantages-logo3.svg);
+  }
+  @media screen and (min-width: $desktop) {
+    background-image: url(../images/header-hero/advantages-logo3-big.svg);
+  }
+}
+
+.advantages-title {
+  padding-left: 68px;
+  margin: 0;
+  position: absolute;
+
+  font-weight: bold;
+
+  letter-spacing: 0.08em;
+
+  color: #111518;
+
+  @media screen and (max-width: $desktop) {
+    font-size: 14px;
+    line-height: 1.43;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 100%;
+    padding-left: 84px;
+    font-size: 20px;
+    line-height: 164.9%;
+
+    top: 20%;
+    // transform: translateY(-50%);
+  }
+}
+
+.hero-section {
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 117px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.hero-text-wrap {
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    display: flex;
+    flex-direction: column;
+    max-width: 290px;
+  }
+  @media screen and (min-width: $desktop) {
+    max-width: 642px;
+  }
+}
+
+.page-header .main-container {
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    max-width: $tablet;
+  }
+}
