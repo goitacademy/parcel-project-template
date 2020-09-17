@@ -1,6 +1,6 @@
 header {
   margin: auto;
-  width: 320px;
+  width: 100%;
   height: 62px;
   background-color: teal;
   @media screen and (min-width: 768px) {
@@ -13,14 +13,13 @@ header {
   }
 }
 
-.hero-section {
+.hero-section-wrapper {
   position: relative;
   margin: auto;
   padding-top: 131px;
   padding-bottom: 160px;
   height: 440px;
   width: 320px;
-  background-color: $hero-bg-color;
 
   @media screen and (min-width: 768px) {
     padding-top: 6px;
@@ -35,6 +34,11 @@ header {
     width: 1200px;
     height: 545px;
   }
+}
+
+.hero-section {
+  width: 100%;
+  background-color: $hero-bg-color;
 
   .container {
     @media screen and (min-width: 768px) {
@@ -87,6 +91,7 @@ header {
   width: 218px;
   font-family: $title-font;
   font-size: 26px;
+  font-weight: 400;
   line-height: 1.154;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -154,23 +159,26 @@ header {
   right: -62px;
   width: 346px;
   height: 344px;
-  background-image: url('../images/hero4.png');
-  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: 0;
+  background: $sub-title-color;
+  // background-image: url('../images/hero4.png');
+  // background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
     top: -65px;
     right: 137px;
     width: 324px;
     height: 322px;
-    background-image: url('../images/hero4-tablet.png');
+    // background-image: url('../images/hero4-tablet.png');
   }
 
   @media screen and (min-width: 1200px) {
-    top: -108px;
-    right: 137px;
+    top: -68px;
+    right: 267px;
     width: 538px;
     height: 538px;
-    background-image: url('../images/hero4-desktop.png');
+    // background-image: url('../images/hero4-desktop.png');
   }
 
   &::before {
@@ -229,21 +237,9 @@ header {
   display: none;
 
   @media screen and (min-width: 768px) {
+    position: relative;
     display: block;
     text-align: right;
-  }
-
-  &-svg {
-    position: absolute;
-    top: -2px;
-    left: 32px;
-
-    @media screen and (min-width: 1200px) {
-      top: -5px;
-      left: 46px;
-      width: 30px;
-      height: 30px;
-    }
   }
 
   &-num {
@@ -276,11 +272,38 @@ header {
 
       color: #ffffff;
     }
+
+    @media screen and (min-width: 1200px) {
+      font-size: 14px;
+      line-height: 1.258;
+    }
   }
 
   &-item {
     @media screen and (min-width: 768px) {
       position: relative;
+    }
+
+    &::before {
+      @media screen and (min-width: 768px) {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -2px;
+        left: 35px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 0;
+        background-color: $primary-color;
+      }
+
+      @media screen and (min-width: 1200px) {
+        top: -6px;
+        left: 60px;
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 
