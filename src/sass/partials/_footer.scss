@@ -1,26 +1,26 @@
 
 .footer-bg{
     width: 100%;
-   background-image:url(../images/footer/fon.jpg), url(../images/footer/mob-bg-footer.jpg) ;
     
+   background-image:url(../images/footer/logo-mob-footer.png), linear-gradient($primary-text-color 0%, $primary-text-color 100%);
+    background-repeat: no-repeat;
+   background-size: contain;
+   @media screen and (min-width: 480px) and (max-width: 767px){
+       background-size: cover;
+       background-position: center;
+   }
    
-    // background-image: url(../images/footer/mob-bg-footer.jpg);
-    //     background-repeat: no-repeat;
-    //     background-size: cover;
-        
-
-    @media screen and (min-width: 480px){
-        // background-image: url(../images/footer/tablet-bg-footer.jpg), linear-gradient( #111518, #111518 );
-        // background-repeat: no-repeat;
-        // background-size: cover;
-       
-        
+   @include tablet{
+    background-image:url(../images/footer/logo-tablet-footer.png), linear-gradient($primary-text-color 0%, $primary-text-color 100%);
     }
-    @media screen and (min-width: 1200px){
-        // background-image: url(../images/footer/comp-bg-footer.jpg), linear-gradient( #111518, #111518 );
-        // background-repeat: no-repeat;
-        // background-size: cover;
-       
+    @media screen and (min-width: 1060px) and (max-width: 1315px){
+        background-size: cover;
+        background-position: center;
+    }
+    @include desktop{
+        background-image:url(../images/footer/logo-footer.png), linear-gradient($primary-text-color 0%, $primary-text-color 100%);
+    background-size: cover;
+    background-position: center;
     }
 }
 .footer-container{
@@ -29,11 +29,11 @@
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
-        @media screen and(min-width: 768px){
+    @include tablet{
           padding-top: 50px;
           padding-bottom: 70px;
         }
-         @media screen and(min-width: 1316px){
+         @include desktop{
             padding-top: 100px;
             padding-bottom: 60px;
          }
@@ -51,15 +51,23 @@ font-size: 14px;
 line-height: 136%;
 letter-spacing: 0.03em;
 margin-bottom: 30px;
-  @media screen and(min-width: 768px){
+max-width: 280px;
+margin-right: auto;
+    margin-left: auto;
+    @include tablet{
     font-size: 26px;
     line-height: 130%;
+    max-width: 690px;
+    
     }
-@media screen and(min-width: 1316px){
+    @include desktop{
 font-size: 46px;
 line-height: 130%;
 letter-spacing: 0.03em;
 margin-bottom: 50px;
+  max-width: 1090px;
+    
+
 }
 }
 .f-text-secondary{
@@ -75,13 +83,15 @@ letter-spacing: 0.08em;
 color: $primary-white-color;
 width: 100%;
 margin-bottom: 30px;
- @media screen and(min-width: 768px){
+max-width: 280px;
+@include tablet{
     font-size: 14px;
     
     max-width: 690px;
     margin-bottom: 40px;
+    max-width: 450px;
     }
-    @media screen and(min-width: 1316px){
+    @include desktop{
     max-width: 1090px;
     font-size: 30px;
     
@@ -99,22 +109,25 @@ margin-bottom: 30px;
     color: $primary-white-color;
     &::placeholder{
         color: $primary-white-color;
-        @media screen and (min-width: 1316px){
+        @include desktop{
             font-size: 20px;
             line-height: 1.2;
         }
     }
     border: 1px solid $primary-white-color;
-    width: 280px;
+     width: 100%;
     height: 50px;
     margin-right: auto;
     margin-left: auto;
     padding-left: 28px;
-    @media screen and(min-width: 768px){
+    @media screen and (min-width: 320px) {
+        width: 280px;  
+    }
+    @include tablet{
         width: 390px;
         height: 50px;
     }
-    @media screen and(min-width: 1316px){
+    @include desktop{
         width: 480px;
         height: 70px;
     }
@@ -122,14 +135,15 @@ margin-bottom: 30px;
 }
 .f-name{
  margin-bottom: 20px;
- @media screen and(min-width: 1316px){
+ @include desktop{
      margin-bottom: 30px;
  }
 }
 .button-footer{
+
     padding: 0;
-    width: 280px;
     height: 50px;
+    width: 100%;
     margin-top: 50px;
     background-color: $accent-color;
     color: $primary-white-color;
@@ -139,13 +153,17 @@ font-size: 12px;
 line-height: 1.2;
 letter-spacing: 0.08em;
 text-transform: uppercase;
-@media screen and(min-width: 768px){
+@media screen and (min-width: 320px) {
+    width: 280px;
+     
+}
+@include tablet{
     margin-top: 30px;
     width: 260px;
-    height: 50px;
+    
     
 }
-@media screen and(min-width: 1316px){
+@include desktop{
     margin-top: 80px;
     width: 355px;
     height: 75px;
@@ -167,11 +185,11 @@ text-transform: uppercase;
     line-height: 1.2;
     letter-spacing: 0.08em;
     color: $primary-text-color; 
-    @media screen and (min-width: 768px){
+    @include tablet{
         font-size: 20px;
         line-height: 1.2;
     }
-    @media screen and (min-width: 1316px){
+    @include desktop{
         font-size: 30px;
         line-height: 1.2;
     }
@@ -184,7 +202,7 @@ text-transform: uppercase;
     display: flex;
     flex-direction: column;
     align-items: center;
-    @media screen and(min-width: 768px){
+    @include tablet{
      padding-top: 40px;
      padding-bottom: 40px;
      flex-direction: row;
@@ -193,18 +211,22 @@ text-transform: uppercase;
      padding-right: 60px;
      
     }
-    @media screen and(min-width: 1316px){
+    @include desktop{
         padding-left: 180px;
         padding-right: 0;
         justify-content: flex-start;
+        flex-direction: row;
     }
 }
 .flex-footer{
     display: flex;
     align-items: center;
     flex-direction: column;
-    @media screen and(min-width: 768px){
+    @include tablet{
     flex-direction: row;
+    }
+    @include desktop{
+        flex-direction: row;  
     }
 }
 .footer{
@@ -213,7 +235,7 @@ text-transform: uppercase;
     padding-top: 20px ;
     padding-bottom: 20px;
     text-align: center;
-    @media screen and (min-width: 768px){
+    @include tablet{
         font-size: 20px;
         line-height: 1.2;
         display: flex;
@@ -221,8 +243,12 @@ text-transform: uppercase;
         padding-left: 60px;
 
     }
-   @media screen and (min-width: 1316px){
+    @include desktop{
        padding-left: 180px;
+       font-size: 20px;
+        line-height: 1.2;
+        display: flex;
+        justify-content: space-between;
    }
 }
 .footer-text{
@@ -236,11 +262,11 @@ color: $secondary-text-color;
     width: 20px;
     height: 20px;
     margin-right: 10px;
-    @media screen and (min-width: 768px){
+    @include tablet{
         width: 25px;
         height: 25px;
     }
-    @media screen and (min-width: 1316px){
+    @include desktop{
         width: 30px;
         height: 30px;
     }
@@ -254,7 +280,7 @@ color: $secondary-text-color;
 .svg-logo-f{
     width: 85px;
     height: 30px;
-    @media screen and (min-width: 768px){
+    @include tablet{
        width: 129px;
        height: 45px;
     }
@@ -265,31 +291,37 @@ color: $secondary-text-color;
     justify-content: center;
     align-items: center;
    
-    @media screen and (max-width: 767px){
+    @include mobile{
      margin-bottom: 30px; 
      
     }
-    @media screen and (min-width: 768px){
-     height: 40px;
+    @include tablet{
+        height: 40px;
      margin-right: 24px;
      border: 1px solid #B9B9B9;
      border-top: none;
      border-bottom: none;
      border-left: none;
      padding-right: 24px;
-     
     }
-    @media screen and (min-width: 1316px){
-    padding-right: 16px;
+    @include desktop{
+        padding-right: 16px;
+        height: 40px;
+        margin-right: 24px;
+        border: 1px solid #B9B9B9;
+        border-top: none;
+        border-bottom: none;
+        border-left: none;
     }
 }
 .f-logo{
     margin-bottom: 20px;
-    @media screen and (min-width: 768px){
+   @include tablet{
     margin-bottom: 0;
     }
-    @media screen and (min-width: 1316px){
+    @include desktop{
     margin-right: 290px;
+    margin-bottom: 0;
     }
 
 }
