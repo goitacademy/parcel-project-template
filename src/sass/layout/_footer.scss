@@ -5,8 +5,8 @@
 
 // COTAINER WIHT REGISTRATION AND BCG IMAGE
 .registration-container {
-  // background-image: url(../images/mobile/footer320.jpg);
-  height: 600px;
+  background-image: linear-gradient(#111518 0%, #111518 100%),
+    url(../images/mobile/footer-mob.png);
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -14,7 +14,6 @@
   text-align: center;
 
   padding-top: 50px;
-
   padding-bottom: 50px;
   padding-left: 20px;
   padding-right: 20px;
@@ -28,6 +27,12 @@
   margin-bottom: 30px;
   color: $white-text-color;
   @include font(800, 14px, 1.36, 0.03em);
+  @include for-size(tablet) {
+    @include font(800, 26px, 1.3, 0.03em);
+  }
+  @include for-size(desktop) {
+    @include font(800, 46px, 1.3, 0.03em);
+  }
 }
 // FOOTER TEXT DECORATION
 .footer-text {
@@ -35,8 +40,28 @@
   margin-bottom: 30px;
   color: $white-text-color;
   @include font(600, 12px, 1.25, 0.08em);
+  @include for-size(tablet) {
+    @include font(600, 14px, 1.25, 00.08em);
+  }
+  @include for-size(desktop) {
+    @include font(600, 30px, 1.25, 00.08em);
+  }
 }
-// FORM FIELD "NAME"
+// REGISTRATION FORM CONTAINER
+.registration-form {
+  margin-left: auto;
+  margin-right: auto;
+  @include for-size(phone) {
+    width: 280px;
+  }
+  @include for-size(tablet) {
+    width: 390px;
+  }
+  @include for-size(desktop) {
+    width: 480px;
+  }
+}
+// FORM FIELD
 .form-field {
   width: 100%;
   margin-bottom: 20px;
@@ -49,24 +74,40 @@
   color: $white-text-color;
 }
 
-// REGISTRATION BUTTON TEXT DECORATION
-.registration-btn-text {
-  color: $white-text-color;
-  @include font(700, 12px, 1.25, 00.08em);
-  text-transform: uppercase;
-}
-
 // BUTTON
 .btn {
   width: 100%;
   padding: 15px 5px;
   border: none;
   background-color: #ff6b09;
+  @include for-size(phone) {
+    max-width: 260px;
+  }
+  @include for-size(tablet) {
+    max-width: 354px;
+  }
+
+  // REGISTRATION BUTTON TEXT DECORATION
+  .registration-btn-text {
+    color: $white-text-color;
+    @include font(700, 12px, 1.25, 0.08em);
+    text-transform: uppercase;
+    @include for-size(desctop) {
+      @include font(700, 14px, 1.25, 0.14em);
+    }
+  }
 }
-// FOOTER CONTAINER FOR LOGO PHONE NUMBER AND INSTA LINK
+// FOOTER CONTAINER FOR LOGO, PHONE NUMBER, AND ,INSTA LINK
 .footer-contacts-container {
-  justify-content: space-around;
   padding: 30px 0px;
+  @include for-size(tablet) {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+  }
+  @include for-size(desktop) {
+    padding-left: 180px;
+  }
 }
 //HELLEN LOGO
 .logo {
@@ -75,6 +116,9 @@
   width: 100px;
   height: 50px;
   background-color: purple;
+  @include for-size(tablet) {
+    margin: 0;
+  }
 }
 // tTELEPHONE ICON
 .phone-icon {
@@ -88,6 +132,15 @@
     display: block;
     margin-top: 20px;
     text-decoration: none;
+    @include for-size(tablet) {
+      border-right: 1px solid grey;
+      padding-right: 24px;
+      margin-top: 0;
+      margin-left: auto;
+    }
+    @include for-size(desktop) {
+      margin-left: 290px;
+    }
   }
   &-text {
     margin-left: 10px;
@@ -99,6 +152,12 @@
 .insta-container {
   text-align: center;
   margin-top: 30px;
+  @include for-size(tablet) {
+    width: 40px;
+    height: 40px;
+    margin-top: 0;
+    margin-left: 24px;
+  }
 }
 // INSTAGRAM-LOGO
 .insta-logo {
@@ -112,6 +171,14 @@
   padding: 21px 0px;
 
   background-color: #111518;
+  @include for-size(tablet) {
+    display: block;
+    padding-left: 40px;
+  }
+  @include for-size(desktop) {
+    display: block;
+    padding-left: 180px;
+  }
 }
 // COPYRIGHT TEXT DECORATION
 .copyright-text {
