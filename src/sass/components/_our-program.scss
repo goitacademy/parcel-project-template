@@ -1,19 +1,211 @@
-h1,
-h2,
-title {
-  color: #ffffff;
-}
-p {
-  color: #b9b9b9;
-}
 .program-section {
+  width: 100%;
   padding-top: 50px;
   position: relative;
   background: #111518;
+  z-index: 2;
+
+  ::after {
+    .picture {
+      position: absolute;
+      opacity: 0.5;
+      z-index: 1;
+      width: 176px;
+      height: 137px;
+    }
+  }
 }
-.program-list{
-  list-style:none;
+
+.program-title {
+  margin-top: 0;
+  margin-bottom: 50px;
+  text-align: center;
+  color: $white-text-color;
+  @include font(900, 20px, 1.3, 0.03em);
+
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+    text-align: left;
+    @include font(900, 26px, 1.3, 0.03em);
+  }
+  @media screen and (min-width: 1344px) {
+    margin-top: 0;
+    @include font(900, 46px, 1.3, 0.03em);
+  }
 }
-.course-list{
-  list-style:none;
+.course {
+  position: relative;
+  margin: 0 auto;
+  //display: flex;
+  //flex-wrap: wrap;
+  background-color: $primary-text-color;
+
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 30px;
+  }
+  @media screen and (min-width: 1344px) {
+    width: 100%;
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+}
+.course::before {
+  content: '';
+  position: absolute;
+  left: -25px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background: $accent-text-color;
+  border-radius: 5px;
+  display: block;
+
+  @media screen and (min-width: 768px) {
+    left: -60px;
+  }
+  @media screen and (min-width: 1344px) {
+    left: 10px;
+    width: 17px;
+    height: 17px;
+    top: -53px;
+    border-radius: 50%;
+  }
+}
+.course-title {
+  display: block;
+  color: $white-text-color;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  text-align: center;
+  @include font(700, 14px, 1.64, 0.08em);
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    padding-left: 18px;
+  }
+  @media screen and (min-width: 1344px) {
+    @include font(400, 30px, 0.93, 0.08em);
+  }
+}
+.unit {
+  position: relative;
+  font-style: normal;
+  margin-bottom: 10px;
+
+  color: $accent-text-color;
+  @include font(700, 12px, 1.65, 0.08em);
+
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-left: 15px;
+    position: relative;
+    font-style: normal;
+    margin-bottom: 10px;
+  }
+  @media screen and (min-width: 1344px) {
+    @include font(400, 20px, 1.65, 0.08em);
+  }
+}
+.unit::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 8px;
+  width: 12px;
+  height: 2px;
+  background-color: $accent-text-color;
+
+  @media screen and (min-width: 768px) {
+    margin-left: -18px;
+  }
+  @media screen and (min-width: 1344px) {
+    top: 15px;
+  }
+}
+.course-list {
+  list-style: none;
+  margin-left: 26px;
+  padding: 0;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+  @media screen and (min-width: 1344px) {
+    display: block;
+  }
+}
+.program-list {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 0 0 20px;
+  width: 150px;
+  list-style: none;
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+    padding: 0 0 0 56px;
+    margin: 0 auto;
+    width: 520px;
+  }
+  @media screen and (min-width: 1344px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    padding: 60px 0 0 60px;
+    width: 1344px;
+  }
+}
+.program-list:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 1px;
+  height: 1420px;
+  background-color: $white-text-color;
+
+  @media screen and (min-width: 768px) and (max-width: 1343px) {
+    height: 810px;
+  }
+  @media screen and (min-width: 1344px) {
+    width: 100vw;
+    transform: translateX(calc((-100vw + 1350px) / 2));
+    left: 0;
+    top: 15px;
+    height: 1px;
+  }
+}
+.course-list li:not(:last-child) {
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 768px) and (max-width: 1343px) {
+    margin-bottom: 0;
+    margin-right: 83px;
+  }
+}
+.unit-item {
+  @include font(400, 12px, 1.67, 0.08em);
+  color: $secondary-text-color;
+
+  @media screen and (min-width: 1344px) {
+    @include font(400, 18px, 1.56, 0.08em);
+    display: block;
+  }
+}
+.item-item {
+  display: block;
+}
+.hide {
+  color: transparent;
 }
