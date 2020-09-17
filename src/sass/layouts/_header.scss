@@ -48,6 +48,9 @@
     display: block;
     margin-right: 40px;
   }
+  @include for-size(desktop) {
+    margin-right: 0;
+  }
 }
 .btn-position {
   display: flex;
@@ -120,7 +123,10 @@
   text-transform: uppercase;
 }
 .ampfire {
-  width: 22px;
+  margin-right: 4px;
+  margin-left: 4px;
+  margin-bottom: 5px;
+  width: 21.56px;
   height: 30px;
   fill: $accent-color;
 }
@@ -186,8 +192,19 @@
   margin: 0;
   margin-top: 30px;
 }
+.desktop-nav-list {
+  display: none;
+  @include for-size(desktop) {
+    display: flex;
+    margin: 0;
+    margin-left: 144px;
+  }
+}
 .mobile-nav-list {
   margin-bottom: 50px;
+}
+.desktop-nav-list .list + .list {
+  margin-left: 40px;
 }
 .not-easy {
   font-weight: 500;
@@ -255,9 +272,17 @@
     margin: 0;
     margin-right: 21px;
   }
+  @include for-size(desktop) {
+    margin: 0;
+  }
 }
 .features {
   padding: 30px 52px 50px 52px;
+
+  @include for-size(desktop) {
+    padding-top: 100px;
+    padding-bottom: 130px;
+  }
 }
 
 .features p {
@@ -266,6 +291,17 @@
   font-size: 14px;
   line-height: 1.43;
   letter-spacing: 0.08em;
+
+  @include for-size(desktop) {
+    font-size: 20px;
+    line-height: 1.64;
+  }
+}
+.feature {
+  @include for-size(desktop) {
+    width: 100px;
+    height: 102px;
+  }
 }
 .feature::before {
   display: block;
@@ -276,13 +312,28 @@
 
   width: 60px;
   height: 60px;
+
+  @include for-size(desktop) {
+    width: 100px;
+    height: 102px;
+    margin-right: -18px;
+  }
 }
 .feature.program::before {
   background-image: url(../images/icon-program-header.svg);
+  @include for-size(desktop) {
+    background-image: url(../images/icon-program-header-desktop.svg);
+  }
 }
 .feature.study::before {
   background-image: url(../images/icon-study-header.svg);
+  @include for-size(desktop) {
+    background-image: url(../images/icon-study-header-desktop.svg);
+  }
 }
 .feature.warranty::before {
   background-image: url(../images/icon-warranty-header.svg);
+  @include for-size(desktop) {
+    background-image: url(../images/icon-warranty-header-desktop.svg);
+  }
 }
