@@ -1,4 +1,4 @@
-<section class="reviews-section section">
+<section class="reviews-section section" id="reviews">
   <div class="reviews-container container">
     <h2 class="reviews-header">Отзывы выпускников</h2>
 
@@ -13,12 +13,16 @@
               width="80"
             />
             <a href="#">
-              <img
+              <svg class="reviews-vk" width="30" height="30">
+                <use href="./img/review.svg#vk"></use>
+              </svg>
+              <!-- <img
                 class="reviews-vk"
                 src="./img/vk.svg"
                 alt="лого ВК"
                 width="30"
-            /></a>
+            /> -->
+            </a>
           </div>
           <div class="reviews-item-content">
             <h3 class="reviews-item-header">Тоня Кучеровская</h3>
@@ -49,12 +53,10 @@
               width="80"
             />
             <a href="#">
-              <img
-                class="reviews-vk"
-                src="./img/vk.svg"
-                alt="лого ВК"
-                width="30"
-            /></a>
+              <svg class="reviews-vk" width="30" height="30">
+                <use href="./img/review.svg#vk"></use>
+              </svg>
+            </a>
           </div>
           <div class="reviews-item-content">
             <h3 class="reviews-item-header">Тоня Кучеровская</h3>
@@ -85,12 +87,10 @@
               width="80"
             />
             <a href="#">
-              <img
-                class="reviews-vk"
-                src="./img/vk.svg"
-                alt="лого ВК"
-                width="30"
-            /></a>
+              <svg class="reviews-vk" width="30" height="30">
+                <use href="./img/review.svg#vk"></use>
+              </svg>
+            </a>
           </div>
           <div class="reviews-item-content">
             <h3 class="reviews-item-header">Тоня Кучеровская</h3>
@@ -121,12 +121,10 @@
               width="80"
             />
             <a href="#">
-              <img
-                class="reviews-vk"
-                src="./img/vk.svg"
-                alt="лого ВК"
-                width="30"
-            /></a>
+              <svg class="reviews-vk" width="30" height="30">
+                <use href="./img/review.svg#vk"></use>
+              </svg>
+            </a>
           </div>
           <div class="reviews-item-content">
             <h3 class="reviews-item-header">Тоня Кучеровская</h3>
@@ -157,12 +155,10 @@
               width="80"
             />
             <a href="#">
-              <img
-                class="reviews-vk"
-                src="./img/vk.svg"
-                alt="лого ВК"
-                width="30"
-            /></a>
+              <svg class="reviews-vk" width="30" height="30">
+                <use href="./img/review.svg#vk"></use>
+              </svg>
+            </a>
           </div>
           <div class="reviews-item-content">
             <h3 class="reviews-item-header">Тоня Кучеровская</h3>
@@ -193,12 +189,10 @@
               width="80"
             />
             <a href="#">
-              <img
-                class="reviews-vk"
-                src="./img/vk.svg"
-                alt="лого ВК"
-                width="30"
-            /></a>
+              <svg class="reviews-vk" width="30" height="30">
+                <use href="./img/review.svg#vk"></use>
+              </svg>
+            </a>
           </div>
           <div class="reviews-item-content">
             <h3 class="reviews-item-header">Тоня Кучеровская</h3>
@@ -229,12 +223,10 @@
               width="80"
             />
             <a href="#">
-              <img
-                class="reviews-vk"
-                src="./img/vk.svg"
-                alt="лого ВК"
-                width="30"
-            /></a>
+              <svg class="reviews-vk" width="30" height="30">
+                <use href="./img/review.svg#vk"></use>
+              </svg>
+            </a>
           </div>
           <div class="reviews-item-content">
             <h3 class="reviews-item-header">Тоня Кучеровская</h3>
@@ -258,12 +250,15 @@
     </ul>
     <!-- mySlides = reviews-slide -->
     <div class="reviews-scroll">
-      <img
+      <!-- <img
         src="./img/ArrowLeft.svg"
         alt="стрелка влево"
         onclick="plusSlides(-1)"
         class="reviews-left"
-      />
+      /> -->
+      <svg class="reviews-left" width="25" height="25" onclick="plusSlides(-1)">
+        <use href="./img/review.svg#ArrowLeft"></use>
+      </svg>
       <ul class="reviews-list">
         <li class="reviews-dot" onclick="currentSlide(1)">
           <img src="./img/Ellipse10.png" alt="фото выпускника" width="54" />
@@ -287,16 +282,17 @@
           <img src="./img/Ellipse16.png" alt="фото выпускника" width="54" />
         </li>
       </ul>
-      <img
+      <svg class="reviews-right" width="25" height="25" onclick="plusSlides(1)">
+        <use href="./img/review.svg#ArrowRight"></use>
+      </svg>
+      <!-- <img
         src="./img/ArrowRight.svg"
         alt="стрелка вправо"
         onclick="plusSlides(1)"
         class="reviews-right"
-      />
+      /> -->
     </div>
   </div>
-
-  <!-- <script src="./js/slider.js"></script> -->
 </section>
 
 <script>
@@ -344,24 +340,40 @@
       dots[i].className = dots[i].className.replace('active', '');
       dots[i].style.display = 'none';
       dots[i].style.order = 0;
+      if (windowSize < 768) {
+        dots[i].style.margin = 0;
+      }
     }
+
     dots[slideIndex - 1].className += ' active';
 
     if (windowSize < 768) {
       if (slideIndex == 1) {
         dots[dots.length - 1].style.display = 'block';
         dots[dots.length - 1].style.order = -1;
+        dots[dots.length - 1].style.margin = '0 10px 0 0';
+
         dots[0].style.display = 'block';
+        dots[0].style.margin = '0 10px 0 0';
+
         dots[1].style.display = 'block';
       } else if (slideIndex == dots.length) {
         dots[dots.length - 2].style.display = 'block';
+        dots[dots.length - 2].style.margin = '0 10px 0 0';
+
         dots[dots.length - 1].style.display = 'block';
+        dots[dots.length - 1].style.margin = '0 10px 0 0';
+
         dots[0].style.display = 'block';
         dots[0].style.order = 99;
       } else {
-        for (let i = slideIndex - 2; i <= slideIndex; i++) {
-          dots[i].style.display = 'block';
-        }
+        dots[slideIndex - 2].style.display = 'block';
+        dots[slideIndex - 2].style.margin = '0 10px 0 0';
+
+        dots[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].style.margin = '0 10px 0 0';
+
+        dots[slideIndex].style.display = 'block';
       }
     } else {
       for (let i = 0; i < dots.length; i++) {
