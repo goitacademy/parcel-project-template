@@ -11,13 +11,11 @@
 
   background-color: $white-color;
 
-  text-align: center;
-
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
   }
 
   @media screen and (min-width: 1345px) {
@@ -30,15 +28,17 @@
 .footer-contacts-tel {
   padding-top: 20px;
 
-  @media screen and (min-width: 1345px) {
+  @media screen and (min-width: 768px) {
     display: flex;
-    align-items: baseline;
-    justify-content: flex-start;
-
     padding-top: 0;
+  }
+
+  @media screen and (min-width: 1345px) {
     padding-left: 290px;
   }
 }
+
+// телефон с иконкой
 
 .footer-contacts-tel-link {
   display: flex;
@@ -81,36 +81,63 @@
   }
 }
 
+// иконка инстаграм
+
 .footer-contacts-icon {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
 
   padding-top: 31px;
+  @media screen and (min-width: 768px) {
+    padding-top: 0;
+    padding-left: 48px;
+  }
 
   @media screen and (min-width: 1345px) {
     padding-top: 0;
-
     padding-left: 40px;
   }
 }
 
 .footer-contacts-icon-link {
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
+  background-image: url(../images/icon/instagram.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
   background-position: center;
 
   width: 40px;
   height: 40px;
   cursor: pointer;
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/icon/instagram@2x.png);
+  }
 }
 
-.footer-contacts-icon-svg {
-  fill: $white-color;
-  width: 25px;
-  height: 25px;
+// псевдоелемент
+
+.footer-contacts-icon-link::before {
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -24px;
+
+    content: '';
+    width: 0px;
+    height: 40px;
+
+    border: 1px solid #b9b9b9;
+  }
 }
 
 // блок с копирайт на черном фоне
