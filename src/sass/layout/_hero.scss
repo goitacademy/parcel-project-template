@@ -13,27 +13,41 @@
 }
 
 .hero-bg-img {
-  position: absolute;
-  top: -59px;
-  z-index: -1;
-  width: $phone-width;
-  min-height: 618px;
-  background-image: url(../images/mobile/Vector-mob.jpg);
+  width: 100%;
+  background-image: url(../images/mobile/Vector-mob.png);
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
+  background-position-y: -250px;
 
   @include for-size(tablet) {
-    top: -88px;
-    min-width: $tablet-width;
-    min-height: 557px;
-    background-image: url(../images/tablet/Vector-tab.jpg);
+    background-image: url(../images/tablet/Vector-tab.png);
+    background-position-y: -140px;
   }
 
   @include for-size(desktop) {
-    top: -88px;
-    min-width: $desktop-width;
-    min-height: 878px;
-    background-image: url(../images/desktop/Vector-desk.jpg);
+    background-image: url(../images/desktop/Vector-desk.png);
+    background-position-y: -270px;
+  }
+}
+
+.hero-second-section {
+  margin-bottom: 77px;
+
+  @include for-size(tablet) {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 114px;
+  }
+  @include for-size(desktop) {
+    position: relative;
+    margin-bottom: 241px;
+  }
+}
+
+.hero-block {
+  @include for-size(phone) {
+    margin-bottom: 30px;
   }
 }
 
@@ -81,7 +95,7 @@
     display: block;
     margin-bottom: 40px;
     margin-left: 2px;
-    width: 536px;
+    width: 537px;
     font-size: 20px;
     line-height: 1.65;
   }
@@ -94,6 +108,10 @@
   &-accent {
     display: block;
     color: $accent;
+
+    @include for-size(desktop) {
+      display: inline;
+    }
   }
 }
 
@@ -101,7 +119,6 @@
   display: block;
   width: 260px;
   padding: 14px 0;
-  margin-bottom: 143px;
   font-weight: 700;
   font-size: 12px;
   line-height: 1.25;
@@ -119,7 +136,6 @@
   }
 
   @include for-size(phone) {
-    margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -130,7 +146,6 @@
     line-height: 1.214;
     letter-spacing: 0.14em;
     padding: 23px;
-    margin-bottom: 241px;
   }
 }
 
@@ -139,15 +154,14 @@
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 77px;
   width: 208px;
   height: 178px;
 
   @include for-size(tablet) {
     position: absolute;
     display: flex;
-    top: 83px;
-    right: 18px;
+    top: 13px;
+    right: -22px;
     margin: 0;
     width: 376px;
     height: 321px;
@@ -156,8 +170,8 @@
   @include for-size(desktop) {
     position: absolute;
     display: flex;
-    top: 46px;
-    right: 54px;
+    top: -79px;
+    right: -137px;
     margin: 0;
     width: 842px;
     height: 718px;
@@ -169,7 +183,7 @@
   max-width: 208px;
   max-height: 149px;
   margin-top: 10px;
-  
+
   @include for-size(tablet) {
     max-width: 376px;
     max-height: 269px;
@@ -202,26 +216,32 @@
 }
 
 .hero-list {
-  margin: 0;
   padding: 0;
+  margin: 0;
   list-style: none;
 
   @include for-size(tablet) {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
   }
   @include for-size(desktop) {
     display: flex;
-    flex-direction: row;
   }
 }
 
 .hero-item {
-  margin-left: 32px;
-  margin-right: 32px;
+  margin: 0;
+  @include for-size(phone) {
+    padding: 0 32px;
+  }
 
   &:not(:last-child) {
-    margin-bottom: 30px;
+    @include for-size(phone) {
+      margin-bottom: 30px;
+    }
+    @include for-size(tablet) {
+      margin-right: 20px;
+    }
   }
 }
 
