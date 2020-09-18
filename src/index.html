@@ -1,15 +1,126 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Заголовок страницы</title>
-  </head>
-  <body>
-    <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-    <include src="./partials/example.html"></include>
 
-    <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
-    <script src="./index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HellEn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.min.css" />
+</head>
+
+<body>
+  <div class="backdrop is-hidden" data-modal>
+    <div class="modal">
+      <div class="modal-box">
+        <svg class="close-modal" width="15" height="15" data-modal-close>
+          <use href="./images/sprite.svg#menu-cross"></use>
+        </svg>
+
+        <img src="./images/logo2.png" alt="" class="modal-img" />
+      </div>
+
+      <ul class="modal-site-nav">
+        <li class="link">
+          <a href="" class="link-item">Программа обучения</a>
+        </li>
+        <li class="link">
+          <a href="" class="link-item">О нас</a>
+        </li>
+        <li class="link">
+          <a href="" class="link-item">Варианты обучения</a>
+        </li>
+        <li class="link">
+          <a href="" class="link-item">Контакты</a>
+        </li>
+      </ul>
+      <a href="./index.html" class="modal-button">Консультация по телефону</a>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="./test.html" class="logo-img"><img src="./images/logo.png" alt="Логотип" /></a>
+
+        <ul class="site-nav3">
+          <li class="link">
+            <a href="" class="link-item">Программа обучения</a>
+          </li>
+          <li class="link">
+            <a href="" class="link-item">О нас</a>
+          </li>
+          <li class="link">
+            <a href="" class="link-item">Варианты обучения</a>
+          </li>
+          <li class="link">
+            <a href="" class="link-item">Контакты</a>
+          </li>
+        </ul>
+
+        <a href="/index.html" class="hero-button-2">Консультация по телефону</a>
+
+        <button class="menu-button" data-modal-open>
+          <svg width="20" height="12">
+            <use class="icon-cross" href="./images/sprite.svg#menu"></use>
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+    <div class="container">
+      <section class="hero">
+        <div class="hero-flex">
+          <div class="hero-block">
+            <h1 class="hero-title">
+              Комплексная <br> подготовка к ВНО <br> по английскому языку
+            </h1>
+            <p class="hero-slogan">Просто не будет.</p>
+            <p class="hero-subtitle">
+              Но ты гарантировано наберешь <b>+25 баллов</b>
+            </p>
+
+            <a class="hero-button">Хочу на бесплатное занятие<a>
+          </div>
+
+
+          <img src="./images/hero-img2.png" alt="" class="hero-img" width="208" />
+
+        </div>
+
+        <ul class="hero-benefits">
+          <li class="item">
+            <img src="./images/svg/person.svg" alt="" class="icon">
+            <h3 class="title">Адаптированная авторская <br> программа ВНО</h3>
+          </li>
+          <li class="item">
+            <img src="./images/svg/phone.svg" alt="" class="icon">
+            <h3 class="title">Современные методика <br> обучения</h3>
+          </li>
+          <li class="item">
+            <img src="./images/svg/dollar.svg" alt="" class="icon">
+            <h3 class="title">Финансовая гарантия <br> результата</h3>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </header>
+  <script>
+    const refs = {
+      openModalBtn: document.querySelector('[data-modal-open]'),
+      closeModalBtn: document.querySelector('[data-modal-close]'),
+      modal: document.querySelector('[data-modal]'),
+    };
+
+    refs.openModalBtn.addEventListener('click', toggleModal);
+    refs.closeModalBtn.addEventListener('click', toggleModal);
+
+    function toggleModal() {
+      refs.modal.classList.toggle('is-hidden');
+    }
+  </script>
+  <script src="./menu.js"></script>
+</body>
+
 </html>
