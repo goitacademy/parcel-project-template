@@ -6,33 +6,43 @@
 
   @media screen and (min-width: 768px) {
     height: 90px;
-
   }
   @media screen and (min-width: 1200px) {
     height: 120px;
-   
   }
 
 }
-.section-header {
-   
-  @extend .container;
 
-  .section-header-container-a {
+.section-header {   
+  @extend .container;
+}
+
+.section-header-container-a {
   color: $primary-color;
 
   & :hover,
   & :focus {
-      color: $accent-color;
+    color: $accent-color;
   }
 }
-}
-
 
 @media screen and (max-width: 767px) {
 
-  
-  
+  .none-btn{
+    display: none;
+  }
+
+  .logo {
+    margin-top: 6px;
+  }
+
+  .section-header-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .header-menu {
     display: flex;
     position: absolute;
@@ -40,18 +50,17 @@
     right: 0;
     width: 250px;
     height: 502px;
+    z-index: 6;
    
     background: #E17992;
     flex-direction: column-reverse;
   
-      opacity: 0;
-      visibility: hidden;
+      transform: translateY(-100%);
       pointer-events: none;
       transition: all 250ms linear;
   
       &.is-open {
-        opacity: 1;
-        visibility: visible;
+        transform: translateY(0);
         pointer-events: unset;
       }
   }
@@ -63,21 +72,14 @@
     width: 100%;
     height: 52px;
     border: 1px solid #E18298;
-    
+  
     padding-left: 21px;
   }
   
   .section-header-container-ul {
     margin-bottom: 133px
   }
-
-  .section-header-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
+ 
   .section-header {
     display: flex;
     padding: 0 22px;
@@ -94,8 +96,11 @@
     background-color: transparent;
     width: 20px;
     height: 20px;
-    z-index: 1;
+    z-index: 7;
+    margin-top: 6px;
+    margin-right: 28px;
   }
+
   .close-menu-icon {
       display: none;
     }
@@ -111,11 +116,101 @@
 
 
 
+@media screen and (min-width: 768px) {
+  .logo {
+    margin-top: 38px;
+    margin-bottom: 20px;
+  }
+
+  .section-header-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+  }
+  .header-menu {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 502px;
+    z-index: 6;
+   
+    background: #E17992;
+    flex-direction: column-reverse;
+  
+      transform: translateY(-100%);
+      pointer-events: none;
+      transition: all 250ms linear;
+  
+      &.is-open {
+        transform: translateY(0);
+        pointer-events: unset;
+      }
+  }
+
+  .section-header-container-li {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 52px;
+    border: 1px solid #E18298;
+  
+    padding-left: 21px;
+  }
+  
+  .section-header-container-ul {
+    margin-bottom: 133px
+  }
+ 
+  .section-header {
+    display: flex;
+    padding: 0 22px;
+  }
+
+  .button-white {  
+    margin-top: 38px;
+    margin-left: 30px;
+    margin-right: 0;
+    margin-bottom: 19px;
+    width: 111px;
+    z-index: 4;
+  }
+
+
+  .burger-button {
+    border: none;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    z-index: 7;
+    margin-top: 23px;
+    margin-left: auto;
+  }
+  .burger-button.is-open{
+  position: absolute;
+  top: 23px;
+  right: 30px;
+  }
+  .close-menu-icon {
+      display: none;
+    }
+
+  .burger-button.is-open .open-menu-icon {
+    display: none;
+  }
+
+  .burger-button.is-open .close-menu-icon {
+    display: flex;
+  }
+}
+
+
 @media screen and (min-width: 1200px) {
-//  body {
-//   width: 1080px;
-//   margin: 0 auto;
-//  }
+
   .burger-button {
     display: none;
   }
@@ -127,11 +222,13 @@
 .section-header-container {
   padding-top: 38px;
   display: flex;
+  justify-content: space-between;
 
   & .section-header-container-ul {
     display: flex;
     margin-right: 115px;
     align-items: center;
+    z-index: 5;
   }
     & .section-header-container-ul li:not(:last-child) {
       margin-right: 37px;
