@@ -16,13 +16,28 @@ function plusSlides(n) {
   showSlides((slideIndex += n));
 }
 
+ArrowRight.onclick = function () {
+  plusSlides(1);
+};
+
+ArrowLeft.onclick = function () {
+  plusSlides(-1);
+};
+
+const dots = document.getElementsByClassName('reviews-dot');
+for (let i = 0; i < dots.length; i++) {
+  dots[i].onclick = function () {
+    currentSlide(i + 1);
+  };
+}
+
 function currentSlide(n) {
   showSlides((slideIndex = n));
 }
 
 function showSlides(n) {
   let i;
-  var slides = document.getElementsByClassName('reviews-slide');
+  const slides = document.getElementsByClassName('reviews-slide');
 
   if (n > slides.length) {
     slideIndex = 1;
@@ -37,7 +52,7 @@ function showSlides(n) {
 
   slides[slideIndex - 1].style.display = 'block';
 
-  var dots = document.getElementsByClassName('reviews-dot');
+  const dots = document.getElementsByClassName('reviews-dot');
   for (let i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace('active', '');
     dots[i].style.display = 'none';
