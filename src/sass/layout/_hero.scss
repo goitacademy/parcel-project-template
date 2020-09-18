@@ -5,6 +5,38 @@
   padding-bottom: 160px;
   background-color: $hero-bg-color;
   z-index: -1;
+  background-image: url(../images/hero/mobile/icecream1x.png),
+    url(../images/hero/mobile/ellipse_ice1x.png);
+  background-size: 171px, 284px;
+  background-position: bottom right 32px, bottom 75px right;
+  background-repeat: no-repeat;
+  @media screen and (min-width: 768px) {
+    padding-left: 34px;
+    padding-right: 34px;
+    padding-top: 102px;
+    padding-bottom: 59px;
+    background-image: url(../images/hero/tablet/girl1x.png),
+      url(../images/hero/tablet/icecream1x.png),
+      url(../images/hero/tablet/ellipse_ice.png),
+      url(../images/hero/tablet/milk1x.png);
+    background-size: 168px, 143px, 324px, 124px;
+    background-position: bottom right 34px, bottom right 247px,
+      bottom 46px right 137px, bottom 28px left 34px;
+    background-repeat: no-repeat;
+  }
+  @media screen and (min-width: 1200px) {
+    padding-left: 115px;
+    padding-right: 97px;
+    padding-top: 171px;
+    padding-bottom: 102px;
+    background-image: url(../images/hero/desktop/girl1x.png),
+      url(../images/hero/desktop/icecream1x.png),
+      url(../images/hero/desktop/ellipse_ice.png),
+      url(../images/hero/desktop/milk1x.png);
+    background-size: 293px, 236px, 538px, 188px;
+    background-position: bottom right 72px, bottom right 413px,
+      bottom 75px right 230px, bottom 45px left 77px;
+  }
 }
 
 .hero-content {
@@ -16,6 +48,13 @@
   margin-bottom: 19px;
   z-index: 1;
   position: relative;
+  @media screen and (min-width: 768px) {
+    width: 162px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 277px;
+    margin-bottom: 25px;
+  }
 }
 
 .hero-button-primary,
@@ -24,6 +63,14 @@
   position: relative;
   padding-top: 7px;
   padding-bottom: 7px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 66px;
+  }
+  @media screen and (min-width: 1200px) {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    margin-bottom: 112px;
+  }
 }
 .hero-button-primary {
   color: $primary-text-color;
@@ -32,14 +79,90 @@
 .hero-button-secondary {
   color: $secondary-title-color;
 }
-.hero-bg-img1 {
-  position: absolute;
-  top: -110px;
-  right: 0;
+
+.hero-description {
+  @include font(8px, 1.5, 400);
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    margin-left: 120px;
+    width: 114px;
+    height: 48px;
+    &-text {
+      margin-bottom: 7px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    @include font(14px, 1.4, 400);
+    margin-left: 180px;
+    width: 200px;
+    height: 78px;
+    &-text {
+      margin-bottom: 20px;
+    }
+  }
 }
 
-.hero-bg-img2 {
+.hero-description-button {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: none;
+  background-color: $primary-text-color;
+  @media screen and (min-width: 1200px) {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.hero-description-button-icon {
+  fill: $secondary-title-color;
+  @media screen and (min-width: 1200px) {
+    transform: translateY(-25%);
+  }
+}
+.hero-statistics-list {
+  list-style: none;
   position: absolute;
-  top: -100px;
-  right: 32px;
+  top: 0;
+  right: 0;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+.hero-statistics-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-statistics-item + .hero-statistics-item {
+  margin-top: 13px;
+}
+
+.hero-statistics-text {
+  width: 100%;
+  @include font(8px, 1.3, 400);
+  text-align: right;
+}
+.numbers-header::before {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  transform: translate(50%, -25%);
+  width: 16px;
+  height: 16px;
+  z-index: -1;
+  background-image: url(../images/hero/tablet/ellipse1_1x.png);
+  background-position: top right;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 30px;
+    height: 30px;
+    transform: translate(50%, -10%);
+    background-image: url(../images/hero/desktop/ellipse1_1x.png);
+  }
 }
