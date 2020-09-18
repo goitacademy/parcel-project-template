@@ -44,7 +44,7 @@
        }
 }
 
-.how-we-do .how-we-do-title{
+ .how-we-do-item-title{
 
     position:  relative;
 
@@ -58,6 +58,7 @@
         width: 20px;
         height: 2px;
         left: 50%;
+        transform: translateX(-50%);
         bottom: -20px;
         background-color:$accent;
         margin: 0 auto;
@@ -82,7 +83,7 @@
      }
 }
 
-.how-we-do .how-we-do-text{
+.how-we-do-text{
     
 
     font-style: normal;
@@ -119,9 +120,53 @@
     padding-bottom: 30px;
     padding-left: 5px;
     padding-right: 5px;
+
+    @include for-size(tablet){
+        width: calc((100% - 4 * 10px)/2);
+        margin: 10px;
+    }
+
+    @include for-size(desktop){
+        width: calc((100% - 6 * 10px)/3);
+        margin: 10px; 
+    }
+
+    &:hover{
+        background-color: $accent;
+
+        & .how-we-do-item-title{
+           color: $title-white;
+
+           &::after{
+               background-color: $title-white;
+           }
+        }
+
+        & .how-we-do-text{
+            color: $title-white;
+        }
+
+        
+    }
 }
 
 .how-we-do-item:not(:last-child){
-    margin-bottom: 15px;
+    @include for-size(phone){margin-bottom: 15px;}
+
+    
+}
+
+.how-we-do-list{
+    @include for-size(tablet){
+        display: flex;
+        flex-wrap: wrap;
+        margin: -10px;
+    }
+
+    @include for-size(desktop){
+        display: flex;
+        flex-wrap: wrap;
+        margin: -10px;
+    }
 }
 
