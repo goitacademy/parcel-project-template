@@ -1,5 +1,4 @@
 // Удалить стиль при объединении
-
 .position {
     width: 100%;
     height: 82px;
@@ -10,6 +9,17 @@
     // height: 1502px;
     background-color: $secondary-bg-color;
     // padding-bottom: 113px;
+    @media screen and (min-width: 1200px) {
+        background-image: url("../images/location-desktop.png");
+        background-repeat: no-repeat;
+
+        // думаю, 2х картинка сюда не очень нужна, потому что выглядит так себе...
+		@media screen and (min-device-pixel-ratio: 2),
+		screen and (min-resolution: 192dpi),
+		screen and (min-resolution: 2dppx) {
+			background-image: url("../images/location-desktop@2x.png");
+        }
+    }
 
     & .contacts {
         &::before {
@@ -26,6 +36,8 @@
 .location .container {
     position: absolute;
     top: -82px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -52,8 +64,8 @@
     display: flex;
     margin-bottom: 25px;
     padding: 0 25px;
-   align-items: center;
     height: 16px;
+    align-items: center;
     width: max-content;
 
     @include font (12px, 500, 1.86, 0.04em);
@@ -102,9 +114,14 @@
 
 .location-list-time-wrap {
     display: block;
+
     &:not(:last-child) {
     margin-bottom: 10px;
     }
+}
+
+.location-list-schedule-item:not(:last-child) {
+    margin-bottom: 10px;
 }
 
 .contacts-list-item-link {
@@ -117,16 +134,12 @@
 
     & .button-red, 
     .button-white {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 17px;
+        padding-right: 17px;
         width: 162px;
         display: block;
         @include font (16px, 700, 1.31, normal);
         }
-}
-
-.button-list-item:not(:last-child) {
-    margin-bottom: 10px;
 }
 
 .button-icon {
@@ -149,12 +162,22 @@
     .location-list-item:not(:last-child) {
         margin-bottom: 20px;
     }
+
+    .button-list-item:not(:last-child) {
+        margin-bottom: 10px;
+    }
 }
 
-
 @media screen and (min-width: 768px) {
+
     .location {
         height: 755px;
+
+        & .contacts {
+            &::before {
+                margin: 30px 0;
+            }
+        }
     }
 
     .location-list {
@@ -165,8 +188,129 @@
     }
 
     .location-list-item {
+        padding: 50px 31px;
         margin: 0 10px;
     }
 
+    .buttons-list {
+        display: flex;
+        margin-top: 81px;
+        justify-content: center;
+
+        & .button-red{
+            width: 192px;
+            padding-left: 32px;
+            padding-right: 32px;
+            margin-right: 14.5px;
+        }
+
+        & .button-white{
+            width: 174px;
+            padding-left: 38px;
+            padding-right: 38px;
+        }
+    }
+
+    .location-list-item-type {
+        padding: 0 16px;
+        margin-bottom: 30px;
+        height: 28px;
+        @include font (16px, 500, 1.86, 0.04em);
+    }
+
+    .location-list-item-place {
+        margin-bottom: 14px;
+        @include font (14px, 500, 1.86, 0.04em);
+    }
+
+    .location-list-item-description{
+        @include font (14px, 500, 1.66, 0.04em);
+
+        &::after {
+            margin: 30px 0;
+        }
+    }
+
+    .location-list-weekday,
+    .location-list-time-wrap,
+    .location-list-time {
+        @include font (14px, 500, 1.86, normal);
+    }
+
+    .location-list-schedule-item:not(:last-child) {
+        margin-bottom: 16px;
+    }
+
+    .contacts-list-item-link {
+        @include font (14px, 500, 1.83, normal);
+    }
+}   
+
+@media screen and (min-width: 1200px) {
+    
+    .location {
+        height: 765px;
+
+        & .contacts {
+         &::before {
+            margin: 32px 0;
+        }
+    }
+}
+
+    .location-list {
+        margin: 0 -15px;
+    }
+
+    .location-list-item {
+        padding: 51px 43px 62px 43px;
+        margin: 0 15px;
+        width: 330px;
+    }
+
+    .location-list-item-type {
+        margin-bottom: 32px;
+    }
+
+    .location-list-item-place {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .location-list-item-description{
+        @include font (16px, 500, 1.83, 0.04em);
+        &::after {
+            margin: 32px 0;
+        }
+    }
+
+    .location-list-weekday {
+        @include font (16px, 500, 1.86, 0.04em);
+    }
+
+    .location-list-time-wrap,
+    .location-list-time,
+    .contacts-list-item-link {
+        font-size: 16px;
+    }
+
+    .buttons-list {
+        margin-top: 86px;
+
+        & .button-red{
+            width: 198px;
+            padding-left: 35px;
+            padding-right: 35px;
+            margin-right: 15px;
+        }
+
+        & .button-white{
+            width: 180px;
+            padding-left: 39px;
+            padding-right: 39px;
+        }
+    }
 
 }
+
+
