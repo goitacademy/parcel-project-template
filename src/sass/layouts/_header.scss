@@ -29,8 +29,8 @@
   margin: 0;
   padding: 0;
   border: 0;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 
   @include for-size(desktop) {
     display: none;
@@ -92,6 +92,24 @@
 }
 
 // Logo
+.logo-mobile {
+  display: block;
+  width: 80px;
+  height: 28px;
+}
+.logo-link-mobile {
+  display: none;
+  @media screen and (max-width: 767px) {
+    display: block;
+  }
+}
+.logo-link,
+.logo-link.white {
+  display: none;
+  @include for-size(tablet-landscape) {
+    display: block;
+  }
+}
 .logo {
   display: block;
   width: 128px;
@@ -149,6 +167,15 @@
   padding-bottom: 250px;
   background-position: 50% 90%;
   padding-top: 50px;
+  background-size: 208px;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url('../images/header/header-320@2x.png');
+  }
 
   @include for-size(tablet-landscape) {
     background-image: url('../images/header/header-768.png');
@@ -156,6 +183,15 @@
     background-position: 100% 80px;
     padding-top: 70px;
     padding-bottom: 80px;
+    background-size: 375px;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/header/header-768@2x.png');
+    }
   }
 
   @include for-size(desktop) {
