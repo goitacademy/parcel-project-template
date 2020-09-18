@@ -150,11 +150,29 @@
     background-color: $white;
     padding: 20px 32px;
     box-shadow: -5px 8px 26px 0px rgba(0, 0, 0, 0.04);
+    counter-reset: num;
 
     .strange-list-item {
         margin-bottom: 20px;
         padding: 0;
+        counter-increment: num;
     }
+}
+
+.strange-list .strange-list-item:nth-last-child(-n+6) :before {
+    content: "0"counter(num);
+    display: flex;
+    color: $accent-color;
+    transform: translateX(7%);
+}
+
+ol li::before {
+    content: "";
+    display: block;
+    background-color: $accent-color;
+    width: 15px;
+    height: 1px;
+    transform: translate(0px, 13px,);
 }
 
 .strange-list li p {
