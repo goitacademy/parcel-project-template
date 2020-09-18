@@ -1,100 +1,263 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  outline: 2px solid tomato;
+}
+
 .conteiner {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+
+  @media (min-width: $tablet) { 
+    // width: 768px;
     width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-align: center;
-  
-  //   @include for-size(tablet-portreit) {
-  //     width: 320px;
-  //   }
-  //   @include for-size(tablet-landscape) {
-  //     width: 768px;
-  //   }
-  //   @include for-size(desktop) {
-  //     width: 1300px;
-  //   }
-  // } 
-  // @media (max-width: #{$tablet - 1}) { 
-  //   .conteiner.work {
-  //     display: none;
-  //   }
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media (min-width: $desktop) {
+    width: 1300px;
+    // width: 100%;
+    padding-left: 183px;
+    padding-right: 183px;
   } 
-  .conteiner.footer-conteiner {
+
+  &.footer-conteiner {
     display: block;
   }
-  
-  span[class="orange"] {
-    color: $acent-text;
+} 
+
+span[class="orange"] {
+  color: $acent-text;
+}
+
+.form-section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-image: url(/src/images/footer/footer-bg-phone-320@1x.png), linear-gradient($main-text 0, $main-text 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @media (min-width: $tablet) { 
+    padding-bottom: 70px;  
+    @media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+      background-image: url(/src/images/footer/footer-bg-tablet@1x.png), linear-gradient($main-text 0, $main-text 100%);
+    }  
   }
-  
-  .form-section {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin-left: auto;
-    margin-right: auto;
-  
-    background-color: $main-text;    
-    background-image: url(/src/images/footer-bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  } 
-  
-  .form-footer > h3 {
-    text-align: center;
-    font-weight: 800;
+  @media (min-width: $desktop) { 
+    padding-top: 100px;
+    padding-bottom: 62px;
+      @media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+      background-image: url(/src/images/footer/footer-bg-desktop-1680@1x.png), linear-gradient($main-text 0, $main-text 100%);
+    }  
+  }
+} 
+
+.form-footer > h3 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1.36;
+  color: $text-white;
+
+  @media (min-width: $tablet) { 
+    font-size: 26px;
+    line-height: 1.3;
+  }
+  @media (min-width: $desktop) { 
+    font-size: 46px;
+  }
+}
+
+.form-text {
+  margin: 30px 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  color: $text-white;
+
+  @media (min-width: $tablet) { 
     font-size: 14px;
-    line-height: 1.36;
-    letter-spacing: 0.03em;
-    color: $text-white;
+    line-height: 1.214;
   }
-  .form-text {
-    margin: 30px 0;
-    text-align: center;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 1.25;
-    letter-spacing: 0.08em;
-    color: $text-white;
+  @media (min-width: $desktop) { 
+    margin: 50px 0 56px;
+    font-size: 30px;
+    line-height: 1.233;
   }
+}
+
+.form-field+.form-field {
+  padding-top: 20px;
+  @media (min-width: $desktop) { 
+    padding-top: 30px;
+  }
+}
+
+button.form-button {
+  margin: 50px 0 0;
+  padding: 14px 0;
+  width: 260px;
+  height: 48px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  align-items: center;
+  text-align: center;
+  color: $text-white;
+  background-color: $acent-text;
+  // outline: none;
+  cursor: pointer;
+
+  @media (min-width: $desktop) { 
+    margin: 80px 0 0;
+    padding: 26px 25px;
+    width: 354px;
+    height: 70px;
+    font-size: 14px;
+    line-height: 1.214;
+  }
+}
+
+.form-input {
+  width: 280px;
+  height: 48px;
+  padding-top: 15px;
+  padding-left: 28px;
+  padding-bottom: 15px;
+  border: 1px solid $text-white;  
+  background: transparent;
   
-  .form-field+.form-field {
-    padding-top: 20px;
+  @media (min-width: $tablet) { 
+    width: 390px;
   }
+  @media (min-width: $desktop) { 
+    width: 478px;
+    height: 70px;
+  }
+}
+
+.footer-nav {
+  display: block;
+  align-items: center;
+  padding-top: 34px;
+  padding-bottom: 30px;
+
+  @media (min-width: $tablet) { 
+    display: flex;
+    justify-content: space-between;
+  }
+  @media (min-width: $desktop) { 
+    padding-top: 57px;
+    padding-bottom: 56px;
+  }
+}
+
+@media (min-width: $tablet) { 
+  .footer-list {
+    display: flex;
+  }
+  // .footer-item {
+  //   display: flex;
+  // }
+}
+
+@media (min-width: $tablet) { 
+  .footer-item {
+    display: flex;
+  }
+}
+
+.footer-item .contact-link-footer {
+  display: block;
+  position: relative;
+  margin-top: 21px;
+  margin-bottom: 31px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.214;
+  letter-spacing: 0.08em;
+  align-items: center;
+  text-align: center;
+  color: $main-text;
   
-  button.form-button {
-    padding: 14px auto;
-    margin-top: 50px;
-    align-items: center;
-    width: 260px;
-    height: 48px;
-    color: $text-white;
-    background-color: $acent-text;
+  @media (min-width: $tablet) { 
+    padding-right: 24px;
+    margin-top: unset;
+    margin-bottom: unset;  
+    margin-right: 24px;
+    font-size: 20px;
+    line-height: 1.2;
+  } 
+  @media (min-width: $desktop) { 
+    font-size: 30px;
+    line-height: 1.233;
+    border-right: 1px solid $secondary-text;
   }
+}
+
+// .contact-link-footer::before {
+//   display: block;
+//   content: '';
+//   width: 20px;
+//   height: 20px;
+//   position: absolute;
+//   left: 0;
+//   top: 8px;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-image: url(../images/footer/icon-call.svg);
+
+.logo-footer-icon {
+  position: relative;
+  display: block;
+  width: 84px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
   
-  .form-input {
-    padding-top: 15px;
-    padding-left: 28px;
-    padding-bottom: 15px;
-    outline: 1px solid $text-white;
-    background: transparent;
+  @media (min-width: $tablet) { 
+    width: 128px;
+    height: 45px;
+  } 
+}
+.footer-svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  &.phone {
+    position: absolute;
+    top: -2px;
+    left: 10px;
+    margin-right: 15px;
   }
-  
-  .footer-nav {
-    display: block;
-    align-items: center;
-    text-align: center;
-    padding-bottom: 30px;
-    padding-top: 33px;
+} 
+
+.footer-box-rights {
+  padding-top: 21px;
+  padding-bottom: 21px;
+  text-align: center;
+  color: $secondary-text;
+  background-color: $main-text;
+}
+
+p.grey {
+  font-size: 14px;
+  line-height: 2;
+  @media (min-width: $tablet) { 
+    padding-left: 40px;
+    text-align: left;
   }
-  
-  .footer-item+.footer-item {
-    margin-top: 20px;
+  @media (min-width: $desktop) { 
+    padding-left: 183px;
   }
-  
-  .footer-box-rights {
-    padding: 21px 0 21px;
-    text-align: center;
-    color: $secondary-text;
-    background-color: $main-text;
-  }
+}
