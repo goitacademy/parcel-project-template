@@ -16,13 +16,27 @@ function plusSlides(n) {
   showSlides((slideIndex += n));
 }
 
+ArrowRight.onclick = function () {
+  plusSlides(1);
+};
+
+ArrowLeft.onclick = function () {
+  plusSlides(-1);
+};
+
+const dots = document.getElementsByClassName('reviews-dot');
+for (let i = 0; i < dots.length; i++) {
+  dots[i].onclick = function () {
+    currentSlide(i + 1);
+  };
+}
+
 function currentSlide(n) {
   showSlides((slideIndex = n));
 }
 
 function showSlides(n) {
-  let i;
-  var slides = document.getElementsByClassName('reviews-slide');
+  const slides = document.getElementsByClassName('reviews-slide');
 
   if (n > slides.length) {
     slideIndex = 1;
@@ -37,7 +51,7 @@ function showSlides(n) {
 
   slides[slideIndex - 1].style.display = 'block';
 
-  var dots = document.getElementsByClassName('reviews-dot');
+  const dots = document.getElementsByClassName('reviews-dot');
   for (let i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace('active', '');
     dots[i].style.display = 'none';
@@ -50,7 +64,7 @@ function showSlides(n) {
   dots[slideIndex - 1].className += ' active';
 
   if (windowSize < 768) {
-    if (slideIndex == 1) {
+    if (slideIndex === 1) {
       dots[dots.length - 1].style.display = 'block';
       dots[dots.length - 1].style.order = -1;
       dots[dots.length - 1].style.margin = '0 10px 0 0';
@@ -59,7 +73,7 @@ function showSlides(n) {
       dots[0].style.margin = '0 10px 0 0';
 
       dots[1].style.display = 'block';
-    } else if (slideIndex == dots.length) {
+    } else if (slideIndex === dots.length) {
       dots[dots.length - 2].style.display = 'block';
       dots[dots.length - 2].style.margin = '0 10px 0 0';
 
