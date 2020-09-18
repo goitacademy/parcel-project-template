@@ -12,6 +12,9 @@
 .container {
   padding-left: 20px;
   padding-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .testimonials-picture {
   position: absolute;
@@ -28,21 +31,18 @@
   margin-bottom: 29px;
 }
 .testimonials-review-box {
-  position: relative;
   padding-top: 43px;
   padding-bottom: 26px;
-  padding-left: 57px;
-  padding-right: 66px;
+  padding-left: 50px;
+  padding-right: 50px;
   margin-bottom: 26px;
   max-width: 280px;
   background-color: #fafafa;
 }
-.testimonials-review-box-svg {
-  position: absolute;
-  transform: translateY(-15px);
-}
 .testimonials-review-text {
   position: relative;
+  padding-left: 7px;
+  padding-right: 16px;
   font-family: $main-font-family;
   font-style: normal;
   font-weight: 500;
@@ -51,6 +51,19 @@
   text-align: center;
   color: $secondary-text-color;
   z-index: 1;
+
+  &::before {
+    position: absolute;
+    top: -15px;
+    left: 11px;
+
+    content: '';
+    z-index: -1;
+    background-repeat: no-repeat;
+    width: 54px;
+    height: 45px;
+    background-image: url(../images/icon-quotes.svg);
+  }
 }
 .testimonials-review-title {
   font-style: normal;
@@ -73,8 +86,73 @@
     padding-top: 279px;
     padding-bottom: 197px;
   }
+  .testimonials-review-text {
+    padding-left: 20px;
+    padding-right: 44px;
+    font-size: 14px;
+    line-height: 2.15;
+    letter-spacing: 0.04em;
+    &::before {
+      top: -17px;
+      left: -20px;
+    }
+  }
+  .testimonials-review-title {
+    font-size: 16px;
+  }
   .container {
     padding-left: 74px;
     padding-right: 74px;
+  }
+  .testimonials-review-box {
+    max-width: 620px;
+    padding-top: 47px;
+    padding-bottom: 34px;
+    padding-left: 60px;
+    padding-right: 36px;
+  }
+  .testimonials-review-box-svg {
+    top: -17px;
+    left: -41px;
+    // transform: translateY(-15px);
+    // transform: translateX(-15px);
+  }
+  .testimonials-review-photo {
+    margin-bottom: 19px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .testimonials {
+    padding-top: 382px;
+    padding-bottom: 234px;
+  }
+  .container {
+    padding-left: 178px;
+    padding-right: 176px;
+  }
+  .testimonials-review-text {
+    padding-left: 28px;
+    padding-right: 35px;
+    font-size: 16px;
+    line-height: 1.86;
+    letter-spacing: 0.04em;
+    &::before {
+      top: -17px;
+      left: -7px;
+    }
+  }
+  .testimonials-review-box {
+    max-width: 847px;
+    padding-top: 47px;
+    padding-bottom: 39px;
+    padding-left: 59px;
+    padding-right: 54px;
+  }
+  .testimonials-review-title {
+    font-size: 18px;
+    line-height: 1.86;
+  }
+  .testimonials-review-photo {
+    margin-bottom: 15px;
   }
 }
