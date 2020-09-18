@@ -114,8 +114,15 @@ button.form-button {
   text-align: center;
   color: $text-white;
   background-color: $acent-text;
-  // outline: none;
   cursor: pointer;
+
+  &:focus,
+  &:hover {
+    color: $acent-text;
+    background-color: $text-white;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);  
+  }
 
   @media (min-width: $desktop) { 
     margin: 80px 0 0;
@@ -135,6 +142,12 @@ button.form-button {
   padding-bottom: 15px;
   border: 1px solid $text-white;  
   background: transparent;
+  color: $text-white;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.214;
+  letter-spacing: 0.08em;
+  align-items: center;
   
   @media (min-width: $tablet) { 
     width: 390px;
@@ -165,9 +178,6 @@ button.form-button {
   .footer-list {
     display: flex;
   }
-  // .footer-item {
-  //   display: flex;
-  // }
 }
 
 @media (min-width: $tablet) { 
@@ -176,45 +186,36 @@ button.form-button {
   }
 }
 
+
 .footer-item .contact-link-footer {
   display: block;
-  position: relative;
   margin-top: 21px;
   margin-bottom: 31px;
+  margin-left: auto;
+  margin-right: auto;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.214;
-  letter-spacing: 0.08em;
-  align-items: center;
   text-align: center;
   color: $main-text;
+  text-decoration: none;
   
   @media (min-width: $tablet) { 
+    display: flex;
+    align-self: center;
     padding-right: 24px;
     margin-top: unset;
     margin-bottom: unset;  
     margin-right: 24px;
     font-size: 20px;
     line-height: 1.2;
+    border-right: 1px solid $secondary-text;
   } 
   @media (min-width: $desktop) { 
     font-size: 30px;
     line-height: 1.233;
-    border-right: 1px solid $secondary-text;
   }
 }
-
-// .contact-link-footer::before {
-//   display: block;
-//   content: '';
-//   width: 20px;
-//   height: 20px;
-//   position: absolute;
-//   left: 0;
-//   top: 8px;
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   background-image: url(../images/footer/icon-call.svg);
 
 .logo-footer-icon {
   position: relative;
@@ -230,17 +231,25 @@ button.form-button {
   } 
 }
 .footer-svg {
-  display: block;
   margin-left: auto;
   margin-right: auto;
   align-items: center;
+  
   &.phone {
-    position: absolute;
-    top: -2px;
-    left: 10px;
     margin-right: 15px;
   }
 } 
+
+span[class=instagram] {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  // align-items: center;
+  // justify-content: center;
+  background-image: url(/src/images/footer/instagram.svg);
+}
 
 .footer-box-rights {
   padding-top: 21px;
