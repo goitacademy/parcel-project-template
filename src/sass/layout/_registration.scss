@@ -1,4 +1,5 @@
 .registration {
+  background-image: url(../images/registration/registration-tablet.png);
   background-color: $black-color;
 
   min-width: 100%;
@@ -8,23 +9,76 @@
 
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 50% 50%;
+
   text-align: center;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/registration/registration-tablet@2x.png);
+  }
+
+  @media screen and (min-width: 480px) {
+    background-image: url(../images/registration/registration-tablet.png);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/registration/registration-tablet@2x.png);
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 1600px;
+    // margin-left: auto;
+    // margin-right: auto;
+    background-image: url(../images/registration/registration-desktop.png);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/registration/registration-desktop@2x.png);
+    }
+  }
 }
 
-.registration__block {
+.text-accent {
+  color: $accent-text-color;
+}
+
+.registration-block {
   padding-top: 50px;
   padding-bottom: 50px;
+
+  @media screen and (min-width: 1345px) {
+    padding-top: 100px;
+    padding-bottom: 62px;
+  }
 }
 
-.registration__block-title {
+.registration-block-title {
   font-style: normal;
   font-weight: 800;
   font-size: 14px;
   line-height: 1.357;
   letter-spacing: 0.03em;
   color: $white-color;
+
+  @media screen and (min-width: 768px) {
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  @media screen and (min-width: 1345px) {
+    font-weight: 800;
+    font-size: 46px;
+    line-height: 1.3;
+  }
 }
-.registration__block-text {
+
+.registration-block-text {
   padding-top: 30px;
 
   font-style: normal;
@@ -34,16 +88,41 @@
   letter-spacing: 0.08em;
 
   color: $white-color;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.21;
+  }
+
+  @media screen and (min-width: 1345px) {
+    padding-top: 50px;
+
+    font-size: 30px;
+    line-height: 1.23;
+  }
 }
 
+// форма регистрации
 .form {
   padding-top: 30px;
+  width: 100%;
+  max-width: 390px;
+
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+  }
+  @include adaptive(1345px) {
+    max-width: 478px;
+  }
 }
 
-.form__field {
+.form-field {
   position: relative;
 
   width: 100%;
+
   margin-bottom: 20px;
 
   &-label {
@@ -67,29 +146,51 @@
   }
 }
 
-.form__field-input {
+.form-field-input {
   width: 100%;
   background-color: $black-color;
+  opacity: 0;
 
   height: 48px;
   border: 1px solid $white-color;
   border-radius: 4px;
   padding-left: 28px;
+  z-index: -1;
+  @media screen and (min-width: 1345px) {
+    height: 70px;
+  }
 }
 
-.form__field-btn {
-  padding: 14px 1px;
-  margin-top: 30px;
-  color: $white-color;
-  background-color: $accent-color;
+.form-btn {
+  margin-top: 50px;
+  // min-width: 260px;
+  // height: 48px;
 
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 1.25px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  min-width: 260px;
-  border: 0;
-  outline: none;
+  // background-color: $accent-color;
+
+  // color: $white-color;
+  // padding: 14px 0;
+  // font-style: normal;
+  // font-weight: bold;
+  // font-size: 12px;
+  // line-height: 1.25px;
+  // letter-spacing: 0.08em;
+  // text-transform: uppercase;
+  // border: 1px;
+
+  // outline: none;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 31px;
+  }
+
+  @media screen and (min-width: 1345px) {
+    margin-top: 80px;
+    //   min-width: 354px;
+
+    //   height: 70px;
+
+    //   font-size: 14px;
+    //   line-height: 1.21;
+  }
 }
