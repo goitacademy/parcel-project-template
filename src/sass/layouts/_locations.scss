@@ -1,0 +1,313 @@
+// Удалить стиль при объединении
+.position {
+    width: 100%;
+    height: 82px;
+}
+// До этого момента
+.location {
+    position: relative;
+    // height: 1502px;
+    background-color: $secondary-bg-color;
+    // padding-bottom: 113px;
+    @media screen and (min-width: 1200px) {
+        background-image: url("../images/location-desktop.png");
+        background-repeat: no-repeat;
+
+        // думаю, 2х картинка сюда не очень нужна, потому что выглядит так себе...
+		@media screen and (min-device-pixel-ratio: 2),
+		screen and (min-resolution: 192dpi),
+		screen and (min-resolution: 2dppx) {
+            background-image: url("../images/location-desktop@2x.png");
+            background-size: 1280px 382px;
+        }
+    }
+
+    & .contacts {
+        &::before {
+            margin: 25px 0;
+            content: "";
+            border-bottom: 1px solid #E1E1E1;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.location .container {
+    position: absolute;
+    top: -82px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    // margin: 0; глюк с центрированием контейнера
+}
+
+.location-list {
+    margin: 0 auto;
+}
+
+.location-list-item {
+    padding: 43px 20px;
+    width: 220px;
+    background-color: $primary-color;
+    box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+    border-radius: 24px;
+}
+
+.location-list-item-type {
+    display: flex;
+    margin-bottom: 25px;
+    padding: 0 25px;
+    height: 16px;
+    align-items: center;
+    width: max-content;
+
+    @include font (12px, 500, 1.86, 0.04em);
+    text-transform: uppercase;
+
+    border-radius: 4px;
+    color: $primary-color;
+    background-color: $secondary-product-bg-color;
+
+    &.green {
+        background-color: $third-product-bg-color;
+    }
+}
+
+.location-list-item-place {
+    color: $primary-desc-color;
+    margin-bottom: 10px;
+    @include font (12px, 500, 1.86, 0.04em);
+}
+
+.location-list-item-description {
+    @include font (12px, 500, 1.5, normal);
+    color: $secondary-desc-color;
+
+    &::after {
+        margin: 25px 0;
+        content: "";
+        border-bottom: 1px solid #E1E1E1;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.location-list-weekday {
+    display: block;
+    @include font (12px, 500, 1.5, normal);
+    color: $primary-desc-color;
+}
+
+.location-list-time,
+.location-list-time-wrap {
+    @include font (12px, 500, 1.5, normal);
+    color: $sub-title-color;
+}
+
+.location-list-time-wrap {
+    display: block;
+
+    &:not(:last-child) {
+    margin-bottom: 10px;
+    }
+}
+
+.location-list-schedule-item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.contacts-list-item-link {
+    @include font (12px, 500, 1.5, normal);
+    color: $secondary-desc-color;
+}
+
+.buttons-list {
+    margin: 54px auto 0 auto;
+
+    & .button-red, 
+    .button-white {
+        padding-left: 17px;
+        padding-right: 17px;
+        width: 162px;
+        display: block;
+        @include font (16px, 700, 1.31, normal);
+        }
+}
+
+.button-icon {
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+}
+
+.button-icon-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+    .location {
+        height: 1502px;
+    }
+
+    .location-list-item:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    .button-list-item:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .location {
+        height: 755px;
+
+        & .contacts {
+            &::before {
+                margin: 30px 0;
+            }
+        }
+    }
+
+    .location-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 -10px;
+    }
+
+    .location-list-item {
+        padding: 50px 31px;
+        margin: 0 10px;
+    }
+
+    .buttons-list {
+        display: flex;
+        margin-top: 81px;
+        justify-content: center;
+
+        & .button-red{
+            width: 192px;
+            padding-left: 32px;
+            padding-right: 32px;
+            margin-right: 14.5px;
+        }
+
+        & .button-white{
+            width: 174px;
+            padding-left: 38px;
+            padding-right: 38px;
+        }
+    }
+
+    .location-list-item-type {
+        padding: 0 16px;
+        margin-bottom: 30px;
+        height: 28px;
+        @include font (16px, 500, 1.86, 0.04em);
+    }
+
+    .location-list-item-place {
+        margin-bottom: 14px;
+        @include font (14px, 500, 1.86, 0.04em);
+    }
+
+    .location-list-item-description{
+        @include font (14px, 500, 1.66, 0.04em);
+
+        &::after {
+            margin: 30px 0;
+        }
+    }
+
+    .location-list-weekday,
+    .location-list-time-wrap,
+    .location-list-time {
+        @include font (14px, 500, 1.86, normal);
+    }
+
+    .location-list-schedule-item:not(:last-child) {
+        margin-bottom: 16px;
+    }
+
+    .contacts-list-item-link {
+        @include font (14px, 500, 1.83, normal);
+    }
+}   
+
+@media screen and (min-width: 1200px) {
+    
+    .location {
+        height: 765px;
+
+        & .contacts {
+         &::before {
+            margin: 32px 0;
+        }
+    }
+}
+
+    .location-list {
+        margin: 0 -15px;
+    }
+
+    .location-list-item {
+        padding: 51px 43px 62px 43px;
+        margin: 0 15px;
+        width: 330px;
+    }
+
+    .location-list-item-type {
+        margin-bottom: 32px;
+    }
+
+    .location-list-item-place {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .location-list-item-description{
+        @include font (16px, 500, 1.83, 0.04em);
+        &::after {
+            margin: 32px 0;
+        }
+    }
+
+    .location-list-weekday {
+        @include font (16px, 500, 1.86, 0.04em);
+    }
+
+    .location-list-time-wrap,
+    .location-list-time,
+    .contacts-list-item-link {
+        font-size: 16px;
+    }
+
+    .buttons-list {
+        margin-top: 86px;
+
+        & .button-red{
+            width: 198px;
+            padding-left: 35px;
+            padding-right: 35px;
+            margin-right: 15px;
+        }
+
+        & .button-white{
+            width: 180px;
+            padding-left: 39px;
+            padding-right: 39px;
+        }
+    }
+
+}
+
+
