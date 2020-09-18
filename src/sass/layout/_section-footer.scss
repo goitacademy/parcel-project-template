@@ -176,8 +176,10 @@
     background-color: $accent;
 
     margin-top: 50px;
-    height: 48px;
-    width: 260px;
+    max-height: 48px;
+    min-width: 260px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
       background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -185,7 +187,10 @@
 
     @include for-size(desktop) {
       font-size: 14px;
-      width: 354px;
+      max-height: 70px;
+      min-width: 354px;
+      padding-top: 25px;
+      padding-bottom: 25px;
     }
 
     &:hover,
@@ -215,14 +220,38 @@
     }
 
     &-logo {
-      width: 128px;
-      height: 45px;
-      background-image: url('../images/footer-logo.png');
+      width: 85px;
+      height: 30px;
+      background-image: url('../images/footer-mobile-logo.png');
 
       @media screen and (min-device-pixel-ratio: 2),
         screen and (min-resolution: 192dpi),
         screen and (min-resolution: 2dppx) {
-        background-image: url('../images/footer-logo@2x.png');
+        background-image: url('../images/footer-mobile-logo@2x.png');
+      }
+
+      @include for-size(tablet) {
+        width: 128px;
+        height: 45px;
+        background-image: url('../images/footer-logo.png');
+
+        @media screen and (min-device-pixel-ratio: 2),
+          screen and (min-resolution: 192dpi),
+          screen and (min-resolution: 2dppx) {
+          background-image: url('../images/footer-logo@2x.png');
+        }
+      }
+
+      @include for-size(desktop) {
+        width: 128px;
+        height: 45px;
+        background-image: url('../images/footer-logo.png');
+
+        @media screen and (min-device-pixel-ratio: 2),
+          screen and (min-resolution: 192dpi),
+          screen and (min-resolution: 2dppx) {
+          background-image: url('../images/footer-logo@2x.png');
+        }
       }
     }
 
@@ -237,20 +266,20 @@
       margin-top: 20px;
       padding-left: 30px;
 
-      color: #111518;
+      color: $title-black;
 
       transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
       @include for-size(tablet) {
         font-size: 20px;
         margin-top: 0;
-        margin-left: 237px;
+        margin-left: 203px;
       }
 
       @include for-size(desktop) {
         font-size: 30px;
         margin-top: 0;
-        margin-left: 335px;
+        margin-left: 290px;
       }
 
       &:hover,
@@ -335,14 +364,17 @@
   }
 
   &-copyright {
+    display: block;
+    margin: 0;
     font-weight: 500;
     font-size: 14px;
 
-    color: #b9b9b9;
+    color: $text-light;
   }
 }
+
 .copyright {
-  background-color: #111518;
+  background-color: $title-black;
   text-align: center;
 
   padding: 20px 40px;
