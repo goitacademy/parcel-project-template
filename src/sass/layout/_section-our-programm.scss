@@ -2,9 +2,9 @@
   position: relative;
   background-color: #111518;
   color: #b9b9b9;
+  overflow: hidden;
 
   @include for-size(desktop) {
-    width: 1314px;
     height: 1237px;
     padding-top: 120px;
     margin-right: auto;
@@ -23,33 +23,7 @@
 
   ul {
     list-style: none;
-  }
-
-  .program-list {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-
-    @include for-size(phone) {
-      width: 204px;
-    }
-    @include for-size(tablet) {
-      width: 540px;
-    }
-    @include for-size(desktop) {
-      display: flex;
-      justify-content: center;
-      &::before {
-        content: '';
-        display: block;
-        width: 100vw;
-        position: absolute;
-        border-bottom: 1px solid #ffffff;
-        top: 0;
-        left: 0;
-        top: -60px;
-      }
-    }
+    padding-left: 0px;
   }
   h2 {
     color: white;
@@ -128,8 +102,34 @@
       line-height: 1.56;
     }
   }
-  ul {
-    padding-left: 0px;
+
+  .program-list {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include for-size(phone) {
+      width: 204px;
+    }
+    @include for-size(tablet) {
+      width: 540px;
+    }
+    @include for-size(desktop) {
+      display: flex;
+      justify-content: center;
+      padding-right: 5px;
+      padding-left: 5px;
+      &::before {
+        content: '';
+        display: block;
+        width: 100vw;
+        position: absolute;
+        border-bottom: 1px solid #ffffff;
+        top: 0;
+        left: 0;
+        top: -60px;
+      }
+    }
   }
 
   .period {
@@ -153,12 +153,6 @@
       font-size: 14px;
       line-height: 2;
     }
-  }
-  .program-img {
-    position: absolute;
-    bottom: 0;
-    transform: translateX(-88px) translateY(-59px);
-    max-width: 760px;
   }
   .ball {
     position: absolute;
@@ -188,8 +182,10 @@
     text-align: left;
 
     @include for-size(desktop) {
-      min-width: 240px;
-      margin-right: 30px;
+      width: calc((100% - 120px) / 5);
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
     }
 
     @include for-size(tablet) {
@@ -204,20 +200,46 @@
     }
   }
   .description-list {
+    @include for-size(phone) {
+      display: block;
+    }
+    @include for-size(tablet) {
+      display: flex;
+    }
+    @include for-size(desktop) {
+      display: flex;
+    }
+
     display: flex;
   }
   img {
     position: absolute;
-    right: 0;
     bottom: 0;
     opacity: 0.5;
+
+    @include for-size(desktop) {
+      width: 760px;
+      height: 502px;
+      left: 0;
+      transform: translateY(-59px) translateX(0px);
+    }
+    @include for-size(tablet) {
+      right: 0;
+      transform: translateY(-253px) translateX(87px);
+    }
     @include for-size(phone) {
       width: 176px;
       height: 137px;
-      transform: translateY(-440px) translateX(56px);
+      right: 0;
+      @include for-size(phone) {
+        transform: translateY(-440px) translateX(56px);
+      }
     }
   }
   .description-list {
+    @include for-size(phone) {
+      margin-bottom: 8px;
+    }
     @include for-size(desktop) {
       display: block;
     }
@@ -238,6 +260,12 @@
     }
   }
 }
+.programm-container {
+  @include for-size(desktop) {
+    display: flex;
+    width: 1314px;
+  }
+}
 .period-item {
   &:first-child::before {
     content: '';
@@ -247,14 +275,12 @@
     border: 1px solid #ffffff;
 
     @include for-size(phone) {
-      height: 1292px;
+      height: 1278px;
       left: -26px;
     }
     @include for-size(tablet) {
       height: 705px;
       left: -56px;
-    }
-    @include for-size(desktop) {
     }
   }
 }
