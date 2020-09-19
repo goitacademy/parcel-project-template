@@ -1,6 +1,8 @@
 .backdrop {
   padding-top: 24px;
   position: fixed;
+  z-index: 9999;
+  padding-top: 26px;
   top: 0;
   left: 0;
   width: 100%;
@@ -20,7 +22,7 @@
   margin: 0 auto;
   width: 320px;
 
-  @media (min-width: $tablet-width) {
+  @include for-size(tablet) {
     min-width: 688px;
     width: 688px;
   }
@@ -39,10 +41,11 @@
   //   margin-left: 20px;
   //   margin-right: 40px;
   //   margin-bottom: 50px;
-  margin: 0 40px 50px 20px;
 
+  margin-bottom: 50px;
   padding-left: 0;
-  @media (min-width: 768px) {
+
+  @include for-size(tablet) {
     min-width: 350px;
     width: 332px;
     margin-left: auto;
@@ -52,6 +55,7 @@
 .modal-menu .header-item:not(:last-child) {
   margin-bottom: 18px;
 }
+
 // button modal
 .btn-consult-modal {
   display: block;
@@ -66,14 +70,16 @@
 
   text-align: center;
 
-  width: 260px;
-  height: 48px;
+  min-width: 260px;
+  max-height: 48px;
+  padding: 14px 2px;
 
   color: $accent;
   background-color: transparent;
   border: 2px solid $accent;
 
   margin: 0 auto;
+
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -83,7 +89,11 @@
     background-color: $accent;
   }
 
-  @media (min-width: $tablet-width) {
+  @include for-size(tablet) {
     display: none;
   }
+}
+.header-btn-burger .header-icon-cross {
+  display: inline-flex;
+  align-items: center;
 }
