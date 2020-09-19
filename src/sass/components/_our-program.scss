@@ -1,11 +1,24 @@
+.main-program-section {
+  overflow: hidden;
+  background-color: $white-text-color;
+
+  padding-bottom: 200px;
+  // max-height: 1436px;
+}
+
 .program-section {
   position: relative;
-  overflow: hidden;
+  max-width: 1680px;
+  // max-height: 1237px;
   width: 100%;
   padding-top: 50px;
   padding-bottom: 537px;
   background: $primary-text-color;
 }
+
+// .program-section-dark {
+//   background: $primary-text-color;
+// }
 
 .picture {
   position: absolute;
@@ -227,5 +240,125 @@
 }
 
 .program-feature-container {
-  z-index: 111;
+  position: absolute;
+  width: 100%;
+  z-index: 11;
+  // min-width: 280px;
+  max-width: 480px;
+  max-height: 638px;
+  padding: 20px 20px 30px;
+  // outline: 3px dashed tomato;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 2010px;
+
+  @include for-size(tablet) {
+    padding: 30px 96px 20px;
+    max-width: 688px;
+    top: 1500px;
+  }
+
+  @include for-size(desktop) {
+    padding: 70px 112px 62px;
+    max-width: 1314px;
+    top: 1350px;
+  }
+
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+  background-color: $white-text-color;
+
+  counter-reset: li;
+}
+
+.program-feature-title {
+  position: absolute;
+  max-width: 50%;
+  margin-bottom: 30px;
+  bottom: 400px;
+  display: block;
+  transform: translate(0%, 0%);
+
+  color: $white-text-color;
+  z-index: 11;
+
+  @include font(800, 20px, 1.36, 00.03em);
+
+  @include for-size(tablet) {
+    width: 100%;
+    font-size: 26px;
+    line-height: 1.3;
+    bottom: 270px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @include for-size(desktop) {
+    display: none;
+  }
+}
+
+.program-feature-list {
+  @include font(700, 14px, 1.71, 0.08em);
+
+  @include for-size(desktop) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  @include for-size(tablet) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  color: $primary-text-color;
+
+  counter-reset: 1;
+
+  &-item {
+    text-align: left;
+
+    @media screen and (max-width: 320px) {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+
+    @include for-size(tablet) {
+      flex-basis: calc((100% - 30px) / 2);
+
+      &:not(:nth-child(2n)) {
+        margin-right: 30px;
+      }
+
+      &:not(:nth-last-child(-n + 2)) {
+        margin-bottom: 32px;
+      }
+    }
+
+    @include for-size(desktop) {
+      flex-basis: calc((100% - 2 * 40px) / 3);
+      margin-bottom: 0px;
+
+      &:not(:nth-child(3n)) {
+        margin-right: 40px;
+      }
+
+      &:nth-child(3n) {
+        margin-right: 0px;
+      }
+
+      &:not(:nth-last-child(-n + 3)) {
+        margin-bottom: 32px;
+      }
+    }
+
+    &::before {
+      counter-increment: li;
+      content: '—' '\20''0' counter(li) '';
+      display: block;
+      color: $accent-text-color;
+      margin-bottom: 5px;
+    }
+  }
 }
