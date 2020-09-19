@@ -1,0 +1,148 @@
+$borderRadius: 2px;
+
+.slider-nav-holder {
+  display: flex;
+  justify-content: center;
+}
+
+.slider-nav {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  @include for-size(phone) {
+    max-width: 200px;
+  }
+
+  * {
+    outline: none;
+  }
+
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+
+    // &.slick-active {
+    //   width: 87px !important;
+    // }
+
+    .slider__item {
+      border: $borderRadius solid transparent;
+      border-radius: 50%;
+      padding: 1px;
+    }
+
+    &.slick-current {
+      .slider__item {
+        border: $borderRadius solid $accent;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .slick-list {
+    overflow: hidden;
+  }
+
+  .slick-track {
+    display: inline-flex;
+    justify-content: center;
+  }
+  .slider__item {
+    margin: 0;
+    display: flex;
+  }
+}
+
+.slider {
+  position: relative;
+
+  .slider__item {
+    max-width: 280px;
+    margin-bottom: 20px;
+
+    @include for-size(tablet) {
+      max-width: 688px;
+      margin-bottom: 30px;
+    }
+
+    @include for-size(desktop) {
+      max-width: 1090px;
+      margin-bottom: 40px;
+    }
+  }
+  .slider-content {
+    display: flex;
+
+    width: 100%;
+
+    // box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+    box-shadow: -2px 4px 13px rgba(0, 0, 0, 0.04);
+
+    background: $title-white;
+
+    @include for-size(phone) {
+      display: block;
+      padding: 30px 20px;
+    }
+
+    @include for-size(tablet) {
+      padding: 40px;
+    }
+
+    @include for-size(desktop) {
+      padding: 50px 112px 50px 82px;
+    }
+  }
+
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+  }
+
+  .slick-list {
+    overflow: hidden;
+  }
+
+  .slick-arrow {
+    position: absolute;
+    cursor: pointer;
+    bottom: 50%;
+    outline: none;
+
+    z-index: 10;
+    font-size: 0;
+    padding: 0;
+    border: 0;
+    width: 25px;
+    height: 25px;
+
+    @include for-size(phone) {
+      bottom: -47px;
+    }
+
+    &.slick-prev {
+      left: 0;
+      background-position: center;
+      background: url('../images/svg/Arrow-1-2.svg') 0 0 / 100% no-repeat;
+      @include for-size(tablet) {
+        left: -10px;
+      }
+    }
+
+    &.slick-next {
+      right: 0;
+      background-position: center;
+      background: url('../images/svg/Arrow-2-2.svg') 0 0 / 100% no-repeat;
+      @include for-size(tablet) {
+        right: -10px;
+      }
+    }
+  }
+
+  .slick-track {
+    display: flex;
+  }
+}
