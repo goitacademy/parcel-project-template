@@ -13,27 +13,66 @@
 }
 
 .hero-bg-img {
-  position: absolute;
-  top: -59px;
-  z-index: -1;
-  width: $phone-width;
-  height: 618px;
-  background-image: url(../images/mobile/Vector-mob.jpg);
-  background-size: cover;
+  width: 100%;
+  background-image: url(../images/mobile/Vector-mob.png);
   background-repeat: no-repeat;
-  background-position: center;
+  background-size: cover;
+  background-position-y: -250px;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/mobile/Vector-mob@2x.png);
+  }
 
   @include for-size(tablet) {
-    top: -88px;
-    width: $tablet-width;
-    height: 557px;
-    background-image: url(../images/tablet/Vector-tab.jpg);
+    background-image: url(../images/tablet/Vector-tab.png);
+    background-position-y: -140px;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/tablet/Vector-tab@2x.png);
+    }
   }
 
   @include for-size(desktop) {
-    width: $desktop-width;
-    height: 878px;
-    background-image: url(../images/desktop/Vector-desk.jpg);
+    background-image: url(../images/desktop/Vector-desk.png);
+    background-position-y: -270px;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/desktop/Vector-desk@2x.png);
+    }
+  }
+}
+
+.hero-second-section {
+  margin-bottom: 77px;
+
+  @include for-size(tablet) {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 114px;
+  }
+
+  @include for-size(desktop) {
+    position: relative;
+    margin-bottom: 241px;
+  }
+}
+
+.hero-block {
+  @include for-size(phone) {
+    margin-bottom: 30px;
   }
 }
 
@@ -41,7 +80,6 @@
   margin-top: 0;
   margin-bottom: 30px;
   width: 280px;
-
   font-weight: 800;
   font-size: 20px;
   line-height: 1.36;
@@ -66,7 +104,6 @@
   margin-top: 0;
   margin-bottom: 30px;
   width: 280px;
-
   font-weight: 700;
   font-size: 14px;
   line-height: 1.57;
@@ -81,7 +118,7 @@
     display: block;
     margin-bottom: 40px;
     margin-left: 2px;
-    width: 536px;
+    width: 537px;
     font-size: 20px;
     line-height: 1.65;
   }
@@ -94,14 +131,17 @@
   &-accent {
     display: block;
     color: $accent;
+
+    @include for-size(desktop) {
+      display: inline;
+    }
   }
 }
 
 .hero-btn {
   display: block;
-  width: 260px;
+  min-width: 260px;
   padding: 14px 0;
-  margin-bottom: 143px;
   font-weight: 700;
   font-size: 12px;
   line-height: 1.25;
@@ -119,7 +159,6 @@
   }
 
   @include for-size(phone) {
-    margin-bottom: 285px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -130,35 +169,108 @@
     line-height: 1.214;
     letter-spacing: 0.14em;
     padding: 23px;
-    margin-bottom: 241px;
+  }
+}
+
+.hero-photo {
+  position: relative;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 208px;
+  height: 178px;
+
+  @include for-size(tablet) {
+    position: absolute;
+    display: flex;
+    top: 13px;
+    right: -22px;
+    margin: 0;
+    width: 376px;
+    height: 321px;
+  }
+
+  @include for-size(desktop) {
+    position: absolute;
+    display: flex;
+    top: -79px;
+    right: -137px;
+    margin: 0;
+    width: 842px;
+    height: 718px;
+  }
+}
+
+.hero-img-second {
+  display: block;
+  max-width: 208px;
+  max-height: 149px;
+  margin-top: 10px;
+
+  @include for-size(tablet) {
+    max-width: 376px;
+    max-height: 269px;
+    margin-top: 17px;
+  }
+
+  @include for-size(desktop) {
+    max-width: 842px;
+    max-height: 602px;
+    margin-top: 39px;
+  }
+}
+
+.hero-img-first {
+  position: absolute;
+  display: block;
+  max-width: 178px;
+  margin: 0;
+  padding: 0;
+  margin-left: 20px;
+
+  @include for-size(tablet) {
+    max-width: 321px;
+    margin-left: 36px;
+  }
+
+  @include for-size(desktop) {
+    max-width: 719px;
+    margin-left: 81px;
   }
 }
 
 .hero-list {
-  margin: 0;
   padding: 0;
+  margin: 0;
   list-style: none;
 
   @include for-size(tablet) {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
   }
   @include for-size(desktop) {
     display: flex;
-    flex-direction: row;
   }
 }
 
 .hero-item {
-  margin-left: 32px;
-  margin-right: 32px;
+  margin: 0;
+  @include for-size(phone) {
+    padding: 0 32px;
+  }
 
   &:not(:last-child) {
-    margin-bottom: 30px;
+    @include for-size(phone) {
+      margin-bottom: 30px;
+    }
+    @include for-size(tablet) {
+      margin-right: 20px;
+    }
   }
 }
 
 .hero-subtitle {
+  position: relative;
   display: flex;
   margin: 0;
   font-weight: 700;
@@ -171,17 +283,63 @@
     min-width: 59px;
     min-height: 60px;
     margin-right: 10px;
-    background-image: url(../images/border-icon.svg);
+    background-image: url(../images/svg/border-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
 
     @include for-size(desktop) {
       min-width: 100px;
       min-height: 102px;
-      background-image: url(../images/border-icon-desk.svg);
+      margin-right: -18px;
+      background-image: url(../images/svg/border-icon-desk.svg);
     }
   }
 
   @include for-size(desktop) {
     font-size: 20px;
     line-height: 1.65;
+    align-items: center;
+  }
+}
+
+.hero-icon-portret {
+  position: absolute;
+  display: block;
+  width: 34px;
+  margin-left: 12px;
+  margin-top: 11px;
+
+  @include for-size(desktop) {
+    width: 40px;
+    margin-left: 25px;
+    margin-top: 28px;
+  }
+}
+
+.hero-icon-innovation {
+  position: absolute;
+  display: block;
+  width: 40px;
+  margin-left: 10px;
+  margin-top: 9px;
+
+  @include for-size(desktop) {
+    width: 46px;
+    margin-left: 22px;
+    margin-top: 27px;
+  }
+}
+
+.hero-icon-finance {
+  position: absolute;
+  display: block;
+  width: 35px;
+  margin-left: 12px;
+  margin-top: 11px;
+
+  @include for-size(desktop) {
+    width: 41px;
+    margin-left: 24px;
+    margin-top: 27px;
   }
 }
