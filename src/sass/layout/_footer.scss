@@ -32,6 +32,10 @@
 
   padding-top: 50px;
   padding-bottom: 50px;
+  @include for-size(desktop) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
   padding-left: 20px;
   padding-right: 20px;
 
@@ -81,15 +85,23 @@
 // FORM FIELD
 .form-field {
   width: 100%;
+  height: 48px;
   margin-bottom: 20px;
-  padding: 15px 48px;
+  padding: 15px 28px;
   background-color: transparent;
   border: solid 1px #fff;
-  @include font(600, 14px, 1.21, 00.08em);
+  @include font(600, 14px, 1.21, 0.08em);
   color: $white-text-color;
+  @include for-size(desktop) {
+    @include font(600, 20px, 1.21, 0.08em);
+    height: 70px;
+  }
 }
 .form-field::placeholder {
-  @include font(600, 14px, 1.21, 00.08em);
+  @include font(600, 14px, 1.21, 0.08em);
+  @include for-size(desktop) {
+    @include font(600, 20px, 1.21, 0.08em);
+  }
   color: $white-text-color;
 }
 
@@ -107,11 +119,13 @@
   }
   @include for-size(tablet) {
     max-width: 354px;
+    height: 70px;
+    @include font(700, 14px, 1.25, 0.14em);
   }
   @include font(700, 12px, 1.25, 0.08em);
 
   @include for-size(desctop) {
-    @include font(700, 14px, 1.25, 0.14em);
+    height: 70px;
   }
 }
 .btn:hover,
@@ -137,6 +151,7 @@
   margin-left: auto;
   width: 100px;
   height: 50px;
+  text-decoration: none;
 
   @include for-size(tablet) {
     margin: 0;
@@ -180,13 +195,22 @@
       margin-left: auto;
     }
     @include for-size(desktop) {
-      margin-left: auto;
+      margin-left: 15%;
     }
   }
   &-text {
     margin-left: 10px;
     color: $primary-text-color;
-    @include font(600, 14px, 1.21, 00.08em);
+    @include for-size(phone) {
+      @include font(600, 14px, 1.21, 0.08em);
+    }
+
+    @include for-size(tablet) {
+      @include font(600, 20px, 1.2, 0.08em);
+    }
+    @include for-size(desktop) {
+      @include font(600, 30px, 1.2, 0.08em);
+    }
   }
 }
 
