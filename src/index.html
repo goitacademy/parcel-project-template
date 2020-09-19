@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="eng">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Заголовок страницы</title>
+    <title>Icecream</title>
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Titan+One&display=swap"
       rel="stylesheet"
@@ -13,6 +13,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
     />
   </head>
+
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
     <include src="./partials/header.html"></include>
@@ -25,5 +26,12 @@
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
+    <script src="./js/menu.js"></script>
   </body>
 </html>
+(() => { const menuBtnRef = document.querySelector('[data-menu-button]'); const
+mobileMenuRef = document.querySelector('[data-menu]');
+menuBtnRef.addEventListener('click', () => { const expanded =
+menuBtnRef.getAttribute('aria-expanded') === 'true' || false;
+menuBtnRef.classList.toggle('is-open'); menuBtnRef.setAttribute('aria-expanded',
+!expanded); mobileMenuRef.classList.toggle('is-open'); }); })();
