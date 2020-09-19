@@ -1,3 +1,4 @@
+
 .how-we-do{
     padding-top: 200px ;
     padding-bottom: 50px;
@@ -44,7 +45,7 @@
        }
 }
 
-.how-we-do .how-we-do-title{
+ .how-we-do-item-title{
 
     position:  relative;
 
@@ -58,6 +59,7 @@
         width: 20px;
         height: 2px;
         left: 50%;
+        transform: translateX(-50%);
         bottom: -20px;
         background-color:$accent;
         margin: 0 auto;
@@ -74,15 +76,21 @@
     color: $title-black;
 
     margin-top: 0;
-    margin-bottom: 42px;
+    margin-bottom: 32px;
+
+    @include for-size(tablet){
+        margin-bottom: 52px;
+     }
 
     @include for-size(desktop){
+        
+
         font-size: 20px;
         line-height: 1.4;
      }
 }
 
-.how-we-do .how-we-do-text{
+.how-we-do-text{
     
 
     font-style: normal;
@@ -112,16 +120,84 @@
 
 
 .how-we-do-item{
+    position: relative;
+
     background: $title-white;
     box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.1);
 
     padding-top: 100px;
     padding-bottom: 30px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @include for-size(tablet){
+        width: calc((100% - 4 * 10px)/2);
+        margin: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    @include for-size(desktop){
+        width: calc((100% - 6 * 10px)/3);
+        margin: 10px; 
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    &:hover{
+        background-color: $accent;
+
+        & .how-we-do-item-title{
+           color: $title-white;
+
+           &::after{
+               background-color: $title-white;
+           }
+        }
+
+        & .how-we-do-text{
+            color: $title-white;
+        }
+
+        & .how-we-do-icon{
+            fill: $title-white;
+        }
+
+        
+    }
 }
 
 .how-we-do-item:not(:last-child){
-    margin-bottom: 15px;
+    @include for-size(phone){margin-bottom: 15px;}
+
+    
 }
 
+.how-we-do-list{
+    @include for-size(tablet){
+        display: flex;
+        flex-wrap: wrap;
+        margin: -10px;
+    }
+
+    @include for-size(desktop){
+        display: flex;
+        flex-wrap: wrap;
+        margin: -10px;
+    }
+}
+
+.how-we-do-icon{
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+
+    fill: $accent;
+
+    @include for-size(tablet){
+        top: 40px;
+    }
+}
