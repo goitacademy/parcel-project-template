@@ -1,4 +1,5 @@
 (() => {
+  const bodyStopScroll = document.querySelector('[data-body]');
   const refs = {
     openModalBtn: document.querySelector('[data-modal-open]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
@@ -10,5 +11,6 @@
 
   function toggleModal() {
     refs.modal.classList.toggle('is-open');
+    bodyStopScroll.classList.toggle('stop-scroll');
   }
 })();
