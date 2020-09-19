@@ -16,10 +16,12 @@ function plusSlides(n) {
   showSlides((slideIndex += n));
 }
 
+const ArrowRight = document.getElementById('ArrowRight');
 ArrowRight.onclick = function () {
   plusSlides(1);
 };
 
+const ArrowLeft = document.getElementById('ArrowLeft');
 ArrowLeft.onclick = function () {
   plusSlides(-1);
 };
