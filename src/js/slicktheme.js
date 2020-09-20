@@ -1,3 +1,5 @@
 $(document).ready(function(){
-    $('.slider').slick();
+    $('.slider').slick({
+      dots:true
+    });
   });
