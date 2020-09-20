@@ -46,8 +46,11 @@
 // /* Элемент точки */
 // .slick-dots li button{}
 
-/*******Стили для наших кнопок *********/
+/*******Стили для большого слайдера *********/
+/*слайдеры связаны между собой в JS */
 
+
+/*ОБщее у слайдеров*/
 /* Ограничивающая оболочка */
 .slick-list {
     overflow: hidden;
@@ -59,7 +62,9 @@
     align-items: start;
 }
 
-/*Наш контейнер со слайдами*/
+
+/*====Основные слайды====*/
+/*Контейнер со слайдами*/
 .slider-content {
     position: relative;
 
@@ -75,19 +80,73 @@
     }
 }
 
-/*Стрелки общее*/
-.slider-content .slick-arrow{
-    position: absolute;
-    bottom: 25px;
+
+
+
+/*******Стили для нижнего слайдера *********/
+.bullets-slider{
+    position: relative;
+    width: 230px; //так хоть на макет похоже....
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+
+        @media screen and (min-width: $tablet){
+            width: auto;
+            padding-top: 29px;
+
+        }
+
+        @media screen and (min-width: $desktop){
+            width: $desktop;
+            padding-top: 29px;
+
+        }
+
+}
+
+.bullets-slider.slick-track{
+    min-width: 0;
+    display: flex;
+    
+}
+/*Каждый слайд*/
+.bullets-slider .slick-slide{
+    outline: none;
+    border-radius: 50%;
+
+    // width: 55px; //по макету, по факту не так
+    // height: 55px;
+
+
+    margin: 0 10px;
     @media screen and (min-width: $tablet){
-        bottom: 50%;
+        margin: 0 30px;
+    }
+}
+/* Слайд активный текущий */
+.bullets-slider .slick-slide.slick-current{
+    border-radius: 50%;
+    border: 1px solid $accent-color;
+}
+
+/*Стрелки общее (основной слайдер)*/
+.bullets-slider .slick-arrow{
+    position: absolute;
+    z-index: 10;
+    bottom: 25;
+    transform: translateY(100%);
+    @media screen and (min-width: $tablet){
+        bottom: 0;
         transform: translateY(50%);
     }
 
     font-size: 0;
     width: 27px;
     height: 16px;
-    padding: 10px 0;
+    padding: 10px 0; /*чтоб кнопка побольше была - удобней тыкать*/
 
     background-repeat: no-repeat;
     background-position: center;
@@ -97,61 +156,26 @@
 }
 
 /* Стрелка влево */
-.slider-content .slick-arrow.slick-prev{
+.bullets-slider .slick-arrow.slick-prev{
     background-image: url(..\images\svg\strelo4ka-left.svg);
 
-    left: 0;
-    @media screen and (min-width: $tablet){
-        left: -10px;
-    }
-    @media screen and (min-width: $tablet){
-        left: 0;
-    }
-
+    left: -27px;
+    // @media screen and (min-width: $tablet){
+    //     left: 0px;
+    // }
+    // @media screen and (min-width: $tablet){
+    //     left: 0;
+    // }
 }
 
 /* Стрелка вправо */
-.slider-content .slick-arrow.slick-next{
+.bullets-slider .slick-arrow.slick-next{
     background-image: url(..\images\svg\strelo4ka-right.svg);
-    right: 0;
-    @media screen and (min-width: $tablet){
-        right: -10px;
-    }
-    @media screen and (min-width: $tablet){
-        right: 0;
-    }
-}
-
-/* Точки (булиты) список*/
-.slider-content .slick-dots{
-    margin-top: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.slider-content .slick-dots li{
-
-    &:not(:last-child){
-        margin-right: 10px;
-    }
-}
-/* Активная точка */
-.slider-content .slick-dots li.slick-active button{
-    border: 1px solid $accent-color;
-    border-radius: 50%;
-}
-/* кнопка в точке */
-.slider-content .slick-dots li button{
-    border-radius: 50%;
-    font-size: 0;
-    width: 55px;
-    height: 55px;
-    border: 1px solid transparent;
-    background-color: transparent;
-
-    background-image: url(../images/study/1.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    
-
+    right: -27px;
+    // @media screen and (min-width: $tablet){
+    //     right: -10px;
+    // }
+    // @media screen and (min-width: $tablet){
+    //     right: 0;
+    // }
 }
