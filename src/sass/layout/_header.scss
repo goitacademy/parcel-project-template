@@ -1,5 +1,5 @@
 .header{
-  @include flex(flex-start, flex-start, column);
+  @include flex(space-between, baseline);
   position: relative;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -9,29 +9,37 @@
     padding-bottom: 40px;
   }
   @include adaptive(1345px){
-    @include flex(flex-start);
     padding-top: 45px;
     padding-bottom: 45px;
   }
 // inside header
-  .logo {
-    margin-bottom: 50px;
+  .header-menu{
+    @include flex(center, center, column);
+    position: absolute;
+    bottom: -100%;
     @include adaptive(768px){
-      margin-bottom: 72px;
+      bottom: -100%;
     }
-    @include adaptive(1345px){
-      margin-bottom: 0;
-      margin-right: 144px;
+    left: 0;
+    width: 100%;
+
+  
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: unset;
     }
-  }
-//inside header
-  &-nav {
-   margin: 0 auto 50px;
-  }
-  .btn-transparent {
-    margin: 0 auto;
   }
 }
+
+
+
+// inside header
+  
 
 
 
@@ -40,10 +48,15 @@
 
 
 .header-btn-stack {
-  position: absolute;
-  top: 30px;
-  right: 15px;
-  @include adaptive(768px){
-
-  }
+  cursor: pointer;
 }
+
+
+
+// .header-btn-stack {
+//   position: absolute;
+//   top: 30px;
+//   right: 15px;
+//   @include adaptive(768px){
+//   }
+// }
