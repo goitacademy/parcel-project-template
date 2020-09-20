@@ -94,33 +94,8 @@
   margin-left: auto;
   margin-bottom: 39px;
 
-  &::before {
-    content: '';
-    display: block;
-    width: 280px;
-    height: 279px;
-    background-image: url(/images/production.png);
-    background-repeat: no-repeat;
-
-    // @media screen and (min-device-pixel-ratio: 2),
-    //   screen and (min-resolution: 192dpi),
-    //   screen and (min-resolution: 2dppx),
-    //   screen and (min-width: 320px) {
-    //   background-image: url(/images/production@2x.png);
-    // }
-  }
-
   @media screen and (min-width: 768px) {
     margin-bottom: 66px;
-
-    &::before {
-      position: absolute;
-      width: 340px;
-      height: 339px;
-      background-image: url(/images/production-tablet.png);
-      top: -50px;
-      left: 7px;
-    }
 
     .desc {
       width: 340px;
@@ -132,14 +107,7 @@
   }
 
   @media screen and (min-width: 1200px) {
-    &::before {
-      position: absolute;
-      width: 516px;
-      height: 516px;
-      background-image: url(/images/production-desktop.png);
-      // top: -50px;
-      // left: 7px;
-    }
+    margin-bottom: 146px;
 
     .desc {
       width: 463px;
@@ -151,8 +119,57 @@
   }
 }
 
-// .production::before {
-// }
+.production-desc::before {
+  content: '';
+  display: block;
+  width: 280px;
+  height: 279px;
+  background-image: url(/images/production.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx),
+    screen and (min-width: 320px) {
+    background-image: url(/images/production@2x.png);
+  }
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    width: 340px;
+    height: 339px;
+    background-size: contain;
+    top: -50px;
+    left: 7px;
+    // max-width: 768px;
+    background-image: url(/images/production-tablet.png);
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx),
+    screen and (min-width: 768px) {
+    background-image: url(/images/production-tablet@2x.png);
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 516px;
+    height: 516px;
+    top: -50px;
+    left: 7px;
+    // min-height: 600px;
+    background-image: url(/images/production-desktop.png);
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx),
+    screen and (min-width: 1200px) {
+    background-image: url(/images/production-desktop@2x.png);
+  }
+}
+
 .desc {
   font-weight: 500;
   font-size: 12px;
