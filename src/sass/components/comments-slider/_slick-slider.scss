@@ -1,0 +1,181 @@
+/*Имена классов Слик-слайдера*/
+
+/* Слайдер */
+// .slick-slider{}
+
+// /* Слайдер запущен */
+// .slick-slider.slick-initialized{}
+
+// /* Слайдер с точками */
+// .slick-slider.slick-dotted{}
+
+// /* Слайд */
+// .slick-slide{}
+
+// /* Слайд активный (показывается) */
+// .slick-slide.slick-active{}
+
+// /* Слайд основной */
+// .slick-slide.slick-current{}
+
+// /* Слайд по центру */
+// .slick-slide.slick-center{}
+
+// /* Клонированный слайд */
+// .slick-slide.slick-cloned{}
+
+// /* Стрелка */
+// .slick-arrow{}
+
+// /* Стрелка влево */
+// .slick-arrow.slick-prev{}
+
+// /* Стрелка вправо */
+// .slick-arrow.slick-next{}
+
+// /* Стрелка не активная */
+// .slick-arrow.slick-disabled{}
+
+// /* Точки (булиты) */
+// .slick-dots{}
+// .slick-dots li{}
+
+// /* Активная точка */
+// .slick-dots li.slick-active{}
+
+// /* Элемент точки */
+// .slick-dots li button{}
+
+/*******Стили для большого слайдера *********/
+/*слайдеры связаны между собой в JS */
+
+
+/*ОБщее у слайдеров*/
+/* Ограничивающая оболочка */
+.slick-list {
+    overflow: hidden;
+}
+
+/* Лента слайдов */
+.slick-track{
+    display: flex;
+    align-items: start;
+}
+
+
+/*====Основные слайды====*/
+/*Контейнер со слайдами*/
+.slider-content {
+    position: relative;
+
+    padding: 20px;
+    min-width: 0;
+
+    @media screen and (min-width: $tablet){
+        padding: 40px;
+    }
+
+    @media screen and (min-width: $desktop){
+        padding: 50px 194px;
+    }
+}
+
+
+
+
+/*******Стили для нижнего слайдера *********/
+.bullets-slider{
+    position: relative;
+    width: 230px; //так хоть на макет похоже....
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+
+        @media screen and (min-width: $tablet){
+            width: auto;
+            padding-top: 29px;
+
+        }
+
+        @media screen and (min-width: $desktop){
+            width: $desktop;
+            padding-top: 29px;
+
+        }
+
+}
+
+.bullets-slider.slick-track{
+    min-width: 0;
+    display: flex;
+    
+}
+/*Каждый слайд*/
+.bullets-slider .slick-slide{
+    outline: none;
+    border-radius: 50%;
+
+    // width: 55px; //по макету, по факту не так
+    // height: 55px;
+
+
+    margin: 0 10px;
+    @media screen and (min-width: $tablet){
+        margin: 0 30px;
+    }
+}
+/* Слайд активный текущий */
+.bullets-slider .slick-slide.slick-current{
+    border-radius: 50%;
+    border: 1px solid $accent-color;
+}
+
+/*Стрелки общее (основной слайдер)*/
+.bullets-slider .slick-arrow{
+    position: absolute;
+    z-index: 10;
+    bottom: 25;
+    transform: translateY(100%);
+    @media screen and (min-width: $tablet){
+        bottom: 0;
+        transform: translateY(50%);
+    }
+
+    font-size: 0;
+    width: 27px;
+    height: 16px;
+    padding: 10px 0; /*чтоб кнопка побольше была - удобней тыкать*/
+
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border: 0;
+    background-color: transparent;
+}
+
+/* Стрелка влево */
+.bullets-slider .slick-arrow.slick-prev{
+    background-image: url(..\images\svg\strelo4ka-left.svg);
+
+    left: -27px;
+    // @media screen and (min-width: $tablet){
+    //     left: 0px;
+    // }
+    // @media screen and (min-width: $tablet){
+    //     left: 0;
+    // }
+}
+
+/* Стрелка вправо */
+.bullets-slider .slick-arrow.slick-next{
+    background-image: url(..\images\svg\strelo4ka-right.svg);
+    right: -27px;
+    // @media screen and (min-width: $tablet){
+    //     right: -10px;
+    // }
+    // @media screen and (min-width: $tablet){
+    //     right: 0;
+    // }
+}
