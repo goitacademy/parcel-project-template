@@ -6,10 +6,13 @@ ul {
 .programm-conteiner {
   width: 100%;
   padding-top: 50px;
-  padding-bottom: 477px;
+  padding-bottom: 630px;
   background-color: $dark-bcg-color;
   @media screen and (min-width: 768px) {
     padding-bottom: 392px;
+  }
+  @media screen and (min-width: 1680px) {
+    height: 1237px;
   }
 }
 .programm-title {
@@ -28,20 +31,6 @@ ul {
     font-size: 46px;
   }
 }
-.semester-list_title {
-  display: flex;
-  align-items: center;
-  margin-top: 40px;
-
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 2;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-
-  color: $white-color;
-}
-
 .programm-box {
   position: relative;
   width: 100%;
@@ -69,11 +58,13 @@ ul {
   @media screen and (min-width: 768px) {
     width: 80%;
     padding-left: 50px;
-    margin: 0 auto;
     margin-left: 100px;
   }
   @media screen and (min-width: 1680px) {
+    display: flex;
     width: 1320px;
+    padding-left: 0;
+    margin-left: 0;
   }
 }
 .programm-list::before {
@@ -88,6 +79,30 @@ ul {
   @media screen and (min-width: 768px) {
     height: 965px;
   }
+  @media screen and (min-width: 1680px) {
+    top: 10px;
+    left: -1px;
+    width: 1300px;
+    height: 1px;
+  }
+}
+.semester-list_title {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: $white-color;
+  @media screen and (min-width: 1680px) {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 0.93;
+  }
 }
 .semester-list_title::before {
   content: '';
@@ -98,6 +113,10 @@ ul {
   height: 12px;
   border-radius: 6px;
   background-color: $accent-color;
+  @media screen and (min-width: 1680px) {
+    left: 0;
+    bottom: 26px;
+  }
 }
 .semester-list {
   @media screen and (min-width: 768px) {
@@ -121,6 +140,10 @@ ul {
   align-items: center;
   letter-spacing: 0.08em;
   color: $accent-color;
+  @media screen and (min-width: 1680px) {
+    font-size: 20px;
+    line-height: 1.65;
+  }
 }
 
 .semester-text {
@@ -131,21 +154,29 @@ ul {
   letter-spacing: 0.08em;
   color: $primary-text-color;
   opacity: 0.5;
+  @media screen and (min-width: 1680px) {
+    font-size: 18px;
+    line-height: 1.56;
+  }
 }
 .features {
   position: absolute;
-  bottom: -45%;
+  bottom: -57%;
   width: 100%;
   text-align: left;
   margin-right: auto;
   margin-left: auto;
   @media screen and (min-width: 320px) {
     width: 320px;
-    bottom: -51%;
+    bottom: -50%;
   }
   @media screen and (min-width: 768px) {
     width: 688px;
     bottom: -56%;
+  }
+  @media screen and (min-width: 1680px) {
+    width: 1320px;
+    bottom: -184%;
   }
 }
 .features-title {
@@ -170,9 +201,6 @@ ul {
   padding: 20px;
   background-color: $white-color;
   box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
-  z-index: 1000;
-
-  background-color: $white-color;
   z-index: 99;
   @media screen and (min-width: 320px) {
     width: 280px;
@@ -185,23 +213,28 @@ ul {
   }
   @media screen and (min-width: 1680px) {
     width: 1320px;
+    z-index: 99;
   }
 }
 .features-box::before {
   content: '';
   position: absolute;
-  top: -50px;
-  right: 0;
-  width: 120px;
-  height: 137px;
-
-  background-image: url('../images/programm/programm-img.jpg');
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    background-image: url('../images/programm/programm-img@2x.jpg');
+  @media screen and (min-width: 320px) {
+    top: -41px;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 767px) {
+    top: -90px;
+    right: 0;
+    width: 120px;
+    height: 137px;
+    background-image: url('../images/programm/programm-img.jpg');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/programm/programm-img@2x.jpg');
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1680px) {
     width: 384px;
     height: 280px;
     top: -70%;
@@ -213,6 +246,8 @@ ul {
       background-image: url('../images/programm/programm-img-tablet@2x.jpg');
     }
   }
+}
+.features-box::after {
   @media screen and (min-width: 1680px) {
     width: 760px;
     height: 502px;
@@ -227,7 +262,12 @@ ul {
   }
 }
 .features-item {
-  width: calc((100% - 20px) / 2);
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 20px) / 2);
+  }
+  @media screen and (min-width: 1680px) {
+    width: calc((100% - 40px * 2) / 3);
+  }
 }
 .features-item:not(:nth-child(2n + 2)) {
   margin-right: 20px;
