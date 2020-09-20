@@ -1,19 +1,10 @@
-// Удалить стиль при объединении
-.position {
-    width: 100%;
-    height: 82px;
-}
-// До этого момента
 .location {
     position: relative;
-    // height: 1502px;
     background-color: $secondary-bg-color;
-    // padding-bottom: 113px;
     @media screen and (min-width: 1200px) {
         background-image: url("../images/location-desktop.png");
         background-repeat: no-repeat;
 
-        // думаю, 2х картинка сюда не очень нужна, потому что выглядит так себе...
 		@media screen and (min-device-pixel-ratio: 2),
 		screen and (min-resolution: 192dpi),
 		screen and (min-resolution: 2dppx) {
@@ -23,8 +14,9 @@
     }
 
     & .contacts {
+        margin-top: 25px;
         &::before {
-            margin: 25px 0;
+            margin-bottom: 25px;
             content: "";
             border-bottom: 1px solid #E1E1E1;
             display: block;
@@ -36,13 +28,19 @@
 
 .location .container {
     position: absolute;
-    top: -82px;
+    top: -84px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    // margin: 0; глюк с центрированием контейнера
+
+    @media screen and (min-width: 768px) {
+        top: -78px
+    }
+    @media screen and (min-width: 1200px) {
+        top: -102px;
+    }
 }
 
 .location-list {
@@ -86,9 +84,10 @@
 .location-list-item-description {
     @include font (12px, 500, 1.5, normal);
     color: $secondary-desc-color;
+    margin-bottom: 25px;
 
     &::after {
-        margin: 25px 0;
+        margin-top: 25px;
         content: "";
         border-bottom: 1px solid #E1E1E1;
         display: block;
@@ -103,7 +102,6 @@
     color: $primary-desc-color;
 }
 
-.location-list-time,
 .location-list-time-wrap {
     @include font (12px, 500, 1.5, normal);
     color: $sub-title-color;
@@ -171,8 +169,9 @@
         height: 755px;
 
         & .contacts {
+            margin-top: 30px;
             &::before {
-                margin: 30px 0;
+                margin-bottom: 30px;
             }
         }
     }
@@ -194,17 +193,21 @@
         margin-top: 81px;
         justify-content: center;
 
+        & .button-list-item:first-child {
+            margin-right: 14.5px;
+        }
+
         & .button-red{
             width: 192px;
             padding-left: 32px;
             padding-right: 32px;
-            margin-right: 14.5px;
         }
 
         & .button-white{
             width: 174px;
             padding-left: 38px;
             padding-right: 38px;
+            margin: 0px;
         }
     }
 
@@ -222,15 +225,15 @@
 
     .location-list-item-description{
         @include font (14px, 500, 1.66, 0.04em);
+        margin-bottom: 30px;
 
         &::after {
-            margin: 30px 0;
+            margin-top: 30px;
         }
     }
 
     .location-list-weekday,
-    .location-list-time-wrap,
-    .location-list-time {
+    .location-list-time-wrap {
         @include font (14px, 500, 1.86, normal);
     }
 
@@ -249,8 +252,9 @@
         height: 765px;
 
         & .contacts {
+            margin-top: 32px;
          &::before {
-            margin: 32px 0;
+            margin-bottom: 32px;
         }
     }
 }
@@ -276,8 +280,10 @@
 
     .location-list-item-description{
         @include font (16px, 500, 1.83, 0.04em);
+        margin-bottom: 32px;
+
         &::after {
-            margin: 32px 0;
+            margin-top: 32px;
         }
     }
 
@@ -286,7 +292,6 @@
     }
 
     .location-list-time-wrap,
-    .location-list-time,
     .contacts-list-item-link {
         font-size: 16px;
     }
@@ -294,17 +299,18 @@
     .buttons-list {
         margin-top: 86px;
 
+        & .button-list-item:first-child {
+            margin-right: 15px;
+        }
+
         & .button-red{
             width: 198px;
-            padding-left: 35px;
-            padding-right: 35px;
-            margin-right: 15px;
+            padding: 11px 35px;
         }
 
         & .button-white{
             width: 180px;
-            padding-left: 39px;
-            padding-right: 39px;
+            padding: 11px 35px;
         }
     }
 
