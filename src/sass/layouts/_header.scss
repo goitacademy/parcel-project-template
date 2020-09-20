@@ -71,7 +71,7 @@ picture {
 
     &.is-open {
       transform: translateY(0);
-      pointer-events: unset;
+      pointer-events: all;
     }
 
     &.is-open .button-close {
@@ -137,6 +137,7 @@ picture {
     display: flex;
     align-items: flex-end;
   }
+
   .header-menu {
     display: flex;
     @media screen and (max-width: 1199px) {
@@ -156,10 +157,12 @@ picture {
     }
 
     &.is-open {
-      transform: translateY(0);
-      pointer-events: unset;
-      justify-content: flex-end;
-      padding-top: 60px;
+      @media screen and (max-width: 1199px) {
+        transform: translateY(0);
+        justify-content: flex-end;
+        padding-top: 60px;
+        pointer-events: all;
+      }
     }
   }
 
@@ -206,29 +209,39 @@ picture {
     z-index: 1;
 
     &.is-open {
-      position: absolute;
-      top: 23px;
-      right: 30px;
+      @media screen and (max-width: 1199px) {
+        position: absolute;
+        top: 23px;
+        right: 30px;
+      }
+    }
+
+    &.is-open .open-menu-icon {
+      @media screen and (max-width: 1199px) {
+        display: none;
+      }
+    }
+
+    &.is-open .close-menu-icon {
+      @media screen and (max-width: 1199px) {
+        display: flex;
+      }
     }
   }
 
-  .burger-button.is-open .open-menu-icon {
-    display: none;
-  }
-
-  .burger-button.is-open .close-menu-icon {
-    display: flex;
-  }
-
   .header-menu.is-open .button-close {
-    position: absolute;
-    top: 18px;
-    right: 25px;
+    @media screen and (max-width: 1199px) {
+      position: absolute;
+      top: 18px;
+      right: 25px;
+    }
   }
 
   .header-menu.is-open .button-white {
-    margin-right: 34px;
-    margin-left: 34px;
+    @media screen and (max-width: 1199px) {
+      margin-right: 34px;
+      margin-left: 34px;
+    }
   }
 }
 
@@ -285,5 +298,9 @@ picture {
 }
 
 .stop-scroll {
-  overflow: hidden;
+  @media screen and (max-width: 1199px) {
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+  }
 }
