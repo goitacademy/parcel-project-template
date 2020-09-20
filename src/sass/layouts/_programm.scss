@@ -6,7 +6,7 @@ ul {
 .programm-conteiner {
   width: 100%;
   padding-top: 50px;
-  padding-bottom: 630px;
+  padding-bottom: 623px;
   background-color: $dark-bcg-color;
   @media screen and (min-width: 768px) {
     padding-bottom: 392px;
@@ -28,6 +28,9 @@ ul {
     font-size: 26px;
   }
   @media screen and (min-width: 1680px) {
+    margin-top: 120px;
+    margin-left: 0;
+    margin-bottom: 100px;
     font-size: 46px;
   }
 }
@@ -65,6 +68,7 @@ ul {
     width: 1320px;
     padding-left: 0;
     margin-left: 0;
+    padding-top: 120px;
   }
 }
 .programm-list::before {
@@ -81,9 +85,16 @@ ul {
   }
   @media screen and (min-width: 1680px) {
     top: 10px;
-    left: -1px;
-    width: 1300px;
+    left: -50%;
+    width: 200%;
     height: 1px;
+  }
+}
+.programm-item {
+  position: relative;
+  @media screen and (min-width: 1680px) {
+    width: calc((100% - 30px * 4) / 5);
+    margin-right: 30px;
   }
 }
 .semester-list_title {
@@ -115,23 +126,30 @@ ul {
   background-color: $accent-color;
   @media screen and (min-width: 1680px) {
     left: 0;
-    bottom: 26px;
+    top: -18%;
   }
 }
 .semester-list {
   @media screen and (min-width: 768px) {
     display: flex;
   }
+  @media screen and (min-width: 1680px) {
+    flex-direction: column;
+  }
 }
 .semester-item {
   @media screen and (min-width: 768px) {
     width: calc((100% - 50px * 2) / 3);
-    &:not(:nth-child(3n + 3)) {
-      margin-right: 50px;
-    }
+  }
+  @media screen and (min-width: 1680px) {
+    width: 100%;
   }
 }
-
+@media screen and (min-width: 768px) and (max-width: 1679px) {
+  .semester-item:not(:nth-child(3n + 3)) {
+    margin-right: 50px;
+  }
+}
 .semester-item_title {
   font-weight: bold;
   font-size: 12px;
@@ -147,7 +165,7 @@ ul {
 }
 
 .semester-text {
-  margin-right: 50px;
+  // margin-right: 50px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.67;
@@ -159,24 +177,28 @@ ul {
     line-height: 1.56;
   }
 }
+
 .features {
   position: absolute;
-  bottom: -57%;
+  bottom: -40%;
+  right: 20px;
   width: 100%;
   text-align: left;
   margin-right: auto;
   margin-left: auto;
+  z-index: 100;
   @media screen and (min-width: 320px) {
     width: 320px;
-    bottom: -50%;
+    bottom: -40%;
   }
   @media screen and (min-width: 768px) {
     width: 688px;
-    bottom: -56%;
+    bottom: -55%;
+    right: 0;
   }
   @media screen and (min-width: 1680px) {
     width: 1320px;
-    bottom: -184%;
+    bottom: -14%;
   }
 }
 .features-title {
@@ -192,8 +214,12 @@ ul {
     margin-right: auto;
     text-align: center;
   }
+  @media screen and (min-width: 1680px) {
+    display: none;
+  }
 }
 .features-box {
+  position: relative;
   width: 80%;
   margin-top: 30px;
   margin-left: auto;
@@ -213,20 +239,19 @@ ul {
   }
   @media screen and (min-width: 1680px) {
     width: 1320px;
+    height: 398px;
     z-index: 99;
   }
 }
 .features-box::before {
   content: '';
   position: absolute;
-  @media screen and (min-width: 320px) {
-    top: -41px;
-  }
   @media screen and (max-width: 767px) {
-    top: -90px;
     right: 0;
+    top: -41px;
     width: 120px;
     height: 137px;
+
     background-image: url('../images/programm/programm-img.jpg');
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
@@ -234,10 +259,11 @@ ul {
       background-image: url('../images/programm/programm-img@2x.jpg');
     }
   }
+
   @media screen and (min-width: 768px) and (max-width: 1679px) {
     width: 384px;
     height: 280px;
-    top: -70%;
+    top: -125%;
     right: -34px;
     background-image: url('../images/programm/programm-img-tablet.jpg');
     @media screen and (min-device-pixel-ratio: 2),
@@ -246,22 +272,24 @@ ul {
       background-image: url('../images/programm/programm-img-tablet@2x.jpg');
     }
   }
+
+  background-repeat: no-repeat;
 }
-.features-box::after {
-  content: '';
+.features-photo-box {
   position: absolute;
   @media screen and (min-width: 1680px) {
+    display: block;
     width: 760px;
     height: 502px;
     top: -50%;
-    right: -40px;
+    left: -18%;
     background-image: url('../images/programm/programm-img-desktop.jpg');
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
       background-image: url('../images/programm/programm-img-desktop@2x.jpg');
+      background-repeat: no-repeat;
     }
-    background-repeat: no-repeat;
   }
 }
 .features-item {
