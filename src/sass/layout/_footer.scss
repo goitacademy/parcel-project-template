@@ -1,34 +1,49 @@
-// .footer {
-//   width: 100%;
-// }
+// Блок с контактами на белом фоне
 
-.footer__contacts {
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  background-color: $white-color;
-  text-align: center;
+
   padding-top: 30px;
   padding-bottom: 30px;
 
+  background-color: $white-color;
+
   @media screen and (min-width: 768px) {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: baseline;
-    padding-left: 40px;
-    padding-right: 40px;
+    align-items: center;
   }
 
-  // @media screen and (min-width: 1345px) {
-  //   display: flex;
-  //   align-items: baseline;
-  //   justify-content: space-between;
-  //   text-align: left;
-  // }
+  @media screen and (min-width: 1345px) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
 }
 
-.footer__contacts-tel {
+.footer-contacts-tel {
   padding-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    padding-top: 0;
+  }
+
+  @media screen and (min-width: 1345px) {
+    padding-left: 290px;
+  }
 }
-.footer__contacts-tel-link {
+
+// телефон с иконкой
+
+.footer-contacts-tel-link {
+  display: flex;
+  align-items: center;
+
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -36,12 +51,98 @@
   letter-spacing: 0.08em;
 
   color: $primary-text-color;
-}
-.footer__contacts-icon {
-  padding-top: 31px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 1.2px;
+  }
+
+  @media screen and (min-width: 1345px) {
+    font-size: 30px;
+    line-height: 1.233;
+  }
 }
 
-.footer__copyright {
+.footer-contacts-tel-svg {
+  width: 20px;
+  height: 19px;
+  margin-right: 10px;
+  fill: $accent-color;
+
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 23px;
+  }
+
+  @media screen and (min-width: 1345px) {
+    width: 30px;
+    height: 28px;
+    margin-right: 15px;
+  }
+}
+
+// иконка инстаграм
+
+.footer-contacts-icon {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+
+  padding-top: 31px;
+  @media screen and (min-width: 768px) {
+    padding-top: 0;
+    padding-left: 48px;
+  }
+
+  @media screen and (min-width: 1345px) {
+    padding-top: 0;
+    padding-left: 40px;
+  }
+}
+
+.footer-contacts-icon-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url(../images/icon/instagram.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-position: center;
+
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/icon/instagram@2x.png);
+  }
+}
+
+// псевдоелемент
+
+.footer-contacts-icon-link::before {
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -24px;
+
+    content: '';
+    width: 0px;
+    height: 40px;
+
+    border: 1px solid #b9b9b9;
+  }
+}
+
+// блок с копирайт на черном фоне
+
+.footer-copyright {
   background-color: $black-color;
   padding-top: 21px;
   padding-bottom: 21px;
@@ -53,19 +154,11 @@
   }
 }
 
-.footer__copyright-text {
+.footer-copyright-text {
   color: $secondary-text-color;
 
   font-weight: 500;
   font-size: 14px;
   line-height: 2;
   text-transform: uppercase;
-
-  @media screen and (min-width: 768px) {
-    padding-left: 40px;
-  }
-
-  @media screen and (min-width: 1345px) {
-    padding-left: 168px;
-  }
 }
