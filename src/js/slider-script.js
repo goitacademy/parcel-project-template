@@ -5,7 +5,7 @@ $(document).ready(function(){
       adaptiveHeight: true,
       asNavFor: $('.bullets-slider'),
       infinite: true,
-      arrows: false
+      arrows: true
   });
 
   /*Мелкий слайдер*/
@@ -23,6 +23,11 @@ $(document).ready(function(){
         settings: {
           slidesToShow: 3,
           slideToScroll: 1
+        },
+        breakpoint: 768,
+        settings: {
+          infinite: false,
+          focusOnSelect: false
         }
       }
     ],
