@@ -96,11 +96,12 @@
         @media screen and (min-width: $tablet){
             width: auto;
             padding-top: 29px;
+            padding-left: 30px; /*чтоб компенсировать правый маржин у последнего слайда*/
 
         }
 
         @media screen and (min-width: $desktop){
-            width: $desktop;
+            width: 768px;
             padding-top: 29px;
 
         }
@@ -109,21 +110,26 @@
 
 .bullets-slider.slick-track{
     min-width: 0;
-    display: flex;
-    
+    display: flex;    
 }
 /*Каждый слайд*/
 .bullets-slider .slick-slide{
     outline: none;
     border-radius: 50%;
 
-    // width: 55px; //по макету, по факту не так
-    // height: 55px;
+   
+    // @media screen and (min-width: $desktop){
+    //     width: 55px; //по макету, по факту не так
+    //     height: 55px;
 
+    // }
 
     margin: 0 10px;
     @media screen and (min-width: $tablet){
         margin: 0 30px;
+    }
+    @media screen and (min-width: $tablet){
+        // margin: 0 30px;
     }
 }
 /* Слайд активный текущий */
@@ -139,7 +145,12 @@
     bottom: 25;
     transform: translateY(100%);
     @media screen and (min-width: $tablet){
-        bottom: 0;
+        bottom: 250px;
+        transform: translateY(50%);
+    }
+
+    @media screen and (min-width: $desktop){
+        bottom: 350px;
         transform: translateY(50%);
     }
 
@@ -160,22 +171,22 @@
     background-image: url(..\images\svg\strelo4ka-left.svg);
 
     left: -27px;
-    // @media screen and (min-width: $tablet){
-    //     left: 0px;
-    // }
-    // @media screen and (min-width: $tablet){
-    //     left: 0;
-    // }
+    @media screen and (min-width: $tablet){
+        left: -20px;
+    }
+    @media screen and (min-width: $desktop){
+        left: -150px;
+    }
 }
 
 /* Стрелка вправо */
 .bullets-slider .slick-arrow.slick-next{
     background-image: url(..\images\svg\strelo4ka-right.svg);
     right: -27px;
-    // @media screen and (min-width: $tablet){
-    //     right: -10px;
-    // }
-    // @media screen and (min-width: $tablet){
-    //     right: 0;
-    // }
+    @media screen and (min-width: $tablet){
+        right: -40px;
+    }
+    @media screen and (min-width: $desktop){
+        right: -150px;
+    }
 }
