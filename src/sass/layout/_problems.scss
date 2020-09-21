@@ -1,238 +1,214 @@
 .problems {
-    background-color: $dark-back;
+    padding-bottom: 125px;
+    @media screen and(min-width:$desktop){
+        padding-bottom: 160px;
+    }
+
+    @media screen and (min-width: $tablet){
+        padding-bottom: 170px;
+    }
+
+    .problems-color {
+        background-color: $dark-back;
+        width: 100%;
+        position: relative;
+    }
+
+    .problems-heading {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 1.36;
+        letter-spacing: 0.03em;
+        color: $white;
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 240px;
+
+        @media screen and (min-width: $tablet){
+            font-size: 26px;
+            line-height: 130%;
+
+            padding-bottom: 140px;
+        }
+
+        @media screen and (min-width:$desktop){
+            font-size: 46px;
+            padding-bottom: 120px;
+        }
+
+        .problems-orang {
+            color: $accent-color;
+        }
+    }
+}
+
+.problems-content{
     position: relative;
-
-    @media screen and (min-width: 767px) {
-        padding-left: 22px;
-        padding-top: 60px;
-        padding-right: 22px;
-        background-size: 100% 340px;
-    }
-
-    @media screen and (min-width: 767px) {
-        padding-top: 100px;
-        background-image: url(../images/sprite.svg/#icon-fire),
-            linear-gradient($primary-text-color 0%, $primary-text-color 100%);
-        background-size: 100% 40%,
-            100% 560px;
-        background-position: left 650px bottom 154px,
-            top;
-    }
-
-    @media screen and (min-width: 1344px) {
-        padding-top: 100px;
-        background-image: url(../images/sprite.svg/#icon-fire),
-            linear-gradient($dark-back 0%, $dark-back 100%);
-        background-size: 100% 40%, 100% 560px;
-        background-position: left 650px bottom 154px, top;
-    }
-
 }
 
-.problems-heading {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 20px;
-    line-height: 1.36;
-    letter-spacing: 0.03em;
-    color: $white;
-    width: 100%;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-
-    padding-bottom: 27px;
-
-    .problems-orang {
-        color: $accent-color;
-    }
-
-    @media screen and (min-width: 767px) {
-
-        margin-right: auto;
-        font-size: 26px;
-        margin-left: auto;
-        max-width: 668px;
-    }
-
-    @media screen and (min-width: 1344px) {
-        max-width: 866px;
-        font-size: 46px;
-    }
-}
-
-.problems-list-line {
-    width: 100%;
-    margin-top: 27px;
+.overflovewd-container {
+    position: absolute;
+    z-index: 2;
     background-color: $white;
+    height: 100%;
+    bottom: -38%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    @media screen and(min-width:$tablet){
+        width: 688px;
+        bottom: -50%;
+    }
+
+    @media screen and(min-width:$desktop){
+        width: $desktop;
+        bottom: -65%;
+    }
+
+    transform: translateX(-50%);
+
+}
+
+.problems-list {
+    background-color: $white;
+    padding: 20px 0;
     padding-left: 30px;
-    padding-right: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-right: 14px;
+
     box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 
     counter-reset: num;
-    color: $accent-color;
-    /* box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.1);*/
 
-    @media screen and (min-width: 767px) {
-
-        max-width: 688px;
-        margin-right: auto;
-        margin-left: auto;
-        margin-top: 25px;
+    @media screen and (min-width:$tablet){
+        display: flex;
+        flex-wrap: wrap;
+        padding: 30px 0;
         padding-left: 96px;
-        padding-right: 0px;
-        padding-top: 22px;
-        padding-bottom: 26px;
-        display: flex;
-        flex-wrap: wrap;
+        padding-right: 80px;
     }
 
-    @media screen and (min-width: 1344px) {
-        max-width: 1314px;
-        margin-right: auto;
-        margin-left: auto;
-        margin-top: 70px;
+    @media screen and (min-width:$desktop){
+        padding: 70px 0;
         padding-left: 114px;
-        padding-top: 70px;
-        padding-right: 0px;
-        padding-bottom: 62px;
-        display: flex;
-        flex-wrap: wrap;
+        padding-right: 114px;
     }
-}
-
-
-.problems-list-line .problem-list-item {
-    counter-increment: num;
-    position: relative;
-    margin: 5px 0 5px 40px;
-    font-size: 16px;
-    line-height: 20px;
-}
-
-.problems-list-line .problem-list-item:before {
-
-    color: $accent-color;
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 14px;
-
-
-
-
-}
-
-.problems-list-line .problem-list-item:nth-last-child(-n + 6) :before {
-    content: '0'counter(num);
-    display: flex;
-    color: $accent-color;
-    margin-left: 50px;
-    margin-bottom: 10px;
+ 
 }
 
 .problem-list-item {
-    list-style: none;
-    position: relative;
 
-    @media screen and (min-width: 767px) {
-
-        width: 100%;
-        max-width: 236px;
-        margin-top: 8px;
+    &:not(:last-child){
+        margin-bottom: 10px;
     }
 
-    @media screen and (min-width: 1344px) {
+    @media screen and (min-width: $tablet){
+        width: calc((100% - 22px)/2);
 
-        width: 100%;
-        max-width: 336px;
-    }
-
-    .problem-list-item:not(:first-child) {
-        margin-top: 10px;
-
-        @media screen and (min-width: 767px) {
-            margin-top: 8px;
+        &:not(:last-child){
+            margin-bottom: 0;
         }
 
-        @media screen and (min-width: 1344px) {
-            margin-top: 0px;
+        &:nth-child(odd){
+            margin-right: 22px;
         }
+
+        &:not(:nth-last-child(-n+2)){
+            margin-bottom: 30px;
+        }
+     
     }
 
-    .problem-list-item:nth-child(2n+1) {
-        @media screen and (min-width: 767px) {
+    @media screen and(min-width: $desktop){
+        width: calc((100% - 2*40px)/3);
+
+        &:nth-child(odd){
+            margin-right: 0;
+        }
+        &:not(:nth-last-child(-n+2)){
+            margin-bottom: 0;
+        }
+
+        &:not(:nth-child(3n)){
             margin-right: 40px;
         }
-    }
 
-    .problem-list-item:nth-child(n+4) {
-        margin-top: 32px;
-    }
-
-    .problem-list-item:not(:nth-child(3n+1)) {
-        @media screen and (min-width: 767px) {
-            margin-left: 40px;
+        &:not(:nth-last-child(-n + 3)){
+            margin-bottom: 40px;
         }
+
+    }
+}
+
+/*Цифири и линии*/
+
+.problems-list .problem-list-item {
+    counter-increment: num;
+    position: relative;
+}
+
+.problems-list .problem-list-item:before {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.08em;
+
+    color: $accent-color;
+    width: 20px;
+    height: 2px;
+    display: block;
+    transform: translateY(11px);
+
+    @media screen and (min-width: $tablet){
+        transform: translateY(13px);
+
     }
 
-    .problem-list-item:nth-child(3n+1) {
-        @media screen and (min-width: 1344px) {
-            max-width: 290px;
-        }
-    }
 
 }
+
+.problems-list .problem-list-item:nth-last-child(-n + 6) :before {
+    content: '0'counter(num);
+    display: flex;
+    color: $accent-color;
+    transform: translateX(12%);
+}
+
+
+
 
 .problems-list-line-stroca {
-    font-family: Montserrat;
-    font-style: normal;
+
     font-weight: bold;
-    font-size: 20px;
-    line-height: 1.4;
-    color: $dark-back;
-
-
-    /* display: flex;*/
-    align-items: center;
+    font-size: 14px;
+    line-height: 143%; 
+    
     letter-spacing: 0.08em;
-    margin-block-start: 5px;
-    margin-block-end: 0px;
+    
+    color: #111518;
 
-    /* display: inline;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-    letter-spacing: 0.08em;*/
+    @media screen and (min-width: $tablet){
+        line-height: 171%;
+    }
 
+    @media screen and (min-width: $desktop){
+        font-size: 20px;
+        line-height: 120%;
+    }
 }
 
-.problems.section {
-    padding-bottom: 0px;
+
+.problems-img{
+    display: none;
+    @media screen and (min-width: $desktop){
+        fill: #3D3D3D;
+        position: absolute;
+        display: block;
+        bottom: 0;
+        right: -350px;
+        height:300px;
+        z-index: 2;
+    }
 }
 
-/*.overflovewd-container {
-    position: absolute;
-    background-color: $white;
-    width: 90%;
-    bottom: -71%;
-    left: 9%;
-    transform: translateX(-5%);
-
-}*/
-
-
-
-/*
-.problems-item {
-    color: $dark-back;
-}*/
-
-/*.problems-list-line-stroca:last-child::after {*/
-/*content: "";*/
-/*display: flex;*/
-
-/* height: 2px;*/
-/*   background-color: $accent-color;
-    position: absolute;*/
-/* top: 3px;*/
