@@ -26,18 +26,19 @@
         color: $white;
         width: 100%;
         padding-top: 50px;
-        padding-bottom: 240px;
+        padding-bottom: 300px;
 
         @media screen and (min-width: $tablet) {
             font-size: 26px;
             line-height: 130%;
 
-            padding-bottom: 140px;
+            padding-bottom: 200px;
         }
 
         @media screen and (min-width:$desktop) {
             font-size: 46px;
-            padding-bottom: 120px;
+            padding-bottom: 190px;
+            width: 836px;
         }
 
         .problems-orang {
@@ -153,14 +154,10 @@
     counter-increment: num;
     position: relative;
 }
-
-.problems-list .problem-list-item:before {
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.08em;
-
-    color: $accent-color;
+/*Линии*/
+.problems-list .problem-list-item::before {
+    content: '';
+    background-color: $accent-color;
     width: 20px;
     height: 2px;
     display: block;
@@ -168,21 +165,19 @@
 
     @media screen and (min-width: $tablet) {
         transform: translateY(13px);
-
     }
-
-
 }
-
-.problems-list .problem-list-item:nth-last-child(-n + 6) :before {
+/*цифири*/
+.problems-list .problem-list-item:nth-last-child(-n + 9) :before {
     content: '0'counter(num);
     display: flex;
     color: $accent-color;
     transform: translateX(12%);
+    margin-bottom: 20px;
 }
 
 
-
+/*текст*/
 .problems-list-line-stroca {
 
     font-weight: bold;
@@ -204,7 +199,7 @@
     }
 }
 
-
+/*Огонь*/
 .problems-img {
     display: none;
 
@@ -213,8 +208,8 @@
         position: absolute;
         display: block;
         bottom: 0;
-        right: -350px;
-        height: 300px;
+        right: -110px;
+        height: 350px;
         z-index: 2;
     }
 }
