@@ -12,7 +12,7 @@ $(document).ready(function(){
   $('.bullets-slider').slick({
     adaptiveHeight: true,
     // centerMode: true,
-    slidesToShow: 7,
+    slidesToShow: 5,
     slideToScroll: 1,
     asNavFor: $('.slider-content'),
     infinite: true,
