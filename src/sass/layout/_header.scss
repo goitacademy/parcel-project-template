@@ -1,54 +1,178 @@
-.header{
-  @include flex(space-between);
+.header {
   padding-top: 30px;
-
-
-  @include adaptive(768px){
-    padding-top: 40px;
-  }
-  @include adaptive(1345px){
-    padding: 45px 0;
+  .container {
+    position: relative;
   }
 }
-
-.header-fluid-container {
-  display: none;                  /* ------ spica ----- */
-  @include adaptive(768px){
-    @include flex();
-  }
-
+/* label до чекбокау */
+.header-stack-button {
+  position: absolute;
+  z-index: 100;
+  right: 20px;
+  top: 15px;
 }
+// #header-stack-checkbox:checked ~ .header-stack-button {
+//   position: fixed;
+//   z-index: 100;
+//   top: 15px;
+// }
 
 
-.header-nav {
-  
-
-}
-
-.header-nav-list {                 /* ------ spica ----- */
-  display: none;
-  @include adaptive(1345px){
-    @include flex();
+/* візуалізацію stack - буттона */
+.header-stack-icon {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  @include flex();
+  transition: all 250ms linear;
+  & span {
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transition: all 90ms linear;
   }
-
-
-  &-item{
-    @include font(700, 14px, 1.21);
-    color: $secondary-text-color;
-
-  &:active,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transition: all 250ms linear;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transition: all 250ms linear;
+  }
   &:hover,
-  &:focus {
-    color: $main-color;
-  }
-
+  &:active,
+  &:focus{
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
   }
 }
-.header-btn-stack {
+/* поведінка stack-буттона коли checkbox=true */
+#header-stack-checkbox:checked ~ .header-stack-button>.header-stack-icon::before {
+  background-color: white;
+  transform-origin: top;
+  transform-origin: left;
+  transform: translateX(3px) translateY(2px) rotate(45deg);
+}
+#header-stack-checkbox:checked ~ .header-stack-button>.header-stack-icon::after {
+  background-color: white;
+  transform-origin: bottom;
+  transform-origin: left;
+  transform: translateX(3px) translateY(-2px) rotate(-45deg);
+}
+#header-stack-checkbox:checked ~ .header-stack-button>.header-stack-icon>span {
+  opacity: 0;
+}
+/* навігаційне меню */
+.header-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
-  @include adaptive(1345px){
-    display: none;
+  padding-top: 108px;
+
+  @include flex(center, flex-start);
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  background-color: rgba(17, 21, 24, 0.9);
+  transition: all 250ms linear;
+  
+}
+/* поведінка навігаційного меню коли checkbox=true */
+#header-stack-checkbox:checked ~ .header-nav {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+  & .header-nav-list {
+    color: $white-color;
+    @include font(800, 20px, 1.80, 0.03em);
+
+    margin: 0 auto;
+    & .header-nav-list-item:hover,
+    & .header-nav-list-item:focus,
+    & .header-nav-list-item:active {
+      color: $main-color;
+    }
   }
-
+}
+/* кнопка "Консультація" */
+.btn-transparent {
+  position: fixed;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+/* поведінка кнопки "Консультація" коли checkbox=true */
+#header-stack-checkbox:checked ~ .btn-transparent {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+  top: 300px;
+  left: 50%;
+  transform: translateX(-50%);;
 }
 
+
+
+
+// .header{
+//   @include flex(flex-start, flex-start, column);
+//   position: relative;
+//   padding-top: 30px;
+//   padding-bottom: 30px;
+
+//   @include adaptive(768px){
+//     padding-top: 40px;
+//     padding-bottom: 40px;
+//   }
+//   @include adaptive(1345px){
+//     @include flex(flex-start);
+//     padding-top: 45px;
+//     padding-bottom: 45px;
+//   }
+// // inside header
+//   .logo {
+//     margin-bottom: 50px;
+//     @include adaptive(768px){
+//       margin-bottom: 72px;
+//     }
+//     @include adaptive(1345px){
+//       margin-bottom: 0;
+//       margin-right: 144px;
+//     }
+//   }
+// //inside header
+//   &-nav {
+//    margin: 0 auto 50px;
+//   }
+//   .btn-transparent {
+//     margin: 0 auto;
+//   }
+// }
+
+
+
+
+
+
+
+// .header-btn-stack {
+//   position: absolute;
+//   top: 30px;
+//   right: 15px;
+//   @include adaptive(768px){
+
+//   }
