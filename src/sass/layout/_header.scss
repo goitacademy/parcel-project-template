@@ -39,6 +39,7 @@
   }
   @media screen and (min-width: 1200px) {
     right: 115px;
+    top: 37px;
   }
 }
 
@@ -69,7 +70,8 @@
   @include font(14px, 1.29, 700);
 
   color: $primary-text-color;
-  &.current {
+  &:hover,
+  &:focus {
     color: $secondary-title-color;
   }
 }
@@ -92,8 +94,8 @@
     z-index: 1;
     background: transparent;
     border-color: transparent;
-    transition: fill 500ms cubic-bezier(0.4, 0, 0.2, 1);
-
+    transition: all 0.7s ease;
+    transition-delay: 0s;
     @media screen and (min-width: 768px) and (max-width: 1199px) {
       right: 224px;
       top: 52px;
@@ -130,10 +132,10 @@
     background-color: #e17992;
     opacity: 0;
     visibility: hidden;
-    pointer-events: none;
+    // pointer-events: none;
     box-shadow: -8px 0px 20px rgba(0, 0, 0, 0.25);
-    transition: all 450ms cubic-bezier(0.4, 0, 0.2, 1);
-
+    transition: 0.7s;
+    transform: translateY(-100%);
     @media screen and (min-width: 768px) and (max-width: 1199px) {
       height: 402px;
     }
@@ -141,8 +143,10 @@
   .header-menu.is-open {
     opacity: 1;
     visibility: visible;
-    pointer-events: unset;
-    transition: all 250ms linear;
+    // pointer-events: unset;
+    transform: translateY(0%);
+    transition: 0.7s;
+
   }
 }
 
@@ -174,160 +178,3 @@
     margin-right: 35px;
   }
 }
-
-// .list {
-//   list-style: none;
-// }
-
-// .page-header {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   z-index: 1;
-//   width: 100%;
-// }
-
-// .link-logo {
-//   height: 50px;
-// }
-// .page-header .container {
-//   padding-top: 6px;
-//   padding-left: 20px;
-//   padding-right: 20px;
-//   width: 100%;
-//   @media screen and (min-width: 768px) {
-//     display: flex;
-//     padding-top: 37px;
-//     padding-left: 34px;
-//     padding-right: 34px;
-//   }
-//   @media screen and (min-width: 1200px) {
-//     padding-left: 46px;
-//   }
-// }
-
-// @media screen and (min-width: 1200px) {
-//   .header-menu {
-//     display: flex;
-//   }
-//   .burger-button {
-//     display: none;
-//   }
-// }
-// @media screen and (max-width: 1199px) {
-//   .burger-button {
-//     position: absolute;
-//     right: 20px;
-//     top: 19px;
-//     z-index: 1;
-//     background: transparent;
-//     border-color: transparent;
-//     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-//     @media screen and (min-width: 768px) and (max-width: 1199px) {
-//       right: 224px;
-//       top: 52px;
-//       &.is-open {
-//         right: 20px;
-//         top: 24px;
-//       }
-//     }
-//   }
-
-//   .burger-close-button {
-//     display: none;
-//   }
-
-//   .burger-button.is-open .burger-open-button {
-//     display: none;
-//   }
-//   .burger-button.is-open .burger-close-button {
-//     display: block;
-//     z-index: 2;
-//   }
-
-//   .header-menu {
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     padding-top: 60px;
-//     padding-left: 21px;
-//     padding-right: 20px;
-//     width: 250px;
-//     height: 502px;
-//     text-align: center;
-//     background-color: #e17992;
-//     opacity: 0;
-//     visibility: hidden;
-//     pointer-events: none;
-//     box-shadow: -8px 0px 20px rgba(0, 0, 0, 0.25);
-//     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-//     @media screen and (min-width: 768px) and (max-width: 1199px) {
-//       height: 1020px;
-//     }
-//   }
-//   .header-menu.is-open {
-//     opacity: 1;
-//     visibility: visible;
-//     pointer-events: unset;
-//   }
-// }
-
-// .button-buy-now {
-//   position: absolute;
-//   border: none;
-//   color: $secondary-title-color;
-//   @media screen and (min-width: 768px) and (max-width: 1199px) {
-//     right: 34px;
-//     z-index: -1;
-//   }
-//   @media screen and (min-width: 1200px) {
-//     right: 115px;
-//   }
-// }
-
-// .button-buy-now-icon {
-//   margin-left: 12px;
-//   fill: $secondary-title-color;
-// }
-
-// .button-buy-burger {
-//   text-align: left;
-//   line-height: 0;
-//   margin-bottom: 32px;
-//   color: $secondary-title-color;
-// }
-
-// .button-buy-burger-icon {
-//   margin-left: 29px;
-//   fill: $secondary-title-color;
-// }
-
-// .site-nav-list {
-//   display: block;
-//   @media screen and (min-width: 1200px) {
-//     display: flex;
-//   }
-// }
-// .site-nav-list-link {
-//   margin-bottom: 23px;
-//   text-align: left;
-//   @include font(14px, 1.29, 700);
-
-//   color: $primary-text-color;
-//   &.current {
-//     color: $secondary-title-color;
-//   }
-// }
-
-// @media screen and (min-width: 1200px) {
-//   .link-logo {
-//     margin-right: 110px;
-//   }
-//   .site-nav-list-link {
-//     margin-bottom: 0;
-//     padding-top: 13px;
-//   }
-//   .site-nav-list .list-item:not(:last-child) {
-//     margin-right: 35px;
-//   }
-// }
