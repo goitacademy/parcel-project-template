@@ -3,6 +3,7 @@ body.is-open {
 }
 
 .modal-wrapper {
+    z-index: 2;
     display: none;
     position: fixed;
     width: 100%;
@@ -16,7 +17,7 @@ body.is-open {
 }
 
 
-.menu-container {
+.menu-container-modal {
     padding: 105px 20px;
 
     @media screen and (min-width: 768px) {
@@ -32,10 +33,6 @@ body.is-open {
 
 .site-nav {
     margin-bottom: 50px;
-
-
-
-
 }
 
 
@@ -46,18 +43,17 @@ body.is-open {
     font-weight: 800;
     font-size: 20px;
     line-height: 180%;
-    /* or 36px */
-
     letter-spacing: 0.03em;
 
-    color: #FFFFFF;
+    color: $white;
 
     &:hover {
-        color: #FF6B09;
+        color: $accent-color;
     }
 }
 
 .menu-burger {
+    z-index: 2;
     position: absolute;
     right: 0px;
 
@@ -88,13 +84,20 @@ body.is-open {
     }
 }
 
-.btn-nav-header {
-    cursor: pointer;
+
+
+.modal-img {
+    fill: $white;
+}
+
+
+.btn-modal-call {
     margin: 0 auto;
-    outline-style: none;
-    border: solid 2px #FF6B09;
-    background: none;
+    align-items: center;
     padding: 14px;
+    border: none;
+    outline: 2px solid $accent-color;
+    background: none;
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
@@ -106,13 +109,21 @@ body.is-open {
     letter-spacing: 0.08em;
     text-transform: uppercase;
 
-    color: #FF6B09;
+    color: $accent-color;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        color: $white;
+        background-color: $accent-color;
+
+    }
+
     @media screen and (min-width: 768px) {
         display: none;
     }
 
-}
-
-.modal-img {
-    fill: white;
+    @media screen and (min-width: 1343px) {
+        display: none;
+    }
 }
