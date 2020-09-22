@@ -1,7 +1,7 @@
 (() => {
   const menuBtnRef = document.querySelector('[data-menu-button]');
   const mobileMenuRef = document.querySelector('[data-menu]');
-  const logo = document.querySelector('.logo-header-img');
+  const logo = document.querySelector('.logo-img');
   const body = document.querySelector('body');
 
   menuBtnRef.addEventListener('click', () => {
