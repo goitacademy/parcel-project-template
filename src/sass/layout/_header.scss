@@ -2,17 +2,30 @@
   padding-top: 30px;
   .container {
     position: relative;
+    height: 30px;
     z-index: 90;
     @include flex(flex-start);
     @include adaptive(768px, 1344px) {
-      @include flex(space-between);
+      @include flex(flex-start);
+      height: 48px;
     }
+    @include adaptive(1345px) {
+      height: auto;
+    }
+  }
   .logo {
     @include adaptive(1345px) {
       margin-right: auto;
     }
   }
+/* поведінка logo коли checkbox=true */
+  #header-stack-checkbox:checked ~ .logo {
+    position: fixed;
+    top: 30px;
+    z-index: 100;
+    color: $white-color;
   }
+ 
   /* кнопка "Консультація" */
   .btn-transparent {
     position: fixed;
@@ -25,6 +38,7 @@
       pointer-events: auto;
       opacity: 1;
       margin-right: 60px;
+      margin-left: auto;
     }
     @include adaptive(1345px) {
       margin-right: 0;
@@ -37,7 +51,7 @@
     opacity: 1;
     top: 300px;
     left: 50%;
-    transform: translateX(-50%);;
+    transform: translateX(-50%);
     @include adaptive(768px) {
       transform: unset;
     }
@@ -102,7 +116,7 @@
   &:active,
   &:focus{
     cursor: pointer;
-    transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.2);
   }
 }
 /* поведінка stack-буттона коли checkbox=true */
@@ -145,10 +159,11 @@
   pointer-events: none;
   opacity: 0;
   background-color: rgba(17, 21, 24, 0.9);
-  transition: all 250ms linear;
+  transition: all $fast linear;
 
   &-list-item {
     @include font(800, 20px, 1.80, 0.03em);
+    transition: color $fast linear;
     @include adaptive(768px) {
       @include font(800, 26px, 1.80, 0.03em);
     }
@@ -164,7 +179,6 @@
       color: $main-color;
     }
   }
-
 
   @include adaptive(1345px) {
     position: static;
@@ -186,9 +200,7 @@
         margin-right: 60px;
       }
     }
-
   }
-  
 }
 /* поведінка навігаційного меню коли checkbox=true */
 #header-stack-checkbox:checked ~ .header-nav {
@@ -204,4 +216,3 @@
     margin: 0 auto;
   }
 }
-
