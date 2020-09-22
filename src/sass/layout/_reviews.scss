@@ -1,6 +1,20 @@
+.container {
+  text-align: center;
+}
+.section-title {
+  margin-top: 50px;
+}
+
 .slider {
+  // margin-top: 20px;
+  // margin-bottom: 124px;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
+
+  background-color: $white-color;
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+
+  text-align: center;
 
   @media screen and (min-width: 1345px) {
     padding-top: 130px;
@@ -8,21 +22,22 @@
   }
 }
 
-.slide {
-  margin-top: 20px;
-
+.slider-item {
+  // margin-top: 20px;
   background-color: $white-color;
   box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
-  text-align: center;
 
   @media screen and (min-width: 768px) {
     display: flex;
-    margin-top: 30px;
-
-    text-align: left;
+    margin-top: 0;
   }
 
   @media screen and (min-width: 1345px) {
+  }
+}
+.slick-initialized .slick-slide {
+  @media screen and (min-width: 768px) {
+    display: flex;
   }
 }
 
@@ -60,9 +75,11 @@
 // блок с текстом
 .student-about {
   padding: 20px 30px 20px 20px;
+  text-align: center;
 
   @media screen and (min-width: 768px) {
     padding: 40px 40px 46px;
+    text-align: left;
   }
 
   @media screen and (min-width: 1345px) {
@@ -134,105 +151,117 @@
   }
 }
 
-// блок с маленькими фото
-.student-small-photo {
-  margin-top: 20px;
-
-  @media screen and (min-width: 768px) {
-    margin-top: 30px;
-  }
-
-  @media screen and (min-width: 1345px) {
-    margin-top: 40px;
-  }
-}
-
-.student-small-photo-list {
-  display: flex;
-  justify-content: center;
-
-  & .item {
-    margin-right: 10px;
-
-    @media screen and (min-width: 768px) {
-      margin-right: 30px;
-    }
-  }
-}
-
 // слайдер
 
 .slider {
   position: relative;
 }
 
+// лента слайдера
+
 .slider .slick-arrow {
+  visibility: hidden;
   position: absolute;
   bottom: 0;
-  // margin-bottom: 50px;
   z-index: 10;
+
+  @media screen and (min-width: 768px) {
+    visibility: visible;
+  }
 }
 
 // кнопка вправо влево
 .slick-prev,
 .slick-next {
-  // position: absolute;
-  // display: block;
-  // height: 20px;
-  // width: 20px;
-  // line-height: 0px;
-  // font-size: 0px;
-  // cursor: pointer;
-  // background: transparent;
-  // color: transparent;
-  // top: 50%;
-  // -webkit-transform: translate(0, -50%);
-  // -ms-transform: translate(0, -50%);
-  // transform: translate(0, -50%);
-  // padding: 0;
-  // border: none;
-  // outline: none;
+  position: absolute;
+  bottom: 50%;
+
+  display: block;
+  height: 25px;
+  width: 15px;
+}
+
+.slick-prev {
+  left: -12px;
+}
+
+.slick-next {
+  right: 0px;
+}
+
+.slick-next:before {
+  display: block;
+
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+
+  content: '';
+  background-image: url(../images/arrow-right.svg);
+}
+
+.slick-prev:before {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  // background-size: cover;
+
+  content: '';
+  background-image: url(../images/arrow-left.svg);
 }
 
 // блок круглых кнопок
 .slick-dots {
   position: absolute;
-  bottom: 15px;
-  list-style: none;
+  bottom: -20px;
+
   display: block;
-  text-align: center;
+  list-style: none;
+
   padding: 0;
   margin: 0;
   width: 100%;
+
+  @media screen and (min-width: 768px) {
+    bottom: -20px;
+  }
 }
 
-// крушлая кнопка
+.slick-dots li {
+  margin: 0;
+  margin-right: 10px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 70px;
+  }
+  // @media screen and (min-width: 768px) {
+  //   height: 54px;
+  //   width: 54px;
+  //   background-image: url(../images/students/students-1-mobile.png);
+  // }
+}
+
 .slick-dots li button {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: 0;
-  background: $accent-color;
   display: block;
-  outline: none;
-  line-height: 0px;
-  // font-size: 0px;
-  // color: transparent;
-  // padding: 5px;
+  padding: 10px;
+
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+
+  background-color: $accent-color;
+
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    height: 54px;
+    width: 54px;
+    background-image: url(../images/students/students-1-mobile.png);
+  }
 }
 
 // точка в круглой кнопке
 .slick-dots li button:before {
   content: '';
-}
-
-// стрелочка движение слайдера
-.slick-prev:before,
-.slick-next:before {
-  font-family: 'slick';
-  font-size: 20px;
-  line-height: 1;
-  color: $accent-color;
-  opacity: 0.75;
 }
