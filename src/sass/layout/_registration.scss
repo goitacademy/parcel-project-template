@@ -108,6 +108,7 @@
 
   margin-left: auto;
   margin-right: auto;
+
   @media screen and (min-width: 768px) {
     padding-top: 40px;
   }
@@ -141,7 +142,7 @@
   letter-spacing: 0.08em;
 
   transform: translateY(-50%);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: $fast cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 1345px) {
     font-size: 20px;
@@ -159,11 +160,19 @@
   padding-left: 28px;
   color: $accent-text-color;
 
+  &:hover,
+  &:focus,
+  &:active {
+    border: 1px solid $accent-color;
+    color: $white-color;
+  }
+
   &:hover + .form-field-label,
   &:focus + .form-field-label,
   &:not(:placeholder-shown) + .form-field-label {
     transform: translate(-25px, -45px);
     color: $accent-text-color;
+
     @media screen and (min-width: 1345px) {
       transform: translate(-25px, -63px);
     }
