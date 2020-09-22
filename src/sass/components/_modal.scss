@@ -4,17 +4,18 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(250, 229, 239, 0.5);
   padding: 20px 20px;
   overflow-y: scroll;
   opacity: 1;
-  transition: all 250ms linear 250ms;
+  transition: all 250ms linear 150ms;
   z-index: 999;
 }
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
-  transition: all 250ms linear 250ms;
+  transform: translateY(50%) scale(0);
+  transition: all 400ms linear 200ms;
 }
 .backdrop.is-hidden .modal {
   transform: translateX(-50%) scale(0);
@@ -24,23 +25,31 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  max-width: 528px;
   width: 100%;
-  height: 528px;
+  height: 600px;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden auto;
-  border-radius: 4px;
+
   padding: 30px;
   text-align: center;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 1px 3px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  background-color: $primary-title-color;
+  background-color: $secondary-bg-color;
   transform: translate(-50%, -50%) scale(1);
   box-sizing: border-box;
+  border-radius: 24px;
+  transition: all 250ms linear 150ms;
+
   &:hover {
     filter: brightness(1.1);
+  }
+  @media screen and (max-width: 767px) {
+    max-width: 310px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 528px;
   }
 }
 .modal-title {
@@ -52,12 +61,13 @@
 .modal-text {
   @include font(16px, 1.75, 700);
   padding-bottom: 20px;
+  color: $secondary-text-color;
 }
 .close-form {
   position: absolute;
   display: flex;
-  top: 8px;
-  right: 8px;
+  top: 12px;
+  right: 12px;
 
   width: 30px;
   height: 30px;
