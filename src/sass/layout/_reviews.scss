@@ -1,37 +1,35 @@
 .reviews {
   text-align: center;
-}
-.section-title {
-  margin-top: 50px;
-}
+  margin: 50px 0 124px;
 
-.slider {
-  padding-top: 50px;
-  // padding-bottom: 30px;
-
-  text-align: center;
+  @media screen and (min-width: 768px) {
+    margin: 50px 0 134px;
+  }
 
   @media screen and (min-width: 1345px) {
-    padding-top: 130px;
-    padding-bottom: 130px;
+    margin: 130px 0 134px;
   }
 }
 
-.slider-item {
-  // margin-top: 20px;
-  margin-bottom: 50px;
+.section-title {
+  margin: 0;
+}
+
+.slider {
+  position: relative;
+
+  margin-top: 20px;
+
   background-color: $white-color;
   box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
   text-align: center;
 
   @media screen and (min-width: 768px) {
-    display: flex;
-    margin-top: 0;
-    margin-bottom: 124px;
+    margin-top: 30px;
   }
 
   @media screen and (min-width: 1345px) {
-    // margin-bottom: 224px;
+    margin-top: 50px;
   }
 }
 
@@ -41,6 +39,136 @@
   }
 }
 
+.slick-dotted.slick-slider {
+  margin-bottom: 0;
+}
+
+// лента слайдера
+
+.slider .slick-arrow {
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+
+  @media screen and (min-width: 768px) {
+    visibility: visible;
+  }
+}
+
+// кнопка вправо влево
+.slick-prev,
+.slick-next {
+  position: absolute;
+  bottom: 50%;
+  font-size: 0;
+}
+
+.slick-prev {
+  left: -12px;
+}
+
+.slick-next {
+  right: 0px;
+}
+
+.slick-next:before {
+  display: block;
+  content: '';
+
+  width: 30px;
+  height: 20px;
+
+  background-image: url(../images/arrow-right.svg);
+  background-repeat: no-repeat;
+}
+
+.slick-prev:before {
+  display: block;
+  content: '';
+
+  width: 30px;
+  height: 20px;
+
+  background-image: url(../images/arrow-left.svg);
+  background-repeat: no-repeat;
+}
+
+// блок круглых кнопок
+.slick-dots {
+  position: absolute;
+  bottom: -60px;
+
+  display: block;
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.slick-dots li {
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 70px;
+
+    &:nth-child(2) button {
+      background-image: url(../images/students/students-2-mobile.png);
+    }
+    &:nth-child(3) button {
+      background-image: url(../images/students/students-3-mobile.png);
+    }
+    &:nth-child(4) button {
+      background-image: url(../images/students/students-4-mobile.png);
+    }
+    &:nth-child(5) button {
+      background-image: url(../images/students/students-5-mobile.png);
+    }
+    &:nth-child(6) button {
+      background-image: url(../images/students/students-6-mobile.png);
+    }
+    &:nth-child(7) button {
+      background-image: url(../images/students/students-7-mobile.png);
+    }
+  }
+}
+
+// backgtaund button
+// ________________________________________
+.slick-dots li button {
+  display: block;
+  padding: 10px;
+
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+
+  background-color: $accent-color;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    height: 54px;
+    width: 54px;
+    background-image: url(../images/students/students-1-mobile.png);
+  }
+}
+
+.slick-dots .slick-active button {
+  border: 2px solid $accent-color;
+}
+
+// точка в круглой кнопке
+.slick-dots li button:before {
+  visibility: hidden;
+
+  content: '';
+}
+
+// ____________________________________________
 // блок с фото и иконкой
 .student-photo {
   display: flex;
@@ -57,10 +185,6 @@
     }
   }
 
-  &-icon {
-    padding-top: 20px;
-  }
-
   @media screen and (min-width: 768px) {
     padding-top: 40px;
     padding-left: 40px;
@@ -69,6 +193,20 @@
   @media screen and (min-width: 1345px) {
     padding-top: 50px;
     padding-left: 82px;
+  }
+}
+.student-photo-icon {
+  margin-top: 20px;
+}
+.student-photo-icon-png {
+  width: 30px;
+  height: 30px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: 0 0 4px $accent-color;
+    border-radius: 8px;
   }
 }
 
@@ -147,130 +285,4 @@
     font-size: 18px;
     line-height: 1.55;
   }
-}
-
-// блок с маленькими фото
-.student-small-photo {
-  margin-top: 20px;
-
-  @media screen and (min-width: 768px) {
-    margin-top: 30px;
-  }
-
-  @media screen and (min-width: 1345px) {
-    margin-top: 40px;
-  }
-}
-
-.student-small-photo-list {
-  display: flex;
-  justify-content: center;
-
-  & .item {
-    margin-right: 10px;
-
-    @media screen and (min-width: 768px) {
-      margin-right: 30px;
-    }
-  }
-}
-
-// слайдер
-
-.slider {
-  position: relative;
-}
-
-.slider .slick-arrow {
-  position: absolute;
-  bottom: 0;
-  // margin-bottom: 50px;
-  z-index: 10;
-}
-
-// кнопка вправо влево
-.slick-prev,
-.slick-next {
-  // position: absolute;
-  // display: block;
-  // height: 20px;
-  // width: 20px;
-  // line-height: 0px;
-  // font-size: 0px;
-  // cursor: pointer;
-  // background: transparent;
-  // color: transparent;
-  // top: 50%;
-  // -webkit-transform: translate(0, -50%);
-  // -ms-transform: translate(0, -50%);
-  // transform: translate(0, -50%);
-  // padding: 0;
-  // border: none;
-  // outline: none;
-}
-
-// блок круглых кнопок
-.slick-dots {
-  position: absolute;
-  bottom: 0;
-
-  display: block;
-  list-style: none;
-  display: block;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  @media screen and (min-width: 768px) {
-    bottom: 50px;
-  }
-
-  @media screen and (min-width: 1345px) {
-    bottom: 130px;
-  }
-}
-
-.slick-dots li {
-  margin: 0;
-  margin-right: 10px;
-
-  @media screen and (min-width: 768px) {
-    margin-right: 70px;
-  }
-  // @media screen and (min-width: 768px) {
-  //   height: 54px;
-  //   width: 54px;
-  //   background-image: url(../images/students/students-1-mobile.png);
-  // }
-}
-
-// крушлая кнопка
-.slick-dots li button {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: 0;
-  background: $accent-color;
-  display: block;
-  outline: none;
-  line-height: 0px;
-  // font-size: 0px;
-  // color: transparent;
-  // padding: 5px;
-  cursor: pointer;
-}
-
-// точка в круглой кнопке
-.slick-dots li button:before {
-  content: '';
-}
-
-// стрелочка движение слайдера
-.slick-prev:before,
-.slick-next:before {
-  font-family: 'slick';
-  font-size: 20px;
-  line-height: 1;
-  color: $accent-color;
-  opacity: 0.75;
 }
