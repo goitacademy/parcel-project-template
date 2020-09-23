@@ -19,14 +19,21 @@ $(document).ready(function(){
     focusOnSelect: true,
     responsive: [
       {
-        breakpoint: 321, //min-width
+        breakpoint: 320, //min-width
         settings: {
           slidesToShow: 3,
           slideToScroll: 1
         }
       }
+      ,
+      {breakpoint: 768,
+        settings: {
+          slidesToShow: 5,
+          slideToScroll: 1
+        }
+      }
     ],
-    // mobileFirst: true, //для min-width - иначе будет max-width
+     mobileFirst: true, //для min-width - иначе будет max-width
     arrows: true
 
 });
