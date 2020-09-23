@@ -19,7 +19,7 @@ $(document).ready(function(){
     focusOnSelect: true,
     responsive: [
       {
-        breakpoint: 320, //min-width
+        breakpoint: 321, //min-width
         settings: {
           slidesToShow: 3,
           slideToScroll: 1
@@ -33,7 +33,7 @@ $(document).ready(function(){
         }
       }
     ],
-     mobileFirst: true, //для min-width - иначе будет max-width
+    //mobileFirst: true, //для min-width - иначе будет max-width
     arrows: true
 
 });
