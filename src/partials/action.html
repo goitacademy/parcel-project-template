@@ -1,18 +1,38 @@
 <section class="section action">
   <div class="container action-container">
-    <h2 class="title action-text">Регистрация на <span>бесплатную</span> телефонную <span>консультацию</span> по нюансам
-      ЗНО
-      по
-      английскому языку
+    <h2 class="title action-text">
+      Регистрация на <span>бесплатную</span> телефонную
+      <span>консультацию</span> по нюансам ЗНО по английскому языку
     </h2>
-    <form action="./src/backend/telegram.php" method="POST" class="form" id="go-to-form">
+    <!-- action="./src/backend/telegram.php"  method="POST"-->
+    <form class="form" id="go-to-form">
       <label for="name" class="label-text">
-        Оставь заявку на участие в <span>бесплатном занятии.</span> С вами свяжется консультант и ответит на
-        вопросы
+        Оставь заявку на участие в <span>бесплатном занятии.</span> С вами
+        свяжется консультант и ответит на вопросы
       </label>
-      <input class="form-input" type="text" name="user_name" id="name" placeholder="Имя*">
-      <input class="form-input" type="tel" name="user_phone" placeholder="Телефон*">
-      <button class="btn btn-footer" type="submit">хочу на бесплатное занятие</button>
+      <input
+        class="form-input"
+        type="text"
+        name="user_name"
+        id="name"
+        placeholder="Имя*"
+        required
+        minlength="2"
+        pattern="[A-Za-zА-Яа-яЁё]{2,20}"
+        title="Имя должно содержать только буквы и иметь длину от 2 до 20 символов"
+      />
+      <input
+        class="form-input"
+        type="tel"
+        name="user_phone"
+        placeholder="Телефон*"
+        required
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+        title="Формат ввода номера ххх-ххх-хх-хх "
+      />
+      <button class="btn btn-footer" type="submit">
+        хочу на бесплатное занятие
+      </button>
     </form>
   </div>
 </section>
