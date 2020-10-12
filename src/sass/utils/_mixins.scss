@@ -1,0 +1,56 @@
+// Миксин со шрифтом (насыщенность, размер, высота строки)
+
+@mixin font($fw, $fs, $lh) {
+  font-weight: $fw;
+  font-size: $fs;
+  line-height: $lh;
+}
+
+// Миксин для флексов
+
+@mixin flexbox($jc: center, $ai: center) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;  
+}
+
+// Миксин для адаптива
+
+@mixin for-size($range) {
+  $mobile: 480px;
+  $tablet: 768px;
+  $desktop: 1200px;
+
+  @if $range == mobile-only {
+    @media (max-width: #{$mobile}) {
+      @content;
+    }
+  } @else if $range == mobile {
+    @media (min-width: $mobile) {
+      @content;
+    }
+  } @else if $range == tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if $range == before-tablet {
+    @media (max-width: #{$tablet - 1}) {
+      @content;
+    }
+  } @else if $range == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+  @else if $range == before-desktop {
+    @media (max-width: #{$desktop - 1}) {
+      @content;
+    }
+}
+
+// usage
+
+//   @include for-size(desktop) {
+//     padding: 20px;
+}
+//
