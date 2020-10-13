@@ -6,10 +6,33 @@
     <title>Заголовок страницы</title>
   </head>
   <body>
+    <header id="header"></header>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quibusdam, deleniti officia consequuntur tempora quo eos nesciunt totam, autem unde illum fugit labore voluptate porro odit accusamus optio animi eum dolore vero. Libero blanditiis ad veniam harum, aliquam debitis a doloribus tempore ex accusamus consequuntur vero placeat animi laudantium quaerat ab culpa dolores! Temporibus enim iure eaque nam deleniti, blanditiis, molestiae fugit voluptatum cum totam nihil laboriosam nisi obcaecati sequi iusto a facere eos natus modi deserunt nemo ipsam et magnam esse. Laborum repellat vitae illo. Dolor ab asperiores dolore eveniet delectus velit sunt et commodi, repudiandae reprehenderit perspiciatis voluptates rerum veritatis, dicta laboriosam optio. Dolorem facere sed eos at dignissimos error optio fugiat quam porro atque eligendi dolor assumenda nisi, quibusdam ea cupiditate cumque animi eaque vitae facilis rerum voluptate quis. Dolorum nemo sequi deleniti hic asperiores eveniet velit non enim quam illum officia cupiditate, esse odio, atque ipsum id minima perspiciatis facere nisi impedit harum praesentium delectus a quas. Accusamus consequuntur facilis facere eaque dignissimos necessitatibus architecto suscipit laborum veritatis fugiat odit similique corrupti quibusdam voluptatem vel, odio deserunt nobis voluptate earum! Pariatur rerum enim corporis, aliquid earum debitis autem fugit. Voluptas possimus optio at iste animi facilis accusantium enim molestias amet itaque cupiditate ipsam asperiores tenetur veniam commodi voluptatum, expedita sapiente odio! Nemo minima, reiciendis minus ad placeat vitae fugiat perspiciatis ex error voluptatem fuga recusandae. Odio commodi non perspiciatis nihil iure, pariatur eum, debitis veniam harum nostrum dolores obcaecati dignissimos magnam ipsum atque molestias consequuntur ut quod soluta repellendus libero necessitatibus totam! Nam sit aliquid, voluptas voluptates saepe mollitia cum enim quibusdam odio eaque cupiditate quos? Accusamus harum veritatis omnis soluta, atque aut iusto? Dolor incidunt aliquid cupiditate nemo corporis quae dolores quos quibusdam laboriosam perferendis vero, nostrum cumque qui voluptas ipsam, suscipit earum velit officia.</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque aperiam vel ut, laudantium ab nesciunt eligendi odio iste quibusdam! Alias tempora molestias inventore architecto, corrupti expedita deserunt, error sed, nostrum quo totam maxime consequatur autem optio consectetur. Quidem, nam fugiat? Enim fuga minus sequi quae cumque rerum vitae labore ea qui, pariatur ullam. Sapiente, quidem molestias possimus in deserunt quas nesciunt unde cupiditate aliquid voluptates omnis maiores fugiat sint accusamus rem. Voluptatem neque velit, error repudiandae iste officiis modi quasi magni deleniti explicabo tenetur fugiat, doloremque ex ipsa eius eos alias facere numquam. Voluptates atque, nostrum quaerat, neque dolorum quae eos delectus nesciunt at possimus consequuntur quisquam aliquam tenetur id quia architecto temporibus cum inventore animi est vitae. Ab reiciendis praesentium dignissimos hic officiis neque quae aut non alias eos error voluptate nemo repudiandae minima, maxime saepe aliquid porro dolor veniam! Inventore iure praesentium vero itaque earum, explicabo ipsa quam maxime ipsum dolor. Beatae, labore! Modi illum omnis, perferendis deleniti vitae id architecto error. Facilis, dolorum incidunt nulla optio accusantium dignissimos cumque maiores tenetur natus voluptate, eveniet ad quidem tempore? Voluptatem explicabo corporis amet totam id itaque fugiat corrupti iure nemo, eum, perferendis adipisci ipsam, hic est fuga. Quos, deleniti.</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis consequuntur, amet aspernatur perferendis ipsam error neque illo quis sequi recusandae. Beatae minus perspiciatis quaerat est. Commodi iusto voluptate aliquid eveniet voluptatum minus tempora nam adipisci nemo, optio dolorum dolorem, vero praesentium neque. Corporis nam illo modi quaerat quas facilis quia, eveniet minima praesentium dolore ipsa dolores maxime fugit accusantium quisquam inventore quibusdam architecto eos blanditiis! Quaerat praesentium ducimus rem assumenda tempora error cupiditate provident. Eveniet asperiores id placeat ad odit sit, iusto eius sapiente beatae non minima!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit fuga dolorum maiores voluptatem similique eos! Vitae nulla quas consequatur, delectus cumque ullam quisquam! Obcaecati non repellat sequi molestiae deserunt repellendus? Officiis unde, facilis, delectus consectetur eum ea assumenda optio, maxime quo nemo ut laboriosam consequuntur praesentium soluta dignissimos doloribus ex aut adipisci eligendi quasi recusandae et perspiciatis excepturi quam. Nam porro vero nulla? Modi, deleniti laborum voluptates nemo provident aut a officia, reiciendis accusamus aspernatur, culpa voluptate perspiciatis! Facere, esse quis? Id quasi expedita omnis similique, sequi quaerat sapiente sint asperiores vitae facilis saepe officiis vel earum hic vero repudiandae delectus voluptatum numquam, perspiciatis molestiae reprehenderit repellat! Iure, repellendus ut a consequatur beatae repudiandae quae vitae ipsam, numquam ab ex.</p>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
     <include src="./partials/example.html"></include>
-
+    <include src="./partials/scroll-up.html"></include>
+   
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
+    <script>
+      var smoothJumpUp = function () {
+        if (document.header.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+          window.scrollBy(0, -50);
+          setTimeout(smoothJumpUp, 1);
+        }
+      }
+
+      window.onscroll = function () {
+        var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrolled > 100) {
+          document.getElementById('upbutton').style.display = 'flex';
+        } else {
+          document.getElementById('upbutton').style.display = 'none';
+        }
+      }
+    </script>
   </body>
 </html>
