@@ -1,0 +1,40 @@
+@mixin font($ff, $fst, $fw, $fs, $lh, $ls) {
+  font-family: $ff, sans-serif;
+  font-style: $fst;
+  font-weight: $fw;
+  font-size: $fs;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
+@mixin container($df, $jc, $ai) {
+  display: $df;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin for-size($range) {
+  $mobile: 320px;
+  $tablet: 768px;
+  $desktop: 1200px;
+
+  @if $range == mobile-only {
+    @media (max-width: #{$mobile}) {
+      @content;
+    }
+  } @else if $range == mobile {
+    @media (min-width: $mobile) and (max-width: $tablet - 1) {
+      @content;
+    }
+  } @else if $range == tablet {
+    @media (min-width: $tablet) and (max-width: $desktop - 1) {
+      @content;
+    }
+  } @else if $range == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+}
+
+
