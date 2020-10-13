@@ -6,7 +6,7 @@ body {
   line-height: 1.76;
   color: #000000;
   background-color: pink;
-  
+
   // color: $color-black-text;
 }
 
@@ -17,7 +17,7 @@ h4,
 h5,
 h6,
 p {
-  margin-top: 0;
+  margin: 0;
 }
 
 img {
@@ -26,22 +26,56 @@ img {
   height: auto;
 }
 
+main {
+  //   /* если зафиксировать Хедер, стоит учесть верхний отступ в main в размере высоты самого Хедера, тогда не съедет контент вверх под Хедер */
+  padding-top: 60px;
+  @include for-size(tablet) {
+    padding-top: 81px;
+  }
+}
+
 .container {
-  margin-left: auto;
-  margin-right: auto;
-  // @include for-size(mobile) {
-  //   width: 320px;
-  //   padding-left: 20px;
-  //   padding-right: 20px;
-  // }
-  // @include for-size(tablet) {
-  //   width: 768px;
-  //   padding-left: 34px;
-  //   padding-right: 34px;
-  // }
-  // @include for-size(desktop) {
-  //   width: 1280px;
-  //   padding-left: 114px;
-  //   padding-right: 114px;
-  // }
+  width: 100%;
+  margin: 0px auto;
+
+  @include for-size(mobile) {
+    width: 320px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @include for-size(tablet) {
+    width: 768px;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+  @include for-size(desktop) {
+    width: 1280px;
+    padding-left: 114px;
+    padding-right: 114px;
+  }
+}
+
+.list {
+  //   /* стили списков во всем документе*/
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  // /* стили к заголовкам */
+  margin: 0;
+}
+
+.text {
+  // /* стили к параграфам */
+  margin: 0;
+}
+
+.link {
+  //   /* стили к ссылкам во всем документе*/
+  text-decoration: none;
+  cursor: pointer;
+  /* стиль возможности сделать переходы (А-В-А) при ховере и фокусе (время-250ms, функция распределения времени-cubic-bezier(0.4, 0, 0.2, 1) */
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
