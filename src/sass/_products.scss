@@ -1,7 +1,7 @@
 @mixin for-size($range) {
   $mobile: 320px;
   $tablet: 768px;
-  $desktop: 1200px;
+  $desktop: 1050px;
 
   @if $range == mobile-only {
     @media (max-width: #{$mobile - 1}) {
@@ -20,6 +20,16 @@
       @content;
     }
   }
+}
+body {
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  /* outline: 2px solid red; */
+  box-sizing: border-box;
 }
 
 .products {
@@ -43,7 +53,7 @@
   }
 
   @include for-size(desktop) {
-    width: 1200px;
+    width: 1050px;
   }
 }
 
@@ -59,19 +69,27 @@
   line-height: 1.17;
 
   color: #ffa5ba;
+  @include for-size(tablet) {
+    font-size: 26px;
+    line-height: 1.15;
+  }
+  @include for-size(desktop) {
+    font-size: 30px;
+    line-height: 1.13;
+  }
 }
 
 .products__list {
   margin-left: auto;
   margin-right: auto;
 
-  width: 100%;
   padding-left: 0;
   margin: 0;
 
   @include for-size(tablet) {
     display: flex;
-    width: 220px;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -88,6 +106,16 @@
   letter-spacing: 0.04em;
 
   color: #d41443;
+
+  @include for-size(tablet) {
+    font-size: 48px;
+    line-height: 1.15;
+  }
+
+  @include for-size(desktop) {
+    font-size: 58px;
+    line-height: 1.14;
+  }
 }
 
 .products__item {
@@ -96,6 +124,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
   padding-top: 160px;
   padding-bottom: 40px;
   padding-left: 40px;
@@ -106,9 +135,16 @@
     margin-right: 20px;
     padding-left: 11px;
     padding-right: 11px;
+    margin-bottom: 0;
     &:last-child {
-        margin-right: 0;
+      margin-right: 0;
     }
+  }
+  @include for-size(desktop) {
+    width: 330px;
+    margin-right: 30px;
+    padding-left: 44px;
+    padding-right: 44px;
   }
   @media (max-width: 767px) {
     &:last-child {
@@ -147,6 +183,10 @@
   letter-spacing: 0.04em;
 
   color: #ffffff;
+  @include for-size(desktop) {
+    font-size: 30px;
+    line-height: 1.13;
+  }
 }
 
 .products__conteiner__icon {
@@ -159,7 +199,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  margin-left: 4px;
+  margin-right: 4px;
   &:last-child {
     margin-right: 0;
   }
@@ -180,6 +220,11 @@
   color: #ffffff;
   @include for-size(tablet) {
     width: 198px;
+    line-height: 1.78;
+  }
+  @include for-size(desktop) {
+    font-size: 16x;
+    line-height: 1.75;
   }
 }
 
