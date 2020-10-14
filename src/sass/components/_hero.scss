@@ -1,17 +1,27 @@
 .hero {
-  height: 502px;
+  @media screen and (max-width: 767px) {
+    height: 502px;
+  }
+
   background-color: $hero-bg-color;
   background-image: url('../images/mobile/hero-ice-cream.png'),
-    radial-gradient(circle, $accent-purple-color 70%, $hero-bg-color 70%);
+    radial-gradient(
+      circle at 50% 50%,
+      $accent-purple-color 70%,
+      $hero-bg-color 70%
+    );
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
     background-image: url('../images/mobile/hero-ice-cream@2x.png'),
       radial-gradient(circle, $accent-purple-color 70%, $hero-bg-color 70%);
   }
-  background-position: left 117px bottom 0, left 32px bottom 75px;
+  background-origin: content-box;
+  background-position: right 25% bottom 0;
+  //   background-position: left 117px bottom 0, left 32px bottom 75px;
   background-repeat: no-repeat;
-  background-size: 171px 410px, 346px 344px;
+  background-size: auto 81%, 346px 344px;
+  //   background-size: 171px 410px, 346px 344px;
   &__title {
     display: block;
     max-width: 218px;
@@ -68,6 +78,8 @@
     }
   }
   &__list {
+    margin-right: 10px;
+    text-align: right;
     @media screen and (max-width: 767px) {
       display: none;
     }
@@ -75,6 +87,27 @@
       color: $purple-text-color;
       font-family: $accent-font;
       @include font(400, 28px, 1.15, 0.04em);
+    }
+    & li + li {
+      margin-top: 23px;
+    }
+    & li {
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+    & li::after {
+      position: absolute;
+      display: block;
+      content: '';
+      top: -10px;
+      right: 0;
+      transform: translate(50%, 50%);
+      background-color: $white-color;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      z-index: -1;
     }
   }
   &__item {
@@ -88,7 +121,7 @@
   &__container {
     padding-top: 193px;
     @include for-size(tablet) {
-      padding-top: 94px;
+      padding-top: 96px;
       @include flexbox(space-between, flex-start);
     }
   }
@@ -96,5 +129,40 @@
 .bioeco {
   @media screen and (max-width: 767px) {
     display: none;
+  }
+  @include for-size(tablet) {
+    @include flexbox(flex-start, flex-start);
+    margin-top: 19px;
+  }
+  &__text {
+    margin: 0 0 0 -4px;
+    padding-top: 47px;
+    max-width: 114px;
+    font-family: $base-font;
+    @include font(400, 8px, 1.5, 0em);
+    color: $white-color;
+  }
+  &__link {
+    display: block;
+    margin: 7px auto 0 -4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-image: url('../images/tablet/hero-arrow-right.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/tablet/hero-arrow-right@2x.png');
+    }
+  }
+  &__image-left {
+    padding-bottom: 28px;
+  }
+  &__image-right {
+    margin: 0 0 0 auto;
+    padding-top: 21px;
   }
 }
