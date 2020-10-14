@@ -1,0 +1,232 @@
+@import '../utils/variables';
+@import '../utils/fonts';
+@import '../utils/placeholders';
+@import '../utils/mixins';
+
+.header {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: normal;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: block;
+  min-width: $width_mobile;
+  width: 100%;
+  /* height: 130px; */
+  background-color: $color_header_bg;
+}
+.header__container {
+  // position: relative;
+  @extend %container;
+  @include CenteredFlex($justify: space-between);
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  @include for-size(mobile) {
+    padding: 1rem 1.5rem;
+  }
+  @include for-size(tablet) {
+    padding: 1rem 35px;
+  }
+  @include for-size(desktop) {
+    padding-left: 35px;
+  }
+  // outline: 1px solid green;
+}
+.header__logo {
+  display: block;
+  min-width: 200px;
+  width: 200px;
+  height: 50px;
+  margin-right: 1rem;
+  /* background-color: pink; */
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  // outline: 1px solid red;
+}
+
+.header__menu {
+  opacity: 1;
+  visibility: visible;
+  // outline: 1px solid blue;
+  // color: red;
+  @include for-size(mobile-only) {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    height: 100vh;
+    padding: 35px;
+    background-color: $color_header_popup-menu_bg;
+  }
+  @include for-size(mobile) {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    height: 100vh;
+    padding: 35px;
+    padding-top: 60px;
+    background-color: $color_header_popup-menu_bg;
+  }
+  @include for-size(tablet) {
+    opacity: 1;
+    visibility: visible;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    height: 100vh;
+    padding: 35px;
+    padding-top: 60px;
+    background-color: $color_header_popup-menu_bg;
+  }
+  @include for-size(desktop) {
+    @include CenteredFlex();
+    margin-right: 110px;
+  }
+}
+.is-hidden--menu {
+  opacity: 0;
+  visibility: hidden;
+  @include for-size(desktop) {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.header__menu__link {
+  // outline: 1px solid blue;
+
+  display: block;
+  margin: 0px 0px 23px -11px;
+  &:last-child() {
+    margin-bottom: 0px;
+  }
+
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1.25;
+
+  @include for-size(mobile) {
+    @include CenteredFlex($justify: flex-start);
+    margin: 0px 0px 23px -11px;
+    &:last-child() {
+      margin-bottom: 0px;
+    }
+  }
+  @include for-size(tablet) {
+    @include CenteredFlex($justify: flex-start);
+    margin: 0px 0px 23px -11px;
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+  @include for-size(desktop) {
+    @include CenteredFlex();
+    margin: 0px;
+    margin-right: 35px;
+    &:last-child {
+      margin: 0px;
+      // background-color: #fff;
+    }
+  }
+  &,
+  &:visited {
+    color: $color_active-0;
+  }
+  &.current {
+    color: $color_active-1;
+  }
+  &:hover {
+    color: $color_active-1;
+  }
+}
+
+.header__burger-open {
+  width: 14px;
+  height: 14px;
+  padding: 0px;
+  @include CenteredFlex();
+  color: $color_active-1;
+  background-color: transparent;
+  outline: 0px solid $color_active-1;
+  border: none;
+  &:hover {
+    outline-width: 1px;
+  }
+  @include for-size(tablet) {
+    margin-right: 30px;
+  }
+  @include for-size(desktop) {
+    display: none;
+  }
+}
+.header__burger-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 14px;
+  height: 14px;
+  padding: 0px;
+  @include CenteredFlex();
+  color: $color_active-1;
+  background-color: transparent;
+  outline: 0px solid $color_active-1;
+  border: none;
+  &:hover {
+    outline-width: 1px;
+  }
+  @include for-size(desktop) {
+    display: none;
+  }
+}
+.header__btn {
+  display: none;
+  font-size: 16px;
+  line-height: 21px;
+  color: $color_active-1;
+  background-color: $color_button-light_bg;
+  &:hover {
+    background-color: $color_button-light_hover_bg;
+  }
+  @include for-size(tablet) {
+    @include CenteredFlex();
+    width: 160px;
+    height: 44px;
+    border-radius: 22px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  @include for-size(desktop) {
+    @include CenteredFlex();
+    width: 160px;
+    height: 44px;
+    border-radius: 22px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 1);
+  }
+}
+.header__btn--popup {
+  // display: none;
+  @include CenteredFlex();
+  width: 160px;
+  height: 44px;
+  border-radius: 22px;
+  overflow: hidden;
+  margin: 0px 0px 32px;
+  background-color: rgba(255, 255, 255, 1);
+
+  @include for-size(desktop) {
+    display: none;
+  }
+  &:hover {
+    background-color: #ecebeb;
+  }
+}
+
+.menu--icon {
+  width: 100%;
+  height: 100%;
+}
