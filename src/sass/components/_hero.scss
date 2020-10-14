@@ -16,24 +16,32 @@
     display: block;
     max-width: 218px;
     margin: 0;
-    padding-top: 193px;
+
     color: $white-color;
     font-family: $accent-font, sans-serif;
-    @include font(400, 26px, 1.15, 0.04);
+    @include font(400, 26px, 1.15, 0.04em);
     text-transform: uppercase;
+    @include for-size(tablet) {
+      max-width: 162px;
+      padding-top: 8px;
+      @include font(400, 22px, 1.14, 0.04em);
+    }
   }
   &__subtitle {
     display: block;
     color: $purple-text-color;
-    @include font(400, 48px, 0.97, 0.04);
+    @include font(400, 48px, 0.97, 0em);
+    @include for-size(tablet) {
+      @include font(400, 34px, 0.91, 0em);
+    }
   }
   &__links {
     display: flex;
     flex-wrap: wrap;
     margin: -4px;
-    padding-top: 19px;
+    margin-top: 15px;
     font-family: $base-font;
-    @include font(400, 8px, 1.3, 0);
+    @include font(400, 8px, 1.3, 0em);
 
     & li {
       margin: 4px;
@@ -59,13 +67,33 @@
       background-color: $hover-btn-two-color;
     }
   }
-}
-.bioeco {
-  @media screen and (max-width: 767px) {
-    display: none;
+  &__list {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+    @include for-size(tablet) {
+      color: $purple-text-color;
+      font-family: $accent-font;
+      @include font(400, 28px, 1.15, 0.04em);
+    }
+  }
+  &__item {
+    @include for-size(tablet) {
+      display: block;
+      color: $white-color;
+      font-family: $base-font;
+      @include font(400, 8px, 1.3, 0em);
+    }
+  }
+  &__container {
+    padding-top: 193px;
+    @include for-size(tablet) {
+      padding-top: 94px;
+      @include flexbox(space-between, flex-start);
+    }
   }
 }
-.cafe {
+.bioeco {
   @media screen and (max-width: 767px) {
     display: none;
   }
