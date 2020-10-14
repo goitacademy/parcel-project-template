@@ -1,0 +1,65 @@
+.menu {
+  @include container(flex, flex-start, center);
+
+  @include for-size(mobile) {
+    height: 502px;
+    width: 250px;
+  }
+  @include for-size(mobile-plus) {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 23px;
+    z-index: 5;
+    transition: 1s linear;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 1px 3px rgba(0, 0, 0, 0.16);
+    background-color: $burger-bcg;
+    text-align: left;
+
+    &.is-open {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @include for-size(tablet) {
+    height: 1020px;
+    width: 254px;
+  }
+
+  &__icons {
+    width: 14px;
+    height: 14px;
+  }
+
+  &__container {
+    @include container(flex, flex-end, center);
+
+    @include for-size(mobile) {
+      width: 222px;
+      margin-right: 28px;
+    }
+    @include for-size(tablet) {
+      width: 220px;
+      margin-right: 34px;
+    }
+    @include for-size(desktop) {
+      display: none;
+    }
+  }
+
+  &__button {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+
+    border: none;
+    background-color: transparent;
+    outline: none;
+
+    @include for-size(desktop) {
+      display: none;
+    }
+  }
+}
