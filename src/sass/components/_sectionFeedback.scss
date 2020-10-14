@@ -33,7 +33,21 @@
 
   margin-top: 29px;
   margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 43px 66px 26px 57px;
+
+  @include for-size(tablet) {
+    width: 620px;
+    height: 164px;
+    padding: 47px 80px 34px 80px;
+  }
+
+  @include for-size(desktop) {
+    width: 926px;
+    height: 138px;
+    padding: 47px 89px 39px 87px;
+  }
 }
 
 .feedback__name {
@@ -48,16 +62,58 @@
 }
 
 .feedback__text {
+  position: relative;
+
+  margin: 0;
+
   font-family: DMSans;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 2.55;
+
+  z-index: 1;
+
+  @include for-size(tablet) {
+    font-family: DMSans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 2.16;
+  }
+}
+
+.gradient {
+  position: absolute;
+  top: 38px;
+  left: 50px;
+  display: inline-block;
+  width: 180px;
+  height: 250px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 30px,
+    #e1e1e1 1px,
+    #e1e1e1 31px
+  );
+
+  @include for-size(tablet) {
+    top: 45px;
+    left: 50px;
+    width: 524px;
+    height: 100px;
+  }
+
+  @include for-size(desktop) {
+    width: 813px;
+    height: 80px;
+  }
 }
 
 .icon-skavichki {
   position: absolute;
-  top: 32px;
+  top: 28px;
   left: 61px;
   z-index: 0;
 }
