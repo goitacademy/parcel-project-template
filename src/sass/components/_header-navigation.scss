@@ -1,3 +1,40 @@
-.header__menu-container {
-  position: absolute;
+@include for-size(tablet-only) {
+  .header__menu-container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+.site-nav {
+  @extend %list;
+
+  &__link {
+    @extend %link;
+  }
+}
+
+.buynow-extra-menu {
+
+  @include flexbox(space-between, center, nowrap);
+  color: $color-accent-text;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+
+  background: $color-white-text;
+  border-radius: 22px;
+  border: none;
+  padding-left: 48px;
+  padding-right: 48px;
+
+  @include for-size(desktop) {
+    display: none;
+  }
+
+  &::after {
+    content: '';
+    width: 5px;
+    height: 8px;
+    background-image: url(../images/header-hero/mobile/original/icons/menu-vector-arrow.svg);
+  }
 }
