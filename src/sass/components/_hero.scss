@@ -1,7 +1,17 @@
 .hero {
   height: 502px;
   background-color: $hero-bg-color;
-
+  background-image: url('../images/mobile/hero-ice-cream.png'),
+    radial-gradient(circle, $accent-purple-color 70%, $hero-bg-color 70%);
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url('../images/mobile/hero-ice-cream@2x.png'),
+      radial-gradient(circle, $accent-purple-color 70%, $hero-bg-color 70%);
+  }
+  background-position: left 117px bottom 0, left 32px bottom 75px;
+  background-repeat: no-repeat;
+  background-size: 171px 410px, 346px 344px;
   &__title {
     display: block;
     max-width: 218px;
@@ -34,7 +44,8 @@
     background-color: $purple-text-color;
     transition: background-color $animation-time $animation-function;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $hover-btn-one-color;
     }
   }
@@ -43,14 +54,19 @@
     background-color: $white-color;
     transition: background-color $animation-time $animation-function;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $hover-btn-two-color;
     }
   }
 }
 .bioeco {
-  display: none;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 }
 .cafe {
-  display: none;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 }
