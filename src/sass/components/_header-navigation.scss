@@ -1,72 +1,35 @@
-@include for-size(tablet-only) {
-  .header__menu-container {
-    padding: 60px 24px;
-
-    filter: drop-shadow(-8px 0px 20px rgba(0, 0, 0, 0.25));
-
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 250px;
-    transform: translatex(100%);
-    opacity: 0;
-    background-color: $color-bcg-menu;
-    transition: 0.5s ease-in-out;
-
-    @include for-size(tablet) {
-      width: 33%;
-    }
-
-    &.is-open {
-      opacity: 1;
-      transform: translatey(0%);
-    }
-  }
-}
-
-@include for-size(tablet) {
-  .header__menu-container {
-    display: flex;
-    align-items: center;
-  }
-}
-
-// ====================================
-// ====================================
-// ====================================
-// ====================================
-
 .site-nav {
   @extend %list;
+  // width: 100%;
 
   &__link {
     @extend %link;
-  }
-}
+    color: $color-white-text;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.29;
 
-.buynow-extra-menu {
-  @include flexbox(space-between, center, nowrap);
-  color: $color-accent-text;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.31;
+    display: block;
+    margin-top: 11px;
+    margin-bottom: 11px;
 
-  background: $color-white-text;
-  border-radius: 22px;
-  border: none;
-  padding-left: 48px;
-  padding-right: 48px;
-
-  @include for-size(desktop) {
-    display: none;
+    &:hover,
+    &:focus {
+      color: $color-bcg-btn;
+    }
   }
 
-  &::after {
-    content: '';
-    width: 5px;
-    height: 8px;
-    background-image: url('../images/arrow.svg');
-    // stroke: $color-accent-text;
-    fill: $color-accent-text;
+  &__item {
+    padding-left: 20px;
+    border-top: 1px solid $color-menu-borders;
+    width: 100%;
+
+    @include for-size(tablet) {
+      padding-left: 24px;
+    }
+  }
+
+  &__item:last-child {
+    border-bottom: 1px solid $color-menu-borders;
   }
 }
