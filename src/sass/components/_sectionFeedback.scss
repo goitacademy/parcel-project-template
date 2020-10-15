@@ -1,6 +1,14 @@
 .feedback {
-  padding-top: 80px;
+  padding-top: 154px;
   padding-bottom: 86px;
+
+  @include for-size(tablet) {
+    padding-top: 280px;
+  }
+
+  @include for-size(desktop) {
+    padding-top: 382px;
+  }
 }
 
 .feedback-box {
@@ -33,33 +41,110 @@
 
   margin-top: 29px;
   margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 43px 66px 26px 57px;
+
+  @include for-size(tablet) {
+    width: 620px;
+    height: 164px;
+    padding: 47px 80px 34px 80px;
+    margin-bottom: 24px;
+  }
+
+  @include for-size(desktop) {
+    width: 926px;
+    height: 138px;
+    padding: 47px 89px 39px 87px;
+    margin-bottom: 15px;
+  }
 }
 
 .feedback__name {
   margin-top: 18px;
   margin-bottom: 30px;
 
-  font-family: DMSans;
-  font-style: 400;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.86;
+  @include font(500, 14px, 1.86, $primary-font, $primary-let-spacing);
+
+  @include for-size(tablet) {
+    margin-top: 14px;
+    margin-bottom: 35px;
+
+    @include font(500, 16px, 1.86, $primary-font, $primary-let-spacing);
+  }
+
+  @include for-size(desktop) {
+    margin-top: 15px;
+
+    @include font(500, 20px, 1.86, $primary-font, $primary-let-spacing);
+  }
 }
 
 .feedback__text {
   position: relative;
-  font-family: DMSans;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 2.55;
   z-index: 1;
+  margin: 0;
+
+  @include font(500, 12px, 2.55, $primary-font, 0);
+
+  @include for-size(tablet) {
+    @include font(500, 14px, 2.16 $primary-font, $primary-let-spacing);
+  }
+
+  @include for-size(desktop) {
+    @include font(500, 16px, 1.86, $primary-font, $primary-let-spacing);
+  }
+}
+
+.gradient {
+  position: absolute;
+  top: 38px;
+  left: 50px;
+  display: inline-block;
+  width: 180px;
+  height: 250px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 29px,
+    #e1e1e1 1px,
+    #e1e1e1 30px
+  );
+
+  @include for-size(tablet) {
+    top: 46px;
+    left: 50px;
+    width: 524px;
+    height: 100px;
+
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 32px,
+      #e1e1e1 1px,
+      #e1e1e1 33px
+    );
+  }
+
+  @include for-size(desktop) {
+    width: 813px;
+    height: 80px;
+  }
 }
 
 .icon-skavichki {
   position: absolute;
-  top: 32px;
-  left: 61px;
+  top: 25px;
+  left: 60px;
   z-index: 0;
+
+  @include for-size(tablet) {
+    top: 33px;
+    left: 38px;
+  }
+
+  @include for-size(desktop) {
+    top: 33px;
+    left: 50px;
+  }
 }
