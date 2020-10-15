@@ -1,0 +1,133 @@
+.header {
+  @include container(flex, flex-start, center);
+  padding-top: 37px;
+  background-color: $hero-bcg;
+
+  @include for-size(mobile) {
+    padding-top: 6px;
+  }
+
+  &__logo {
+    @include container(flex, flex-start, flex-end);
+    margin-right: auto;
+
+    @include for-size(desktop) {
+      margin-right: 0;
+      margin-left: -15px;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    @include container(flex, flex-start, flex-start);
+    flex-direction: column;
+    list-style: none;
+
+    @include for-size(desktop) {
+      @include container(flex, flex-start, center);
+      width: 541px;
+      margin-right: 110px;
+      margin-left: 110px;
+      flex-direction: row;
+    }
+  }
+
+  &__item {
+    @include container(flex, flex-start, center);
+    height: 42px;
+    color: $white;
+
+    &:nth-child(2n + 1) {
+      border: 1px solid #e18298;
+    }
+
+    @include for-size(mobile) {
+      width: 250px;
+      padding-left: 21px;
+    }
+
+    @include for-size(tablet) {
+      width: 254px;
+      padding-left: 24px;
+    }
+
+    @include for-size(desktop) {
+      &:nth-child(2n + 1) {
+        border: none;
+      }
+
+      &:not(:last-child) {
+        margin-right: 35px;
+      }
+    }
+  }
+
+  &__link {
+    @include font('DM Sans', normal, bold, 14px, 18px, 0.02em);
+    color: $white;
+    text-decoration: none;
+
+    &:hover {
+      color: $red;
+      transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+  &__actual-link {
+    color: $red;
+  }
+
+  &__button {
+    @include container(flex, center, center);
+    height: 44px;
+
+    @include font('DM Sans', normal, bold, 16px, 21px, 0);
+    color: $red;
+    border: none;
+    border-radius: 22px;
+    background-color: $white;
+    outline: none;
+
+    &:hover {
+      background-color: $button-bcg;
+    }
+  }
+
+  &__inside {
+    display: flex;
+    margin-bottom: 32px;
+    margin-top: 23px;
+
+    @include for-size(mobile) {
+      width: 209px;
+      margin-left: 21px;
+      margin-right: 20px;
+    }
+
+    @include for-size(tablet) {
+      width: 186px;
+      margin-left: 34px;
+      margin-right: 34px;
+    }
+
+    @include for-size(desktop) {
+      display: none;
+    }
+  }
+
+  &__outside {
+    width: 160px;
+    display: flex;
+    margin-left: 0;
+    @include for-size(mobile) {
+      display: none;
+    }
+    @include for-size(tablet) {
+      margin-left: 29px;
+    }
+  }
+  &__button-icon {
+    margin-left: 12px;
+    width: 10px;
+    height: 10px;
+  }
+}
