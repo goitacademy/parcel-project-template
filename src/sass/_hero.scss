@@ -1,0 +1,328 @@
+@mixin for-size($range) {
+  $mobile: 320px;
+  $tablet: 768px;
+  $desktop: 1090px;
+
+  @if $range == mobile {
+    @media (min-width: $mobile) {
+      @content;
+    }
+  } @else if $range == tablet-only {
+    @media (max-width: #{$tablet - 1}) {
+      @content;
+    }
+  } @else if $range == tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if $range == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+}
+
+.hero-content-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.hero__left-side {
+  @include for-size(tablet) {
+    margin-bottom: 66px;
+    padding-top: 8px;
+  }
+  @include for-size(desktop) {
+    margin-bottom: 112px;
+    padding-top: 15px;
+  }
+}
+.hero {
+  padding-top: 193px;
+  padding-bottom: 169px;
+  background-color: #ffb8ca;
+  @include for-size(tablet) {
+    padding-top: 95px;
+    padding-bottom: 31px;
+  }
+  @include for-size(desktop) {
+    padding-top: 156px;
+    padding-bottom: 56px;
+  }
+}
+
+.overlay {
+  max-width: 768px;
+  height: 502px;
+
+  background-image: url('../images/hero/mobile/ice-cream.png'),
+    url('../images/hero/Pink-Ellipse.svg');
+  background-repeat: no-repeat;
+  background-size: 171px, 346px;
+  background-position: right 32px bottom 0, right -62px bottom 75px;
+
+  @include for-size(tablet) {
+    max-width: 1200px;
+    height: 399px;
+    padding-top: 95px;
+    padding-bottom: 31px;
+    margin-right: auto;
+    margin-left: auto;
+
+    background-image: url('../images/hero/tablet/ice-cream.png'),
+      url('../images/hero/tablet/so-tasty.png'),
+      url('../images/hero/Pink-Ellipse.svg'),
+      url('../images/hero/tablet/milk.png');
+    background-size: 143px, 168px, 324px, 124px;
+    background-position: right 248px bottom 0, right 35px bottom 0,
+      right 138px top 34px, left 33px bottom 25px;
+  }
+
+  @include for-size(desktop) {
+    max-width: 1600px;
+    height: 665px;
+    padding-top: 156px;
+    padding-bottom: 56px;
+    background-image: url('../images/hero/desktop/ice-cream.png'),
+      url('../images/hero/desktop/so-tasty.png'),
+      url('../images/hero/Pink-Ellipse.svg'),
+      url('../images/hero/desktop/milk.png');
+    background-size: 236px, 293px, 538px, 188px;
+    background-position: right 450px bottom 0, right 109px bottom 0,
+      right 267px bottom 75px, left 77px bottom 25px;
+  }
+}
+
+.hero__title {
+  max-width: 218px;
+  margin-bottom: 19px;
+  font-family: Titan One;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.154;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-transform: uppercase;
+
+  @include for-size(tablet) {
+    max-width: 162px;
+    margin-bottom: 19px;
+    font-size: 22px;
+    line-height: 1.136;
+  }
+
+  @include for-size(desktop) {
+    max-width: 277px;
+    margin-bottom: 25px;
+    font-size: 38px;
+    line-height: 1.158;
+  }
+}
+
+.hero__title-text {
+  font-size: 48px;
+  line-height: 96.5%;
+  letter-spacing: 0.04em;
+  color: #d41443;
+
+  @include for-size(tablet) {
+    font-size: 34px;
+    line-height: 90.5%;
+  }
+
+  @include for-size(desktop) {
+    font-size: 58px;
+  }
+}
+
+.hero-anchors {
+  display: inline-flex;
+}
+
+.hero-anchors__item {
+  &:not(:last-child) {
+    margin-right: 8px;
+    @include for-size(desktop) {
+      margin-right: 15px;
+    }
+  }
+}
+
+.hero__link {
+  display: inline-block;
+  padding: 9px 14px;
+
+  font-family: DM Sans;
+  font-size: 8px;
+  line-height: 1.25;
+  color: #fff;
+  text-decoration: none;
+
+  background-color: #d41443;
+  border-radius: 20px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: #c7133e;
+  }
+
+  @include for-size(desktop) {
+    padding: 15px 25px 15px 23px;
+    font-size: 14px;
+    line-height: 1.286;
+  }
+
+  &--white {
+    background-color: #fff;
+    color: #d41443;
+
+    &:hover,
+    &:focus {
+      background-color: #ecebeb;
+    }
+    @include for-size(desktop) {
+      padding: 15px 21px;
+    }
+  }
+}
+.hero-description {
+  @include for-size(tablet-only) {
+    display: none;
+  }
+  margin-left: 120px;
+
+  @include for-size(desktop) {
+    margin-left: 180px;
+  }
+}
+
+.hero-description__text {
+  width: 114px;
+  height: 48px;
+  margin-bottom: 7px;
+  font-family: DM Sans;
+  font-size: 8px;
+  line-height: 1.5;
+  color: #ffffff;
+
+  overflow: hidden;
+  @include for-size(desktop) {
+    width: 200px;
+    height: 78px;
+
+    font-size: 14px;
+    line-height: 1.429;
+    margin-bottom: 20px;
+  }
+}
+
+.hero-description-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus,
+  &:hover {
+    background-color: #d41443;
+  }
+
+  @include for-size(tablet-only) {
+    display: none;
+  }
+  @include for-size(desktop) {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.hero-description-icon {
+  width: 5px;
+  height: 5px;
+  fill: #d41443;
+  transition: fill 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  .hero-description-link:focus &,
+  .hero-description-link:hover & {
+    fill: #fff;
+    transform: scale(2);
+  }
+  @include for-size(desktop) {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+.hero-institution {
+  @include for-size(tablet-only) {
+    display: none;
+  }
+}
+
+.hero-institution__item {
+  padding-top: 2px;
+  text-align: center;
+  background-image: url('../images/hero/White-Ellipse.svg');
+  background-repeat: no-repeat;
+  background-size: 16px;
+  background-position: right 0 top 0;
+
+  @include for-size(desktop) {
+    padding-top: 4px;
+    background-size: 30px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 13px;
+    @include for-size(desktop) {
+      margin-bottom: 15px;
+    }
+  }
+  &:nth-child(odd) .hero-institution-name {
+    padding-left: 13px;
+    padding-right: 10px;
+    @include for-size(desktop) {
+      padding-left: 19px;
+      padding-right: 18px;
+    }
+  }
+
+  &:nth-child(even) .hero-institution-name {
+    padding-right: 8px;
+    @include for-size(desktop) {
+      padding-right: 18px;
+    }
+  }
+}
+
+.hero-institution-number {
+  margin: 0;
+  font-family: Titan One;
+  font-size: 28px;
+  line-height: 1.143;
+  color: #d41443;
+  @include for-size(desktop) {
+    font-size: 46px;
+    line-height: 1.152;
+  }
+}
+
+.hero-institution-name {
+  margin: 0;
+  font-family: DM Sans;
+  font-size: 8px;
+  line-height: 1.25;
+  color: #ffffff;
+  @include for-size(desktop) {
+    font-size: 14px;
+    line-height: 1.286;
+  }
+}
