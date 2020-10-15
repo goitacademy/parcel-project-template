@@ -1,48 +1,65 @@
 .conteiner-cities {
-  padding: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-right: auto;
+  margin-left: auto;
+
+  padding-top: 50px;
+
   margin: 0;
   background-color: $light-pink-background-color;
-  //position: absolute;
-  //top: 84px;
-}
+  position: absolute;
 
-.cities {
-  width: 100%;
-  //position: relative;
-  //top: 0;
+  top: 200px;
 
-  //   @media screen and (max-width: 479px) {
-  //     width: 320px;
-  //   }
-  //   @media screen and (min-width: 480px) {
-  //     width: 480px;
-  //   }
-  //   @media screen and (min-width: 768px) {
-  //     width: 768px;
-  //   }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 50px 30px;
+  }
 
-  //   @media screen and (min-width: 1200px) {
-  //     width: 1200px;
-  //   }
-}
-
-// .card-item {
-//   z-index: 3;
-// }
-
-.cities-item {
-  background-color: $base-white-color;
-  padding: 43px 20px;
-  border-radius: 24px;
-  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
-
-  @media screen and (min-width: 480px) {
-    width: 480px;
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+    padding: 55px 43px;
   }
 }
 
-.cities-item:not(:last-child) {
+.cities {
+  position: relative;
+  margin-top: -200px;
+  margin-bottom: 104px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    //margin: -10px;
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin: -15px;
+  }
+}
+
+.cities-item {
+  width: 100%;
+  background-color: $base-white-color;
+  padding: 43px 20px;
   margin-bottom: 30px;
+
+  border-radius: 24px;
+  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 20px * 3) / 3);
+
+    margin: 10px;
+    padding: 50px 30px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: calc((100% - 30px * 3) / 3);
+    margin: 15px;
+  }
 }
 
 .card-item__city {
@@ -53,11 +70,9 @@
 .cities-text {
   background-color: $sand-background-color;
   color: $base-white-color;
-  display: block;
   border-radius: 4px;
   text-align: center;
   width: 80px;
-  height: 16px;
 }
 
 .cities-text-green {
@@ -67,7 +82,6 @@
   border-radius: 4px;
   text-align: center;
   width: 130px;
-  height: 16px;
 }
 
 .card-item__text {
@@ -112,8 +126,15 @@
 }
 
 .button {
-  margin-top: 54px;
-  padding-left: 30px;
+  align-items: center;
+  margin-top: -54px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+  }
 }
 
 button {
@@ -127,26 +148,31 @@ button {
   height: 44px;
   border-radius: 22px;
   border: none;
-}
-
-.button-red {
-  background-color: $dark-pink-text-color;
-  color: $base-white-color;
+  border: 2px solid #d41443;
+  outline: none;
 }
 
 .button-white {
-  background-color: $base-white-color;
-  color: $dark-pink-text-color;
-}
+  display: block;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  color: #d41443;
+  fill: #d41443;
+  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
 
-.button-red:focus,
-.button-red:hover {
-  color: $dark-pink-text-color;
-  background-color: $base-white-color;
+  @media screen and (min-width: 768px) {
+    margin: 0;
+    margin-right: 15px;
+  }
 }
 
 .button-white:focus,
 .button-white:hover {
-  color: $base-white-color;
-  background-color: $dark-pink-text-color;
+  color: #fff;
+  fill: #fff;
+  background-color: #d41443;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
