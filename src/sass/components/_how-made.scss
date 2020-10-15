@@ -3,12 +3,30 @@
   padding-top: 125px;
   padding-bottom: 145px;
   background-color: $secondary-bg-color;
-  // background-image: url('./images/mobile/bg-milk.png');
+  background-image: url('../images/mobile/bg-milk.png');
+  background-position: center 750px;
+  background-repeat: no-repeat;
 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
-    // background-image: url('./images/mobile/bg-milk@2x.png');
+    background-image: url('../images/mobile/bg-milk@2x.png');
+  }
+
+  @include for-size(tablet) {
+    background-image: none;
+  }
+
+  @include for-size(desktop) {
+    background-image: url('../images/desktop/bg-milk.png');
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/desktop/bg-milk@2x.png');
+    }
   }
 
   @include for-size(tablet) {
@@ -23,6 +41,7 @@
 }
 
 .making__subtitle {
+  margin-top: 0;
   margin-bottom: 15px;
   @include font(400, 18px, 1.17, $title-font);
   text-align: center;
@@ -41,6 +60,7 @@
 }
 
 .making__title {
+  margin-top: 0;
   margin-bottom: 26px;
   @include font(400, 34px, 1.15, $title-font);
   text-align: center;
@@ -78,7 +98,7 @@
   margin-bottom: 39px;
 
   @include for-size(tablet) {
-    @include flexbox();
+    @include flexbox(center, stretch);
     margin-bottom: 66px;
   }
 
@@ -87,6 +107,9 @@
   }
 }
 .making__wrapper-text {
+  @media screen and (max-width: 767px) {
+    max-width: 220px;
+  }
   @include for-size(tablet) {
     flex-basis: calc((100% - 17px) / 2);
   }
@@ -102,6 +125,7 @@
   margin-bottom: 30px;
 
   @include for-size(tablet) {
+    padding-top: 35px;
     @include font(500, 14px, 1.76);
     margin-bottom: 50px;
   }
@@ -253,4 +277,16 @@
 
 .collage-img {
   position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 60%);
+  width: 320px;
+
+  @include for-size(tablet) {
+    width: 786px;
+  }
+
+  @include for-size(desktop) {
+    width: 1280px;
+  }
 }
