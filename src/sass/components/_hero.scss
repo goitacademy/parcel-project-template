@@ -23,8 +23,8 @@
     }
   }
   @include for-size(desktop) {
-    background-size: 324px;
-    background-position: left 538px bottom 0;
+    background-size: 538px;
+    background-position: left 475px bottom 0;
     background-image: url('../images/desktop/hero-ice-cream.png');
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
@@ -46,13 +46,21 @@
       padding-top: 8px;
       @include font(400, 22px, 1.14, 0.04em);
     }
+    @include for-size(desktop) {
+      max-width: 277px;
+      padding-top: 15px;
+      @include font(400, 38px, 1.14, 0.04em);
+    }
   }
   &__subtitle {
     display: block;
     color: $purple-text-color;
     @include font(400, 48px, 0.97, 0em);
     @include for-size(tablet) {
-      @include font(400, 34px, 0.91, 0em);
+      @include font(400, 34px, 0.9, 0em);
+    }
+    @include for-size(desktop) {
+      @include font(400, 58px, 0.9, 0em);
     }
   }
   &__links {
@@ -62,9 +70,17 @@
     margin-top: 15px;
     font-family: $base-font;
     @include font(400, 8px, 1.3, 0em);
+    @include for-size(desktop) {
+      margin: -7px;
+      margin-top: 18px;
+      @include font(400, 14px, 1.28, 0em);
+    }
 
     & li {
       margin: 4px;
+      @include for-size(desktop) {
+        margin: 7px;
+      }
     }
   }
   &__products {
@@ -98,8 +114,15 @@
       font-family: $accent-font;
       @include font(400, 28px, 1.15, 0.04em);
     }
+    @include for-size(desktop) {
+      margin-right: 0;
+      @include font(400, 46px, 1.15, 0.04em);
+    }
     & li + li {
       margin-top: 23px;
+      @include for-size(desktop) {
+        margin-top: 18px;
+      }
     }
     & li {
       display: block;
@@ -110,14 +133,21 @@
       position: absolute;
       display: block;
       content: '';
-      top: -10px;
-      right: 0;
-      transform: translate(50%, 50%);
+      top: -2px;
+      right: -10px;
+      // transform: translate(50%, 50%);
       background-color: $white-color;
       width: 16px;
       height: 16px;
       border-radius: 50%;
       z-index: -1;
+      @include for-size(desktop) {
+        width: 30px;
+        height: 30px;
+        top: -4px;
+        right: -18px;
+        transform: translate(0, 0);
+      }
     }
   }
   &__item {
@@ -126,6 +156,9 @@
       color: $white-color;
       font-family: $base-font;
       @include font(400, 8px, 1.3, 0em);
+    }
+    @include for-size(desktop) {
+      @include font(400, 14px, 1.28, 0em);
     }
   }
   &__container {
@@ -136,7 +169,11 @@
     }
 
     @include for-size(tablet) {
-      padding-top: 96px;
+      padding-top: 94px;
+      @include flexbox(space-between, flex-start);
+    }
+    @include for-size(desktop) {
+      padding-top: 156px;
       @include flexbox(space-between, flex-start);
     }
   }
@@ -149,6 +186,9 @@
     @include flexbox(flex-start, flex-start);
     margin-top: 19px;
   }
+  @include for-size(desktop) {
+    margin-top: 56px;
+  }
   &__text {
     margin: 0 0 0 -4px;
     padding-top: 47px;
@@ -156,6 +196,12 @@
     font-family: $base-font;
     @include font(400, 8px, 1.5, 0em);
     color: $white-color;
+    @include for-size(desktop) {
+      max-width: 200px;
+      padding-top: 56px;
+      margin-left: 30px;
+      @include font(400, 14px, 1.4, 0em);
+    }
   }
   &__link {
     display: block;
@@ -172,12 +218,31 @@
       screen and (min-resolution: 2dppx) {
       background-image: url('../images/tablet/hero-arrow-right@2x.png');
     }
+    @include for-size(desktop) {
+      width: 26px;
+      height: 26px;
+      margin: 20px auto 0 30px;
+      background-image: url('../images/desktop/hero-arrow-right.png');
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url('../images/desktop/hero-arrow-right@2x.png');
+      }
+    }
   }
   &__image-left {
     padding-bottom: 28px;
+    @include for-size(desktop) {
+      padding-bottom: 45px;
+      margin-left: -38px;
+    }
   }
   &__image-right {
     margin: 0 0 0 auto;
     padding-top: 21px;
+    @include for-size(desktop) {
+      margin-right: -6px;
+      padding-top: 4px;
+    }
   }
 }
