@@ -1,0 +1,282 @@
+// по умолчанию стили для мобилок
+.ice-locations {
+  background: linear-gradient($white-color 84px, $section-bg-secondary 0 100%);
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    background: linear-gradient(
+      $white-color 78px,
+      $section-bg-secondary 0 100%
+    );
+  }
+
+  @media screen and (min-width: 1280px) {
+    background: linear-gradient(
+      $white-color 102px,
+      $section-bg-secondary 0 100%
+    );
+  }
+
+  &--background {
+    @media screen and (min-width: 1280px) {
+      background-image: url(../images/desktop/location-bg.png);
+      background-position: 0px center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.location {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: $font-family;
+  letter-spacing: 0.04em;
+  margin-bottom: 54px;
+
+  &__card {
+    width: 280px;
+    margin-bottom: 20px;
+    padding: 43px 20px;
+    font-size: 12px;
+    background: #ffffff;
+    box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+    border-radius: 24px;
+  }
+
+  &__card:last-child {
+    margin-bottom: 0;
+  }
+
+  &__card__title--cafe,
+  &__card__title--foodtrack {
+    display: inline-block;
+    padding: 0 25px;
+    margin-bottom: 25px;
+    color: $white-color;
+    background-color: $product-card-primary;
+    border-radius: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 1.8;
+  }
+
+  &__card__title--foodtrack {
+    background-color: $product-card-secondary;
+  }
+
+  &__card__subtitle {
+    color: $black-color;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  &__card__text {
+    color: $primary-text-color;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid $slider-quotes;
+  }
+
+  &__card__time__item__days {
+    color: $black-color;
+    line-height: 1.8;
+  }
+
+  &__card__time__item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &__card__time__item__hours {
+    color: $subtitle-color;
+    line-height: 1.8;
+  }
+
+  &__card__time {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid $slider-quotes;
+  }
+
+  &__contacts__link {
+    color: #907e82;
+    line-height: 1.5;
+  }
+}
+
+// стили для таблета
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .location {
+    flex-wrap: nowrap;
+    margin-bottom: 81px;
+
+    &__card {
+      width: calc((100% - 40px) / 3);
+      margin-right: 20px;
+      margin-bottom: 0;
+      padding: 50px 31px;
+      font-size: 14px;
+    }
+
+    &__card:last-child {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+
+    &__card__title--cafe,
+    &__card__title--foodtrack {
+      margin-bottom: 30px;
+    }
+
+    &__card__subtitle,
+    &__card__subtitle {
+      margin-bottom: 14px;
+    }
+
+    &__card__text {
+      line-height: 1.6;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+    }
+
+    &__card__time__item:not(:last-child) {
+      margin-bottom: 16px;
+    }
+
+    &__card__time {
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+// стили для десктопа
+@media screen and (min-width: 1280px) {
+  .location {
+    margin-bottom: 86px;
+  }
+
+  .location__card {
+    width: calc((100% - 60px) / 3);
+    margin-right: 30px;
+    margin-bottom: 0;
+    padding: 51px 43px 62px;
+    font-size: 16px;
+
+    &:last-child {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+
+    &__title--cafe,
+    &__title--foodtrack {
+      margin-bottom: 32px;
+    }
+
+    &__subtitle,
+    &__subtitle {
+      margin-bottom: 10px;
+    }
+
+    &__card__text {
+      line-height: 1.8;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+    }
+
+    &__time__item:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    &__time {
+      padding-bottom: 32px;
+      margin-bottom: 32px;
+    }
+  }
+
+  .location__contacts__link {
+    color: #907e82;
+    line-height: 1.8;
+  }
+}
+
+// Разметка кнопок
+
+.btns-list {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    margin-left: auto;
+    margin-right: auto;
+    width: 162px;
+    padding: 12px 0 12px;
+    margin-bottom: 10px;
+    border-radius: 22px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    @media screen and (min-width: 768px) {
+      min-width: 192px;
+      margin: 0 15px 0 0;
+      &:last-child {
+        margin: 0;
+      }
+      @media screen and (min-width: 1280px) {
+        min-width: 198px;
+      }
+    }
+  }
+
+  &__item--red {
+    background-color: $secondary-accent-color;
+  }
+  &__item--white {
+    background-color: $white-color;
+    transition: background-color $transition-duration $timing-function;
+  }
+
+  &__item--white:hover,
+  &__item--white:focus {
+    background-color: $secondary-button-color;
+  }
+
+  &__link {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.31;
+  }
+
+  &__link--white {
+    color: $white-color;
+  }
+
+  &__link--white::after {
+    display: inline-block;
+    content: '';
+    width: 7px;
+    height: 10px;
+    background-image: url(../images/icons/vector-white.png);
+    background-repeat: no-repeat;
+    margin-left: 13px;
+  }
+
+  &__link--red {
+    color: $secondary-accent-color;
+  }
+
+  &__link--red::after {
+    display: inline-block;
+    content: '';
+    width: 7px;
+    height: 10px;
+    background-image: url(../images/icons/Vector-pink.png);
+    background-repeat: no-repeat;
+    margin-left: 13px;
+  }
+}
