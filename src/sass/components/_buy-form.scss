@@ -1,0 +1,196 @@
+// Форма для модального окна
+
+.buy-form {
+  width: 100%;
+  padding: 40px;
+}
+
+// Тайтл для всей формы
+
+.buy__title {
+  @extend %title;
+
+  display: block;
+
+  margin-bottom: 12px;
+
+  text-align: center;
+}
+
+// Обёртка для элемента формы
+
+.buy__group {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 10px;
+
+  &:focus-within {
+    color: $primary-accent-color;
+  }
+}
+
+// Лейбл для поля ввода
+
+.buy__label {
+  margin-bottom: 4px;
+}
+
+// Обёртка для инпута и иконки
+
+.buy__area {
+  position: relative;
+}
+
+// Инпут для поля
+
+.buy__input {
+  width: 100%;
+  padding: 11px 11px 11px 42px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  transition: all $transition-duration $timing-function;
+
+  cursor: pointer;
+
+  &:focus {
+    outline: transparent;
+    border: 1px solid $primary-accent-color;
+  }
+
+  &:not(:placeholder-shown):focus:valid {
+    color: green;
+    border-color: green;
+  }
+
+  &:not(:placeholder-shown):focus:invalid {
+    color: red;
+    border-color: red;
+  }
+}
+
+// Иконка внутри поля
+
+.buy__icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+
+  width: 18px;
+  height: 18px;
+
+  transform: translateY(-50%);
+
+  // transition: fill $transition-duration $timing-function;
+
+  // .callback__area:focus-within & {
+  //   fill: $primary-accent-color;
+  // }
+}
+
+// Обёртка-лейбл для поля комментария
+
+.buy__commit {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+
+  &:focus-within {
+    color: $primary-accent-color;
+  }
+}
+
+// Поле ввода для поля комментария
+
+.buy__textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  transition: all $transition-duration $timing-function;
+
+  resize: none;
+
+  cursor: pointer;
+
+  &::placeholder {
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+
+    color: rgba(117, 117, 117, 0.5);
+  }
+
+  &:focus {
+    outline: transparent;
+    border: 1px solid $primary-accent-color;
+  }
+}
+
+// Политика для формы (чекбокс и текст)
+
+.policy-block {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+
+  margin-bottom: 30px;
+
+  cursor: pointer;
+}
+
+// Каркас под иконку чекбокса
+
+.policy__icon::before {
+  display: inline-block;
+
+  content: '';
+
+  width: 16px;
+  height: 15px;
+  margin-right: 7px;
+  border: 2px solid rgba(33, 33, 33, 0.2);
+  border-radius: 2px;
+  vertical-align: middle;
+
+  transition: all $transition-duration $timing-function;
+}
+
+// Иконка чекбокса в нажатом состоянии
+
+.checkbox:checked + .policy__icon::before {
+  vertical-align: middle;
+
+  border-color: $primary-accent-color;
+
+  background-color: $primary-accent-color;
+  background-image: url('../images/icons/form-check.svg');
+  background-size: contain;
+  background-origin: border-box;
+}
+
+// Текст рядом с чекбоксом
+
+.policy__text {
+  @include font(400, 12px, 1.16);
+}
+
+// Ссылка в тексте рядом с чекбоксом
+.policy__link {
+  color: $primary-accent-color;
+}
+
+// Обёртка для кнопки
+
+.btn-block {
+  text-align: center;
+}
+
+// Кнопка для отправки формы
+
+.callback__btn {
+  padding: 10px 55px;
+}
