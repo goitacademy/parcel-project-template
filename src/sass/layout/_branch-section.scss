@@ -1,158 +1,142 @@
+.branch {
+  padding-bottom: 54px;
+  background-image: linear-gradient($white-color 84px, $bg-color 84px);
+  @include for-size(tablet) {
+    background-image: linear-gradient($white-color 74px, $bg-color 74px);
+  }
+  @include for-size(desktop) {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-image: url(../images/desktop/bcgbranch2.png),
+      linear-gradient($white-color 102px, $bg-color 102px);
 
-
-
-.branch{
-    padding-bottom:54px;
-    background-image: linear-gradient( $white-color 84px, $bg-color 84px);
-  
- @include for-size(tablet){
-    background-image: linear-gradient(  $white-color 74px, $bg-color 74px);}   
-  
-
-   @include for-size(desktop){
-       background-size: contain;
-       background-repeat: no-repeat;
-       background-position-y: center; 
-background-image:url(../images/desktop/bcgbranch2.png) ,linear-gradient(  $white-color 102px, $bg-color 102px) ;    
-
- @media screen and (min-device-pixel-ratio: 2),
- screen and (-webkit-min-device-pixel-ratio: 2),
-   screen and (-o-min-device-pixel-ratio: 2/1),
-    screen and (min-resolution: 192dpi),
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-   
-     background-image:url(../images/desktop/bcgbranch2@2x.png),linear-gradient(  $white-color 102px, $bg-color 102px);
-     }
-   }
-    
-.branch-container{
-    color: $black-color;
-    @include font( 500,12px, 1.83, 0.04em);    
+      background-image: url(../images/desktop/bcgbranch2@2x.png),
+        linear-gradient($white-color 102px, $bg-color 102px);
+    }
+  }
 
-    @include for-size(tablet){       
-      @include font(500, 14px, 1.85, 0.04em);
-     }     
-      @include for-size(desktop){       
-      @include font(500, 16px, 1.85, 0.04em);
-     }    
+  .branch-container {
+    color: $black-color;
+    @media screen and (max-width: 767px) {
+      padding: 0 50px;
+      @include font(500, 12px, 1.83, 0.04em);
     }
 
-
-
-&__list{
-      display: flex;
+    @include for-size(tablet) {
+      @include font(500, 14px, 1.85, 0.04em);
+    }
+    @include for-size(desktop) {
+      @include font(500, 16px, 1.85, 0.04em);
+    }
+  }
+  &__list {
+    display: flex;
     flex-wrap: wrap;
-    @media screen and (max-width: 768px){
-    width:220px;}
-
-}
-    &__item{ 
-    
-    padding:43px 21px; 
+  }
+  &__item {
+    padding: 43px 21px;
     // margin: 0;
     margin-bottom: 30px;
     align-items: center;
-     &:last-child {
-     margin-bottom: 0; } 
+    &:last-child {
+      margin-bottom: 0;
+    }
     background-color: $white-color;
-     box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
-     border-radius: 24px; 
-        
-     @include for-size(tablet){  
-         margin-bottom: 0;
-         padding:50px 32px;      
-        width: calc((100% - 20px * 2) / 3);
-         
-        &:not(:last-child){
-            margin-right: 20px;
-        }       } 
-    
-   
-     @include for-size(desktop){
-    padding:52px 44px 62px 43px;
-     width: calc((100% - 30px * 2) / 3);   
-   
-    &:not(:last-child){
-    margin-right: 30px;}      
-    
-     
-}}
- 
-&__location-wrapper{
-    margin:0;
+    box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+    border-radius: 24px;
+    @include for-size(tablet) {
+      margin-bottom: 0;
+      padding: 50px 32px;
+      width: calc((100% - 20px * 2) / 3);
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+
+    @include for-size(desktop) {
+      padding: 52px 44px 62px 43px;
+      width: calc((100% - 30px * 2) / 3);
+
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
+  }
+  &__location-wrapper {
+    margin: 0;
+    padding: 25px 0;
+    //     margin-top:25px;
+    // padding-bottom:25px;
     border-bottom: 1px solid $quotes-background;
-   padding:25px 0;  
-     @include for-size(tablet){ 
-         padding: 30px 0; 
-        }  
-     @include for-size(desktop){
-      padding: 32px 0; 
 
-}
-   
+    @include for-size(tablet) {
+      padding: 30px 0;
+    }
+    @include for-size(desktop) {
+      padding: 32px 0;
+    }
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
 
-&:last-child{
-    padding-bottom: 0;
-    border-bottom: none;
-}}
-
-&__title{  
-    
-    background:$branch-one-bg-color;
-    color:$white-color ;
+  &__title {
+    background: $branch-one-bg-color;
+    color: $white-color;
     border-radius: 4px;
     text-align: center;
-     font-family: $base-font;
-     text-transform: uppercase;
-     @include font( 500,12px, 1.83, 0.04em); 
-       width: 80px;
-      @include for-size(tablet){ 
-          @include font(500, 14px, 1.85, 0.04em);      
-          width: 73px;}
-          @include for-size(desktop){
-                @include font(500, 16px, 1.85, 0.04em);  
-                   } 
-   }
-    &__title--accent{
-      width: 130px;
-      background:$branch-two-bg-color;
-        @include for-size(tablet){
-          width: 138px;
- }}
-
-  
-    // &__contact-list:first-child{
-    //  margin-top:25px;
-    //  padding-top: 0;
-    // margin:0}
-    &__schedule-item:not(:last-child) {
-           margin-bottom: 10px;   margin-top:0px;}
-    
-    // @include for-size(tablet){
-    //     margin-bottom: 16px;
-    // }
-@include for-size(desktop){
-        margin-bottom: 15px;
-
+    font-family: $base-font;
+    text-transform: uppercase;
+    @include font(500, 12px, 1.83, 0.04em);
+    width: 80px;
+    @include for-size(tablet) {
+      @include font(500, 14px, 1.85, 0.04em);
+      width: 73px;
     }
- 
+    @include for-size(desktop) {
+      @include font(500, 16px, 1.85, 0.04em);
+    }
+  }
+  &__title--accent {
+    width: 130px;
+    background: $branch-two-bg-color;
+    @include for-size(tablet) {
+      width: 138px;
+    }
+  }
 
- 
-&__main-text{
-   margin:0;      
-    @include for-size(tablet-only){
-        margin-bottom: 14px;        
- }
-}
-&__text{
-       margin-top:10px;
-       margin-bottom: 0px;
-       color: $accent-text-color;}
-&__link{
+  &__schedule-item:not(:last-child) {
+    margin-bottom: 10px;
+    margin-top: 0px;
+  }
+
+  @include for-size(desktop) {
+    margin-bottom: 15px;
+  }
+
+  &__main-text {
+    margin: 0;
+    @include for-size(tablet-only) {
+      margin-bottom: 14px;
+    }
+  }
+  &__text {
+    margin-top: 10px;
+    margin-bottom: 0px;
     color: $accent-text-color;
-}
-&__text-time{
-       margin: 0;
+  }
+  &__link {
+    color: $accent-text-color;
+  }
+  &__text-time {
+    margin: 0;
     color: $accent-purple-color;
-}
+  }
 }
