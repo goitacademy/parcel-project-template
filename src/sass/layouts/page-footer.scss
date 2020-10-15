@@ -1,0 +1,236 @@
+// Кнопки секции
+
+.location-btns {
+  background-color: $section-bg-secondary;
+}
+
+.btns-list {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    margin-left: auto;
+    margin-right: auto;
+    width: 162px;
+    padding: 12px 0 12px;
+    margin-bottom: 10px;
+    border-radius: 22px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    @media screen and (min-width: 768px) {
+      min-width: 192px;
+      margin: 0 15px 0 0;
+      &:last-child {
+        margin: 0;
+      }
+      @media screen and (min-width: 1280px) {
+        min-width: 198px;
+      }
+    }
+  }
+
+  &__item--red {
+    background-color: $secondary-accent-color;
+  }
+  &__item--white {
+    background-color: $white-color;
+    transition: background-color $transition-duration $timing-function;
+  }
+
+  &__item--white:hover,
+  &__item--white:focus {
+    background-color: $secondary-button-color;
+  }
+
+  &__link {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.31;
+  }
+
+  &__link--white {
+    color: $white-color;
+  }
+
+  &__link--white::after {
+    display: inline-block;
+    content: '';
+    width: 7px;
+    height: 10px;
+    background-image: url(../images/icons/vector-white.png);
+    background-repeat: no-repeat;
+    margin-left: 13px;
+  }
+
+  &__link--red {
+    color: $secondary-accent-color;
+  }
+
+  &__link--red::after {
+    display: inline-block;
+    content: '';
+    width: 7px;
+    height: 10px;
+    background-image: url(../images/icons/Vector-pink.png);
+    background-repeat: no-repeat;
+    margin-left: 13px;
+  }
+}
+
+// Разметка футера
+.footer {
+  background-color: $section-bg-secondary;
+  padding-top: 117px;
+  @media screen and (min-width: 768px) {
+    padding-top: 165px;
+  }
+  &__container {
+    @media screen and(min-width:768px) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.footer-banner {
+  font-family: $font-family-second;
+  @media screen and(min-width:768px) and (max-width: 1279px) {
+    width: 310px;
+  }
+
+  &__paragraph {
+    padding-right: 46px;
+    margin: 0 0 17px;
+    color: $subtitle-color;
+    font-size: 18px;
+    line-height: 1.17;
+    text-transform: uppercase;
+
+    @media screen and(min-width: 768px) and (max-width: 1279px) {
+      padding: 0;
+      margin-bottom: 16px;
+      font-size: 26px;
+    }
+
+    @media screen and(min-width: 1280px) {
+      font-size: 30px;
+      padding: 0;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__header {
+    margin: 0 0 43px;
+    padding-right: 80px;
+    font-family: $font-family-second;
+    font-size: 34px;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $primary-accent-color;
+    @media screen and(min-width: 768px) and (max-width: 1279px) {
+      padding: 0;
+      margin-bottom: 91px;
+      font-size: 48px;
+    }
+    @media screen and(min-width: 1280px) {
+      font-size: 58px;
+      padding: 0;
+      margin-bottom: 97px;
+    }
+  }
+}
+
+.footer-socials {
+  &__list {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 46px;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 24px;
+    @media screen and(min-width: 768px) and (max-width: 1279px) {
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  &__item:hover &__icon {
+    fill: $primary-accent-color;
+  }
+
+  &__icon {
+    fill: $social-primary-color;
+    transition: fill $transition-duration $timing-function;
+    @media screen and (min-width: 768px) {
+      width: 34px;
+      height: 34px;
+    }
+  }
+}
+
+.footer-contacts {
+  margin-bottom: 43px;
+  @media screen and (min-width: 768px) {
+    margin: 0;
+  }
+  &__address {
+    text-align: end;
+  }
+  &__text {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.84;
+    color: $black-color;
+    @media screen and(min-width:768px) and (max-width: 1279px) {
+      font-size: 14px;
+    }
+    @media screen and(min-width:1280px) {
+      font-size: 16px;
+    }
+  }
+  &__tel {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.83;
+    color: $primary-accent-color;
+    @media screen and(min-width:768px) and (max-width: 1279px) {
+      font-size: 14px;
+    }
+    @media screen and(min-width:1280px) {
+      font-size: 16px;
+    }
+  }
+}
+
+.copyright {
+  width: 100%;
+  border-top: 1px solid $slider-quotes;
+  &__text {
+    width: 150px;
+    margin: 0 auto;
+    padding: 22px 0 25px;
+    font-family: $font-family;
+    font-weight: bold;
+    font-size: $font-size;
+    line-height: 1.5;
+
+    @media screen and (min-width: 768px) {
+      width: 100%;
+      text-align: center;
+      padding: 29px 0 18px;
+    }
+  }
+}
