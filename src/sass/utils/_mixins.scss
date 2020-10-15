@@ -1,31 +1,17 @@
 @mixin for-size($range) {
   $mobile: 320px;
   $tablet: 768px;
-  $desktop: 1280px;
+  $desktop: 1200px;
   @if $range == mobile {
     @media (min-width: $mobile) {
-        @content;
+      @content;
     }
-  }
-  @else if $range == mobile-only {
-      @media (min-width: $mobile) and (max-width: #{$tablet - 1}) {
-        @content;
-      }
-    } 
-    
-  
-  @else if $range == tablet {
+ 
+  } @else if $range == tablet {
     @media (min-width: $tablet) {
       @content;
     }
-  } 
-  @else if $range == tablet-only {
-    @media (min-width: $tablet) and (max-width: #{$desktop - 1}) {
-      @content;
-    }
-  } 
-  
-  @else if $range == desktop {
+  } @else if $range == desktop {
     @media (min-width: $desktop) {
       @content;
     }
