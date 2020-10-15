@@ -1,0 +1,119 @@
+.contacts {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 44px;
+  padding-bottom: 56px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 13%,
+    rgba(255, 245, 246, 1) 13%
+  );
+
+  @include for-size(tablet) {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  @include for-size(desktop) {
+    padding-left: 115px;
+    padding-right: 115px;
+  }
+
+  &__card {
+    background: #ffffff;
+    box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+    border-radius: 24px;
+    margin-bottom: 20px;
+
+    @include for-size(tablet) {
+      display: inline-flex;
+      width: calc((100% - 20px * 2) / 3);
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+    @include for-size(desktop) {
+      &:not(:last-child) {
+        // margin-right: 30px;
+      }
+    }
+  }
+
+  &__content {
+    padding: 43px 20px;
+    @include for-size(tablet) {
+      padding: 50px 30px;
+    }
+  }
+
+  &__text {
+    color: $color-grey-text;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+.contacts__item {
+  &:not(:last-child) {
+    padding-bottom: 25px;
+  }
+  @include for-size(mobile) {
+    &:not(:last-child) {
+      margin-bottom: 25px;
+      border-bottom: 1px solid $color-line;
+    }
+  }
+}
+
+.contacts__title {
+  display: inline-block;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.86;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $color-white-text;
+  background-color: $color-bcg-latte;
+
+  &--mb {
+    margin-bottom: 25px;
+  }
+
+  &--mint {
+    background-color: $color-bcg-mint;
+  }
+
+  &--black {
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+    color: $color-black-text;
+    text-transform: none;
+    background-color: transparent;
+  }
+
+  &--pink {
+    padding-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    color: $color-pink-text;
+    background-color: transparent;
+  }
+}
+
+.contacts .button, .button__white {
+  @include for-size(tablet){
+    &:not(:last-child){
+      margin-right: 15px;
+    }
+  }
+}
+
+.button-group {
+  @include for-size(tablet) {
+    display: inline-flex;
+    justify-content: center;
+  }
+}
