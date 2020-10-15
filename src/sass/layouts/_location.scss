@@ -31,6 +31,7 @@
   flex-wrap: wrap;
   font-family: $font-family;
   letter-spacing: 0.04em;
+  margin-bottom: 54px;
 
   &__card {
     width: 280px;
@@ -43,7 +44,7 @@
   }
 
   &__card:last-child {
-    margin-bottom: 54px;
+    margin-bottom: 0;
   }
 
   &__card__title--cafe,
@@ -107,6 +108,7 @@
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .location {
     flex-wrap: nowrap;
+    margin-bottom: 81px;
 
     &__card {
       width: calc((100% - 40px) / 3);
@@ -150,6 +152,10 @@
 
 // стили для десктопа
 @media screen and (min-width: 1280px) {
+  .location {
+    margin-bottom: 86px;
+  }
+
   .location__card {
     width: calc((100% - 60px) / 3);
     margin-right: 30px;
@@ -191,5 +197,86 @@
   .location__contacts__link {
     color: #907e82;
     line-height: 1.8;
+  }
+}
+
+// Разметка кнопок
+
+.btns-list {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    margin-left: auto;
+    margin-right: auto;
+    width: 162px;
+    padding: 12px 0 12px;
+    margin-bottom: 10px;
+    border-radius: 22px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    @media screen and (min-width: 768px) {
+      min-width: 192px;
+      margin: 0 15px 0 0;
+      &:last-child {
+        margin: 0;
+      }
+      @media screen and (min-width: 1280px) {
+        min-width: 198px;
+      }
+    }
+  }
+
+  &__item--red {
+    background-color: $secondary-accent-color;
+  }
+  &__item--white {
+    background-color: $white-color;
+    transition: background-color $transition-duration $timing-function;
+  }
+
+  &__item--white:hover,
+  &__item--white:focus {
+    background-color: $secondary-button-color;
+  }
+
+  &__link {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.31;
+  }
+
+  &__link--white {
+    color: $white-color;
+  }
+
+  &__link--white::after {
+    display: inline-block;
+    content: '';
+    width: 7px;
+    height: 10px;
+    background-image: url(../images/icons/vector-white.png);
+    background-repeat: no-repeat;
+    margin-left: 13px;
+  }
+
+  &__link--red {
+    color: $secondary-accent-color;
+  }
+
+  &__link--red::after {
+    display: inline-block;
+    content: '';
+    width: 7px;
+    height: 10px;
+    background-image: url(../images/icons/Vector-pink.png);
+    background-repeat: no-repeat;
+    margin-left: 13px;
   }
 }
