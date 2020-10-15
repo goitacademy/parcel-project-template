@@ -9,22 +9,48 @@
     rgba(255, 245, 246, 1) 13%
   );
 
+  @include for-size(tablet) {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  @include for-size(desktop) {
+    padding-left: 115px;
+    padding-right: 115px;
+  }
+
   &__card {
-  background: #ffffff;
-  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
-  border-radius: 24px;
-  margin-bottom: 20px;
-}
+    background: #ffffff;
+    box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+    border-radius: 24px;
+    margin-bottom: 20px;
 
-&__content {
-  padding: 43px 20px;
-}
+    @include for-size(tablet) {
+      display: inline-flex;
+      width: calc((100% - 20px * 2) / 3);
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+    @include for-size(desktop) {
+      &:not(:last-child) {
+        // margin-right: 30px;
+      }
+    }
+  }
 
-&__text {
-  color: $color-grey-text;
-  font-size: 12px;
-  line-height: 1.5;
-}
+  &__content {
+    padding: 43px 20px;
+    @include for-size(tablet) {
+      padding: 50px 30px;
+    }
+  }
+
+  &__text {
+    color: $color-grey-text;
+    font-size: 12px;
+    line-height: 1.5;
+  }
 }
 
 .contacts__item {
@@ -74,5 +100,20 @@
     padding-right: 0;
     color: $color-pink-text;
     background-color: transparent;
+  }
+}
+
+.contacts .button, .button__white {
+  @include for-size(tablet){
+    &:not(:last-child){
+      margin-right: 15px;
+    }
+  }
+}
+
+.button-group {
+  @include for-size(tablet) {
+    display: inline-flex;
+    justify-content: center;
   }
 }
