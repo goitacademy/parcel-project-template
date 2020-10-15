@@ -5,36 +5,77 @@
     min-width: 320px;
     padding: 83px 20px 0 20px;
     position: relative;
-    overflow-x: hidden;
-    overflow-y: visible;
+
+    @media screen and (max-width: 767px) {
+      overflow-x: hidden;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      width: 768px;
+      min-height: 400px;
+      padding: 32px 34px 0 34px;
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 
   &__content {
-    position: absolute;
-    top: 37%;
+    @media screen and (max-width: 767px) {
+      position: absolute;
+      top: 37%;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: block;
+      margin-top: 70px;
+    }
   }
 
   &__title {
-    width: 218px;
-    min-height: 106px;
-    margin: 0 0 19px 0;
+    margin: 0 0 20px 0;
 
     font-family: $font-family-second;
     font-weight: normal;
-    font-size: 26px;
-    line-height: 1.15;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: $white-color;
 
+    @media screen and (max-width: 767px) {
+      width: 218px;
+      min-height: 106px;
+
+      font-size: 26px;
+      line-height: 1.15;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 162px;
+      min-height: 80px;
+
+      font-size: 22px;
+      line-height: 1.15;
+    }
+
     &--coloring {
-      font-size: 48px;
       color: $primary-accent-color;
+
+      @media screen and (max-width: 767px) {
+        font-size: 48px;
+        line-height: 1.15;
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: 34px;
+        line-height: 0.9;
+      }
     }
   }
 
   &__buttons {
     display: flex;
+    margin-bottom: 20px;
   }
 
   &__button {
@@ -46,21 +87,148 @@
   }
 
   &__image {
-    width: 346px;
-    height: 344px;
     border-radius: 50%;
-    margin-bottom: 75px;
-    margin-left: 16px;
-    padding-top: 9px;
-
     background-color: $subtitle-color;
+
+    @media screen and (max-width: 415px) {
+      margin-right: 16px;
+      margin-left: 16px;
+    }
+
+    @media screen and (min-width: 416px) and (max-width: 767px) {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 346px;
+      height: 344px;
+      padding-top: 9px;
+      margin-top: 0;
+      margin-bottom: 75px;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 324px;
+      height: 322px;
+      padding-top: 32px;
+      padding-left: 71px;
+    }
   }
 
   &__icecream {
-    width: 171px;
-    height: 410px;
-    margin: 0 auto;
+    @media screen and (max-width: 767px) {
+      width: 171px;
+      height: 410px;
+      margin: 0 auto;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 143px;
+      height: 336px;
+    }
   }
+}
+
+.card {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__image {
+    width: 124px;
+    height: 126px;
+  }
+
+  &__content {
+    margin-left: -2px;
+  }
+
+  &__text {
+    width: 114px;
+    min-height: 48px;
+    font-weight: normal;
+    font-size: 8px;
+    line-height: 1.5;
+    color: $white-color;
+  }
+
+  &__link {
+    fill: $primary-accent-color;
+  }
+}
+
+.retail {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    margin-top: 60px;
+    position: relative;
+  }
+
+  &__content {
+    background-image: url(/images/tablet/hero-white-circle.png);
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: top 0 right 0;
+  }
+
+  &__content:first-child {
+    margin-bottom: 13px;
+  }
+
+  &__number {
+    display: block;
+    font-family: $font-family-second;
+    font-size: 28px;
+    line-height: 1.14;
+
+    // text-align: right;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $primary-accent-color;
+  }
+
+  &__type {
+    display: block;
+    font-family: $font-family;
+    font-size: 8px;
+    line-height: 1.25;
+
+    color: $white-color;
+  }
+
+  &__tastygirl {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 168px;
+    height: 133px;
+    z-index: 9;
+  }
+
+  // width: 218px;
+  // min-height: 106px;
+
+  // font-family: $font-family-second;
+  // font-weight: normal;
+  // font-size: 26px;
+  // line-height: 1.15;
+  // letter-spacing: 0.04em;
+  // text-transform: uppercase;
+  // color: $white-color;
+
+  // &--coloring {
+  //   font-size: 48px;
+  //   color: $primary-accent-color;
+  // }
 }
 
 .button {
@@ -90,7 +258,6 @@
 // //   transition: border $transition-duration $transition-t-function;
 // //  line-height: 1.88;
 // // letter-spacing: 0.06em;
-// // cursor: pointer;
 
 // // &:hover,
 // // &:focus {
