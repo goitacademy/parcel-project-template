@@ -24,8 +24,114 @@
     <include src="./partials/location.html"></include>
     <include src="./partials/page-footer.html"></include>
     <include src="./partials/button-top.html"></include>
+    <button data-modal-open class="btn hero__btn">Заказать услугу</button>
+
+    <!-- Модальное окно с бекдропом -->
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <form class="callback-form js-speaker-form">
+          <button
+            data-modal-close
+            class="modal__close-btn"
+            type="button"
+            aria-label="Close modal window"
+          >
+            <svg class="modal__close-icon" width="18" height="18">
+              <!-- <use href="./images/sprite.svg#icon-close"></use> -->
+            </svg>
+          </button>
+
+          <b class="callback__title">Check this form and buy now!</b>
+
+          <label class="callback__group">
+            <span class="callback__label">Name</span>
+            <span class="callback__area">
+              <input
+                class="callback__input"
+                type="text"
+                name="name"
+                pattern="^[A-Za-zА-Яа-яЁё\s]+$"
+                required
+                autofocus
+              />
+              <svg class="callback__icon" width="18" height="18">
+                <!-- <use href="./images/sprite.svg#icon-form-name"></use> -->
+              </svg>
+            </span>
+          </label>
+
+          <label class="callback__group">
+            <span class="callback__label">Phone</span>
+            <span class="callback__area">
+              <input
+                class="callback__input"
+                type="tel"
+                name="tel"
+                pattern="[0-9]{10,12}"
+                required
+              />
+              <svg class="callback__icon" width="18" height="18">
+                <!-- <use href="./images/sprite.svg#icon-form-phone"></use> -->
+              </svg>
+            </span>
+          </label>
+
+          <label class="callback__group">
+            <span class="callback__label">E-mail</span>
+            <span class="callback__area">
+              <input
+                class="callback__input"
+                type="email"
+                name="email"
+                required
+              />
+              <svg class="callback__icon" width="18" height="18">
+                <!-- <use href="./images/sprite.svg#icon-form-mail"></use> -->
+              </svg>
+            </span>
+          </label>
+
+          <label class="callback__commit">
+            <span class="callback__label">Комментарий</span>
+            <textarea
+              name="commit"
+              rows="5"
+              placeholder="Введите текст"
+              class="callback__textarea"
+            ></textarea>
+          </label>
+
+          <label class="policy-block">
+            <input
+              class="checkbox visually-hidden"
+              type="checkbox"
+              name="policy"
+              value="agree"
+              required
+              checked
+            />
+            <span class="policy__icon"></span>
+            <span class="policy__text"
+              >Соглашаюсь с рассылкой и принимаю
+              <a href="#" class="policy__link">Условия договора</a></span
+            >
+          </label>
+
+          <div class="btn-block">
+            <button
+              type="submit"
+              class="btn callback__btn"
+              aria-label="Отправялет форму"
+            >
+              Отправить
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- Скрипты для меню и модалки -->
+
     <script src="./js/topbutton.js"></script>
     <script src="./js/menu.js"></script>
     <script src="./js/modal.js"></script>
