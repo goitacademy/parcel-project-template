@@ -1,12 +1,23 @@
 .location {
    background-color: $pink-bcg;
+
+   margin-top: 84px; 
+
+     @include for-size(tablet) {
+      margin-top: 78px;
+   }
+   @include for-size(desktop) {
+      margin-top: 102px;
+   }
 }
 
 .location-list {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
-   margin-top: -84px;
+
+   // тут убрал
+   // margin-top: -84px;
 
    @include for-size(tablet) {
       margin-top: -78px;
@@ -21,13 +32,19 @@
    min-width: 220px;
    min-height: 427px;
    padding: 43px 21px 43px 20px;
-   margin-top: 0;
+
+// тут добавил
+   margin-top: -84px;
+
    margin-bottom: 20px;
    border-radius: 24px;
    background-color: $white;
    box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
 
    @include for-size(mobile){
+      &:first-child {
+         margin-top: -84px;
+      }
       &:nth-child(3n) {
       margin-bottom: 54px;
    }
@@ -42,6 +59,7 @@
    padding-right: 32px;
    padding-bottom: 50px;
    padding-left: 31px;
+   margin-top: -78px;
    margin-bottom: 0;
 }
 
@@ -50,6 +68,7 @@
    max-height: 572px;
    width: calc((100% - 20 * 2) / 3);
    padding: 51px 44px 62px 43px;
+   margin-top: -102px;
 
    @include for-size(desktop) {
      margin-right: 31px;
@@ -231,7 +250,7 @@
    }
 
    @media screen and(min-width: 1200px) { 
-      width: 414px;
+      width: 415px;
       padding-bottom: 165px;
       margin-top: 86px;
       margin-right: auto;
@@ -274,9 +293,18 @@
 }
 
 .location-btn.white {
-   margin-left: 13px;
+   
    margin-bottom: 0;
 background-color: #fff;
+
+@media screen and(min-width: 768px) {
+   margin-left: 13px;
+}
+
+@media screen and(min-width: 1200px) {
+   margin-left: 14px;
+}
+
 }
 
 .location-btn-text-pink {
@@ -285,16 +313,18 @@ background-color: #fff;
 }
 
 .location-btn-icon {
-   width: 10px;
-   height: 18px;
-   background-color: #fff;
-   margin-left: 5px;
+   width: 8px;
+   height: 10px;
+   margin-left: 8px;
+
+   @media screen and(min-width: 768px) {
+    margin-left: 13px;
+   }
 }
 
 
 .location-btn-icon-pink {
-   width: 10px;
-   height: 18px;
-   background-color: $red;
+   width: 8px;
+   height: 10px;
    margin-left: 5px;
 }
