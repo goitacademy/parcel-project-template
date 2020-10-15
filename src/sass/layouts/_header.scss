@@ -1,0 +1,214 @@
+.page-header {
+  // background-color:pink;
+  background-color: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    }
+
+ .container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 6px;
+    
+    @media screen and (min-width: 768px) {
+      padding-top: 37px;
+    }
+   }
+  
+// Общий див для кнопки-бургер, меню и кнопки купить
+
+.menu__wraper{
+   @media screen and (min-width: 768px) {
+  display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}}
+
+//  переключатель мобильного меню
+
+.menu-button {
+    z-index: 7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+
+    .icon-close {
+      display: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &.is-open {
+      .icon-burger {
+        display: none;
+      }
+
+      .icon-close {
+        display: block;
+        width: 14px;
+        height: 14px;
+      }
+
+      @media screen and (max-width: 767px) {
+        position: relative;
+      }
+      @media screen and (min-width: 768px) and (max-width: 1279px) {
+        position: absolute;
+        right: 34px;
+        top: 23px;
+      }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+      margin-right: 20px;
+    }
+    @media screen and (min-width: 1280px) {
+      display: none;
+    }
+  }
+ 
+// оформлени позиционировани ссылок и кнопки купить в  мобильной и десктопной версии
+ 
+.menu__container {
+  z-index: 5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: opacity $transition-duration $timing-function,
+      visibility $transition-duration $timing-function;
+    @media screen and (max-width: 1279px) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      visibility: hidden;
+      background-color: $pink-bg-secondary;
+      width: 250px;
+      height: 502px;
+      padding-top: 60px;
+      padding-bottom: 152px;
+      padding-left: 21px;
+      padding-right: 21px;
+ @media screen and (min-width: 768px) and (max-width: 1279px) {
+      height: 1020px;
+       padding-bottom: 669px;
+        padding-left: 24px;
+      padding-right: 24px;
+    }}
+      &.is-open {
+        opacity: 1;
+        visibility: visible;
+      }
+  }
+  .navigation {
+    @media screen and (max-width: 1279px){
+     width: 100%;
+   }
+  }
+    // Оформление стилей шрифта, внешних отступов для ссылок в меню
+.menu {
+  @include font (700, 14px, 1.29);
+      @media screen and (min-width: 1280px) {
+        @include font (700, 16px, 1.31);
+        display: flex;
+
+        margin: 0 110px;
+      }
+       @media screen and (min-width: 1280px) {
+    width: 100%;
+    }
+    }
+
+  .menu__item {
+    @media screen and (max-width: 1279px) {
+      display: block;
+      border-top: solid 1px #e18298;
+      &:not(:last-child) {
+        margin-bottom: 23px;
+      }
+      &:last-child {
+        border-bottom: solid 1px #e18298;
+      }
+    }
+    @media screen and (min-width: 1280px) {
+      &:not(:last-child) {
+        margin-right: 35px;
+      }}}
+      .menu__link {
+      color:$white-color;
+      transition: color $transition-duration $timing-function;
+      &.current,
+      &:hover,
+      &:focus {
+        color:$primary-accent-color;
+      }
+
+      @media screen and (max-width: 1279px) {
+        padding-left: 21px;
+        padding-right: auto;
+      }
+
+      @media screen and (min-width: 1280px) {
+        display: inline-block;
+      }
+    }
+    // Оформление кнопок купить
+    .btn__buy {
+      position: relative;
+      display: inline-flex;
+       justify-content: center;
+       align-items: center;
+      height: 44px;
+      @include font(700, 16px, 1.286);
+      color: $primary-accent-color;
+      background-color:$white-color;
+       border: transparent;
+       border-radius: 22px;
+       cursor: pointer;
+          transition: background-color $transition-duration $timing-function;
+        &:hover,
+        &:focus {
+        background-color: $secondary-button-color;}}
+  
+  .menu__buy.btn__buy {
+    width: 209px;
+     margin-bottom: 32px;
+      @media screen and (min-width: 768px){
+     width: 186px;
+         }
+
+    @media screen and (min-width: 1280px) {
+        display: none;
+      }}
+     .header__buy.btn__buy {
+       width: 160px;
+
+        @media screen and (max-width: 767px){
+          display: none;
+        }
+     }
+  .menu-buy__icon {
+    margin-left: 16px;
+    @media screen and (min-width: 768px){
+      margin-left: 14px;
+    }
+  }
+  .header-buy__icon{
+    margin-left: 12px;
+  }
+
+  
+    
+
+      
+    
