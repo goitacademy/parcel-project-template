@@ -1,6 +1,7 @@
 .page-header {
   padding-top: 6px;
-  background: #ffb8ca;
+  background: $hero-bg-color;
+  z-index: 50;
 }
 
 .container--pos-desctop {
@@ -10,14 +11,15 @@
 }
 
 .navigation__link {
+  display: block;
+  font-family: $base-font, sans-serif;
   font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 1.31;
-  color: #ffffff;
+  @include font(bold, 16px, 1.31, 0);
+  color: $white-color;
+  transition: all $animation-time $animation-function;
 }
 
-@media screen and (min-width: 1px) and (max-width: 767px) {
+@media screen and (min-width: 1px) and (max-width: 1279px) {
   .menu-box {
     display: none;
     position: absolute;
@@ -25,7 +27,7 @@
     right: 0;
     width: 250px;
     height: 502px;
-    background: #e17992;
+    background: $menu-bg;
   }
 
   .menu-box.is-open {
@@ -44,60 +46,33 @@
   .navigation__item {
     display: block;
     padding: 10px 21px;
-    border: 1px solid #e18298;
+    border-top: 1px solid #e18298;
+  }
+
+  .navigation__item:last-child {
+    border-bottom: 1px solid #e18298;
   }
 
   .navigation__link {
+    display: block;
+    font-family: $base-font, sans-serif;
+    @include font(bold, 14px, 1.31, 0);
     font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 1.31;
-    color: #ffffff;
+    color: $white-color;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .menu-box {
-    display: none;
-    position: absolute;
     top: -37px;
-    right: 0;
-    width: 250px;
     height: 1020px;
-    background: #e17992;
-  }
-
-  .menu-box.is-open {
-    display: block;
-    z-index: 100;
-  }
-
-  .navigation {
-    position: relative;
-  }
-
-  .navigation__list {
-    margin-top: 123px;
-  }
-
-  .navigation__item {
-    display: block;
-    padding: 10px 21px;
-    border: 1px solid #e18298;
-  }
-
-  .navigation__link {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 1.31;
-    color: #ffffff;
   }
 }
 
 .navigation__link:hover,
 .navigation__link:focus {
-  color: #d41443;
+  color: $purple-text-color;
+  transition: all $animation-time $animation-function;
 }
 
 @include for-size(tablet) {
@@ -105,10 +80,6 @@
     padding-top: 37px;
     padding-bottom: 15px;
   }
-
-  // .buy-button--position {
-  //   margin-left: 30px;
-  // }
 }
 
 @include for-size(desktop) {
