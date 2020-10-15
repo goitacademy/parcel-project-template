@@ -1,8 +1,14 @@
 .location {
    background-color: $pink-bcg;
 
-   // тут добавил
-   margin-top: 84px;
+   margin-top: 84px; 
+
+     @include for-size(tablet) {
+      margin-top: 78px;
+   }
+   @include for-size(desktop) {
+      margin-top: 102px;
+   }
 }
 
 .location-list {
@@ -36,6 +42,9 @@
    box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
 
    @include for-size(mobile){
+      &:first-child {
+         margin-top: -84px;
+      }
       &:nth-child(3n) {
       margin-bottom: 54px;
    }
@@ -50,6 +59,7 @@
    padding-right: 32px;
    padding-bottom: 50px;
    padding-left: 31px;
+   margin-top: -78px;
    margin-bottom: 0;
 }
 
@@ -58,6 +68,7 @@
    max-height: 572px;
    width: calc((100% - 20 * 2) / 3);
    padding: 51px 44px 62px 43px;
+   margin-top: -102px;
 
    @include for-size(desktop) {
      margin-right: 31px;
@@ -239,7 +250,7 @@
    }
 
    @media screen and(min-width: 1200px) { 
-      width: 414px;
+      width: 415px;
       padding-bottom: 165px;
       margin-top: 86px;
       margin-right: auto;
@@ -282,9 +293,18 @@
 }
 
 .location-btn.white {
-   margin-left: 13px;
+   
    margin-bottom: 0;
 background-color: #fff;
+
+@media screen and(min-width: 768px) {
+   margin-left: 13px;
+}
+
+@media screen and(min-width: 1200px) {
+   margin-left: 14px;
+}
+
 }
 
 .location-btn-text-pink {
@@ -293,16 +313,18 @@ background-color: #fff;
 }
 
 .location-btn-icon {
-   width: 10px;
-   height: 18px;
-   background-color: #fff;
-   margin-left: 5px;
+   width: 8px;
+   height: 10px;
+   margin-left: 8px;
+
+   @media screen and(min-width: 768px) {
+    margin-left: 13px;
+   }
 }
 
 
 .location-btn-icon-pink {
-   width: 10px;
-   height: 18px;
-   background-color: $red;
+   width: 8px;
+   height: 10px;
    margin-left: 5px;
 }
