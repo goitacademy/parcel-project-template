@@ -5,7 +5,9 @@
 
     background-color: $hero-bg-color;
 
-    z-index: -3;
+    z-index: 1;
+
+    overflow-x: hidden;
 }
 
 .page-header__header {
@@ -36,9 +38,33 @@
     margin: 0;
     padding: 0;
     border: none;
+    z-index: 4;
     background-color: transparent;
-    color: rgba(212, 20, 67, 1);
+    stroke: $white-color;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+        stroke: rgba(212, 20, 67, 1);
+    }
+}
+
+.icon__close {
+    display: none;
+    fill: currentColor;
+
+    .is-open & {
+        display: block;
+    }
+}
+
+.icon__burger {
+    display: block;
+    fill: currentColor;
+
+    .is-open & {
+        display: none;
+    }
 }
 
 .button-tablet {
@@ -54,9 +80,15 @@
     align-items: stretch;
     justify-content: flex-end;
     width: 250px;
-    height: 502px;
+    height: 100%;
+    padding: 60px 20px;
     top: 0;
     right: 0;
+    transform: translateX(100%);
+
+    &.is-open {
+        transform: translateX(0%);
+    }
 
     background-color: $modal-bg-color;
 
