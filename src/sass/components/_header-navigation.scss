@@ -1,6 +1,5 @@
 .site-nav {
   @extend %list;
-  // width: 100%;
 
   @include for-size(desktop) {
     display: flex;
@@ -9,20 +8,24 @@
 
   &__link {
     @extend %link;
+    display: block;
+
     color: $color-white-text;
     font-weight: 700;
     font-size: 14px;
     line-height: 1.29;
+
     @include for-size(desktop) {
       font-size: 16px;
       line-height: 1.31;
     }
 
-    display: block;
     @include for-size(desktop-only) {
       margin-top: 11px;
       margin-bottom: 11px;
     }
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
     &:focus {
@@ -32,7 +35,7 @@
 
   &__item {
     border-top: 1px solid $color-menu-borders;
-    // width: 100%;
+
     @include for-size(tablet-only) {
       padding-left: 20px;
     }
