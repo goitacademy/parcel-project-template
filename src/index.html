@@ -163,6 +163,17 @@
     <script src="./js/menu.js"></script>
     <script src="./js/modal.js"></script>
 
+    <!-- Скрипт для отправки данных с формы модального окна -->
+    <script>
+      (() => {
+        document.querySelector(".js-speaker-form").addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          new FormData(e.currentTarget).forEach((value, name) => console.log(`${name}: ${value}`));
+        });
+      })();
+    </script>
+
     <!-- скрипт для фиксированного хедера -->
     <!-- <script>
         const { height: pageHeaderHeight } = document
