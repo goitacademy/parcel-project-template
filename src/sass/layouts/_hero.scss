@@ -1,6 +1,11 @@
 .hero {
+    display: flex;
     padding-top: 137px;
     padding-bottom: 160px;
+}
+
+.hero__thumb {
+    max-width: 218px;
 }
 
 .hero__title {
@@ -10,11 +15,12 @@
     line-height: 1.15;
     color: $white;
     text-transform: uppercase;
-    max-width: 218px;
+    
     margin-top: 0;
     margin-bottom: 19px;
 
     &-accent {
+        display: block;
         color: $accent;
         font-size: 48px;
         line-height: 0.96;
@@ -25,4 +31,72 @@
     &:last-child{
         margin-left: 8px;
     } 
+}
+
+.hero__list {
+    display: none;
+
+    @include for-size (tablet) {
+        display: block;
+        margin-right: 8px;
+        margin-left: auto;
+        text-align: right;
+    }
+    
+}
+
+.hero__item {
+    @include for-size (tablet) {
+        position: relative;
+        
+        & + & {
+            margin-top: 13px;
+        }
+    }   
+}
+
+.hero__numbers {
+    @include for-size (tablet) {
+        position: relative;
+        font-family: $logo-font;
+        font-size: 28px;
+        line-height: 1.14;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        z-index: 2;
+        color: $accent;
+        margin: 0;
+
+        // &::after {
+        //     position: absolute;
+        //     top: -5px;
+        //     right: -5px;
+        //     z-index: -1;
+
+        //     content: '';
+        //     width: 16px;
+        //     height: 16px;
+        //     background-color: $white;
+        //     border-radius: 50%;
+        // }
+    }
+}
+
+.hero__circle {
+    fill: $white;
+    position: absolute;
+    z-index: 1;
+    top: -3px;
+    right: -7px;
+}
+
+.hero__text {
+    @include for-size (tablet) {
+        font-weight: 400;
+        font-size: 8px;
+        line-height: 1.25;
+        letter-spacing: 0.02em;
+        color: $white;
+        margin: 0;
+    }
 }
