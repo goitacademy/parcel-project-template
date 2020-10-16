@@ -7,7 +7,7 @@
 
   z-index: 1;
 
-  overflow-x: hidden;
+  overflow: hidden;
 
   @include for-size(tablet) {
     height: 399px;
@@ -23,7 +23,7 @@
 
   @include for-size(tablet) {
     width: 740px;
-    padding: 37px 20px 0;
+    padding: 37px 20px 19px;
     margin: 0 auto;
   }
 }
@@ -39,9 +39,18 @@
 
 .pink-circle {
   position: absolute;
+  width: 346px;
+  height: 344px;
   bottom: 75px;
   left: 12%;
   z-index: -2;
+
+  @include for-size(tablet) {
+    width: 324px;
+    height: 322px;
+    bottom: 46px;
+    left: 40%;
+  }
 }
 
 .icecream-image {
@@ -49,6 +58,10 @@
   bottom: 0;
   left: 38%;
   z-index: -1;
+
+  @include for-size(tablet) {
+    left: 50%;
+  }
 }
 
 // Button
@@ -65,6 +78,18 @@
   border: none;
   outline: none;
   cursor: pointer;
+
+  transition: color $cubic, background-color $cubic;
+
+  &:hover,
+  &:focus {
+    background-color: #ecebeb;
+    color: #d41443;
+  }
+
+  @include for-size(tablet) {
+    width: 186px;
+  }
 }
 
 .button--dark {
@@ -83,13 +108,21 @@
     border-radius: 22px;
     background-color: $white-color;
     color: rgba(212, 20, 67, 1);
-    width: 209px;
+    width: 160px;
     height: 44px;
     margin: 0;
     padding: 0;
     border: none;
     outline: none;
     cursor: pointer;
+
+    transition: color $cubic, background-color $cubic;
+
+    &:hover,
+    &:focus {
+      background-color: #ecebeb;
+      color: #d41443;
+    }
   }
 }
 
@@ -192,6 +225,11 @@
   &.is-open {
     transform: translateX(0%);
     filter: drop-shadow(-8px 0px 20px rgba(0, 0, 0, 0.25));
+
+    @include for-size(tablet) {
+      position: fixed;
+      height: 1020px;
+    }
   }
 
   background-color: $modal-bg-color;
@@ -235,7 +273,8 @@
   margin-top: 137px;
 
   @include for-size(tablet) {
-    margin-top: 15px;
+    margin-top: 0px;
+    margin-bottom: 19px;
   }
 }
 
@@ -247,6 +286,10 @@
   color: $white-color;
   text-transform: uppercase;
   margin: 0 0 19px;
+
+  @include for-size(tablet) {
+    @include font($normal, 22px, 1.13, $title-font);
+  }
 }
 
 .hero__title--dark {
@@ -254,6 +297,10 @@
   color: #d41443;
   text-transform: uppercase;
   margin: 0;
+
+  @include for-size(tablet) {
+    @include font($normal, 34px, 0.91, $title-font);
+  }
 }
 
 .hero__button {
@@ -261,6 +308,7 @@
 }
 
 .hero__button--light {
+  @extend %link;
   @include flexbox();
   @include font($normal, 8px, 1.25);
   width: 82px;
@@ -268,9 +316,18 @@
   border-radius: 22px;
   background-color: $white-color;
   color: rgba(212, 20, 67, 1);
+
+  transition: color $cubic, background-color $cubic;
+
+  &:hover,
+  &:focus {
+    background-color: #ecebeb;
+    color: #d41443;
+  }
 }
 
 .hero__button--dark {
+  @extend %link;
   @include flexbox();
   @include font($normal, 8px, 1.25);
   width: 62px;
@@ -279,12 +336,84 @@
   border-radius: 22px;
   background-color: $accent-color;
   color: #ffffff;
+
+  transition: color $cubic, background-color $cubic;
+
+  &:hover,
+  &:focus {
+    background-color: #c7133e;
+    color: $white-color;
+  }
 }
 
 .eco {
   display: none;
+
+  @include for-size(tablet) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.eco__image {
+  width: 124px;
+}
+
+.eco__text {
+  width: 114px;
+
+  @include font($normal, 8px, 1.5);
+  color: $white-color;
+}
+
+.eco__arrow {
+  width: 18px;
+  height: 18px;
 }
 
 .tasty {
   display: none;
+
+  @include for-size(tablet) {
+    display: block;
+  }
+}
+
+.tasty__girl {
+  display: none;
+
+  @include for-size(tablet) {
+    display: block;
+    position: absolute;
+    width: 168px;
+    bottom: 0;
+    right: 5%;
+    z-index: -1;
+  }
+}
+
+.tasty__list {
+  @include for-size(tablet) {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 94px;
+    right: 5%;
+    z-index: -1;
+
+    text-align: right;
+  }
+}
+
+.tasty__number {
+  @include font($normal, 34px, 0.91, $title-font);
+  color: rgba(212, 20, 67, 1);
+}
+
+.tasty__text {
+  @include font($normal, 8px, 1.5);
+  color: $white-color;
 }
