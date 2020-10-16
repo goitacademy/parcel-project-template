@@ -100,33 +100,33 @@
   margin-right: 10px;
 }
 
-.slider__item--list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 0px;
-  margin-bottom: 0px;
-  margin-top: 30px;
-  list-style: none;
-}
+// .slider__item--list {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding-left: 0px;
+//   margin-bottom: 0px;
+//   margin-top: 30px;
+//   list-style: none;
+// }
 
-.slider__item:not(:last-child) {
-  margin-right: 18px;
-}
+// .slider__item:not(:last-child) {
+//   margin-right: 18px;
+// }
 
-.slider__svg {
-  width: 12px;
-  height: 12px;
-  fill: #d31342;
-}
+// .slider__svg {
+//   width: 12px;
+//   height: 12px;
+//   fill: #d31342;
+// }
 
-.slider__icon--background {
-  display: block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #d9d9d9;
-}
+// .slider__icon--background {
+//   display: block;
+//   width: 12px;
+//   height: 12px;
+//   border-radius: 50%;
+//   background: #d9d9d9;
+// }
 
 @media screen and (min-width: 768px) {
   .slider-section {
@@ -214,4 +214,112 @@
   .slider__photo {
     margin-bottom: 15px;
   }
+}
+
+// slider-css
+
+.clear-slider {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+
+  @media screen and (max-width: 768px) {
+    height: 550px;
+  }
+
+  & ul {
+    width: 100%;
+    height: 100%;
+
+    & li {
+      width: 100%;
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  & input[type='radio'],
+  .slider__mark {
+    position: absolute;
+    bottom: 0px;
+    width: 20px;
+    height: 20px;
+  }
+
+  & input[type='radio'] {
+    z-index: 99;
+    opacity: 0;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #fff;
+    }
+  }
+
+  .slider__mark {
+    display: block;
+    background-image: url(../images/icons/vector-ellipse.png);
+    width: 13px;
+    height: 13px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-indent: 100px;
+    overflow: hidden;
+    z-index: 98;
+  }
+}
+
+.slider-point-1,
+.slider-point-1 + span {
+  left: 47%;
+  margin-right: 18px;
+
+  @media screen and (max-width: 768px) {
+    left: 35%;
+  }
+}
+
+.slider-point-2,
+.slider-point-2 + span {
+  left: 50%;
+  margin-right: 18px;
+}
+
+.slider-point-3,
+.slider-point-3 + span {
+  left: 53%;
+  margin-right: 18px;
+
+  @media screen and (max-width: 768px) {
+    left: 65%;
+  }
+}
+
+.slider-point-1:checked + span {
+  background-image: url(../images/icons/Vector-house.png);
+}
+
+.slider-point-1:checked ~ ul > li:first-child {
+  visibility: visible;
+  opacity: 1;
+}
+
+.slider-point-2:checked + span {
+  background-image: url(../images/icons/Vector-house.png);
+}
+
+.slider-point-2:checked ~ ul > li:nth-child(2) {
+  visibility: visible;
+  opacity: 1;
+}
+
+.slider-point-3:checked + span {
+  background-image: url(../images/icons/Vector-house.png);
+}
+
+.slider-point-3:checked ~ ul > li:nth-child(3) {
+  visibility: visible;
+  opacity: 1;
 }
