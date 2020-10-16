@@ -7,6 +7,11 @@
     padding-top: 130px;
     padding-bottom: 246px;
   }
+
+  @include for-size(desktop) {
+    padding-top: 125px;
+    padding-bottom: 310px;
+  }
 }
 
 .it-made__wrap {
@@ -50,70 +55,119 @@
 
   @include for-size(desktop) {
     @include font(58px, 1.14);
+    margin-bottom: 55px;
+  }
+}
+
+.it-made__flex {
+  @include for-size(tablet) {
+    justify-content: center;
+    display: flex;
+
+    align-items: center;
+  }
+
+  @include for-size(desktop) {
+    background-image: url(../images/desktop-milk@1x.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/desktop-milk@2x.png);
+    }
   }
 }
 
 .it-made__cow {
-  max-width: 516px;
+  // max-width: 516px;
   height: auto;
 
   //   background-image: url(../images/tablet-cow@1x.png);
 
+  &--picture {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+  }
+
   @include for-size(mobile-only) {
     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @include for-size(mobile) {
     width: 280px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @include for-size(tablet) {
     width: 340px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
-  @include for-size(tablet) {
-    // position: absolute;
-    // left: 0px;
+  @include for-size(desktop) {
     width: 516px;
   }
 }
 
 .it-made__description {
-  max-width: 100%;
+  @include for-size(mobile-only) {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   @include for-size(mobile) {
     width: 220px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 46px;
   }
 
   @include for-size(tablet) {
-    position: absolute;
-    top: 331px;
-    right: 0px;
     width: 340px;
+    margin-left: 17px;
+    margin-right: 0px;
+    margin-top: 0px;
+  }
+
+  @include for-size(desktop) {
+    margin-left: 74px;
+    width: 463px;
   }
 }
 
 .it-made__text {
-  padding-right: 30px;
-  padding-left: 30px;
-
   font-family: 'DM Sans';
   @include font(12px, 1.62, 500);
+  letter-spacing: 0.04em;
   color: $black-color;
-  &--grey {
-    color: $accent-text-color;
-
-    @include for-size(tablet) {
-      @include font(14px, 1.94, 500);
-    }
-  }
 
   @include for-size(tablet) {
     @include font(14px, 1.76, 500);
   }
 
-  @include for-size(tablet) {
+  @include for-size(desktop) {
     @include font(16px, 1.76, 500);
+  }
+
+  &--grey {
+    color: $accent-text-color;
+
+    @include font(12px, 1.62, 500);
+
+    @include for-size(tablet) {
+      @include font(14px, 1.76, 500);
+    }
+
+    @include for-size(desktop) {
+      @include font(14px, 1.94, 500);
+    }
   }
 }
 
@@ -135,6 +189,7 @@
     background-image: url(../images/red-arrow@2x.png);
   }
   background-repeat: no-repeat;
+  background-size: 4.5px 8px;
   background-position: left 134px top 19px;
 
   color: $purple-text-color;
@@ -143,18 +198,39 @@
 
   @include for-size(tablet) {
     @include font(16px, 1.31, 700);
+    margin-top: 62px;
+  }
+
+  @include for-size(tablet) {
+    margin-top: 45px;
   }
 }
 
 .it-made__advantages {
+  margin-top: 38px;
   @include for-size(tablet) {
     display: flex;
+    margin-top: 66px;
+  }
+  @include for-size(desktop) {
+    margin-top: 39px;
+    justify-content: center;
   }
 }
 
 .it-made__item {
   list-style: none;
-  margin-top: 38px;
+
+  @include for-size(tablet) {
+    &:not(:last-child) {
+      margin-right: 60px;
+    }
+  }
+  @include for-size(desktop) {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
 }
 
 .it-made__item-name {
@@ -189,9 +265,11 @@
 
   @include for-size(tablet) {
     @include font(14px, 1.74, 700);
+    width: 180px;
   }
 
   @include for-size(desktop) {
     @include font(16px, 1.76, 700);
+    width: 330px;
   }
 }
