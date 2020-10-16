@@ -12,7 +12,7 @@
 
 @mixin for-size($range) {
   $mobile: 320px;
-  $tablet: 768px;
+  $tablet: 772px;
   $desktop: 1280px;
 
   @if $range == mobile-only {
@@ -28,6 +28,10 @@
       @content;
     }
   } @else if $range == tablet-only {
+    @media (max-width: #{$desktop - 1}) {
+      @content;
+    }
+  } @else if $range == desktop-only {
     @media (max-width: #{$desktop - 1}) {
       @content;
     }
