@@ -1,154 +1,290 @@
 .page-header {
-    position: relative;
-    margin: 0 auto;
-    height: 502px;
+  position: relative;
+  margin: 0 auto;
+  height: 502px;
 
-    background-color: $hero-bg-color;
+  background-color: $hero-bg-color;
 
-    z-index: 1;
+  z-index: 1;
 
-    overflow-x: hidden;
+  overflow-x: hidden;
+
+  @include for-size(tablet) {
+    height: 399px;
+  }
 }
 
 .page-header__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 6px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 20px;
+  margin: 0 auto;
+
+  @include for-size(tablet) {
+    width: 740px;
+    padding: 37px 20px 0;
+    margin: 0 auto;
+  }
+}
+
+.page-header__buttons {
+  display: flex;
+
+  &.is-hidden {
+    opacity: 0;
+    overflow: hidden;
+  }
 }
 
 .pink-circle {
-    position: absolute;
-    top: 83px;
-    left: 36px;
-    z-index: -2;
+  position: absolute;
+  bottom: 75px;
+  left: 12%;
+  z-index: -2;
 }
 
 .icecream-image {
-    position: absolute;
-    top: 92px;
-    left: 117px;
-    z-index: -1;
+  position: absolute;
+  bottom: 0;
+  left: 38%;
+  z-index: -1;
 }
 
 // Button
+.button__mobile--buy-now {
+  @include flexbox();
+  @include font($bold, 16px, 1.31);
+  border-radius: 22px;
+  background-color: $white-color;
+  color: rgba(212, 20, 67, 1);
+  width: 160px;
+  height: 44px;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
 
-.burger-menu {
-    display: inline-flex;
+.button--dark {
+  @include flexbox();
+  @include font($normal, 16px, 1.31);
+  border-radius: 22px;
+  background-color: $accent-color;
+  color: #ffffff;
+}
+.button__tablet--buy-now {
+  display: none;
+
+  @include for-size(tablet) {
+    @include flexbox();
+    @include font($bold, 16px, 1.31);
+    border-radius: 22px;
+    background-color: $white-color;
+    color: rgba(212, 20, 67, 1);
+    width: 209px;
+    height: 44px;
     margin: 0;
     padding: 0;
     border: none;
-    z-index: 4;
-    background-color: transparent;
-    color: $white-color;
+    outline: none;
     cursor: pointer;
+  }
+}
 
-    &:hover {
-        color: rgba(212, 20, 67, 1);
-    }
+.button__buy-now {
+  width: 4.3px;
+  height: 8px;
+  margin-left: 25px;
+  margin-top: 2.5px;
+}
+
+.burger-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: $white-color;
+  cursor: pointer;
+
+  transition: color $cubic;
+
+  &:hover {
+    color: rgba(212, 20, 67, 1);
+  }
+
+  @include for-size(tablet) {
+    margin-right: 30px;
+  }
+}
+
+.burger-menu__icon {
+  text-align: center;
 }
 
 .icon__close {
-    display: none;
-    stroke: currentColor;
+  display: none;
+  stroke: currentColor;
 
-    .is-open & {
-        display: block;
-    }
+  .is-open & {
+    display: block;
+    margin: 3px 0;
+  }
+}
+
+.burger-menu--modal {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 23px;
+  right: 28px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: $white-color;
+  cursor: pointer;
+
+  transition: color $cubic;
+
+  &:hover {
+    color: rgba(212, 20, 67, 1);
+  }
+
+  @include for-size(tablet) {
+    right: 34px;
+  }
 }
 
 .icon__burger {
-    display: block;
-    stroke: currentColor;
+  display: block;
+  stroke: currentColor;
+  padding: 0 1px;
 
-    .is-open & {
-        display: none;
-    }
-}
-
-.button-tablet {
+  .is-open & {
     display: none;
+  }
 }
 
 // nav
 
 .menu-navigation {
-    position: absolute;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: stretch;
-    justify-content: flex-end;
-    width: 250px;
-    height: 100%;
-    padding: 60px 20px;
-    top: 0;
-    right: 0;
-    transform: translateX(100%);
+  position: absolute;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+  justify-content: flex-end;
+  width: 250px;
+  height: 100%;
+  padding: 60px 0;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  transition: transform $cubic, filter $cubic;
 
-    &.is-open {
-        transform: translateX(0%);
-    }
-
-    background-color: $modal-bg-color;
-
+  &.is-open {
+    transform: translateX(0%);
     filter: drop-shadow(-8px 0px 20px rgba(0, 0, 0, 0.25));
+  }
+
+  background-color: $modal-bg-color;
+}
+
+.navigation__list {
+  margin: 0;
+  padding: 0;
+}
+
+.navigation__item {
+  display: flex;
+  align-items: center;
+  padding: 11px 20px;
+  border-bottom: 1px solid #e18298;
+
+  &:first-child {
+    border-top: 1px solid #e18298;
+    margin-top: 19px;
+  }
+}
+
+.navigation__link {
+  @extend %link;
+  @include font($bold, 14px, 1.28);
+  color: $white-color;
+  transition: color $cubic;
+
+  &:hover,
+  &:focus {
+    color: rgba(212, 20, 67, 1);
+  }
 }
 
 // Hero
 
 .hero {
-    margin-top: 137px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin-top: 137px;
+
+  @include for-size(tablet) {
+    margin-top: 15px;
+  }
 }
 
 .hero__title {
-    display: block;
-    width: 218px;
+  display: block;
+  width: 218px;
 
-    // @include font($normal, 26px, 1.15, $title-font);
-    font-family: "TitanOne";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 26px;
-    line-height: 30px;
-    letter-spacing: 0.04em;
-    color: $white-color;
-    text-transform: uppercase;
-    margin: 0 0 19px;
+  @include font($normal, 26px, 1.15, $title-font);
+  color: $white-color;
+  text-transform: uppercase;
+  margin: 0 0 19px;
 }
 
 .hero__title--dark {
-    // @include font($normal, 48px, 0.96, $title-font);
-    font-family: "TitanOne";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 96.5%;
-    color: #d41443;
-    text-transform: uppercase;
-    margin: 0;
+  @include font($normal, 48px, 0.96, $title-font);
+  color: #d41443;
+  text-transform: uppercase;
+  margin: 0;
 }
 
-.navigation__item {
-    display: flex;
-    align-items: center;
-    padding: 11px 20px;
-    border-top: 1px solid #E18298;
-    border-bottom: 1px solid #E18298;
+.hero__button {
+  display: flex;
 }
 
-.navigation__link {
-    // @include font($bold, 14px, 1.28);
-    font-family: "DM Sans";
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 18px;
+.hero__button--light {
+  @include flexbox();
+  @include font($normal, 8px, 1.25);
+  width: 82px;
+  height: 24px;
+  border-radius: 22px;
+  background-color: $white-color;
+  color: rgba(212, 20, 67, 1);
+}
+
+.hero__button--dark {
+  @include flexbox();
+  @include font($normal, 8px, 1.25);
+  width: 62px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 22px;
+  background-color: $accent-color;
+  color: #ffffff;
 }
 
 .eco {
-    display: none;
+  display: none;
 }
 
 .tasty {
-    display: none;
+  display: none;
 }
