@@ -1,0 +1,277 @@
+// Форма для модального окна
+
+.buy-form {
+  width: 100%;
+  padding: 40px;
+}
+
+// Тайтл для всей формы
+
+.buy__title {
+  @extend %title;
+  font-size: 17px;
+
+  display: block;
+
+  margin-bottom: 12px;
+
+  text-align: center;
+}
+
+// Обёртка для элемента формы
+
+.buy__group {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 10px;
+
+  &:focus-within {
+    color: $primary-accent-color;
+  }
+}
+
+// Лейбл для поля ввода
+
+.buy__label {
+  margin-bottom: 4px;
+}
+
+// Обёртка для инпута и иконки
+
+.buy__area {
+  position: relative;
+}
+
+// Инпут для поля
+
+.buy__input {
+  width: 100%;
+  padding: 11px 11px 11px 42px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  color: grey;
+
+  transition: all $transition-duration $timing-function;
+
+  cursor: pointer;
+
+  &:focus {
+    outline: transparent;
+    border: 1px solid $primary-accent-color;
+  }
+
+  &::placeholder {
+    font-size: 13px;
+    line-height: 1.16;
+    letter-spacing: 0.04em;
+
+    color: rgba(117, 117, 117, 0.5);
+  }
+
+  &:not(:placeholder-shown):focus:valid {
+    color: green;
+    border-color: green;
+  }
+
+  &:not(:placeholder-shown):focus:invalid {
+    color: red;
+    border-color: red;
+  }
+}
+
+// Иконка внутри поля
+
+.buy__icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+
+  width: 18px;
+  height: 18px;
+
+  transform: translateY(-50%);
+
+  fill: currentColor;
+
+  transition: fill $transition-duration $timing-function;
+
+  .buy__area:focus-within & {
+    fill: $primary-accent-color;
+  }
+}
+
+// Обёртка-лейбл для поля комментария
+
+.buy__commit {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+
+  &:focus-within {
+    color: $primary-accent-color;
+  }
+}
+
+// Поле ввода для поля комментария
+
+.buy__textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  color: grey;
+
+  transition: all $transition-duration $timing-function;
+
+  resize: none;
+
+  cursor: pointer;
+
+  &::placeholder {
+    font-size: 14px;
+    line-height: 1.16;
+    letter-spacing: 0.04em;
+
+    color: rgba(117, 117, 117, 0.5);
+  }
+
+  &:focus {
+    outline: transparent;
+    border: 1px solid $primary-accent-color;
+  }
+}
+
+// Выпадающий список
+
+.buy__group--label {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.buy__select {
+  padding: 11px 11px 11px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  background-color: $white-color;
+  color: grey;
+
+  -webkit-appearance: button;
+  appearance: button;
+
+  transition: all $transition-duration $timing-function;
+
+  cursor: pointer;
+
+  &:focus {
+    outline: transparent;
+    border: 1px solid $primary-accent-color;
+  }
+}
+
+.buy__optgroup {
+  color: $primary-text-color;
+  font-size: 16px;
+}
+
+.buy__select {
+  color: $primary-text-color;
+}
+
+// Политика для формы (чекбокс и текст)
+
+.policy-block {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+
+  margin-bottom: 30px;
+
+  cursor: pointer;
+}
+
+// Каркас под иконку чекбокса
+
+.policy__icon::before {
+  display: inline-block;
+
+  content: '';
+
+  width: 16px;
+  height: 15px;
+  margin-right: 7px;
+  border: 2px solid rgba(33, 33, 33, 0.2);
+  border-radius: 2px;
+  vertical-align: middle;
+
+  transition: all $transition-duration $timing-function;
+}
+
+// Иконка чекбокса в нажатом состоянии
+
+.checkbox:checked + .policy__icon::before {
+  vertical-align: middle;
+
+  border-color: $primary-accent-color;
+
+  background-color: $primary-accent-color;
+  background-image: url('../images/icons/form-check.svg');
+  background-size: contain;
+  background-origin: border-box;
+}
+
+// Текст рядом с чекбоксом
+
+.policy__text {
+  @include font(400, 14px, 1.16);
+}
+
+// Ссылка в тексте рядом с чекбоксом
+.policy__link {
+  color: $primary-accent-color;
+}
+
+// Обёртка для кнопки
+
+.btn-block {
+  text-align: center;
+}
+
+.buy-form__btn {
+  min-width: 104px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+
+  padding: 0 37px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.286;
+
+  background: $primary-accent-color;
+  color: $secondary-button-color;
+  text-align: center;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    outline: transparent;
+    border: 1px solid $primary-accent-color;
+    background-color: $secondary-button-color;
+    color: $primary-accent-color;
+
+    transition: all $transition-duration $timing-function;
+  }
+
+  &:disabled {
+    background-color: $section-bg-primary;
+    color: $primary-text-color;
+    border: 1px solid transparent;
+  }
+}
