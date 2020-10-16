@@ -1,5 +1,5 @@
 .page-header {
-  // background-color:pink;
+ 
   background-color: transparent;
     position: fixed;
     width: 100%;
@@ -17,6 +17,9 @@
     @media screen and (min-width: 768px) {
       padding-top: 37px;
     }
+     @media screen and (min-width: 1280px){
+        padding-left: 46px;
+     }
    }
   
 // Общий див для кнопки-бургер, меню и кнопки купить
@@ -31,7 +34,7 @@
 //  переключатель мобильного меню
 
 .menu-button {
-    z-index: 110;
+    z-index: 1100;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,16 +80,16 @@
     }
   }
  
-// оформлени позиционировани ссылок и кнопки купить в  мобильной и десктопной версии
+// оформлени позиционирования ссылок и кнопки купить в  мобильной и десктопной версии
  
 .menu__container {
-  z-index: 100;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     transition: opacity $transition-duration $timing-function,
       visibility $transition-duration $timing-function;
     @media screen and (max-width: 1279px) {
+      z-index: 800;
       position: absolute;
       top: 0;
       right: 0;
@@ -100,7 +103,7 @@
       padding-left: 21px;
       padding-right: 21px;
  @media screen and (min-width: 768px) and (max-width: 1279px) {
-      height: 1020px;
+      height: 100vh;
        padding-bottom: 669px;
         padding-left: 24px;
       padding-right: 24px;
@@ -121,12 +124,8 @@
       @media screen and (min-width: 1280px) {
         @include font (700, 16px, 1.31);
         display: flex;
-
         margin: 0 110px;
       }
-       @media screen and (min-width: 1280px) {
-    width: 100%;
-    }
     }
 
   .menu__item {
@@ -134,7 +133,8 @@
       display: block;
       border-top: solid 1px #e18298;
       &:not(:last-child) {
-        margin-bottom: 23px;
+        padding-top: 11px;
+        padding-bottom: 12px;
       }
       &:last-child {
         border-bottom: solid 1px #e18298;
@@ -153,10 +153,10 @@
         color:$primary-accent-color;
       }
 
-      @media screen and (max-width: 1279px) {
-        padding-left: 21px;
-        padding-right: auto;
-      }
+      // @media screen and (max-width: 1279px) {
+      //   padding-left: 21px;
+      //   padding-right:21px;
+      // }
 
       @media screen and (min-width: 1280px) {
         display: inline-block;
@@ -174,11 +174,13 @@
       background-color:$white-color;
        border: transparent;
        border-radius: 22px;
+       outline: none;
+        transition: background-color $transition-duration $timing-function;
        cursor: pointer;
-          transition: background-color $transition-duration $timing-function;
         &:hover,
         &:focus {
-        background-color: $secondary-button-color;}}
+        background-color: $secondary-button-color;
+        }}
   
   .menu__buy.btn__buy {
     width: 209px;
