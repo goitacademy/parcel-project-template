@@ -7,19 +7,18 @@
 .products {
   padding: 121px 0 98px 0;
   @include for-size(tablet) {
-     padding: 122px 0 112px 0;
+    padding: 122px 0 112px 0;
   }
-  @include for-size(desktop){
-     padding: 127px 0 119px 0;
+  @include for-size(desktop) {
+    padding: 127px 0 119px 0;
   }
-
 }
 .products .section__title {
   margin: 0 0 144px 0;
-  @include for-size(tablet){
+  @include for-size(tablet) {
     margin: 0 0 150px 0;
   }
-  @include for-size(desktop){
+  @include for-size(desktop) {
     margin: 0 0 259px 0;
   }
 }
@@ -35,6 +34,7 @@
   padding: 161px 40px 41px 40px;
   border-radius: 24px;
   text-align: center;
+  
 
   &:nth-child(3n + 1) {
     background-color: $hero-bg-color;
@@ -46,19 +46,19 @@
     background-color: $branch-two-bg-color;
   }
   &:not(:last-child) {
-    margin:0 0 130px 0;
+    margin: 0 0 130px 0;
   }
   @include for-size(tablet) {
     padding: 152px 11px 40px 11px;
     flex-basis: calc((100% - 2 * 20px) / 3);
-      &:not(:last-child) {
+    &:not(:last-child) {
       margin: 0 20px 0 0;
     }
   }
   @include for-size(desktop) {
     padding: 163px 44px 50px 44px;
     flex-basis: calc((100% - 2 * 26px) / 3);
-      &:not(:last-child) {
+    &:not(:last-child) {
       margin: 0 26px 0 0;
     }
   }
@@ -69,36 +69,44 @@
   left: 50%;
   transform: translateX(-50%);
   @include for-size(tablet) {
-     top: -111px;
+    top: -111px;
   }
   @include for-size(desktop) {
-     top: -210px;
+    top: -210px;
   }
-
 }
 .products__name {
   font-family: $accent-font, sans-serif;
   @include font(400, 20px, 1.157, 0.04em);
   text-transform: uppercase;
   color: $white-color;
-   @include for-size(desktop){
-     @include font(400, 30px, 1.13, 0.04em);
-   }
+  @include for-size(desktop) {
+    @include font(400, 30px, 1.13, 0.04em);
+  }
 }
 .products__separator {
   @extend .products__name;
 }
+
 .products__text {
-  font-family: $base-font, serif;
+  word-wrap: break-word;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  font-family: $base-font, sans-serif;
   @include font(700, 14px, 1.52, 0.04em);
   color: $white-color;
 
   @include for-size(tablet) {
     @include font(700, 14px, 1.76, 0.04em);
+    
   }
-   @include for-size(desktop){
-     @include font(700, 16px, 1.76, 0.04em);
-   }
+  @include for-size(desktop) {
+    @include font(700, 16px, 1.76, 0.04em);
+     -webkit-line-clamp: 4;
+  }
 }
 .products__button {
   display: inline;
