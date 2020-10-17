@@ -15,10 +15,9 @@
 
   menuBtnCl.addEventListener('click', () => {
     const expanded =
-      menuBtnRef.getAttribute('aria-expanded') === 'true' || false;
+      menuBtnCl.getAttribute('aria-expanded') === 'false' || true;
 
-    menuBtnRef.classList.toggle('is-open');
-    menuBtnRef.setAttribute('aria-expanded', !expanded);
+    menuBtnCl.setAttribute('aria-expanded', !expanded);
 
     mobileMenuRef.classList.toggle('is-open');
   });

@@ -1,29 +1,42 @@
 .buy-button {
   width: 159px;
   height: 44px;
-  background: #ffffff;
+  background: $white-color;
   border-radius: 22px;
   border: none;
   cursor: pointer;
 
+  @include font(bold, 16px, 1.31, 0);
   font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 1.31;
   text-align: center;
-  color: #d41443;
+  color: $purple-text-color;
+
+  transition: all $animation-time $animation-function;
 
   &:hover,
   &:focus {
     background-color: #ecebeb;
+    transition: all $animation-time $animation-function;
   }
+}
+
+.buy-button__text {
+  display: inline-block;
+  margin: 0 12px 0 0;
+  padding: 0;
+}
+
+.arrow-icon {
+  fill: $white-color;
+  width: 6.7px;
+  height: 10px;
 }
 
 .buy-button-second {
   display: none;
 }
 
-@media screen and (min-width: 1px) and (max-width: 1279px) {
+@media screen and (min-width: 1px) and (max-width: 767px) {
   .buy-button {
     position: absolute;
     top: -63px;
@@ -41,31 +54,37 @@
   }
 }
 
-@include for-size(tablet) {
-  .buy-button {
-    display: block;
+@media screen and (min-width: 1px) and (max-width: 767px) {
+  .buy-button__text {
+    margin: 0 20px 0 0;
   }
+}
 
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .buy-button__text {
+    margin: 0 16px 0 0;
+  }
+}
+
+@include for-size(tablet) {
   .buy-button-second {
     display: block;
     margin-left: 30px;
     width: 159px;
     height: 44px;
-    background: #ffffff;
+    background: $white-color;
     border-radius: 22px;
     border: none;
     cursor: pointer;
 
+    @include font(bold, 16px, 1.31, 0);
     font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 1.31;
     text-align: center;
-    color: #d41443;
+    color: $purple-text-color;
 
     &:hover,
     &:focus {
-      background-color: #ecebeb;
+      background-color: $hover-btn-two-color;
     }
   }
 }
