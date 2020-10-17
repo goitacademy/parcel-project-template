@@ -1,7 +1,5 @@
 .contacts {
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 60px;
+  padding-top: 68px;
   padding-bottom: 80px;
   background: linear-gradient(
     180deg,
@@ -9,15 +7,28 @@
     rgba(255, 245, 246, 1) 9%
   );
 
+& .container {
+  @include for-size(mobile) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
   @include for-size(tablet) {
     background: linear-gradient(180deg, white 18%, #fff5f6 13%);
   }
 
   &__flexbox {
     margin-bottom: 54px;
+
     @include for-size(tablet) {
-      display: flex;
+      // display: flex;
       margin-bottom: 86px;
+      @include flexbox($jc: center, $flw: nowrap);
+    }
+
+    @include for-size(desktop) {
+      max-width: 1200px;
     }
   }
 
@@ -71,11 +82,23 @@
         rgba(255, 255, 255, 1) 20%,
         rgba(255, 245, 246, 1) 13%
       );
+    background-position-y: 35%;
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/desktop/contacts-bg@2x.png),
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 1) 20%,
+        rgba(255, 245, 246, 1) 13%
+      );
       background-position-y: 35%;
-      background-repeat: no-repeat;
-      background-size: auto;
   }
 }
+
 
 .contacts__item {
   &:not(:last-child) {
