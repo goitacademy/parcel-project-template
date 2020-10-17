@@ -27,10 +27,20 @@
     padding-bottom: 113px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include for-size(desktop) {
     background-color: $secondary-bg-color;
-    background-image: none;
+    background-image: url('../images/desktop/adress-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: 90px;
     padding-bottom: 113px;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/desktop/adress-bg@2x.png');
+    }
   }
 }
 
@@ -38,7 +48,7 @@
   &:not(:last-child) {
     margin-bottom: 20px;
   }
-  @media screen and (min-width: 1200px) {
+  @include for-size(desktop) {
     width: 330px;
   }
 }
@@ -47,30 +57,28 @@
   padding: 40px 21px 43px 20px;
   margin-right: auto;
   margin-left: auto;
-
   font-weight: $medium;
-
   background: $white-color;
   box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
   border-radius: 24px;
 
-  @media screen and (min-width: 768px) {
+  @include for-size(tablet) {
     padding: 50px 32px 50px 31px;
   }
 
-  @media screen and (max-width: 1199px) {
+  @include for-size(desktop-only) {
     max-width: 220px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include for-size(desktop) {
     padding: 51px 43px 62px 44px;
   }
 }
 
 .adress__title {
   display: inline-block;
-  padding-left: 30px;
-  padding-right: 30px;
+  min-width: 80px;
+  text-align: center;
   margin-top: 0;
   margin-bottom: 25px;
   background-color: $cafe-color;
@@ -90,15 +98,25 @@
 
   &.foodtruck {
     background-color: $foodtruck-color;
+    min-width: 130px;
+
+    @include for-size(tablet) {
+      min-width: 138px;
+    }
   }
 
-  @media screen and (min-width: 768px) {
+  @include for-size(tablet) {
     font-size: 16px;
     line-height: 186%;
     /* or 30px */
     margin-bottom: 30px;
-    padding-left: 14px;
-    padding-right: 14px;
+    min-width: 73px;
+  }
+}
+
+.food {
+  @include for-size(tablet) {
+    margin-right: 4px;
   }
 }
 
@@ -112,7 +130,7 @@
 
   letter-spacing: 0.04em;
 
-  @media screen and (min-width: 1200px) {
+  @include for-size(desktop) {
     font-size: 16px;
     line-height: 186%;
     /* identical to box height, or 30px */
@@ -127,14 +145,14 @@
   line-height: 18px;
   /* or 150% */
 
-  @media screen and (min-width: 768px) {
+  @include for-size(tablet) {
     margin-bottom: 30px;
     font-size: 14px;
     line-height: 186%;
     /* identical to box height, or 26px */
   }
 
-  @media screen and (min-width: 1200px) {
+  @include for-size(desktop) {
     font-size: 16px;
     line-height: 183%;
     /* or 29px */
@@ -156,7 +174,7 @@
     margin-bottom: 10px;
   }
 
-  @media screen and (min-width: 768px) {
+  @include for-size(tablet) {
     font-size: 14px;
     line-height: 186%;
     /* identical to box height, or 26px */
@@ -164,7 +182,7 @@
     padding-bottom: 30px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include for-size(desktop) {
     font-size: 16px;
   }
 }
@@ -176,7 +194,7 @@
 .adress__contacts {
   margin-top: 25px;
 
-  @media screen and (min-width: 768px) {
+  @include for-size(tablet) {
     margin-top: 30px;
   }
 }
@@ -190,32 +208,36 @@
   line-height: 18px;
   /* or 150% */
 
-  @media screen and (min-width: 768px) {
+  @include for-size(tablet) {
     font-size: 14px;
     line-height: 183%;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include for-size(desktop) {
     font-size: 16px;
   }
 }
 
 .adress-link {
-  @media screen and (min-width: 768px) {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+
+  @include for-size(tablet-only) {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 .locations {
   // position: relative;
-  display: flex;
+  display: inline-flex;
   justify-content: start;
   align-items: center;
-  width: 161.45px;
+  // @include flexbox(start, center);
+  // width: 161.45px;
   height: 44px;
-  margin-bottom: 10px;
   padding-left: 17px;
+  padding-right: 17px;
   color: $white-color;
   font-size: 16px;
   line-height: 21px;
@@ -230,26 +252,28 @@
     color: $accent-color;
     background-color: $white-color;
     padding-left: 32px;
-    margin-bottom: 0;
+    padding-right: 32px;
+
+    transition: background-color $cubic;
 
     &:hover,
     &:focus {
       background-color: $accent-btn-color;
     }
 
-    @media screen and (min-width: 768px) {
+    @include for-size(tablet) {
       margin-left: 14.5px;
     }
 
-    @media screen and (min-width: 1200px) {
+    @include for-size(desktop) {
       margin-left: 15px;
     }
   }
 
-  @media screen and (max-width: 767px) {
-    margin-left: auto;
-    margin-right: auto;
-  }
+  // @include for-size(tablet-only) {
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // }
 }
 
 .white-arrow {
