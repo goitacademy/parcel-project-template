@@ -1,6 +1,6 @@
 var swiper = new Swiper('.swiper-container', {
   autoHeight: true, //enable auto height
-  spaceBetween: 20,
+  // spaceBetween: 20,
   slidesPerView: 1,
   loop: true,
   // autoplay: {
