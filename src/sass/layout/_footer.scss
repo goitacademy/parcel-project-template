@@ -9,7 +9,12 @@ footer {
   text-decoration: none;
   font-style: normal;
 }
-
+.footer__text-contacts {
+  @include for-size(tablet) {
+    @include flexbox(space-between);
+    padding: 164px 0 90px;
+  }
+}
 .footer-box {
   // width: $mobile;
   // margin: 0 auto;
@@ -19,6 +24,12 @@ footer {
   justify-content: center;
   // padding-top: 80px;
   overflow: hidden;
+  @include for-size(tablet) {
+    padding-top: 26px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .footer-nav {
@@ -90,7 +101,10 @@ footer {
 
 .footer-text {
   display: block;
-  margin: 112px 0 42px 0;
+  @media screen and (max-width: 767px) {
+    margin: 112px 0 42px 0;
+  }
+
   padding: 0;
   text-align: left;
   width: 234px;
@@ -107,7 +121,9 @@ footer {
 
 .contacts {
   text-align: right;
-  margin: 0 0 42px;
+  @media screen and (max-width: 767px) {
+    margin: 0 0 42px;
+  }
 }
 .social-list {
   display: flex;
@@ -184,12 +200,6 @@ footer {
 }
 
 @include for-size(tablet) {
-  .footer-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
   .footer-nav {
     display: flex;
     justify-content: center;
@@ -212,7 +222,7 @@ footer {
 
   .footer-text {
     width: 340px;
-    margin: 164px 0 90px 36px;
+    // margin: 164px 0 90px 0;
 
     &__title {
       margin-bottom: 16px;
@@ -253,7 +263,7 @@ footer {
 
   .contacts {
     text-align: right;
-    margin: 158px 36px 174px 92px;
+    // margin: 158px 0 174px 0;
   }
   .social-list {
     display: flex;
