@@ -12,6 +12,10 @@
   @include for-size(tablet) {
     height: 399px;
   }
+
+  @include for-size(desktop) {
+    height: 665px;
+  }
 }
 
 .page-header__header {
@@ -24,7 +28,29 @@
   @include for-size(tablet) {
     width: 740px;
     padding: 37px 20px 19px;
+  }
+
+  @include for-size(desktop) {
+    width: 1090px;
+    padding: 6px 20px;
     margin: 0 auto;
+  }
+}
+
+.page-header__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 440px;
+
+  @include for-size(tablet) {
+    display: block;
+    height: 293px;
+  }
+
+  @include for-size(desktop) {
+    height: 536px;
+    padding: 45px 0;
   }
 }
 
@@ -33,7 +59,11 @@
 
   &.is-hidden {
     opacity: 0;
-    overflow: hidden;
+    pointer-events: none;
+  }
+
+  @include for-size(desktop) {
+    display: none;
   }
 }
 
@@ -51,6 +81,13 @@
     bottom: 46px;
     left: 40%;
   }
+
+  @include for-size(desktop) {
+    width: 538px;
+    height: 538px;
+    bottom: 75px;
+    left: 30%;
+  }
 }
 
 .icecream-image {
@@ -62,19 +99,22 @@
   @include for-size(tablet) {
     left: 50%;
   }
+
+  @include for-size(desktop) {
+    left: 40%;
+  }
 }
 
 // Button
 .button__mobile--buy-now {
-  @include flexbox();
+  display: inline-block;
   @include font($bold, 16px, 1.31);
   border-radius: 22px;
   background-color: $white-color;
   color: rgba(212, 20, 67, 1);
-  width: 160px;
-  height: 44px;
+  min-width: 180px;
   margin: 0 auto;
-  padding: 0;
+  padding: 12px 30px;
   border: none;
   outline: none;
   cursor: pointer;
@@ -88,30 +128,27 @@
   }
 
   @include for-size(tablet) {
-    width: 186px;
+    min-width: 180px;
+  }
+
+  @include for-size(desktop) {
+    margin-left: 110px;
+    min-width: 160px;
   }
 }
 
-.button--dark {
-  @include flexbox();
-  @include font($normal, 16px, 1.31);
-  border-radius: 22px;
-  background-color: $accent-color;
-  color: #ffffff;
-}
 .button__tablet--buy-now {
   display: none;
 
   @include for-size(tablet) {
-    @include flexbox();
+    display: inline-block;
     @include font($bold, 16px, 1.31);
     border-radius: 22px;
     background-color: $white-color;
     color: rgba(212, 20, 67, 1);
-    width: 160px;
-    height: 44px;
+    min-width: 160px;
     margin: 0;
-    padding: 0;
+    padding: 10px 30px;
     border: none;
     outline: none;
     cursor: pointer;
@@ -194,6 +231,10 @@
   @include for-size(tablet) {
     right: 34px;
   }
+
+  @include for-size(desktop) {
+    display: none;
+  }
 }
 
 .icon__burger {
@@ -219,6 +260,7 @@
   padding: 60px 0;
   top: 0;
   right: 0;
+  z-index: 2;
   transform: translateX(100%);
   transition: transform $cubic, filter $cubic;
 
@@ -228,39 +270,77 @@
 
     @include for-size(tablet) {
       position: fixed;
+      width: 254px;
       height: 1020px;
     }
   }
 
   background-color: $modal-bg-color;
+
+  @include for-size(desktop) {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    transform: none;
+    padding: 0;
+    background-color: transparent;
+  }
 }
 
 .navigation__list {
-  margin: 0;
-  padding: 0;
+  @include for-size(desktop) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .navigation__item {
   display: flex;
   align-items: center;
-  padding: 11px 20px;
   border-bottom: 1px solid #e18298;
 
   &:first-child {
     border-top: 1px solid #e18298;
     margin-top: 19px;
+
+    @include for-size(desktop) {
+      border: none;
+      margin-top: 0;
+    }
+  }
+
+  @include for-size(desktop) {
+    border: none;
+
+    &:not(:last-child) {
+      margin-right: 35px;
+    }
   }
 }
 
 .navigation__link {
   @extend %link;
-  @include font($bold, 14px, 1.28);
+  @include font($normal, 14px, 1.28);
   color: $white-color;
   transition: color $cubic;
+  padding: 11px 40px 11px 20px;
 
   &:hover,
   &:focus {
     color: rgba(212, 20, 67, 1);
+  }
+
+  @include for-size(desktop) {
+    border: none;
+    padding: 50px 0;
+    @include font($normal, 16px, 1.5);
   }
 }
 
@@ -270,17 +350,21 @@
   display: flex;
   flex-direction: column;
   justify-content: left;
-  margin-top: 137px;
+  max-width: 230px;
 
   @include for-size(tablet) {
     margin-top: 0px;
     margin-bottom: 19px;
   }
+
+  @include for-size(desktop) {
+    max-width: 280px;
+    margin-bottom: 56px;
+  }
 }
 
 .hero__title {
   display: block;
-  width: 218px;
 
   @include font($normal, 26px, 1.15, $title-font);
   color: $white-color;
@@ -289,6 +373,10 @@
 
   @include for-size(tablet) {
     @include font($normal, 22px, 1.13, $title-font);
+  }
+
+  @include for-size(desktop) {
+    @include font($normal, 38px, 1.15, $title-font);
   }
 }
 
@@ -301,6 +389,10 @@
   @include for-size(tablet) {
     @include font($normal, 34px, 0.91, $title-font);
   }
+
+  @include for-size(desktop) {
+    @include font($normal, 58px, 0.91, $title-font);
+  }
 }
 
 .hero__button {
@@ -309,10 +401,10 @@
 
 .hero__button--light {
   @extend %link;
-  @include flexbox();
   @include font($normal, 8px, 1.25);
-  width: 82px;
-  height: 24px;
+  display: inline-block;
+  padding: 8px 20px;
+  min-width: 40px;
   border-radius: 22px;
   background-color: $white-color;
   color: rgba(212, 20, 67, 1);
@@ -324,14 +416,18 @@
     background-color: #ecebeb;
     color: #d41443;
   }
+
+  @include for-size(desktop) {
+    @include font($normal, 14px, 1.28);
+  }
 }
 
 .hero__button--dark {
   @extend %link;
-  @include flexbox();
   @include font($normal, 8px, 1.25);
-  width: 62px;
-  height: 24px;
+  display: inline-block;
+  padding: 8px 20px;
+  min-width: 60px;
   margin-right: 8px;
   border-radius: 22px;
   background-color: $accent-color;
@@ -344,6 +440,10 @@
     background-color: #c7133e;
     color: $white-color;
   }
+
+  @include for-size(desktop) {
+    @include font($normal, 14px, 1.28);
+  }
 }
 
 .eco {
@@ -351,24 +451,53 @@
 
   @include for-size(tablet) {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
   }
 }
 
 .eco__image {
-  width: 124px;
+  @include for-size(desktop) {
+    transform: translateX(-20%);
+  }
 }
 
 .eco__text {
   width: 114px;
+  margin: 0 0 7px;
 
   @include font($normal, 8px, 1.5);
   color: $white-color;
+
+  @include for-size(desktop) {
+    width: 200px;
+    margin: 0 0 20px;
+    @include font($normal, 14px, 1.4);
+  }
+}
+
+.eco__link {
+  @include flexbox();
+  width: 18px;
+  height: 18px;
+  background-color: $white-color;
+  color: #d41443;
+  border-radius: 50%;
+
+  @include for-size(desktop) {
+    width: 26px;
+    height: 26px;
+  }
 }
 
 .eco__arrow {
-  width: 18px;
-  height: 18px;
+  width: 6px;
+  height: 6px;
+  fill: currentColor;
+
+  @include for-size(desktop) {
+    width: 10px;
+    height: 10px;
+  }
 }
 
 .tasty {
@@ -390,9 +519,15 @@
     right: 5%;
     z-index: -1;
   }
+
+  @include for-size(desktop) {
+    width: 293px;
+  }
 }
 
 .tasty__list {
+  display: none;
+
   @include for-size(tablet) {
     display: flex;
     flex-direction: column;
@@ -400,20 +535,68 @@
     position: absolute;
     padding: 0;
     margin: 0;
-    top: 94px;
-    right: 5%;
+    top: 0;
+    right: 28px;
     z-index: -1;
 
     text-align: right;
   }
+
+  @include for-size(desktop) {
+    top: 35px;
+  }
+}
+
+.tasty__item {
+  position: relative;
+
+  &:first-child {
+    margin-bottom: 20px;
+  }
+}
+
+.tasty__item::after {
+  display: none;
+
+  @include for-size(tablet) {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    transform: translate(50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: $white-color;
+  }
+
+  @include for-size(desktop) {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .tasty__number {
+  display: inline-block;
   @include font($normal, 34px, 0.91, $title-font);
   color: rgba(212, 20, 67, 1);
+  margin: 0;
+  padding: 0;
+
+  @include for-size(desktop) {
+    @include font($normal, 46px, 1.15, $title-font);
+  }
 }
 
 .tasty__text {
   @include font($normal, 8px, 1.5);
   color: $white-color;
+  margin: 0;
+  padding: 0;
+
+  @include for-size(desktop) {
+    @include font($normal, 14px, 1.28);
+  }
 }
