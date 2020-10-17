@@ -34,6 +34,8 @@
     margin-right: auto;
     margin-left: auto;
     padding: 3px 7px 6px 16px;
+    width: auto;
+    max-width: 813px;
     background-image: repeating-linear-gradient(
       #fafafa 0,
       #fafafa 28px,
@@ -42,16 +44,6 @@
       #fafafa 30px,
       #fafafa 30px
     );
-
-    @include for-size(mobile) {
-      max-width: 180px;
-    }
-    @include for-size(tablet) {
-      max-width: 524px;
-    }
-    @include for-size(desktop) {
-      max-width: 813px;
-    }
   }
 
   &__text {
@@ -80,10 +72,13 @@
       background-image: url('../images/quote.svg');
       background-size: contain;
       background-repeat: no-repeat;
-      left: 4px;
+      left: -30px;
       top: -16px;
       position: absolute;
       z-index: -1;
+      @include for-size(mobile-only) {
+        left: 4px;
+      }
 
       @include for-size(tablet) {
         left: -32px;

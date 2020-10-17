@@ -1,18 +1,16 @@
 .box-footer {
   margin-top: 132px;
-
   background-color: $bg-color;
-  // background: no-repeat;
-  
+  background-image: linear-gradient(#ffffff 92px, #fff5f6 92px);
 }
-.bg { 
-  @media screen and( min-width: $width_desktop){
-  background-image: url(../images/desktop/bg-location.png);
-  background-repeat: no-repeat;
-  background-position: left center;}
-
-background: linear-gradient  (to bottom rgba(255,255,255, 0.5)100px rgba(255, 245, 246, 0.5)100%);
-
+.bg {
+  @media screen and (min-width: $width_desktop) {
+    background-image: url(../images/desktop/bg-location.png),
+      linear-gradient(#ffffff 92px, #fff5f6 92px);
+    background-repeat: no-repaet, no-repeat;
+    background-position: left, center;
+    background-size: contain, contain;
+  }
 }
 
 .location {
@@ -33,29 +31,36 @@ background: linear-gradient  (to bottom rgba(255,255,255, 0.5)100px rgba(255, 24
   padding-top: 43px;
   padding-bottom: 43px;
   padding-right: 21px;
-
+  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
   border-radius: 24px;
   background-color: $white-color;
+
   @media screen and(min-width:$width_tablet) {
-    margin: 0px;
-    height: 544px;
+    flex-basis: calc((100% - 2 * 20px) / 3);
+    height: auto;
+    // height: 544px;
     // padding-left: 31px;
     // padding-top: 50px;
-   padding: 50px 32px 50px 31px;
-
+    padding: 50px 32px 50px 31px;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
   }
   @media screen and(min-width:$width_desktop) {
-    width: 330px;
-    height: 572px;
+    flex-basis: calc((100% - 2 * 30px) / 3);
+    max-width: 330px;
+    height: auto;
+    // height: 572px;
     padding: 51px 44px 62px 43px;
-
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
   }
 
-  
   .location &:not(:last-child) {
     margin-bottom: 20px;
     @media screen and(min-width:$width_tablet) {
-      margin: 0px;
+      margin-bottom: 0px;
     }
   }
   .type-layouts {
@@ -71,60 +76,79 @@ background: linear-gradient  (to bottom rgba(255,255,255, 0.5)100px rgba(255, 24
     font-size: 12px;
     @media screen and(min-width:$width_tablet) {
       padding: 1px 10px 1px 10px;
-      
-  }
+    }
     @media screen and(min-width:$width_desktop) {
-      padding: 1px 10px 1px 10px;      
+      padding: 1px 10px 1px 10px;
+    }
   }
-}
-  .another{ background-color:$bg-green ;}
+  .another {
+    background-color: $bg-green;
+  }
   .city {
-    padding: 25px 0px 0px 0px;
-    margin: 0;
+    margin-top: 25px;
     font-family: DM Sans;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
+    line-height: 1.83;
     @media screen and(min-width:$width_tablet) {
-  //     padding-top: 30px;
-      
-  }
-  @media screen and(min-width:$width_desktop) {
-  //       padding-top: 32px;      
+      font-size: 14px;
+      margin-top: 30px;
+    }
+    @media screen and(min-width:$width_desktop) {
+      font-size: 16px;
+      margin-top: 32px;
     }
   }
 
   .text-location {
-    padding-top: 10px;
-    padding-bottom: 25px;
-    margin: 0;
+    margin-top: 10px;
+    // padding-bottom: 25px;
 
     color: $secondary-text-color;
     font-family: DM Sans;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
-    line-height: 18px;
-     @media screen and(min-width:$width_tablet) {
-      padding-top: 14px;
-      
-  }
-  @media screen and(min-width:$width_desktop) {
-        padding-top: 10px;      
+    line-height: 1.5;
+    @media screen and(min-width:$width_tablet) {
+      font-size: 14px;
+      margin-top: 14px;
+      line-height: 1.66;
+    }
+    @media screen and(min-width:$width_desktop) {
+      font-size: 16px;
+      margin-top: 10px;
+      line-height: 1.83;
     }
   }
   .work-day {
     padding: 0;
-    margin: 0;
+    margin-top: 50px;
     font-family: DM Sans;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 1.86;
+
+    @media screen and(min-width:$width_tablet) {
+      font-size: 14px;
+      margin-top: 60px;
+    }
+    @media screen and(min-width:$width_desktop) {
+      font-size: 16px;
+      margin-top: 64px;
+    }
   }
   .work-day-p {
-    padding-top: 25px;
-    padding-bottom: 10px;
+    margin-top: 10px;
+
+    @media screen and(min-width:$width_tablet) {
+      margin-top: 16px;
+    }
+    @media screen and(min-width:$width_desktop) {
+      margin-top: 15px;
+    }
   }
   .work-time {
     padding: 0;
@@ -133,12 +157,19 @@ background: linear-gradient  (to bottom rgba(255,255,255, 0.5)100px rgba(255, 24
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 1.86;
     color: $title-text-color;
+
+    @media screen and(min-width:$width_tablet) {
+      font-size: 14px;
+    }
+    @media screen and(min-width:$width_desktop) {
+      font-size: 16px;
+    }
   }
-  .work-time-p {
-    margin-bottom: 25px;
-  }
+  // .work-time-p {
+  //   margin-bottom: 25px;
+  // }
 
   .contact-footer {
     padding: 0px 0px 0px 0px;
@@ -148,25 +179,35 @@ background: linear-gradient  (to bottom rgba(255,255,255, 0.5)100px rgba(255, 24
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 1.5;
+
+    @media screen and(min-width:$width_tablet) {
+      line-height: 1.83;
+      font-size: 14px;
+    }
+    @media screen and(min-width:$width_desktop) {
+      font-size: 16px;
+    }
   }
 
   .contact-footer-p {
-    padding-top: 25px;
+    // padding-top: 25px;
+    margin-top: 50px;
   }
-  & .tel-contact,
-  & .mail-contact {
-    text-decoration: none;
-    
-  }
+  // & .tel-contact,
+  // & .mail-contact {
+  //   text-decoration: none;
+  // }
   .tel-contact {
-    margin-bottom: 10px;
-
+    // margin-bottom: 10px;
+    text-decoration: none;
+    color: $secondary-text-color;
   }
-  .mail-contact{
-    margin-bottom: 60px;
+  .mail-contact {
+    // margin-bottom: 60px;
+    text-decoration: none;
+    color: $secondary-text-color;
   }
-  
 }
 
 .line {
@@ -174,35 +215,33 @@ background: linear-gradient  (to bottom rgba(255,255,255, 0.5)100px rgba(255, 24
   color: #e1e1e1;
   &::after {
     position: absolute;
-    transform: translateY(25px);
+    // transform: translateY(25px);
     content: '';
     display: block;
-    width: 180px;
-    height: 2px;
+    // width: 180px;
+    height: 1px;
     background-color: #e1e1e1;
+    bottom: -25px;
+    width: 100%;
     @media screen and(min-width:$width_tablet) {
-      margin-bottom : 30px;
-      width: 157px;
-     
-  }
-  @media screen and(min-width:$width_desktop) {
-        margin-bottom: 32px;   width: 234px;    
+      bottom: -30px;
+      // width: 157px;
+    }
+    @media screen and(min-width:$width_desktop) {
+      bottom: -32px;
+      // bottom: -75%;
+      // width: 234px;
     }
   }
 }
 .box-btn {
   position: relative;
-  // display: flex;
-  display: inline-block;
-  margin-left: 79px;
+  text-align: center;
   margin-top: 54px;
-  @media screen and (min-width: $width_tablet){
+  @media screen and (min-width: $width_tablet) {
     display: flex;
     justify-content: center;
-    margin-left: 0px;
   }
-  
-
 }
 .icon-btn {
   width: 8px;
@@ -219,24 +258,19 @@ background: linear-gradient  (to bottom rgba(255,255,255, 0.5)100px rgba(255, 24
   padding-bottom: 12px;
   padding-right: 30px;
   margin-bottom: 10px;
-  @media screen and (
-min-width: $width_tablet){
-  width: 192px;
-}    
-  @media screen and (
-min-width: $width_desktop){
-  width: 198px;
-}    
-  
+  @media screen and (min-width: $width_tablet) {
+    width: 192px;
+  }
+  @media screen and (min-width: $width_desktop) {
+    width: 198px;
+  }
+
   & .icon-btn {
     margin-left: 8px;
     fill: transparent;
     stroke: $color_active-0;
   }
-
-  
 }
-
 
 .location-container {
   margin-left: auto;
@@ -253,15 +287,7 @@ min-width: $width_desktop){
     padding-right: 116px;
   }
 }
-.work-day-p{
-  @media screen and(min-width:$width_tablet) {
-    margin-bottom: 15px;
-    
-}
-@media screen and(min-width:$width_desktop) {
-margin-bottom: 15px;      
-  }
-}
+
 .button-second {
   background-color: #ffffff;
   border-radius: 22px;
@@ -269,23 +295,17 @@ margin-bottom: 15px;
   border: 0px;
   width: 161px;
   height: 44px;
-  // & :focus,
-  // & :hover {
-  //   background-color: red;
-    
-  // }
+
   & .icon-btn {
     margin-left: 14px;
     fill: transparent;
   }
-  @media screen and (
-    min-width: $width_tablet){
-      width: 174px;
-      margin-left: 14.5px;
-    }    
-      @media screen and (
-    min-width: $width_desktop){
-      width: 180px;
-      margin-left: 15px;
-    }    
+  @media screen and (min-width: $width_tablet) {
+    width: 174px;
+    margin-left: 14.5px;
+  }
+  @media screen and (min-width: $width_desktop) {
+    width: 180px;
+    margin-left: 15px;
+  }
 }
