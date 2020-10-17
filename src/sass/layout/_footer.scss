@@ -1,6 +1,6 @@
-hr {
+.hr {
+  display: block;
   margin: 0;
-  width: 100%;
   border: 1px solid #e1e1e1;
 }
 
@@ -9,7 +9,16 @@ footer {
   text-decoration: none;
   font-style: normal;
 }
-
+.footer__text-contacts {
+  width: 100%;
+  @include for-size(tablet) {
+    @include flexbox(space-between);
+    padding: 164px 0 90px;
+  }
+  @include for-size(desktop) {
+    padding: 165px 0 97px;
+  }
+}
 .footer-box {
   // width: $mobile;
   // margin: 0 auto;
@@ -19,6 +28,15 @@ footer {
   justify-content: center;
   // padding-top: 80px;
   overflow: hidden;
+  @include for-size(tablet) {
+    padding-top: 26px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  @include for-size(desktop) {
+    padding-top: 32px;
+  }
 }
 
 .footer-nav {
@@ -90,7 +108,10 @@ footer {
 
 .footer-text {
   display: block;
-  margin: 112px 66px 42px 20px;
+  @media screen and (max-width: 767px) {
+    margin: 112px 0 42px 0;
+  }
+
   padding: 0;
   text-align: left;
   width: 234px;
@@ -107,12 +128,14 @@ footer {
 
 .contacts {
   text-align: right;
-  margin: 42px 20px 42px;
+  @media screen and (max-width: 767px) {
+    margin: 0 0 42px;
+  }
 }
 .social-list {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 42px;
+  margin-bottom: 46px;
 
   &__link {
     background-color: $hero-bg-color;
@@ -167,26 +190,23 @@ footer {
 }
 
 .copyright {
-  padding: 22px 90px 24px 78px;
+  padding: 22px 0 24px 0;
   text-align: center;
 
   &__text {
+    @media screen and (max-width: 767px) {
+      max-width: 150px;
+    }
+
+    margin: 0 auto;
     font-family: $base-font;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 1.86;
+    @include font2(14px, 1.52, 0em, 700);
+
     color: $accent-text-color;
   }
 }
 
 @include for-size(tablet) {
-  .footer-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
   .footer-nav {
     display: flex;
     justify-content: center;
@@ -209,7 +229,7 @@ footer {
 
   .footer-text {
     width: 340px;
-    margin: 164px 0 90px 36px;
+    // margin: 164px 0 90px 0;
 
     &__title {
       margin-bottom: 16px;
@@ -250,7 +270,7 @@ footer {
 
   .contacts {
     text-align: right;
-    margin: 158px 36px 174px 92px;
+    // margin: 158px 0 174px 0;
   }
   .social-list {
     display: flex;
@@ -294,7 +314,7 @@ footer {
 
 @include for-size(desktop) {
   .footer-text {
-    margin: 165px 257px 97px 114px;
+    // margin: 165px 257px 97px 114px;
     width: 474px;
 
     &__title {
@@ -313,7 +333,7 @@ footer {
   }
 
   .contacts {
-    margin: 164px 116px 98px 0;
+    // margin: 164px 116px 98px 0;
   }
   .social-list {
     margin-bottom: 50px;
