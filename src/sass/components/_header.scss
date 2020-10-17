@@ -1,5 +1,5 @@
 .header {
-  position: fixed;
+  position: absolute;
   z-index: 999;
   font-family: 'DM Sans', sans-serif;
   font-style: normal;
@@ -9,7 +9,7 @@
   display: block;
   min-width: $width_mobile;
   width: 100%;
-  /* height: 130px; */
+  height: 130px;
   background-color: rgba(255, 255, 255, 0);
 }
 .header__container {
@@ -17,17 +17,17 @@
   @extend %container;
   @include CenteredFlex($justify: space-between);
   justify-content: space-between;
-  padding: 1rem 1.5rem;
+  // padding: 1rem 1.5rem;
   @include for-size(mobile) {
-    padding: 1rem 1.5rem;
+    padding: 6px 20px;
   }
   @include for-size(tablet) {
     padding: 1rem 35px;
   }
   @include for-size(desktop) {
-    padding-left: 35px;
+    padding: 37px 115px 0 45px;
   }
-  // transition: 
+  
 }
 .header__logo {
   display: block;
@@ -36,11 +36,16 @@
   height: 50px;
   margin-right: 1rem;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  /* background-color: pink; */
+  transition: filter transition-duration(500ms) ease;
+  &:hover,
+  &:focus {
+    filter: drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.4));
+  }
 }
 .header__nav {
   display: flex;
   align-items: center;
+  // width: 100%;
   // outline: 1px solid red;
 }
 
@@ -135,6 +140,7 @@
   }
   &.current {
     color: $color_active-1;
+    text-shadow: 1px 1px 2px black;
   }
   &:hover {
     color: $color_active-1;
@@ -142,11 +148,11 @@
 }
 
 .header__burger-open {
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 12px;
   padding: 0px;
   @include CenteredFlex();
-  color: $color_active-0;
+  color: $color_active-1;
   background-color: transparent;
   outline: 0px solid $color_active-1;
   border: none;
@@ -168,7 +174,7 @@
   height: 14px;
   padding: 0px;
   @include CenteredFlex();
-  color: $color_active-1;
+  color: $color_active-0;
   background-color: transparent;
   outline: 0px solid $color_active-1;
   border: none;
