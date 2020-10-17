@@ -1,7 +1,5 @@
 .contacts {
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 60px;
+  padding-top: 68px;
   padding-bottom: 80px;
   background: linear-gradient(
     180deg,
@@ -9,26 +7,46 @@
     rgba(255, 245, 246, 1) 9%
   );
 
-  @include for-size(tablet) {
+  @include for-size(desktop) {
+    background-image: url(../images/desktop/contacts-bg.png),
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 1) 20%,
+        rgba(255, 245, 246, 1) 13%
+      );
+    background-position-y: 35%;
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/desktop/contacts-bg@2x.png),
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 1) 20%,
+        rgba(255, 245, 246, 1) 13%
+      );
+    background-position-y: 35%;
+  }
+
+  @include for-size(tablet-only) {
     background: linear-gradient(180deg, white 18%, #fff5f6 13%);
+  }
+
+  & .container {
+    @include for-size(mobile-only) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
   }
 
   &__flexbox {
     margin-bottom: 54px;
     @include for-size(tablet) {
-      display: flex;
       margin-bottom: 86px;
+      @include flexbox($jc: center, $flw: nowrap);
     }
-  }
-
-  @include for-size(tablet) {
-    padding-left: 34px;
-    padding-right: 34px;
-  }
-
-  @include for-size(desktop) {
-    padding-left: 115px;
-    padding-right: 115px;
   }
 
   &__card {
@@ -62,18 +80,6 @@
     color: $color-grey-text;
     font-size: 12px;
     line-height: 1.5;
-  }
-
-  @include for-size(desktop) {
-    background-image: url(../images/desktop/contacts-bg.png),
-      linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 1) 20%,
-        rgba(255, 245, 246, 1) 13%
-      );
-      background-position-y: 35%;
-      background-repeat: no-repeat;
-      background-size: auto;
   }
 }
 
