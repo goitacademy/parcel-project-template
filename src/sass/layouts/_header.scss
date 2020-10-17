@@ -1,22 +1,29 @@
 .page-header {
-  // background-color:pink;
-  background-color: transparent;
-    position: fixed;
+  background-color:transparent;
+    // position: fixed;
+    position: absolute;
     width: 100%;
     top: 0;
-    z-index: 500;}
+    z-index: 500;
+    }
     
 
  .header__container {
-    position: relative;
+    // position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 6px;
+    @media screen and (max-width: 768px) {
+      
+    }
     
     @media screen and (min-width: 768px) {
       padding-top: 37px;
     }
+     @media screen and (min-width: 1280px){
+        padding-left: 46px;
+     }
    }
   
 // Общий див для кнопки-бургер, меню и кнопки купить
@@ -25,16 +32,13 @@
    @media screen and (min-width: 768px) {
   display: inline-flex;
     align-items: center;
-    justify-content: space-between;
 }}
 
 //  переключатель мобильного меню
 
 .menu-button {
-    z-index: 110;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    z-index: 1100;
+     display: flex;
     padding: 0;
     margin: 0;
     border: 0;
@@ -60,7 +64,9 @@
       }
 
       @media screen and (max-width: 767px) {
-        position: relative;
+        position: absolute;
+        top: 23px;
+        right: 28px;
       }
       @media screen and (min-width: 768px) and (max-width: 1279px) {
         position: absolute;
@@ -77,31 +83,25 @@
     }
   }
  
-// оформлени позиционировани ссылок и кнопки купить в  мобильной и десктопной версии
+// оформлени позиционирования ссылок и кнопки купить в  мобильной и десктопной версии
  
 .menu__container {
-  z-index: 100;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     transition: opacity $transition-duration $timing-function,
       visibility $transition-duration $timing-function;
     @media screen and (max-width: 1279px) {
+      z-index: 800;
       position: absolute;
+      height: 100vh;
       top: 0;
       right: 0;
       opacity: 0;
       visibility: hidden;
       background-color: $pink-bg-secondary;
       width: 250px;
-      height: 502px;
       padding-top: 60px;
-      padding-bottom: 152px;
       padding-left: 21px;
-      padding-right: 21px;
+      flex-direction: column;
  @media screen and (min-width: 768px) and (max-width: 1279px) {
-      height: 1020px;
-       padding-bottom: 669px;
         padding-left: 24px;
       padding-right: 24px;
     }}
@@ -110,32 +110,23 @@
         visibility: visible;
       }
   }
-  .navigation {
-    @media screen and (max-width: 1279px){
-     width: 100%;
-   }
-  }
+  
     // Оформление стилей шрифта, внешних отступов для ссылок в меню
 .menu {
   @include font (700, 14px, 1.29);
       @media screen and (min-width: 1280px) {
         @include font (700, 16px, 1.31);
         display: flex;
-
         margin: 0 110px;
       }
-       @media screen and (min-width: 1280px) {
-    width: 100%;
-    }
     }
 
   .menu__item {
     @media screen and (max-width: 1279px) {
       display: block;
       border-top: solid 1px #e18298;
-      &:not(:last-child) {
-        margin-bottom: 23px;
-      }
+       padding-top: 11px;
+        padding-bottom: 12px;
       &:last-child {
         border-bottom: solid 1px #e18298;
       }
@@ -151,11 +142,6 @@
       &:hover,
       &:focus {
         color:$primary-accent-color;
-      }
-
-      @media screen and (max-width: 1279px) {
-        padding-left: 21px;
-        padding-right: auto;
       }
 
       @media screen and (min-width: 1280px) {
@@ -174,11 +160,13 @@
       background-color:$white-color;
        border: transparent;
        border-radius: 22px;
+       outline: none;
+        transition: background-color $transition-duration $timing-function;
        cursor: pointer;
-          transition: background-color $transition-duration $timing-function;
         &:hover,
         &:focus {
-        background-color: $secondary-button-color;}}
+        background-color: $secondary-button-color;
+        }}
   
   .menu__buy.btn__buy {
     width: 209px;
