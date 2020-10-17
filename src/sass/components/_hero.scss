@@ -1,35 +1,42 @@
 .hero {
-  background-origin: content-box;
-  background-position: left 36px bottom 0;
-  background-repeat: no-repeat;
-  background-size: 346px;
   background-color: $hero-bg-color;
-  background-image: url('../images/mobile/hero-ice-cream.png');
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    background-image: url('../images/mobile/hero-ice-cream@2x.png');
-  }
+  &__background {
+    margin: 0 auto;
+    max-width: calc(100%);
+    background-origin: content-box;
+    background-position: calc(100% + 62px) bottom;
+    background-repeat: no-repeat;
+    background-size: 346px;
 
-  @include for-size(tablet) {
-    background-size: 324px;
-    background-position: left 307px bottom 0;
-    background-image: url('../images/tablet/hero-ice-cream.png');
-
+    background-image: url('../images/mobile/hero-ice-cream.png');
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url('../images/tablet/hero-ice-cream@2x.png');
+      background-image: url('../images/mobile/hero-ice-cream@2x.png');
     }
-  }
-  @include for-size(desktop) {
-    background-size: 538px;
-    background-position: left 475px bottom 0;
-    background-image: url('../images/desktop/hero-ice-cream.png');
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      background-image: url('../images/desktop/hero-ice-cream@2x.png');
+
+    @include for-size(tablet) {
+      width: $tablet;
+      background-size: 324px;
+      background-position: calc(100% - 137px) bottom;
+      background-image: url('../images/tablet/hero-ice-cream.png');
+
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url('../images/tablet/hero-ice-cream@2x.png');
+      }
+    }
+    @include for-size(desktop) {
+      width: $desktop;
+      background-size: 538px;
+      background-position: calc(100% - 267px) bottom;
+      background-image: url('../images/desktop/hero-ice-cream.png');
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url('../images/desktop/hero-ice-cream@2x.png');
+      }
     }
   }
   &__title {
