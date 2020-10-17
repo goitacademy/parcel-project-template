@@ -57,9 +57,7 @@
   padding: 40px 21px 43px 20px;
   margin-right: auto;
   margin-left: auto;
-
   font-weight: $medium;
-
   background: $white-color;
   box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
   border-radius: 24px;
@@ -221,21 +219,25 @@
 }
 
 .adress-link {
-  @include for-size(tablet) {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+
+  @include for-size(tablet-only) {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 .locations {
   // position: relative;
-  display: flex;
+  display: inline-flex;
   justify-content: start;
   align-items: center;
-  min-width: 161.45px;
-  min-height: 44px;
-  margin-bottom: 10px;
+  // @include flexbox(start, center);
+  // width: 161.45px;
+  height: 44px;
   padding-left: 17px;
+  padding-right: 17px;
   color: $white-color;
   font-size: 16px;
   line-height: 21px;
@@ -250,7 +252,7 @@
     color: $accent-color;
     background-color: $white-color;
     padding-left: 32px;
-    margin-bottom: 0;
+    padding-right: 32px;
 
     &:hover,
     &:focus {
@@ -266,10 +268,10 @@
     }
   }
 
-  @include for-size(tablet-only) {
-    margin-left: auto;
-    margin-right: auto;
-  }
+  // @include for-size(tablet-only) {
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // }
 }
 
 .white-arrow {
