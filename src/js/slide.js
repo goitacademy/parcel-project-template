@@ -10,6 +10,7 @@
 
             buttons[i].addEventListener('click', (e) => {
 
+                const currentButton   = document.querySelector('.is-clicked');
                 const currentFeedback = document.querySelector('.current-feedback');
                 const currentAuthor   = document.querySelector('.current-author');
                 const currentAvatar   = document.querySelector('.current-avatar');
@@ -23,15 +24,15 @@
                 currentAvatar.classList.remove("current-avatar")
                 avatars[i].classList.add("current-avatar")
                 
-
+                currentButton.classList.remove('is-clicked')
                 buttons[i].classList.add('is-clicked')
 
-                for (let j = 0; j < buttons.length; j++) {
-                   if(j !== i) {
-                        buttons[j].classList.remove('is-clicked')
-                   }
+                // for (let j = 0; j < buttons.length; j++) {
+                //    if(j !== i) {
+                //         buttons[j].classList.remove('is-clicked')
+                //    }
                     
-                }
+                // }
             })
             
         }
