@@ -1,16 +1,20 @@
 (() => {
   const refs = {
-    openModalBtn: document.querySelector("[data-modal-open]"),    
+    openModalBuyOne: document.querySelector("[data-modal-open]"),    
+    openModalBuyTwo: document.querySelector("[data-modal-open-two]"),
+    openModalProductOne: document.querySelector("[data-modal-product-one]"),
+    openModalProductTwo: document.querySelector("[data-modal-product-two]"),
+    openModalProductThree: document.querySelector("[data-modal-product-three]"),
     closeModalBtn: document.querySelector("[data-modal-close]"),
-    openModalBtn2: document.querySelector("[data-modal-open2]"),
-    closeModalBtn2: document.querySelector("[data-modal-close2]"),
     modal: document.querySelector("[data-modal]"),
   };
 
-  refs.openModalBtn.addEventListener("click", toggleModal);  
+  refs.openModalBuyOne.addEventListener("click", toggleModal); 
+  refs.openModalBuyTwo.addEventListener("click", toggleModal); 
+  refs.openModalProductOne.addEventListener("click", toggleModal);
+  refs.openModalProductTwo.addEventListener("click", toggleModal); 
+  refs.openModalProductThree.addEventListener("click", toggleModal); 
   refs.closeModalBtn.addEventListener("click", toggleModal);
-  refs.openModalBtn2.addEventListener("click", toggleModal);
-  refs.closeModalBtn2.addEventListener("click", toggleModal);
 
   function toggleModal() {
     document.body.classList.toggle("modal-open");
