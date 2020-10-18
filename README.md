@@ -33,4 +33,4 @@ _Привет!_ :wave:
 
 _Welcome!_
 
-![IceCream](https://i.imgur.com/PS6Fpk5.png)
+[<img src="https://i.imgur.com/PS6Fpk5.png">](https://mityaua.github.io/final-project-7/)
