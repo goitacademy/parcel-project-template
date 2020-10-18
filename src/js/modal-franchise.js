@@ -12,3 +12,4 @@
     refs.modal.classList.toggle('is-hiddeniv');
   }
 })();
+

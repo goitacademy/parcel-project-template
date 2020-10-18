@@ -13,6 +13,21 @@
   }
 })();
 
+(() => {
+  const refs = {
+    openModalBtn: document.querySelector('[data-modal2-open]'),
+    closeModalBtn: document.querySelector('[data-modal2-close]'),
+    overflow: document.querySelector('[data-overflow]'),
+  };
+
+  refs.openModalBtn.addEventListener('click', toggleModal);
+  refs.closeModalBtn.addEventListener('click', toggleModal);
+
+  function toggleModal() {
+    refs.overflow.classList.toggle('modal-open');
+  }
+})();
+
 // Скрипт что бы при открытии меню не двигалось боди
 
 (() => {
