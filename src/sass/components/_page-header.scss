@@ -1,8 +1,7 @@
 .button__up {
   position: fixed;
+  @include flexbox();
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
   @extend %link;
   bottom: 20px;
   right: 20px;
@@ -54,9 +53,7 @@
 }
 
 .page-header__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flexbox(space-between);
   padding: 6px 20px;
   margin: 0 auto;
 
@@ -74,8 +71,7 @@
 
 .page-header__container {
   position: relative;
-  display: flex;
-  align-items: center;
+  @include flexbox(flex-start);
   height: 440px;
 
   @include for-size(tablet) {
@@ -102,16 +98,19 @@
   }
 }
 
-.pink-circle {
+.page-header__container::before {
+  content: '';
   position: absolute;
-  width: 346px;
+  width: 344px;
   height: 344px;
   bottom: 75px;
   left: 12%;
+  border-radius: 50%;
+  background-color: #ffa5ba;
   z-index: -2;
 
   @include for-size(tablet) {
-    width: 324px;
+    width: 322px;
     height: 322px;
     bottom: 46px;
     left: 40%;
@@ -206,9 +205,7 @@
 }
 
 .burger-menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexbox();
   margin: 0;
   padding: 0;
   border: none;
@@ -244,9 +241,7 @@
 
 .burger-menu--modal {
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexbox();
   top: 23px;
   right: 28px;
   margin: 0;
@@ -286,10 +281,8 @@
 
 .menu-navigation {
   position: absolute;
-  display: flex;
+  @include flexbox(flex-end, stretch);
   flex-direction: column-reverse;
-  align-items: stretch;
-  justify-content: flex-end;
   width: 250px;
   height: 100%;
   padding: 60px 0;
@@ -314,10 +307,8 @@
 
   @include for-size(desktop) {
     position: static;
-    display: flex;
+    @include flexbox(space-between);
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
     width: auto;
     transform: none;
     padding: 0;
@@ -327,18 +318,15 @@
 
 .navigation__list {
   @include for-size(desktop) {
-    display: flex;
+    @include flexbox(space-between);
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
     margin: 0;
     padding: 0;
   }
 }
 
 .navigation__item {
-  display: flex;
-  align-items: center;
+  @include flexbox(flex-start);
   border-bottom: 1px solid #e18298;
 
   &:first-child {
@@ -382,9 +370,8 @@
 // Hero
 
 .hero {
-  display: flex;
+  @include flexbox(left, stretch);
   flex-direction: column;
-  justify-content: left;
   max-width: 230px;
 
   @include for-size(tablet) {
@@ -485,8 +472,7 @@
   display: none;
 
   @include for-size(tablet) {
-    display: flex;
-    align-items: flex-end;
+    @include flexbox(flex-start, flex-end);
   }
 }
 
@@ -564,9 +550,8 @@
   display: none;
 
   @include for-size(tablet) {
-    display: flex;
+    @include flexbox(end, stretch);
     flex-direction: column;
-    justify-content: end;
     position: absolute;
     padding: 0;
     margin: 0;
