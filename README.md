@@ -27,7 +27,10 @@ _Привет!_ :wave:
 - использовали все полученные знания по HTML и CSS.
 - маленькими шажками начали использовать JavaScript.
 
-В результате слаженной командной работы :handshake: получился наш первый сайт
-[https://mityaua.github.io/final-project-7/](https://mityaua.github.io/final-project-7/)
+В результате слаженной командной работы :handshake: получился наш первый сайт:
+
+➡ [https://mityaua.github.io/final-project-7/](https://mityaua.github.io/final-project-7/)
 
 _Welcome!_
+
+![IceCream](https://i.imgur.com/PS6Fpk5.png)
