@@ -1,5 +1,5 @@
 .header {
-  position: fixed;
+  position: absolute;
   z-index: 999;
   font-family: 'DM Sans', sans-serif;
   font-style: normal;
@@ -9,25 +9,26 @@
   display: block;
   min-width: $width_mobile;
   width: 100%;
-  /* height: 130px; */
+  height: 130px;
   background-color: rgba(255, 255, 255, 0);
 }
+
 .header__container {
   // position: relative;
   @extend %container;
   @include CenteredFlex($justify: space-between);
   justify-content: space-between;
-  padding: 1rem 1.5rem;
+  // padding: 1rem 1.5rem;
   @include for-size(mobile) {
-    padding: 1rem 1.5rem;
+    padding: 6px 20px;
   }
   @include for-size(tablet) {
     padding: 1rem 35px;
   }
   @include for-size(desktop) {
-    padding-left: 35px;
+    padding: 37px 115px 0 45px;
   }
-  // transition: 
+  
 }
 .header__logo {
   display: block;
@@ -36,17 +37,23 @@
   height: 50px;
   margin-right: 1rem;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  /* background-color: pink; */
+  transition: filter transition-duration(500ms) ease;
+  &:hover,
+  &:focus {
+    filter: drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.4));
+  }
 }
 .header__nav {
   display: flex;
   align-items: center;
+  // width: 100%;
   // outline: 1px solid red;
 }
 
 .header__menu {
   opacity: 1;
   visibility: visible;
+  min-width: 250px;
   // outline: 1px solid blue;
   // color: red;
   @include for-size(mobile-only) {
@@ -93,11 +100,37 @@
     visibility: visible;
   }
 }
+.header__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  @media screen and (max-width: 1199px) {
+    flex-direction: column;
+
+  }
+}
+.header__list li {
+  display: block;
+  margin: 0 35px 0 0;
+   @media screen and (max-width: 1199px) {
+    margin: 0;
+    
+    vertical-align: middle;
+    height: 42px;
+    border-top: 1px solid #E18298;
+    &:last-child { border-bottom: 1px solid #E18298; }
+    
+  }
+ 
+}
 .header__menu__link {
   // outline: 1px solid blue;
 
   display: block;
-  margin: 0px 0px 23px -11px;
+  height: 100%;
+  // margin: 0px 0px 23px -11px;
   &:last-child() {
     margin-bottom: 0px;
   }
@@ -108,14 +141,14 @@
 
   @include for-size(mobile) {
     @include CenteredFlex($justify: flex-start);
-    margin: 0px 0px 23px -11px;
-    &:last-child() {
-      margin-bottom: 0px;
-    }
+    // margin: 0px 0px 23px -11px;
+    // &:last-child() {
+    //   margin-bottom: 0px;
+    // }
   }
   @include for-size(tablet) {
     @include CenteredFlex($justify: flex-start);
-    margin: 0px 0px 23px -11px;
+    // margin: 0px 0px 23px -11px;
     &:last-child {
       margin-bottom: 0px;
     }
@@ -126,7 +159,7 @@
     margin-right: 35px;
     &:last-child {
       margin: 0px;
-      // background-color: #fff;
+      
     }
   }
   &,
@@ -135,6 +168,7 @@
   }
   &.current {
     color: $color_active-1;
+    text-shadow: 1px 1px 2px black;
   }
   &:hover {
     color: $color_active-1;
@@ -142,11 +176,11 @@
 }
 
 .header__burger-open {
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 12px;
   padding: 0px;
   @include CenteredFlex();
-  color: $color_active-0;
+  color: $color_active-1;
   background-color: transparent;
   outline: 0px solid $color_active-1;
   border: none;
@@ -160,6 +194,11 @@
     display: none;
   }
 }
+
+.header__burger-open use {
+  width: 100%;
+  height: 100%;
+}
 .header__burger-close {
   position: absolute;
   top: 25px;
@@ -168,7 +207,7 @@
   height: 14px;
   padding: 0px;
   @include CenteredFlex();
-  color: $color_active-1;
+  color: $color_active-0;
   background-color: transparent;
   outline: 0px solid $color_active-1;
   border: none;
@@ -178,13 +217,25 @@
   @include for-size(desktop) {
     display: none;
   }
+  
+ .is-hidden--menu .header__btn--popup {
+    width: 250px;
+    @media screen and (min-width: 768px) {
+      min-width: 254px;
+    }
+  }
+  padding: 0;
+  margin:0;
 }
 .header__btn {
   display: none;
   font-size: 16px;
   line-height: 21px;
+  font-weight: 700;
   color: $color_active-1;
   background-color: $color_button-light_bg;
+  transition: background-color transition-duration(500ms) ease;
+
   &:hover {
     background-color: $color_button-light_hover_bg;
   }
@@ -208,7 +259,7 @@
 .header__btn--popup {
   // display: none;
   @include CenteredFlex();
-  width: 160px;
+  width: 210px;
   height: 44px;
   border-radius: 22px;
   overflow: hidden;
@@ -231,4 +282,10 @@
 .menu--icon {
   width: 100%;
   height: 100%;
+}
+
+.header__btn--popup,
+.header__btn { 
+  font-weight: 700;
+  font-size: 16px;
 }
