@@ -19,30 +19,49 @@
 }
 
 .bg-container {
-  background-image: linear-gradient(to top, #fff5f6 94.5%, #ffffff 5%);
   padding-bottom: 113px;
 
+  @include for-size(tablet-only) {
+    &.bg {
+      background-image: linear-gradient(to top, #fff5f6 95%, #ffffff 5%);
+    }
+  }
+
   @media screen and (min-width: 768px) and (max-width: 1199px) {
-    background-image: linear-gradient(to top, #fff5f6 90%, #ffffff 5%);
     padding-bottom: 113px;
+
+    &.bg {
+      background-image: linear-gradient(to top, #fff5f6 90%, #ffffff 5%);
+    }
   }
 
   @include for-size(desktop) {
-    background-color: $secondary-bg-color;
-    background-image: url('../images/desktop/adress-bg.png');
+    // background-color: $secondary-bg-color;
+    background-image: url('../images/desktop/adress-bg.png'),
+      linear-gradient(to top, #fff5f6 98.5%, #ffffff 5%);
+    // background-image: linear-gradient(to top, #fff5f6 94.5%, #ffffff 5%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     background-position-y: 90px;
     padding-bottom: 113px;
 
+    // &.bg {
+    //   background-image: linear-gradient(to top, #fff5f6 98.5%, #ffffff 5%);
+    // }
+
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url('../images/desktop/adress-bg@2x.png');
+      background-image: url('../images/desktop/adress-bg@2x.png'),
+        linear-gradient(to top, #fff5f6 98.5%, #ffffff 5%);
     }
   }
 }
+
+// .bg {
+//   background-image: linear-gradient(to top, #fff5f6 98.5%, #ffffff 5%);
+// }
 
 .adress__item {
   &:not(:last-child) {
