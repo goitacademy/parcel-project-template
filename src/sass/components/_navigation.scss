@@ -1,0 +1,76 @@
+.nav {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+
+  @include for-size(tablet) {
+    justify-content: unset;
+  }
+
+  @include for-size(desktop) {
+    display: none;
+  }
+}
+
+.nav-desktop {
+  display: none;
+
+  @include for-size(desktop) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.nav__list {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28;
+
+  @include for-size(desktop) {
+    display: flex;
+    font-size: 15px;
+    margin: 0;
+    align-items: center;
+  }
+}
+
+.nav__list-item {
+  display: block;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  width: 100%;
+
+  border: 1px solid $border-menu;
+
+  @include for-size(desktop) {
+    display: inline;
+    border: none;
+    padding: 0;
+    width: auto;
+  }
+}
+
+
+.nav__list-item:not(:last-child) {
+    @media screen and (min-width: 1200px) {
+    margin-right: 35px;
+  }
+}
+
+.nav__list-item-text {
+  margin-left: 21px;
+  color: $white;
+
+  @include for-size(desktop) {
+    margin: 0;
+  }
+}
+
+.nav__list-item-text.current {
+  color: $accent;
+}
