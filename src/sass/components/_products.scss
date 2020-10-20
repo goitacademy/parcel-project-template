@@ -61,6 +61,7 @@
 .products__list {
   margin: 0;
   padding: 0;
+  border-radius: 24px;
 
   @include for-size(tablet) {
     display: flex;
@@ -69,6 +70,16 @@
 .products__item {
   position: relative;
   text-align: center;
+  border-radius: 24px;
+  transition: transform, box-shadow, 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+    -webkit-box-shadow: 1px 7px 8px 3px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 1px 7px 8px 3px rgba(0, 0, 0, 0.45);
+    box-shadow: 1px 7px 8px 3px rgba(0, 0, 0, 0.45);
+  }
 
   @include for-size(tablet-only) {
     max-width: 280px;
@@ -92,8 +103,8 @@
   @include for-size(desktop) {
     max-width: 330px;
 
-    width: calc((100% - 30px * 2) / 3);
-    margin-right: 30px;
+    width: calc((100% - 24px * 2) / 3);
+    margin-right: 24px;
 
     &:nth-child(3) {
       margin-right: 0;
@@ -155,19 +166,28 @@
   @include for-size(desktop) {
     font-size: 16px;
     line-height: 1.7;
+    margin: 0 0 62px 0;
   }
 }
 .products__link {
   @include flexbox(center, center);
   background-color: $white-color;
+  color: $accent-color;
   border-radius: 50%;
   height: 40px;
   width: 40px;
   margin-left: auto;
   margin-right: auto;
+  transition: background-color, color, 450ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $white-color;
+  }
 }
 .products__link--arrow {
-  fill: $accent-color;
+  fill: currentColor;
   width: 10px;
   height: 10px;
   align-items: center;
