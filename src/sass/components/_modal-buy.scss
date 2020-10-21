@@ -22,8 +22,10 @@
 
 .modal-w {
   position: absolute;
-  width: 450px;
-
+  width: 300px;
+  @include for-size(tablet) {
+    width: 450px;
+  }
   @include for-size(desktop) {
     width: 528px;
   }
@@ -39,6 +41,11 @@
   border-radius: 10px;
   padding: 40px;
   @include font(400, 16px, 1.67);
+
+  @media screen and (max-width: 767px) {
+    padding: 20px;
+    @include font(400, 14px, 1.67);
+  }
 }
 
 .close-modal {
@@ -79,7 +86,10 @@
 
 .modal-header {
   margin-bottom: 12px;
-  @include font(700, 18px, 1.2);
+  @include font(700, 14px, 1.2);
+  @include for-size(tablet) {
+    @include font(700, 18px, 1.2);
+  }
   @include for-size(desktop) {
     @include font(700, 20px, 1.2);
   }
@@ -89,6 +99,9 @@
 }
 
 .modal-label {
+  @media screen and (max-width: 767px) {
+    @include font(400, 12px, 1.67);
+  }
   margin-top: 0px;
   margin-bottom: 4px;
   @include font(400, 14px, 1.67);
@@ -164,11 +177,19 @@
 
 .delivery-wrapper {
   margin-bottom: 20px;
+  @media screen and (max-width: 767px) {
+    @include flexbox(flex-start, flex-start);
+    flex-direction: column;
+  }
 }
 
 .delivery-text {
+  @media screen and (max-width: 767px) {
+    @include font(400, 12px, 1.67);
+  }
   color: rgba(33, 33, 33, 0.9);
 }
+
 .delivery-text::before {
   content: '';
   display: inline-block;
@@ -201,7 +222,7 @@
   justify-content: center;
   align-items: center;
   padding: 0px 37px;
-  height: 44px;
+  height: 32px;
   border-radius: 22px;
   background-color: $white-color;
   text-decoration: none;
