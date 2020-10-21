@@ -47,10 +47,10 @@
   text-align: center;
   text-transform: uppercase;
   color: $sub-title-color;
-  animation-name: subtitlehm;
-  animation-duration: 3000ms;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  // animation-name: subtitlehm;
+  // animation-duration: 3000ms;
+  // animation-timing-function: linear;
+  // animation-iteration-count: infinite;
 
   @include for-size(tablet) {
     @include font(400, 26px, 1.15, $title-font);
@@ -63,17 +63,17 @@
   }
 }
 
-@keyframes subtitlehm {
-  0% {
-    transform: translateY();
-  }
-  50% {
-    transform: translateY(30%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
+// @keyframes subtitlehm {
+//   0% {
+//     transform: translateY();
+//   }
+//   50% {
+//     transform: translateY(30%);
+//   }
+//   100% {
+//     transform: translateY(0);
+//   }
+// }
 
 .making__title {
   margin-top: 0;
@@ -82,11 +82,11 @@
   text-align: center;
   text-transform: uppercase;
   color: $accent-color;
-  animation-name: titlehm;
-  animation-duration: 3000ms;
-  animation-timing-function: linear;
-  // animation-delay: 2500ms;
-  animation-iteration-count: infinite;
+  // animation-name: titlehm;
+  // animation-duration: 3000ms;
+  // animation-timing-function: linear;
+  // // animation-delay: 2500ms;
+  // animation-iteration-count: infinite;
 
   @include for-size(tablet) {
     margin-bottom: 50px;
@@ -99,31 +99,70 @@
   }
 }
 
-@keyframes titlehm {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
+// @keyframes titlehm {
+//   0% {
+//     transform: translateY(0);
+//   }
+//   50% {
+//     transform: translateY(-20%);
+//   }
+//   100% {
+//     transform: translateY(0);
+//   }
+// }
 
 .making__img {
-  @include for-size(mobile-only) {
+  @media screen and (max-width: 767px) {
+    display: flex;
+    animation: cow-m 3500ms ease-in-out 1000ms infinite;
     margin-bottom: 46px;
   }
 
   @include for-size(tablet) {
+    animation: cow-t 3500ms ease-in-out 1000ms infinite;
     margin-right: 17px;
     flex-basis: calc((100% - 17px) / 2);
   }
 
   @include for-size(desktop) {
+    animation: cow 3500ms ease-in-out 1000ms infinite;
     margin-right: 74px;
     flex-basis: calc((100% - 74px) / 2);
+  }
+}
+@keyframes cow-m {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes cow-t {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.02) translateY(8%);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes cow {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.06) translateY(-8%);
+  }
+  100% {
+    transform: scale(1) translateY(0);
   }
 }
 

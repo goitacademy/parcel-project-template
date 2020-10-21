@@ -1,0 +1,220 @@
+.backdrop {
+  position: fixed;
+  z-index: 300;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: $cubic 250ms;
+}
+
+.backdrop.is-hidden .modal-w {
+  top: -100%;
+  transform: translate(-50%, -50%) scale(0.2);
+}
+
+.modal-w {
+  position: absolute;
+  width: 450px;
+
+  @include for-size(desktop) {
+    width: 528px;
+  }
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all $cubic;
+
+  background-color: $modal-bg-color;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 40px;
+  @include font(400, 16px, 1.67);
+}
+
+.close-modal {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: $white-color;
+  color: rgba(33, 33, 33, 0.6);
+}
+
+.close-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  fill: currentColor;
+
+  transition: fill $cubic;
+}
+
+.close-modal:hover .close-icon,
+.close-modal:focus .close-icon {
+  fill: $accent-color;
+  cursor: pointer;
+}
+
+.modal-content {
+  @include flexbox();
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.modal-header {
+  margin-bottom: 12px;
+  @include font(700, 18px, 1.2);
+  @include for-size(desktop) {
+    @include font(700, 20px, 1.2);
+  }
+  //   text-transform: uppercase;
+  text-align: center;
+  color: $white-color;
+}
+
+.modal-label {
+  margin-top: 0px;
+  margin-bottom: 4px;
+  @include font(400, 14px, 1.67);
+  color: $white-color;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.modal-content .input {
+  min-height: 40px;
+  width: 100%;
+  padding: 11px 12px 11px 42px;
+  color: rgba(33, 33, 33, 0.9);
+  transition: border-color $cubic;
+}
+
+.modal-content .input,
+.textarea {
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 8px;
+  /* color: getColor('title-text-color'); */
+}
+
+.modal-content .input:focus,
+.textarea:focus {
+  outline: none;
+  border: 2px solid rgba(33, 33, 33, 0.6);
+}
+
+.modal-content .input:not(:placeholder-shown):invalid {
+  color: red;
+}
+
+.modal-icon {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+  margin-left: 12px;
+  width: 18px;
+  height: 18px;
+  fill: rgba(33, 33, 33, 0.6);
+
+  transition: fill $cubic;
+}
+
+.modal-content .input:focus ~ .modal-icon {
+  fill: $accent-color;
+}
+
+.textarea {
+  resize: none;
+  min-width: 100%;
+  min-height: 60px;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+}
+
+.textarea::placeholder {
+  @include font(400, 14px, 1.14);
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.delivery-item {
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+
+.delivery-wrapper {
+  margin-bottom: 20px;
+}
+
+.delivery-text {
+  color: rgba(33, 33, 33, 0.9);
+}
+.delivery-text::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 7px;
+
+  border: 2px solid $white-color;
+  border-radius: 2px;
+
+  transition: all $cubic;
+}
+
+.input_delivery:checked + .delivery-text::before {
+  background-image: url('../images/icon-checked.svg');
+  background-color: $accent-color;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-origin: border-box;
+  border-color: transparent;
+  font-weight: 700;
+}
+
+.modal-btn {
+  border: none;
+  align-self: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 37px;
+  height: 44px;
+  border-radius: 22px;
+  background-color: $white-color;
+  text-decoration: none;
+  @include font(700, 14px, 1.29);
+  color: rgba(33, 33, 33, 0.6);
+
+  @include for-size(tablet) {
+    @include font(700, 16px, 1.31);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $white-color;
+  }
+}
