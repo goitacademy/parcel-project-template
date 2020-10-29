@@ -14,17 +14,35 @@
   margin-bottom: 43px;
 }
 
+// ==========Список первого уровня=============
+
 .our-program__list {
   padding-left: 100px;
+
+  // @media screen and (min-width: 480px) and (max-width: 767px) {
+  //   padding-left: 150px;
+  // }
 }
 
 .our-program__list-item {
   position: relative;
+
   &:not(:last-child) {
     margin-bottom: 40px;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: calc(100% + 40px);
+      background-color: $primary-white-color;
+      position: absolute;
+      top: 15px;
+      left: -26px;
+    }
   }
 
-  &::before {
+  &::after {
     content: '';
     display: inline-block;
 
@@ -34,8 +52,8 @@
     background-color: $accent-color;
     position: absolute;
 
-    left: -36px;
-    top: 0;
+    left: -31px;
+    top: 8px;
   }
 }
 
@@ -51,12 +69,15 @@
   color: $dark-theme-title-color;
 }
 
+// ================= Список второго уровня ===============
+
 .our-program__sublist-item:not(:last-child) {
   margin-bottom: 8px;
 }
 
 .our-program__sublist-title {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   margin-bottom: 5px;
 
   font-weight: 700;
@@ -64,7 +85,22 @@
   line-height: 1.67;
 
   color: $accent-color;
+
+  &::before {
+    content: '';
+    margin-right: 5px;
+    width: 12px;
+    height: 1px;
+    background-color: $accent-color;
+  }
+
+  &--last {
+    margin-bottom: 10px;
+    height: 32px;
+  }
 }
+
+// ============ Список третьего уровня =========
 
 .our-program__second-sublist-item {
   font-weight: 500;
