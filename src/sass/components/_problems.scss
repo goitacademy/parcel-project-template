@@ -1,13 +1,53 @@
 .problems {
   padding-top: 50px;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
+  background-image: linear-gradient(#111518 78.6%, #ffffff 78.6%);
 
   &__title {
-    font-size: 20px;
-    line-height: 1.35;
-    font-weight: 800;
+    @include font(800, 20px, 1.35);
     letter-spacing: 0.03em;
-
     margin-bottom: 27px;
+    color: #ffffff;
+
+    &--orange {
+      color: $accent-color;
+    }
+  }
+
+  &__list {
+    background-color: $secondary-bg-color;
+    padding: 20px 14px 20px 30px;
+    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+    counter-reset: number;
+  }
+
+  &__item {
+    @include font(700, 14px, 1.71);
+    letter-spacing: 0.08em;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__number {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+    &::before {
+      content: '';
+      width: 20px;
+      height: 2px;
+      background-color: $accent-color;
+    }
+
+    &::after {
+      content: '0' counter(number);
+      margin-left: 9px;
+      line-height: 1.21;
+      color: $accent-color;
+      counter-increment: number;
+    }
   }
 }
