@@ -4,7 +4,7 @@
 }
 .location-container {
     width: 100%;
-    padding: 0 50px;
+    padding: 0 20px;
 }
 
 .location-list {
@@ -12,7 +12,7 @@
     list-style-type: none;
 }
 .location-card {
-    width: 220px;
+    min-width: 220px;
     height: 427px;
     padding: 43px 20px;
     margin: 0 auto;
@@ -20,6 +20,9 @@
 
     box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
     border-radius: 24px;
+}
+.location-list-items {
+    padding: 0 25px;
 }
 .location-list-items:not(:last-child) {
     margin-bottom: 20px;
@@ -86,10 +89,7 @@
     line-height: 1.833;
     color: $text-title-color;
 }
-.location-card__city__text,
-.location-card__days__time {
-    margin-bottom: 50px;
-}
+
 .location-contacts__item {
     text-decoration: none;
     font-family: $main-font;
@@ -99,8 +99,15 @@
     line-height: 1.5;
     color: $text-second-color;
 }
-//===================BUTTON================\\
+.location-card__days__time {
+    padding: 25px 0;
+    margin: 25px 0;
+    border: 1px solid #E1E1E1;
+    border-left: none;
+    border-right: none;
+}
 
+//===================BUTTON================\\
 
 .location-button {
     display: flex;
@@ -123,12 +130,22 @@
     display: flex;
     align-items: center;
     text-align: center;
+    justify-content: start;
     position: relative;
+    padding-left: 18px;
 }
 .location-button-main:hover,
 .location-button-main:focus {
     background-color: #C7133E;
 } 
+.icon-arrow-white {
+    position: absolute;
+    width: 9px; 
+    height: 13px;
+    right: 13px;
+    top: 17px;
+}
+
 
 .location-button-second {
     @extend %btn;
@@ -144,32 +161,66 @@
     display: flex;
     align-items: center;
     text-align: center;
+    justify-content: start;
+    position: relative;
+    padding-left: 32px;
     
 }    
 .location-button-second:hover,
 .location-button-second:focus {
     background-color: #ECEBEB;
 }
-// .icon-arrow-white {
-//     width: 9px;
-//     height: 12px;
-//     margin-left: 11px;
-// }
-// .icon-arrow-white {
-//     position: absolute;
-//     right: 15px;
-//     top: 18px;
-//     width: 9px;
-//     height: 10px;
-// }
+.icon-arrow-red {
+    position: absolute;
+    width: 9px; 
+    height: 13px;
+    right: 33px;
+    top: 17px;
+}
+//===================END BUTTON==============\\
 
+//================@MEDIA 768PX===============\\
 
-
-
-// .location {
-//     position: relative;
-// }    
-// .location-container {
-//     position: absolute;
-//     top: -50px;
-// }
+@media screen and (min-width: $tablet) {
+    .location-container {
+        padding: 0px;
+    }
+    .location-list {
+        display: flex;
+    }
+    .location-list-items {
+        padding: 0px;
+    }
+    .location-list-items {
+        margin-bottom: 0px;
+    }
+    .location-list-items:not(:last-child) {
+        margin-right: 20px;
+    }
+    .location-card {
+        height: 544px;
+    }
+    .location-title__cafe {
+        font-size: 16px;
+        width: 73px;
+        height: 28px;
+        line-height: 1.875;
+    }
+    .location-title__Foodtruck {
+        font-size: 16px;
+        width: 138px;
+        height: 28px;
+        line-height: 1.875;
+    }
+    .location-city,
+    .location-days,
+    .location-time,
+    .location-contacts__item {
+        font-size: 14px;
+        line-height: 1.857;
+    }
+    .location-text {
+        font-size: 14px;
+        line-height: 1.643;
+    }
+}
