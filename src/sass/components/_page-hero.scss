@@ -2,8 +2,6 @@
   height: 502px;
   padding-top: 193px;
   padding-bottom: 160px;
-  // display: flex;
-  // align-items: center;
   background-color: $main-bg-color;
   background-image: url('../images/hero/mobile/group-img-min.png');
   background-size: 284px 419px;
@@ -16,16 +14,16 @@
     background-image: url('../images/hero/mobile/group-img@2x-min.png');
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     height: 399px;
-    padding-top: 94px;
+    padding-top: 102px;
     padding-bottom: 160px;
     background-image: url('../images/hero/tablet/girl-min.png'),
       url('../images/hero/tablet/milk-min.png'),
       url('../images/hero/tablet/group-img-min.png');
     background-size: 168px 133px, 124px 126px, 324px 368px;
-    background-position: right 34px bottom, left 34px bottom 28px,
-      right 137px bottom;
+    background-position: right 24px bottom, left 25px bottom 28px,
+      right 120px bottom;
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
@@ -36,13 +34,23 @@
     }
   }
 
-  @media screen and (min-width: 1200px) {
-    background-image: url('../images/hero/desktop/group-img-min.png');
+  @media screen and (min-width: $desktop) {
+    height: 665px;
+    padding-top: 171px;
+    padding-bottom: 292px;
+    background-image: url('../images/hero/desktop/girl-min.png'),
+      url('../images/hero/desktop/milk-min.png'),
+      url('../images/hero/desktop/group-img-min.png');
+    background-size: 293px 232px, 188px 191px, 538px 613px;
+    background-position: right 60px bottom, left 35px bottom 45px,
+      right 218px bottom;
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url('../images/hero/desktop/group-img@2x-min.png');
+      background-image: url('../images/hero/desktop/girl@2x-min.png'),
+        url('../images/hero/desktop/milk@2x-min.png'),
+        url('../images/hero/desktop/group-img@2x-min.png');
     }
   }
 
@@ -60,10 +68,17 @@
     font-weight: 400;
     font-size: 8px;
     line-height: 1.5;
-  
+
     @media screen and (max-width: 767px) {
       display: none;
       min-width: 114px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      margin-bottom: 20px;
+      width: 200px;
+      font-size: 14px;
+      line-height: 1.4;
     }
   }
 
@@ -80,10 +95,14 @@
 
   &-title-container {
     width: 218px;
+
+    @media screen and (min-width: $desktop) {
+      width: 277px;
+    }
   }
 
   &-title {
-    margin-bottom: 19px;
+    margin-bottom: 20px;
 
     font-family: $title-font;
     font-weight: 400;
@@ -92,19 +111,39 @@
     letter-spacing: 0.04em;
     color: $text-color-dark-theme;
     text-transform: uppercase;
+
+    @media screen and (min-width: $tablet) {
+      font-size: 22px;
+      line-height: 1.13;
+    }
+
+    @media screen and (min-width: $desktop) {
+      font-size: 38px;
+      line-height: 1.16;
+    }
   }
 
   &-title-accent {
     font-size: 48px;
     line-height: 0.96;
     color: $accent-color;
+
+    @media screen and (min-width: $tablet) {
+      font-size: 34px;
+      line-height: 0.91;
+    }
+    @media screen and (min-width: $desktop) {
+      font-size: 58px;
+      line-height: 0.89;
+    }
   }
 
   &-about-btn {
     display: inline-block;
-    padding: 7px 10px;
+    padding: 0px 10px;
     margin-right: 5px;
     min-width: 61px;
+    height: 24px;
     font-family: $main-font;
     font-weight: 400;
     font-size: 8px;
@@ -114,12 +153,22 @@
     border-radius: 20px;
     cursor: pointer;
     border: none;
+
+
+    @media screen and (min-width: $desktop) {
+      margin-right: 12px;
+      width: 104px;
+      height: 40px;
+      font-size: 14px;
+      line-height: 1.28;
+    }
   }
 
   &-production-btn {
     display: inline-block;
-    padding: 7px 10px;
+    padding: 0 10px;
     min-width: 83px;
+    height: 24px;
     font-family: $main-font;
     font-weight: 400;
     font-size: 8px;
@@ -129,6 +178,13 @@
     border-radius: 20px;
     cursor: pointer;
     border: none;
+    @media screen and (min-width: $desktop) {
+      
+      width: 138px;
+      height: 40px;
+      font-size: 14px;
+      line-height: 1.28;
+    }
   }
 
   &-number-item {
@@ -150,16 +206,28 @@
     display: block;
     border-radius: 50%;
     background-color: $text-color-dark-theme;
+
+    @media screen and (min-width: $desktop) {
+      top: -7px;
+      right: -15px;
+      width: 30px;
+      height: 30px;
+    }
   }
 
   &-number-amount {
     color: $accent-color;
     font-family: $title-font;
-    font-weight: normal;
+    font-weight: 400;
     font-size: 28px;
     line-height: 1.14;
     text-align: right;
     letter-spacing: 0.04em;
+
+    @media screen and (min-width: $desktop) {
+      font-size: 46px;
+      line-height: 1.15;
+    }
   }
 
   &-number-text {
@@ -169,17 +237,28 @@
     font-size: 8px;
     line-height: 1.25;
     text-align: right;
+
+    @media screen and (min-width: $desktop) {
+      font-size: 14px;
+      line-height: 1.28;
+    }
   }
 
   &-description {
     margin-left: 120px;
     margin-top: 66px;
+
+    @media screen and (min-width: $desktop) {
+      margin-top: 112px;
+      margin-left: 185px;
+      
+    }
   }
 
   &-link-arrow {
     @media screen and (min-width: $desktop) {
-     width: 26px;
-     height: 26px;
+      width: 26px;
+      height: 26px;
     }
   }
 }
