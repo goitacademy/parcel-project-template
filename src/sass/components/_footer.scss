@@ -55,7 +55,23 @@
     margin: 0 auto 31px;
   }
   @media screen and (min-width: 768px) {
-    margin: 0 auto 31px;
+    margin-left: auto;
+    @include font(600, 20px, 1.2);
+
+    &::after {
+      content: '';
+      margin: 0 24px;
+      width: 0px;
+      height: 40px;
+      border: 1px solid #b9b9b9;
+      @media screen and (min-width: 1354px) {
+        margin-left: 16px;
+        margin-right: 24px;
+      }
+    }
+  }
+  @media screen and (min-width: 1354px) {
+    @include font(600, 30px, 1.23);
   }
 }
 .footer-contacts__tel-icon {
@@ -64,6 +80,16 @@
   margin-right: 10px;
   background-image: url('../images/svg/phone.svg');
   background-position: bottom;
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 23px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  @media screen and (min-width: 1354px) {
+    width: 30px;
+    height: 29px;
+  }
 }
 .footer-contacts__instagram {
   display: block;
@@ -72,6 +98,9 @@
   background-image: url('../images/svg/instagram.svg');
   @media screen and (max-width: 767px) {
     margin: 0 auto;
+  }
+  @media screen and (min-width: 1354px) {
+    margin-right: auto;
   }
 }
 .footer-copyright {
@@ -85,4 +114,7 @@
   display: flex;
   align-items: center;
   color: $primary-text-color;
+  @media screen and (min-width: 768px) {
+    margin-left: 0;
+  }
 }
