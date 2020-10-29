@@ -1,6 +1,6 @@
 .page-footer {
   position: relative;
-  padding-top: 25px;
+
   padding-bottom: 25px;
   background-color: $main-bg-second-color;
 
@@ -21,14 +21,13 @@
   width: 232px;
   font-family: $title-font;
   font-style: $font-style;
-  font-size: 1.666;
-  line-height: 21px;
+  font-size: 18px;
+  line-height: 1.666;
   text-transform: uppercase;
   color: $text-title-color;
 }
 
 .page-footer-text-second {
-  margin-bottom: 43px;
   width: 200px;
   font-family: $title-font;
   font-style: $font-style;
@@ -37,6 +36,16 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: $accent-color;
+}
+
+@media screen and (max-width: 767px) {
+  .page-footer-text-second {
+    margin-bottom: 43px;
+  }
+
+  .footer-page-contacts {
+    margin-bottom: 65px;
+  }
 }
 
 .page-footer-list-icons {
@@ -58,7 +67,12 @@
   background-color: $bg-icons;
   border-radius: 50%;
 
-  &:hover {
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
     background-color: $accent-color;
   }
 }
@@ -68,7 +82,6 @@
 }
 
 .footer-page-contacts {
-  margin-bottom: 65px;
   font-family: $main-font;
   font-style: $font-style;
   font-weight: 700;
@@ -83,7 +96,7 @@
 }
 
 .page-footer-copyright {
-  width: 150px;
+  width: 140px;
   margin: 0 auto;
 
   font-family: $main-font;
@@ -93,4 +106,89 @@
   line-height: 152%;
   text-align: center;
   color: $text-second-color;
+}
+
+@media screen and (min-width: 768px) {
+  .page-footer {
+    padding-bottom: 18px;
+
+    &::after {
+      top: calc(100% - 73px);
+    }
+  }
+
+  .page-footer-text-first {
+    margin-bottom: 16px;
+    width: 340px;
+    font-size: 26px;
+    line-height: 1.153;
+  }
+
+  .page-footer-text-second {
+    width: 340px;
+    font-size: 48px;
+    line-height: 1.145;
+  }
+
+  .page-footer-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 120px;
+  }
+
+  .page-footer-tagline {
+    padding-top: 7px;
+  }
+
+  .page-footer-copyright {
+    width: 276px;
+  }
+
+  .footer-page-contacts {
+    font-size: 14px;
+  }
+
+  .page-footer-link {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .page-footer {
+    padding-bottom: 10px;
+
+    &::after {
+      top: calc(100% - 45px);
+    }
+  }
+  .page-footer-tagline {
+    padding-top: 0;
+  }
+
+  .page-footer-text-first {
+    margin-bottom: 15px;
+    width: 472px;
+    font-size: 30px;
+    line-height: 1.333;
+  }
+
+  .page-footer-text-second {
+    width: 474px;
+    font-size: 58px;
+    line-height: 1.138;
+  }
+
+  .page-footer-list-icons {
+    margin-bottom: 50px;
+  }
+
+  .page-footer-copyright {
+    font-size: 14px;
+    line-height: 186%;
+  }
+
+  .page-footer-box {
+    margin-bottom: 106px;
+  }
 }
