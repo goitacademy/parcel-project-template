@@ -1,6 +1,8 @@
 .hero {
+  outline: 1px solid fuchsia;
+  display: flex;
   padding-top: 50px;
-  @media screen and (min-width: 767px) and (max-width: 1399px) {
+  @media screen and (min-width: 768px) and (max-width: 1399px) {
     padding-top: 70px;
   }
   padding-bottom: 50px;
@@ -8,12 +10,21 @@
   background-size: cover;
   background-position: center;
   background-image: url(../images/tel/wave-tel.png);
+  // box-shadow: -5px 21px 26px rgba(0, 0, 0, 0.04);
+  // background-color: green;
   .container {
   }
   .title {
-    // display: block;
-    // padding: 10px;
+    outline: 1px solid fuchsia;
     margin-bottom: 30px;
+    // display: inline-block;
+    width: 280px;
+    @media screen and (min-width: 768px) {
+      width: 332px;
+    }
+    @media screen and (min-width: 1400px) {
+      width: 642px;
+    }
   }
   &__subtitle {
   }
@@ -22,58 +33,95 @@
   }
   &__decription-accent {
     color: $accent-color;
-    padding-bottom: 30px;
   }
   &__img {
+    // @media screen and (min-width: 768px) {
+    //   width: auto;
+    // }
+    // @media screen and (min-width: 1400px) {
+    //   max-width: 841px;
+    // }
   }
+
+  //
+  //
+
   .feature {
-    margin-top: 77px;
+    outline: 1px solid fuchsia;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+    @media screen and (min-width: 768px) {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    @media screen and (min-width: 1400px) {
+      padding-top: 100px;
+      padding-bottom: 130px;
+    }
+
     &__list {
-      width: 216px;
       margin-left: auto;
       margin-right: auto;
+      @media screen and (max-width: 767px) {
+        width: 216px;
+      }
+
+      @media screen and (min-width: 768px) {
+        display: flex;
+        justify-content: center;
+        // justify-content: space-between;
+      }
     }
     &__list-item {
       position: relative;
-
-      //   display: flex;
-
       display: inline-flex;
       align-items: center;
-
-      margin-bottom: 30px;
-      position: relative;
+      @media screen and (max-width: 767px) {
+        margin-bottom: 30px;
+      }
+      @media screen and (min-width: 1400px) {
+        width: 366px;
+      }
+    }
+    @media screen and (min-width: 768px) {
+      &__list-item:not(:last-child) {
+        // margin-right: 20px;
+      }
     }
     &__icon-wrap {
-      //   position: absolute;
-      width: 60px;
-      height: 60px;
+      position: absolute;
       display: flex;
       justify-content: center;
       align-items: center;
       border: 2px solid $accent-color;
+      width: 60px;
+      height: 60px;
+      // margin-right: auto;
+      @media screen and (min-width: 1400px) {
+        width: 100px;
+        height: 102px;
+      }
     }
 
     &__icon-wrap::before {
       position: absolute;
       content: '';
       height: 40px;
-      width: 1px;
+      width: 10px;
       background-color: $primary-white-color;
       outline: 2px solid $primary-white-color;
-      left: 27%;
-      //   outline: $primary-white-color;
-      //   display: block;
+      left: 25%;
     }
 
     &__title {
+      display: inline-block;
       color: $primary-title-color;
       max-width: 145px;
       font-weight: bold;
       font-size: 14px;
       line-height: 20px;
-      margin-left: 10px;
-      //   padding-left: 70px;
+      // margin-left: 10px;
     }
     &__list-svg {
       fill: $accent-color;
@@ -95,7 +143,7 @@
 
 .hero__form-btn {
   @media screen and (max-width: 767px) {
-    // margin: 0 auto;
+    // margin: 0 auto; ?
     margin-bottom: 30px;
   }
   border: 2px solid $accent-color;
@@ -107,13 +155,13 @@
   }
 
   @media screen and (min-width: 1400px) {
-    width: 354px;
+    min-width: 354px;
     // height: 70px;
     font-size: 14px;
     line-height: 1.21;
     letter-spacing: 0.14em;
-    // padding: 26px 25px;
-    // margin-top: 80px;
+    padding: 26px 25px;
+    margin-top: 40px;
   }
 }
 .hero__form-btn:hover {
@@ -126,6 +174,9 @@
   background-color: $primary-white-color;
   color: $accent-color;
 }
+
+//
+//
 
 @media screen and (min-device-pixel-ratio: 2),
   screen and (min-resolution: 192dpi),
@@ -147,7 +198,7 @@
     background-image: url(../images/tablet/wave-tablet@2x.png);
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1400px) {
   .hero {
     background-image: url(../images/desctop/wave-desc.png);
   }
