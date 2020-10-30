@@ -22,46 +22,46 @@
   background-repeat: no-repeat;
 
   @media screen and (max-width: 767px) {
-    background-size: 120px 137px;
-    background-position: right bottom 440px;
+    background-size: 120px 137px, cover;
+    background-position: right bottom 440px, left top;
 
-    background-image: url(../images/program/mobile/main-pic@1x.jpg),
-      linear-gradient($primary-title-color 89.8%, $primary-bg-color 31.5%);
+    background-image: url(../images/program/mobile/main-pic@1x.png),
+      linear-gradient($primary-title-color 89.8%, $primary-bg-color 89.8%);
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url(../images/program/mobile/main-pic@2x.jpg),
-        linear-gradient($primary-title-color 89.8%, $primary-bg-color 31.5%);
+      background-image: url(../images/program/mobile/main-pic@2x.png),
+        linear-gradient($primary-title-color 89.8%, $primary-bg-color 89.8%);
     }
   }
 
   @media screen and (min-width: 768px) {
-    background-size: 384px 280px;
-    background-position: right bottom 253px;
-    background-image: url(../images/program/tablet/main-pic@1x.jpg),
-      linear-gradient($primary-title-color 28.3%, $primary-bg-color 28.3%);
+    background-size: 384px 280px, cover;
+    background-position: right bottom 253px, left top;
+    background-image: url(../images/program/tablet/main-pic@1x.png),
+      linear-gradient($primary-title-color 84.3%, $primary-bg-color 84.3%);
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url(../images/program/mobile/main-pic@2x.jpg),
-        linear-gradient($primary-title-color 28.3%, $primary-bg-color 28.3%);
+      background-image: url(../images/program/mobile/main-pic@2x.png),
+        linear-gradient($primary-title-color 84.3%, $primary-bg-color 84.3%);
     }
   }
 
   @media screen and (min-width: 1200px) {
-    background-size: 760px 502px;
-    background-position: left bottom 59px;
+    background-size: 760px 502px, cover;
+    background-position: left bottom 59px, left top;
 
-    background-image: url(../images/program/desktop/main-pic@1x.jpg),
-      linear-gradient($primary-title-color 86.2%, $primary-bg-color 27.7%);
+    background-image: url(../images/program/desktop/main-pic@1x.png),
+      linear-gradient($primary-title-color 86.2%, $primary-bg-color 86.2%);
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url(../images/program/desktop/main-pic@2x.jpg),
-        linear-gradient(#111518 86.2%, $primary-bg-color 27.7%);
+      background-image: url(../images/program/desktop/main-pic@2x.png),
+        linear-gradient(#111518 86.2%, $primary-bg-color 86.2%);
     }
   }
 
@@ -69,18 +69,11 @@
     position: relative;
     letter-spacing: 0.08em;
     padding-left: 100px;
-
-    @media screen and (max-width: 767px) {
-      margin-bottom: 50px;
-    }
+    margin-bottom: 50px;
 
     @media screen and (min-width: 768px) and (max-width: 1353px) {
-      padding-bottom: 392px;
+      padding-bottom: 189px;
     }
-
-    // @media screen and (max-width: 1353px) {
-    //   padding-left: 120px;
-    // }
 
     @media screen and (min-width: 1354px) {
       display: flex;
@@ -93,21 +86,23 @@
       display: block;
 
       content: '';
-      width: 100%;
-      max-width: 1400;
-      height: 1px;
-      left: 88px;
+      width: 1px;
+      height: 1290px;
+      left: 68px;
       background-color: $primary-bg-color;
 
-      @media screen and (max-width: 1353px) {
-        width: 1px;
-        height: 1290px;
-        left: 68px;
+      @media screen and (min-width: 768px) and (max-width: 1353px) {
+        left: 77px;
       }
 
       @media screen and (min-width: 1354px) {
         top: -60px;
-        left: 0;
+        // left: 0;
+
+        width: 100%;
+        max-width: 1400;
+        height: 1px;
+        left: 88px;
       }
     }
   }
@@ -201,13 +196,26 @@
 }
 .program__content {
   &:not(:last-child) {
-    margin-bottom: 25px;
+    margin-bottom: 8px;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: 768px) and (max-width: 1353px) {
+    width: calc((100% - 2 * 50px) / 3);
+    // .program__meta & + & {
+    //   margin-left: 50px;
+    // }
+  }
+
+  @media screen and (min-width: 1354px) {
     &:not(:last-child) {
-      margin-bottom: 8px;
+      margin-bottom: 25px;
     }
+  }
+}
+
+.program__meta {
+  @media screen and (min-width: 768px) and (max-width: 1353px) {
+    display: flex;
   }
 }
 
