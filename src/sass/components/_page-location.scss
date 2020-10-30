@@ -24,8 +24,10 @@
 .location-list-items {
     padding: 0 25px;
 }
-.location-list-items:not(:last-child) {
-    margin-bottom: 20px;
+@media screen and (max-width: $tablet) {
+    .location-list-items:not(:last-child) {
+        margin-bottom: 20px;
+    }
 }
 .location-title__cafe {
     font-family: $main-font;
@@ -102,7 +104,7 @@
 .location-card__days__time {
     padding: 25px 0;
     margin: 25px 0;
-    border: 1px solid #E1E1E1;
+    border: 1px solid $boreder-color;
     border-left: none;
     border-right: none;
 }
@@ -117,7 +119,7 @@
 .location-button-main {
     @extend %btn;
     border: none;
-    width: 162px;
+    min-width: 162px;
     height: 44px;
     margin: 0 auto 10px;
     color: $text-color-dark-theme;
@@ -132,10 +134,11 @@
     justify-content: start;
     position: relative;
     padding-left: 18px;
+    padding-right: 29px;
 }
 .location-button-main:hover,
 .location-button-main:focus {
-    background-color: #C7133E;
+    background-color: $main-hover-color;
 } 
 .icon-arrow-white {
     position: absolute;
@@ -144,12 +147,10 @@
     right: 13px;
     top: 17px;
 }
-
-
 .location-button-second {
     @extend %btn;
     border: none;
-    width: 162px;
+    min-width: 162px;
     height: 44px;
     margin: 0 auto;
     color: $accent-color;
@@ -163,11 +164,11 @@
     justify-content: start;
     position: relative;
     padding-left: 32px;
-    
+    padding-right: 49px;
 }    
 .location-button-second:hover,
 .location-button-second:focus {
-    background-color: #ECEBEB;
+    background-color: $second-hover-color;
 }
 .icon-arrow-red {
     position: absolute;
@@ -181,11 +182,15 @@
 //================@MEDIA 768PX===============\\
 
 @media screen and (min-width: $tablet) {
+    .location {
+        padding-bottom: 165px;
+    }
     .location-container {
         padding: 0px;
     }
     .location-list {
         display: flex;
+        margin-bottom: 81px;
     }
     .location-list-items {
         padding: 0px;
@@ -227,21 +232,68 @@
         justify-content: center;
     }
     .location-button-main {
+        min-width: 192px;
         margin: 0px;
         margin-right: 14px;
-        min-width: 192px;
         padding-left: 30px;
+        padding-right: 53px;
     }
     .icon-arrow-white {
         right: 35px;
     }
     .location-button-second {
+        min-width: 174px;
         margin: 0px;
-        width: 174px;
-        padding-left: 37px;
+        padding-left: 38px;
+        padding-right: 56px;
     }
     .icon-arrow-red {
         right: 39px;
     }
 }
-//================@MEDIA 1080PX===============\\
+//================@MEDIA 1200PX===============\\
+@media screen and (min-width: $desktop) {
+    .location {
+        background-image: url(../images/location/desktop/section-bg@2x-min.png);
+        background-position: center top;
+        background-size: 1280px auto;
+        background-repeat: no-repeat;
+    }
+    .location-list {
+        margin-bottom: 86px;
+    }
+    .location-card {
+        height: 572px;
+    }
+    .location-list-items:not(:last-child) {
+        margin-right: 30px;
+    }
+    .location-city,
+    .location-days,
+    .location-time {
+        font-size: 16px;
+        line-height: 1.875;
+    }
+    .location-text,
+    .location-contacts__item {
+        font-size: 16px;
+        line-height: 1.813;
+    }
+    .location-button-main {
+        min-width: 198px;
+        margin-right: 15px;
+        padding-left: 35px;
+        padding-right: 54px;
+    }
+    .icon-arrow-white {
+        right: 36px;
+    }
+    .location-button-second {
+        min-width: 180px;
+        padding-left: 39px;
+        padding-right: 58px;
+    }
+    .icon-arrow-red {
+        right: 40px;
+    }
+}
