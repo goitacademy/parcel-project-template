@@ -1,13 +1,14 @@
-.problems {
+.choose {
   width: 280px;
+  counter-reset: section;
+  padding-bottom: 39px;
 
   width: 100%;
-  background-image: linear-gradient(
-    to bottom,
-    $secondary-bg-color 61px,
-    $primary-white-color 62px,
-    $primary-white-color 430px
-  );
+  // background-image: linear-gradient(
+  //   to bottom,
+  //   $secondary-bg-color 475px,
+  //   $primary-white-color 476px
+  // );
 
   &__title {
     color: $dark-theme-title-color;
@@ -26,35 +27,68 @@
   &__item:not(:last-child) {
     margin-bottom: 53px;
   }
-
-  &__topic {
-    color: $primary-title-color;
-  }
-  &__numbers {
-    color: $accent-color;
-
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 164.9%;
-    display: block;
-    position: absolute;
-    top: -25px;
-    left: 25px;
-  }
-  &__numbers::before {
+  &__item::before {
     content: '';
-    display: inline-block;
-    width: 17px;
-    height: 1px;
+
+    display: block;
+    width: 13px;
+    height: 2px;
     background-color: $accent-color;
     position: absolute;
-    left: -22px;
-    top: 11px;
+    left: 3px;
+    top: -20px;
+    margin-bottom: 15px;
   }
+  &__item::after {
+    content: counter(section, decimal-leading-zero);
+    counter-increment: section;
+    position: absolute;
+    bottom: 100%;
+    color: #ff6b08;
+    font-weight: 600;
+    left: -2px;
+    top: -30px;
+    width: 20px;
+    -webkit-transform: translateX(130%);
+    transform: translateX(130%);
+  }
+  &__topic {
+    color: $primary-title-color;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  // &__numbers {
+  //   color: $accent-color;
+
+  //   font-weight: bold;
+  //   font-size: 14px;
+  //   line-height: 164.9%;
+  //   display: block;
+  //   position: absolute;
+  //   top: -25px;
+  //   left: 25px;
+  // }
+  // &__numbers::before {
+  // content: '';
+  // display: inline-block;
+  // width: 17px;
+  // height: 1px;
+  // background-color: $accent-color;
+  // position: absolute;
+  // left: -22px;
+  // top: 11px;
+
   &__list {
     padding-top: 53px;
     padding-bottom: 20px;
     padding-left: 30px;
-    padding-right: 14px;
+    padding-right: 34px;
+  }
+  &__box {
+    background: #ffffff;
+    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
   }
 }
