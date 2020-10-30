@@ -19,24 +19,25 @@
   }
 
   &-btn {
-    display: flex;
-    align-items: center;
+    @extend %btn;
     padding: 10px 37px;
     min-width: 160px;
     height: 44px;
-    font-family: $main-font;
     font-weight: 700;
     font-size: 16px;
     line-height: 1.31;
     color: $accent-color;
     background-color: $text-color-dark-theme;
     border-radius: 22px;
-    cursor: pointer;
-    border: none;
-    text-align: center;
+    transition: background-color $timing-function;
 
     @media screen and (max-width: 767px) {
       display: none;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $second-hover-color;
     }
   }
 
@@ -47,9 +48,7 @@
   }
 }
 
-.navigation {
-  
- 
+.navigation { 
   @media screen and (max-width: 1199px) {
     display: none;
   }
@@ -72,10 +71,14 @@
     font-size: 16px;
     line-height: 1.31;
     color: $text-color-dark-theme;
-    transition: color 250ms ease-in-out;
+    transition: color $timing-function;
 
     &:hover,
     &:focus {
+      color: $accent-color;
+    }
+
+    &-active {
       color: $accent-color;
     }
   }
@@ -85,6 +88,13 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: transform $timing-function;
+
+      &:hover,
+      &:focus{
+        transform: scale(1.15);
+      }
+ 
 
   @media screen and (min-width: $tablet) {
     margin-right: 30px;
@@ -93,4 +103,5 @@
   @media screen and (min-width: $desktop) {
     display: none;
   }
+
 }
