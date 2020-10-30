@@ -19,18 +19,15 @@
     padding-top: 102px;
     padding-bottom: 160px;
     background-image: url('../images/hero/tablet/girl-min.png'),
-      url('../images/hero/tablet/milk-min.png'),
       url('../images/hero/tablet/group-img-min.png');
-    background-size: 168px 133px, 124px 126px, 324px 368px;
-    background-position: right 24px bottom, left 25px bottom 28px,
-      right 120px bottom;
+    background-size: 168px 133px, 324px 368px;
+    background-position: right 24px bottom, right 130px bottom;
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
       background-image: url('../images/hero/tablet/girl@2x-min.png'),
-        url('../images/hero/tablet/milk@2x-min.png'),
-        url('../images/hero/tablet/group-img@2x-min.png');
+       url('../images/hero/tablet/group-img@2x-min.png');
     }
   }
 
@@ -39,21 +36,18 @@
     padding-top: 171px;
     padding-bottom: 292px;
     background-image: url('../images/hero/desktop/girl-min.png'),
-      url('../images/hero/desktop/milk-min.png'),
       url('../images/hero/desktop/group-img-min.png');
-    background-size: 293px 232px, 188px 191px, 538px 613px;
-    background-position: right 60px bottom, left 35px bottom 45px,
-      right 218px bottom;
+    background-size: 293px 232px, 538px 613px;
+    background-position: right 60px bottom, right 218px bottom;
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
       background-image: url('../images/hero/desktop/girl@2x-min.png'),
-        url('../images/hero/desktop/milk@2x-min.png'),
         url('../images/hero/desktop/group-img@2x-min.png');
     }
   }
-
+  
   &-number {
     @media screen and (max-width: 767px) {
       display: none;
@@ -70,7 +64,6 @@
     line-height: 1.5;
 
     @media screen and (max-width: 767px) {
-      display: none;
       min-width: 114px;
     }
 
@@ -79,12 +72,6 @@
       width: 200px;
       font-size: 14px;
       line-height: 1.4;
-    }
-  }
-
-  &-link {
-    @media screen and (max-width: 767px) {
-      display: none;
     }
   }
 
@@ -250,11 +237,52 @@
   &-description {
     margin-left: 120px;
     margin-top: 66px;
+    position: relative;
+
+    @media screen and (max-width: 767px){
+        display: none;
+    }
 
     @media screen and (min-width: $desktop) {
       margin-top: 112px;
       margin-left: 185px;
     }
+
+    &::before {
+      content: '';
+      display: flex;
+      position: absolute;
+      top: -45px;
+      left: -120px;
+      width: 124px;
+      height: 126px;
+      background-image:url('../images/hero/tablet/milk-min.png');
+
+      @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/hero/tablet/milk@2x-min.png');
+      background-size: 124px 126px
+    }
+
+
+      @media screen and (min-width: $desktop) {
+        top: -60px;
+        left: -215px;
+        width: 188px;
+        height: 191px;
+        background-image:url('../images/hero/desktop/milk-min.png');
+
+        @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url('../images/hero/desktop/milk@2x-min.png');
+        background-size: 188px 191px
+      }
+
+      }
+    }
+
   }
 
   &-link-arrow {
