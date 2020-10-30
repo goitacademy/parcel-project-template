@@ -3,10 +3,8 @@
   letter-spacing: 0.03em;
   color: $primary-bg-color;
 
-  @media screen and (max-width: 767px) {
-    @include font(800, 20px, 1.3);
-    text-align: center;
-  }
+  @include font(800, 20px, 1.3);
+  text-align: center;
 
   @media screen and (min-width: 768px) and (max-width: 1353px) {
     @include font(800, 26px, 1.308);
@@ -21,24 +19,22 @@
   background-color: $primary-title-color;
   background-repeat: no-repeat;
 
-  @media screen and (max-width: 767px) {
-    background-size: 120px 137px, cover;
-    background-position: right bottom 440px, left top;
+  background-size: 120px 137px, cover;
+  background-position: right bottom 565px, left top;
 
-    background-image: url(../images/program/mobile/main-pic@1x.png),
+  background-image: url(../images/program/mobile/main-pic@1x.png),
+    linear-gradient($primary-title-color 89.8%, $primary-bg-color 89.8%);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/program/mobile/main-pic@2x.png),
       linear-gradient($primary-title-color 89.8%, $primary-bg-color 89.8%);
-
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      background-image: url(../images/program/mobile/main-pic@2x.png),
-        linear-gradient($primary-title-color 89.8%, $primary-bg-color 89.8%);
-    }
   }
 
   @media screen and (min-width: 768px) {
     background-size: 384px 280px, cover;
-    background-position: right bottom 253px, left top;
+    background-position: right bottom 650px, left top;
     background-image: url(../images/program/tablet/main-pic@1x.png),
       linear-gradient($primary-title-color 84.3%, $primary-bg-color 84.3%);
 
@@ -50,9 +46,9 @@
     }
   }
 
-  @media screen and (min-width: 1200px) {
-    background-size: 760px 502px, cover;
-    background-position: left bottom 59px, left top;
+  @media screen and (min-width: 1354px) {
+    background-size: 674px 502px, cover;
+    background-position: left bottom 258px, left top;
 
     background-image: url(../images/program/desktop/main-pic@1x.png),
       linear-gradient($primary-title-color 86.2%, $primary-bg-color 86.2%);
@@ -61,23 +57,24 @@
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
       background-image: url(../images/program/desktop/main-pic@2x.png),
-        linear-gradient(#111518 86.2%, $primary-bg-color 86.2%);
+        linear-gradient($primary-title-color 86.2%, $primary-bg-color 86.2%);
     }
   }
 
   &__list {
     position: relative;
-    letter-spacing: 0.08em;
     padding-left: 100px;
     margin-bottom: 50px;
 
     @media screen and (min-width: 768px) and (max-width: 1353px) {
       padding-bottom: 189px;
+      padding-left: 119px;
+      margin-bottom: 0;
     }
 
     @media screen and (min-width: 1354px) {
       display: flex;
-      padding-left: 183px;
+      padding-left: 0px;
       padding-bottom: 363px;
     }
 
@@ -92,7 +89,8 @@
       background-color: $primary-bg-color;
 
       @media screen and (min-width: 768px) and (max-width: 1353px) {
-        left: 77px;
+        left: 57px;
+        height: 920px;
       }
 
       @media screen and (min-width: 1354px) {
@@ -100,9 +98,10 @@
         // left: 0;
 
         width: 100%;
-        max-width: 1400;
+
         height: 1px;
         left: 88px;
+        display: none;
       }
     }
   }
@@ -110,17 +109,13 @@
   &__item {
     position: relative;
 
-    @media screen and (max-width: 767px) {
-      &:not(:last-child) {
-        margin-bottom: 40px;
-      }
+    &:not(:last-child) {
+      margin-bottom: 40px;
     }
 
     @media screen and (min-width: 1354px) {
       justify-content: center;
-      .program__list & + & {
-        margin-left: 30px;
-      }
+      width: calc((100% - 4 * 30px) / 5);
     }
 
     &::before {
@@ -135,65 +130,99 @@
       background-color: $accent-color;
       border-radius: 50%;
 
+      @media screen and (min-width: 768px) and (max-width: 1353px) {
+        transform: translateX(-68px);
+      }
+
       @media screen and (min-width: 1354px) {
-        padding-left: 30;
+        left: 35px;
+        top: -65px;
       }
     }
   }
 }
 
 .program__score {
-  margin-bottom: 25px;
-
-  @include font(700, 14px, 2);
+  margin-bottom: 5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: $primary-bg-color;
+  @include font(700, 14px, 2);
 
-  @media screen and (max-width: 767px) {
-    margin-bottom: 5px;
+  @media screen and (min-width: 768px) and (max-width: 1353px) {
+    margin-bottom: 35px;
+    @include font(400, 14px, 2);
+  }
+
+  @media screen and (min-width: 1354px) {
+    margin-bottom: 25px;
+    @include font(700, 20px, 1.4);
   }
 }
 
 .program__name {
-  margin-bottom: 10px;
-  @include font(700, 12px, 1.667);
+  margin-bottom: 5px;
   letter-spacing: 0.08em;
   color: $accent-color;
+  @include font(700, 12px, 1.667);
 
-  @media screen and (max-width: 767px) {
-    margin-bottom: 5px;
+  @media screen and (min-width: 768px) and (max-width: 1353px) {
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: 1354px) {
+    margin-bottom: 10px;
+    @include font(700, 20px, 1.65);
   }
 }
 
 .program__event {
-  @include font(500, 12px, 1.667);
   letter-spacing: 0.08em;
   color: $primary-text-color;
+  @include font(500, 12px, 1.667);
 
   &:not(:last-child) {
     margin-bottom: 8px;
   }
+
+  @media screen and (min-width: 1354px) {
+    margin-bottom: 10px;
+    @include font(700, 18px, 1.556);
+  }
 }
 
 .program__title {
-  @media screen and (max-width: 767px) {
-    padding-top: 50px;
-    margin-bottom: 43px;
-  }
+  padding-top: 50px;
+  margin-bottom: 43px;
 
   @media screen and (min-width: 768px) and (max-width: 1353px) {
     padding-top: 60px;
     padding-left: 40px;
-    padding-bottom: 52px;
+    margin-bottom: 52px;
+    text-align: left;
   }
 
   @media screen and (min-width: 1354px) {
-    padding-left: 183px;
+    padding-left: 0px;
     padding-top: 120px;
-    margin-bottom: 100px;
+    margin-bottom: 160px;
     text-align: left;
+    position: relative;
+
+    &::after {
+      bottom: -100px;
+      left: 0;
+      position: absolute;
+      display: block;
+
+      content: '';
+      width: 100%;
+      height: 0.5px;
+      background: $primary-bg-color;
+    }
   }
 }
+
 .program__content {
   &:not(:last-child) {
     margin-bottom: 8px;
@@ -201,6 +230,10 @@
 
   @media screen and (min-width: 768px) and (max-width: 1353px) {
     width: calc((100% - 2 * 50px) / 3);
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
     // .program__meta & + & {
     //   margin-left: 50px;
     // }
@@ -223,11 +256,13 @@
 
 .program-features__title {
   padding-bottom: 30px;
+  width: 180px;
   text-align: left;
   color: $primary-bg-color;
 
-  @media screen and (max-width: 767px) {
-    width: 180px;
+  @media screen and (min-width: 768px) and (max-width: 1353px) {
+    width: 100%;
+    text-align: center;
   }
 
   @media screen and (min-width: 1354px) {
@@ -242,43 +277,60 @@
   box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 
   padding-top: 53px;
-  padding-left: 30px;
+  padding-right: 34px;
   padding-bottom: 20px;
-
+  padding-left: 30px;
   counter-reset: numP;
 
-  @media screen and (max-width: 767px) {
-    padding-right: 34px;
+  @media screen and (min-width: 768px) {
+    padding: 63px 118px 25px 98px;
   }
 
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
-    width: calc((100% - 40px) / 2);
   }
 
   @media screen and (min-width: 1354px) {
     padding-left: 84px;
     padding-top: 70px;
-    width: calc((100% - 2 * 40px) / 3);
+
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 .program-features__description {
+  letter-spacing: 0.08em;
   @include font(700, 14px, 1.429);
+
+  @media screen and (min-width: 1354px) {
+    @include font(700, 20px, 1.2);
+  }
 }
-.width {
-  width: 216px;
-}
+
 .program-features__item {
   position: relative;
 
-  &:not(:last-child) {
-    margin-bottom: 39px;
+  // &:not(:last-child) {
+  //   margin-bottom: 39px;
+  // }
+
+  // @media screen and (min-width: 1354px) {
+  //   margin: 20px;
+  // }
+
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 20px) / 2);
+
+    // &:last-child {
+    //   margin-bottom: 63px;
+    // }
   }
 
   @media screen and (min-width: 1354px) {
-    @include font(700, 20px, 1.4);
     width: calc((100% - 2 * 40px) / 3);
+    @include font(700, 20px, 1.4);
+    // margin: -20px;
   }
 
   &::before {
