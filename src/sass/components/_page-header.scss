@@ -48,7 +48,7 @@
   }
 }
 
-.navigation { 
+.navigation {
   @media screen and (max-width: 1199px) {
     display: none;
   }
@@ -58,11 +58,9 @@
   }
 
   &-list-item {
-
     & + & {
       margin-left: 35px;
     }
-
   }
 
   &-list-link {
@@ -84,17 +82,16 @@
   }
 }
 
-.menu-btn {
+.menu-burger {
   background-color: transparent;
   border: none;
   cursor: pointer;
   transition: transform $timing-function;
 
-      &:hover,
-      &:focus{
-        transform: scale(1.15);
-      }
- 
+  &:hover,
+  &:focus {
+    transform: scale(1.15);
+  }
 
   @media screen and (min-width: $tablet) {
     margin-right: 30px;
@@ -103,5 +100,88 @@
   @media screen and (min-width: $desktop) {
     display: none;
   }
+}
 
+/*==========================BURGER MENU==========================================*/
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: $burger-menu-color;
+
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+.menu-cross {
+  position: absolute;
+  top: 23px;
+  right: 28px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  transition: transform $timing-function;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.15);
+  }
+}
+
+.menu-btn {
+  @extend %btn;
+  padding: 10px 37px;
+  margin-bottom: 20px;
+  min-width: 209px;
+  height: 44px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+  color: $accent-color;
+  background-color: $text-color-dark-theme;
+  border-radius: 22px;
+  transition: background-color $timing-function;
+  align-self: center;
+
+  &:hover,
+  &:focus {
+    background-color: $second-hover-color;
+  }
+}
+
+.menu-nav-item {
+  width: 100%;
+  padding: 12px 0;
+  border-top: 1px solid $borger-border-color;
+  border-bottom: 1px solid $borger-border-color;
+
+  &:hover .menu-nav-link,
+  &:focus .menu-nav-link {
+    color: $accent-color;
+  }
+
+}
+
+.menu-nav-link {
+  padding-left: 20px;
+  font-family: $main-font;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28;
+  color: $text-color-dark-theme;
+  transition: color $timing-function;
+
+  &:focus {
+    color: $accent-color;
+  }
+  &-active {
+    color: $accent-color;
+  }
 }
