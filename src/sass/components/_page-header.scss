@@ -89,6 +89,7 @@
   align-self: center;
   background-color: transparent;
   border: none;
+  outline: none;
   cursor: pointer;
   transition: transform $timing-function;
 
@@ -129,7 +130,14 @@
       right: 30px;
     }
   }
+
+  &.is-open .mobile-menu{
+    width: 14px;
+    height: 14px;
+  }
 }
+
+
 
 .menu-container {
   display: none;
@@ -138,12 +146,14 @@
   top: 0;
   right: 0;
   width: 100%;
-  height: 100vw;
+  height: 100%;
   z-index: 100;
   background-color: $burger-menu-color;
+  
 
   @media screen and (min-width: $tablet) {
     width: 33vw;
+    height: 100vw;
   }
 
   @media screen and (min-width: $desktop) {
@@ -152,32 +162,13 @@
 
   &.is-open {
     display: block;
+    
 
     @media screen and (min-width: $desktop) {
       display: none;
     }
   }
 }
-
-// .menu-cross {
-//   display: flex;
-//   position: absolute;
-//   top: 20px;
-//   right: 20px;
-//   border: none;
-//   cursor: pointer;
-//   background-color: transparent;
-//   transition: transform $timing-function;
-
-//   @media screen and (min-width: $tablet) {
-//     top: 20px;
-//     right: 20px;
-//   }
-//   &:hover,
-//   &:focus {
-//     transform: scale(1.15);
-//   }
-// }
 
 .menu-btn {
   @extend %btn;
