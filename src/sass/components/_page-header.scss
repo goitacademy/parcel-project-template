@@ -119,11 +119,11 @@
   }
 
   &.is-open {
-    position: absolute;
+    position: fixed;
     margin-right: 0;
     top: 25px;
     right: 20px;
-    z-index: 1000;
+    z-index: 100;
 
     @media screen and (min-width: $tablet) {
       top: 20px;
@@ -137,10 +137,7 @@
   }
 }
 
-
-
 .menu-container {
-  // display: none;
   visibility: hidden;
   opacity: 0;
   padding-top: 60px;
@@ -149,15 +146,15 @@
   right: 0;
   width: 100%;
   height: 100%;
-  z-index: 100;
+  z-index: 10;
   background-color: $burger-menu-color;
   transition: opacity $timing-function;
  
-  
-
   @media screen and (min-width: $tablet) {
     width: 33vw;
     height: 100vw;
+    transform: translateX(100%);
+    transition: transform $timing-function;
   }
 
   @media screen and (min-width: $desktop) {
@@ -165,11 +162,13 @@
   }
 
   &.is-open {
-    // display: block;
     visibility: visible;
     opacity:1;
-    
 
+    @media screen and (min-width: $tablet) {
+      transform: translateY(0);
+    }
+    
     @media screen and (min-width: $desktop) {
       display: none;
     }
