@@ -1,7 +1,7 @@
-jQuery(document).ready(function ($) {
+ jQuery(document).ready(function ($) {
         $(window).load(function () {
           setTimeout(function () {
             $('#preloader').fadeOut('slow', function () {});
-          }, 1000);
+          }, 1500);
         });
       });
