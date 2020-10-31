@@ -9,42 +9,46 @@
   align-items: center;
   justify-content: space-between;
 }
+.logo {
+  position: relative;
+  z-index: 1;
+}
 .logo__icon {
   width: 80px;
   height: 29px;
+  --color1: $primary-title-color;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  .logo.menu-open & {
+    --color1: #ffffff;
+    --color3: #ffffff;
+  }
+
+  @media screen and (max-width: 767px) {
+    --color3: $primary-title-color;
+  }
 
   @media screen and (min-width: 768px) {
     width: 128px;
     height: 45px;
+    .logo.menu-open & {
+      --color3: #ff6b09;
+    }
   }
 }
 
-.logo__desktop {
-  display: none;
-  fill: $primary-title-color;
-  &--dark-theme {
-    display: none;
-    fill: $primary-bg-color;
-    @media screen and (min-width: 768px) {
-      display: block;
-    }
-  }
-  @media screen and (min-width: 768px) {
-    display: block;
-  }
-}
-.logo__mobile {
-  fill: $primary-title-color;
-  &--dark-theme {
-    fill: $primary-bg-color;
-    @media screen and (min-width: 768px) {
-      display: none;
-    }
-  }
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
-}
+// .logo__mobile {
+//   fill: $primary-title-color;
+//   &--dark-theme {
+//     fill: $primary-bg-color;
+//     @media screen and (min-width: 768px) {
+//       display: none;
+//     }
+//   }
+//   @media screen and (min-width: 768px) {
+//     display: none;
+//   }
+// }
 .page-header__navigation {
   margin-left: auto;
   margin-right: 60px;
@@ -75,6 +79,7 @@
   }
 }
 .menu-button {
+  display: block;
   border: none;
   background-color: transparent;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -90,6 +95,11 @@
 .menu-button--close {
   @extend .menu-button;
   color: $primary-bg-color;
+  margin-left: auto;
+  margin-bottom: 50px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 72px;
+  }
 }
 .menu-button__icon {
   fill: currentColor;
@@ -97,7 +107,7 @@
 
 .mobile-menu {
   position: fixed;
-  padding-top: 30px;
+  padding-top: 37px;
   top: 0;
   left: 0;
   width: 100%;
@@ -112,22 +122,22 @@
     pointer-events: none;
   }
   @media screen and (min-width: 768px) {
-    padding-top: 42px;
+    padding-top: 59px;
   }
 
   @media screen and (min-width: 1354px) {
     display: none;
   }
 }
-.menu-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 50px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 72px;
-  }
-}
+// .menu-container {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   margin-bottom: 50px;
+//   @media screen and (min-width: 768px) {
+//     margin-bottom: 72px;
+//   }
+// }
 .mobile-menu__navigation-list {
   margin-bottom: 50px;
   @media screen and (min-width: 768px) {
