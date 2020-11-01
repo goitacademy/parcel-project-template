@@ -48,7 +48,7 @@
   }
 }
 
-.navigation { 
+.navigation {
   @media screen and (max-width: 1199px) {
     display: none;
   }
@@ -58,11 +58,9 @@
   }
 
   &-list-item {
-
     & + & {
       margin-left: 35px;
     }
-
   }
 
   &-list-link {
@@ -84,17 +82,33 @@
   }
 }
 
-.menu-btn {
+/*==========================BURGER MENU==========================================*/
+
+.menu-burger {
+  display: flex;
+  align-self: center;
   background-color: transparent;
   border: none;
+  outline: none;
   cursor: pointer;
   transition: transform $timing-function;
 
-      &:hover,
-      &:focus{
-        transform: scale(1.15);
-      }
- 
+  &:hover,
+  &:focus {
+    transform: scale(1.15);
+  }
+
+  & .icon-cross {
+    display: none;
+  }
+
+  &.is-open .icon-cross {
+    display: block;
+  }
+
+  &.is-open .icon-burger {
+    display: none;
+  }
 
   @media screen and (min-width: $tablet) {
     margin-right: 30px;
@@ -104,4 +118,113 @@
     display: none;
   }
 
+  &.is-open {
+    position: fixed;
+    margin-right: 0;
+    top: 25px;
+    right: 20px;
+    z-index: 100;
+
+    @media screen and (min-width: $tablet) {
+      top: 20px;
+      right: 30px;
+    }
+  }
+
+  &.is-open .mobile-menu{
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.menu-container {
+  visibility: hidden;
+  opacity: 0;
+  padding-top: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: $burger-menu-color;
+  transition: opacity $timing-function;
+ 
+  @media screen and (min-width: $tablet) {
+    width: 33vw;
+    height: 100vw;
+    transform: translateX(100%);
+    transition: transform $timing-function;
+  }
+
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+
+  &.is-open {
+    visibility: visible;
+    opacity:1;
+
+    @media screen and (min-width: $tablet) {
+      transform: translateY(0);
+    }
+    
+    @media screen and (min-width: $desktop) {
+      display: none;
+    }
+  }
+}
+
+.menu-btn {
+  @extend %btn;
+  padding: 10px 37px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  min-width: 209px;
+  height: 44px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+  color: $accent-color;
+  background-color: $text-color-dark-theme;
+  border-radius: 22px;
+  transition: background-color $timing-function;
+
+  &:hover,
+  &:focus {
+    background-color: $second-hover-color;
+  }
+
+  @media screen and (min-width: $tablet) {
+    min-width: 186px;
+  }
+}
+
+.menu-nav-item {
+  width: 100%;
+  padding: 12px 0;
+  border-top: 1px solid $burger-border-color;
+  border-bottom: 1px solid $burger-border-color;
+
+  &:hover .menu-nav-link,
+  &:focus .menu-nav-link {
+    color: $accent-color;
+  }
+}
+
+.menu-nav-link {
+  padding-left: 20px;
+  font-family: $main-font;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28;
+  color: $text-color-dark-theme;
+  transition: color $timing-function;
+
+  &:focus {
+    color: $accent-color;
+  }
+  &-active {
+    color: $accent-color;
+  }
 }
