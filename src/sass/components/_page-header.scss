@@ -1,12 +1,18 @@
 .nav {
   @media screen and (min-width: 1400px) {
-    .burger-menu {
+    .burger-menu,
+    .menu__container-wrap {
       display: none;
     }
   }
 
   @media screen and (max-width: 767px) {
     &__form-btn {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .menu__form-btn {
       display: none;
     }
   }
@@ -20,6 +26,10 @@
 .header {
   // outline: 1px solid red;
   padding-top: 30px;
+  @media screen and (min-width: 767px) {
+    padding-top: 40px;
+  }
+
   @media screen and (min-width: 1400px) {
     padding-top: 33px;
   }
@@ -60,6 +70,38 @@
   align-items: center;
 }
 
+.nav {
+  @media screen and (min-width: 1400px) {
+    display: flex;
+    &__list {
+      display: flex;
+      margin-right: 60px;
+    }
+    &__list-item {
+      display: inline-block;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 17px;
+      text-transform: uppercase;
+    }
+    &__list-item:not(:last-child) {
+      margin-right: 30px;
+    }
+    &__list-link {
+      display: inline-block;
+      padding-top: 27px;
+      padding-bottom: 26px;
+
+      color: $primary-text-color;
+      &:hover,
+      &:focus {
+        outline: none;
+        color: $accent-color;
+      }
+    }
+  }
+}
+
 // nav__form-btn
 .nav__form-btn {
   @media screen and (min-width: 768px) {
@@ -95,41 +137,8 @@
   }
 }
 
-.nav {
-  @media screen and (min-width: 1400px) {
-    display: flex;
-    &__list {
-      display: flex;
-      margin-right: 60px;
-    }
-    &__list-item {
-      display: inline-block;
-      font-weight: bold;
-      font-size: 14px;
-      line-height: 17px;
-      text-transform: uppercase;
-    }
-    &__list-item:not(:last-child) {
-      margin-right: 30px;
-    }
-    &__list-link {
-      display: inline-block;
-      padding-top: 27px;
-      padding-bottom: 26px;
-
-      color: $primary-text-color;
-      &:hover,
-      &:focus {
-        outline: none;
-        color: $accent-color;
-      }
-    }
-  }
-}
-
-// barger-menu
-
-.burger-menu {
+.burger-menu,
+.burger-cross {
   display: inline-flex;
   margin: 0;
   padding: 0;
@@ -137,39 +146,46 @@
   background-color: transparent;
   &:hover {
     fill: $accent-color;
-  }
-  .icon-cross {
-    display: none;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --color1: $accent-color;
   }
 }
 
-.burger-menu.is-open .icon-cross {
-  display: block;
-}
-
-.burger-menu.is-open .icon-menu {
-  display: none;
-}
 .header .container {
   position: relative;
 }
+
 .menu__container-wrap {
   position: absolute;
+  z-index: 999;
   padding: 30px 20px;
-  top: 0;
-  left: 100%;
+  top: -30px;
+  // left: 100%;
   width: 320px;
   height: 568px;
   background: rgba(17, 21, 24, 0.9);
-  // text-align: center;
+  @media screen and (min-width: 768px) {
+    top: -40px;
+    padding: 42px 40px;
+    width: 768px;
+    height: 1024px;
+  }
 }
 
 .menu {
+  &__logo-wrap {
+    display: inline-block;
+    @media screen and (max-width: 767px) {
+      margin-bottom: 50px;
+      margin-right: 100px;
+    }
+
+    @media screen and (min-width: 768px) {
+      margin-right: 500px;
+    }
+  }
   &__logo-link {
-    color: $dark-theme-title-color;
     display: flex;
+    color: $dark-theme-title-color;
     font-weight: 800;
     font-size: 26px;
     line-height: 1.23;
@@ -186,23 +202,36 @@
       color: $accent-color;
     }
   }
+
   &__logo-svg {
     margin-left: 4px;
     margin-right: 4px;
   }
-  &__logo-wrap {
-    margin-bottom: 30px;
-  }
+
   &__list {
     margin-bottom: 50px;
-  }
-  &__list-item {
-    margin-bottom: 20px;
+    @media screen and (min-width: 768px) {
+      width: 360px;
+      margin: 72px auto;
+    }
   }
   &__list-link {
     color: $dark-theme-title-color;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 1.8; /* or 36px */
+    letter-spacing: 0.08em;
+    &:hover,
+    &:focus {
+      outline: none;
+      color: $accent-color;
+    }
+    @media screen and (min-width: 768px) {
+      font-size: 26px;
+    }
   }
 }
+
 .menu__form-btn {
   color: $accent-color;
   border: 2px solid $accent-color;
