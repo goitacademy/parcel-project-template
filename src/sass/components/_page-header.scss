@@ -106,6 +106,7 @@
   }
 
   @media screen and (min-width: 1400px) {
+    .backdrop,
     .menu-wrap,
     .burger-btn {
       display: none;
@@ -166,22 +167,31 @@
   }
 }
 
-.menu-wrap {
-  opacity: 1;
-  position: absolute;
+.backdrop {
   z-index: 999;
-  top: -30px;
-  padding: 30px 20px;
-  width: 320px;
-  height: 568px;
+  // position: relative;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(17, 21, 24, 0.9);
   &.is-hidden {
     opacity: 0;
     pointer-events: none;
   }
+}
+.menu-wrap {
+  position: absolute;
+  transform: translate(-50%);
+  left: 50%;
+
+  padding: 30px 20px;
+  width: 320px;
+  height: 568px;
 
   @media screen and (min-width: 768px) {
-    top: -40px;
     padding: 42px 40px;
     width: 768px;
     height: 1024px;
