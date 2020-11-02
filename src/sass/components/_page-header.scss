@@ -98,7 +98,7 @@
   }
 
   @media screen and (min-width: 1400px) {
-    // .menu-wrap,
+    .menu-wrap,
     .burger-btn {
       display: none;
     }
@@ -133,6 +133,7 @@
 }
 
 .burger-btn {
+  outline: none;
   display: inline-flex;
   margin: 0;
   padding: 0;
@@ -140,14 +141,29 @@
   background-color: transparent;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover {
+  &:hover,
+  &:focus {
     fill: $accent-color;
     // --color1: $accent-color;
   }
 }
-
+.burger-cross {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+    --color1: $accent-color;
+  }
+}
+.menu-wrap.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 .menu-wrap {
   // display: none;
+  opacity: 1;
   position: absolute;
   z-index: 999;
   padding: 30px 20px;
@@ -157,16 +173,14 @@
   width: 320px;
   height: 568px;
   background: rgba(17, 21, 24, 0.9);
-  &.is-open {
-    display: block;
-  }
+
   @media screen and (min-width: 768px) {
     top: -40px;
     padding: 42px 40px;
     width: 768px;
     height: 1024px;
   }
-  &__drak-logo {
+  &__dark-logo {
     display: inline-block;
     @media screen and (max-width: 767px) {
       margin-bottom: 50px;
