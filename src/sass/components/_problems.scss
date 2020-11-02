@@ -60,6 +60,7 @@
   &__item {
     @include font(700, 14px, 1.43);
     letter-spacing: 0.08em;
+    padding-top: 29px;
 
     @media screen and (min-width: 768px) {
       width: calc((100% - 40px) / 2);
@@ -71,6 +72,7 @@
       line-height: 1.4;
       padding-bottom: 32px;
       width: calc((100% - 2 * 40px) / 3);
+      padding-top: 43px;
     }
 
     &:not(:last-child) {
@@ -80,33 +82,37 @@
     }
   }
 
-  &__number {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-
-    @media screen and (min-width: 1354px) {
-      margin-bottom: 10px;
-    }
+  &__text {
+    position: relative;
 
     &::before {
       content: '';
+      display: block;
       width: 20px;
       height: 2px;
       background-color: $accent-color;
+      position: absolute;
+      top: -17px;
+
+      @media screen and (min-width: 1354px) {
+        top: -26px;
+      }
     }
 
     &::after {
       content: '0' counter(number);
-      margin-left: 9px;
       font-size: 14px;
       line-height: 1.71;
       color: $accent-color;
       counter-increment: number;
+      position: absolute;
+      top: -28px;
+      left: 29px;
 
       @media screen and (min-width: 1354px) {
         font-size: 20px;
         line-height: 1.65;
+        top: -41px;
       }
     }
   }
