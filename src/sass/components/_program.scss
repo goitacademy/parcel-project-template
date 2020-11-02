@@ -48,8 +48,8 @@
 
   @media screen and (min-width: 1354px) {
     background-size: 672px 502px, cover;
-    // background-position: left bottom 470px, left top;
-    background-position: -88px bottom, left top;
+    background-position: left bottom 470px, left top;
+    // background-position: -88px bottom, left top;
 
     background-image: url(../images/program/desktop/main-pic@1x.png),
       linear-gradient($primary-title-color 86.2%, $primary-bg-color 86.2%);
@@ -82,24 +82,22 @@
     &::before {
       position: absolute;
       display: block;
-
       content: '';
       width: 1px;
-      height: 1290px;
+      height: 1250px;
       left: 68px;
       background-color: $primary-bg-color;
 
+      @media screen and (min-width: 368px) {
+        height: 1230px;
+      }
       @media screen and (min-width: 768px) and (max-width: 1353px) {
         left: 57px;
-        height: 920px;
+        height: 1040px;
       }
-
       @media screen and (min-width: 1354px) {
         top: -60px;
-        // left: 0;
-
         width: 100%;
-
         height: 1px;
         left: 88px;
         display: none;
@@ -117,7 +115,6 @@
     @media screen and (min-width: 1354px) {
       justify-content: center;
       width: 100%;
-      // width: calc((100% - 4 * 30px) / 5);
 
       .program-list & + & {
         margin-left: 30px;
@@ -156,7 +153,7 @@
   @include font(700, 14px, 2);
 
   @media screen and (min-width: 768px) and (max-width: 1353px) {
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     @include font(400, 14px, 2);
   }
 
@@ -173,7 +170,7 @@
   @include font(700, 12px, 1.667);
 
   @media screen and (min-width: 768px) and (max-width: 1353px) {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   @media screen and (min-width: 1354px) {
@@ -255,6 +252,13 @@
 .program__meta {
   @media screen and (min-width: 768px) and (max-width: 1353px) {
     display: flex;
+    // &:nth-child(1) {
+    //   width: 176px;
+    // }
+
+    // &:nth-child(2) {
+    //   width: 155px;
+    // }
   }
 }
 
@@ -277,85 +281,85 @@
 }
 
 .program-features__list {
+  padding: 53px 34px 20px 30px;
+  counter-reset: number;
+
   letter-spacing: 0.08em;
   background-color: $primary-bg-color;
   color: $primary-title-color;
   box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 
-  padding-top: 53px;
-  padding-right: 34px;
-  padding-bottom: 20px;
-  padding-left: 30px;
-  counter-reset: numP;
-
   @media screen and (min-width: 768px) {
     padding: 63px 118px 25px 98px;
-  }
-
-  @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
-
   @media screen and (min-width: 1354px) {
-    padding-top: 70px;
-    padding-left: 64px;
-    padding-bottom: 33px;
-    padding-right: 62px;
-
-    display: flex;
-    flex-wrap: wrap;
-    // justify-content: space-between;
-    margin: -37px -20px;
-  }
-}
-.program-features__description {
-  letter-spacing: 0.08em;
-  @include font(700, 14px, 1.429);
-
-  @media screen and (min-width: 1354px) {
-    @include font(700, 20px, 1.4);
-    width: 356px;
+    padding: 70px 62px 33px 64px;
   }
 }
 
 .program-features__item {
-  position: relative;
   width: 100%;
-
-  &:not(:last-child) {
-    margin-bottom: 39px;
-  }
+  @include font(700, 14px, 1.43);
 
   @media screen and (min-width: 768px) and (max-width: 1353px) {
     width: calc((100% - 20px) / 2);
   }
-
   @media screen and (min-width: 1354px) {
     width: calc((100% - 120px) / 3);
     @include font(700, 20px, 1.4);
-    margin: 37px 20px;
 
     &:not(:last-child) {
       margin-bottom: 32px;
     }
   }
+}
+
+.program-features__description {
+  position: relative;
+  letter-spacing: 0.08em;
+  @include font(700, 14px, 1.429);
+
+  @media screen and (min-width: 768px) and (max-width: 1353px) {
+    padding-top: 16px;
+    padding-bottom: 37px;
+  }
+
+  @media screen and (min-width: 1354px) {
+    @include font(700, 20px, 1.4);
+    width: 356px;
+  }
 
   &::before {
-    counter-increment: numP;
-    content: '— 0' counter(numP) ' ';
-
-    position: absolute;
-    top: -5px;
-    left: 0;
+    content: '';
     display: block;
-    @include font(700, 14px, 1.643);
-
-    transform: translateY(-100%);
-    color: $accent-color;
+    width: 20px;
+    height: 2px;
+    background-color: $accent-color;
+    position: absolute;
+    top: -17px;
 
     @media screen and (min-width: 1354px) {
-      @include font(700, 20px, 1.65);
+      top: -26px;
+    }
+  }
+
+  &::after {
+    content: '0' counter(number);
+    font-size: 14px;
+    line-height: 1.71;
+    color: $accent-color;
+    counter-increment: number;
+    position: absolute;
+    top: -28px;
+    left: 29px;
+
+    @media screen and (min-width: 1354px) {
+      font-size: 20px;
+      line-height: 1.65;
+      top: -41px;
     }
   }
 }
