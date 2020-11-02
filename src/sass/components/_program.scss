@@ -41,14 +41,15 @@
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url(../images/program/mobile/main-pic@2x.png),
+      background-image: url(../images/program/tablet/main-pic@2x.png),
         linear-gradient($primary-title-color 84.3%, $primary-bg-color 84.3%);
     }
   }
 
   @media screen and (min-width: 1354px) {
-    background-size: 674px 502px, cover;
-    background-position: left bottom 258px, left top;
+    background-size: 672px 502px, cover;
+    // background-position: left bottom 470px, left top;
+    background-position: -88px bottom, left top;
 
     background-image: url(../images/program/desktop/main-pic@1x.png),
       linear-gradient($primary-title-color 86.2%, $primary-bg-color 86.2%);
@@ -110,12 +111,17 @@
     position: relative;
 
     &:not(:last-child) {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     @media screen and (min-width: 1354px) {
       justify-content: center;
-      width: calc((100% - 4 * 30px) / 5);
+      width: 100%;
+      // width: calc((100% - 4 * 30px) / 5);
+
+      .program-list & + & {
+        margin-left: 30px;
+      }
     }
 
     &::before {
@@ -178,6 +184,7 @@
 
 .program__event {
   letter-spacing: 0.08em;
+  opacity: 0.5;
   color: $primary-text-color;
   @include font(500, 12px, 1.667);
 
@@ -197,13 +204,11 @@
 
   @media screen and (min-width: 768px) and (max-width: 1353px) {
     padding-top: 60px;
-    padding-left: 40px;
     margin-bottom: 52px;
     text-align: left;
   }
 
   @media screen and (min-width: 1354px) {
-    padding-left: 0px;
     padding-top: 120px;
     margin-bottom: 160px;
     text-align: left;
@@ -229,14 +234,15 @@
   }
 
   @media screen and (min-width: 768px) and (max-width: 1353px) {
-    width: calc((100% - 2 * 50px) / 3);
+    width: max-content;
+
+    .program__meta & + & {
+      margin-left: 50px;
+    }
 
     &:not(:last-child) {
       margin-bottom: 40px;
     }
-    // .program__meta & + & {
-    //   margin-left: 50px;
-    // }
   }
 
   @media screen and (min-width: 1354px) {
@@ -292,11 +298,15 @@
   }
 
   @media screen and (min-width: 1354px) {
-    padding-left: 84px;
     padding-top: 70px;
+    padding-left: 64px;
+    padding-bottom: 33px;
+    padding-right: 62px;
 
     display: flex;
     flex-wrap: wrap;
+    // justify-content: space-between;
+    margin: -37px -20px;
   }
 }
 .program-features__description {
@@ -304,33 +314,31 @@
   @include font(700, 14px, 1.429);
 
   @media screen and (min-width: 1354px) {
-    @include font(700, 20px, 1.2);
+    @include font(700, 20px, 1.4);
+    width: 356px;
   }
 }
 
 .program-features__item {
   position: relative;
+  width: 100%;
 
-  // &:not(:last-child) {
-  //   margin-bottom: 39px;
-  // }
+  &:not(:last-child) {
+    margin-bottom: 39px;
+  }
 
-  // @media screen and (min-width: 1354px) {
-  //   margin: 20px;
-  // }
-
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1353px) {
     width: calc((100% - 20px) / 2);
-
-    // &:last-child {
-    //   margin-bottom: 63px;
-    // }
   }
 
   @media screen and (min-width: 1354px) {
-    width: calc((100% - 2 * 40px) / 3);
+    width: calc((100% - 120px) / 3);
     @include font(700, 20px, 1.4);
-    // margin: -20px;
+    margin: 37px 20px;
+
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
   }
 
   &::before {
