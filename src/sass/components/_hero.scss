@@ -1,28 +1,166 @@
-.container {
-  margin: 46 54 130 184;
-}
 .hero {
-  display: flex;
+  padding-top: 20px;
+  padding-bottom: 48px;
   background-color: $primary-bg-color;
+  background-image: url('../images/hero/mobile/vector.jpg');
+  background-position: left bottom;
+  background-size: 320px 618px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url('../images/hero/mobile/vector@2x.jpg');
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media screen and (min-width: 768px) {
+    padding-top: 26px;
+    padding-bottom: 64px;
+    background-image: url('../images/hero/tablet/vector.jpg');
+    background-size: 768px 557px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+    screen and (min-width: 768px) and (min-resolution: 192dpi),
+    screen and (min-width: 768px) and (min-resolution: 2dppx) {
+    background-image: url('../images/hero/tablet/vector@2x.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media screen and (min-width: 1354px) {
+    padding-top: 15px;
+    padding-bottom: 99px;
+    background-image: url('../images/hero/desktop/vector.jpg');
+    background-size: 768px 557px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media screen and (min-width: 1354px) and (min-device-pixel-ratio: 2),
+    screen and (min-width: 1354px) and (min-resolution: 192dpi),
+    screen and (min-width: 11354px) and (min-resolution: 2dppx) {
+    background-image: url('../images/hero/desktop/vector@2x.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
-  &.title {
+  &__about {
+    @media (min-width: 768px) and (max-width: 1353px) {
+      display: flex;
+      width: 708px;
+    }
+    @media (min-width: 1354px) {
+      display: flex;
+      width: 1450px;
+    }
+  }
+
+  &__slogan {
+    @media (min-width: 768px) and (max-width: 1353px) {
+      width: 332px;
+    }
+    @media (min-width: 1354px) {
+      width: 642px;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    margin: 0 auto;
     font-family: $primary-font;
-    font-style: normal;
-    //   @mixin font(800, 58, 1.3);
-    font-weight: 800;
-    font-size: 58px;
-    line-height: 1.3;
+    @include font(800, 20px, 1.36);
     letter-spacing: 0.03em;
     color: $primary-title-color;
+    margin-bottom: 30px;
+    width: 280px;
+    @media screen and (min-width: 768px) {
+      @include font(800, 26px, 1.3);
+      margin-bottom: 32px;
+      @media screen and (min-width: 1354px) {
+        width: 642px;
+        @include font(800, 58px, 1.3);
+        padding-top: 80px;
+        margin-bottom: 24px;
+      }
+    }
+    &--text {
+      display: block;
+      @include font(500, 14px, 1.57);
+      letter-spacing: 0.08em;
+      color: $primary-text-color;
+      @media screen and (min-width: 1354px) {
+        @include font(500, 20px, 1.649);
+      }
+    }
+
+    &--desc {
+      display: block;
+      @include font(700, 14px, 1.57);
+      letter-spacing: 0.08em;
+      color: $primary-title-color;
+      margin-bottom: 30px;
+      @media screen and (min-width: 1354px) {
+        @include font(700, 20px, 1.649);
+        margin-bottom: 40px;
+      }
+    }
   }
-  &.text {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.57px;
-    align-items: center;
-    letter-spacing: 0.08em;
-    color: #b9b9b9;
+  &__picture {
+    display: block;
+    max-width: 100%;
+    @media (min-width: 768px) and (max-width: 1353px) {
+      padding-top: 14px;
+    }
+    @media screen and (min-width: 1354px) {
+    }
   }
+
+  &__picture--group {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and (min-width: 1354px) {
+      max-width: 842px;
+      margin-left: -30px;
+    }
+  }
+
+  &__button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: none;
+    padding: 14px 0px;
+    text-align: center;
+    color: $primary-bg-color;
+    @include font(700, 12px, 1.219);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background-color: $accent-color;
+    width: 260px;
+    margin-bottom: 30px;
+    text-decoration: none;
+    @media (min-width: 768px) {
+      margin-left: 0px;
+    }
+    @media (min-width: 1354px) {
+      @include font(700, 14px, 1.214);
+      width: 354px;
+      padding: 26px;
+    }
+  }
+  &__button:hover {
+    border: 2px solid $accent-color;
+    color: $accent-color;
+    background-color: $primary-bg-color;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+.accent {
+  color: $accent-color;
 }
