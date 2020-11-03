@@ -1,5 +1,4 @@
 .graduates {
-  background-color: $primary-white-color;
   padding-top: 50px;
   padding-bottom: 50px;
 
@@ -31,10 +30,10 @@
     padding-right: 20px;
     padding-top: 20px;
     padding-bottom: 30px;
+    overflow: hidden;
 
     @media screen and (min-width: 768px) {
       display: flex;
-      padding: 40px;
     }
 
     @media screen and (min-width: 1400px) {
@@ -184,23 +183,34 @@
 }
 
 /* Слайдер */
-.slick-slider {
+.slider {
   position: relative;
+  margin-bottom: 40px;
 }
 
-.slick-slider .slick-arrow {
+.slider .slick-arrow {
   position: absolute;
   top: 50%;
   z-index: 10;
   font-size: 0;
+  width: 25px;
+  height: 5px;
 }
 
-.slick-slider .slick-arrow.slick-prev {
+.slider .slick-arrow.slick-prev {
   left: 0;
+  width: 25px;
+  height: 15px;
+  background: url('../images/icons/arrow-prev.svg') 0 0 / 100% no-repeat;
+  border: transparent;
 }
 
-.slick-slider .slick-arrow.slick-next {
+.slider .slick-arrow.slick-next {
   right: 0;
+  width: 25px;
+  height: 15px;
+  background: url('../images/icons/arrow-next.svg') 0 0 / 100% no-repeat;
+  border: transparent;
 }
 
 /* Слайдер запущен */
@@ -216,6 +226,7 @@
 /* Лента слайдов */
 .slick-track {
   display: flex;
+  align-items: flex-start;
 }
 /* Слайд */
 .slick-slide {
@@ -224,7 +235,7 @@
 .slick-slide.slick-active {
 }
 /* Слайд основной */
-.slick-slide.slick-current {
+.slide.slick-current {
 }
 /* Слайд по центру */
 .slick-slide.slick-center {
@@ -246,12 +257,60 @@
 }
 /* Точки (булиты) */
 .slick-dots {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // position: absolute;
+  // bottom: -75px;
+  // left: 50%;
+  // transform: translate(-50%);
 }
 .slick-dots li {
+  // list-style: none;
+  // margin: 0px 15px;
 }
 /* Активная точка */
 .slick-dots li.slick-active {
 }
 /* Элемент точки */
 .slick-dots li button {
+  // font-size: 0;
+  // width: 54px;
+  // height: 54px;
+  // border-radius: 50%;
+  // background-color: #fff;
+}
+
+// Второй слайдер
+
+.wrapper {
+  & .slick-list {
+    display: flex;
+  }
+
+  &__item {
+    border-radius: 50%;
+    width: 54px !important;
+    height: 54px;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  &__img {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+  }
+
+  & .slick-arrow {
+    display: none;
+  }
+
+  & .slick-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
