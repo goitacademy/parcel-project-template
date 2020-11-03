@@ -7,6 +7,7 @@
   background-size: 320px 618px;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
@@ -18,6 +19,8 @@
   @media screen and (min-width: 768px) {
     padding-top: 26px;
     padding-bottom: 64px;
+    // згідно макету до зміни розміру картинкаи для контейнера
+    // padding-bottom: 83px; якщо змінювати ширину картинки під контейнер
     background-image: url('../images/hero/tablet/vector.jpg');
     background-size: 768px 557px;
     background-position: left bottom;
@@ -34,6 +37,8 @@
   @media screen and (min-width: 1354px) {
     padding-top: 15px;
     padding-bottom: 99px;
+    // згідно макету до зміни розміру картинкаи для контейнера
+    // margin-bottom: 125px; якщо змінювати ширину картинки під контейнер
     background-image: url('../images/hero/desktop/vector.jpg');
     background-size: 768px 557px;
     background-position: left bottom;
@@ -42,7 +47,7 @@
   }
   @media screen and (min-width: 1354px) and (min-device-pixel-ratio: 2),
     screen and (min-width: 1354px) and (min-resolution: 192dpi),
-    screen and (min-width: 11354px) and (min-resolution: 2dppx) {
+    screen and (min-width: 1354px) and (min-resolution: 2dppx) {
     background-image: url('../images/hero/desktop/vector@2x.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -52,10 +57,12 @@
     @media (min-width: 768px) and (max-width: 1353px) {
       display: flex;
       width: 708px;
+      // ці розміри ставив для ширини блока по макету
     }
     @media (min-width: 1354px) {
       display: flex;
       width: 1450px;
+      // ці розміри ставив для ширини блока по макету
     }
   }
 
@@ -115,8 +122,6 @@
     @media (min-width: 768px) and (max-width: 1353px) {
       padding-top: 14px;
     }
-    @media screen and (min-width: 1354px) {
-    }
   }
 
   &__picture--group {
@@ -125,11 +130,15 @@
     margin-right: auto;
     @media screen and (min-width: 1354px) {
       max-width: 842px;
+      // розмір по макету
+      // нижче розмір під розмір контейнеру
+      // max-width: 704px;
       margin-left: -30px;
     }
   }
 
   &__button {
+    border: 2px solid $accent-color;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -142,20 +151,27 @@
     text-transform: uppercase;
     background-color: $accent-color;
     width: 260px;
-    margin-bottom: 30px;
+    height: 48px;
     text-decoration: none;
+    @media (max-width: 767px) {
+      margin-bottom: 30px;
+      border: 2px solid $accent-color;
+    }
     @media (min-width: 768px) {
       margin-left: 0px;
+      border: 2px solid $accent-color;
     }
     @media (min-width: 1354px) {
       @include font(700, 14px, 1.214);
       width: 354px;
+      height: 70px;
       padding: 26px;
+      border: 2px solid $accent-color;
     }
   }
   &__button:hover {
-    border: 2px solid $accent-color;
     color: $accent-color;
+    border: 2px solid $accent-color;
     background-color: $primary-bg-color;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
