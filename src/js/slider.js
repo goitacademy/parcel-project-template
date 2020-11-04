@@ -1,13 +1,38 @@
-$(document).ready(function(){
+$(document).ready(function () {
     $('.slider').slick({
-        adaptiveHeight: true,
-        slidesToShow: 1,
-        swipe: true,
-    });  
-
+        arrows: false,
+        slidesToShow: 1,        
+        // fade: true
+        asNavFor: ".wrapper",
+        mobileFirst: true,
+        responsive:[
+            {
+                breakpoint: 767,
+                settings: {
+                    arrows: true,
+                }
+            }
+        ]
+    });
     $('.wrapper').slick({
-        adaptiveHeight: true,
-        slidesToShow: 7,
-    });  
-});
+        arrows: true,
+        slidesToShow: 3,
+        asNavFor: ".slider",        
+        mobileFirst: true,
+        focusOnSelect: true,
+        variableWidth: true,  
+        responsive:[
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 6,                    
+                    arrows: false,
+                }
+            }
+        ]
+    });
+    
+    // $('.wrapper').slick('reInit');
+    $('.wrapper').slick('setPosition');    
+    });
 

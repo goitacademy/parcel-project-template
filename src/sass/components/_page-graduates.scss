@@ -30,7 +30,7 @@
     padding-right: 20px;
     padding-top: 20px;
     padding-bottom: 30px;
-    overflow: hidden;
+    background: #f7f5f5;
 
     @media screen and (min-width: 768px) {
       display: flex;
@@ -141,6 +141,8 @@
     height: 90px;
     border-radius: 50%;
     margin-bottom: 26.5px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   @media screen and (min-width: 768px) {
@@ -168,6 +170,7 @@
 
 /* Слайдер */
 .slider {
+  min-width: 0;
   position: relative;
   margin-bottom: 40px;
 }
@@ -178,11 +181,11 @@
   z-index: 10;
   font-size: 0;
   width: 25px;
-  height: 5px;
+  height: 15px;
 }
 
 .slider .slick-arrow.slick-prev {
-  left: -60px;
+  left: -35px;
   width: 25px;
   height: 15px;
   background: url('../images/icons/arrow-prev.svg') 0 0 / 100% no-repeat;
@@ -190,7 +193,7 @@
 }
 
 .slider .slick-arrow.slick-next {
-  right: -60px;
+  right: -35px;
   width: 25px;
   height: 15px;
   background: url('../images/icons/arrow-next.svg') 0 0 / 100% no-repeat;
@@ -268,8 +271,19 @@
 // Второй слайдер
 
 .wrapper {
+  position: relative;
+  height: 60px;
+
   & .slick-list {
     display: flex;
+    overflow: hidden;
+    width: 182px;
+    margin: 0 auto;
+    height: 60px;
+
+    @media screen and(min-width: 768px) {
+      width: 558px;
+    }
   }
 
   &__item {
@@ -279,7 +293,13 @@
   }
 
   &__item:not(:last-child) {
-    margin-right: 30px;
+    margin-right: 10px;
+
+    @media screen and (min-width: 768px) {
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
   }
 
   &__img {
@@ -288,13 +308,42 @@
     border-radius: 50%;
   }
 
-  & .slick-arrow {
-    display: none;
-  }
-
   & .slick-track {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  & .slick-arrow {
+    position: absolute;
+    z-index: 10;
+    font-size: 0;
+    width: 25px;
+    height: 15px;
+    font-size: 0;
+  }
+
+  & .slick-arrow.slick-prev {
+    top: 50%;
+    left: 15%;
+    width: 25px;
+    height: 15px;
+    background: url('../images/icons/arrow-prev.svg') 0 0 / 100% no-repeat;
+    border: transparent;
+    font-size: 0;
+  }
+
+  & .slick-arrow.slick-next {
+    font-size: 0;
+    top: 50%;
+    right: 15%;
+    width: 25px;
+    height: 15px;
+    background: url('../images/icons/arrow-next.svg') 0 0 / 100% no-repeat;
+    border: transparent;
+  }
+
+  &__item.slick-current .wrapper__img {
+    border: 2px solid $accent-color;
   }
 }
