@@ -2,6 +2,6 @@
         $(window).load(function () {
           setTimeout(function () {
             $('#preloader').fadeOut('slow', function () {});
-          }, 1500);
+          }, 1000);
         });
       });
