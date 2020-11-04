@@ -32,7 +32,6 @@ $(document).ready(function () {
         ]
     });
     
-    // $('.wrapper').slick('reInit');
     $('.wrapper').slick('setPosition');    
     });
 
