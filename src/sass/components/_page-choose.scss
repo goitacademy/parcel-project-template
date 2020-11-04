@@ -1,0 +1,206 @@
+.choose {
+  position: absolute;
+  bottom: -230px;
+  width: 280px;
+  counter-reset: section;
+  z-index: 100;
+
+  @media screen and (min-width: 768px) {
+    bottom: -252px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  width: 100%;
+  // background-image: linear-gradient(
+  //   to bottom,
+  //   $secondary-bg-color 475px,
+  //   $primary-white-color 476px
+  // );
+
+  &__title {
+    color: $dark-theme-title-color;
+    padding-right: 130px;
+    margin-bottom: 30px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 1.35;
+
+    letter-spacing: 0.03em;
+
+    @media screen and (min-width: 768px) {
+      text-align: center;
+      padding-right: 0px;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 26px;
+      line-height: 1.3;
+      margin-bottom: 30px;
+    }
+    @media screen and (min-width: 1400px) {
+      display: none;
+    }
+  }
+
+  &__item {
+    font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+
+    letter-spacing: 0.08em;
+    position: relative;
+    width: 100%;
+
+    @media screen and (min-width: 200px) {
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 216px;
+    }
+    @media screen and (min-width: 1400px) {
+      width: 356px;
+    }
+  }
+  &__item:not(:last-child) {
+    @media screen and (min-width: 200px) and (max-width: 767px) {
+      margin-bottom: 53px;
+    }
+  }
+  &__item:not(:nth-child(n + 5)) {
+    @media screen and (min-width: 768px) and (max-width: 1399px) {
+      margin-bottom: 63px;
+    }
+  }
+  &__item:not(:nth-child(n + 4)) {
+    @media screen and (min-width: 1400px) {
+      margin-bottom: 75px;
+    }
+  }
+
+  &__item::before {
+    content: '';
+
+    display: block;
+    width: 13px;
+    height: 2px;
+    background-color: $accent-color;
+    position: absolute;
+    left: 3px;
+    top: -20px;
+    margin-bottom: 15px;
+    letter-spacing: 0.08em;
+
+    @media screen and (min-width: 1400px) {
+      top: -15px;
+    }
+  }
+  &__item::after {
+    content: counter(section, decimal-leading-zero);
+    counter-increment: section;
+    position: absolute;
+    bottom: 100%;
+    color: #ff6b08;
+    font-weight: 600;
+    left: -2px;
+    top: -30px;
+    width: 20px;
+    -webkit-transform: translateX(130%);
+    transform: translateX(130%);
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    line-height: 1.64;
+
+    @media screen and(min-width:1400px) {
+      font-size: 20px;
+      line-height: 1.65;
+    }
+  }
+  &__topic {
+    color: $primary-title-color;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: 0.08em;
+
+    @media screen and (min-width: 768px) {
+    }
+    @media screen and (min-width: 1400px) {
+      font-size: 20px;
+      line-height: 1.4;
+    }
+  }
+
+  // &__numbers {
+  //   color: $accent-color;
+
+  //   font-weight: bold;
+  //   font-size: 14px;
+  //   line-height: 164.9%;
+  //   display: block;
+  //   position: absolute;
+  //   top: -25px;
+  //   left: 25px;
+  // }
+  // &__numbers::before {
+  // content: '';
+  // display: inline-block;
+  // width: 17px;
+  // height: 1px;
+  // background-color: $accent-color;
+  // position: absolute;
+  // left: -22px;
+  // top: 11px;
+
+  &__list {
+    padding-left: 30px;
+    padding-right: 34px;
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-left: 98px;
+      padding-right: 98px;
+    }
+    @media screen and (min-width: 1400px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-left: 83px;
+      padding-right: 83px;
+    }
+  }
+
+  &__box {
+    background-color: $primary-white-color;
+    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+    padding-top: 53px;
+    padding-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+      padding-top: 63px;
+      padding-bottom: 25px;
+    }
+
+    @media screen and (min-width: 1400px) {
+      padding-top: 101px;
+      padding-bottom: 70px;
+    }
+  }
+  .container {
+    @media screen and (min-width: 768px) {
+      max-width: 728px;
+    }
+    @media screen and (min-width: 1400px) {
+      max-width: 1314px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
