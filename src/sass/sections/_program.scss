@@ -25,6 +25,7 @@
   }
 }
 .program-list {
+  position: relative;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -33,13 +34,42 @@
     justify-content: space-between;
   }
 }
+.program-list::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -26.5px;
+    display: block;
+    width: 1px;
+    height: 1280px;
+    background-color: $background-color-white;
+    @media screen and (min-width: $breakpoint-tablet) {
+      height: 717px;
+    }
+
+  }
 .program-list-item {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: -32px;
+    display: block;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: $accent-color;
+  }
   @media screen and (min-width: $breakpoint-desktop) {
     width: calc(20% - 24px);
   }
 }
 .program-list-item:not(:last-child) {
   margin-bottom: 40px;
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-bottom: 30px;
+  }
 }
 .semester {
   margin-bottom: 5px;
@@ -67,10 +97,11 @@
 .semester-topic-list {
   list-style: none;
   margin-bottom: 8px;
-   @media screen and (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop - 1px) {
-     width: 150px;
-     margin-right: 50px;
-   }
+  @media screen and (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop - 1px) {
+    width: 150px;
+    margin-bottom: 0px;
+    margin-right: 50px;
+  }
 }
 .semester-topic p {
   margin-bottom: 5px;
@@ -143,14 +174,12 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    margin-botom: -20px;
-    margin-right: -20px;
     padding-top: 30px;
   }
-   @media screen and (min-width: $breakpoint-desktop) {
-     padding-top: 70px;
-     padding-bottom: 70px;
-   }
+  @media screen and (min-width: $breakpoint-desktop) {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
 }
 .why-item {
   width: 75%;
