@@ -1,6 +1,10 @@
 .problems-section {
-  background-color: #111518;
+  background-color: $title-color-light-theme;
 
+  .container {
+    padding-top: 50px;
+    position: relative;
+  }
   &__title {
     font-family: $main-font;
     font-style: normal;
@@ -15,12 +19,61 @@
     }
   }
 }
-.container {
-  padding-top: 50px;
+.problems-section__problem {
+  position: absolute;
+  display: block;
+  margin-top: 25px;
+  max-width: 280px;
+  height: 488px;
+  padding: 20px 14px 20px 30px;
+  background-color: #fff;
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+
+  &-item {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.714;
+    align-items: center;
+    letter-spacing: 0.08em;
+    color: $title-color-light-theme;
+    &::before {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 20px;
+      height: 2px;
+      background-color: $accent-color;
+      border-radius: 2px;
+      left: 0;
+      margin-left: 7px;
+      background-color: $accent-color;
+    }
+  }
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .problems-section {
     height: 545px;
+    // &__problem {
+    //   width: 280px;
+    //   height: 488px;
+    // }
+  }
+}
+
+@media screen and (min-width: 480px) and(max-width: 767px) {
+  .problems-section {
+    .container {
+      // padding-top: 50px;
+      position: relative;
+    }
+    &__title {
+      font-family: $main-font;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+    }
   }
 }
