@@ -28,6 +28,15 @@
   list-style: none;
   display: flex;
   flex-direction: column;
+  @media screen and (min-width: $breakpoint-desktop) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.program-list-item {
+  @media screen and (min-width: $breakpoint-desktop) {
+    width: calc(20% - 24px);
+  }
 }
 .program-list-item:not(:last-child) {
   margin-bottom: 40px;
@@ -40,17 +49,28 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: $text-color-white;
-  @media screen and (min-width: $breakpoint-tablet) {
-    line-height: 1.4;
-  }
   @media screen and (min-width: $breakpoint-desktop) {
-    font-size: 30px;
+    font-size: 20px;
+    &::first-letter {
+      font-size: 30px;
+    }
     margin-bottom: 25px;
+  }
+}
+.semester-program {
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop - 1px) {
+    flex-direction: row;
   }
 }
 .semester-topic-list {
   list-style: none;
   margin-bottom: 8px;
+   @media screen and (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop - 1px) {
+     width: 150px;
+     margin-right: 50px;
+   }
 }
 .semester-topic p {
   margin-bottom: 5px;
