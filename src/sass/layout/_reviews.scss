@@ -1,0 +1,134 @@
+.rev {
+  position: relative;
+  &-title {
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 130%;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: $light-theme-header-color;
+  }
+}
+.slider-item {
+  background: #ffffff;
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+
+  &-img {
+    margin: 0 auto;
+  }
+  &-link {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+  }
+  &-link-svg {
+    width: 30px;
+    height: 30px;
+    fill: $vk-svg-color;
+    .slider-item-link:hover &,
+    .slider-item-link:focus & {
+      fill: $accent-color;
+    }
+  }
+
+  &-name {
+    font-family: $main-font;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 1.214;
+    letter-spacing: 0.08em;
+    color: $accent-color;
+  }
+  &-description {
+    font-family: $main-font;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 0.08em;
+    color: $light-text-color;
+  }
+  &-comment {
+    font-family: $main-font;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.667;
+    color: $dark-text-color;
+  }
+  &-view-more {
+    font-family: $main-font;
+    color: $accent-color;
+  }
+}
+.slider-preview-list {
+  display: flex;
+}
+.slider-list-img {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  .slider-preview-list-item:hover &,
+  .slider-preview-list-item:hover & {
+    border: 1px solid $accent-color;
+  }
+}
+.slider-control {
+  display: inline-block;
+  position: absolute;
+  cursor: pointer;
+  &-svg {
+    width: 25px;
+    height: 14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .rev {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    &-title {
+      margin-bottom: 20px;
+    }
+  }
+  .slider-item {
+    width: 100%;
+    padding: 20px 20px 30px 20px;
+    margin-bottom: 20px;
+    &-img {
+      margin-bottom: 20px;
+    }
+    &-left-side {
+      padding-bottom: 20px;
+    }
+    &-right-side {
+      text-align: center;
+    }
+    &-name {
+      margin-bottom: 10px;
+    }
+    &-description {
+      margin-bottom: 10px;
+    }
+  }
+  .right-control {
+    right: 20px;
+    bottom: 70px;
+  }
+  .left-control {
+    left: 20px;
+    bottom: 70px;
+  }
+  .slider-preview-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 56px;
+    overflow: hidden;
+    &-item:not(:nth-child(3)) {
+      margin-right: 10px;
+    }
+    &-item:nth-child(n + 4) {
+      display: none;
+    }
+  }
+}
