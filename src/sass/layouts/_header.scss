@@ -1,6 +1,16 @@
 .header {
   padding-top: 30px;
   padding-bottom: 30px;
+
+  @media screen and (min-width: 767px) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  @media screen and (min-width: 1320px) {
+    padding-top: 34px;
+    padding-bottom: 34px;
+  }
 }
 
 .navigation {
@@ -10,6 +20,27 @@
 
   &__list {
     display: none;
+
+    @media screen and (min-width: 1320px) {
+      display: flex;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+
+  &__link {
+    @include font($fw: 700, $fs: 14px, $lh: 17px);
+    text-transform: uppercase;
+    color: $primary-text-color;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
   }
 }
 
