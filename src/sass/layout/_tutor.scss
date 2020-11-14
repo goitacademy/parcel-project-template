@@ -10,6 +10,8 @@
 
   &__img {
     margin: 0 auto 20px 0;
+    border: 1px solid #000000;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
 
   &__subtitle {
@@ -22,66 +24,82 @@
     border-bottom: 1px solid $color-text-light-2;
   }
 
-  &__experience-list {
-    list-style: none;
-    margin: 0 auto 20px;
-    padding-left: 27px;
-  }
-
-  &__experience-item {
-    font-family: $font-family;
-    @include font(600, 14px, 17px);
-    letter-spacing: 0.06em;
-    color: $color-text-dark;
-
-    &:not(:last-child) {
-      margin-bottom: 30px;
-    }
-  }
-
-  &__education-list {
-    position: relative;
-    margin: 0 auto 10px;
-    padding-left: 0;
-    padding-top: 25px;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 20px;
-      height: 2px;
-      background-color: $color-accent;
-    }
-  }
-
-  &__education-item {
-    list-style: none;
-    font-family: $font-family;
-    @include font(500, 12px, 20px);
-    color: $color-text-light-2;
-
-    &:not(:last-child) {
-      margin-bottom: 24px;
-    }
-  }
-
   &__link {
     font-family: $font-family;
     @include font(500, 12px, 20px);
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 20px;
     text-decoration-line: underline;
-
     color: $color-accent;
   }
 }
 
+.tutor__experience-list {
+  list-style: none;
+  margin: 0 auto 20px;
+  padding-left: 0;
+}
+
+.tutor__experience-item {
+  display: flex;
+  font-family: $font-family;
+  @include font(600, 14px, 17px);
+  letter-spacing: 0.06em;
+  color: $color-text-dark;
+
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+.tutor__education-list {
+  position: relative;
+  margin: 0 auto 10px;
+  padding-left: 0;
+  padding-top: 25px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background-color: $color-accent;
+  }
+}
+.tutor__experience-text {
+  margin-left: 9px;
+}
+
+.tutor__education-item {
+  list-style: none;
+  font-family: $font-family;
+  @include font(500, 12px, 20px);
+  color: $color-text-light-2;
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+.tutor__svg {
+  width: 17px;
+  height: 14px;
+}
+
 @media screen and (min-width: $bp-mobile) {
-  tutor__img {
+  .tutor__img {
     width: 243px;
     height: 305px;
+  }
+}
+
+@media screen and (min-width: $bp-tablet) {
+  .tutor__wrapper {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .tutor__img {
+    margin-right: 40px;
   }
 }
