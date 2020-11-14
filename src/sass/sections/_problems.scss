@@ -4,40 +4,61 @@
   padding-bottom: 367px;
   height: 545px;
   background-color: $background-color-black;
+
   @media screen and (min-width: $breakpoint-tablet) {
     height: 340px;
     padding-top: 60px;
+    padding-bottom: 176px;
   }
   @media screen and (min-width: $breakpoint-desktop) {
     height: 560px;
     padding-top: 100px;
     padding-bottom: 282px;
+    background-image: url('../images/problems/fire-desktop-min.png');
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: 455px 472px;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      & {
+        background-image: url('../images/problems/fire@2x-desktop-min.png');
+      }
+    }
+  }
+  ul {
+    list-style-type: none;
   }
   .container {
     padding: 0;
   }
-  .why-item {
-    @media screen and (max-width: calc($breakpoint-tablet-1px)) {
-      width: 75%;
-    }
-  }
-  .why-list {
-    @media screen and (min-width: $breakpoint-tablet) {
-      padding-bottom: 26px;
-    }
-    @media screen and (min-width: $breakpoint-desktop) {
-      padding-bottom: 62px;
-    }
-  }
-
-  .subsection {
-    bottom: -150px;
-  }
 }
 
+.problems-subsection {
+  position: absolute;
+  top: 205px;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    top: 196px;
+    width: 688px;
+  }
+  @media screen and (min-width: $breakpoint-desktop) {
+    top: 348px;
+    width: 1314px;
+  }
+}
 .section-problems .section-title {
   color: $text-color-white;
   text-align: left;
+  line-height: 136%;
+  width: 280px;
 
   @media screen and (min-width: $breakpoint-tablet) {
     font-size: 26px;
@@ -46,8 +67,64 @@
   @media screen and (min-width: $breakpoint-desktop) {
     font-size: 46px;
     width: 866px;
+    line-height: 130%;
   }
 }
-.problems-accent {
+
+.problems-accent,
+.problems-number {
   color: $accent-color;
+}
+.problems-list {
+  padding: 20px 14px 20px 30px;
+
+  background: $background-color-white;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -11px;
+    padding: 25px 36px 31px 95px;
+  }
+  @media screen and (min-width: $breakpoint-desktop) {
+    margin: -20px;
+    padding: 70px 112px 62px 114px;
+  }
+}
+.problems-item {
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  @media screen and (min-width: $breakpoint-tablet) {
+    width: 40%;
+    margin: 11px;
+  }
+  @media screen and (min-width: $breakpoint-desktop) {
+    width: 29%;
+    margin: 20px;
+  }
+}
+
+.problems-number {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  margin-bottom: 5px;
+  @media screen and (min-width: $breakpoint-desktop) {
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+}
+.problems-name {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: 0.08em;
+  @media screen and (min-width: $breakpoint-desktop) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 }
