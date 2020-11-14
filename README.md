@@ -20,11 +20,11 @@ footer
 
 ### Точки перелома медиа зопросов
 
-Mobile { min-width: 309px; max-width: 716px; }
+Mobile { min-width: 319px; max-width: 726px; }
 
-Tablet { min-width: 717px; max-width: 1344px; }
+Tablet { min-width: 727px; max-width: 1354px; }
 
-Desktop { min-width: 1345px; }
+Desktop { min-width: 1355px; }
 
 ## Developing
 
