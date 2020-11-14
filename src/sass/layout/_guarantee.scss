@@ -10,25 +10,27 @@
 
     &-item {
         @include font(500, 12px, 20px, 0.03em);
+
+        &-accent {
+            color: $accent-color;
+        }
     }
 
     &-list:not(:last-child) {
         padding-bottom: 23px;
     }
 
-    &-accent {
-        color: $accent-color;
-    }
-}
+    &-item::before {
+        display: inline-block;
+        content: "";
+        width: 22px;
+        height: 30px;
     
-.guarantee-item::before {
-    display: inline-block;
-    content: "";
-    width: 22px;
-    height: 30px;
+        margin-right: 30px;
+        background-image: url(./images/sprite.svg#fire);
 
-    margin-right: 30px;
-    background-image: url(./images/sprite.svg#fire);
+        border: 1px dashed $main-text-color;
+    }
 }
     
 @media screen and (min-width: 768px) {
