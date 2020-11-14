@@ -1,0 +1,101 @@
+.modal-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  background-color: rgba(17, 21, 24, 0.9);
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__list {
+    margin-bottom: 50px;
+  }
+
+  &__link {
+    @include font($fw: 800, $fs: 20px, $lh: 36px);
+    letter-spacing: 0.03em;
+    color: $primary-white-color;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+  }
+}
+
+.modal-btn {
+  display: inline-flex;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+
+  &:hover &__icon,
+  &:focus &__icon {
+    fill: $accent-color;
+  }
+
+  @media screen and (min-width: 1320px) {
+    display: none;
+  }
+}
+
+.menu__button {
+  width: 260px;
+  height: 48px;
+  @include font($fw: 700, $fs: 12px, $lh: 15px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 2px solid $accent-color;
+  color: $accent-color;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $primary-white-color;
+  }
+
+  @media screen and (max-width: 767px) {
+    .header & {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .modal-menu & {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1319px) {
+    margin-left: auto;
+    margin-right: 40px;
+  }
+}
+
+.logo--white {
+  fill: $primary-white-color;
+}
