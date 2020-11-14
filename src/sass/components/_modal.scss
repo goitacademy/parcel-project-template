@@ -1,0 +1,247 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 21, 24, 0.9);
+  transition: all 750ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: scroll;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    padding: 93px 15px;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 750ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.modal-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: perspective(600px) translate(-50%, -50%) rotateX(0deg);
+  transition: all 750ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  padding: 40px;
+  //background-image: url("");
+  background-color: $white-color;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: all 750ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 320px) {
+    max-width: 450px;
+  }
+
+  @media screen and (min-width: 768px) {
+    transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+  }
+
+  @media screen and (min-width: 1316px) {
+    max-width: 600px;
+  }
+
+  .backdrop.is-hidden & {
+    transform: perspective(600px) translate(0px, -100%) rotateX(65deg);
+    transition: all 750ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &-btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: $accent-color;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+// Modal-Form
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+
+  &-title {
+    margin: 0px 0px 40px 0px;
+    @include font(600, 12px, 15px, 0.03em);
+    text-align: center;
+    color: $black-color;
+
+    @media screen and (min-width: 768px) {
+      @include font(600, 14px, 17px, 0.03em);
+    }
+
+    @media screen and (min-width: 1316px) {
+      @include font(600, 30px, 37px, 0.03em);
+    }
+  }
+
+  &-label {
+    margin-bottom: 20px;
+    @include font(600, 12px, 14px, 0.03em);
+    color: $main-text-color;
+
+    @media screen and (min-width: 1316px) {
+      @include font(600, 14px, 16px, 0.03em);
+    }
+  }
+
+  &-inner {
+    display: block;
+    position: relative;
+    margin: 4px 0px 10px 0px;
+  }
+
+  &-input {
+    width: 100%;
+    height: 50px;
+    padding-left: 27px;
+    border: 1px solid $secondary-text-color;
+
+    &:focus {
+      outline: none;
+      border: 1px solid $accent-color;
+      transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  &-time {
+    margin-bottom: 40px;
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      text-align: center;
+    }
+
+    @media screen and (min-width: 1316px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &-desc {
+    @include font(600, 14px, 16px, 0.03em);
+    color: $secondary-text-color;
+
+    @media screen and (min-width: 1316px) {
+      @include font(600, 16px, 18px, 0.03em);
+    }
+  }
+
+  &-imput-time {
+    //margin: 0px 0px 40px 0px;
+    padding: 0px 13px 0px 0px;
+    width: 200px;
+    border: 1px solid $accent-color;
+    color: $accent-color;
+    font-size: 14px;
+    font-family: helvetica;
+    cursor: pointer;
+
+    &::-webkit-datetime-edit-fields-wrapper {
+      display: flex;
+    }
+    &::-webkit-datetime-edit-text {
+      padding: 19px 4px;
+    }
+    &::-webkit-datetime-edit-hour-field,
+    &::-webkit-datetime-edit-minute-field,
+    &::-webkit-datetime-edit-ampm-field,
+    &::-webkit-clear-button,
+    &::-webkit-inner-spin-button {
+      padding: 19px 13px;
+
+      &:hover,
+      &:focus {
+        color: $white-color;
+        background-color: $accent-color;
+      }
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.modal-checkbox {
+  display: flex;
+  align-items: center;
+  margin: 0px auto 40px;
+
+  &-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  &-icon {
+    display: block;
+    padding: 5px;
+    width: 18px;
+    height: 18px;
+    margin-right: 7px;
+    border: 2px solid $main-text-color;
+
+    .modal-checkbox-input:focus + & {
+      outline: 1px solid $accent-color;
+    }
+
+    .modal-checkbox-input:checked + & {
+      background-color: $accent-color;
+      //background-image: url("");
+      background-size: contain;
+      background-position: center;
+      background-origin: border-box;
+      border-color: $accent-color;
+    }
+  }
+}
+
+.modal-btn {
+  width: 250px;
+  padding: 14px;
+  border: 0px;
+  align-self: center;
+  background-color: $accent-color;
+  color: $white-color;
+  font-family: inherit;
+  text-transform: uppercase;
+  @include font(700, 12px, 14px, 0.08em);
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 1316px) {
+    @include font(700, 14px, 17px, 0.14em);
+  }
+}
