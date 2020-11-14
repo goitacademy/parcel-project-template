@@ -18,7 +18,7 @@
 header hero benefits problems about-us syllabus our-team warranty reviews form
 footer
 
-### Точки перелома медиа зопросов
+### Точки перелома медиа запросов
 
 Mobile { min-width: 319px; max-width: 726px; }
 
