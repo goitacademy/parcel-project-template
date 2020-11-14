@@ -1,18 +1,33 @@
+:root {
+  --color1: #ff6b09;
+}
 .our-strategy {
   padding-top: 50px;
   padding-bottom: 50px;
   margin: 0 auto;
 
+  min-width: 320px;
+  width: 100%;
+
   @media screen and (min-width: $bp-mobile) and (max-width: $bp-desktop) {
     text-align: center;
-    max-width: 100%;
   }
-  @media screen and (min-width: $bp-tablet) and (max-width: $bp-desktop) {
-    width: 768px;
+  @media screen and (max-width: $bp-mobile) {
+    width: 100%;
+  }
+  @media screen and (min-width: $bp-mobile) {
+    width: 100%;
+    max-width: 767px;
+  }
+  @media screen and (min-width: $bp-tablet) {
+    max-width: 1313px;
+    width: 100%;
   }
   @media screen and (min-width: $bp-desktop) {
     padding-top: 130px;
     padding-bottom: 130px;
+    width: 100%;
+    min-width: 1680px;
   }
   &__title {
     font-style: normal;
@@ -35,20 +50,41 @@
     text-decoration: none;
     color: $color-text-dark;
 
-    &:hover .our-strategy__item-title:after,
-    &:focus .our-strategy__item-title:after {
-      background-color: $color-text-light;
+    padding: 30px 10px 25px;
+
+    @media screen and (min-width: $bp-tablet) and (max-width: $bp-desktop) {
+      padding: 40px 20px 30px;
     }
-    &:hover .our-strategy__item-svg,
-    &:hover .our-strategy__item-svg {
-      fill: $color-text-light;
+    @media screen and (min-width: $bp-desktop) {
+      padding: 40px 30px 55px;
+    }
+    @include transition(box-shadow);
+
+    @include transition(background-color);
+
+    &:hover,
+    &:focus {
+      box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+      background-color: $color-accent;
+      .our-strategy__item-title,
+      .our-strategy__description {
+        color: $color-text-light;
+      }
+      .our-strategy__item-title:after,
+      .our-strategy__item-title:after {
+        background-color: $color-text-light;
+      }
+      .our-strategy__item-svg,
+      .our-strategy__item-svg {
+        --color1: #fff;
+      }
     }
   }
   &__list {
-    display: block;
     list-style: none;
     padding: 0;
     margin: 0 auto;
+
     @media screen and (min-width: $bp-tablet) {
       display: flex;
       flex-wrap: wrap;
@@ -62,17 +98,18 @@
     cursor: pointer;
     width: 280px;
     height: 280px;
-    padding: 30px 10px 25px;
+
+    @media screen and (max-width: $bp-mobile) {
+      min-width: 100%;
+    }
     @media screen and (min-width: $bp-tablet) and (max-width: $bp-desktop) {
       width: 334px;
       height: 334px;
-      padding: 40px 20px 30px;
       flex-basis: calc((100% - 2 * 20px) / 2);
     }
     @media screen and (min-width: $bp-desktop) {
       flex-basis: calc((100% - 2 * 20px) / 3);
       height: 396px;
-      padding: 40px 30px 55px;
     }
 
     &-svg {
@@ -111,19 +148,6 @@
     }
     box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.1);
 
-    @include transition(box-shadow);
-
-    @include transition(background-color);
-
-    &:hover,
-    &:focus {
-      box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
-      background-color: $color-accent;
-      .our-strategy__item-title,
-      .our-strategy__description {
-        color: $color-text-light;
-      }
-    }
     &-title {
       display: block;
       margin: 0 auto;
@@ -139,57 +163,7 @@
         line-height: 1.4;
       }
 
-      &:first-child::after {
-        background-color: $color-accent;
-        content: '';
-        display: block;
-        margin: 15px auto;
-        width: 20px;
-        height: 2px;
-        font-weight: 400;
-        text-align: center;
-      }
-      &:nth-child(n + 2)::after {
-        background-color: $color-accent;
-        content: '';
-        display: block;
-        margin: 15px auto;
-        width: 20px;
-        height: 2px;
-        font-weight: 400;
-        text-align: center;
-      }
-      &:nth-child(n + 3)::after {
-        background-color: $color-accent;
-        content: '';
-        display: block;
-        margin: 15px auto;
-        width: 20px;
-        height: 2px;
-        font-weight: 400;
-        text-align: center;
-      }
-      &:nth-child(n + 4)::after {
-        background-color: $color-accent;
-        content: '';
-        display: block;
-        margin: 15px auto;
-        width: 20px;
-        height: 2px;
-        font-weight: 400;
-        text-align: center;
-      }
-      &:nth-child(n + 5)::after {
-        background-color: $color-accent;
-        content: '';
-        display: block;
-        margin: 15px auto;
-        width: 20px;
-        height: 2px;
-        font-weight: 400;
-        text-align: center;
-      }
-      &:nth-child(n + 6)::after {
+      &::after {
         background-color: $color-accent;
         content: '';
         display: block;
