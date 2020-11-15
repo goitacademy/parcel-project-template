@@ -8,6 +8,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.css"
     />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap"
@@ -33,7 +35,38 @@
 
     <script src="./js/menu.js"></script>
     <!-- Подключаем jQuery -->
-  
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+   <script>
+    $('.slider').slick({
+  arrows: true,
+  slidesToShow:1,
+  autoplay:true,
+	speed:1500,
+  dots: true,
+  responsive:[
+			{
+				breakpoint: 320,
+				settings: {
+					dotsToShow:3
+				}
+			},
+			{
+				breakpoint: 320,
+				settings: {
+					slidesToShow:1
+				}
+			}
+		],
+  dotsClass: 'slick-dots slider__dots',
+  customPaging: function(slick, index) {
+    var image = $(slick.$slides[index]).find('.comments-img').attr('src');
+    return '<img src="' + image + '" alt="" /> '
+  }
+})
+   </script>
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>

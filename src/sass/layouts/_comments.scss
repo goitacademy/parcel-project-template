@@ -1,7 +1,15 @@
-.slider
+.slick-initialized .slider__item.slick-slide {
+  display: flex;
+  align-items: flex-start;
+}
+.comments .slider
 {
   position: relative;
-  background-color: $accent-color;
+  display: flex;
+  background-color: gray;
+  padding: 40px;
+  align-items: center;
+  justify-content: center;
 }
 .slick-slider {
  min-width: 0;
@@ -14,122 +22,260 @@ overflow: hidden }
 display: flex;
 align-items: flex-start;
 }
-
-// /* Конкретный слайдер */
- .slider {
- position: relative;
- padding: 0px 60px;
+@media (min-width: 320px) {
+  .comments .slider {
+width: 320px;
+ padding-top: 180px;
+ margin-bottom: 20px;
+ }
 }
-
-@media (max-width: 767px) {
-  .slider {
- padding: 0px 40px;
+@media (min-width: 768px) {
+  .comments .slider {
+width: 713px;
+ padding:40px;
+ margin-bottom: 20px;
+ }
+}
+@media (min-width: 1680px) {
+  .comments .slider {
+  width: 1090px;
+ padding: 40px;
+ margin-bottom: 20px;
  }
 }
 
 .slider .slick-arrow {
 position: absolute;
-top: 50%;
-margin: -30px 0px 0px 0px;
- z-index: 10;
+
+
+ z-index: 9999999;
 font-size: 0;
 width: 30px;
-height: 60px;
+height: 30px;
+}
+@media (min-width: 320px) {
+  .slider .slick-arrow {
+    top: 658px;
+ }
+}
+@media (min-width: 768px) {
+  .slider .slick-arrow {
+    top: 50%;
+ }
+}
+
+.slick-prev::before {
+  content: '';
+  display: block;
+  background-image: url("/images/svg/arrow-left.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 658px;
+  left: -40px;
+  width: 30px;
+height: 30px;
+z-index: 9999999;
+
 
 }
-.slider .slick-arrow.slick-prev {
-left: 0;
-background: 0 0 / 100% no-repeat;
+.slick-next::before {
+  content: '';
+  display: block;
+  background-image: url("/images/svg/arrow-right.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 658px;
+  left: -80px;
+  width: 30px;
+height: 30px;
+z-index: 9999999;
+}
+
+ .slick-aktive img  
+{
+  display: flex;
+  font-size: 0;
+ width: 54px;
+  height: 54px;
+  margin-left: 30px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+/*
+.slider .slick-arrow .slick-prev {
 
 }
-.slider .slick-arrow.slick-next {
-right: 0;
-background: 0 0 / 100% no-repeat;
+.slider .slick-arrow .slick-next {
+}*/
 
-}
 .slider .slick-arrow.slick-disabled {
 opacity: 0.2;}
 
 .slider .slick-dots {
+position: absolute;
+bottom: -60px;
 display: flex;
 align-items: center;
-justify-content: center;}
-.slider .slick-dots li {
+justify-content: center;
+width: 54px;
+ height: 54px;
+
+}
+
+.slider .slick-dots li 
+{
 list-style: none;
-margin: 0px 10px;
+margin: 0px 30px;
 }
 .slider .slick-dots button {
+  display: flex;
  font-size: 0;
 width: 54px;
  height: 54px;
-background-color: #fff;
+ margin-left: 30px;
 border-radius: 50%;
 }
-.slider .slick-dots button:nth-child(1) {
-background-image: url('//src/images/img-desktop/comments-ellipse1-desktop.jpg');
-}
-.slider .slick-dots button:nth-child(2) {
-background-image: url('//src/images/img-desktop/comments-ellipse2-desktop.jpg');
-}
-.slider .slick-dots button:nth-child(3) {
-background-image: url('//src/images/img-desktop/comments-ellipse3-desktop.jpg');
-}
-.slider .slick-dots button:nth-child(4) {
- background-image: url('//src/images/img-desktop/comments-ellipse4-desktop.jpg');
-}
-.slider .slick-dots button:nth-child(5) {
-  background-image: url('//src/images/img-desktop/comments-ellipse5-desktop.jpg');
-}
- .slider .slick-dots button:nth-child(6) {
-   background-image: url('//src/images/img-desktop/comments-ellipse6-desktop.jpg');
- }
- .slider .slick-dots button:nth-child(7) {
-   background-image: url('//src/images/img-desktop/comments-ellipse7-desktop.jpg');
- }
+
 
  .slider .slick-dots li.slick-active button {
    background-color: transparent;
-   border: 1px solid #fff;
+   border: 1px solid $accent-color; 
+  
  }
 
- .slider__item {
+ .slider__item 
+ {
    padding: 0px 15px;
  }
- .slider__item img {
-   max-width: 100%;
+ .slider__item img 
+ {
+  display: block;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: transparent;
+ }
+ @media screen and (min-width: 320px) 
+ {
+  .slider__item img {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .slider__item img {
+    justify-content: start;
+    align-items: center;
+  }
+}
+ .comments-title.title 
+ {
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 20px; 
+
  }
 
 .comments-img {
-  position: absolute;
+  display: block;
+  position: relative;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background-color: transparent;
-  top: 20px;
+}
+
+
+@media screen and (min-width: 320px) {
+  .comments-img {
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .comments-img {
+    justify-content: start;
+    
+  }
+}
+@media screen and (min-width: 1680px) {
+  .comments-img {
+    justify-content: start;
+    
+  }
+}
+.comments-icon 
+{
+  position: absolute;
+  fill: #436EAB;
+  
+  top: 170px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.comments-img::before 
-                {
-                    display: block;
-                    content:"";
-                    width: 30px;
-                    height: 17px;
-                    
-                    background-image: url("/src/images/svg/vkontakte.svg");
-                                   
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    margin-bottom: 20px;
-                }
+
 .comments-name {
-  text-align: center;
+  display: inline-block;
+  font-weight: 800;
+font-size: 30px;
+line-height: 1.23;
+letter-spacing: 0.08em;
+color: $accent-color;
+margin-bottom: 20px;
 
 }
+@media screen and (min-width: 320px) {
+  .comments-name {
+  
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 1.21;
+letter-spacing: 0.08em;
+text-align: inherit;
+
+  }
+}
+@media screen and (min-width: 768px) {
+  .comments-name {
+    text-align: start;
+  
+  }
+}
 .comments-education {
-  color: $main-font;
+  
+font-weight: 500;
+font-size: 14px;
+line-height: 1.214;
+letter-spacing: 0.08em;
+
+color: $main-text-color;
+margin-bottom: 10px;
 }
 .comments-text {
   text-align: center;
+  font-weight: 500;
+font-size: 18px;
+line-height: 1.55;
+color: $secondary-text-color;
+}
+@media screen and (min-width: 768px) {
+  .comments-text {
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .comments-text {
+    text-align: start;
+  }
 }
 .comments-text-link {
+  font-weight: 500;
+font-size: 18px;
+line-height: 1.55;
+color: $secondary-text-color;
   color: $accent-color;
 }
