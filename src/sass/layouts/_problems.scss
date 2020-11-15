@@ -9,6 +9,8 @@
     padding-left: 30px;
     padding-right: 14px;
     background-color: $title-dark-theme-color;
+    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+    counter-reset: items;
     :not(:last-child) {
       margin-bottom: 20px;
     }
@@ -16,15 +18,33 @@
   &-item {
     position: relative;
     &::before {
-      content: '';
       display: block;
-      height: 2px;
-      width: 14px;
-      background-color: $accent-color;
+      position: static;
       margin-bottom: 10px;
     }
   }
 }
 .problems-wraper {
   position: relative;
+}
+.pseudo-line::before {
+  content: '';
+  height: 2px;
+  width: 14px;
+  background-color: $accent-color;
+}
+.pseudo-line::after {
+  content: counter(items, decimal-leading-zero);
+  counter-increment: items;
+  position: absolute;
+  bottom: 100%;
+  left: 23px;
+  transform: translateY(50%);
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2142;
+  letter-spacing: 0.08em;
+  color: $accent-color;
 }
