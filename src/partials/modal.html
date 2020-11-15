@@ -2,71 +2,82 @@
 <div class="backdrop is-hidden" data-modal>
   <div class="modal-wrap">
     <div class="modal">
-      <button type="button" class="modal-btn-close" data-modal-close></button>
+      <button type="button" class="modal-btn-close" data-modal-close>
+        <svg class="modal-icon-cross" width="30" height="30">
+          <use href="./images/sprite.svg#cross"></use>
+        </svg>
+      </button>
       <form action="#" class="modal-form">
         <p class="modal-form-title">Хочу чтобы мне перезвонили</p>
-        <label class="modal-form-label">
-          <span class="modal-form-inner">
+               
+            <label class="modal-form-field">
+              <input
+                type="text"
+                name="user-name"
+                class="modal-form-input"
+                placeholder=" "
+                required
+                pattern="[А-Яа-яЁё]{3,10}"
+                title="Имя должно содержать от 3 до 10 букв российского алфавита"
+              />
+              <span class="modal-form-label">Имя</span>
+            </label>
+            
+            <label class="modal-form-field">
+               <input
+                type="tel"
+                name="user-tel"
+                class="modal-form-input"
+               placeholder=" "
+                required
+                pattern="[0-9]{10}" title="Введите номер в формате (800)-000-00-00"
+              />
+              <span class="modal-form-label">Телефон</span>  
+            </label>
+
+               <label class="modal-form-time"
+            ><span class="modal-form-desc">Во сколько вам перезвонить?</span>
+            <span class="modal-form-time-inner">
+              <input
+                type="time"
+                name="user-time"
+                class="modal-form-imput-time"
+                min="08:00" max="20:00"
+                              list="datetime"
+              />
+              <datalist id="datetime">
+                <option value="8:00"></option>
+                <option value="9:00"></option>
+                <option value="10:00"></option>
+                <option value="11:00"></option>
+                <option value="12:00"></option>
+                <option value="13:00"></option>
+                <option value="14:00"></option>
+                <option value="15:00"></option>
+                <option value="16:00"></option>
+                <option value="17:00"></option>
+                <option value="18:00"></option>
+                <option value="19:00"></option>
+                <option value="20:00"></option>
+              </datalist>
+            </span>
+          </label>
+      
+          <label class="modal-checkbox">
             <input
-              type="text"
-              name="user-name"
-              class="modal-form-input"
-              placeholder="Имя*"
-              required
+              type="checkbox"
+              name="user-policy"
+              value="accept-policy"
+              class="modal-checkbox-input"
             />
-          </span>
-        </label>
-        <label class="modal-form-label">
-          <span class="modal-form-inner">
-            <input
-              type="tel"
-              name="user-tel"
-              class="modal-form-input"
-              placeholder="Телефон*"
-              required
-            />
-          </span>
-        </label>
-        <label class="modal-form-time"
-          ><span class="modal-form-desc">Во сколько вам перезвонить?</span>
-          <span class="modal-form-time-inner">
-            <input
-              type="time"
-              name="user-time"
-              class="modal-form-imput-time"
-              list="datetime"
-            />
-            <datalist id="datetime">
-              <option value="8:00"></option>
-              <option value="9:00"></option>
-              <option value="10:00"></option>
-              <option value="11:00"></option>
-              <option value="12:00"></option>
-              <option value="13:00"></option>
-              <option value="14:00"></option>
-              <option value="15:00"></option>
-              <option value="16:00"></option>
-              <option value="17:00"></option>
-              <option value="18:00"></option>
-              <option value="19:00"></option>
-              <option value="20:00"></option>
-            </datalist>
-          </span>
-        </label>
-        <label class="modal-checkbox">
-          <input
-            type="checkbox"
-            name="user-policy"
-            value="accept-policy"
-            class="modal-checkbox-input"
-          />
-          <span class="modal-checkbox-icon"></span>
-          <span class="modal-form-desc"
-            >Соглашаюсь на обработку персональных данных</span
-          >
-        </label>
+            <span class="modal-checkbox-icon"></span>
+            <span class="modal-checkbox-desc"
+              >Соглашаюсь на обработку персональных данных</span
+            >
+          </label>
+    
         <button type="submit" class="modal-btn">Перезвоните мне</button>
-      </form>
+        </form>
     </div>
-  </div>
+  </div>  
 </div>

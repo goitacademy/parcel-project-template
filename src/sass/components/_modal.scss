@@ -9,10 +9,6 @@
   transition: all 750ms cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: scroll;
 
-  @media screen and (min-width: 320px) and (max-width: 767px) {
-    padding: 93px 15px;
-  }
-
   &.is-hidden {
     opacity: 0;
     visibility: hidden;
@@ -25,8 +21,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  margin: 0 auto;
   transform: perspective(600px) translate(-50%, -50%) rotateX(0deg);
   transition: all 750ms cubic-bezier(0.4, 0, 0.2, 1);
+
+ 
 }
 
 .modal {
@@ -34,26 +33,50 @@
   height: auto;
   margin: 0 auto;
   position: relative;
-  padding: 40px;
-  //background-image: url("");
+  padding: 50px 20px;  
+  background-image: url("../images/hero/hero-bg-mob.png");
   background-color: $white-color;
   background-position: center;
-  background-size: cover;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  transition: all 750ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-size: contain;
+  transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+   transition: all 750ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  @media screen and (min-width: 320px) {
-    max-width: 450px;
+  @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+  screen and (min-resolution: 192dpi) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (max-width: 767px) {
+  background-image: url("../images/hero/hero-bg-mob@2x.png"); 
   }
+
 
   @media screen and (min-width: 768px) {
-    transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+  background-size: cover;
+  background-image: url("../images/hero/hero-bg-tabl.png"); 
   }
 
-  @media screen and (min-width: 1316px) {
-    max-width: 600px;
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+  screen and (min-resolution: 192dpi) and (min-width: 768px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px) {
+  background-image: url("../images/hero/hero-bg-tabl@2x.png"); 
   }
+
+
+  @media screen and (min-width: 1316px) {
+  padding: 62px 20px;
+  background-image: url("../images/hero/hero-bg-desc.png"); 
+  }
+
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1316px),
+  screen and (min-resolution: 192dpi) and (min-width: 1316px),
+  screen and (min-resolution: 2dppx) and (min-width: 1316px) {
+  background-image: url("../images/hero/hero-bg-desc@2x.png"); 
+  }
+
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+
 
   .backdrop.is-hidden & {
     transform: perspective(600px) translate(0px, -100%) rotateX(65deg);
@@ -67,11 +90,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
-    background-color: $accent-color;
+    background-color: transparent;
     border: none;
     cursor: pointer;
+    transition: all 750ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &-icon-cross:hover,
+  &-icon-cross:focus {
+    fill: $accent-color;
   }
 }
 
@@ -82,98 +109,158 @@
   flex-direction: column;
 
   &-title {
-    margin: 0px 0px 40px 0px;
-    @include font(600, 12px, 15px, 0.03em);
+    margin: 0px 0px 30px 0px;
+    @include font(800, 14px, 17px, 0.03em);
     text-align: center;
     color: $black-color;
 
     @media screen and (min-width: 768px) {
-      @include font(600, 14px, 17px, 0.03em);
+      margin: 0px 0px 40px 0px;
+      @include font(800, 18px, 20px, 0.03em);
     }
 
     @media screen and (min-width: 1316px) {
-      @include font(600, 30px, 37px, 0.03em);
+      margin: 0px 0px 56px 0px;
+      @include font(800, 30px, 37px, 0.03em);
     }
   }
 
-  &-label {
-    margin-bottom: 20px;
-    @include font(600, 12px, 14px, 0.03em);
-    color: $main-text-color;
-
-    @media screen and (min-width: 1316px) {
-      @include font(600, 14px, 16px, 0.03em);
-    }
-  }
-
-  &-inner {
-    display: block;
+  &-field {
     position: relative;
-    margin: 4px 0px 10px 0px;
+    margin-bottom: 30px; 
+
+    @media screen and (min-width: 1316px) {
+      margin-bottom: 40px;
+    }
   }
 
   &-input {
     width: 100%;
-    height: 50px;
-    padding-left: 27px;
+    height: 48px;
     border: 1px solid $secondary-text-color;
+    padding-left: 28px;
+       
+    @media screen and (min-width: 1316px) {
+     height: 70px;
+     padding-left: 40px;
+     }    
 
+    &:invalid:not(:focus):placeholder-shown,
+    &:valid{
+      color: $secondary-text-color;
+      border-color: $secondary-text-color;
+    }
+
+    &:invalid {
+      color: #ff0000;    
+      border-color:  #ff0000;
+    }
+    &:hover,
     &:focus {
       outline: none;
-      border: 1px solid $accent-color;
-      transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+ 
+
+  &-label {
+    position: absolute;
+    top: 50%;
+    left: 28px;   
+    transform: translateY(-50%);   
+    @include font(600, 12px, 14px, 0.03em);
+    color: $main-text-color;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    @media screen and (min-width: 1316px) {
+     left: 40px;
+     @include font(600, 14px, 16px, 0.03em);
+    }
+       
+    .modal-form-field:focus-within > &,
+    .modal-form-input:not(:placeholder-shown) + & {
+     transform: translateY(-45px);
+     color: $secondary-text-color;
+
+     @media screen and (min-width: 1316px) {
+      transform: translateY(-60px);
+     }
     }
   }
 
+
   &-time {
-    margin-bottom: 40px;
+    display:flex;
+    align-items: center;
+    margin-bottom: 30px;
+
     @media screen and (min-width: 320px) and (max-width: 767px) {
-      text-align: center;
+    flex-direction: column;
     }
 
     @media screen and (min-width: 1316px) {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    justify-content: space-between;
+    margin-bottom: 40px;
     }
   }
 
   &-desc {
-    @include font(600, 14px, 16px, 0.03em);
+    margin-bottom: 10px;
+    @include font(600, 12px, 14px, 0.03em);
     color: $secondary-text-color;
+
+    @media screen and (min-width:768px){
+      margin: 0px 11px 0px 0px;
+    }
 
     @media screen and (min-width: 1316px) {
       @include font(600, 16px, 18px, 0.03em);
     }
   }
 
+  
   &-imput-time {
-    //margin: 0px 0px 40px 0px;
-    padding: 0px 13px 0px 0px;
-    width: 200px;
+    position: relative;
+    padding: 0px 15px 0px 0px;
+    width: 130px;
     border: 1px solid $accent-color;
     color: $accent-color;
-    font-size: 14px;
-    font-family: helvetica;
+    @include font(600, 14px, 16px, 0.10em);
     cursor: pointer;
 
+    @media screen and (min-width: 1316px) {      
+      width: 200px;  
+      padding: 0px 15px 0px 15px;
+      @include font(600, 20px, 22px, 0.12em);
+      }
+
+      
     &::-webkit-datetime-edit-fields-wrapper {
       display: flex;
     }
     &::-webkit-datetime-edit-text {
-      padding: 19px 4px;
+      padding: 15px 3px;
+
+      @media screen and (min-width: 1316px) {
+        padding: 20px 10px;
+      }
     }
     &::-webkit-datetime-edit-hour-field,
     &::-webkit-datetime-edit-minute-field,
     &::-webkit-datetime-edit-ampm-field,
     &::-webkit-clear-button,
     &::-webkit-inner-spin-button {
-      padding: 19px 13px;
+      padding: 15px 10px;
 
+     @media screen and (min-width: 1316px) {
+       padding: 20px 15px;
+     }
+      
       &:hover,
-      &:focus {
+      &:focus {       
         color: $white-color;
         background-color: $accent-color;
+        outline: none;
+        border: none;
       }
     }
 
@@ -192,38 +279,59 @@
 .modal-checkbox {
   display: flex;
   align-items: center;
-  margin: 0px auto 40px;
+  justify-content: center;
+  margin-bottom: 30px;
 
-  &-input {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+  @media screen and (min-width: 768px){
+   margin-bottom: 40px;
   }
+
+ &-input {
+    position: absolute;
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   border: 0;
+   padding: 0;
+   clip: rect(0 0 0 0);
+   overflow: hidden;
+  }
+
+ &-desc {  
+   @include font(600, 10px, 12px, 0.03em);
+   color: $secondary-text-color;
+
+   @media screen and (min-width: 1316px) {
+   @include font(600, 16px, 18px, 0.03em);
+   }
+ }
 
   &-icon {
     display: block;
+    margin: 0px 10px 0px 37px;
     padding: 5px;
-    width: 18px;
-    height: 18px;
-    margin-right: 7px;
-    border: 2px solid $main-text-color;
+    width: 15px;
+    height: 15px;  
+    border: 1px solid $main-text-color;
 
-    .modal-checkbox-input:focus + & {
-      outline: 1px solid $accent-color;
+    @media screen and (min-width: 768px){
+      margin: 0px 10px 0px 0px;
     }
 
+    @media screen and (min-width: 1316px){
+      width: 20px;
+      height: 20px;
+    }
+    
     .modal-checkbox-input:checked + & {
+      margin-right: 10px;
+      //background-image: url("/images/Vector.svg");
       background-color: $accent-color;
-      //background-image: url("");
       background-size: contain;
       background-position: center;
+      background-repeat: no-repeat;
       background-origin: border-box;
-      border-color: $accent-color;
+      border: none;
     }
   }
 }
@@ -239,9 +347,19 @@
   text-transform: uppercase;
   @include font(700, 12px, 14px, 0.08em);
   cursor: pointer;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 750ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 1316px) {
+    padding: 25px;
     @include font(700, 14px, 17px, 0.14em);
   }
+
+  &:hover,
+  &:focus{
+    -webkit-box-shadow: 0px 0px 18px 6px rgba(124, 49, 0, 0.2);
+    -moz-box-shadow: 0px 0px 18px 6px rgba(124, 49, 0, 0.2);
+    box-shadow: 0px 0px 18px 6px rgba(124, 49, 0, 0.2);
+  }
 }
+
+
