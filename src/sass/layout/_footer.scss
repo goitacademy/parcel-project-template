@@ -20,11 +20,39 @@
             color: $main-text-color;
         }
     }
+    &-phone {
+        display: flex;
+        align-items: center;
+        transition: color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    &-phone:hover,
+    &-phone:focus {
+        color: $accent-color;
+    }
+    &-phone::before {
+        content: "";
+        display: block;
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+        background-image: url(../images/header_footer/phone-icon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @media screen and (min-width: 768px) {
+            width: 25px;
+            height: 25px;
+        }
+        @media screen and (min-width: 1316px) {
+            width: 30px;
+            height: 30px;
+        }
+    }
 }
 .insta-link {
     width: 40px;
     height: 40px;
-    background-image: url(../images/instagram-icon.svg);
+    background-image: url(../images/header_footer/instagram-icon.svg);
 }
 @media screen and (max-width: 767px) {
     .footer {
@@ -35,6 +63,7 @@
             flex-direction: column;
         }
         &-contact-link:not(:last-child) {
+            padding-right: 38px;
             margin-top: 20px;
             margin-bottom: 30px;
         }
