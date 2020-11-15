@@ -1,0 +1,125 @@
+.header {
+  position: absolute;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  @media screen and (min-width: 767px) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  @media screen and (min-width: 1320px) {
+    padding-top: 34px;
+    padding-bottom: 34px;
+  }
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__list {
+    display: none;
+
+    @media screen and (min-width: 1320px) {
+      display: flex;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+
+  &__link {
+    padding-top: 55px;
+    padding-bottom: 55px;
+    @include font($fw: 700, $fs: 14px, $lh: 17px);
+    text-transform: uppercase;
+    color: $primary-text-color;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+  }
+}
+
+.logo {
+  &__svg {
+    width: 80px;
+    height: 28px;
+    fill: black;
+  }
+  &--white {
+    fill: $primary-white-color;
+  }
+  &__icon {
+    fill: black;
+    @media screen and (min-width: 768px) {
+      fill: $accent-color;
+    }
+  }
+}
+
+.menu__button {
+  width: 260px;
+  height: 48px;
+  @include font($fw: 700, $fs: 12px, $lh: 15px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 2px solid $accent-color;
+  color: $accent-color;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $primary-white-color;
+  }
+
+  @media screen and (max-width: 767px) {
+    .header & {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .modal-menu & {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1319px) {
+    margin-left: auto;
+    margin-right: 40px;
+  }
+
+  @media screen and (min-width: 1320px) {
+    width: 336px;
+    height: 70px;
+    @include font($fw: 700, $fs: 14px, $lh: 17px);
+    letter-spacing: 0.14em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .logo__other {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .logo__mobile {
+    display: none;
+  }
+
+  .logo__svg {
+    width: 128px;
+    height: 45px;
+  }
+}
