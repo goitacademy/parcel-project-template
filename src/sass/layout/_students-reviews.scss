@@ -1,0 +1,148 @@
+.students-review{
+    padding: 50px 20px;
+    text-align: center;
+    min-width: 320px;
+    width: 100%;
+
+    &__section-title{
+        @include font (800, 20px, 26px);
+        letter-spacing: 0.03em;
+        color: $background-dark;
+        margin-bottom: 20px;
+    }
+    &__container{
+        padding: 20px 20px 30px 20px;
+        margin-bottom: 20px;
+        box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+    }
+    &__profile-photo{
+        @extend %block-m;
+        margin-bottom: 20px;
+    }
+    &__social{
+        margin-bottom: 20px;
+    }
+    &__name{
+        @include font (800, 14px, 17px);
+        letter-spacing: 0.08em;
+        color: $color-accent;
+        margin-bottom: 10px;
+    }
+    &__education{
+        @include font (500, 12px, 15px);
+        letter-spacing: 0.08em;
+        color: $color-text-light-2;
+        margin: 0 0 10px 0;
+    }
+    &__review{
+        @include font (500, 12px, 20px);
+        color: $color-text-dark-2;
+    }
+    &__review--extend{
+        color: $color-accent;
+    }
+}
+
+.students-review__thumbnail{
+    &--container {
+        @extend %flex-j;
+        overflow: hidden;
+    }
+    &--img:hover,
+    &--img:focus,
+    &--img:active{
+        border: 1px solid $color-accent;
+        border-radius: 50%;
+    }
+}
+
+@media screen and (max-width: $bp-tablet){
+    .students-review__thumbnail{
+        &--img:not(:first-child){
+            margin-left: 10px;
+        }
+            &--img:not(:last-child){
+            margin-right: 10px;
+        }
+    }
+}
+
+@media screen and (min-width: $bp-tablet){
+    .students-review{
+        &__section-title{
+            @include font (800, 26px, 34px);
+            margin-bottom: 30px;
+        }
+        &__container{
+            display: flex;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        &__img-wrapper{
+            // width: 150px;
+            margin-right: 46px;
+        }
+        // &__profile-photo{
+        //     width: 150px;
+        //     height: 150px;
+        // }
+
+        &__description-container{
+            text-align: start;
+            width:100%;
+        }
+
+        &__name{
+            @include font (800, 20px, 24px);
+            margin-bottom: 20px;
+        }
+        &__education{
+            margin-bottom: 20px;
+        }
+    }
+
+    .students-review__thumbnail{
+        &--container{
+            max-width: 558px;
+            margin: 0 auto;
+        }  
+        
+        &--img:not(:last-child){
+            margin-right: 30px;
+            }
+    }    
+}
+
+@media screen and (min-width: $bp-desktop){
+    .students-review{
+        padding: 130px 162px;
+        min-width: 1680px;
+        width: 100%;
+
+        &__section-title{
+            @include font (800, 46px, 60px);
+            margin-bottom: 50px;
+        }
+        &__container{
+            display: flex;
+            padding: 50px 112px 50px 82px;
+            margin-bottom: 40px;
+        }
+    
+        &__description-container{
+            max-width:706px;
+        }
+
+        &__name{
+            @include font (800, 30px, 37px);
+            margin-bottom: 10px;
+        }
+        &__education{
+            @include font (500, 14px, 17px);
+        }
+        &__review{
+            @include font (500, 18px, 28px);
+        }
+    }
+}
+
