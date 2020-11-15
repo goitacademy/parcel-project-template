@@ -46,7 +46,10 @@
     padding: 30px 6px 57px;
     width: 280px;
     background-color: #ffffff;
+    top: 0px;
     box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.1);
+    transform: scale(1);
+    transition: all 250ms linear;
 
     @media screen and (min-width: $breakpoint-tablet) {
       width: 334px;
@@ -58,8 +61,13 @@
       padding: 30px 27px 50px;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $accent-color;
+      top: 2px;
+      box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.1);
+      transform: scale(1.03);
+      transition: all 250ms linear;
     }
 
     &:not(:last-child) {
@@ -108,8 +116,10 @@
       margin-bottom: 0;
     }
 
-    .how-list-item:hover & {
+    .how-list-item:hover &,
+    .how-list-item:focus & {
       color: $text-color-white;
+      transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 
@@ -127,8 +137,10 @@
       line-height: 1.56;
     }
 
-    .how-list-item:hover & {
+    .how-list-item:hover &,
+    .how-list-item:focus & {
       color: $text-color-white;
+      transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 }
@@ -150,8 +162,10 @@
     margin-bottom: 0;
   }
 
-  .how-list-item:hover & {
+  .how-list-item:hover &,
+  .how-list-item:focus & {
     color: $text-color-white;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -166,8 +180,10 @@
   margin-bottom: 20px;
   fill: $accent-color;
 
-  .how-list-item:hover & {
+  .how-list-item:hover &,
+  .how-list-item:focus & {
     fill: $text-color-white;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   @media screen and (min-width: $breakpoint-tablet) {
