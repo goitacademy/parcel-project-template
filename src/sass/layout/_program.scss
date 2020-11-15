@@ -1,8 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-
 .program {
   counter-reset: section;
   h3::before {
@@ -11,13 +6,9 @@
     content: counter(section) ' ';
   }
 
-  // &-all {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-
-  //   align-items: center;
-  // }
+  &-all {
+    padding: 0 70px;
+  }
 
   padding: 50px 0;
   background-color: $background-program;
@@ -41,13 +32,17 @@
     color: $white-color;
     text-align: center;
     padding-left: 26px;
+
+    // transition-property: display;
+    // transition-duration: 250ms;
+    // transition-timing-function: linear;
   }
 
   &-list-item {
     position: relative;
   }
 
-  &-list-item::before {
+  &-list-item::after {
     position: absolute;
 
     display: block;
@@ -72,7 +67,7 @@
     margin-left: 15px;
   }
 
-  &-language-section::before {
+  &-language-section::after {
     position: absolute;
     left: -15px;
     top: 0;
@@ -98,25 +93,17 @@
     padding-bottom: 40px;
   }
 
-  &-item:not(:last-child) {
-    padding-bottom: 8px;
-  }
-
   &-list {
     padding-left: 26px;
   }
-
-  // &-list-item:not(:last-child) {
-  //   border-left: 2px solid $white-color;
-  // }
 
   &-list-item {
     position: relative;
   }
 
-  &-list-item:not(:last-child)::after {
+  &-list-item:not(:last-child)::before {
     position: absolute;
-    top: 0;
+    top: 9px;
     left: 0;
     display: block;
     content: '';
@@ -125,7 +112,142 @@
     background-color: $white-color;
   }
 
-  // &-list:not(:last-child) {
-  //   border-left: 2px solid $white-color;
-  // }
+  &-hidden {
+    color: $background-program;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 60px 0;
+
+    &-all {
+      padding: 0 90px;
+    }
+
+    &-title {
+      margin-bottom: 52px;
+      text-align: left;
+      @include font(800, 26px, 34px, 0.03em);
+    }
+
+    &-semester {
+      padding-left: 56px;
+    }
+
+    &-list {
+      padding-left: 0;
+    }
+
+    &-list:first-child {
+      padding-left: 56px;
+    }
+
+    &-secondary-list {
+      display: flex;
+    }
+
+    &-list {
+      min-width: 200px;
+      padding-left: 50px;
+    }
+
+    &-list-item:not(:last-child) {
+      padding-bottom: 30px;
+    }
+
+    &-list:not(:last-child) {
+      padding-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: 1316px) {
+    padding: 120px 0;
+
+    & {
+      position: relative;
+    }
+
+    &::before {
+      position: absolute;
+      display: block;
+      top: 295px;
+      left: 0;
+      content: '';
+      width: 100vw;
+      height: 1px;
+      background-color: $white-color;
+    }
+
+    &-all {
+      display: flex;
+      padding: 0;
+    }
+
+    &-title {
+      margin-bottom: 160px;
+      text-align: left;
+      @include font(800, 46px, 60px, 0.03em);
+    }
+
+    &-semester {
+      @include font(700, 30px, 28px, 0.08em);
+      padding-bottom: 25px;
+      padding-left: 0;
+    }
+
+    &-language-courses {
+      @include font(500, 18px, 28px, 0.08em);
+      display: block;
+    }
+
+    &-language-section {
+      @include font(700, 20px, 33px, 0.08em);
+      padding-bottom: 10px;
+      margin-left: 20px;
+    }
+
+    &-language-section::after {
+      left: -18px;
+      top: 0px;
+      width: 17px;
+      height: 3px;
+    }
+
+    &-secondary-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-list:first-child {
+      padding-left: 0;
+    }
+
+    &-list:not(:last-child) {
+      padding-bottom: 25px;
+      padding-right: 30px;
+    }
+
+    &-list-item:not(:last-child) {
+      padding-bottom: 0;
+    }
+
+    &-list {
+      min-width: 250px;
+      padding-left: 0;
+    }
+
+    &-list-item::after {
+      width: 17px;
+      height: 17px;
+
+      transform: translate(-20%, -52px);
+    }
+
+    & {
+      position: relative;
+    }
+
+    &-list-item:not(:last-child)::before {
+      display: none;
+    }
+  }
 }
