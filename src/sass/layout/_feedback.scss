@@ -84,7 +84,14 @@
       background-image: url('../images/header_footer/instagram-icon.svg');
       background-position: 0 0;
       background-size: contain;
+      transition: transform 500ms linear;
+
+      &:hover,
+      &:focus {
+        transform: scale(1.2);
+      }
     }
+
     //Имя випускника
     &-name {
       color: $accent-color;
@@ -137,9 +144,9 @@
         max-width: 706px;
       }
       //Ссилка Читать Далее
-      &-link {
-        color: $accent-color;
-      }
+      // &-link {
+      //   color: $accent-color;
+      // }
     }
   }
   &-small-icon {
@@ -147,6 +154,35 @@
     height: 54px;
     border: 1px solid transparent;
     border-radius: 50%;
+  }
+}
+
+//-----------Читать дальше/меньше
+
+.hidden-text {
+  display: none;
+  &.feedback-open {
+    display: inline;
+  }
+  &.feedback-open + .visible-text {
+    display: none;
+  }
+}
+
+.switch {
+  border: none;
+  background-color: transparent;
+  color: $accent-color;
+  border-bottom: 1px solid $accent-color;
+  cursor: pointer;
+  &-hidden-text {
+    display: none;
+  }
+  &.feedback-open &-visible-text {
+    display: none;
+  }
+  &.feedback-open &-hidden-text {
+    display: block;
   }
 }
 
@@ -186,8 +222,10 @@
   align-items: center;
 
   //Слайд по центру
-  &.slick-center .feedback-small-icon {
-    border: 1px solid $accent-color;
+  &.slick-center {
+    & .feedback-small-icon {
+      border: 1px solid $accent-color;
+    }
   }
 }
 
@@ -196,31 +234,37 @@
   z-index: 999999;
   position: absolute;
   font-size: 0;
-  width: 28px;
-  height: 16px;
+  width: 32px; //+4
+  height: 20px; //+4
   border: none;
   background-color: transparent;
   background-size: cover;
   cursor: pointer;
-  transition: transform 500ms ease;
+  transition: transform 500ms linear;
   &:hover,
   &:focus {
     transform: scale(1.2);
   }
   @media screen and(max-width:767px) {
     bottom: 18px;
+    width: 28px; //original size
+    height: 16px; //original size
   }
   @media screen and(min-width:768px) {
     top: 50%;
   }
   // Стрелка влево
   &.slick-prev {
-    left: 0;
+    left: 10px;
+
+    background-position: left center;
     background-image: url('../images/feedback/icon-previous-arrow.svg');
   }
   // Стрелка вправо
   &.slick-next {
-    right: 0;
+    right: 10px;
+
+    background-position: right center;
     background-image: url('../images/feedback/icon-next-arrow.svg');
   }
 }
@@ -248,41 +292,40 @@
     border: none;
     background-color: transparent;
   }
-}
-
-.slick-dots li button::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-position: 0 0;
-  transition: all 500ms linear;
-  cursor: pointer;
-}
-
-.slick-dots li:nth-child(1) button::after {
-  background-image: url('../images/feedback/big-slide-1.jpg');
-}
-.slick-dots li:nth-child(2) button::after {
-  background-image: url('../images/feedback/big-slide-2.jpg');
-}
-.slick-dots li:nth-child(3) button::after {
-  background-image: url('../images/feedback/big-slide-3.jpg');
-}
-.slick-dots li:nth-child(4) button::after {
-  background-image: url('../images/feedback/big-slide-4.jpg');
-}
-.slick-dots li:nth-child(5) button::after {
-  background-image: url('../images/feedback/big-slide-5.jpg');
-}
-.slick-dots li:nth-child(6) button::after {
-  background-image: url('../images/feedback/big-slide-6.jpg');
-}
-.slick-dots li:nth-child(7) button::after {
-  background-image: url('../images/feedback/big-slide-7.jpg');
+  // содержимое точки
+  & li button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-position: 0 0;
+    transition: all 500ms linear;
+    cursor: pointer;
+  }
+  & li:nth-child(1) button::after {
+    background-image: url('../images/feedback/big-slide-1.jpg');
+  }
+  & li:nth-child(2) button::after {
+    background-image: url('../images/feedback/big-slide-2.jpg');
+  }
+  & li:nth-child(3) button::after {
+    background-image: url('../images/feedback/big-slide-3.jpg');
+  }
+  & li:nth-child(4) button::after {
+    background-image: url('../images/feedback/big-slide-4.jpg');
+  }
+  & li:nth-child(5) button::after {
+    background-image: url('../images/feedback/big-slide-5.jpg');
+  }
+  & li:nth-child(6) button::after {
+    background-image: url('../images/feedback/big-slide-6.jpg');
+  }
+  & li:nth-child(7) button::after {
+    background-image: url('../images/feedback/big-slide-7.jpg');
+  }
 }
 
 //-------BIG Slider

@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
   $('.slider').slick({
     dots: true,
@@ -44,3 +43,108 @@ $(document).ready(function(){
   });
 });
 
+// slide-1---------------------------------------------------------------
+; (() => {
+          const menuBtnRef = document.querySelector("[feedback-switch-button-1]")
+          const mobileMenuRef = document.querySelector("[feedback-text-1]")
+
+          menuBtnRef.addEventListener("click", () => {
+            const expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false
+
+            menuBtnRef.classList.toggle("feedback-open")
+            menuBtnRef.setAttribute("aria-expanded", !expanded)
+
+            mobileMenuRef.classList.toggle("feedback-open")
+          })
+})()
+//  -------------------------------
+// slide-2---------------------------------------------------------------
+; (() => {
+          const menuBtnRef = document.querySelector("[feedback-switch-button-2]")
+          const mobileMenuRef = document.querySelector("[feedback-text-2]")
+
+          menuBtnRef.addEventListener("click", () => {
+            const expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false
+
+            menuBtnRef.classList.toggle("feedback-open")
+            menuBtnRef.setAttribute("aria-expanded", !expanded)
+
+            mobileMenuRef.classList.toggle("feedback-open")
+          })
+})()
+//  -------------------------------
+// slide-3---------------------------------------------------------------
+; (() => {
+          const menuBtnRef = document.querySelector("[feedback-switch-button-3]")
+          const mobileMenuRef = document.querySelector("[feedback-text-3]")
+
+          menuBtnRef.addEventListener("click", () => {
+            const expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false
+
+            menuBtnRef.classList.toggle("feedback-open")
+            menuBtnRef.setAttribute("aria-expanded", !expanded)
+
+            mobileMenuRef.classList.toggle("feedback-open")
+          })
+})()
+//  -------------------------------
+// slide-4---------------------------------------------------------------
+; (() => {
+          const menuBtnRef = document.querySelector("[feedback-switch-button-4]")
+          const mobileMenuRef = document.querySelector("[feedback-text-4]")
+
+          menuBtnRef.addEventListener("click", () => {
+            const expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false
+
+            menuBtnRef.classList.toggle("feedback-open")
+            menuBtnRef.setAttribute("aria-expanded", !expanded)
+
+            mobileMenuRef.classList.toggle("feedback-open")
+          })
+})()
+//  -------------------------------
+// slide-5---------------------------------------------------------------
+; (() => {
+          const menuBtnRef = document.querySelector("[feedback-switch-button-5]")
+          const mobileMenuRef = document.querySelector("[feedback-text-5]")
+
+          menuBtnRef.addEventListener("click", () => {
+            const expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false
+
+            menuBtnRef.classList.toggle("feedback-open")
+            menuBtnRef.setAttribute("aria-expanded", !expanded)
+
+            mobileMenuRef.classList.toggle("feedback-open")
+          })
+})()
+//  -------------------------------
+// slide-6---------------------------------------------------------------
+; (() => {
+          const menuBtnRef = document.querySelector("[feedback-switch-button-6]")
+          const mobileMenuRef = document.querySelector("[feedback-text-6]")
+
+          menuBtnRef.addEventListener("click", () => {
+            const expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false
+
+            menuBtnRef.classList.toggle("feedback-open")
+            menuBtnRef.setAttribute("aria-expanded", !expanded)
+
+            mobileMenuRef.classList.toggle("feedback-open")
+          })
+})()
+//  -------------------------------
+// slide-7---------------------------------------------------------------
+; (() => {
+          const menuBtnRef = document.querySelector("[feedback-switch-button-7]")
+          const mobileMenuRef = document.querySelector("[feedback-text-7]")
+
+          menuBtnRef.addEventListener("click", () => {
+            const expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false
+
+            menuBtnRef.classList.toggle("feedback-open")
+            menuBtnRef.setAttribute("aria-expanded", !expanded)
+
+            mobileMenuRef.classList.toggle("feedback-open")
+          })
+})()
+//  -------------------------------
