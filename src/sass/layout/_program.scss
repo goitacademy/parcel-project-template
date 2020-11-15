@@ -1,20 +1,23 @@
 .program .container {
     width: 310px;
-    padding-bottom: 65px;
     margin: 0 auto;
-    background-image: url(../images/program-bg-mobile.png);
-    background-repeat: no-repeat;
-    background-position: right bottom;
-
+    padding-bottom: 532px;
 }
-
 
 .program {
     position: relative;
     padding-top: 50px;
-    padding-bottom: 439px;
     background-color: $dark-theme-background-color;
 
+
+    &__wrapper {
+        margin: 0 auto;
+        width: 320px;
+        background-image: url(../images/program/program-bg-mobile.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-position-y: 1432px;
+    }
 
 
     &__title {
@@ -28,14 +31,11 @@
 
     &__list {
         position: relative;
-        padding-left: 105px;
     }
 
-    &__list-item {
-        margin-bottom: 40px;
-    }
 
     &__list-subtitle {
+        position: relative;
         font-weight: 700;
         font-size: 14px;
         line-height: 2;
@@ -68,34 +68,19 @@
         letter-spacing: 0.08em;
         color: $main-text-color;
         opacity: 0.5;
-        max-width: 176px;
     }
 
 }
 
-.program__list::before {
-        position: absolute;
-        content: "";
-        display: block;
-        top: 19px;
-        left: 74px;
-        width: 2px;
-        height: 1282px;
-        background-color: $dark-theme-text-color;
-}
 
 .program__list-subtitle::before {
     position: absolute;
-    display: flex;
+    display: block;
     content: "";
     background-image: url(../images/ellipse.svg);
     background-repeat: no-repeat;
-    background-size: 12px 12px;
-    left: 69px;
-    height: 27px;
-    background-position-y: center;
-    width:12px;
-
+    width: 12px;
+    height: 12px;
 }
 
 @media screen and (max-width: 319px) {
@@ -104,19 +89,71 @@
     }
 }
 
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+  screen and (min-resolution: 192dpi) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (max-width: 767px) {
+  .program__wrapper {
+    background-image: url(../images/program/program-bg-mobile@2x.png);
+  }
+}
+
 @media screen and (max-width: 767px) {
     .program__title {
         text-align: center;
     }
 
+    .program__list-item:not(:last-child) {
+        margin-bottom: 40px;
+    }
+
     .program__sublist-item:not(:last-child) {
         margin-bottom: 8px;
+    }
+
+    .program__list-subtitle::before {
+        top:7px;
+        left: -36px;    
+    }
+
+    .program__list {
+        padding-left: 105px;
+    }
+
+    .program__sublist-content {
+        max-width: 176px;
+    }
+}
+
+
+@media screen and (max-width: 1313px) {
+    .program__list::before {
+        position: absolute;
+        content: "";
+        display: block;
+        top: 19px;
+        left: 74px;
+        width: 2px;
+        height: 1282px;
+        background-color: $dark-theme-text-color;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1313px){
     .program {
         padding-top: 60px;
+    }
+
+    .program .container {
+        padding-bottom: 392px;
+    }
+    
+    .program__wrapper {
+        width: 768px;
+        background-image: url(../images/program/program-bg-tablet.png);
+        background-repeat: no-repeat;
+        background-size: 384px 280px ;
+        background-position: right;
+        background-position-y: 762px;
     }
 
     .program__title {
@@ -127,11 +164,15 @@
 
     .program__list {
         padding-left: 119px;
-   }
+    }
+
+    .program__list-item:not(:last-child) {
+        margin-bottom: 30px;
+    }
    
-   .program__sublist {
+    .program__sublist {
        display: flex;
-   }
+    }
 
    .program__sublist-grammar {
        width: 176px;
@@ -142,52 +183,68 @@
        width: 155px;
        margin-right: 50px;
    }
+
+   .program__list-subtitle::before {
+        top:8px;
+        left: -61px;
+    }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 1343px),
+  screen and (min-resolution: 192dpi) and (max-width: 1343px),
+  screen and (min-resolution: 2dppx) and (max-width: 1343px) {
+  .program__wrapper {
+    background-image: url(../images/program/program-bg-tablet@2x.png);
+  }
 }
 
 @media screen and (min-width: 768px) {
 
-
     .program .container {
       width: 718px;
+      margin: 0 auto;
     }
-
-
- 
 
     .program__list::before {
         left: 63px;
-    }
-
-    .program__list-subtitle::before {
-        left: 58px;
     }
 
     .program__list::before {
         height: 705px;
     }
 
-    .program__list-item {
-        margin-bottom: 30px;
-    }
 
     .program__sublist-subtitle--3sem {
         margin-bottom: 10px;
     }
 }
 
-@media screen and (min-width: 1334px) {
+@media screen and (min-width: 1314px) {
     .program .container {
       width: 1334px;
+      margin: 0 auto;
+      padding-bottom: 367px;
     }
 
+
     .program {
-        padding-top: 120px;
+        padding-top: 116px;
+    }
+
+    .program__wrapper {
+        width: 1680px;
+        margin: 0 auto;
+        background-image: url(../images/program/program-bg-desktop.png);
+        background-repeat: no-repeat;
+        background-position: left;
+        background-position-y: 556px;
+        background-size: 672px 502px;
     }
 
     .program__title {
         font-size: 46px;
         line-height: 1.304;
-        margin-bottom: 100px;
+        margin-bottom: 160px;
     }
 
     .program__list {
@@ -203,18 +260,49 @@
     }
 
     .program__list-subtitle {
+        font-size: 30px;
+        line-height: 0.933;
         margin-bottom: 25px;
+    }
+
+    .program__sublist {
+        width: 100%;
     }
 
     .program__sublist-subtitle {
+        font-size: 20px;
         margin-bottom: 10px;
     }
 
-    .program__sublist-item:not(last-child) {
+    .program__sublist-item:not(:last-child) {
         margin-bottom: 25px;
     }
 
+    .program__list-subtitle::before {
+        bottom: 82px;
+    }
+    .program__sublist-content {
+        font-size: 18px;
+        line-height: 1.556;
+        width: 240px;
+    }
 
+    .program::before {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: $dark-theme-text-color;
+        top: 273px;
+    }
 }
 
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1344px),
+  screen and (min-resolution: 192dpi) and (min-width: 1344px),
+  screen and (min-resolution: 2dppx) and (min-width: 1344px) {
+  .program__wrapper {
+    background-image: url(../images/program/program-bg-desktop@2x.png);
+  }
+}
 
