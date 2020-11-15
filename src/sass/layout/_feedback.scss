@@ -1,0 +1,305 @@
+// $main-font: "montserrat", sans-serif;
+// $accent-color: #ff6b09;
+// $main-text-color: #b9b9b9;
+// $black-color: #111518;
+// $secondary-text-color: #3d3d3d;
+// $white-color: #ffffff;
+// $background-program: #111518;//320 768px 1316
+
+//Секция
+.feedback {
+  padding: 50px 0;
+  @media screen and(min-width:1316px) {
+    padding: 130px 0;
+  }
+  //Заголовок секции
+  &-title {
+    color: $black-color;
+    text-align: center;
+    @media screen and(min-width:320px) {
+      // margin-bottom: 20px;
+      @include font(800, 20px, 26px, 0.03em);
+    }
+
+    @media screen and(min-width:768px) {
+      //margin-bottom: 30px;
+      margin-bottom: 10px;
+      @include font(800, 26px, 34px, 0.03em);
+    }
+
+    @media screen and(min-width:1316px) {
+      // margin-bottom: 50px;
+      margin-bottom: 20px;
+      @include font(800, 46px, 60px, 0.03em);
+    }
+  }
+  //блок отзива
+  &-wrapper {
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+
+    @media screen and(max-width:767px) {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media screen and(min-width:768px) {
+      padding: 20px;
+      justify-content: space-between;
+      max-width: 660px;
+    }
+    @media screen and(min-width:1316px) {
+      padding: 50px 50px 50px 80px;
+      max-width: 1090px;
+    }
+
+    //Левий контейнер
+    &-left {
+      @media screen and(max-width:767px) {
+        margin-bottom: 20px;
+      }
+    }
+    //Фото випускника
+    &-picture {
+      margin-bottom: 20px;
+
+      @media screen and(max-width:767px) {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 20px;
+      }
+
+      width: 150px;
+      height: 150px;
+    }
+    //Иконка соцсети
+    &-social {
+      display: block;
+      margin: 0 auto;
+      width: 30px;
+      height: 30px;
+      background-image: url('../images/header_footer/instagram-icon.svg');
+      background-position: 0 0;
+      background-size: contain;
+    }
+    //Имя випускника
+    &-name {
+      color: $accent-color;
+      margin-bottom: 10px;
+      @media screen and(max-width:767px) {
+        @include font(800, 14px, 17px, 0.08em);
+      }
+
+      @media screen and(min-width:768px) and(max-width:1315px) {
+        @include font(800, 20px, 24px, 0.08em);
+        margin-bottom: 20px;
+      }
+
+      @media screen and(min-width:1316px) {
+        @include font(800, 30px, 37px, 0.08em);
+      }
+    }
+    //Короткая автобиография випускника
+    &-description {
+      color: $main-text-color;
+      margin-bottom: 20px;
+
+      @media screen and(max-width:767px) {
+        @include font(500, 12px, 15px, 0.08em);
+        margin-bottom: 10px;
+      }
+
+      @media screen and(min-width:768px) {
+        @include font(500, 12px, 15px, 0.08em);
+        max-width: 360px;
+      }
+
+      @media screen and(min-width:1316px) {
+        @include font(500, 14px, 17px, 0.08em);
+        max-width: 438px;
+      }
+    }
+    //Описание отзыва
+    &-text {
+      color: $secondary-text-color;
+      @include font(500, 12px, 20px, 0.01em);
+
+      @media screen and(min-width:768px) {
+        max-width: 412px;
+      }
+
+      @media screen and(min-width:1316px) {
+        @include font(500, 18px, 28px, 0.005em);
+        color: $secondary-text-color;
+        max-width: 706px;
+      }
+      //Ссилка Читать Далее
+      &-link {
+        color: $accent-color;
+      }
+    }
+  }
+  &-small-icon {
+    width: 54px;
+    height: 54px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+  }
+}
+
+/* Слайдер */
+.slick-slider {
+  position: relative;
+  .small-slider & {
+    @media screen and(max-width:767px) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+/* Ограничивающая оболочка */
+.slick-list {
+  overflow: hidden;
+  @media screen and(min-width:768px) {
+    // margin-bottom: 30px;
+    margin-bottom: 6px;
+  }
+  @media screen and(min-width:1316px) {
+    // margin-bottom: 40px;
+    margin-bottom: 14px;
+  }
+}
+/* Лента слайдов */
+.slick-track {
+  display: flex;
+  .slider & {
+    padding: 20px 0 26px;
+  }
+}
+/* Слайд */
+.slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  //Слайд по центру
+  &.slick-center .feedback-small-icon {
+    border: 1px solid $accent-color;
+  }
+}
+
+/* Стрелка */
+.slick-arrow {
+  z-index: 999999;
+  position: absolute;
+  font-size: 0;
+  width: 28px;
+  height: 16px;
+  border: none;
+  background-color: transparent;
+  background-size: cover;
+  cursor: pointer;
+  transition: transform 500ms ease;
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
+  @media screen and(max-width:767px) {
+    bottom: 18px;
+  }
+  @media screen and(min-width:768px) {
+    top: 50%;
+  }
+  // Стрелка влево
+  &.slick-prev {
+    left: 0;
+    background-image: url('../images/feedback/icon-previous-arrow.svg');
+  }
+  // Стрелка вправо
+  &.slick-next {
+    right: 0;
+    background-image: url('../images/feedback/icon-next-arrow.svg');
+  }
+}
+
+/* Точки (булиты) */
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  //список
+  & li:not(:last-child) {
+    margin-right: 30px;
+  }
+  // Активная точка
+  & li.slick-active button::after {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transform: scale(1.5);
+    transition: all 500ms linear;
+  }
+  // Элемент точки
+  & li button {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.slick-dots li button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-position: 0 0;
+  transition: all 500ms linear;
+  cursor: pointer;
+}
+
+.slick-dots li:nth-child(1) button::after {
+  background-image: url('../images/feedback/big-slide-1.jpg');
+}
+.slick-dots li:nth-child(2) button::after {
+  background-image: url('../images/feedback/big-slide-2.jpg');
+}
+.slick-dots li:nth-child(3) button::after {
+  background-image: url('../images/feedback/big-slide-3.jpg');
+}
+.slick-dots li:nth-child(4) button::after {
+  background-image: url('../images/feedback/big-slide-4.jpg');
+}
+.slick-dots li:nth-child(5) button::after {
+  background-image: url('../images/feedback/big-slide-5.jpg');
+}
+.slick-dots li:nth-child(6) button::after {
+  background-image: url('../images/feedback/big-slide-6.jpg');
+}
+.slick-dots li:nth-child(7) button::after {
+  background-image: url('../images/feedback/big-slide-7.jpg');
+}
+
+//-------BIG Slider
+
+//-------SMALL Slider
+.small-slider {
+  display: none;
+  @media screen and(max-width:767px) {
+    display: block;
+  }
+  //Список слайдов
+  & .slick-list {
+    width: 184px;
+    margin: 0 auto;
+  }
+  //центральний слайд
+  & .slick-slide.slick-center {
+    border-color: $accent-color;
+  }
+}

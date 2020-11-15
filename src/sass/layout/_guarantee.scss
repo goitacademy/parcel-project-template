@@ -1,0 +1,91 @@
+.guarantee {
+  display: block;
+  padding-bottom: 31px;
+
+  &-title {
+    @include font(800, 26px, 34px, 0.03em);
+    margin-bottom: 60px;
+    text-align: center;
+    color: $black-color;
+  }
+
+  &-item {
+    @include font(500, 12px, 20px, 0.03em);
+    color: #3d3d3d;
+
+    display: inline-block;
+    padding-left: 20px;
+
+    position: relative;
+
+    &-accent {
+      color: $accent-color;
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 23px;
+      border-left: 1px dashed $main-text-color;
+    }
+
+    &::before {
+      display: inline-block;
+      content: '';
+      width: 14px;
+      height: 20px;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, 0%);
+
+      background-image: url('../images/header_footer/campfire.svg');
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .guarantee {
+    padding-bottom: 80px;
+
+    &-item:not(:last-child) {
+      padding-bottom: 23px;
+    }
+
+    &-title {
+      margin-bottom: 30px;
+    }
+    &-list {
+      padding-left: 78px;
+      padding-right: 50px;
+    }
+  }
+}
+
+@media screen and (min-width: 1316px) {
+  .guarantee {
+    padding-bottom: 175px;
+
+    &-list {
+      padding-left: 81px;
+      padding-right: 81px;
+    }
+
+    &-title {
+      margin-bottom: 100px;
+      @include font(800, 46px, 60px, 0.03em);
+    }
+
+    &-item {
+      @include font(500, 20px, 28px, 0.03em);
+      padding-left: 30px;
+      margin-right: 0;
+      margin-left: 0;
+
+      &::before {
+        width: 22px;
+        height: 30px;
+        transform: translate(-50%, 0%);
+      }
+    }
+  }
+}
