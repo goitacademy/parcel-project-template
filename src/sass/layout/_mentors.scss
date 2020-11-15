@@ -1,5 +1,4 @@
 .mentors {
-  background-color: $main-background-color;
   padding-top: 39px;
   padding-bottom: 50px;
 
@@ -11,6 +10,10 @@
     color: $dark-theme-background-color;
     padding-bottom: 20px;
   }
+  &__photo {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
   &__name {
     font-weight: 800;
     font-size: 20px;
@@ -18,27 +21,176 @@
     letter-spacing: 0.08em;
     color: $dark-theme-background-color;
     margin-top: 20px;
-    margin-bottom: 30px;
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+
+    &::after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      content: '';
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid #b9b9b9;
+    }
   }
+  &__experience {
+    margin-top: 20px;
+    max-width: 260px;
+  }
+
   &__experience-list {
+    // padding-left: 9px;
+
     font-weight: 600;
     font-size: 14px;
     line-height: 1.21;
     color: $dark-theme-background-color;
+
+    &::before {
+      float: left;
+      margin-bottom: 10px;
+      content: '';
+      width: 17px;
+      height: 39px;
+      background-image: url('/images/mentors/list.svg');
+      background-repeat: no-repeat;
+      margin-right: 9px;
+    }
 
     &:not(:last-child) {
       margin-bottom: 35px;
     }
   }
   &__about {
+    max-width: 279px;
     font-size: 12px;
     font-weight: 500;
     line-height: 1.66;
     color: $main-text-color;
-    margin-top: 43px;
     margin-bottom: 10px;
   }
+  &__line {
+    margin-top: 5px;
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.65;
+    letter-spacing: 0.08em;
+    color: #ff6b09;
+  }
   &__certificate {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.66;
+    display: block;
     color: $accent-color;
+    margin-top: 5px;
+    margin-bottom: 25px;
   }
 }
+@media screen and (min-width: 320px) {
+  .container {
+    width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 688px) {
+  .container {
+    width: 688px;
+    margin: 0 auto;
+  }
+
+  .mentors {
+    &__content {
+      display: flex;
+    }
+    &__item {
+      margin-left: 40px;
+      // max-width: 402px;
+    }
+    &__experience-list::before {
+      height: 35px;
+    }
+    &__name {
+      margin-top: 0;
+    }
+    &__experience {
+      max-width: 360px;
+    }
+    &__about {
+      max-width: 401px;
+    }
+  }
+}
+@media screen and (min-width: 1314px) {
+  .container {
+    width: 1314px;
+  }
+  .mentors {
+    &__title {
+      font-size: 46px;
+      line-height: 1.3;
+    }
+    &__item {
+      max-height: 667px;
+      margin-left: 30px;
+    }
+    &__name {
+      padding-top: 0;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+      font-size: 30px;
+      line-height: 1.23;
+    }
+    // &__experience {
+    //   width: 530px;
+    // }
+    &__experience {
+      max-width: 530px;
+    }
+    &__experience-list {
+      max-width: 530px;
+      font-size: 16px;
+      line-height: 1.25;
+      &:not(:last-child) {
+        margin-bottom: 40px;
+      }
+    }
+    &__about {
+      max-width: 641px;
+      font-size: 18px;
+      line-height: 1.55;
+
+      &:not(:last-child) {
+        margin-bottom: 25px;
+      }
+    }
+    &__certificate {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+  }
+}
+
+// @media screen and (min-width: 480px) {
+//   .container {
+//     width: 480px;
+//     margin: 0 auto;
+//   }
+// }
+// @media screen and (min-width: 768px) {
+//   .container {
+//     width: 768px;
+//   }
+// }
+
+// @media screen and (min-width: 1200px) {
+//   .container {
+//     width: 1200px;
+//   }
+// }
