@@ -1,42 +1,150 @@
 .about {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-.about-title {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  &-title {
     @extend %title;
     color: $black-color;
     text-align: center;
     padding-bottom: 30px;
+  }
 }
 .about-list-item {
-    width: 100%;
-    max-width: 280px;
+  background: $white-color;
+  box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+  }
+}
+.about-list-item:hover .about-list-svg {
+  fill: $white-color;
+}
+.about-list-item:hover .about-name {
+  color: $white-color;
+}
+.about-list-item:hover .about-list-position::before {
+  color: $white-color;
+}
+.about-list-item:hover .about-list-position {
+  color: $white-color;
+}
+.about-list-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .about-list-svg {
-    width: 48px;
-    height: 48px;
+  fill: $accent-color;
+  margin-top: 30px;
 }
-    .about-name {
-    @include font(700, 14px, 20px, 0.08em);
-    text-align: center;
-    color: $black-color;
+.about-name {
+  @include font(700, 14px, 20px, 0.08em);
+  text-align: center;
+  color: $black-color;
+  margin-top: 20px;
+  margin-bottom: 42px;
+}
+.about-list-position {
+  position: relative;
+  @include font(500, 12px, 20px, 0.08em);
+  text-align: center;
+  color: $main-text-color;
+  margin-right: 5px;
+  margin-left: 5px;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 45%;
+    bottom: 122%;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: $accent-color;
+  }
+}
+@media screen and (max-width: 767px) {
+  .about-list-item {
+    width: 100%;
+    max-width: 280px;
+    height: 280px;
+    &:not(:last-child) {
+      margin-bottom: 15px;
     }
-    .about-list-position {
-        @include font(500, 12px, 20px, 0.08em);
-        text-align: center;
-        color: $main-text-color; 
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1315px) {
+  .about-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    &-item {
+      width: 334px;
+      height: 334px;
     }
-@media screen and (max-width: 768px) {
-    .about-list-item:not(:last-child) {
-        margin-bottom: 15px;
-      } 
+  }
+  .about-list-item:nth-child(2n + 1) {
+    margin-right: 20px;
+  }
+  .about-list-item:nth-child(-n + 4) {
+    margin-bottom: 27px;
+  }
+  .about-list-svg {
+    margin-top: 40px;
+  }
+  .about-name {
+    margin-bottom: 52px;
+  }
+  .about-list-position {
+    height: 99px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
 }
 @media screen and (min-width: 1316px) {
-    .about {
+  .about {
     padding-top: 130px;
     padding-bottom: 130px;
+  }
+  .about .container {
+    width: 1316px;
+  }
+  .about-title {
+    padding-bottom: 50px;
+    text-align: left;
+  }
+  .about-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .about-list-item {
+    width: 415px;
+    height: 396px;
+    &:nth-child(2) {
+      margin-right: 20px;
+      margin-left: 20px;
     }
-    .about-title {
-        padding-bottom: 50px;
+    &:nth-child(5) {
+      margin-right: 20px;
+      margin-left: 20px;
     }
+    &:nth-child(-n + 3) {
+      margin-bottom: 20px;
+    }
+  }
+  .about-list-svg {
+    margin-top: 40px;
+  }
+  .about-name {
+    width: 365px;
+    @include font(700, 20px, 28px, 0.08em);
+    margin-bottom: 32px;
+  }
+  .about-list-position {
+    width: 365px;
+    @include font(500, 18px, 28px, 0.08em);
+    &::before {
+      bottom: 110%;
+    }
+  }
 }
