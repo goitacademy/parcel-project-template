@@ -11,38 +11,83 @@
     letter-spacing: 0.03em;
     color: $title-color-light-theme;
   }
+  &__list--item {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+    &:hover,
+    &:focus,
+    &:hover .answers-section__icon,
+    &:hover .answers-section__list-subtitle,
+    &:hover .answers-section__list--description {
+      background-color: $accent-color;
+      color: $title-color-dark-theme;
+      fill: $title-color-dark-theme;
+    }
+
+    // &::  before {
+    //   display: block;
+    //   content: '';
+    //   height: 48px;
+    // }
+  }
   &__list-subtitle {
+    display: block;
+    font-family: $main-font;
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
-    line-height: 1.43;
+    line-height: 1.429;
     text-align: center;
     letter-spacing: 0.08em;
-
     color: $title-color-light-theme;
-    &::before {
+    ::after {
       display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      top: 50%;
+      right: 20px;
       content: '';
-      height: 48px;
+
+      background-color: $accent-color;
     }
   }
+
+  &__list--description {
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.667;
+    text-align: center;
+    letter-spacing: 0.08em;
+    color: #b9b9b9;
+  }
+  &__icon {
+    width: 57px;
+    height: 48px;
+    fill: $accent-color;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
 }
+
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .answers-section {
     .container {
       padding-top: 198px;
       padding-bottom: 50px;
     }
-    &_list-item {
+    &__list--item {
       display: block;
+      margin-top: 30px;
+      padding-top: 30px;
+      padding-bottom: 25px;
       width: 280px;
-      height: 280px;
-    }
-    &_icon {
-      width: 57px;
-      height: 48px;
-      fill: $title-color-dark-theme;
-      cursor: pointer;
+      // height: 280px;
     }
   }
 }
