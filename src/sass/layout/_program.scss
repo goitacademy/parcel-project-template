@@ -1,4 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .program {
+  counter-reset: section;
+  h3::before {
+    position: static;
+    counter-increment: section;
+    content: counter(section) ' ';
+  }
+
+  &-all {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+  }
+
   padding: 50px 0;
   background-color: $background-program;
 
@@ -12,16 +32,48 @@
   }
 
   &-semester {
-    margin-bottom: 5px;
+    position: relative;
+    display: inline-block;
+    // padding-bottom: 5px;
 
     @include font(700, 14px, 28px, 0.08em);
     text-transform: uppercase;
     color: $white-color;
     text-align: center;
+    padding-left: 26px;
   }
 
-  &-semester:not(:first-child) {
-    margin-top: 40px;
+  // &-semester::after {
+  //   position: absolute;
+
+  //   display: block;
+  //   left: 0;
+  //   top: 0;
+  //   transform: translate(-40%, 70%);
+
+  //   content: '';
+  //   width: 12px;
+  //   height: 12px;
+  //   border-radius: 50%;
+  //   background-color: $accent-color;
+  // }
+
+  &-list-item {
+    position: relative;
+  }
+
+  &-list-item::before {
+    position: absolute;
+
+    display: block;
+    left: 0;
+    top: 0;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $accent-color;
+    transform: translate(-40%, 70%);
   }
 
   &-language-section {
@@ -31,7 +83,7 @@
     @include font(700, 12px, 20px, 0.08em);
     color: $accent-color;
 
-    margin-bottom: 5px;
+    padding-bottom: 5px;
     margin-left: 15px;
   }
 
@@ -53,13 +105,32 @@
     color: $secondary-text-color;
   }
 
-  &-courses-list {
-    margin-bottom: 8px;
+  &-list:not(:last-child) {
+    padding-bottom: 8px;
   }
 
-  &-semester-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  &-list:last-child {
+    padding-bottom: 40px;
   }
+
+  &-item:not(:last-child) {
+    padding-bottom: 8px;
+  }
+
+  // &-list {
+  //   border-left: 2px solid $white-color;
+  //   padding-left: 26px;
+  // }
+
+  &-list {
+    padding-left: 26px;
+  }
+
+  &-list-item {
+    border-left: 2px solid $white-color;
+  }
+
+  // &-list:not(:last-child) {
+  //   border-left: 2px solid $white-color;
+  // }
 }
