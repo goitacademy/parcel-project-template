@@ -31,10 +31,38 @@ img {
   display: block;
 }
 
+.btn {
+  padding: 14px 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #ff6b09;
+  border-style: none;
+  cursor: pointer;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+  -webkit-transition-duration: 250ms;
+          transition-duration: 250ms;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .footer-registration {
-  padding: 50px 20px;
+  padding: 50px 15px;
   background-color: #111518;
-  background-image: url("../images/DSC.png");
+  background-image: url("../images/dsc-mobile.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -51,7 +79,7 @@ img {
 }
 
 .footer-accent-color {
-  color: #FF6B09;
+  color: #ff6b09;
 }
 
 .footer-subtitle {
@@ -61,7 +89,7 @@ img {
   line-height: 1.25;
   text-align: center;
   letter-spacing: 0.08em;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 .footer-info {
@@ -99,19 +127,37 @@ img {
   margin-right: 10px;
 }
 
-.contact-form_input {
-  display: block;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-left: 48px;
-  width: 100%;
-  height: 48px;
-  font-style: normal;
+.contact-form {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.contact-form-paragraph {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%) translateX(28px);
+          transform: translateY(-50%) translateX(28px);
   font-weight: 600;
   font-size: 14px;
   line-height: 1.214;
   letter-spacing: 0.08em;
+  color: #FFFFFF;
+  -webkit-transition: 250ms ease-out;
+  transition: 250ms ease-out;
+}
+
+.contact-form-input:not(:placeholder-shown) + .contact-form-paragraph,
+.contact-form-input:hover + .contact-form-paragraph,
+.contact-form-input:focus + .contact-form-paragraph {
+  -webkit-transform: translateY(-42px) translateX(0);
+          transform: translateY(-42px) translateX(0);
+}
+
+.contact-form-input {
+  padding-left: 28px;
+  width: 100%;
+  height: 48px;
   color: #fff;
   border: 1px solid #fff;
   -webkit-box-sizing: border-box;
@@ -120,8 +166,8 @@ img {
   cursor: pointer;
 }
 
-.contact-form_input:not(:last-child) {
-  margin-bottom: 20px;
+.contact-form-input:hover, .contact-form-input:focus {
+  border: 1px solid #ff6b09;
 }
 
 .contact-form-btn {
@@ -135,6 +181,8 @@ img {
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
   width: 260px;
   height: 48px;
   font-weight: 700;
@@ -153,23 +201,31 @@ img {
 .contact-form-btn:hover, .contact-form-btn:focus {
   background-color: #ff6b09;
   border: 1px solid transparent;
+  -webkit-transition: 250ms;
+  transition: 250ms;
 }
 
-.instagram {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+@media screen and (min-widch: 320px) {
+  .contact-form-btn {
+    width: 260px;
+  }
+}
+
+.social-link {
+  display: inline-block;
   width: 40px;
   height: 40px;
   -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
           filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background-image: url("../images/instagram.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-image: url("../images/instagram.svg"), url("../images/Vector.svg"), url("../images/Vector-1.svg"), url("../images/Vector-2.svg"), url("../images/Vector-3.svg"), url("../images/Vector-4.svg"), url("../images/Vector-5.svg"), url("../images/Vector-6.svg"), url("../images/Vector-7.svg");
+}
+
+.social-link-svg {
+  width: 40px;
+  height: 40px;
 }
 
 .copyright {
@@ -182,19 +238,14 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 0 15px;
   width: 100%;
   height: 70px;
   font-weight: 500;
   font-size: 14px;
   line-height: 2;
-  color: #B9B9B9;
+  color: #b9b9b9;
   background: #111518;
-}
-
-@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px), screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 767px), screen and (min-resolution: 192dpi) and (max-width: 767px), screen and (min-resolution: 2dppx) and (max-width: 767px) {
-  .footer-registration {
-    background-image: url("../images/DSC@2x.png");
-  }
 }
 
 @media screen and (min-widch: 320px) {
@@ -204,12 +255,69 @@ img {
   }
 }
 
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px), screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 767px), screen and (min-resolution: 192dpi) and (max-width: 767px), screen and (min-resolution: 2dppx) and (max-width: 767px) {
+  .footer-registration {
+    background-image: url("../images/dsc-mobile@2x.png");
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer-registration {
+    padding: 50px 15px;
+    background-image: url("../images/dsc-tablet.png");
+  }
+  .footer-title {
+    width: 688px;
+    height: 100px;
+    font-size: 26px;
+    line-height: 130%;
+  }
+  .footer-subtitle {
+    width: 452px;
+    height: 34px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+    line-height: 1.214;
+  }
+  .contact-form-input {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 28px;
+    width: 390px;
+    height: 48px;
+  }
+  .contact-form-btn {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 1313px), screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1313px), screen and (min-resolution: 192dpi) and (max-width: 1313px), screen and (min-resolution: 2dppx) and (max-width: 1313px) {
+  .footer-registration {
+    background-image: url("../images/dsc-tablet@2x.png");
+  }
+}
+
 @media screen and (min-widch: 1314px) {
   .footer {
     padding-top: 100px;
   }
+  .footer-registration {
+    padding: 50px 15px;
+    background-image: url("../images/dsc-desktop.png");
+  }
   .footer-title {
+    width: 1090px;
+    height: 178px;
     margin-bottom: 50px;
+    font-size: 46px;
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1314px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1314px), screen and (min-resolution: 192dpi) and (min-width: 1314px), screen and (min-resolution: 2dppx) and (min-width: 1314px) {
+  .footer-registration {
+    background-image: url("../images/dsc-desktop@2x.png");
   }
 }
 /*# sourceMappingURL=main.css.map */
