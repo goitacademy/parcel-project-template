@@ -3,6 +3,15 @@
   padding-top: 39px;
   padding-bottom: 50px;
 
+  @media screen and (min-width: 727px) {
+    &-wrapper {
+      display: flex;
+    }
+    &-left-side {
+      margin-right: 40px;
+    }
+  }
+
   &__title {
     font-weight: 800;
     font-size: 20px;
@@ -32,41 +41,54 @@
   }
   &-experience {
     padding-bottom: 23px;
+
     list-style: none;
 
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 1.214285;
-    letter-spacing: 0.06em;
+    & > li {
+      display: flex;
+    }
 
     & > li:not(:last-child) {
       margin-bottom: 24px;
     }
+    &__item > p {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.214285;
+      letter-spacing: 0.06em;
+    }
+
     &__item::before {
       content: '';
-      display: inline-flex;
+
+      display: flex;
+
       height: 17.18px;
-      width: 14px;
-      margin-right: 9px;
+      min-width: 14px;
+      margin-right: 8.92px;
       background-image: url(../images/svg/checked.svg);
       background-repeat: no-repeat;
     }
   }
   &-advantages {
+    list-style: none;
+
     margin-bottom: 10px;
 
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.67;
+    &__item > p {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1.67;
 
-    color: $text;
+      color: $text;
+    }
 
     &__item:not(:last-child) {
       margin-bottom: 24px;
     }
     &::before {
       content: '';
-      display: inline-flex;
+      display: flex;
       height: 2px;
       width: 20px;
       margin-bottom: 24px;
