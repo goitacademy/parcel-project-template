@@ -1,6 +1,8 @@
 .answers-section {
-  //   .container {
-  //   }
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   &__title {
     font-style: normal;
@@ -23,8 +25,7 @@
     &:focus,
     &:hover .answers-section__icon,
     &:hover .answers-section__subtitle,
-    &:hover .answers-section__description,
-    &:hover .answers-section__description:before {
+    &:hover .answers-section__description {
       background-color: $accent-color;
       color: $title-color-dark-theme;
       fill: $title-color-dark-theme;
@@ -69,6 +70,7 @@
       background-color: $accent-color;
     }
   }
+
   &__icon {
     width: 57px;
     height: 48px;
@@ -78,11 +80,17 @@
   }
 }
 
+.answers-section__description:hover::before {
+  background-color: $title-color-dark-theme;
+}
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .answers-section {
     .container {
+      width: 320px;
       padding-top: 200px;
       padding-bottom: 50px;
+      margin-left: auto;
+      margin-right: auto;
     }
     &__item {
       display: block;
@@ -93,9 +101,87 @@
     }
   }
 }
-// @media screen and (min-width: 768px) and (max-width: 1199px) {
-//   .answers-section {
-//     .container {
-//     }
-//   }
-// }
+@media screen and (min-width: 480px) {
+  .answers-section {
+    .container {
+      width: 480px;
+      margin-left: auto;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1314px) {
+  .answers-section {
+    .container {
+      width: 768px;
+      padding-top: 200px;
+      padding-bottom: 50px;
+    }
+
+    &__title {
+      font-size: 26px;
+      line-height: 1.308;
+    }
+    &__list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    &__item {
+      width: 334px;
+      height: 334px;
+      padding-top: 40px;
+      padding-bottom: 28px;
+
+      &:nth-child(odd) {
+        margin-right: 20px;
+      }
+      &:not(:last-child) {
+        margin-top: 27px;
+      }
+    }
+    &__subtitle {
+      margin-bottom: 52px;
+    }
+  }
+}
+
+@media screen and (min-width: 1315px) {
+  .answers-section {
+    .container {
+      width: 1315px;
+      padding-top: 280px;
+      padding-bottom: 130px;
+    }
+    &__title {
+      font-size: 46px;
+    }
+    &__item {
+      width: 425px;
+      height: 396px;
+      padding: 40px 30px 55px 30px;
+      &:nth-child(3n + 1) {
+        margin-right: 20px;
+      }
+      &:nth-child(3n) {
+        margin-left: 20px;
+      }
+      &:nth-last-child(n + 4) {
+        margin-top: 20px;
+      }
+    }
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &__subtitle {
+      font-size: 20px;
+      line-height: 1.4;
+      margin-bottom: 32px;
+    }
+    &__description {
+      font-size: 18px;
+      line-height: 1.556;
+    }
+  }
+}
