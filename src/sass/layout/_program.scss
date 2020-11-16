@@ -1,0 +1,253 @@
+.program {
+  counter-reset: section;
+  h3::before {
+    position: static;
+    counter-increment: section;
+    content: counter(section) ' ';
+  }
+
+  &-all {
+    padding: 0 70px;
+  }
+
+  padding: 50px 0;
+  background-color: $background-program;
+
+  &-title {
+    margin-bottom: 43px;
+
+    text-align: center;
+    @include font(800, 20px, 26px, 0.03em);
+    text-transform: uppercase;
+    color: $white-color;
+  }
+
+  &-semester {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+
+    @include font(700, 14px, 28px, 0.08em);
+    text-transform: uppercase;
+    color: $white-color;
+    text-align: center;
+    padding-left: 26px;
+
+    // transition-property: display;
+    // transition-duration: 250ms;
+    // transition-timing-function: linear;
+  }
+
+  &-list-item {
+    position: relative;
+  }
+
+  &-list-item::after {
+    position: absolute;
+
+    display: block;
+    left: 0;
+    top: 0;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $accent-color;
+    transform: translate(-45%, 70%);
+  }
+
+  &-language-section {
+    position: relative;
+
+    display: block;
+    @include font(700, 12px, 20px, 0.08em);
+    color: $accent-color;
+
+    padding-bottom: 5px;
+    margin-left: 15px;
+  }
+
+  &-language-section::after {
+    position: absolute;
+    left: -15px;
+    top: 0;
+    display: block;
+
+    content: '';
+    background-color: $accent-color;
+    width: 12px;
+    height: 2px;
+    transform: translateY(470%);
+  }
+
+  &-language-courses {
+    @include font(500, 12px, 20px, 0.08em);
+    color: $secondary-text-color;
+  }
+
+  &-list:not(:last-child) {
+    padding-bottom: 8px;
+  }
+
+  &-list-item:not(:last-child) {
+    padding-bottom: 40px;
+  }
+
+  &-list {
+    padding-left: 26px;
+  }
+
+  &-list-item {
+    position: relative;
+  }
+
+  &-list-item:not(:last-child)::before {
+    position: absolute;
+    top: 9px;
+    left: 0;
+    display: block;
+    content: '';
+    width: 1px;
+    height: 100%;
+    background-color: $white-color;
+  }
+
+  &-hidden {
+    color: $background-program;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 60px 0;
+
+    &-all {
+      padding: 0 90px;
+    }
+
+    &-title {
+      margin-bottom: 52px;
+      text-align: left;
+      @include font(800, 26px, 34px, 0.03em);
+    }
+
+    &-semester {
+      padding-left: 56px;
+    }
+
+    &-list {
+      padding-left: 0;
+    }
+
+    &-list:first-child {
+      padding-left: 56px;
+    }
+
+    &-secondary-list {
+      display: flex;
+    }
+
+    &-list {
+      min-width: 200px;
+      padding-left: 50px;
+    }
+
+    &-list-item:not(:last-child) {
+      padding-bottom: 30px;
+    }
+
+    &-list:not(:last-child) {
+      padding-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: 1316px) {
+    padding: 120px 0;
+
+    & {
+      position: relative;
+    }
+
+    &::before {
+      position: absolute;
+      display: block;
+      top: 295px;
+      left: 0;
+      content: '';
+      width: 100vw;
+      height: 1px;
+      background-color: $white-color;
+    }
+
+    &-all {
+      display: flex;
+      padding: 0;
+    }
+
+    &-title {
+      margin-bottom: 160px;
+      text-align: left;
+      @include font(800, 46px, 60px, 0.03em);
+    }
+
+    &-semester {
+      @include font(700, 30px, 28px, 0.08em);
+      padding-bottom: 25px;
+      padding-left: 0;
+    }
+
+    &-language-courses {
+      @include font(500, 18px, 28px, 0.08em);
+      display: block;
+    }
+
+    &-language-section {
+      @include font(700, 20px, 33px, 0.08em);
+      padding-bottom: 10px;
+      margin-left: 20px;
+    }
+
+    &-language-section::after {
+      left: -18px;
+      top: 0px;
+      width: 17px;
+      height: 3px;
+    }
+
+    &-secondary-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-list:first-child {
+      padding-left: 0;
+    }
+
+    &-list:not(:last-child) {
+      padding-bottom: 25px;
+      padding-right: 30px;
+    }
+
+    &-list-item:not(:last-child) {
+      padding-bottom: 0;
+    }
+
+    &-list {
+      min-width: 250px;
+      padding-left: 0;
+    }
+
+    &-list-item::after {
+      width: 17px;
+      height: 17px;
+
+      transform: translate(-20%, -52px);
+    }
+
+    & {
+      position: relative;
+    }
+
+    &-list-item:not(:last-child)::before {
+      display: none;
+    }
+  }
+}
