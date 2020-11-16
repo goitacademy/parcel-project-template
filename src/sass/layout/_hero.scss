@@ -1,11 +1,22 @@
 .hero {
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 320px;
+  max-height: 618px;
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 50% 50%;
+  background-size: cover;
 }
 
 @media screen and (min-width: 319px) and (max-width: 726px) {
-  .hero {
+  .hero::after {
     background-image: url('../images/header/mobile-bg.jpg');
   }
 }
@@ -38,6 +49,7 @@
   &::after {
     content: '';
     position: absolute;
+    z-index: 2;
     display: block;
   }
 
