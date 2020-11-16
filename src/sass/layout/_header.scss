@@ -1,0 +1,124 @@
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+button {
+  padding: 0;
+}
+
+// MOBILE------------------------
+
+header {
+  width: 100%;
+  height: 90px;
+}
+.header-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+.header-container {
+  display: flex;
+  padding: 30px 20px;
+}
+
+.mobile-menu {
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 30px 20px;
+
+  background: rgba(17, 21, 24, 0.9);
+}
+.mobile-menu.is-hidden {
+  display: none;
+}
+.mobile-menu.is-hidden .menu-button {
+  background-color: red;
+}
+.mobile-menu__up-wrapper {
+  @extend %flex-j;
+  width: 280px;
+  margin: 0 auto;
+}
+.mobile-menu__menu-button {
+  --color2: #ffffff;
+}
+// LOGO
+.mobile-menu__logo.logo {
+  color: $color-text-light;
+}
+
+// NAVIGATION
+.mobile-menu__site-nav {
+  display: flex;
+  align-items: baseline;
+}
+.site-nav__list {
+  max-width: 260px;
+  margin-top: 108.5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.site-nav__link {
+  font-style: normal;
+
+  @include font(800, 20px, 36px);
+
+  letter-spacing: 0.03em;
+
+  color: $color-text-light;
+
+  &:hover,
+  &focus {
+    color: $color-accent;
+  }
+}
+
+.menu-button,
+.mobile-menu__menu-button {
+  display: inline-block;
+  margin-left: auto;
+
+  background-color: transparent;
+  outline: transparent;
+  border: none;
+}
+
+.consultation-button {
+  display: block;
+}
+.mobile-menu__consultation-button {
+  display: none;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .consultation-button {
+    display: none;
+  }
+  .mobile-menu__consultation-button {
+    display: block;
+  }
+}
+
+// TABLET--------------------------------
+@media screen and (min-width: $bp-tablet) {
+  .site-nav__list {
+    max-width: 332px;
+  }
+  .site-nav__link {
+    @include font(800, 26px, 47px);
+  }
+  .consultation-button {
+    margin-left: 239px;
+  }
+}
