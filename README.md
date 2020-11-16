@@ -1,4 +1,4 @@
-# parcel-project-template
+# final-project-js-TheBestTeam#3
 
 ## Developing
 
@@ -11,23 +11,14 @@
 команды. Пользователям MacOS ничего делать не нужно.
 
 Пользователям **Windows**, в режиме администратора.
-[Как запусттить Powershell](https://youtu.be/p2tFnxcymwk) в режиме
-администратора.
-
 ```shell
 npm install --global --production windows-build-tools
 ```
-
-Вот как выглядит процесс успешной установки для пользователей **Windows**.
-
-![Установка windows-build-tools](https://user-images.githubusercontent.com/1426799/45007904-bde9f280-afb4-11e8-8a35-c77dffaffa2a.gif)
-
 Пользователям **Linux**.
 
 ```shell
 sudo apt-get install gcc g++ make
 ```
-
 ### Setting up Dev
 
 Один раз на проект установить все зависимости.
