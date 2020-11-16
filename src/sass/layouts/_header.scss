@@ -1,5 +1,6 @@
 .header {
   position: absolute;
+  z-index: 2;
   width: 100%;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -9,7 +10,7 @@
     padding-bottom: 40px;
   }
 
-  @media screen and (min-width: 1320px) {
+  @media screen and (min-width: 1344px) {
     padding-top: 34px;
     padding-bottom: 34px;
   }
@@ -23,7 +24,7 @@
   &__list {
     display: none;
 
-    @media screen and (min-width: 1320px) {
+    @media screen and (min-width: 1344px) {
       display: flex;
     }
   }
@@ -40,6 +41,7 @@
     @include font($fw: 700, $fs: 14px, $lh: 17px);
     text-transform: uppercase;
     color: $primary-text-color;
+    transition: color $transition-duration cubic-bezier($cubic-bezier);
 
     &:hover,
     &:focus {
@@ -53,6 +55,10 @@
     width: 80px;
     height: 28px;
     fill: black;
+    @media screen and (min-width: 768px) {
+      width: 128px;
+      height: 45px;
+    }
   }
   &--white {
     fill: $primary-white-color;
@@ -66,20 +72,25 @@
 }
 
 .menu__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 260px;
   height: 48px;
   @include font($fw: 700, $fs: 12px, $lh: 15px);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background-color: transparent;
+  background-color: $accent-color;
   border: 2px solid $accent-color;
-  color: $accent-color;
-  outline: none;
+  color: $primary-white-color;
+  transition: color $transition-duration cubic-bezier($cubic-bezier),
+    background-color $transition-duration cubic-bezier($cubic-bezier);
 
   &:hover,
   &:focus {
-    background-color: $accent-color;
-    color: $primary-white-color;
+    background-color: transparent;
+    color: $accent-color;
+    cursor: pointer;
   }
 
   @media screen and (max-width: 767px) {
@@ -94,32 +105,15 @@
     }
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1319px) {
+  @media screen and (min-width: 768px) and (max-width: 1343px) {
     margin-left: auto;
     margin-right: 40px;
   }
 
-  @media screen and (min-width: 1320px) {
+  @media screen and (min-width: 1344px) {
     width: 336px;
     height: 70px;
     @include font($fw: 700, $fs: 14px, $lh: 17px);
     letter-spacing: 0.14em;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .logo__other {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .logo__mobile {
-    display: none;
-  }
-
-  .logo__svg {
-    width: 128px;
-    height: 45px;
   }
 }
