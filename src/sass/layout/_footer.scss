@@ -1,4 +1,5 @@
 .text {
+display: block;
 font-family: $font-family;
 font-style: normal;
 font-weight: 700;
@@ -6,7 +7,10 @@ font-size: 8px;
 line-height: 1.25;
 letter-spacing: 0.18em;
 text-transform: uppercase;
-color: $color-accent;
+text-align: center;
+&-accent {
+     color: $color-accent;   
+    }
 }
 .site-nav {
     padding-top: 30px;
@@ -21,6 +25,16 @@ color: $color-accent;
         line-height: 1.25;
         letter-spacing: 0.18em;
         text-transform: uppercase;
+        color: $color-text-dark;
+    }
+
+    &__text {
+        font-family: $font-family;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 26px;
+        line-height: 1.123;
+        letter-spacing: 0.04em;
         color: $color-text-dark;
     }
 
@@ -44,16 +58,16 @@ color: $color-accent;
     &__instagram::before {
         display: block;
         content: "";
-        width: 40px;
+        // width: 40px;
         height: 40px;
-        background-size: content;
+        background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
 }
 
 .icon-instagram::before {
-    background-image: url(../../images/svg/icon-instagram.svg);
+    background-image: url(../images/svg/icon-instagram.svg);
 }
 
 .footer {
@@ -77,10 +91,12 @@ color: $color-accent;
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .site-nav {
-        // margin-bottom: 30px;
         text-align: center;
         &__logo{
             margin-bottom: 20px;
+        }
+        &__tel {
+            padding-bottom: 30px;
         }
     }
 }
@@ -92,7 +108,7 @@ color: $color-accent;
         padding-bottom: 40px;
 
          &__logo {
-            padding-right: 203px;
+            padding-right: 180px;
         }
 
         &__tel {
@@ -105,6 +121,10 @@ color: $color-accent;
             width: 24px;
             height: 23px;
         } 
+        &__instagram::before {
+            width: 40px;
+            margin-left: 24px;
+        }
     }
     .footer__copyright {
         text-align: left;
