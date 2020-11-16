@@ -1,24 +1,62 @@
 .hero {
-  padding-top: 110px;
-  padding-bottom: 50px;
-  background-image: url('../images/ellipse-1.png'),
-    url('../images/ellipse-2.png'), url('../images/Vector.png');
-  background-repeat: no-repeat;
-  background-position: top 394px left 76px, top 403px left 56px, top 0 left 0;
+  @media screen and (max-width: 767px) {
+    padding-top: 20px;
+    padding-bottom: 50px;
+    background-image: url('../images/hero/ellipse-1.png'),
+      url('../images/hero/ellipse-2.png'), url('../images/hero/wave.png');
+    background-repeat: no-repeat;
+    background-position: top 304px left 50%, top 313px left 50%,
+      top -90px left 0;
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/hero/ellipse-1-x2.png'),
+        url('../images/hero/ellipse-2-x2.png'),
+        url('../images/hero/wave-x2.png');
+      background-size: 178px, 208px, 320px;
+    }
+  }
+  @media screen and (min-width: $bp-tablet) {
+    padding-top: 30px;
+    background-image: url('../images/hero/ellipse-1-tablet.png'),
+      url('../images/hero/ellipse-2-tablet.png'),
+      url('../images/hero/wave-tablet.png');
+    background-repeat: no-repeat;
+    background-position: top 44px left 410px, top 60px left 374px,
+      top -128px left 0;
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/hero/ellipse-1-tablet-x2.png'),
+        url('../images/hero/ellipse-2-tablet-x2.png'),
+        url('../images/hero/wave-tablet-x2.png');
+      background-size: 320px, 378px, 768px;
+    }
+  }
+  @media screen and (min-width: $bp-desktop) {
+    padding-top: 91px;
+    padding-bottom: 130px;
+    background-image: url('../images/hero/ellipse-1-desktop.png'),
+      url('../images/hero/ellipse-2-desktop.png'),
+      url('../images/hero/wave-desktop.png');
+    background-repeat: no-repeat;
+    background-position: top 12px left 874px, top 50px left 793px,
+      top -137px left 50%;
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/hero/ellipse-1-desktop-x2.png'),
+        url('../images/hero/ellipse-2-desktop-x2.png'),
+        url('../images/hero/wave-desktop-x2.png');
+      background-size: 720px, 841px, 1688px;
+    }
+  }
 }
 h1,
 h2,
 h3,
 p {
   margin: 0;
-}
-.list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.link {
-  text-decoration: none;
 }
 
 .hero__title {
@@ -29,6 +67,19 @@ p {
   font-size: 20px;
   line-height: 1.36;
   letter-spacing: 0.03em;
+  @media screen and (min-width: $bp-tablet) {
+    max-width: 332px;
+
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+  @media screen and (min-width: $bp-desktop) {
+    max-width: 642px;
+    font-size: 58px;
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
 }
 .hero__subtitle {
   margin-bottom: 30px;
@@ -43,16 +94,24 @@ p {
     color: $color-text-light-2;
   }
   &--accent {
+    display: block;
     color: $color-accent;
+  }
+  @media screen and (min-width: $bp-desktop) {
+    margin-bottom: 40px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.65;
+    &--accent {
+      display: inline;
+    }
   }
 }
 .hero__button {
-  display: block;
-  width: 260px;
-  margin: 0 auto;
-  padding: 14px 1px;
-  border: 2px solid $color-accent;
-
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 285px;
 
   color: $color-accent;
@@ -60,36 +119,67 @@ p {
   font-weight: 700;
   font-size: 12px;
   line-height: 1.25;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  &:hover,
-  &:focus {
-    background-color: $color-accent;
-    color: $color-text-light;
-    border: 0;
+  @media screen and (min-width: $bp-tablet) {
+    margin: 0;
+    margin-bottom: 143px;
+  }
+  @media screen and (min-width: $bp-desktop) {
+    font-size: 14px;
+    line-height: 1.21;
+    margin-bottom: 241px;
   }
 }
 .hero__advantages-list {
-  width: 216px;
-  margin: 0 auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @media screen and (max-width: 767px) {
+    margin: 0 auto;
+  }
+  @media screen and (min-width: $bp-tablet) {
+    display: flex;
+    justify-content: flex-start;
+  }
 }
 .hero__advantages-item {
   display: flex;
   align-items: center;
+  width: 216px;
 
-  font-family: Montserrat;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.43;
   letter-spacing: 0.08em;
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+  @media screen and (min-width: $bp-tablet) {
+    &:not(:last-child) {
+      margin-right: 21px;
+    }
+  }
+  @media screen and (min-width: $bp-desktop) {
+    width: 418px;
 
-  &:not(:last-child) {
-    margin-bottom: 30px;
+    font-size: 20px;
+    line-height: 1.65;
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+    .hero__advantages-icon {
+      width: 100px;
+      height: 100px;
+    }
   }
 }
+
 .hero__advantage {
   width: 145px;
   margin-left: 10px;
+  @media screen and (min-width: $bp-desktop) {
+    width: 340px;
+    margin: -20px;
+  }
 }

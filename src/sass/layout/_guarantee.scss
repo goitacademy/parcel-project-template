@@ -1,0 +1,111 @@
+.guarantee {
+  padding: 25px 0;
+
+  @media screen and (min-width: $bp-desktop) {
+    padding: 65px 0;
+  }
+  & .container {
+    padding: 0;
+  }
+
+  &__title {
+    @include font(800, 26px, 34px);
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: $color-text-dark;
+
+    margin-bottom: 30px;
+    padding: 0 20px;
+
+    @media screen and (min-width: $bp-desktop) {
+      @include font(800, 46px, 60px);
+
+      margin-bottom: 50px;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 30px 20px;
+    background-color: #f1f1f1;
+
+    @media screen and (min-width: $bp-tablet) {
+      padding-left: 79px;
+      padding-right: 50px;
+    }
+
+    @media screen and (min-width: $bp-desktop) {
+      padding-top: 50px;
+      padding-bottom: 45px;
+      padding-left: 112px;
+      padding-right: 112px;
+    }
+  }
+
+  &__item {
+    @include font(500, 12px, 20px);
+    color: $color-text-dark-2;
+
+    position: relative;
+
+    display: inline-flex;
+    flex-wrap: wrap;
+
+    &:not(:last-child) {
+      margin-bottom: 23px;
+    }
+
+    @media screen and (min-width: $bp-tablet) {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+
+    @media screen and (min-width: $bp-desktop) {
+      @include font(500, 20px, 28px);
+    }
+  }
+
+  &__item::before {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 20px;
+    margin-right: 20px;
+    background-image: url(../images/svg/icon-fire.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @media screen and (min-width: $bp-desktop) {
+      width: 22px;
+      height: 30px;
+      margin-right: 30px;
+    }
+  }
+  &__description::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: 7px;
+    height: calc(100% - 8px);
+    border-left: 1px dashed #b9b9b9;
+
+    @media screen and (min-width: $bp-desktop) {
+      top: 34px;
+      left: 11px;
+      height: calc(100% - 20px);
+    }
+  }
+
+  &__description {
+    width: calc(100% - 35px);
+    @media screen and (min-width: $bp-desktop) {
+      width: calc(100% - 52px);
+    }
+  }
+
+  &--accent {
+    color: $color-accent;
+  }
+}
