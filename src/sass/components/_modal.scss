@@ -71,13 +71,6 @@
   background-image: url("../images/hero/hero-bg-desc@2x.png"); 
   }
 
-
-  &:hover,
-  &:focus {
-    outline: none;
-  }
-
-
   .backdrop.is-hidden & {
     transform: perspective(600px) translate(0px, -100%) rotateX(65deg);
     transition: all 750ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -94,6 +87,12 @@
     border: none;
     cursor: pointer;
     transition: all 750ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+  @media all and (-ms-high-contrast:none), (-ms-high-contrast:active){
+    background-image: url("../images/cross.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    }
   }
 
   &-icon-cross:hover,
@@ -148,17 +147,19 @@
     &:invalid:not(:focus):placeholder-shown,
     &:valid{
       color: $secondary-text-color;
-      border-color: $secondary-text-color;
     }
 
     &:invalid {
       color: #ff0000;    
-      border-color:  #ff0000;
     }
     &:hover,
     &:focus {
       outline: none;
     }
+
+    &::-ms-clear {
+      display: none;
+   }
   }
  
 
@@ -167,12 +168,14 @@
     top: 50%;
     left: 28px;   
     transform: translateY(-50%);   
+    -ms-transform: translateY(-50px);  
     @include font(600, 12px, 14px, 0.03em);
     color: $main-text-color;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     @media screen and (min-width: 1316px) {
      left: 40px;
+     -ms-transform: translateY(-60px);
      @include font(600, 14px, 16px, 0.03em);
     }
        
@@ -220,7 +223,7 @@
   
   &-imput-time {
     position: relative;
-    padding: 0px 15px 0px 0px;
+    padding: 0px 15px 0px 15px;
     width: 130px;
     border: 1px solid $accent-color;
     color: $accent-color;
@@ -249,10 +252,10 @@
     &::-webkit-datetime-edit-ampm-field,
     &::-webkit-clear-button,
     &::-webkit-inner-spin-button {
-      padding: 15px 10px;
+      padding: 15px 5px;
 
      @media screen and (min-width: 1316px) {
-       padding: 20px 15px;
+       padding: 20px 10px;
      }
       
       &:hover,
@@ -312,8 +315,9 @@
     padding: 5px;
     width: 15px;
     height: 15px;  
-    border: 1px solid $main-text-color;
+    border: 1px solid $accent-color;
 
+    
     @media screen and (min-width: 768px){
       margin: 0px 10px 0px 0px;
     }
@@ -322,11 +326,10 @@
       width: 20px;
       height: 20px;
     }
-    
+  
     .modal-checkbox-input:checked + & {
       margin-right: 10px;
-      //background-image: url("/images/Vector.svg");
-      background-color: $accent-color;
+      background-image: url("../images/teacher/vector.svg");
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -341,7 +344,9 @@
   padding: 14px;
   border: 0px;
   align-self: center;
-  background-color: $accent-color;
+  background-image: radial-gradient(circle, #fd8637, #ff6600, #c03d00,);
+  background-size: 250% 250%;
+  animation: gradient 5000ms ease infinite;
   color: $white-color;
   font-family: inherit;
   text-transform: uppercase;
@@ -353,13 +358,4 @@
     padding: 25px;
     @include font(700, 14px, 17px, 0.14em);
   }
-
-  &:hover,
-  &:focus{
-    -webkit-box-shadow: 0px 0px 18px 6px rgba(124, 49, 0, 0.2);
-    -moz-box-shadow: 0px 0px 18px 6px rgba(124, 49, 0, 0.2);
-    box-shadow: 0px 0px 18px 6px rgba(124, 49, 0, 0.2);
-  }
 }
-
-
