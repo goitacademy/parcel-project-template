@@ -1,0 +1,81 @@
+.modal-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: rgba(17, 21, 24, 0.9);
+
+  transform: translateY(0%);
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  @media screen and (min-width: 1320px) {
+    display: none;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-100%);
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__list {
+    margin-bottom: 50px;
+  }
+
+  &__link {
+    @include font($fw: 800, $fs: 20px, $lh: 36px);
+    letter-spacing: 0.03em;
+    color: $primary-white-color;
+    @media screen and (min-width: 768px) {
+      @include font($fw: 800, $fs: 26px, $lh: 47px);
+    }
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+  }
+}
+
+.modal-btn {
+  display: inline-flex;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+
+  &:hover &__icon,
+  &:focus &__icon {
+    fill: $accent-color;
+  }
+
+  @media screen and (min-width: 1320px) {
+    display: none;
+  }
+}
