@@ -1,0 +1,86 @@
+.list {
+  list-style: none;
+}
+.enumeration {
+  position: absolute;
+  transform: translateY(27px);
+  @extend %block-m;
+  padding: 20px 10px 20px 30px;
+
+  width: 280px;
+  background-color: $background-light;
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+}
+.enumeration__list {
+  @extend %block-m;
+  width: 236px;
+  &--figure {
+    display: block;
+    margin-bottom: 5px;
+
+    @include font(700, 14px, 23px);
+    letter-spacing: 0.08em;
+    color: $color-accent;
+  }
+  &--text {
+    display: block;
+    margin-bottom: 10px;
+
+    @include font(700, 14px, 24px);
+    letter-spacing: 0.08em;
+    color: $color-text-dark;
+  }
+}
+@media screen and (min-width: $bp-tablet) {
+  .enumeration {
+    transform: translateY(25px);
+    padding: 30px 20px 26px 98px;
+    width: 688px;
+  }
+  .enumeration__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 494px;
+
+    &--item {
+      width: 236px;
+    }
+    &--figure {
+      @include font(700, 14px, 23px);
+    }
+    &--text {
+      margin-bottom: 24px;
+      @include font(700, 14px, 20px);
+    }
+  }
+}
+@media screen and (min-width: $bp-tablet) and (max-width: 1343px) {
+  .enumeration__list--item:nth-child(odd) {
+    margin-right: 22px;
+  }
+}
+@media screen and (min-width: $bp-desktop) {
+  .enumeration {
+    transform: translateY(70px);
+    padding: 70px 110px 62px 114px;
+    width: 1314px;
+  }
+  .enumeration__list {
+    width: 1088px;
+    &--figure {
+      margin-bottom: 10px;
+      @include font(700, 20px, 33px);
+    }
+    &--text {
+      margin-bottom: 32px;
+      @include font(700, 20px, 24px);
+    }
+  }
+  .enumeration__list--item {
+    width: 336px;
+    &:not(:nth-child(3n + 3)) {
+      margin-right: 40px;
+    }
+  }
+}
