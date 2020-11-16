@@ -1,0 +1,131 @@
+.footer {
+  padding: 30px 0;
+
+  & .container {
+    display: flex;
+    align-items: center;
+  }
+
+  & .contact-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__tel {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    @include font(14px, 17px);
+    letter-spacing: 0.08em;
+    color: $title;
+  }
+
+  &__tel-icon {
+    width: 20px;
+    height: 19px;
+    margin-right: 10px;
+  }
+
+  &__instagram {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.copyright {
+  padding: 21px 0;
+  background-color: #111518;
+
+  &__text {
+    font-weight: 500;
+    @include font(14px, 28px);
+    color: $text;
+  }
+}
+
+// ================================= MOBILE =================================
+@media screen and (max-width: 726px) {
+  .footer {
+    & .container {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    & .contact-wrapper {
+      flex-direction: column;
+    }
+
+    &__tel {
+      margin: 20px 0 30px;
+    }
+  }
+
+  .copyright {
+    & .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+// ================================= TABLET =================================
+@media screen and (min-width: 727px) {
+  .footer {
+    & .container {
+      justify-content: space-between;
+    }
+
+    // & .contact-wrapper {
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    // }
+
+    &__tel {
+      @include font(20px, 24px);
+
+      &::after {
+        display: flex;
+        width: 1px;
+        height: 40px;
+        content: '';
+        background-color: #b9b9b9;
+        margin: 0 24px;
+      }
+    }
+
+    &__tel-icon {
+      width: 24px;
+      height: 23px;
+    }
+  }
+}
+
+// ================================= DESKTOP =================================
+@media screen and (min-width: 1355px) {
+  .footer {
+    & .container {
+      justify-content: left;
+    }
+
+    & .contact-wrapper {
+      margin-left: 290px;
+    }
+
+    &__tel {
+      @include font(30px, 37px);
+
+      &::after {
+        margin: 0 24px 0px 16px;
+      }
+    }
+
+    &__tel-icon {
+      width: 30px;
+      height: 29px;
+    }
+  }
+}
