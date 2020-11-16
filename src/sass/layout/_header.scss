@@ -17,12 +17,17 @@ header {
 }
 .header-wrapper {
   position: fixed;
+  z-index: 100;
   width: 100%;
   height: 100%;
 }
+.header-background {
+  background-color: $background-light;
+}
 .header-container {
   display: flex;
-  padding: 30px 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .mobile-menu {
@@ -52,37 +57,6 @@ header {
 .mobile-menu__menu-button {
   --color2: #ffffff;
 }
-// LOGO
-.mobile-menu__logo.logo {
-  color: $color-text-light;
-}
-
-// NAVIGATION
-.mobile-menu__site-nav {
-  display: flex;
-  align-items: baseline;
-}
-.site-nav__list {
-  max-width: 260px;
-  margin-top: 108.5px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.site-nav__link {
-  font-style: normal;
-
-  @include font(800, 20px, 36px);
-
-  letter-spacing: 0.03em;
-
-  color: $color-text-light;
-
-  &:hover,
-  &focus {
-    color: $color-accent;
-  }
-}
-
 .menu-button,
 .mobile-menu__menu-button {
   display: inline-block;
@@ -92,9 +66,48 @@ header {
   outline: transparent;
   border: none;
 }
+// LOGO
+.mobile-menu__logo.logo {
+  color: $color-text-light;
+}
+
+// NAVIGATION
+.anchor {
+  display: block;
+  position: relative;
+  top: -90px;
+  visibility: hidden;
+}
+.mob-site-nav {
+  display: flex;
+  align-items: baseline;
+}
+.mob-site-nav__list {
+  max-width: 260px;
+  margin-top: 108.5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mob-site-nav__link {
+  font-style: normal;
+
+  @include font(800, 20px, 36px);
+
+  letter-spacing: 0.03em;
+
+  color: $color-text-light;
+
+  @include transition(color);
+
+  &:hover,
+  & :focus {
+    color: $color-accent;
+  }
+}
 
 .consultation-button {
   display: block;
+  margin-left: 239px;
 }
 .mobile-menu__consultation-button {
   display: none;
@@ -112,13 +125,90 @@ header {
 
 // TABLET--------------------------------
 @media screen and (min-width: $bp-tablet) {
-  .site-nav__list {
+  header {
+    height: 128px;
+  }
+  .anchor {
+    top: -128px;
+  }
+
+  .header-container {
+    align-items: baseline;
+
+    padding-top: 40px;
+    padding-bottom: 30px;
+  }
+  .mob-site-nav__list {
     max-width: 332px;
   }
-  .site-nav__link {
+  .mob-site-nav__link {
     @include font(800, 26px, 47px);
   }
+  .menu-button {
+    margin-left: 40px;
+  }
+
+  .mobile-menu__up-wrapper {
+    width: 685px;
+    height: 45px;
+  }
+  .mobile-menu {
+    padding-top: 40px;
+  }
   .consultation-button {
-    margin-left: 239px;
+    margin-left: auto;
+  }
+}
+
+// DESKTOP------------------------------------
+.site-nav {
+  display: none;
+  margin-left: auto;
+}
+.site-nav__list {
+  @extend %flex-a-j;
+}
+.site-nav__list-item:not(:last-child) {
+  margin-right: 40px;
+}
+.site-nav__link {
+  font-style: normal;
+
+  @include font(700, 14px, 17px);
+
+  letter-spacing: 0.03em;
+
+  text-transform: uppercase;
+
+  color: $color-text-light-2;
+
+  @include transition(color);
+
+  &:hover,
+  & :focus {
+    color: $color-accent;
+  }
+}
+
+@media screen and (min-width: $bp-desktop) {
+  header {
+    height: 128px;
+  }
+  .anchor {
+    top: -137px;
+  }
+
+  .menu-button {
+    display: none;
+  }
+  .header-container {
+    padding-top: 33.5px;
+    padding-bottom: 33.5px;
+  }
+  .consultation-button {
+    margin-left: 60px;
+  }
+  .site-nav {
+    display: block;
   }
 }
