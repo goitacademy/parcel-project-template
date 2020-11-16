@@ -11,7 +11,7 @@ $(document).ready(function(){
     autoplaySpeed: 4000,
      responsive: [
       {
-         breakpoint: 767,
+         breakpoint: 768,
         settings: {
           arrows:false,
           dots: false,
@@ -25,7 +25,7 @@ $(document).ready(function(){
   $('.small-slider').slick({
      responsive: [
       {
-         breakpoint: 767,
+         breakpoint: 768,
          settings: {
           adaptiveHeight: true,
           slidesToShow: 3,
