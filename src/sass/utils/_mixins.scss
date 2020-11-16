@@ -1,0 +1,40 @@
+//flexContainer
+@mixin flex($base: center, $cross: center) {
+  display: flex;
+  justify-content: $base;
+  align-items: $cross;
+}
+
+//font style
+@mixin font(
+  $weight: 400,
+  $size: 14px,
+  $height: 1.14,
+  $spacing: 0.02em,
+  $family: $basic-font
+) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  letter-spacing: $spacing;
+  font-family: $family;
+}
+
+//transition functions
+@mixin transition($propertyI, $propertyII: 1, $propertyIII: 1, $propertyIV: 1) {
+  @if ($propertyIV!=1) {
+    transition: $propertyI 250ms $timing-function,
+      $propertyII 250ms $timing-function, $propertyIII 250ms $timing-function,
+      $propertyIV 250ms $timing-function;
+  }
+  @if ($propertyIII!=1) {
+    transition: $propertyI 250ms $timing-function,
+      $propertyII 250ms $timing-function, $propertyIII 250ms $timing-function;
+  }
+  @if ($propertyII!=1) {
+    transition: $propertyI 250ms $timing-function,
+      $propertyII 250ms $timing-function;
+  } @else {
+    transition: $propertyI 250ms $timing-function;
+  }
+}
