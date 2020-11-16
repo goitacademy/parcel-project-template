@@ -1,0 +1,83 @@
+.guarant {
+  padding-top: 50px;
+  &__remark {
+    color: $color-accent;
+  }
+  &__list {
+    background-color: #f1f1f1;
+  }
+  &__item {
+    position: relative;
+    display: flex;
+    margin-bottom: 20px;
+  }
+  &__svg {
+    position: absolute;
+    width: 14.5px;
+    height: 20px;
+    left: 0;
+    top: 0;
+    margin-left: -6.5px;
+  }
+  &__item:not(:last-child):before {
+    height: 68px;
+    transform: translatey(25px);
+    display: block;
+    content: '';
+    border-left: 1px dashed $color-text-light-2;
+  }
+  &__title {
+    @include font(800, 46px, 60px);
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: $color-text-dark;
+  }
+  &__text {
+    @include font(500, 20px, 28px);
+    margin-left: 20px;
+    color: $color-text-dark-2;
+  }
+}
+
+@media screen and (min-width: $bp-mobile) {
+  .container {
+    padding: 0px;
+  }
+  .guarant__title {
+    @include font(800, 26px, 34px);
+    margin-bottom: 30px;
+  }
+  .guarant__list {
+    padding: 30px 20px;
+  }
+  .guarant__text {
+    @include font(500, 12px, 20px);
+  }
+  .guarant__item {
+    margin-bottom: 23px;
+  }
+}
+
+@media screen and (min-width: $bp-tablet) {
+  .container {
+    width: 768px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (min-width: $bp-desktop) {
+  .guarant {
+    padding-top: 65px;
+    &__list {
+      padding: 30px 50px 30px 76px;
+    }
+    &__item {
+      margin-bottom: 20px;
+    }
+  }
+  .container {
+    width: 1680px;
+    padding-left: 183px;
+    padding-right: 183px;
+  }
+}
