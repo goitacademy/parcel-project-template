@@ -1,7 +1,17 @@
-// не прячется картринка при оверфлов
+.test {
+  display: flex;
+}
 
 .programm-section {
   background-color: $title-color-light-theme;
+  background-image: url('../../src/images/mobile/optim/programm-mobile-half.png');
+  background-repeat: no-repeat;
+  background-position: 100% 77%;
+
+  @media screen and (min-width: 480px) {
+    background-image: url('../../src/images/mobile/optim/programm-mobile.png');
+  }
+
   .container {
     position: relative;
     padding-top: 50px;
@@ -17,12 +27,22 @@
     text-align: center;
     letter-spacing: 0.03em;
     color: $title-color-dark-theme;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 52px;
+      font-size: 26px;
+      text-align: start;
+    }
   }
   &__list {
     padding-left: 23%;
     display: inline-block;
-    @media screen and(min-width:480px) {
+    @media screen and(min-width:480px) and (max-width: 767px) {
       padding-left: 33%;
+    }
+
+    @media screen and(min-width:768px) {
+      padding-left: 8%;
     }
   }
   &__line {
@@ -36,10 +56,26 @@
     @media screen and (min-width: 480px) {
       left: 35.5%;
     }
+
+    @media screen and (min-width: 768px) {
+      top: 7.4%;
+      left: 13%;
+      height: 717px;
+    }
   }
   &__item {
     &:not(:last-child) {
       margin-bottom: 40px;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__item--flex {
+    @media screen and (min-width: 768px) {
+      display: flex;
     }
   }
   &__semester {
@@ -62,11 +98,18 @@
       background-image: url('../../src/images/svg/programm-orange-dot.svg');
       width: 12px;
       height: 12px;
+
+      @media screen and (min-width: 768px) {
+        margin-right: 50px;
+      }
     }
   }
   &__features {
     padding-left: 32px;
     margin-bottom: 10px;
+    @media screen and (min-width: 768px) {
+      padding-left: 64px;
+    }
 
     font-weight: 700;
     font-size: 12px;
@@ -77,6 +120,9 @@
   }
   &__features-list {
     padding-left: 32px;
+    @media screen and (min-width: 768px) {
+      padding-left: 64px;
+    }
     &:not(:last-child) {
       margin-bottom: 13px;
     }
@@ -88,12 +134,6 @@
     letter-spacing: 0.08em;
     opacity: 0.5;
     color: $description-color-main-theme;
-  }
-
-  &__image {
-    position: absolute;
-    right: 0%;
-    top: 71.5%;
   }
 }
 
