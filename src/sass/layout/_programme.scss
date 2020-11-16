@@ -1,10 +1,9 @@
-// ПЕРЕДЕЛАТЬ КОСТЫЛИ С АБСОЛЮТАМИ
+// не прячется картринка при оверфлов
 
 .programm-section {
-  max-width: 100%;
-  position: relative;
   background-color: $title-color-light-theme;
   .container {
+    position: relative;
     padding-top: 50px;
     padding-bottom: 537px;
   }
@@ -20,18 +19,24 @@
     color: $title-color-dark-theme;
   }
   &__list {
-    padding-left: 68px;
-    margin-bottom: 50px;
+    padding-left: 23%;
+    display: inline-block;
+    @media screen and(min-width:480px) {
+      padding-left: 33%;
+    }
   }
-  //   &__line {
-  //     position: absolute;
-  //     left: -35.4%;
-  //     top: 30%;
-  //     border-bottom: 1px solid $title-color-dark-theme;
-  //     width: 1282px;
-  //     height: 1px;
-  //     transform: rotate(90deg);
-  //   }
+  &__line {
+    position: absolute;
+    top: 6.5%;
+    left: 28%;
+    background-image: url(../../src/images/svg/programm-vector.svg);
+    width: 2px;
+    height: 1248px;
+
+    @media screen and (min-width: 480px) {
+      left: 35.5%;
+    }
+  }
   &__item {
     &:not(:last-child) {
       margin-bottom: 40px;
@@ -51,6 +56,7 @@
 
     &::before {
       content: '';
+      z-index: 2;
       display: block;
       margin-right: 20px;
       background-image: url('../../src/images/svg/programm-orange-dot.svg');
@@ -83,19 +89,24 @@
     opacity: 0.5;
     color: $description-color-main-theme;
   }
+
   &__image {
     position: absolute;
-    right: 0;
-    top: 70%;
+    right: 0%;
+    top: 71.5%;
   }
 }
 
 .advantages-section {
-  width: 280px;
   position: absolute;
-  z-index: 9;
-  padding-bottom: 0 20px;
-  top: 74%;
+  width: 280px;
+  z-index: 1;
+  top: 76%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+
   &__title {
     margin-bottom: 30px;
     font-weight: 800;
@@ -103,7 +114,7 @@
     line-height: 1.35;
     letter-spacing: 0.03em;
     color: $title-color-dark-theme;
-    @media screen and (max-width: 479px) {
+    @media screen and (max-width: 767px) {
       width: 136px;
     }
   }
@@ -112,17 +123,16 @@
     padding-bottom: 20px;
     padding-left: 30px;
     padding-right: 34px;
-    background-color: $title-color-dark-theme;
 
-    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+    background-color: $title-color-dark-theme;
   }
   &__item {
     &:not(:last-child) {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
   }
   &__number {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 
     font-weight: 700;
     font-size: 14px;
