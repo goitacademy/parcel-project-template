@@ -11,28 +11,32 @@
 .about-list-item {
   background: $white-color;
   box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.1);
+}
+.about-list-link {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
     background-color: $accent-color;
   }
 }
-.about-list-item:hover .about-list-svg {
-  fill: $white-color;
-}
-.about-list-item:hover .about-name {
-  color: $white-color;
-}
-.about-list-item:hover .about-list-position::before {
-  color: $white-color;
-}
-.about-list-item:hover .about-list-position {
-  color: $white-color;
-}
-.about-list-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.about-list-link:hover,
+.about-list-link:focus {
+  .about-list-svg {
+    fill: $white-color;
+  }
+  .about-name {
+    color: $white-color;
+  }
+  .about-list-position::before {
+    background-color: $white-color;
+  }
+  .about-list-position {
+    color: $white-color;
+  }
 }
 .about-list-svg {
   fill: $accent-color;
@@ -138,6 +142,7 @@
   .about-name {
     width: 365px;
     @include font(700, 20px, 28px, 0.08em);
+    margin-top: 30px;
     margin-bottom: 32px;
   }
   .about-list-position {
