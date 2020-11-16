@@ -1,5 +1,7 @@
 .modal-menu {
+  backdrop-filter: blur(3px);
   position: absolute;
+  z-index: 999;
   top: 0;
   left: 0;
   width: 100%;
@@ -15,7 +17,7 @@
     padding-top: 40px;
     padding-bottom: 40px;
   }
-  @media screen and (min-width: 1320px) {
+  @media screen and (min-width: 1344px) {
     display: none;
   }
 
@@ -24,7 +26,7 @@
     visibility: hidden;
     pointer-events: none;
     transform: translateY(-100%);
-    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 500ms cubic-bezier($cubic-bezier);
   }
 
   &__header {
@@ -54,6 +56,7 @@
     color: $primary-white-color;
     @media screen and (min-width: 768px) {
       @include font($fw: 800, $fs: 26px, $lh: 47px);
+      transition: color $transition-duration cubic-bezier($cubic-bezier);
     }
 
     &:hover,
@@ -69,13 +72,14 @@
   background-color: transparent;
   cursor: pointer;
   outline: none;
+  transition: fill $transition-duration cubic-bezier($cubic-bezier);
 
   &:hover &__icon,
   &:focus &__icon {
     fill: $accent-color;
   }
 
-  @media screen and (min-width: 1320px) {
+  @media screen and (min-width: 1344px) {
     display: none;
   }
 }
