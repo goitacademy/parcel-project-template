@@ -2,8 +2,7 @@
   position: relative;
   padding-top: 50px;
   padding-bottom: 50px;
-  height: 564px;
-
+  background: #fefefe;
   text-align: center;
 
   &__title {
@@ -11,7 +10,12 @@
     letter-spacing: 0.03em;
     color: $primary-black-color;
 
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+      @include font(800, 26px, 34px);
+      margin-bottom: 30px;
+    }
   }
 
   &__list {
@@ -21,20 +25,52 @@
 
   &__prev-btn {
     position: absolute;
-    left: 0;
-    bottom: 20px;
+    left: 20px;
+    bottom: 70px;
   }
 
   &__next-btn {
     position: absolute;
-    right: 0;
-    bottom: 20px;
+    right: 20px;
+    bottom: 70px;
+  }
+
+  &__photos-list {
+    display: flex;
+    width: 192px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__photos-item {
+    min-width: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 }
 
 .testimonial {
-  min-width: 280px;
-  flex-grow: 0;
+  min-width: 100%;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+
+  background: #ffffff;
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+  }
 
   &__photo-thumb {
     display: inline-block;
@@ -44,16 +80,75 @@
     border-style: none;
     overflow: hidden;
     margin-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+      width: 150px;
+      height: 150px;
+    }
   }
 
   &__social {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
   }
 
   &__social-link {
-    display: inline-block;
+    display: block;
+    height: 30px;
   }
 
   &__social-svg {
     fill: #436eab;
+  }
+
+  &__student-name {
+    @include font(800, 14px, 17px);
+    letter-spacing: 0.08em;
+    color: $accent-color;
+    margin-bottom: 10px;
+
+    @media screen and (min-width: 768px) {
+      @include font(800, 20px, 24px);
+      margin-bottom: 20px;
+    }
+  }
+
+  &__subtitle {
+    @include font(500, 12px, 15px);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+    max-width: 355px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 20px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &__description {
+    margin-bottom: 10px;
+    @include font(500, 12px, 20px);
+    color: #3d3d3d;
+  }
+
+  &_long-switch-btn {
+    color: $accent-color;
+    text-decoration: underline;
+  }
+
+  &__avatar-side {
+    @media screen and (min-width: 768px) {
+      padding-right: 46px;
+    }
+  }
+
+  &__description-side {
+    @media screen and (min-width: 768px) {
+      text-align: start;
+    }
   }
 }
