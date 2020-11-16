@@ -1,17 +1,280 @@
 /* ========== syllabus ========== */
 .syllabus {
+  position: relative;
+  background-color: $title;
   &__container {
+    display: block;
     padding-top: 50px;
     padding-bottom: 537px;
+  }
+
+  &__title {
+    font-weight: 800;
+    @include font(20px, 26px);
+    letter-spacing: 0.03em;
+    color: $second-title;
+  }
+
+  &__program {
+    display: block;
+    position: relative;
+    margin-top: 43px;
+    margin-left: 80px;
+
+    &:before {
+      display: inline-block;
+      position: absolute;
+      top: 15px;
+      left: -6.5px;
+      content: '';
+      background-color: $second-title;
+      width: 1px;
+      height: calc(100% - 110px);
+    }
+  }
+
+  &__semester {
+    padding-left: 20px;
+    font-weight: 700;
+    @include font(14px, 28px);
+    letter-spacing: 0.08em;
+    color: $second-title;
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+    &-title {
+      display: inline-block;
+      position: relative;
+      &::before {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: -20px;
+        transform: translate(-100%, -50%);
+        content: '';
+        background-color: $accent-color;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &__field {
+    @include font(12px, 20px);
+    color: $accent-color;
+    text-transform: none;
+
+    &-wrapper {
+      margin-top: 5px;
+    }
+    &-title {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 0px;
+      margin-bottom: 5px;
+      &::before {
+        display: inline-block;
+        margin-right: 5px;
+        content: '';
+        background-color: $accent-color;
+        width: 12px;
+        height: 1px;
+      }
+    }
+  }
+
+  &__item {
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    color: $text;
+    opacity: 0.5;
+  }
+
+  &:after {
+    display: block;
+    position: absolute;
+    bottom: 440px;
+    right: 0;
+    content: '';
+    width: 120px;
+    height: 137px;
+    opacity: 0.5;
+    background-size: 120px 137px;
+    background-repeat: no-repeat;
+    background-image: url('../images/syllabus/mobile-program.png');
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/syllabus/mobile-program@2x.png');
+    }
   }
 }
 
 .advantages {
-  position: relative;
-
+  background-color: $second-title;
   &__container {
+    display: block;
+    position: relative;
+    padding-bottom: 231px;
+  }
+
+  &__wrapper {
     position: absolute;
     left: 50%;
     bottom: 0;
+    transform: translateX(-50%);
+    width: calc(100% - 2 * 20px);
+  }
+
+  &__title {
+    font-weight: 800;
+    @include font(20px, 27px);
+    letter-spacing: 0.03em;
+    color: $second-title;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 726px) {
+  .syllabus {
+    &__title {
+      text-align: center;
+    }
+    &__field {
+      &:not(:first-child) {
+        margin-top: 8px;
+      }
+    }
+  }
+  .advantages {
+    &__title {
+      width: 180px;
+    }
+  }
+}
+
+@media screen and (min-width: 727px) {
+  .syllabus {
+    &__container {
+      padding-top: 60px;
+      padding-bottom: 392px;
+    }
+
+    &__title {
+      @include font(26px, 34px);
+    }
+
+    &__program {
+      margin-top: 52px;
+      margin-left: 70px;
+    }
+
+    &__semester {
+      padding-left: 50px;
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+      &-title {
+        &::before {
+          left: -50px;
+        }
+      }
+    }
+
+    &__field {
+      max-width: 173px;
+      width: calc(100% / 3);
+      &:not(:first-child) {
+        margin-left: 24px;
+      }
+
+      &-wrapper {
+        display: flex;
+      }
+    }
+
+    &:after {
+      bottom: 253px;
+      width: 384px;
+      height: 280px;
+      background-size: 384px 280px;
+      background-image: url('../images/syllabus/tablet-program.png');
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url('../images/syllabus/tablet-program@2x.png');
+      }
+    }
+  }
+
+  .advantages {
+    &__container {
+      padding-bottom: 252px;
+    }
+    &__wrapper {
+      width: calc(100% - 2 * 20px);
+    }
+    &__title {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (min-width: 1355px) {
+  .syllabus {
+    &__container {
+      padding-top: 120px;
+      padding-bottom: 363px;
+    }
+
+    &:after {
+      bottom: 59px;
+      left: 0;
+      width: 672px;
+      height: 502px;
+      background-size: 672px 502px;
+      background-image: url('../images/syllabus/desktop-program.png');
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url('../images/syllabus/desktop-program@2x.png');
+      }
+    }
+  }
+
+  .advantages {
+    &__container {
+      padding-bottom: 199px;
+    }
+    &__title {
+      visibility: hidden;
+    }
+  }
+}
+
+/*стили блок0листа*/
+.advantages {
+  &__list {
+    padding: 20px 30px;
+    background-color: $second-title;
+    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+  }
+  &__item {
+    font-weight: 700;
+    @include font(14px, 20px);
+    letter-spacing: 0.08em;
+    color: $title;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  &__item-position {
+    display: block;
+    margin-bottom: 10px;
   }
 }
