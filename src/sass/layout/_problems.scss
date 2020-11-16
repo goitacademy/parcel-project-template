@@ -18,63 +18,93 @@
       color: $accent-color;
     }
   }
-}
-.problems-section__problems {
-  position: absolute;
-  display: block;
+  &__list {
+    position: absolute;
+    display: block;
 
-  background-color: $title-color-dark-theme;
-  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
-
-  &-item {
-    font-family: Montserrat;
+    background-color: $title-color-dark-theme;
+    box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+  &__item {
+    display: block;
+    font-family: $main-font;
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 1.714;
     align-items: center;
     letter-spacing: 0.08em;
+    margin-bottom: 10px;
     color: $title-color-light-theme;
-    &::before {
-      position: absolute;
-      display: inline-block;
-      vertical-align: middle;
-      content: '';
-      width: 20px;
-      height: 2px;
-      background-color: $accent-color;
-      border-radius: 2px;
-      left: 0;
-      margin-left: 10px;
+    &:last-child {
+      margin-bottom: 0;
     }
+  }
+
+  &__number {
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.25;
+    align-items: center;
+    letter-spacing: 0.08em;
+    color: $accent-color;
+    margin-bottom: 5px;
   }
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .problems-section {
     height: 545px;
-    &__problem {
-      width: 280px;
-      height: 488px;
-      margin-top: 25px;
+    &__list {
       max-width: 280px;
-      height: 488px;
+      margin-top: 25px;
       padding: 20px 14px 20px 30px;
+    }
+    &__title {
+      display: inline-block;
+      width: 240px;
     }
   }
 }
 
-@media screen and (min-width: 480px) and(max-width: 767px) {
+@media screen and (min-width: 768px) and (max-width: 1199px) {
   .problems-section {
+    height: 340px;
     .container {
       padding-top: 60px;
       position: relative;
+      margin-left: auto;
+      margin-right: auto;
     }
     &__title {
-      font-family: $main-font;
-      font-style: normal;
-      font-weight: 700;
-      font-size: 20px;
+      display: inline-block;
+      font-size: 26px;
+      width: 450px;
+    }
+    &__list {
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: space-between;
+      width: 688px;
+      margin-top: 25px;
+
+      padding: 30px 46px 30px 96px;
+    }
+    &__item {
+      width: 236px;
+      height: 69px;
+      align-content: space-between;
+
+      &:nth-child(odd) {
+        margin-right: 22px;
+      }
+      &:nth-child(n + 5) {
+        margin-bottom: 0;
+      }
     }
   }
 }

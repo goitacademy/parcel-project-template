@@ -11,30 +11,28 @@
     letter-spacing: 0.03em;
     color: $title-color-light-theme;
   }
-  &__list--item {
+  &__item {
     display: block;
     margin-top: 30px;
     text-align: center;
+    width: 280px;
+    height: 280px;
     box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
     cursor: pointer;
     &:hover,
     &:focus,
     &:hover .answers-section__icon,
-    &:hover .answers-section__list-subtitle,
-    &:hover .answers-section__list--description {
+    &:hover .answers-section__subtitle,
+    &:hover .answers-section__description,
+    &:hover .answers-section__description:before {
       background-color: $accent-color;
       color: $title-color-dark-theme;
       fill: $title-color-dark-theme;
     }
-
-    // &::  before {
-    //   display: block;
-    //   content: '';
-    //   height: 48px;
-    // }
   }
-  &__list-subtitle {
+  &__subtitle {
     display: block;
+    margin-bottom: 15px;
     font-family: $main-font;
     font-style: normal;
     font-weight: 700;
@@ -43,20 +41,11 @@
     text-align: center;
     letter-spacing: 0.08em;
     color: $title-color-light-theme;
-    ::after {
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      top: 50%;
-      right: 20px;
-      content: '';
-
-      background-color: $accent-color;
-    }
   }
 
-  &__list--description {
+  &__description {
+    display: block;
+    margin-top: 15px;
     font-family: $main-font;
     font-style: normal;
     font-weight: 500;
@@ -65,23 +54,35 @@
     text-align: center;
     letter-spacing: 0.08em;
     color: #b9b9b9;
+
+    &::before {
+      content: '';
+      position: absolute;
+
+      width: 20px;
+      height: 2px;
+      left: 48%;
+
+      border-radius: 2px;
+      background-color: $accent-color;
+    }
   }
   &__icon {
     width: 57px;
     height: 48px;
     fill: $accent-color;
     cursor: pointer;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .answers-section {
     .container {
-      padding-top: 198px;
-      padding-bottom: 50px;
+      padding-top: 200px;
+      // padding-bottom: 50px;
     }
-    &__list--item {
+    &__item {
       display: block;
       margin-top: 30px;
       padding-top: 30px;
@@ -91,3 +92,9 @@
     }
   }
 }
+// @media screen and (min-width: 768px) and (max-width: 1199px) {
+//   .answers-section {
+//     .container {
+//     }
+//   }
+// }
