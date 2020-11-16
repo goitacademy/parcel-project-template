@@ -35,11 +35,6 @@
 
   &__semester {
     padding-left: 20px;
-    font-weight: 700;
-    @include font(14px, 28px);
-    letter-spacing: 0.08em;
-    color: $second-title;
-    text-transform: uppercase;
 
     &:not(:last-child) {
       margin-bottom: 40px;
@@ -47,6 +42,11 @@
     &-title {
       display: inline-block;
       position: relative;
+      font-weight: 700;
+      @include font(14px, 28px);
+      letter-spacing: 0.08em;
+      color: $second-title;
+      text-transform: uppercase;
       &::before {
         display: inline-block;
         position: absolute;
@@ -63,10 +63,6 @@
   }
 
   &__field {
-    @include font(12px, 20px);
-    color: $accent-color;
-    text-transform: none;
-
     &-wrapper {
       margin-top: 5px;
     }
@@ -75,6 +71,11 @@
       align-items: center;
       padding: 6px 0px;
       margin-bottom: 5px;
+      font-weight: 700;
+      @include font(12px, 20px);
+      letter-spacing: 0.08em;
+      color: $accent-color;
+      text-transform: none;
       &::before {
         display: inline-block;
         margin-right: 5px;
@@ -88,6 +89,7 @@
 
   &__item {
     font-weight: 500;
+    @include font(12px, 20px);
     letter-spacing: 0.07em;
     color: $text;
     opacity: 0.5;
@@ -99,10 +101,11 @@
     bottom: 440px;
     right: 0;
     content: '';
-    width: 120px;
+    width: 37.5vw;
+    // width: 120px;
     height: 137px;
     opacity: 0.5;
-    background-size: 120px 137px;
+    background-size: cover;
     background-repeat: no-repeat;
     background-image: url('../images/syllabus/mobile-program.png');
 
@@ -157,6 +160,8 @@
   }
 }
 
+/*for tablet*/
+
 @media screen and (min-width: 727px) {
   .syllabus {
     &__container {
@@ -170,7 +175,7 @@
 
     &__program {
       margin-top: 52px;
-      margin-left: 70px;
+      margin-left: 77px;
     }
 
     &__semester {
@@ -199,9 +204,10 @@
 
     &:after {
       bottom: 253px;
-      width: 384px;
+      width: 52.7vw;
+      // width: 384px;
       height: 280px;
-      background-size: 384px 280px;
+      background-size: cover;
       background-image: url('../images/syllabus/tablet-program.png');
       @media screen and (min-device-pixel-ratio: 2),
         screen and (min-resolution: 192dpi),
@@ -219,10 +225,13 @@
       width: calc(100% - 2 * 20px);
     }
     &__title {
+      @include font(26px, 34px);
       text-align: center;
     }
   }
 }
+
+/*for desktop*/
 
 @media screen and (min-width: 1355px) {
   .syllabus {
@@ -231,18 +240,84 @@
       padding-bottom: 363px;
     }
 
+    &__title {
+      @include font(46px, 60px);
+    }
+
+    &__program {
+      display: flex;
+      justify-content: space-between;
+      margin: 92px auto 0px auto;
+
+      &:before {
+        top: -8.5px;
+        left: 50%;
+        content: '';
+        height: 1px;
+        width: 128%;
+        transform: translateX(-50%);
+      }
+    }
+
+    &__semester {
+      padding-top: 52px;
+      padding-left: 0px; /*mim-max*/
+      &:not(:last-child) {
+        margin-bottom: 0px; /*mim-max*/
+      }
+
+      &-title {
+        @include font(20px, 28px);
+        &::before {
+          top: -52px;
+          left: 8.5px;
+          width: 17px;
+          height: 16px;
+          transform: translate(-50%, -100%);
+        }
+      }
+    }
+
+    &__field {
+      display: inline-block;
+      margin-top: 25px;
+      min-width: 240px;
+      &-title {
+        margin-bottom: 10px;
+        @include font(20px, 33px);
+        &::before {
+          margin-right: 10px;
+          width: 20px;
+          height: 2px;
+        }
+      }
+      &:not(:first-child) {
+        margin-left: 0;
+      }
+
+      &-wrapper {
+        flex-direction: column;
+      }
+    }
+
     &:after {
       bottom: 59px;
-      left: 0;
-      width: 672px;
+      left: -163px;
+      width: 49.6vw;
+      // width: 672px;
       height: 502px;
-      background-size: 672px 502px;
+      background-size: cover;
       background-image: url('../images/syllabus/desktop-program.png');
       @media screen and (min-device-pixel-ratio: 2),
         screen and (min-resolution: 192dpi),
         screen and (min-resolution: 2dppx) {
         background-image: url('../images/syllabus/desktop-program@2x.png');
       }
+    }
+
+    &__item {
+      @include font(18px, 28px);
+      letter-spacing: 0.08em;
     }
   }
 
@@ -256,7 +331,7 @@
   }
 }
 
-/*стили блок0листа*/
+/*стили блоклиста*/
 .advantages {
   &__list {
     padding: 20px 30px;
