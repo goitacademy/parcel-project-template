@@ -4,19 +4,22 @@
   top: 0;
   width: 100%;
   padding-top: 30px;
+  padding-bottom: 30px;
   background-color: $background-color-white;
   z-index: 20;
+  @media screen and (min-width: $breakpoint-tablet) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  @media screen and (min-width: $breakpoint-desktop) {
+    padding-top: 34px;
+    padding-bottom: 34px;
+  }
 
   & .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-}
-.nav-list {
-  display: none;
-  @media screen and (min-width: $breakpoint-desktop) {
-    display: flex;
   }
 }
 .icon-logo {
@@ -27,11 +30,28 @@
     height: 45px;
   }
 }
+.nav {
+  display: none;
+  @media screen and (min-width: $breakpoint-desktop) {
+    display: block;
+  }
+}
+.nav-list {
+  display: flex;
+  width: 648px;
+  justify-content: space-between;
+}
+
 .nav-list-link {
+  color: $text-color-grey;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.214;
   text-decoration: none;
+  text-transform: uppercase;
   &.nav-list-link:hover,
   &.nav-list-link:focus {
-    color: #ff6b09;
+    color: $accent-color;
   }
 }
 .section-header .button {
@@ -52,6 +72,10 @@
       background-color: $accent-color;
       color: $text-color-white;
     }
+  }
+  @media screen and (min-width: $breakpoint-desktop) {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 .menu-btn {
