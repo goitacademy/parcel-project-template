@@ -2,37 +2,22 @@
   padding-bottom: 50px;
   min-width: 310px;
   font-weight: 700;
-  font-size: 14px;
-  line-height: 1.429;
   letter-spacing: 0.08em;
   color: $title-color;
   &__item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  &__icon {
-    display: block;
-    width: 59px;
-    height: 60px;
-    background-size: contain;
-    background-repeat: no-repeat;
+    &::before {
+      content: '';
+      display: block;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   }
   &__text {
     width: 146px;
   }
-}
-
-.author {
-  background-image: url(../images/icon-author-hero.svg);
-}
-
-.method {
-  background-image: url(../images/icon-method-hero.svg);
-}
-
-.result {
-  background-image: url(../images/icon-result-hero.svg);
 }
 
 @media screen and (max-width: 319px) {
@@ -58,14 +43,14 @@
       margin: 0 auto;
     }
     &__item {
-      &:not(last-child) {
+      &:not(:last-child) {
         margin-bottom: 30px;
       }
     }
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1313px) {
+@media screen and (min-width: 768px) and (max-width: 1343px) {
   .advantages {
     .container {
       width: 718px;
@@ -81,8 +66,36 @@
   }
 }
 
-@media screen and (min-width: 1314px) {
+@media screen and (max-width: 1343px) {
   .advantages {
+    font-size: 14px;
+    line-height: 1.429;
+    &__item {
+      &::before {
+        width: 59px;
+        height: 60px;
+      }
+    }
+  }
+  .author::before {
+    background-image: url('./../images/advantages/author-mobile.svg');
+  }
+
+  .method::before {
+    background-image: url('./../images/advantages/method-mobile.svg');
+  }
+
+  .result::before {
+    background-image: url('./../images/advantages/result-mobile.svg');
+  }
+}
+
+@media screen and (min-width: 1344px) {
+  .advantages {
+    .container {
+      width: 1344px;
+      margin: 0 auto;
+    }
     max-width: 1688px;
     padding-bottom: 130px;
     &__list {
@@ -90,10 +103,10 @@
     }
     &__item {
       width: 448px;
-    }
-    &__icon {
-      width: 100px;
-      height: 102px;
+      &::before {
+        width: 100px;
+        height: 102px;
+      }
     }
     &__text {
       width: 366px;
@@ -101,5 +114,16 @@
       font-size: 20px;
       line-height: 1.65;
     }
+  }
+  .author::before {
+    background-image: url('./../images/advantages/author-desktop.svg');
+  }
+
+  .method::before {
+    background-image: url('./../images/advantages/method-desktop.svg');
+  }
+
+  .result::before {
+    background-image: url('./../images/advantages/result-desktop.svg');
   }
 }
