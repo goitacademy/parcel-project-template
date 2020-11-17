@@ -1,0 +1,231 @@
+.registration {
+  max-width: 1680px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $bgn-dark-theme;
+  color: #fff;
+
+  & .section-title {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    @media screen and (max-width: 767px) {
+      max-width: 280px;
+      @include font(800, 14px, 19px);
+    }
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      max-width: 680px;
+    }
+    @media screen and (min-width: 1200px) {
+      max-width: 1100px;
+    }
+  }
+
+  &-description {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 280px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.25;
+    text-align: center;
+    letter-spacing: 0.08em;
+
+    @media screen and (min-width: 768px) {
+      @include font(600, 14px, 17px);
+      max-width: 442px;
+      margin-bottom: 40px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      @include font(600, 30px, 37px);
+      max-width: 950px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &-text__second-color {
+    color: $accent-color;
+  }
+
+  &-form {
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: 5px;
+    padding-right: 5px;
+
+    @media screen and (min-width: 768px) {
+      max-width: 390px;
+    }
+  }
+
+  &-form-field {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &-form-lable {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    transition: transform 250ms $timing-function;
+
+    @include font(600, 14px, 17px);
+    letter-spacing: 0.08em;
+
+    @media screen and (min-width: 1200px) {
+      @include font(600, 20px, 24px);
+    }
+  }
+
+  &-form-input {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    width: 100%;
+
+    @include font(600, 14px, 17px);
+    letter-spacing: 0.08em;
+
+    @media screen and (min-width: 1200px) {
+      @include font(600, 20px, 24px);
+
+      transition: border 250ms $timing-function;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $accent-color;
+    }
+
+    // =============== Add placeholders and check validation==========
+
+    &::placeholder {
+      opacity: 0;
+    }
+
+    &:focus::placeholder {
+      opacity: 1;
+      color: rgb(179, 178, 178);
+      transition: opacity 750ms $timing-function;
+    }
+
+    &:required:focus:invalid:not(:placeholder-shown) {
+      border: 1px solid red;
+    }
+
+    &:required:focus:valid:not(:placeholder-shown) {
+      border: 1px solid green;
+    }
+
+    // =============== END Add placeholders and check validation==========
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  & .button-registration {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // & .btn {
+  //   padding-top: 17px;
+  //   @include font(700, 12px, 15px);
+  //   letter-spacing: 0.08em;
+  //   @media screen and (min-width: 1200px) {
+  //     @include font(700, 14px, 17px);
+  //   }
+  // }
+
+  // mobile
+  @media screen and (max-width: 767px) {
+    background-image: url(../images/registration/mobile/registration-1x-mob.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+    screen and (min-resolution: 192dpi) and (max-width: 767px),
+    screen and (min-resolution: 2dppx) and (max-width: 767px) {
+    background-image: linear-gradient(
+        to right,
+        rgba(47, 48, 58, 0.4),
+        rgba(47, 48, 58, 0.4)
+      ),
+      url(../images/registration/mobile/registration-2x-mob.png);
+  }
+  // End mobile
+
+  // tablet
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    background-image: url(../images/registration/tablet/registration-1x-tab.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1199px),
+    screen and (min-resolution: 192dpi) and (min-width: 768px) and (max-width: 1199px),
+    screen and (min-resolution: 2dppx) and (min-width: 768px) and (max-width: 1199px) {
+    background-image: url(../images/registration/tablet/registration-2x-tab.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  // End tablet
+
+  // desktop
+  @media screen and (min-width: 1200px) {
+    background-image: url(../images/registration/desktop/registration-1x-des.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
+    screen and (min-resolution: 192dpi) and (min-width: 1200px),
+    screen and (min-resolution: 2dppx) and (min-width: 1200px) {
+    background-image: url(../images/registration/desktop/registration-2x-des.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  // END desktop
+}
+
+.registration-form-input:focus + .registration-form-lable,
+.registration-form-input:not(:placeholder-shown) + .registration-form-lable {
+  color: $accent-color;
+  font-size: 12px;
+  transform: translateY(-44px) translateX(-30px);
+}
+
+// ============ ADD ICONS ====================
+
+// .registration-form-svg {
+//   position: absolute;
+//   left: 7px;
+//   top: 50%;
+//   fill: yellow;
+//   transform: translateY(-50%);
+// }
+
+// .registration-form-input ~ .registration-form-svg {
+//   fill: #fff;
+// }
+
+// .registration-form-input:focus ~ .registration-form-svg {
+//   fill: orange;
+// }
+
+// ============ END of ADD ICONS ====================
