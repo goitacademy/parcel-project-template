@@ -1,6 +1,23 @@
 .hero__container {
   padding-bottom: 50px;
 }
+
+.hero__container-flex {
+  margin-bottom: 78px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 114px;
+  }
+}
+
+.hero__content {
+  @media screen and (max-width: 767px) {
+    margin-bottom: 30px;
+  }
+}
+
 .hero__title {
   margin-bottom: 30px;
   font-weight: 800;
@@ -8,6 +25,17 @@
   line-height: 1.36;
   letter-spacing: 0.03em;
   color: #111518;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 24px;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 58px;
+    line-height: 1.3;
+  }
 }
 .hero__text {
   margin-bottom: 30px;
@@ -22,9 +50,21 @@
   &-part-last {
     color: #ff6b09;
   }
+
+  @media screen and (min-width: 1314px) {
+    margin-bottom: 40px;
+    font-size: 20px;
+    line-height: 1.649;
+  }
 }
+
+.hero-text-is-hidden {
+  @media screen and (min-width: 1314px) {
+    display: none;
+  }
+}
+
 .hero__btn {
-  margin-bottom: 30px;
   color: #ffffff;
   background-color: #ff6b09;
   &:hover,
@@ -32,12 +72,31 @@
     color: #ff6b09;
     background-color: transparent;
   }
+
+  @media screen and (min-width: 768px) {
+    margin-left: 0;
+  }
 }
 
 .hero__img {
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 78px;
+  @media screen and (max-width: 767px) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @media screen and (min-width: $mobile) {
+    min-width: 208px;
+    height: auto;
+  }
+
+  @media screen and (min-width: $tablet) {
+    min-width: 376px;
+    height: auto;
+  }
+
+  @media screen and (min-width: $desktop) {
+    min-width: 842px;
+  }
 }
 
 .hero__list {
@@ -46,6 +105,13 @@
 
   @media screen and (min-width: 270px) {
     width: 216px;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
   }
 }
 
@@ -81,7 +147,9 @@
   }
 
   &:not(:last-child) {
-    margin-bottom: 30px;
+    @media screen and (max-width: 767px) {
+      margin-bottom: 30px;
+    }
   }
 }
 
@@ -95,4 +163,9 @@
   // background-repeat: no-repeat;
   background-size: contain;
   z-index: -1;
+
+  @media screen and (min-width: 768px) {
+    top: 0;
+    height: 600px;
+  }
 }
