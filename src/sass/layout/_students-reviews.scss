@@ -1,0 +1,245 @@
+.students-review{
+    padding: 25px 0 50px 0;
+    text-align: center;
+    min-width: 320px;
+    width: 100%;
+
+    &__section-title{
+        @include font (800, 20px, 26px);
+        letter-spacing: 0.03em;
+        color: $background-dark;
+        margin-bottom: 20px;
+    }
+    &__container{
+        padding: 20px 20px 30px 20px;
+        margin-bottom: 20px;
+        box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+    }
+    &__profile-photo{
+        @extend %block-m;
+        margin-bottom: 20px;
+    }
+    &__social{
+        margin-bottom: 20px;
+    }
+    &__name{
+        @include font (800, 14px, 17px);
+        letter-spacing: 0.08em;
+        color: $color-accent;
+        margin-bottom: 10px;
+    }
+    &__education{
+        @include font (500, 12px, 15px);
+        letter-spacing: 0.08em;
+        color: $color-text-light-2;
+        margin: 0 0 10px 0;
+    }
+    &__review{
+        @include font (500, 12px, 20px);
+        color: $color-text-dark-2;
+    }
+    &__review--extend{
+        color: $color-accent;
+    }
+}
+
+.students-review__thumbnail{
+    &--container {
+        @extend %flex-j;
+        overflow: hidden;
+    }
+    &--img:hover,
+    &--img:focus,
+    &--img:active{
+        border: 1px solid $color-accent;
+        border-radius: 50%;
+    }
+}
+
+/* Слайдер */
+.slick-slider{}
+/* Слайдер запущен */
+.slick-slider.slick-initialized{}
+/* Слайдер с точками */
+.slick-slider.slick-dotted{}
+/* Ограничивающая оболочка */
+.slick-list {
+    overflow: hidden;
+}
+/* Лента слайдов */
+.slick-track{
+    display: flex;
+}
+.students-review .container{
+    position: relative;
+}
+.slider .slick-arrow{
+    position: absolute;
+    top: 50%;
+    margin: 13px 0 0 0;
+    z-index: 999;
+    font-size: 0;
+    width: 25px;
+    height: 26px;
+    border: none;
+}
+/* Слайд */
+.slick-slide{}
+/* Слайд активный (показывается) */
+.slick-slide.slick-active{}
+/* Слайд основной */
+.slick-slide.slick-current{}
+/* Слайд по центру */
+.slick-slide.slick-center{}
+/* Клонированный слайд */
+.slick-slide.slick-cloned{}
+/* Стрелка */
+.slick-arrow{}
+/* Стрелка влево */
+.slider .slick-arrow.slick-prev{
+    left: 26px;
+    background: url(../images/students-reviews/Arrow-prev.svg) no-repeat;
+}
+/* Стрелка вправо */
+.slider .slick-arrow.slick-next{
+    right:26px;
+    background: url(../images/students-reviews/Arrow-next.svg) 100% no-repeat;
+}
+/* Стрелка не активная */
+.slick-arrow.slick-disabled{}
+
+/* Точки (булиты) */
+.slider .slick-dots{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.slider .slick-dots li{
+    list-style: none;
+    margin: 0 5px;
+}
+.slider .slick-dots button{
+    font-size: 0;
+    width: 54px;
+    height: 54px;
+    border: none;
+    border-radius: 50%;
+
+    &#slick-slide-control00 {
+        background: url(../images/students-reviews/student-1.jpg) 100% no-repeat;
+    }
+    &#slick-slide-control01 {
+        background: url(../images/students-reviews/student-2.jpg) 100% no-repeat;
+    }
+    &#slick-slide-control02 {
+        background: url(../images/students-reviews/student-3.jpg) 100% no-repeat;
+    }
+    &#slick-slide-control03 {
+        background: url(../images/students-reviews/student-4.jpg) 100% no-repeat;
+    }
+    &#slick-slide-control04 {
+        background: url(../images/students-reviews/student-5.jpg) 100% no-repeat;
+    }
+    &#slick-slide-control05 {
+        background: url(../images/students-reviews/student-6.jpg) 100% no-repeat;
+    }
+    &#slick-slide-control06 {
+        background: url(../images/students-reviews/student-7.jpg) 100% no-repeat;
+    }
+}
+/* Активная точка */
+.slider .slick-dots li.slick-active button {
+    border: 1px solid $color-accent;
+}
+/* Элемент точки */
+.slick-dots li button{}
+
+@media screen and (max-width: $bp-tablet){
+    .students-review__thumbnail{
+        &--img:not(:first-child){
+            margin-left: 10px;
+        }
+            &--img:not(:last-child){
+            margin-right: 10px;
+        }
+    }
+}
+
+@media screen and (min-width: $bp-tablet){
+    .students-review{
+        &__section-title{
+            @include font (800, 26px, 34px);
+            margin-bottom: 30px;
+        }
+        &__container{
+            display: flex;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        &__img-wrapper{
+            margin-right: 46px;
+        }
+        &__profile-photo{
+            width: 150px;
+            height: 150px;
+        }
+
+        &__description-container{
+            text-align: start;
+            max-width:412px;
+        }
+
+        &__name{
+            @include font (800, 20px, 24px);
+            margin-bottom: 20px;
+        }
+        &__education{
+            margin-bottom: 20px;
+        }
+    }
+
+    .students-review__thumbnail{
+        &--container{
+            max-width: 558px;
+            margin: 0 auto;
+        }  
+        
+        &--img:not(:last-child){
+            margin-right: 30px;
+            }
+    }    
+}
+
+@media screen and (min-width: $bp-desktop){
+    .students-review{
+        padding: 65px 0 130px 0;
+        min-width: 1680px;
+        width: 100%;
+
+        &__section-title{
+            @include font (800, 46px, 60px);
+            margin-bottom: 50px;
+        }
+        &__container{
+            display: flex;
+            padding: 50px 112px 50px 82px;
+            margin-bottom: 40px;
+        }
+    
+        &__description-container{
+            max-width:706px;
+        }
+
+        &__name{
+            @include font (800, 30px, 37px);
+            margin-bottom: 10px;
+        }
+        &__education{
+            @include font (500, 14px, 17px);
+        }
+        &__review{
+            @include font (500, 18px, 28px);
+        }
+    }
+}
+
