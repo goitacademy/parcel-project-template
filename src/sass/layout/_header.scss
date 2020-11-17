@@ -8,19 +8,10 @@ ul {
 button {
   padding: 0;
 }
-section,
-footer {
+section {
   scroll-margin-top: 90px;
-  @media screen and (min-width: $bp-tablet) {
-    scroll-margin-top: 128px;
-  }
-  @media screen and (min-width: $bp-desktop) {
-    scroll-margin-top: 137px;
-  }
 }
-
 // MOBILE------------------------
-
 header {
   width: 100%;
   height: 90px;
@@ -29,7 +20,6 @@ header {
   position: fixed;
   z-index: 100;
   width: 100%;
-  height: 100%;
 }
 .header-background {
   background-color: $background-light;
@@ -39,25 +29,26 @@ header {
   padding-top: 30px;
   padding-bottom: 30px;
 }
-
 .mobile-menu {
-  display: block;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-
+  z-index: 200;
   padding: 30px 20px;
-
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  overflow-y: scroll;
   background: rgba(17, 21, 24, 0.9);
+  @include transition(all);
 }
 .mobile-menu.is-hidden {
-  display: none;
-}
-.mobile-menu.is-hidden .menu-button {
-  background-color: red;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 .mobile-menu__up-wrapper {
   @extend %flex-j;
@@ -65,13 +56,12 @@ header {
   margin: 0 auto;
 }
 .mobile-menu__menu-button {
-  --color2: #ffffff;
+  --color2: #FFFFFF;
 }
 .menu-button,
 .mobile-menu__menu-button {
   display: inline-block;
   margin-left: auto;
-
   background-color: transparent;
   outline: transparent;
   border: none;
@@ -80,9 +70,7 @@ header {
 .mobile-menu__logo.logo {
   color: $color-text-light;
 }
-
 // NAVIGATION
-
 .mob-site-nav {
   display: flex;
   align-items: baseline;
@@ -95,21 +83,15 @@ header {
 }
 .mob-site-nav__link {
   font-style: normal;
-
   @include font(800, 20px, 36px);
-
   letter-spacing: 0.03em;
-
   color: $color-text-light;
-
   @include transition(color);
-
   &:hover,
   & :focus {
     color: $color-accent;
   }
 }
-
 .consultation-button {
   display: block;
   margin-left: 239px;
@@ -127,19 +109,16 @@ header {
     display: block;
   }
 }
-
 // TABLET--------------------------------
 @media screen and (min-width: $bp-tablet) {
   header {
     height: 128px;
   }
-  .anchor {
-    top: -128px;
+  section {
+    scroll-margin-top: 128px;
   }
-
   .header-container {
     align-items: baseline;
-
     padding-top: 40px;
     padding-bottom: 30px;
   }
@@ -152,7 +131,6 @@ header {
   .menu-button {
     margin-left: 40px;
   }
-
   .mobile-menu__up-wrapper {
     width: 685px;
     height: 45px;
@@ -164,7 +142,6 @@ header {
     margin-left: auto;
   }
 }
-
 // DESKTOP------------------------------------
 .site-nav {
   display: none;
@@ -178,31 +155,23 @@ header {
 }
 .site-nav__link {
   font-style: normal;
-
   @include font(700, 14px, 17px);
-
   letter-spacing: 0.03em;
-
   text-transform: uppercase;
-
   color: $color-text-light-2;
-
   @include transition(color);
-
   &:hover,
   & :focus {
     color: $color-accent;
   }
 }
-
 @media screen and (min-width: $bp-desktop) {
   header {
     height: 128px;
   }
-  .anchor {
-    top: -137px;
+  section {
+    scroll-margin-top: 137px;
   }
-
   .menu-button {
     display: none;
   }
