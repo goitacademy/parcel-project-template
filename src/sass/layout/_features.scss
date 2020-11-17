@@ -2,16 +2,14 @@
   padding-top: 30px;
   padding-bottom: 50px;
 
-  background-color: #e5e5e5;
+  @media screen and (min-width: 768px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 
   @media screen and (min-width: 1316px) {
     padding-top: 95px;
     padding-bottom: 130px;
-  }
-
-  @media screen and (min-width: 768px) {
-    padding-top: 50px;
-    padding-bottom: 50px;
   }
 
   &-title {
@@ -29,11 +27,12 @@
   }
 
   &-list-item {
-    @media screen and (min-width: 320px) {
-      width: 216px;
-    }
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
     @media screen and (min-width: 1316px) {
-      width: 448px;
+      padding-left: 82px;
     }
 
     @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -53,6 +52,38 @@
         margin-right: 0px;
       }
     }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+
+      margin-right: 10px;
+
+      @media screen and (min-width: 320px) {
+        width: 59px;
+        height: 60px;
+      }
+      @media screen and (min-width: 1316px) {
+        position: absolute;
+        transform: translateX(-82px);
+        width: 100px;
+        height: 102px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &-list-text {
+    @media screen and (min-width: 320px) {
+      width: 146px;
+    }
+
+    @media screen and (min-width: 1316px) {
+      width: 366px;
+    }
   }
 
   &-list-item &-list-text {
@@ -61,5 +92,27 @@
     @media screen and (min-width: 1316px) {
       @include font(700, 20px, 33px, 0.08em);
     }
+  }
+}
+
+.icon-1::before {
+  background-image: url('../images/features/features-icon-1.svg');
+
+  @media screen and (min-width: 1316px) {
+    background-image: url('../images/features/features-icon-1desc.svg');
+  }
+}
+.icon-2::before {
+  background-image: url('../images/features/features-icon-2.svg');
+
+  @media screen and (min-width: 1316px) {
+    background-image: url('../images/features/features-icon-2desc.svg');
+  }
+}
+.icon-3::before {
+  background-image: url('../images/features/features-icon-3.svg');
+
+  @media screen and (min-width: 1316px) {
+    background-image: url('../images/features/features-icon-3desc.svg');
   }
 }
