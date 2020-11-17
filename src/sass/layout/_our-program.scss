@@ -6,12 +6,42 @@
     $light-theme-header-color 90%,
     $dark-theme-header-color 90%
   );
+
+  @media screen and (min-width: 728px) {
+    padding-top: 60px;
+  }
 }
 
 .program-section-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
+
+  @media screen and (max-width: 727px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translateY(70%);
+
+    display: block;
+
+    content: '';
+    width: 120px;
+    height: 137px;
+    background-image: url(../images/program-section/program-img-mobile.png);
+    background-repeat: no-repeat;
+
+    @media screen and (min-width: 728px) {
+      transform: translateY(55%);
+
+      width: 384px;
+      height: 280px;
+      background-image: url(../images/program-section/program-img-tablet.png);
+    }
+  }
 }
 
 .program-section .title {
@@ -22,12 +52,24 @@
   line-height: 1.3;
   letter-spacing: 0.03em;
   color: $dark-theme-header-color;
+
+  @media screen and (min-width: 728px) {
+    margin-bottom: 52px;
+    font-size: 26px;
+  }
 }
 
 .program-list-wrapper {
   display: flex;
   padding-left: 25px;
-  max-width: 208px;
+
+  @media screen and (max-width: 727px) {
+    max-width: 208px;
+  }
+
+  @media screen and (min-width: 728px) {
+    padding-left: 55px;
+  }
 
   &::before {
     position: relative;
@@ -37,11 +79,20 @@
     padding-right: 24px;
     border-left: 1px solid $dark-theme-header-color;
     height: 1282px;
+
+    @media screen and (min-width: 728px) {
+      padding-right: 54px;
+      height: 704px;
+    }
   }
 }
 
 .program-list-item:not(:first-child) {
   margin-top: 40px;
+
+  @media screen and (min-width: 728px) {
+    margin-top: 30px;
+  }
 }
 
 .semester-title {
@@ -65,6 +116,16 @@
     width: 12px;
     height: 12px;
     fill: $accent-color;
+
+    @media screen and (min-width: 728px) {
+      transform: translate(-61px, 50%);
+    }
+  }
+}
+
+.semester-list {
+  @media screen and (min-width: 728px) {
+    display: flex;
   }
 }
 
@@ -88,5 +149,21 @@
 }
 
 .semester-list-item:not(:first-child) {
-  margin-top: 14px;
+  @media screen and (max-width: 727px) {
+    margin-top: 14px;
+  }
+}
+
+@media screen and (min-width: 728px) {
+  .semester-list-item:not(:first-child) {
+    margin-left: 50px;
+  }
+
+  .semester-list-item:first-child {
+    width: 176px;
+  }
+
+  .semester-list-item:nth-child(2) {
+    width: 155px;
+  }
 }
