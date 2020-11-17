@@ -1,10 +1,44 @@
-//Example API Request
-//https://api.themoviedb.org/3/movie/550?api_key=6914e86918040074e2fe382ba8e8cb5e
-export default async (name, page) => {
-	try {
-		const db = await fetch(`https://developers.themoviedb.org/3/trending/all/week?api_key=6914e86918040074e2fe382ba8e8cb5e`);
-		return db.json();
-	} catch (error) {
-		return error;
-	}
+const API_KEY = '6914e86918040074e2fe382ba8e8cb5e';
+const BASE_URL = 'https://api.themoviedb.org/3/';
+
+export default class FilmsApiService {
+  constructor() {
+    this.searchQuery = '';
+    this.page = 1;
+  }
+
+  fetchFilms() {
+    return fetch(
+      `${BASE_URL}trending/movie/day?api_key=${API_KEY}&page=${this.page}`,
+    )
+      .then(response => response.json())
+      .then(({ results }) => {
+        this.incrementPage();
+        return results;
+      });
+  }
+
+  fetchGenres() {
+    return fetch(`${BASE_URL}genre/movie/list?api_key=${API_KEY}`)
+      .then(response => response.json())
+      .then(list => {
+        return list.genres;
+      });
+  }
+
+  incrementPage() {
+    this.page += 1;
+  }
+
+  resetPage() {
+    this.page = 1;
+  }
+
+  get query() {
+    return this.searchQuery;
+  }
+
+  set query(newQuery) {
+    this.searchQuery = newQuery;
+  }
 }
