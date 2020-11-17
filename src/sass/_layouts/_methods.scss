@@ -1,0 +1,163 @@
+@keyframes change_fill {
+  50% {
+    fill: #f70f0f;
+  }
+}
+
+.methods {
+  text-align: center;
+
+  @media screen and (min-width: 1366px) {
+    padding: 130px 0;
+  }
+
+  &-title {
+    color: $primary-color;
+    margin-bottom: 30px;
+    @media screen and (min-width: 1366px) {
+      text-align: left;
+      margin-bottom: 50px;
+    }
+  }
+  &-list {
+    @media screen and (min-width: 767px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  &-list-item {
+    width: 280px;
+    height: 280px;
+    background-color: #ffffff;
+    box-shadow: $cards-shadow;
+    margin: 0 auto;
+    padding: 30px 0 15px 0;
+
+    overflow: hidden;
+
+    transition: background-color 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:not(:last-child) {
+      @media screen and (max-width: 767px) {
+        margin-bottom: 15px;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      width: calc((100% - 20px) / 2);
+      height: 334px;
+    }
+
+    @media screen and (min-width: 1366px) {
+      width: calc((100% - 2 * 20px) / 3);
+      height: 396px;
+    }
+    &:nth-child(odd) {
+      @media screen and (min-width: 767px) and (max-width: 1366px) {
+        margin-right: 20px;
+      }
+    }
+    &:not(:nth-child(n + 5)) {
+      @media screen and (min-width: 767px) and (max-width: 1366px) {
+        margin-bottom: 27px;
+      }
+    }
+    &:not(:nth-child(3n)) {
+      @media screen and (min-width: 1366px) {
+        margin-right: 20px;
+      }
+    }
+    &:not(:nth-child(n + 4)) {
+      @media screen and (min-width: 1366px) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $accent-color;
+    }
+
+    &:hover &-title,
+    &:hover &-description,
+    &:hover &-line,
+    &:hover svg,
+    &:focus &-title,
+    &:focus &-description,
+    &:focus &-line,
+    &:focus svg {
+      color: #ffffff;
+      fill: #ffffff;
+      animation: slideInUp 1000ms, pulse 1000ms 1000ms;
+    }
+
+    &:hover svg,
+    &:focus svg {
+      animation-name: flip;
+      animation-duration: 2000ms;
+      animation-delay: 1000ms;
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.43;
+      text-align: center;
+      letter-spacing: 0.08em;
+      color: $primary-color;
+      margin-bottom: 5px;
+      padding: 0 17px;
+
+      transition: color 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+
+      @media screen and (min-width: 767px) {
+        padding: 0 41px;
+      }
+      @media screen and (min-width: 1366px) {
+        font-size: 20px;
+        line-height: 1.4;
+        padding: 0 37px;
+      }
+    }
+    &-line {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.649;
+      text-align: center;
+      letter-spacing: 0.08em;
+      color: $accent-color;
+      margin-bottom: 5px;
+      transition: color 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &-description {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1.67;
+      text-align: center;
+      letter-spacing: 0.08em;
+      color: $secondary-color;
+      padding: 0 6px;
+
+      transition: color 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+
+      @media screen and (min-width: 767px) {
+        padding: 0 21px;
+      }
+      @media screen and (min-width: 1366px) {
+        font-size: 18px;
+        line-height: 1.556;
+        padding: 0 35px;
+      }
+    }
+  }
+
+  &-svg {
+    height: 48px;
+    width: 100%;
+    fill: $accent-color;
+    margin-bottom: 20px;
+    transition: fill 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+    animation: change_fill 3s infinite alternate;
+  }
+}
