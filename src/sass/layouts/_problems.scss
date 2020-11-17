@@ -1,0 +1,101 @@
+.problems {
+  &-list {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    top: 155px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 14px;
+    background-color: $title-dark-theme-color;
+    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+    counter-reset: items;
+    :not(:last-child) {
+      margin-bottom: 22px;
+    }
+    @media screen and (min-width: 768px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      top: 129px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      padding-left: 96px;
+      padding-right: 47px;
+      :not(:nth-last-of-type(-n + 2)) {
+        margin-bottom: 20px;
+      }
+      :nth-last-of-type(-n + 2) {
+        margin-bottom: 0px;
+      }
+    }
+    @media screen and (min-width: 1688px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      top: 248px;
+      padding-top: 70px;
+      padding-bottom: 62px;
+      padding-left: 114px;
+      padding-right: 112px;
+      :not(:nth-last-of-type(-n + 3)) {
+        margin-bottom: 49px;
+      }
+      :nth-last-of-type(-n + 3) {
+        margin-bottom: 0px;
+      }
+    }
+  }
+  &-item {
+    position: relative;
+    &::before {
+      display: block;
+      position: static;
+      margin-bottom: 10px;
+      @media screen and (min-width: 768px) {
+        margin-bottom: 16px;
+      }
+      @media screen and (min-width: 1688px) {
+        margin-bottom: 24px;
+      }
+    }
+    @media screen and (min-width: 768px) {
+      flex-basis: 250px;
+    }
+    @media screen and (min-width: 1688px) {
+      flex-basis: 336px;
+    }
+  }
+}
+
+.problems-wraper {
+  position: relative;
+}
+.pseudo-line::before {
+  content: '';
+  height: 2px;
+  width: 14px;
+  background-color: $accent-color;
+  @media screen and (min-width: 1688px) {
+    width: 20px;
+  }
+}
+.pseudo-line::after {
+  content: counter(items, decimal-leading-zero);
+  counter-increment: items;
+  position: absolute;
+  bottom: 100%;
+  left: 23px;
+  transform: translateY(50%);
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2142;
+  letter-spacing: 0.08em;
+  color: $accent-color;
+  @media screen and (min-width: 1688px) {
+    font-size: 20px;
+  }
+}
