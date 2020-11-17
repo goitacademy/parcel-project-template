@@ -10,11 +10,25 @@
   width: 280px;
   background-color: $background-light;
   box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+
+  &__list {
+    @extend %block-m;
+    counter-reset: myCounter;
+    width: 236px;
+  }
 }
-.enumeration__list {
-  @extend %block-m;
-  width: 236px;
-  &--figure {
+.enumeration__list--item {
+  display: block;
+  margin-bottom: 10px;
+
+  @include font(700, 14px, 24px);
+  letter-spacing: 0.08em;
+  color: $color-text-dark;
+
+  &::before {
+    counter-increment: myCounter;
+    content: '— 0' counter(myCounter);
+
     display: block;
     margin-bottom: 5px;
 
@@ -22,36 +36,28 @@
     letter-spacing: 0.08em;
     color: $color-accent;
   }
-  &--text {
-    display: block;
-    margin-bottom: 10px;
-
-    @include font(700, 14px, 24px);
-    letter-spacing: 0.08em;
-    color: $color-text-dark;
-  }
 }
+
 @media screen and (min-width: $bp-tablet) {
   .enumeration {
     transform: translateY(25px);
     padding: 30px 20px 26px 98px;
     width: 688px;
-  }
-  .enumeration__list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 494px;
 
-    &--item {
-      width: 236px;
+    &__list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 494px;
     }
-    &--figure {
+  }
+  .enumeration__list--item {
+    width: 236px;
+    margin-bottom: 24px;
+    @include font(700, 14px, 20px);
+
+    &::before {
       @include font(700, 14px, 23px);
-    }
-    &--text {
-      margin-bottom: 24px;
-      @include font(700, 14px, 20px);
     }
   }
 }
@@ -65,20 +71,19 @@
     transform: translateY(70px);
     padding: 70px 110px 62px 114px;
     width: 1314px;
-  }
-  .enumeration__list {
-    width: 1088px;
-    &--figure {
-      margin-bottom: 10px;
-      @include font(700, 20px, 33px);
-    }
-    &--text {
-      margin-bottom: 32px;
-      @include font(700, 20px, 24px);
+    &__list {
+      width: 1088px;
     }
   }
   .enumeration__list--item {
     width: 336px;
+    margin-bottom: 32px;
+    @include font(700, 20px, 24px);
+
+    &::before {
+      margin-bottom: 10px;
+      @include font(700, 20px, 33px);
+    }
     &:not(:nth-child(3n + 3)) {
       margin-right: 40px;
     }
