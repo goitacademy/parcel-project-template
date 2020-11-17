@@ -1,14 +1,5 @@
-@media screen and (max-width: 319px) {
-  hero {
-    & .container {
-      width: 100%;
-    }
-  }
-}
-
 .hero {
   min-width: 310px;
-  background-size: cover;
   background-repeat: no-repeat;
 
   &__title {
@@ -35,12 +26,20 @@
     text-align: center;
     text-transform: uppercase;
     color: $dark-theme-text-color;
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: $accent-color;
+      border: 2px solid $accent-color;
+    }
   }
-
-  /* &__img {
-    max-width: 208px;
-    margin: 0 auto;
-  } */
+}
+@media screen and (max-width: 319px) {
+  hero {
+    & .container {
+      width: 100%;
+    }
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -55,9 +54,10 @@
 @media screen and (max-width: 767px) {
   .hero {
     padding-top: 110px;
-    padding-bottom: 77px;
-    background-image: url(../images/hero-wave-mobile.svg);
-    background-position: -64px 0;
+    padding-bottom: 284px;
+    background-image: url('./../images/hero/hero-mobile.png'), url('./../images/hero/hero-wave-mobile.svg');
+    background-position: 50% 394px, left bottom;
+    background-size: 208px, 100% 618px;
 
     &__title {
       font-size: 20px;
@@ -70,7 +70,6 @@
     }
     &__button {
       margin: 0 auto;
-      margin-bottom: 30px;
       min-width: 280px;
       height: 48px;
       padding: 16px 10px;
@@ -78,31 +77,17 @@
       line-height: 1.25;
       letter-spacing: 0.08em;
     }
-    &__img {
-      max-width: 208px;
-      margin: 0 auto;
-    }
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 788px) {
-  .hero {
-    &__img {
-      max-width: 356px;
-    }
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1313px) {
+@media screen and (min-width: 768px) and (max-width: 1343px) {
   .hero {
     padding-top: 158px;
     padding-bottom: 142px;
-    background-image: url(../images/hero-wave-desktop.svg);
-    background-size: contain;
-    background-position: left 0 bottom 50px;
+    background-image: url('./../images/hero/hero-tablet.png'), url('./../images/hero/hero-wave-tablet.svg');
+    background-position: top 172px left calc(50% + 175px), left bottom 20px;
+    background-size: 376px, 100% 556px;
     .container {
-      display: flex;
-      align-items: flex-start;
       width: 718px;
       margin: 0 auto;
     }
@@ -120,44 +105,42 @@
       line-height: 1.572;
     }
     &__button {
-      width: 280px;
+      max-width: 280px;
       height: 48px;
       padding: 16px 10px;
       font-size: 12px;
       line-height: 1.25;
       letter-spacing: 0.08em;
     }
-    &__img {
-      align-self: flex-end;
-    }
   }
 }
-@media screen and (min-width: 1314px) and (max-width: 1451px) {
+@media screen and (min-width: 1344px) and (max-width: 1579px) {
   .hero {
-    &__img {
-      max-width: 705px;
-    }
+    background-image: url('./../images/hero/hero-desktop.png'), url('./../images/hero/hero-wave-desktop.svg');
+    background-position: top 172px left calc(50% + 300px), left bottom;
+    background-size: 730px, 100% 878px;
   }
 }
 
-@media screen and (min-width: 1314px) {
+@media screen and (min-width: 1580px) {
+  .hero {
+    background-image: url('./../images/hero/hero-desktop.png'), url('./../images/hero/hero-wave-desktop.svg');
+    background-position: top 172px left calc(50% + 350px), left bottom;
+    background-size: 842px, 100% 878px;
+  }
+}
+
+@media screen and (min-width: 1344px) {
   .hero {
     max-width: 1688px;
-    padding-top: 145px;
-    padding-bottom: 106px;
-    background-image: url(../images/hero-wave-desktop.svg);
-    background-size: cover;
-    background-position: left 0 bottom 50px;
+    padding-top: 224px;
+    padding-bottom: 241px;
     .container {
-      display: flex;
-      align-items: center;
-      width: 1314px;
-      height: 730px;
+      width: 1344px;
       margin: 0 auto;
     }
     &__content {
-      width: 670px;
-      /* flex-basis: 50%; */
+      max-width: 670px;
     }
     &__title {
       font-size: 58px;
@@ -176,9 +159,6 @@
       font-size: 14px;
       line-height: 1.214;
       letter-spacing: 0.14em;
-    }
-    &__img {
-      width: 614px;
     }
   }
 }
