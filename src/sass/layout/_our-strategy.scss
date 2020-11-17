@@ -1,0 +1,180 @@
+:root {
+  --color1: #ff6b09;
+}
+.our-strategy {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+
+  min-width: 320px;
+  width: 100%;
+
+  @media screen and (min-width: $bp-mobile) and (max-width: $bp-desktop) {
+    text-align: center;
+  }
+  @media screen and (max-width: $bp-mobile) {
+    width: 100%;
+  }
+  @media screen and (min-width: $bp-mobile) {
+    width: 100%;
+    max-width: 767px;
+  }
+  @media screen and (min-width: $bp-tablet) {
+    max-width: 1343px;
+    width: 100%;
+  }
+  @media screen and (min-width: $bp-desktop) {
+    padding-top: 130px;
+    padding-bottom: 130px;
+    width: 100%;
+  }
+  &__title {
+    font-style: normal;
+    margin: 0 auto 30px;
+
+    @include font(800, 20px, 26px);
+    letter-spacing: 0.03em;
+
+    @media screen and (min-width: $bp-desktop) {
+      font-size: 46px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+
+    @media screen and (min-width: $bp-tablet) {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    display: block;
+    width: 280px;
+    height: 280px;
+
+    padding: 30px 10px 25px;
+
+    @media screen and (max-width: $bp-mobile) {
+      min-width: 100%;
+    }
+    @media screen and (min-width: $bp-tablet) and (max-width: $bp-desktop) {
+      flex-basis: calc((100% - 2 * 20px) / 2);
+      height: 334px;
+      padding: 40px 20px 30px;
+    }
+    @media screen and (min-width: $bp-desktop) {
+      flex-basis: calc((100% - 2 * 20px) / 3);
+      height: 396px;
+      padding: 40px 30px 55px;
+    }
+    @include transition(box-shadow);
+
+    @include transition(background-color);
+    &:hover {
+      box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+      background-color: $color-accent;
+      .our-strategy__item-title,
+      .our-strategy__description {
+        color: $color-text-light;
+      }
+      .our-strategy__item-title:after,
+      .our-strategy__item-title:after {
+        background-color: $color-text-light;
+      }
+      .our-strategy__item-svg,
+      .our-strategy__item-svg {
+        --color1: #fff;
+      }
+    }
+
+    &-svg {
+      display: block;
+      margin: 0 auto 20px;
+      fill: $color-accent;
+      @media screen and (min-width: $bp-tablet) {
+        margin-bottom: 30px;
+      }
+    }
+
+    &:not(:last-child) {
+      @media screen and (max-width: $bp-tablet) {
+        margin-bottom: 15px;
+      }
+    }
+    &:not(:nth-last-child(-n + 2)) {
+      @media screen and (min-width: $bp-tablet) and (max-width: $bp-desktop) {
+        margin-bottom: 27px;
+      }
+    }
+    &:nth-child(odd) {
+      @media screen and (min-width: $bp-tablet) and (max-width: $bp-desktop) {
+        margin-right: 20px;
+      }
+    }
+    &:not(:nth-last-child(-n + 3)) {
+      @media screen and (min-width: $bp-desktop) {
+        margin-bottom: 20px;
+      }
+    }
+    &:not(:nth-child(3n + 3)) {
+      @media screen and (min-width: $bp-desktop) {
+        margin-right: 20px;
+      }
+    }
+    box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.1);
+
+    &-title {
+      display: block;
+      margin: 0 auto;
+
+      font-style: normal;
+
+      @include font(700, 14px, 20px);
+
+      letter-spacing: 0.03em;
+      text-align: center;
+      @media screen and (min-width: $bp-desktop) {
+        font-size: 20px;
+        line-height: 1.4;
+      }
+
+      &::after {
+        background-color: $color-accent;
+        content: '';
+        display: block;
+        margin: 15px auto;
+        width: 20px;
+        height: 2px;
+        font-weight: 400;
+        text-align: center;
+      }
+    }
+  }
+  &__description {
+    display: inline-block;
+    margin: 0 auto;
+    color: $color-text-light-2;
+
+    font-style: normal;
+    @include font(500, 12px, 20px);
+
+    letter-spacing: 0.03em;
+
+    text-align: center;
+    text-decoration: none;
+    font-style: normal;
+    text-align: center;
+
+    @media screen and (min-width: $bp-desktop) {
+      font-size: 18px;
+      line-height: 1.555;
+    }
+  }
+}
