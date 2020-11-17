@@ -8,6 +8,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.css"
     />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap"
@@ -34,13 +36,44 @@
 
     <script src="./js/menu.js"></script>
     <!-- Подключаем jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- Подключаем слайдер Slick -->
-    <script src="js/slick.min.js"></script>
-    <!-- Подключаем файл скриптов -->
-    <script src="js/script.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+   <script>
+    $('.slider').slick({
+  arrows: true,
+  fade: true,
+  slidesToShow:1,
+  slidesToScroll:1,
+  autoplay:true,
+  autoplaySpeed:4500,
+  dots: true,
+  responsive:[
+			{
+				breakpoint: 767,
+				settings: {
+					slidesToScroll:5
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToScroll:1
+				}
+			}
+		],
+  dotsClass: 'slick-dots slider__dots',
+  customPaging: function(slick, index) {
+    var image = $(slick.$slides[index]).find('.comments-img').attr('src');
+    return '<img src="' + image + '" alt="" /> '
+  }
+})
+   </script>
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
   </body>
 </html>
+
+
