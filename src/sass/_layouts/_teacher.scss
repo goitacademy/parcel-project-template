@@ -1,0 +1,151 @@
+.teacher .section-title {
+  text-align: center;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 30px;
+    text-align: left;
+  }
+
+  @media screen and (min-width: 1366px) {
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .teacher-wrapper {
+    display: flex;
+  }
+
+  .teacher-wrapper-right {
+    padding-left: 40px;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .teacher-wrapper-right {
+    padding-left: 30px;
+  }
+}
+
+.teacher-photo {
+  margin-bottom: 20px;
+  max-width: 243px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 1366px) {
+    max-width: 530px;
+  }
+}
+
+.teacher-name {
+  position: relative;
+  text-align: center;
+
+  @include font(800, 20px, 24px);
+  letter-spacing: 0.08em;
+
+  margin-bottom: 30px;
+
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
+
+  @media screen and (min-width: 1366px) {
+    @include font(800, 30px, 37px);
+    margin-bottom: 45px;
+  }
+}
+
+// псевдоэлемент - серая палка
+.teacher-name::after {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  display: inline-block;
+  content: '';
+  height: 1px;
+  width: 100%;
+  background-color: $secondary-color;
+}
+
+.teacher-exp-list {
+  position: relative;
+  margin-bottom: 40px;
+  margin-left: 30px;
+
+  @include font(600, 14px, 17px);
+  letter-spacing: 0.06em;
+
+  @media screen and (min-width: 1366px) {
+    margin-bottom: 60px;
+    @include font(600, 16px, 20px);
+  }
+}
+
+// псевдоэлемент оранжевая палка
+.teacher-exp-list::after {
+  position: absolute;
+  left: -30px;
+  bottom: -25px;
+  content: '';
+  display: block;
+  background-color: $accent-color;
+  height: 2px;
+  width: 2em;
+}
+
+.teacher-exp-item {
+  // list-style-image: url(/sass/layout/tick-icon.svg);
+  &:not(:last-child) {
+    margin-bottom: 30px;
+
+    @media screen and (max-width: 767px) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.teacher-exp-item::before {
+  content: '';
+  display: inline-flex;
+  background-image: url(../images/svg/tick-icon.svg);
+  margin-left: -27px;
+  margin-right: 9px;
+  width: 18px;
+  height: 14px;
+}
+
+.teacher-resume-list {
+  margin-bottom: 10px;
+
+  @include font(500, 12px, 20px);
+  letter-spacing: 0.06em;
+  color: $secondary-color;
+
+  @media screen and (min-width: 1366px) {
+    margin-bottom: 20px;
+    @include font(500, 18px, 28px);
+  }
+}
+
+.teacher-resume-item {
+  &:not(:last-child) {
+    margin-bottom: 30px;
+
+    @media screen and (max-width: 767px) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.teacher-certificate-link {
+  @include font(500, 12px, 20px);
+  color: $accent-color;
+  text-decoration-skip-ink: none;
+
+  @media screen and (min-width: 1366px) {
+    @include font(500, 18px, 28px);
+  }
+}
