@@ -21,7 +21,7 @@
   }
   @media screen and (min-width: $bp-tablet) {
     padding-top: 210px;
-    max-width: 1344px;
+    max-width: 1343px;
     width: 100%;
   }
   @media screen and (min-width: $bp-desktop) {
@@ -50,7 +50,8 @@
     @media screen and (min-width: $bp-tablet) {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
     }
   }
 
@@ -64,13 +65,13 @@
     @media screen and (max-width: $bp-mobile) {
       min-width: 100%;
     }
-    @media screen and (min-width: $bp-tablet) {
+    @media screen and (min-width: $bp-tablet) and (max-width: $bp-desktop) {
+      flex-basis: calc((100% - 2 * 20px) / 2);
       height: 334px;
-      width: 334px;
       padding: 40px 20px 30px;
     }
     @media screen and (min-width: $bp-desktop) {
-      width: 425px;
+      flex-basis: calc((100% - 2 * 20px) / 3);
       height: 396px;
       padding: 40px 30px 55px;
     }
@@ -106,23 +107,28 @@
     }
 
     &:not(:last-child) {
-      margin-bottom: 15px;
-
-      @media screen and (min-width: $bp-tablet) {
-        margin-bottom: 0;
+      @media screen and (max-width: 767px) {
+        margin-bottom: 15px;
       }
     }
     &:not(:nth-last-child(-n + 2)) {
-      @media screen and (min-width: $bp-tablet) {
+      @media screen and (min-width: $bp-tablet) and (max-width: 1343px) {
         margin-bottom: 27px;
       }
-      @media screen and (min-width: $bp-desktop) {
-        margin-bottom: 0;
+    }
+    &:nth-child(odd) {
+      @media screen and (min-width: $bp-tablet) and (max-width: 1343px) {
+        margin-right: 20px;
       }
     }
     &:not(:nth-last-child(-n + 3)) {
       @media screen and (min-width: $bp-desktop) {
         margin-bottom: 20px;
+      }
+    }
+    &:not(:nth-child(3n + 3)) {
+      @media screen and (min-width: $bp-desktop) {
+        margin-right: 20px;
       }
     }
     box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.1);
