@@ -140,6 +140,27 @@
     color: $second-title;
     margin-bottom: 30px;
   }
+  &__list {
+    padding: 20px 30px;
+    background-color: $second-title;
+    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__num {
+    display: inline-block;
+    margin-bottom: 10px;
+    @include font(14px, 23px);
+  }
+
+  &__name {
+    @include font(14px, 20px);
+  }
 }
 
 @media screen and (max-width: 726px) {
@@ -227,6 +248,19 @@
     &__title {
       @include font(26px, 34px);
       text-align: center;
+    }
+    &__list {
+      align-items: flex-start;
+      justify-content: center;
+      padding: 30px 100px;
+    }
+    &__item {
+      &:not(:nth-last-child(-n + 2)) {
+        margin-bottom: 30px;
+      }
+    }
+    &__name {
+      max-width: 226px;
     }
   }
 }
@@ -328,28 +362,19 @@
     &__title {
       visibility: hidden;
     }
-  }
-}
-
-/*стили блоклиста*/
-.advantages {
-  &__list {
-    padding: 20px 30px;
-    background-color: $second-title;
-    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
-  }
-  &__item {
-    font-weight: 700;
-    @include font(14px, 20px);
-    letter-spacing: 0.08em;
-    color: $title;
-
-    &:not(:last-child) {
-      margin-bottom: 20px;
+    &__list {
+      justify-content: space-between;
+      padding: 70px 84px;
     }
-  }
-  &__item-position {
-    display: block;
-    margin-bottom: 10px;
+
+    &__num {
+      @include font(20px, 33px);
+    }
+
+    &__name {
+      min-width: 356px;
+      @include font(20px, 28px);
+      letter-spacing: 0.06em;
+    }
   }
 }
