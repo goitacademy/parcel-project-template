@@ -5,17 +5,14 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
-// .programm__padding {
-//   padding-top: 50px;
-//   padding-bottom: 50px;
-// }
+
 @media screen and (min-width: 320px) {
-  .programm__padding {
+  .programm__width {
     width: 320px;
   }
 }
 @media screen and (min-width: 768px) {
-  .programm__padding {
+  .programm__width {
     width: 768px;
   }
   .programm {
@@ -23,7 +20,16 @@
     padding-bottom: 189px;
   }
 }
-
+@media screen and (min-width: 1344px) {
+  .programm {
+    padding-top: 114px;
+    padding-bottom: 164px;
+  }
+  .programm__width {
+    width: 1344px;
+    position: relative;
+  }
+}
 // -------------------------------------------
 
 // -------------------------------------------
@@ -31,22 +37,33 @@
   margin-left: 100px;
   position: relative;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1343px) {
   .programm__list {
     margin-left: 120px;
-    position: relative;
   }
 }
+@media screen and (min-width: 1344px) {
+  .programm__list {
+    display: flex;
+  }
+}
+
 .programm-skills__list {
   max-width: 143px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1344px) {
+  .programm-skills__list {
+    max-width: 220px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1343px) {
   .programm-skills__list {
     display: flex;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1343px) {
   .programm-skills__item:first-child {
     margin-right: 80px;
   }
@@ -54,6 +71,7 @@
     margin-right: 80px;
   }
 }
+
 .programm__head {
   font-weight: 800;
   font-size: 20px;
@@ -72,7 +90,18 @@
     text-align: left;
   }
 }
-
+@media screen and (min-width: 1344px) {
+  .programm__head {
+    font-size: 46px;
+    line-height: 1.304;
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 1343px) {
+  .programm__term {
+    position: relative;
+  }
+}
 .programm__term {
   position: relative;
   display: inline-block;
@@ -84,28 +113,67 @@
   color: $primary-white-color;
 }
 
-.programm__term::before {
-  content: '';
-  position: absolute;
-  top: 25%;
-  right: 100%;
-  margin-right: 20px;
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: $accent-color;
-  z-index: 2;
+@media screen and (min-width: 1344px) {
+  .programm__term {
+    font-size: 20px;
+    line-height: 1.4;
+  }
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1343px) {
+  .programm__term::before {
+    content: '';
+    position: absolute;
+    top: 25%;
+    right: 100%;
+    margin-right: 20px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $accent-color;
+    z-index: 2;
+  }
+}
+@media screen and (min-width: 1344px) {
+  .programm__term::before {
+    content: '';
+    position: absolute;
+    bottom: 80px;
+    display: block;
+    width: 17px;
+    height: 16px;
+    border-radius: 50%;
+    background: $accent-color;
+    z-index: 2;
+  }
+
+  .programm__list::before {
+    content: '';
+    position: absolute;
+    display: block;
+    min-width: 500%;
+    height: 2px;
+    margin-left: -500px;
+    background: $primary-white-color;
+  }
+}
+
+@media screen and (min-width: 1344px) {
+}
+.programm__term {
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 1344px) {
+  .programm__term {
+    margin-bottom: 25px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1343px) {
   .programm__term::before {
     content: '';
     margin-right: 50px;
   }
-}
-
-.programm__term {
-  margin-bottom: 5px;
 }
 
 .programm-skills__name {
@@ -117,6 +185,22 @@
   display: flex;
   align-items: center;
 }
+@media screen and (min-width: 1343px) {
+  .programm-skills__name {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.65;
+  }
+}
+
+.programm-skills__name {
+  margin-bottom: 5px;
+}
+@media screen and (min-width: 1344px) {
+  .programm-skills__name {
+    margin-bottom: 10px;
+  }
+}
 .programm-skills__name::before {
   content: '';
   display: block;
@@ -124,10 +208,6 @@
   height: 2px;
   background: $accent-color;
   margin-right: 5px;
-}
-
-.programm-skills__name {
-  margin-bottom: 5px;
 }
 
 .programm-skills__description {
@@ -138,39 +218,63 @@
   color: $primary-text-color;
   opacity: 0.5;
 }
-
+@media screen and (min-width: 1344px) {
+  .programm-skills__description {
+    font-size: 18px;
+    line-height: 1.556;
+  }
+}
 @media screen and (max-width: 767px) {
   .programm-skills__item {
     margin-bottom: 8px;
   }
 }
-
-.programm__item:not(:last-child) {
-  margin-bottom: 40px;
+@media screen and (min-width: 1344px) {
+  .programm-skills__item {
+    margin-bottom: 25px;
+  }
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 767px) {
+  .programm__item:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1343px) {
   .programm__item:not(:last-child) {
     margin-bottom: 30px;
   }
 }
-
-.programm__item:not(:last-child)::before {
-  content: '';
-  position: absolute;
-  display: inline-block;
-  margin-top: 10px;
-  right: 100%;
-  margin-right: 26px;
-  width: 1px;
-  height: 31%;
-  background: $primary-white-color;
+@media screen and (min-width: 1344px) {
+  .programm__item:not(:last-child) {
+    margin-right: 30px;
+  }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1344px) {
+  .programm__item {
+    padding-top: 60px;
+    position: relative;
+  }
+}
+@media screen and (max-width: 1343px) {
+  .programm__item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin-top: 10px;
+    right: 100%;
+    margin-right: 26px;
+    width: 1px;
+    height: 31%;
+    background: $primary-white-color;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1343px) {
   .programm__item:not(:last-child)::before {
     margin-right: 56px;
     height: 29%;
   }
 }
+
 .programm__tests {
   color: $primary-black-color;
   margin-bottom: 10px;
