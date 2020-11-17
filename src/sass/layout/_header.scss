@@ -8,6 +8,9 @@ ul {
 button {
   padding: 0;
 }
+section {
+  scroll-margin-top: 90px;
+}
 
 // MOBILE------------------------
 
@@ -19,7 +22,6 @@ header {
   position: fixed;
   z-index: 100;
   width: 100%;
-  height: 100%;
 }
 .header-background {
   background-color: $background-light;
@@ -31,20 +33,28 @@ header {
 }
 
 .mobile-menu {
-  display: block;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-
+  z-index: 200;
   padding: 30px 20px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  overflow-y: scroll;
 
   background: rgba(17, 21, 24, 0.9);
+
+  @include transition(all);
 }
 .mobile-menu.is-hidden {
-  display: none;
+  opacity: 0;
+
+  visibility: hidden;
+  pointer-events: none;
 }
 .mobile-menu.is-hidden .menu-button {
   background-color: red;
@@ -72,12 +82,6 @@ header {
 }
 
 // NAVIGATION
-.anchor {
-  display: block;
-  position: relative;
-  top: -90px;
-  visibility: hidden;
-}
 .mob-site-nav {
   display: flex;
   align-items: baseline;
@@ -128,8 +132,8 @@ header {
   header {
     height: 128px;
   }
-  .anchor {
-    top: -128px;
+  section {
+    scroll-margin-top: 128px;
   }
 
   .header-container {
@@ -194,8 +198,8 @@ header {
   header {
     height: 128px;
   }
-  .anchor {
-    top: -137px;
+  section {
+    scroll-margin-top: 137px;
   }
 
   .menu-button {
