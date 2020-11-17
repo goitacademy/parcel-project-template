@@ -5,7 +5,7 @@ import refs from './refs';
 const filmsApiService = new FilmsApiService();
 
 function markupPopularMovies(movies) {
-  refs.popularContainer.insertAdjacentHTML('beforeend', popularTpl(movies));
+  refs.moviesContainer.insertAdjacentHTML('beforeend', popularTpl(movies));
 }
 
 function showPopular() {
