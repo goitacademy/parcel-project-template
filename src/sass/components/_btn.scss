@@ -1,0 +1,145 @@
+.btn {
+  font-family: $primary-font;
+
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  color: $primary-color;
+  background-color: $accent-color;
+  padding: 14px 10px 14px;
+  text-align: center;
+  height: 48px;
+  border-radius: 4px;
+  display: flex;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: background-color 250ms $timing-function;
+
+  &:hover {
+    background-color: rgb(175, 112, 83);
+  }
+  &-header {
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 0.08em;
+    color: $accent-color;
+    background-color: transparent;
+    border: 2px solid $accent-color;
+    box-shadow: none;
+    display: none;
+    @media screen and (min-width: 768px) {
+      display: block;
+      margin-right: 40px;
+    }
+    // @media screen and (min-width: 1366px) {
+    //   margin-right: 90px;
+    // }
+    &-mobile {
+      color: $accent-color;
+      margin: 50px auto 0;
+      padding: 14px 10px;
+      background-color: transparent;
+      border: 2px solid $accent-color;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 1.25;
+      letter-spacing: 0.08em;
+      text-align: center;
+
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}
+
+/* кнопка героя и регистрации */
+$time: 1000ms;
+
+$btns: (
+  alpha: (
+    gstart: #ff6b09,
+    gend: #ffffff,
+    tstart: #ffffff,
+    tend: #ff6b09,
+  ),
+);
+
+.button-registration {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  width: 260px;
+  height: 48px;
+  font-family: $primary-font;
+  font-style: normal;
+  @include font(700, 12px, 15px);
+  letter-spacing: 0.08em;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  color: $third-color;
+  background-color: $accent-color;
+  border: none;
+  cursor: pointer;
+  /* transition: background-color 250ms $timing-function; */
+  transition: all $time;
+
+  .btn-reg {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:before {
+    content: '';
+    background-color: #ffffff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scale(4) translateX(-100%);
+    transition: all $time * 1.5 ease-out;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    &:before {
+      transform: scale(4) translate(37%);
+    }
+    border: 2px solid $accent-color;
+  }
+
+  /*  &:hover {
+    color: $accent-color;
+    background-color: $third-color;
+    border: 2px solid $accent-color;
+  } */
+}
+
+@each $bname, $bcolors in $btns {
+  .btn--#{$bname} {
+    background-color: map-get($bcolors, gstart);
+    color: map-get($bcolors, tstart);
+
+    &:before {
+      background-color: map-get($bcolors, gend);
+      background-image: linear-gradient(
+        to right,
+        map-get($bcolors, gend) 30%,
+        map-get($bcolors, gstart) 100%
+      );
+      position: absolute;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: map-get($bcolors, tend);
+    }
+  }
+}
