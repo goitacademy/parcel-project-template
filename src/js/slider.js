@@ -1,8 +1,9 @@
 $(document).ready(function(){
   $('.small-slider').slick({
-    slidesToShow: 1,
+    slidesToShow: 3,
     variableWidth: true,
-    asNavFor: ".big-slider"
+    asNavFor: ".big-slider",
+    mobileFirst: true
   });
   $('.big-slider').slick({
     arrows: false,
