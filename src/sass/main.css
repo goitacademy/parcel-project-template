@@ -42,10 +42,6 @@ img {
   fill: #ff6b09;
 }
 
-main {
-  padding-top: 125px;
-}
-
 .example {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.5;
@@ -90,13 +86,24 @@ html {
   scroll-behavior: smooth;
 }
 
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .header {
   width: 100%;
   min-width: 310px;
   background-color: #ffffff;
   position: fixed;
   z-index: 100;
-  padding: 30px 0;
+}
+
+.header-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 .header-container {
@@ -105,6 +112,11 @@ html {
   display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
+  padding: 30px 0;
+}
+
+.navigation__list-desctop {
+  display: none;
 }
 
 .logo__name {
@@ -131,6 +143,27 @@ html {
 
 .logo__icon {
   display: inline-block;
+}
+
+.header__menu-mobile {
+  min-width: 310px;
+  padding: 30px 20px;
+}
+
+.header__menu-mobile .btn-call {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header__menu-mobile .header__menu-button {
+  position: absolute;
+  top: 30px;
+  right: 0;
+}
+
+.header__menu-mobile .btn-call {
+  margin-top: 50px;
 }
 
 .btn-call,
@@ -172,16 +205,20 @@ html {
   color: #ffffff;
 }
 
-.btn-call-tablet {
-  display: none;
-}
-
+.btn-call-tablet,
 .btn-call {
   display: none;
 }
 
 .header__menu-container {
-  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(17, 21, 24, 0.9);
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  z-index: 100;
 }
 
 .header__menu-button {
@@ -201,27 +238,12 @@ html {
   width: 310px;
 }
 
-.logo,
-.logo-menu {
+.logo {
   margin-right: auto;
 }
 
 .header__icon-cross {
-  display: none;
   fill: white;
-}
-
-.header__menu-button.is-open .header__icon-cross {
-  display: block;
-}
-
-.header__menu-button.is-open .header__icon-menu {
-  display: none;
-}
-
-.header__menu-button.is-open:hover .header__icon-cross,
-.header__menu-button.is-open:hover .header__icon-cross {
-  fill: #ff6b09;
 }
 
 .header__menu-button:hover .header__icon-menu,
@@ -232,25 +254,6 @@ html {
 .header__menu-button:hover,
 .header__menu-button:focus {
   outline: none;
-}
-
-.header__menu-container.is-open {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  visibility: visible;
-  background-color: rgba(17, 21, 24, 0.9);
-}
-
-.header__menu-container.is-open .btn-call {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-top: 50px;
 }
 
 .navigation__list {
@@ -296,6 +299,33 @@ html {
     margin-right: 40px;
     font-size: 12px;
   }
+  .btn-call {
+    display: none;
+  }
+  .header__menu-mobile {
+    padding: 10% 10%;
+  }
+  .header__menu-mobile .btn-call {
+    display: none;
+  }
+  .header__menu-mobile .logo-menu {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
+  .header__menu-mobile .btn-call {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .header__menu-mobile .header__menu-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+  .header__menu-mobile .btn-call {
+    margin-top: 50px;
+  }
   .logo {
     margin-right: 248px;
     display: block;
@@ -312,7 +342,7 @@ html {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .header__menu-container.is-open .btn-call {
+  .btn-call {
     display: none;
   }
 }
@@ -320,7 +350,11 @@ html {
 @media screen and (min-width: 1344px) {
   .header-container {
     width: 1344px;
-    padding: 0 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 auto;
+    padding: 30px 0;
   }
   .btn-call-tablet {
     display: none;
@@ -335,7 +369,14 @@ html {
     font-size: 26px;
     line-height: 1.23;
   }
-  .navigation__list {
+  .navigation {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 1344px;
+    padding: 0 15px;
+  }
+  .navigation__list-desctop {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -344,23 +385,6 @@ html {
         -ms-flex-direction: row;
             flex-direction: row;
     margin-top: 0;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .navigation {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    width: 1314px;
-  }
-  .header__menu-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -408,9 +432,6 @@ html {
   }
   .navigation__item:hover .navigation__link {
     color: #ff6b09;
-  }
-  .logo-menu {
-    margin-right: 144px;
   }
   .navigation__item:not(:last-child) {
     margin-bottom: 0;
@@ -742,26 +763,7 @@ html {
 }
 
 .problems .container {
-  width: 310px;
   position: relative;
-}
-
-@media screen and (max-width: 319px) {
-  .problems .container {
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .problems .container {
-    width: 718px;
-  }
-}
-
-@media screen and (min-width: 1344px) {
-  .problems .container {
-    width: 1344px;
-  }
 }
 
 .problems__title {
@@ -792,6 +794,7 @@ html {
 
 .problems__list {
   width: 280px;
+  height: 488px;
   background: #ffffff;
   -webkit-box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
           box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
@@ -805,7 +808,7 @@ html {
   padding-left: 30px;
   padding-right: 30px;
   position: absolute;
-  left: 20px;
+  left: 15px;
   top: 156px;
 }
 
@@ -816,6 +819,9 @@ html {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     width: 688px;
     height: 303px;
     line-height: 1.714;
@@ -825,7 +831,7 @@ html {
     padding-right: 46px;
     position: absolute;
     left: 15px;
-    top: 159px;
+    top: 126px;
   }
 }
 
@@ -841,7 +847,7 @@ html {
     padding-right: 112px;
     position: absolute;
     left: 15px;
-    top: 248px;
+    top: 250px;
   }
 }
 
@@ -859,19 +865,7 @@ html {
 
 @media screen and (max-width: 767px) {
   .problems__item:not(:last-child) {
-    margin-bottom: 10px;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1343px) {
-  .problems__item:nth-child(2n+1) {
-    margin-right: 22px;
-  }
-}
-
-@media screen and (min-width: 1344px) {
-  .problems__item:not(:nth-child(3n)) {
-    margin-right: 40px;
+    margin-bottom: 15px;
   }
 }
 
@@ -881,13 +875,14 @@ html {
   line-height: 1.214;
   letter-spacing: 0.08em;
   color: #ff6b09;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 @media screen and (min-width: 1344px) {
   .problems__item-number {
     font-size: 20px;
     line-height: 1.65;
+    margin-bottom: 10px;
   }
 }
 
@@ -1099,6 +1094,7 @@ html {
   background-repeat: no-repeat;
   background-position: right;
   background-position-y: 1432px;
+  background-size: 120px 137px;
 }
 
 .program__title {
@@ -1259,7 +1255,7 @@ html {
   }
 }
 
-@media screen and (min-device-pixel-ratio: 2) and (max-width: 1343px), screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1343px), screen and (min-resolution: 192dpi) and (max-width: 1343px), screen and (min-resolution: 2dppx) and (max-width: 1343px) {
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .program__wrapper {
     background-image: url(../images/program/program-bg-tablet@2x.png);
   }
@@ -1358,26 +1354,7 @@ html {
 }
 
 .benefits .container {
-  width: 310px;
   position: relative;
-}
-
-@media screen and (max-width: 319px) {
-  .benefits .container {
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .benefits .container {
-    width: 718px;
-  }
-}
-
-@media screen and (min-width: 1344px) {
-  .benefits .container {
-    width: 1344px;
-  }
 }
 
 .benefits__title {
@@ -1398,8 +1375,8 @@ html {
     font-size: 26px;
     line-height: 1.307;
     position: absolute;
-    bottom: 330px;
-    left: 199px;
+    bottom: 424px;
+    left: 170px;
   }
 }
 
@@ -1434,12 +1411,15 @@ html {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     width: 688px;
     height: 394px;
     padding-top: 30px;
     padding-bottom: 26px;
     padding-left: 96px;
-    padding-right: 46px;
+    padding-right: 98px;
     margin-top: -142px;
   }
 }
@@ -1470,28 +1450,17 @@ html {
 
 @media screen and (max-width: 767px) {
   .benefits__item:not(:last-child) {
-    margin-bottom: 10px;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1344px) {
-  .benefits__item:nth-child(2n+1) {
-    margin-right: 20px;
-  }
-}
-
-@media screen and (min-width: 1344px) {
-  .benefits__item:not(:nth-child(3n)) {
-    margin-right: 40px;
+    margin-bottom: 20px;
   }
 }
 
 .benefits__item-number {
   font-weight: 700;
   font-size: 14px;
-  line-height: 1.214;
+  line-height: 1.643;
   letter-spacing: 0.08em;
   color: #ff6b09;
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 1344px) {
@@ -1638,7 +1607,7 @@ html {
 
 @media screen and (min-width: 1314px) {
   .container {
-    width: 1314px;
+    width: 1344px;
   }
   .mentors {
     padding: 130px 0;
@@ -1688,13 +1657,16 @@ html {
   color: #ff6b09;
 }
 
+.block-container {
+  background-color: #f1f1f1;
+}
+
 .warranty {
   padding-bottom: 50px;
 }
 
 .warranty__container {
-  background-color: #f1f1f1;
-  width: 320px;
+  width: 280px;
 }
 
 .warranty__title {
@@ -1708,9 +1680,9 @@ html {
 }
 
 .warranty__list {
-  padding-left: 27px;
   padding-top: 30px;
   padding-bottom: 30px;
+  margin-left: 5px;
 }
 
 .warranty__border {
@@ -1747,17 +1719,24 @@ html {
 }
 
 @media screen and (min-width: 768px) {
-  .warranty__container {
-    width: 100%;
+  .block-container {
+    width: 688px;
   }
   .warranty__text {
     width: 550px;
   }
+  .warranty__list {
+    margin-left: 64px;
+  }
 }
 
 @media screen and (min-width: 1314px) {
-  .container {
-    width: 1344px;
+  .block-container {
+    width: 1314px;
+  }
+  .warranty {
+    padding-bottom: 0;
+    margin-bottom: 130px;
   }
   .warranty__title {
     margin-bottom: 50px;
@@ -1767,6 +1746,7 @@ html {
     letter-spacing: 0.03em;
   }
   .warranty__list {
+    margin-left: 97px;
     padding-top: 50px;
     padding-bottom: 45px;
   }
