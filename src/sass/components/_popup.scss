@@ -1,0 +1,64 @@
+/* ------------ Popup styles ----------- */
+.popup {
+  position: fixed;
+  @include allSpace();
+  @include flex();
+
+  opacity: 0;
+  pointer-events: none;
+  @include transition(opacity);
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: initial;
+  }
+
+  &-overlay {
+    position: absolute;
+    @include allSpace();
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.popup-content {
+  transform: scale(0.5);
+  @include transition(transform);
+
+  &.is-open {
+    transform: scale(1);
+  }
+}
+
+.popup-btn-close {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+
+  @include flex();
+  padding: 8px;
+
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+
+  background-color: rgba(85, 27, 27, 0.6);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../images/icon-close.svg');
+
+  transform: scale(1);
+  @include transition(transform, background-color);
+
+  &:hover {
+    background-color: rgba(85, 27, 27, 0.8);
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    background-color: rgba(85, 27, 27, 0.8);
+    transform: scale(1);
+  }
+}

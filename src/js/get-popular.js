@@ -1,4 +1,5 @@
 import popularTpl from '../templates/popular.hbs';
+import { startPopup } from './popup';
 
 const API_KEY = '6914e86918040074e2fe382ba8e8cb5e';
 const BASE_URL = 'https://api.themoviedb.org/3/';
@@ -48,3 +49,11 @@ function showPopular(page) {
 }
 
 showPopular(1);
+
+refs.popularContainer.addEventListener("click", checkClick);
+
+function checkClick(evt) {
+  if (evt.target.tagName === "IMG") {
+    startPopup(evt.target.dataset.id);
+  }
+}
