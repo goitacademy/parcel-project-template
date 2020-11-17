@@ -5,6 +5,13 @@
   background: #fefefe;
   text-align: center;
 
+  @media screen and (min-width: 1344px) {
+    padding-top: 130px;
+    padding-bottom: 130px;
+    padding-left: 127px;
+    padding-right: 127px;
+  }
+
   &__title {
     @include font(800, 20px, 26px);
     letter-spacing: 0.03em;
@@ -15,6 +22,11 @@
     @media screen and (min-width: 768px) {
       @include font(800, 26px, 34px);
       margin-bottom: 30px;
+    }
+
+    @media screen and (min-width: 768px) {
+      @include font(800, 46px, 60px);
+      margin-bottom: 50px;
     }
   }
 
@@ -33,6 +45,10 @@
       bottom: 50%;
       transform: translateY(-50%);
     }
+
+    @media screen and (min-width: 1344px) {
+      left: 43px;
+    }
   }
 
   &__next-btn {
@@ -44,6 +60,10 @@
       right: 28px;
       bottom: 50%;
       transform: translateY(-50%);
+    }
+
+    @media screen and (min-width: 1344px) {
+      right: 43px;
     }
   }
 
@@ -89,6 +109,15 @@
     margin-bottom: 30px;
   }
 
+  @media screen and (min-width: 1344px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 82px;
+    padding-right: 112px;
+
+    margin-bottom: 40px;
+  }
+
   &__photo-thumb {
     display: inline-block;
     width: 90px;
@@ -129,6 +158,11 @@
       @include font(800, 20px, 24px);
       margin-bottom: 20px;
     }
+
+    @media screen and (min-width: 1344px) {
+      @include font(800, 30px, 37px);
+      margin-bottom: 10px;
+    }
   }
 
   &__subtitle {
@@ -144,17 +178,45 @@
       margin-left: 0;
       margin-right: 0;
     }
+
+    @media screen and (min-width: 1344px) {
+      @include font(500, 14px, 17px);
+      max-width: 438px;
+    }
   }
 
   &__description {
     margin-bottom: 10px;
     @include font(500, 12px, 20px);
     color: #3d3d3d;
-  }
 
-  &_long-switch-btn {
-    color: $accent-color;
-    text-decoration: underline;
+    @media screen and (min-width: 1344px) {
+      @include font(500, 18px, 28px);
+    }
+
+    & .long-switch-btn,
+    & .short-switch-btn {
+      color: $accent-color;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    & .short-switch-btn,
+    & .continue {
+      display: none;
+    }
+
+    &--long {
+      & .short-switch-btn,
+      & .continue {
+        display: inline;
+      }
+
+      & .long-switch-btn,
+      & .text-dots {
+        display: none;
+      }
+    }
   }
 
   &__avatar-side {
@@ -168,4 +230,8 @@
       text-align: start;
     }
   }
+}
+
+.hidden {
+  display: none;
 }
