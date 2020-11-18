@@ -1,4 +1,5 @@
 .teacher-section {
+  margin: 0 auto;
   &__title {
     font-family: $main-font;
     font-style: normal;
@@ -7,11 +8,13 @@
     line-height: 1.3;
     letter-spacing: 0.03em;
     color: $title-color-light-theme;
-
-    padding-bottom: 20px;
   }
   &__img {
+    display: block;
     padding-bottom: 20px;
+  }
+  &__pic {
+    display: block;
   }
   &__subtitle {
     font-family: $main-font;
@@ -21,41 +24,65 @@
     line-height: 1.2;
     letter-spacing: 0.08em;
 
-    color: #111518;
-    padding-bottom: 10px;
+    color: $title-color-light-theme;
+
+    &::after {
+      content: '';
+      display: block;
+      border: 1px solid $description-color-main-theme;
+      margin-top: 15px;
+      margin-bottom: 20px;
+    }
   }
-  &__list::before {
-    content: '';
-    display: block;
-    border: 1px solid $description-color-main-theme;
-    margin-bottom: 20px;
+  &__list {
+    &::after {
+      content: '';
+      display: block;
+      width: 20px;
+      border: 1px solid $accent-color;
+      margin-bottom: 20px;
+    }
   }
-  &__list::after {
-    content: '';
-    display: block;
-    width: 33px;
-    border: 1px solid $accent-color;
-    margin-bottom: 20px;
-  }
-  &__item {
+
+  &__text {
     font-family: $main-font;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
-    line-height: 1.2;
+    line-height: 1.214;
     letter-spacing: 0.06em;
 
     color: $title-color-light-theme;
+  }
+  &__item {
+    display: flex;
     margin-bottom: 24px;
+    &::before {
+      content: '';
+      display: inline-block;
+      margin-right: 35px;
+      // background-image: url(../../images/svg/bird.svg);
+      width: 17px;
+      height: 14px;
+      outline: 1px solid red;
+    }
   }
   &__description {
     font-family: $main-font;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
-    line-height: 1.7;
+    line-height: 1.667;
     color: $description-color-main-theme;
     padding-bottom: 10px;
+
+    // &::before {
+    //   content: '';
+    //   display: block;
+    //   width: 20px;
+    //   border: 1px solid $accent-color;
+    //   margin-bottom: 20px;
+    // }
   }
   &__link {
     font-family: $main-font;
@@ -66,7 +93,100 @@
     text-decoration-line: underline;
     color: $accent-color;
   }
-  &__text {
-    color: #fff;
+}
+@media screen and (max-width: 767px) {
+  .teacher-section {
+    margin: 0 auto;
+    .container {
+      padding-top: 270px;
+      padding-bottom: 50px;
+    }
+    &__title {
+      padding-bottom: 20px;
+    }
+    .picture {
+      display: block;
+      width: 243px;
+      height: 306px;
+    }
+  }
+}
+@media screen and (min-width: 480px) {
+  .teacher-section {
+    margin: 0 auto;
+    &__wrapper {
+      display: flex;
+    }
+    &__img {
+      display: block;
+      margin-right: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1299px) {
+  .teacher-section {
+    margin: 0 auto;
+    .container {
+      padding-top: 302px;
+      padding-bottom: 50px;
+    }
+    &__title {
+      font-size: 26px;
+      line-height: 1.3;
+      padding-bottom: 30px;
+    }
+    &__wrapper {
+      display: flex;
+    }
+
+    &__img {
+      margin-right: 40px;
+    }
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .teacher-section {
+    margin: 0 auto;
+    .container {
+      width: 1300px;
+      padding-top: 329px;
+      padding-bottom: 130px;
+    }
+    &__title {
+      font-size: 30px;
+      line-height: 1.233;
+      letter-spacing: 0.03em;
+      margin-bottom: 50px;
+    }
+    &__subtitle {
+      font-size: 30px;
+      line-height: 1.233;
+    }
+    &__wrapper {
+      display: flex;
+      width: 1205px;
+    }
+    &__item {
+      font-size: 16px;
+      line-height: 1.233;
+    }
+    &__description {
+      font-size: 18px;
+      line-height: 1.556;
+    }
+
+    &__about {
+      width: 642px;
+    }
+    &__img {
+      margin-right: 40px;
+    }
+    &__pic {
+      display: block;
+      width: 530px;
+      height: 667px;
+    }
   }
 }
