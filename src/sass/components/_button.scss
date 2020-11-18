@@ -8,7 +8,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: center;
-  color: #ffffff;
+  color: $second-title;
   border-color: transparent;
   padding: 14px 0;
   cursor: pointer;
@@ -18,7 +18,27 @@
   &:focus {
     color: $accent-color;
     background: transparent;
-    border-color: $accent-color;
+    border: 2px solid $accent-color;
+  }
+
+  &--reverse {
+    color: $accent-color;
+    background: transparent;
+    border: 2px solid $accent-color;
+
+    &:hover,
+    &:focus {
+      color: $second-title;
+      background: $accent-color;
+      border-color: transparent;
+    }
+  }
+}
+
+@media screen and (min-width: 727px) {
+  .button--reverse {
+    padding-top: 16px;
+    padding-bottom: 17px;
   }
 }
 
@@ -29,6 +49,10 @@
     @include font(14px, 17px);
     letter-spacing: 0.14em;
     padding: 27px 25px 26px 26px;
+
+    --reverse {
+      min-width: 336px;
+    }
   }
 }
 /* ========== End Button ========== */
