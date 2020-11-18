@@ -8,28 +8,48 @@
   font-weight: bold;
   font-size: 14px;
   line-height: 1.43;
-  /* 
+
   display: flex;
-  align-items: center; */
+  align-items: center;
   color: $primary-black-color;
 }
 
-.advantages-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.advantages-item:not(:last-child) {
-  margin-bottom: 30px;
-}
 .advantages-svg {
   margin-right: 10px;
   max-width: 59px;
   height: 60px;
   fill: $orange-color;
 }
-/* 
-@include for-size(tablet) {
+@include for-size(mobile-only) {
+  .advantages-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .advantages-item:not(:last-child) {
+    margin-bottom: 30px;
+  }
+  .advantages-list {
+    width: 320px;
+    margin: 0 auto;
+  }
+}
 
-} */
+@include for-size(tablet) {
+  .advantages-list {
+    display: flex;
+  }
+  .advantages-item {
+    display: flex;
+    width: calc((100% - 21px * 2) / 3);
+  }
+  .advantages-item:not(:last-child) {
+    margin-right: 21px;
+  }
+}
+
+@include for-size(desktop) {
+  .advantages-svg {
+    margin-right: -12px;
+  }
+}
