@@ -2,187 +2,154 @@
 .our-team {
   padding-top: 39px;
   padding-bottom: 50px;
-  @media screen and(min-width:1355px) {
-    padding-bottom: 130px;
-  }
-
-  @media screen and (min-width: 727px) {
-    &-wrapper {
-      display: flex;
-    }
-    &-left-side {
-      margin-right: 40px;
-    }
-  }
 
   &__title {
     margin-bottom: 20px;
-
     font-weight: 800;
-    font-size: 20px;
-    line-height: 1.3;
+    @include font(20px, 26px);
     letter-spacing: 0.03em;
-
     color: $title;
-  }
-  @media screen and (min-width: 1355px) {
-    &__title {
-      margin-bottom: 50px;
-
-      font-weight: 800;
-      font-size: 46px;
-      line-height: 1.3;
-      letter-spacing: 0.03em;
-    }
   }
 
   &__img {
     display: block;
     margin-bottom: 20.42px;
   }
+
   &__name {
     display: block;
-
     padding-bottom: 10px;
     margin-bottom: 20px;
     border-bottom: 1px solid $text;
-
     font-family: $main-font;
     font-weight: 800;
-    font-size: 20px;
-    line-height: 1.2;
+    @include font(20px, 24px);
     letter-spacing: 0.08em;
-
     color: $title;
   }
 
-  @media screen and (min-width: 1355px) {
+  &__link {
+    color: $accent-color;
+    font-weight: 500;
+    @include font(12px, 20px);
+  }
+}
+
+.our-team-experience {
+  padding-bottom: 23px;
+
+  & > li {
+    display: flex;
+  }
+
+  & > li:not(:last-child) {
+    margin-bottom: 22px;
+  }
+
+  &__item > p {
+    font-weight: 600;
+    @include font(14px, 17px);
+    letter-spacing: 0.06em;
+    color: $title;
+  }
+
+  &__item::before {
+    content: '';
+    display: flex;
+    height: 17px;
+    min-width: 14px;
+    margin-right: 9px;
+    background-image: url(../images/svg/checked.svg);
+    background-repeat: no-repeat;
+  }
+}
+
+.our-team-advantages {
+  list-style: none;
+  margin-bottom: 10px;
+
+  &__item > p {
+    font-weight: 500;
+    @include font(12px, 20px);
+    color: $text;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  &::before {
+    content: '';
+    display: flex;
+    height: 2px;
+    width: 20px;
+    margin-bottom: 24px;
+    background-color: $accent-color;
+  }
+}
+
+@media screen and (min-width: 727px) {
+  .our-team {
+    &-wrapper {
+      display: flex;
+    }
+
+    &-left-side {
+      margin-right: 40px;
+    }
+  }
+}
+
+@media screen and(min-width:1355px) {
+  .our-team {
+    padding-bottom: 130px;
+
+    &__title {
+      margin-bottom: 50px;
+      @include font(46px, 60px);
+    }
+
     &__name {
       padding-bottom: 15px;
       margin-bottom: 30px;
-
-      font-weight: 800;
-      font-size: 30px;
-      line-height: 1.233;
-
-      letter-spacing: 0.08em;
-    }
-  }
-  &-experience {
-    padding-bottom: 23px;
-
-    list-style: none;
-    @media screen and (min-width: 1355px) {
-      & {
-        padding-bottom: 32px;
-      }
+      @include font(30px, 37px);
     }
 
-    & > li {
-      display: flex;
-    }
-
-    & > li:not(:last-child) {
-      margin-bottom: 22px;
-    }
-    &__item > p {
-      font-weight: 600;
-      font-size: 14px;
-      line-height: 1.214285;
-      letter-spacing: 0.06em;
-
-      color: $title;
-    }
-
-    @media screen and (min-width: 1355px) {
-      &__item > p {
-        font-size: 16px;
-        line-height: 1.25;
-        letter-spacing: 0.06em;
-      }
-    }
-
-    &__item::before {
-      content: '';
-      display: flex;
-
-      height: 17.18px;
-      min-width: 14px;
-      margin-right: 8.92px;
-      background-image: url(../images/svg/checked.svg);
-      background-repeat: no-repeat;
-    }
-
-    @media screen and (min-width: 1355px) {
-      &__item::before {
-        content: '';
-        display: flex;
-
-        height: 20px;
-        min-width: 24.41px;
-        margin-right: 34.59px;
-        background-image: url(../images/svg/checked.svg);
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-    }
-  }
-  &-advantages {
-    list-style: none;
-
-    margin-bottom: 10px;
-    @media screen and (min-width: 1355px) {
-      margin-bottom: 20px;
-    }
-
-    &__item > p {
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 1.67;
-
-      color: $text;
-      @media screen and (min-width: 1355px) {
-        font-size: 18px;
-        line-height: 1.56;
-
-        color: $text;
-      }
-    }
-
-    &__item:not(:last-child) {
-      margin-bottom: 24px;
-    }
-    &::before {
-      content: '';
-      display: flex;
-      height: 2px;
-      width: 20px;
-      margin-bottom: 24px;
-      background-color: $accent-color;
-      @media screen and(min-width: 1355px) {
-        & {
-          margin-bottom: 36px;
-        }
-      }
-    }
-  }
-  &__link {
-    color: $accent-color;
-
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.67;
-    @media screen and (min-width: 1355px) {
-      & {
-        font-size: 18px;
-        line-height: 1.56;
-      }
-    }
-  }
-  @media screen and (min-width: 1355px) {
     &-right-side {
       padding-right: 100px;
     }
   }
+
+  .our-team-experience {
+    padding-bottom: 32px;
+
+    &__item > p {
+      @include font(16px, 20px);
+    }
+
+    &__item::before {
+      height: 20px;
+      min-width: 24px;
+      margin-right: 34px;
+      background-size: cover;
+    }
+
+    &__link {
+      @include font(18px, 28px);
+    }
+  }
+
+  .our-team-advantages {
+    margin-bottom: 20px;
+
+    &__item > p {
+      @include font(18px, 28px);
+    }
+
+    &::before {
+      margin-bottom: 36px;
+    }
+  }
 }
+
 /*==========END_OUR-TEAM=========*/
