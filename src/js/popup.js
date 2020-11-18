@@ -1,5 +1,6 @@
 import popupMovieTpl from '../templates/popup-movie.hbs';
 import FilmsApiService from "./api-service.js";
+import { onModalButtons } from './listsAddServises'
 
 const refs = {
 	body: document.querySelector("body"),
@@ -7,7 +8,7 @@ const refs = {
 	popupOverlay: document.querySelector(".popup-overlay"),
 	movieField: document.querySelector(".popup-movie"),
 	btnClose: document.querySelector(".js-close"),
-	filmsApiService: new FilmsApiService()
+	filmsApiService: new FilmsApiService(),
 }
 
 export function startPopup(id) {
@@ -25,6 +26,7 @@ export function startPopup(id) {
 function renderPage(film) {
 	const markup = popupMovieTpl(film);
 	refs.movieField.innerHTML = markup;
+	onModalButtons();
 }
 
 function closePopup({ type, key }) {
