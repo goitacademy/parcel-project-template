@@ -23,11 +23,10 @@ export function onModalButtons() {
 function onWatchedBtn(event) {
     event.preventDefault();
 
-    if (event.target.dataset.action === 'add') {
-        addToWatchedList(event);
-        event.target.textContent = 'remove from watched';
-        event.target.dataset.action = 'remove';
-
+	if (event.target.dataset.action === 'add') {
+		addToWatchedList(event);
+        renameWatchedBtn(event);
+        
         return;
     }
 
@@ -40,10 +39,9 @@ function onWatchedBtn(event) {
 function onQueueBtn(event) {
     event.preventDefault();
 
-    if (event.target.dataset.action === 'add') {
-        addToQueueList(event);
-        event.target.textContent = 'remove from queue';
-        event.target.dataset.action = 'remove';
+	if (event.target.dataset.action === 'add') {
+		addToQueueList(event);
+        renameQueueBtn(event);
 
         return;
     }
@@ -79,4 +77,12 @@ function addToQueueList(event) {
     storage.save('QueueList', queueList);
 }
 
-    // export { addToWatchedList, addToQueueList }
+function renameQueueBtn(event) {
+    event.target.textContent = 'remove from queue';
+    event.target.dataset.action = 'remove';
+}
+
+function renameWatchedBtn(event) {
+    event.target.textContent = 'remove from watched';
+    event.target.dataset.action = 'remove';
+}
