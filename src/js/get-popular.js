@@ -15,7 +15,7 @@ function showPopular(url) {
 
 showPopular('trending/movie/day');
 
-refs.popularContainer.addEventListener("click", checkClick);
+refs.moviesContainer.addEventListener("click", checkClick);
 
 function checkClick(evt) {
   if (evt.target.tagName === "IMG") {
