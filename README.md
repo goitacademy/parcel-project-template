@@ -1,4 +1,4 @@
-# parcel-project-template
+# group-project-01
 
 ## Developing
 
