@@ -1,6 +1,8 @@
 /* ========== syllabus ========== */
 .syllabus {
+  margin: 0 auto;
   position: relative;
+  overflow: hidden;
   background-color: $title;
   &__container {
     display: block;
@@ -90,7 +92,7 @@
   &__item {
     font-weight: 500;
     @include font(12px, 20px);
-    letter-spacing: 0.07em;
+    letter-spacing: 0.08em;
     color: $text;
     opacity: 0.5;
   }
@@ -101,11 +103,10 @@
     bottom: 440px;
     right: 0;
     content: '';
-    width: 37.5vw;
-    // width: 120px;
+    width: 120px;
     height: 137px;
-    opacity: 0.5;
-    background-size: cover;
+
+    background-size: 120px 137px;
     background-repeat: no-repeat;
     background-image: url('../images/syllabus/mobile-program.png');
 
@@ -118,6 +119,7 @@
 }
 
 .advantages {
+  margin: 0 auto;
   background-color: $second-title;
   &__container {
     display: block;
@@ -153,9 +155,12 @@
   }
 
   &__num {
-    display: inline-block;
-    margin-bottom: 10px;
+    display: block;
     @include font(14px, 23px);
+    &:before {
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 
   &__name {
@@ -165,6 +170,7 @@
 
 @media screen and (max-width: 726px) {
   .syllabus {
+    max-width: 320px;
     &__title {
       text-align: center;
     }
@@ -173,10 +179,19 @@
         margin-top: 8px;
       }
     }
+
+    &:after {
+      border: 1px solid #000000;
+      border-right: none;
+    }
   }
   .advantages {
+    max-width: 320px;
     &__title {
       width: 180px;
+    }
+    &__num {
+      margin-bottom: 10px;
     }
   }
 }
@@ -185,6 +200,7 @@
 
 @media screen and (min-width: 727px) {
   .syllabus {
+    max-width: 768px;
     &__container {
       padding-top: 60px;
       padding-bottom: 392px;
@@ -196,7 +212,7 @@
 
     &__program {
       margin-top: 52px;
-      margin-left: 77px;
+      margin-left: 68px;
     }
 
     &__semester {
@@ -212,10 +228,16 @@
     }
 
     &__field {
-      max-width: 173px;
+      // max-width: 176px;
       width: calc(100% / 3);
+      &:first-child {
+        width: 176px;
+      }
+      &:last-child {
+        width: 110px;
+      }
       &:not(:first-child) {
-        margin-left: 24px;
+        margin-left: 50px;
       }
 
       &-wrapper {
@@ -225,10 +247,9 @@
 
     &:after {
       bottom: 253px;
-      width: 52.7vw;
-      // width: 384px;
+      width: 384px;
       height: 280px;
-      background-size: cover;
+      background-size: 384px 280px;
       background-image: url('../images/syllabus/tablet-program.png');
       @media screen and (min-device-pixel-ratio: 2),
         screen and (min-resolution: 192dpi),
@@ -239,6 +260,7 @@
   }
 
   .advantages {
+    max-width: 768px;
     &__container {
       padding-bottom: 252px;
     }
@@ -252,7 +274,7 @@
     &__list {
       align-items: flex-start;
       justify-content: center;
-      padding: 30px 100px;
+      padding: 30px 100px 5px;
     }
     &__item {
       &:not(:nth-last-child(-n + 2)) {
@@ -269,10 +291,10 @@
 
 @media screen and (min-width: 1355px) {
   .syllabus {
+    max-width: 1680px;
     &__container {
       padding-top: 120px;
       padding-bottom: 363px;
-      width: 1680;
     }
 
     &__title {
@@ -289,7 +311,8 @@
         left: 50%;
         content: '';
         height: 1px;
-        width: 128%;
+        width: 100vw;
+        max-width: 1680px;
         transform: translateX(-50%);
       }
     }
@@ -336,12 +359,11 @@
     }
 
     &:after {
-      bottom: 59px;
-      left: -163px;
-      width: 49.6vw;
-      // width: 672px;
+      bottom: 60px;
+      left: 0;
+      width: 672px;
       height: 502px;
-      background-size: cover;
+      background-size: 672px 502px;
       background-image: url('../images/syllabus/desktop-program.png');
       @media screen and (min-device-pixel-ratio: 2),
         screen and (min-resolution: 192dpi),
@@ -357,6 +379,7 @@
   }
 
   .advantages {
+    max-width: 1680px;
     &__container {
       padding-bottom: 199px;
     }
@@ -365,7 +388,7 @@
     }
     &__list {
       justify-content: space-between;
-      padding: 70px 84px;
+      padding: 70px 84px 50px;
     }
 
     &__num {
