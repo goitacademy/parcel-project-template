@@ -26,8 +26,7 @@ function onWatchedBtn (event) {
 
 	if (event.target.dataset.action === 'add') {
 		addToWatchedList(event);
-        event.target.textContent = 'remove from watched';
-        event.target.dataset.action = 'remove';
+        renameWatchedBtn(event);
         
         return;
 	}
@@ -43,8 +42,7 @@ function onQueueBtn (event) {
 
 	if (event.target.dataset.action === 'add') {
 		addToQueueList(event);
-        event.target.textContent = 'remove from queue';
-        event.target.dataset.action = 'remove';
+        renameQueueBtn(event);
 
         return;
     }
@@ -79,4 +77,14 @@ function addToQueueList(event) {
 
     queueList.push(event.target.dataset.id);
     storage.save('QueueList', queueList);
+}
+
+function renameQueueBtn(event) {
+    event.target.textContent = 'remove from queue';
+    event.target.dataset.action = 'remove';
+}
+
+function renameWatchedBtn(event) {
+    event.target.textContent = 'remove from watched';
+    event.target.dataset.action = 'remove';
 }
