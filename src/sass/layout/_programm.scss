@@ -1,8 +1,19 @@
 .program {
+  position: relative;
   background-color: $subtitle-light-theme-color;
   padding: 50px 0 488px;
-  position: relative;
   overflow-x: hidden;
+
+  @media screen and (min-width: $desktop) {
+    padding-top: 120px;
+  }
+
+  .program::before {
+    position: absolute;
+    left: 200px;
+    width: 100px;
+    height: 100px;
+  }
 
   &-img {
     position: absolute;
@@ -21,6 +32,13 @@
     text-align: center;
     letter-spacing: 0.03em;
     margin-bottom: 12px;
+
+    @media screen and (min-width: $desktop) {
+      font-size: 46px;
+      line-height: 130%;
+      text-align: start;
+      margin-bottom: 100px;
+    }
   }
 
   .program-list {
@@ -28,18 +46,54 @@
     display: flex;
     flex-direction: column;
     padding-left: 105px;
+
+    @media screen and (min-width: $tablet) {
+      padding-left: 145px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-left: 0;
+      border-top: 1px solid $dark-theme-color;
+      padding-top: 60px;
+    }
     &::before {
       position: absolute;
-      top: 56px;
+      top: 48px;
       left: 88px;
       content: '';
       width: 1px;
-      height: 1292px;
+      height: 1242px;
       background-color: $dark-theme-color;
+
+      @media screen and (min-width: $tablet) {
+        height: 705px;
+        left: 95px;
+      }
+
+      @media screen and (min-width: $desktop) {
+        display: none;
+      }
+    }
+  }
+
+  .list-box-wrapper {
+    @media screen and (min-width: $tablet) {
+      display: flex;
+    }
+
+    @media screen and (min-width: $desktop) {
+      flex-direction: column;
     }
   }
 
   .program-list-box {
+    @media screen and (min-width: $desktop) {
+      display: flex;
+      flex-direction: column;
+    }
+
     &__title {
       position: relative;
       font-family: $main-font;
@@ -50,9 +104,18 @@
       line-height: 28px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 5px;
 
-      margin-top: 40px;
+      margin-top: 32px;
+
+      @media screen and (min-width: $tablet) {
+        margin-top: 30px;
+      }
+
+      @media screen and (min-width: $desktop) {
+        font-size: 30px;
+        margin-top: 0;
+      }
 
       &::before {
         position: absolute;
@@ -66,11 +129,30 @@
         border-radius: 50%;
         background-color: $accent-color;
         display: inline-block;
+
+        @media screen and (min-width: $tablet) {
+          left: -55px;
+        }
+
+        @media screen and (min-width: $desktop) {
+          width: 16px;
+          height: 16px;
+          left: 0;
+          top: -60px;
+        }
       }
     }
 
     .program-list-box-item {
       display: block;
+
+      @media screen and (min-width: $tablet) {
+        width: 176px;
+
+        &:not(:last-child) {
+          margin-right: 50px;
+        }
+      }
     }
 
     .program-list-box-item__title {
@@ -83,7 +165,7 @@
       letter-spacing: 0.08em;
       display: flex;
       align-items: center;
-      margin-bottom: 16px;
+      margin-bottom: 10px;
 
       &::before {
         content: '';
@@ -92,6 +174,11 @@
         height: 1px;
         display: inline-block;
         margin-right: 6px;
+      }
+
+      @media screen and (min-width: $desktop) {
+        font-size: 20px;
+        margin-top: 25px;
       }
     }
 
@@ -104,10 +191,17 @@
       font-size: 12px;
       line-height: 20px;
       letter-spacing: 0.08em;
+
+      @media screen and (min-width: $desktop) {
+        font-size: 18px;
+      }
     }
 
     .last {
       margin-bottom: 8px;
+      @media screen and (min-width: $tablet) {
+        margin-bottom: 0;
+      }
     }
   }
 }
