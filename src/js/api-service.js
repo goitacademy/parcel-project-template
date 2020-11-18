@@ -7,9 +7,9 @@ export default class FilmsApiService {
     this.page = 1;
   }
 
-  fetchFilms() {
+  fetchFilms(url) {
     return fetch(
-      `${BASE_URL}trending/movie/day?api_key=${API_KEY}&page=${this.page}`,
+      `${BASE_URL}${url}?api_key=${API_KEY}&page=${this.page}`,
     )
       .then(response => response.json())
       .then(({ results }) => {
@@ -24,6 +24,28 @@ export default class FilmsApiService {
       .then(list => {
         return list.genres;
       });
+  }
+
+  getGenres(url) {
+    return this.fetchFilms(url).then(list => {
+      return this.fetchGenres().then(arr =>
+        list.map(el => ({
+          ...el,
+          genre_ids: el.genre_ids.flatMap(num =>
+            arr.filter(el => el.id === num),
+          ),
+        })),
+      );
+    });
+  }
+
+  showFilmsResult(url) {
+    return this.getGenres(url).then(list => {
+      return list.map(el => ({
+        ...el,
+        release_date: el.release_date.split('-')[0],
+      }));
+    });
   }
 
   incrementPage() {

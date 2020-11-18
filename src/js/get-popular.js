@@ -8,20 +8,8 @@ function markupPopularMovies(movies) {
   refs.moviesContainer.insertAdjacentHTML('beforeend', popularTpl(movies));
 }
 
-function showPopular() {
-  return filmsApiService
-    .fetchFilms()
-    .then(list => {
-      return filmsApiService.fetchGenres().then(arr =>
-        list.map(el => ({
-          ...el,
-          genre_ids: el.genre_ids.flatMap(num =>
-            arr.filter(el => el.id === num),
-          ),
-        })),
-      );
-    })
-    .then(markupPopularMovies);
+function showPopular(url) {
+  return filmsApiService.showFilmsResult(url).then(markupPopularMovies);
 }
 
-showPopular();
+showPopular('trending/movie/day');
