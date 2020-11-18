@@ -60,7 +60,6 @@ function addToWatchedList(event) {
 
     if ( watchedList === undefined) {
         storage.save('WatchedList', [event.target.dataset.id]);
-        
         return
     }
 
@@ -71,12 +70,14 @@ function addToWatchedList(event) {
 
 function addToQueueList(event) {
     const queueList = storage.load('QueueList');
-
     if ( queueList === undefined) {
         storage.save('QueueList', [event.target.dataset.id]);
+
         return
     }
 
     queueList.push(event.target.dataset.id);
     storage.save('QueueList', queueList);
+export { addToWatchedList, addToQueueList }
 }
+

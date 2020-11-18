@@ -2,9 +2,7 @@
 .popup {
   position: fixed;
   @include allSpace();
-  @include flex();
   overflow-y: scroll;
-  padding: 20px;
   background-color: rgba(0, 0, 0, 0.8);
 
   opacity: 0;
@@ -20,35 +18,32 @@
 
   &-overlay {
     position: absolute;
-    // @include allSpace();
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100%;
-  }
-}
-
-.popup-content {
-  transform: scale(0.5);
-  @include transition(transform);
-
-  &.is-open {
-    transform: scale(1);
+    @include allSpace();
   }
 }
 
 .popup-movie {
-  background-color: $white-color;
+  max-width: $mobile;
   padding: 20px;
+  margin: 20px auto;
+  background-color: $white-color;
 
-  @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
-    @include flex(center, flex-start);
+  @media screen and (min-width: $tablet) {
+    max-width: $tablet;
     padding: 60px 75px;
+    @include flex(center, flex-start);
   }
 
   @media screen and (min-width: $desktop) {
-    @include flex(center, flex-start);
-    padding: 60px 71px;
+    max-width: $desktop;
+    padding: 60px 70px;
+  }
+
+  transform: scale(0.5);
+  @include transition(transform);
+
+  .popup.is-open & {
+    transform: scale(1);
   }
 }
 
@@ -87,20 +82,33 @@
 }
 
 .popup-poster {
+  min-width: 100%;
+  margin-bottom: 30px;
+
   @media screen and (min-width: $tablet) {
-    max-width: 294px;
+    min-width: calc((100% - 30px) / 2);
+    margin-bottom: 0px;
     margin-right: 30px;
   }
-  @media screen and (min-width: $desktop) {
-    max-width: 426px;
+}
+
+.popup-description {
+  min-width: 100%;
+
+  @media screen and (min-width: $tablet) {
+    min-width: calc((100% - 30px) / 2);
   }
 }
 
 .popup-title {
-  margin-bottom: 20px;
-  @include font(500, 30px, 1.16667);
+  margin-bottom: 10px;
+  @include font(500, 20px, 1.15);
   text-transform: uppercase;
   color: $black-color;
+
+  @media screen and (min-width: $tablet) {
+    @include font(500, 30px, 1.16667);
+  }
 }
 
 table,
@@ -110,25 +118,24 @@ td {
 }
 
 .popup-info {
-  margin-bottom: 20px;
-  @include font(500, 12px, 1.1667);
+  margin-bottom: 10px;
+  border-spacing: 0px 10px;
+  @include font(500, 12px, 1.3333);
 }
 
 .info-title {
-  width: 200px;
-
+  width: 100px;
   color: $popup-info-title;
-  @include font(500, 12px, 1.3333);
 
-  &:not(:last-child) {
-    margin-bottom: 10px;
+  @media screen and (min-width: $desktop) {
+    width: 150px;
   }
 }
 
 .vote-average {
   display: inline-block;
   padding: 1px 10px;
-  border-radius: 4px;
+  border-radius: 5px;
   text-align: center;
 
   color: $white-color;
@@ -138,10 +145,14 @@ td {
 .vote-count {
   display: inline-block;
   padding: 1px 4px;
-  border-radius: 4px;
+  border-radius: 5px;
   text-align: center;
 
   background-color: $grey-bg-color;
+}
+
+.original-title {
+  text-transform: uppercase;
 }
 
 .popup-overview-title {
@@ -151,9 +162,17 @@ td {
 }
 
 .popup-overview {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   @include font(500, 12px, 1.6667);
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 20px;
+  }
 }
-.popup-buttons button:first-child {
-  margin-right: 15px;
+.popup-buttons button {
+  border: 1px solid $black-color;
+
+  &:first-child {
+    margin-right: 15px;
+  }
 }
