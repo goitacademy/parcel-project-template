@@ -16,6 +16,7 @@
 
   color: #111518;
 }
+
 .footer-section__inst-icon {
   width: 40px;
   height: 40px;
@@ -37,6 +38,8 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 2;
+}
+.footer-section__copy-wrapper {
   display: flex;
   align-items: center;
   padding-top: 20px;
@@ -47,8 +50,7 @@
 }
 
 @media screen and (max-width: 320px) {
-  .footer-section {
-    min-width: 320px;
+  .footer-section__footer {
     width: 100%;
   }
 }
@@ -83,7 +85,7 @@
     margin-bottom: 30px;
   }
   .footer-section__copy {
-    justify-content: center;
+    text-align: center;
   }
 }
 
@@ -101,15 +103,20 @@
 
     align-items: center;
   }
-  .footer-section__contact-item:not(:last-child) {
-    margin-right: 40px;
-  }
+
   .footer-section__tel {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 14px;
     line-height: 1.21;
+  }
+  .footer-section__tel::after {
+    content: '';
+    border: 1px solid #b9b9b9;
+    height: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
   .footer-section__logo-icon {
     width: 85px;
@@ -122,11 +129,11 @@
     margin-right: 10px;
   }
 
-  .footer-section__copy {
-    justify-content: center;
+  .footer-section__copy-wrapper {
+    text-align: center;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+@media screen and (min-width: 768px) and (max-width: 1299px) {
   .footer-section__footer {
     display: flex;
     justify-content: space-between;
@@ -138,15 +145,20 @@
     display: flex;
     align-items: center;
   }
-  .footer-section__contact-item:not(:last-child) {
-    margin-right: 50px;
-  }
+
   .footer-section__tel {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
     line-height: 1.2;
+  }
+  .footer-section__tel::after {
+    content: '';
+    border: 1px solid #b9b9b9;
+    height: 40px;
+    margin-left: 24px;
+    margin-right: 24px;
   }
   .footer-section__logo-icon {
     width: 130px;
@@ -160,9 +172,10 @@
   }
   .footer-section__copy {
     padding-left: 40px;
+    width: 768px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1300px) {
   .footer-section__footer {
     display: flex;
     justify-content: start;
@@ -178,15 +191,20 @@
     display: flex;
     align-items: center;
   }
-  .footer-section__contact-item:not(:last-child) {
-    margin-right: 40px;
-  }
+
   .footer-section__tel {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 30px;
     line-height: 1.23;
+  }
+  .footer-section__tel::after {
+    content: '';
+    border: 1px solid #b9b9b9;
+    height: 40px;
+    margin-left: 24px;
+    margin-right: 24px;
   }
   .footer-section__logo-icon {
     width: 130px;
@@ -198,16 +216,13 @@
     fill: $accent-color;
     margin-right: 15px;
   }
-  .footer-section__copy {
-    padding-left: 185px;
-  }
 }
 
 /*=============SCROLLUP=============*/
 .scrollup {
   position: fixed;
   display: flex;
-  fill: rgba(255, 107, 9, 0.7);
+
   padding: 4px 10px;
   font-size: 20px;
   border-top-left-radius: 4px;
@@ -215,34 +230,42 @@
   cursor: pointer;
   // display: none;
 }
-.scrollup:hover {
-  fill: $accent-color; /* цвет заднего фона при наведении */
-}
+
 @media screen and (max-width: 767px) {
   .scrollup {
     right: 20px;
     bottom: 0px;
     width: 40px;
     height: 40px;
-    background-color: $accent-color;
+    background-color: rgba(255, 107, 9, 0.7);
     fill: #ffffff;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+@media screen and (min-width: 768px) and (max-width: 1299px) {
   .scrollup {
     right: 5px;
     bottom: 50px;
     width: 70px;
     height: 70px;
+    fill: rgba(255, 107, 9, 0.7);
+  }
+  .scrollup-icon:hover,
+  .scrollup-icon:focus {
+    fill: $accent-color;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1300px) {
   .scrollup {
     right: 20px;
     bottom: 100px;
     background-color: transparent;
     width: 80px;
     height: 80px;
+    fill: rgba(255, 107, 9, 0.7);
+  }
+  .scrollup-icon:hover,
+  .scrollup-icon:focus {
+    fill: $accent-color;
   }
 }
