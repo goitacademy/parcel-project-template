@@ -19,4 +19,12 @@ const save = (key, value) => {
   }
 };
 
-export default { load, save };
+// Принимает ключ `key` и значение `value`.
+const remove = (key, value) => {
+  const serializedState = load(key);
+  serializedState.splice(serializedState.indexOf(value), 1);
+  console.log("remove -> serializedState", serializedState);
+  save (key, serializedState);
+};
+
+export default { load, save, remove };

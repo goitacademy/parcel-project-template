@@ -8,7 +8,7 @@ const refs = {
 	popupOverlay: document.querySelector(".popup-overlay"),
 	movieField: document.querySelector(".popup-movie"),
 	btnClose: document.querySelector(".js-close"),
-	filmsApiService: new FilmsApiService()
+	filmsApiService: new FilmsApiService(),
 }
 
 export function startPopup(id) {
@@ -28,7 +28,7 @@ function renderPage(film) {
 	const markup = popupMovieTpl(film);
 	refs.movieField.innerHTML = markup;
 	checkMarkup();
-}
+
 
 function closePopup({ type, key }) {
 	const clearPopup = () => {
