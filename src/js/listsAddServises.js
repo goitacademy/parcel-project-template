@@ -5,17 +5,17 @@ import storage from './storage';
 // const addToQueueBtn = document.querySelector('.addToQueueBtn');
 
 //.dataset.id; Буде гдето брать 
-let id = 111;
+// let id = 111;
 
 // addToWatchedBtn.addEventListener('click', addToWatchedList);
 // addToQueueBtn.addEventListener('click', addToQueueList);
 
-function addToWatchedList(event) {
+function addToWatchedList(id) {
     const watchedList = storage.load('WatchedList');
     console.log("watchedList", storage.load('WatchedList'))
 
-    if ( watchedList === undefined) {
-        storage.save('WatchedList', [id]);
+    if (watchedList === undefined) {
+        storage.save('WatchedList', id);
         return
     }
 
@@ -24,12 +24,12 @@ function addToWatchedList(event) {
 
 }
 
-function addToQueueList(event) {
+function addToQueueList(id) {
     const queueList = storage.load('QueueList');
-    console.log('QueueList',  storage.load('QueueList'))
+    console.log('QueueList', storage.load('QueueList'))
 
-    if ( queueList === undefined) {
-        storage.save('QueueList', [id]);
+    if (queueList === undefined) {
+        storage.save('QueueList', id);
         return
     }
 
@@ -37,3 +37,5 @@ function addToQueueList(event) {
     storage.save('QueueList', queueList);
 
 }
+
+export { addToWatchedList, addToQueueList }
