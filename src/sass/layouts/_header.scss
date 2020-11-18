@@ -1,13 +1,15 @@
 .burger-button {
   background-color: transparent;
   border: none;
-  outline: none;
   position: relative;
   z-index: 1;
+
+  padding: 0;
 }
 .header-nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-top: 30px;
   padding-bottom: 30px;
 }
@@ -21,15 +23,16 @@
   padding-top: 110px;
   text-align: center;
   background-color: rgba(17, 21, 24, 0.95);
+
+  & .link:hover,
+  & .link:focus {
+    color: $orange-color;
+  }
 }
 
 .menu-burger.is-open {
   display: block;
 }
-
-// .burger-button.is-open .burger-icon-open {
-//   display: none;
-// }
 
 .burger-icon-close {
   display: none;
@@ -46,6 +49,12 @@
   padding-left: 0;
 
   text-align: left;
+
+  @include for-size(tablet) {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .menu-burger .link {
@@ -61,10 +70,26 @@
   font-size: 12px;
   line-height: 1.22;
   color: $orange-color;
+
   display: inline-block;
   text-align: center;
   padding: 12px 12px;
   border: 2px solid $orange-color;
+
+  @include for-size(tablet) {
+    display: none;
+  }
+}
+
+.consultation-call.header {
+  @include for-size(mobile-only) {
+    display: none;
+  }
+  @include for-size(tablet) {
+    display: block;
+    margin-left: auto;
+    margin-right: 45px;
+  }
 }
 
 .header-logo {
