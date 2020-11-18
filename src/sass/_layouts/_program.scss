@@ -30,7 +30,7 @@
   // }
 
   @media screen and (max-width: 767px) {
-    padding-bottom: 547px;
+    padding-bottom: 540px;
   }
 
   @media screen and (min-width: 768px) {
@@ -247,29 +247,51 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 
-  top: 1562px;
+  @media screen and (max-width: 767px) {
+    top: 1568px;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 1200px;
+  }
 
   .title-advantages {
     @include font(800, 20px, 27px);
     color: $third-color;
 
-    @media screen {
+    @media screen and (max-width: 767px) {
       width: 180px;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1365px) {
+      text-align: center;
     }
   }
 }
 
 .list-advantages {
   background-color: $third-color;
-  max-width: 280px;
-  padding: 20px 30px;
+
+  @media screen and (max-width: 767px) {
+    width: 280px;
+    padding: 20px 30px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1365px) {
+    display: flex;
+    flex-wrap: wrap;
+    // padding: 98px 30px 25px 98px;
+  }
 }
 
 .item-advantages {
   @include font(700, 14px, 20px);
   letter-spacing: 0.08em;
+
+  flex-basis: calc(100% / 2 - 216px);
 
   &:not(:last-child) {
     @media screen and (max-width: 767px) {
@@ -278,13 +300,21 @@
   }
 
   .number {
+    display: block;
     @include font(700, 14px, 23px);
     letter-spacing: 0.08em;
     color: $accent-color;
     margin-bottom: 10px;
 
-    @media screen and (max-width: 767px) {
-      display: block;
+    &::before {
+      content: '';
+      background-color: $accent-color;
+      display: inline-block;
+      transform-origin: left center;
+      transform: translateY(-140%);
+      margin-right: 6px;
+      height: 2px;
+      width: 1em;
     }
   }
 }
