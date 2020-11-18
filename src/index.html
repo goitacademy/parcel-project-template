@@ -16,6 +16,31 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+
+    <!-- ссылка для анимации -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    />
+    !-- для скрола страници вверх -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+          } else {
+            $('.scrollup').fadeOut();
+          }
+        });
+
+        $('.scrollup').click(function () {
+          $('html, body').animate({ scrollTop: 0 }, 600);
+          return false;
+        });
+      });
+    </script>
+
     <title>HellEN</title>
   </head>
   <body>
@@ -33,6 +58,9 @@
     <include src="./partials/registration.html"></include>
     <include src="./partials/footer.html"></include>
 
+    <!-- для скрола страници -->
+    <a href="#" class="scrollup">Наверх</a>
+
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./js/registration.js"></script>
     <script src="./index.js"></script>
@@ -41,5 +69,11 @@
     <script src="./js/contact.js"></script>
     <script src="./js/porgram-study.js"></script>
     <script src="./js/var-study.js"></script>
+
+    <!-- скрипт для анимации -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script type="text/javascript">
+      new WOW().init();
+    </script>
   </body>
 </html>
