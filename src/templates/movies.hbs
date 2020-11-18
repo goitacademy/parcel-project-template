@@ -1,14 +1,16 @@
 {{#each this}}
 <li class="movies-item">
   <div class="movies-poster">
-    <img class="movies-image" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{poster_path}}" alt="{{title}}"
-      data-id="{{id}}" />
+    <img class="movies-image" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{poster_path}}"
+      onerror="this.src = 'https://dummyimage.com/294x441/f0f0f0/000.jpg&text=Image+not+found'"
+      alt="{{title}}" data-id="{{id}}" />
   </div>
 
   <div class="description">
     <h2 class="description-title">{{title}}</h2>
     <p class="description-container">
-      <span class="description-info">{{#each genre_ids}} {{name}}{{#unless @last}},{{/unless}}{{/each}} | {{release_date}}</span>
+      <span class="description-info">{{#each genre_ids}} {{name}}{{#unless @last}},{{/unless}}{{/each}} |
+        {{release_date}}</span>
       <span class="description-popularity">{{vote_average}}</span>
     </p>
   </div>
