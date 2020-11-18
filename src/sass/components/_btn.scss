@@ -1,43 +1,7 @@
-// .btn {
-//   font-family: $primary-font;
-
-//   font-weight: 700;
-//   font-style: normal;
-//   text-transform: uppercase;
-//   color: $primary-color;
-//   background-color: $accent-color;
-//   padding: 14px 10px 14px;
-//   text-align: center;
-//   height: 48px;
-//   display: flex;
-//   cursor: pointer;
-//   border: none;
-//   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-//     0px 2px 1px rgba(0, 0, 0, 0.2);
-//   transition: background-color 250ms $timing-function;
 
   
-//   &-header {
-//     font-size: 12px;
-//     line-height: 1.25;
-//     letter-spacing: 0.08em;
-//     color: $accent-color;
-//     background-color: transparent;
-//     border: 2px solid $accent-color;
-//     box-shadow: none;
 
-
-//     display: none;
     
-//     @media screen and (min-width: 768px) {
-//       display: block;
-//       margin-right: 40px;
-//     }
-    
-//     &-mobile {
-//       color: $accent-color;
-// Ya HZ
-
 //       margin: 50px auto 0;
 //       padding: 14px 10px;
 //       background-color: transparent;
@@ -60,12 +24,26 @@ $time: 1000ms;
 
 $btns: (
   alpha: (
-    gstart: #ff6b09,
-    gend: #ffffff,
-    tstart: #ffffff,
-    tend: #ff6b09,
+    gstart: $accent-color,
+    gend: $third-color,
+    tstart: $third-color,
+    tend: $accent-color,
+  ),
+  beta: (
+    gstart: $third-color,
+    gend: $accent-color,
+    tstart: $accent-color,
+    tend: $third-color,
+  ),
+  gamma: (
+    gstart: transparent,
+    gend: $accent-color,
+    tstart: $accent-color,
+    tend: $third-color,
   ),
 );
+
+
 
 .button-registration {
   position: relative;
@@ -88,11 +66,30 @@ $btns: (
   /* transition: background-color 250ms $timing-function; */
   transition: all $time;
 
-  // &.header-buttons {
-  //   background-color: transparent;
-  //   color: $accent-color;
-  //   outline: 2px solid $accent-color;
-  // }
+  .header & {
+    border: 2px solid $accent-color;
+  }
+
+    .header-buttons & {
+
+    display: none;
+    
+    @media screen and (min-width: 768px) {
+      display: block;
+   }
+   
+  }
+
+  .backdrop & {
+      margin: 50px auto 0;
+      padding: 14px 10px;
+      border: 2px solid $accent-color;
+     
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+  }
+
   .btn-reg {
     position: relative;
     z-index: 1;
@@ -125,6 +122,8 @@ $btns: (
     border: 2px solid $accent-color;
   } */
 }
+
+
 
 @each $bname, $bcolors in $btns {
   .btn--#{$bname} {
