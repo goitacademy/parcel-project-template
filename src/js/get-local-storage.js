@@ -1,7 +1,20 @@
 /////////////////////////ТЕСТОВЫЕ ДАННЫЕ/////////////////////////
 const WATCHEDKEY = 'watched';
 const QUEUEKEY = 'queue';
-const watchedTestArray = [615665, 62286, 560050, 340102, 400160, 590706]; //тестовый
+const watchedTestArray = [
+  615665,
+  62286,
+  560050,
+  340102,
+  400160,
+  590706,
+  615665,
+  62286,
+  560050,
+  340102,
+  400160,
+  590706,
+]; //тестовый
 const queueTestArray = [340102, 400160, 590706]; //тестовый
 localStorage.setItem(WATCHEDKEY, JSON.stringify(watchedTestArray));
 localStorage.setItem(QUEUEKEY, JSON.stringify(queueTestArray));
