@@ -9,10 +9,11 @@
   function toggleModal(e) {
     if (
       e.target.closest('button') === refs.openModalBtn ||
-      e.target.closest('button') === refs.closeModalBtn ||
-      e.target.href
+      e.target.closest('button') === refs.closeModalBtn
     ) {
       refs.modal.classList.toggle('is-hidden');
+    } else if (e.target.href) {
+      refs.modal.classList.add('is-hidden');
     }
   }
 })();
