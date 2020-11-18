@@ -12,7 +12,6 @@
     }
     &__container{
         padding: 20px 20px 30px 20px;
-        margin-bottom: 20px;
         box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
     }
     &__profile-photo{
@@ -42,77 +41,26 @@
         color: $color-accent;
     }
 }
-
-.students-review__thumbnail{
-    &--container {
-        @extend %flex-j;
+.slick{
+    /* Ограничивающая оболочка */
+    &-list {
         overflow: hidden;
     }
-    &--img:hover,
-    &--img:focus,
-    &--img:active{
-        border: 1px solid $color-accent;
-        border-radius: 50%;
+    /* Лента слайдов */
+    &-track{
+        display: flex;
+        margin-bottom: 20px;
     }
 }
-
-/* Слайдер */
-.slick-slider{}
-/* Слайдер запущен */
-.slick-slider.slick-initialized{}
-/* Слайдер с точками */
-.slick-slider.slick-dotted{}
-/* Ограничивающая оболочка */
-.slick-list {
-    overflow: hidden;
-}
-/* Лента слайдов */
-.slick-track{
-    display: flex;
-}
-.students-review .container{
-    position: relative;
-}
-.slider .slick-arrow{
-    position: absolute;
-    top: 50%;
-    margin: 13px 0 0 0;
-    z-index: 999;
-    font-size: 0;
-    width: 25px;
-    height: 26px;
-    border: none;
-}
-/* Слайд */
-.slick-slide{}
-/* Слайд активный (показывается) */
-.slick-slide.slick-active{}
-/* Слайд основной */
-.slick-slide.slick-current{}
-/* Слайд по центру */
-.slick-slide.slick-center{}
-/* Клонированный слайд */
-.slick-slide.slick-cloned{}
-/* Стрелка */
-.slick-arrow{}
-/* Стрелка влево */
-.slider .slick-arrow.slick-prev{
-    left: 26px;
-    background: url(../images/students-reviews/Arrow-prev.svg) no-repeat;
-}
-/* Стрелка вправо */
-.slider .slick-arrow.slick-next{
-    right:26px;
-    background: url(../images/students-reviews/Arrow-next.svg) 100% no-repeat;
-}
-/* Стрелка не активная */
-.slick-arrow.slick-disabled{}
 
 /* Точки (булиты) */
 .slider .slick-dots{
     display: flex;
+    margin: 0 auto;
+    max-width: 182px;
     align-items: center;
     justify-content: space-between;
+    overflow: scroll;
 }
 .slider .slick-dots li{
     list-style: none;
@@ -147,22 +95,36 @@
         background: url(../images/students-reviews/student-7.jpg) 100% no-repeat;
     }
 }
+
 /* Активная точка */
 .slider .slick-dots li.slick-active button {
     border: 1px solid $color-accent;
 }
-/* Элемент точки */
-.slick-dots li button{}
 
-@media screen and (max-width: $bp-tablet){
-    .students-review__thumbnail{
-        &--img:not(:first-child){
-            margin-left: 10px;
-        }
-            &--img:not(:last-child){
-            margin-right: 10px;
-        }
-    }
+/* СТРЕЛКИ */
+.students-review .container{
+    position: relative;
+}
+.slider .slick-arrow{
+    position: absolute;
+    bottom: 8px;
+    margin: 0;
+    z-index: 90;
+    font-size: 0;
+    width: 25px;
+    height: 26px;
+    border: none;
+}
+
+/* Стрелка влево */
+.slider .slick-arrow.slick-prev{
+    left: 24px;
+    background: url(../images/students-reviews/Arrow-prev.svg) no-repeat;
+}
+/* Стрелка вправо */
+.slider .slick-arrow.slick-next{
+    right:24px;
+    background: url(../images/students-reviews/Arrow-next.svg) 100% no-repeat;
 }
 
 @media screen and (min-width: $bp-tablet){
@@ -174,7 +136,6 @@
         &__container{
             display: flex;
             padding: 40px;
-            margin-bottom: 30px;
         }
         &__img-wrapper{
             margin-right: 46px;
@@ -198,22 +159,23 @@
         }
     }
 
-    .students-review__thumbnail{
-        &--container{
-            max-width: 558px;
-            margin: 0 auto;
-        }  
-        
-        &--img:not(:last-child){
-            margin-right: 30px;
-            }
-    }    
+    .slick-track{
+        margin-bottom: 30px;
+    }
+
+    .slider .slick-dots{
+        max-width: 558px;
+    }
+
+    .slider .slick-arrow{
+        bottom: 50%;
+    }
+  
 }
 
 @media screen and (min-width: $bp-desktop){
     .students-review{
         padding: 65px 0 130px 0;
-        min-width: 1680px;
         width: 100%;
 
         &__section-title{
@@ -223,7 +185,8 @@
         &__container{
             display: flex;
             padding: 50px 112px 50px 82px;
-            margin-bottom: 40px;
+            max-width: 1090px;
+            margin: 0 auto;
         }
     
         &__description-container{
@@ -241,5 +204,16 @@
             @include font (500, 18px, 28px);
         }
     }
+    .slick-track{
+        margin-bottom: 40px;
+    }
+    // /* Стрелка влево */
+    // .slider .slick-arrow.slick-prev{
+    //     left: 15px;
+    // }
+    // /* Стрелка вправо */
+    // .slider .slick-arrow.slick-next{
+    //     right:24px;
+    // }
 }
 
