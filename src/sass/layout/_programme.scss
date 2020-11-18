@@ -1,4 +1,4 @@
-//  разобраться с полоской, сделать картинки 2х, пропали отступы у семестров
+//  сделать картинки 2х, почистить код
 
 .programm-section {
   background-color: $title-color-light-theme;
@@ -13,13 +13,15 @@
     background-image: url('../../src/images/tablet/optim/programm-tablet.png');
   }
   @media screen and (min-width: 1300px) {
-    background-image: url('../../src/images/desktop/optim/programm-desktop-half.png');
-    background-position: 0 90%;
-    background-size: 483px 482px;
+    background-image: url('../../src/images/desktop/optim/programm-desktop-half.png'),
+      url('../../src/images/svg/programm-vector-rotate90.svg');
+    background-position: 0 90%, 0 21%;
+    background-size: 483px 482px, 100% 2px;
   }
   @media screen and (min-width: 1600px) {
-    background-image: url('../../src/images/desktop/optim/programm-desktop.png');
-    background-size: 650px 482px;
+    background-image: url('../../src/images/desktop/optim/programm-desktop.png'),
+      url('../../src/images/svg/programm-vector-rotate90.svg');
+    background-size: 650px 482px, 100% 2px;
   }
 
   .container {
@@ -55,6 +57,7 @@
     @media screen and (min-width: 1300px) {
       margin-bottom: 92px;
       font-size: 46px;
+      text-align: center;
     }
   }
   &__list {
@@ -73,13 +76,14 @@
     }
   }
   &__line {
-    position: absolute;
-    top: 6.5%;
-    left: 28%;
-    background-image: url(../../src/images/svg/programm-vector.svg);
-    width: 2px;
-    height: 1225px;
-
+    @media screen and (min-width: 768px) and (max-width: 1299px) {
+      position: absolute;
+      top: 6.5%;
+      left: 28%;
+      background-image: url(../../src/images/svg/programm-vector.svg);
+      width: 2px;
+      height: 1225px;
+    }
     @media screen and (min-width: 480px) {
       left: 35.5%;
     }
@@ -89,25 +93,18 @@
       left: 13%;
       height: 680px;
     }
-    @media screen and (min-width: 1300px) {
-      background-image: url(../../src/images/svg/programm-vector-rotate90.svg);
-      width: 100%;
-      height: 2px;
-      top: 20.5%;
-      left: 0;
-    }
   }
   &__item {
     &:not(:last-child) {
-      margin-bottom: 40px;
-
-      @media screen and (min-width: 768px) {
+      @media screen and (max-width: 767px) {
+        margin-bottom: 40px;
+      }
+      @media screen and (min-width: 768px) and (max-width: 1299px) {
         margin-bottom: 30px;
       }
     }
     @media screen and (min-width: 1300px) {
       width: 230px;
-      margin-bottom: 0px;
       &:not(:last-child) {
         margin-right: 30px;
       }
@@ -157,6 +154,10 @@
   }
   &__semester--number-size {
     font-size: 14px;
+    @media screen and (max-width: 1299px) {
+      margin-right: 5px;
+    }
+
     @media screen and (min-width: 1300px) {
       font-size: 30px;
     }
