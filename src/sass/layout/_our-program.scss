@@ -1,6 +1,8 @@
 .program-section {
+  position: relative;
   padding-top: 50px;
 
+  max-width: 1680px;
   background-image: linear-gradient(
     to bottom,
     $light-theme-header-color 90%,
@@ -9,6 +11,20 @@
 
   @media screen and (min-width: 728px) {
     padding-top: 60px;
+  }
+
+  @media screen and (min-width: 1354px) {
+    padding-top: 120px;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 280px;
+
+      content: '';
+      border-top: 1px solid $dark-theme-header-color;
+      width: 100%;
+    }
   }
 }
 
@@ -20,6 +36,7 @@
     flex-direction: column;
     align-items: center;
   }
+
   &::after {
     position: absolute;
     right: 0;
@@ -41,6 +58,14 @@
       height: 280px;
       background-image: url(../images/program-section/program-img-tablet.png);
     }
+
+    @media screen and (min-width: 1354px) {
+      transform: translate(-100%, 61%);
+
+      width: 760px;
+      height: 502px;
+      background-image: url(../images/program-section/program-img-desktop.png);
+    }
   }
 }
 
@@ -57,41 +82,66 @@
     margin-bottom: 52px;
     font-size: 26px;
   }
+
+  @media screen and (min-width: 1354px) {
+    margin-bottom: 160px;
+    font-size: 46px;
+  }
 }
 
-.program-list-wrapper {
-  display: flex;
-  padding-left: 25px;
+@media screen and (max-width: 1353px) {
+  .program-list-wrapper {
+    display: flex;
+    padding-left: 25px;
 
-  @media screen and (max-width: 727px) {
-    max-width: 208px;
-  }
-
-  @media screen and (min-width: 728px) {
-    padding-left: 55px;
-  }
-
-  &::before {
-    position: relative;
-    top: 14px;
-
-    content: '';
-    padding-right: 24px;
-    border-left: 1px solid $dark-theme-header-color;
-    height: 1282px;
+    @media screen and (max-width: 727px) {
+      max-width: 208px;
+    }
 
     @media screen and (min-width: 728px) {
-      padding-right: 54px;
-      height: 704px;
+      padding-left: 55px;
+    }
+
+    &::before {
+      position: relative;
+      top: 14px;
+
+      content: '';
+      padding-right: 24px;
+      border-left: 1px solid $dark-theme-header-color;
+      height: 1282px;
+
+      @media screen and (min-width: 728px) {
+        padding-right: 50px;
+        height: 698px;
+      }
     }
   }
 }
 
-.program-list-item:not(:first-child) {
-  margin-top: 40px;
+.program-list {
+  @media screen and (min-width: 1354px) {
+    display: flex;
+  }
+}
 
-  @media screen and (min-width: 728px) {
-    margin-top: 30px;
+.program-list-item {
+  @media screen and (min-width: 1354px) {
+    width: 240px;
+
+    &:not(:first-child) {
+      margin-left: 30px;
+    }
+  }
+
+  @media screen and (max-width: 1353px) {
+    &:not(:first-child) {
+      margin-top: 40px;
+
+      @media screen and (min-width: 728px) {
+        margin-top: 30px;
+      }
+    }
   }
 }
 
@@ -107,9 +157,16 @@
   text-transform: uppercase;
   color: $dark-theme-header-color;
 
+  @media screen and (min-width: 1354px) {
+    margin-bottom: 25px;
+
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
   &::before {
     position: absolute;
-    transform: translate(-31px, 50%);
+    transform: translate(-30.5px, 50%);
     display: block;
     content: '';
     background-image: url('../images/svg/ellipse.svg');
@@ -118,43 +175,32 @@
     fill: $accent-color;
 
     @media screen and (min-width: 728px) {
-      transform: translate(-61px, 50%);
+      transform: translate(-56.5px, 50%);
+    }
+
+    @media screen and (min-width: 1354px) {
+      transform: translate(50%, -65px);
     }
   }
 }
 
 .semester-list {
-  @media screen and (min-width: 728px) {
+  @media screen and (min-width: 728px) and (max-width: 1353px) {
     display: flex;
   }
-}
-
-.semester-item-title {
-  margin-bottom: 11px;
-
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.667;
-  letter-spacing: 0.08em;
-  color: $accent-color;
-}
-
-.semester-item-list {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.667;
-  letter-spacing: 0.08em;
-  color: $light-text-color;
-  opacity: 0.5;
 }
 
 .semester-list-item:not(:first-child) {
   @media screen and (max-width: 727px) {
     margin-top: 14px;
   }
+
+  @media screen and (min-width: 1354px) {
+    margin-top: 25px;
+  }
 }
 
-@media screen and (min-width: 728px) {
+@media screen and (min-width: 728px) and (max-width: 1353px) {
   .semester-list-item:not(:first-child) {
     margin-left: 50px;
   }
@@ -165,5 +211,34 @@
 
   .semester-list-item:nth-child(2) {
     width: 155px;
+  }
+}
+
+.semester-item-title {
+  margin-bottom: 10px;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.667;
+  letter-spacing: 0.08em;
+  color: $accent-color;
+
+  @media screen and (min-width: 1354px) {
+    font-size: 20px;
+    line-height: 1.649;
+  }
+}
+
+.semester-item-list {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.667;
+  letter-spacing: 0.08em;
+  color: $light-text-color;
+  opacity: 0.5;
+
+  @media screen and (min-width: 1354px) {
+    font-size: 18px;
+    line-height: 1.556;
   }
 }
