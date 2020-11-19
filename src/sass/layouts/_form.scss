@@ -1,27 +1,23 @@
 .form {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
   background: $primary-black-color;
-  background-image: url(../images/form-d.png);
+  background-image: url(../images/form-m.png);
   background-repeat: no-repeat;
   background-size: cover;
 
-  @media screen and (max-width: 480px) {
-    background: $primary-black-color;
-    background-image: url(../images/form-m.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 55px 0 60px;
-  }
   @media screen and (min-width: 768px) {
     background: $primary-black-color;
     background-image: url(../images/form-t.png);
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 55px 0 60px;
+    padding-top: 100px;
+    padding-bottom: 60px;
   }
-  @media screen and (min-width: 1344px) {
+  @media screen and (min-width: 1280px) {
     background: $primary-black-color;
     background-image: url(../images/form-d.png);
-    padding: 55px 0 60px;
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -30,16 +26,13 @@
 .form__heading {
   color: $primary-white-color;
   letter-spacing: 0.03em;
-
-  @media screen and (max-width: 480px) {
-    font-size: 14px;
-    line-height: 19px;
-    text-align: center;
-    font-weight: 800;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 0 0 26px;
-  }
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  font-weight: 800;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 0 26px;
 
   @media screen and (min-width: 768px) {
     font-weight: 800;
@@ -51,7 +44,7 @@
     padding: 0 50px;
   }
 
-  @media screen and (min-width: 1344px) {
+  @media screen and (min-width: 1280px) {
     font-weight: 800;
     font-size: 46px;
     line-height: 60px;
@@ -65,15 +58,12 @@
 
 .form__subtitle {
   color: $primary-white-color;
-
-  @media screen and (max-width: 480px) {
-    font-size: 12px;
-    line-height: 15px;
-    text-align: center;
-    font-weight: 600;
-    padding: 0 10px;
-    margin: 0 0 28px;
-  }
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  font-weight: 600;
+  padding: 0 10px;
+  margin: 0 0 28px;
 
   @media screen and (min-width: 768px) {
     font-style: normal;
@@ -86,7 +76,7 @@
     padding: 0 128px;
   }
 
-  @media screen and (min-width: 1344px) {
+  @media screen and (min-width: 1280px) {
     font-weight: 600;
     font-size: 30px;
     line-height: 1.2;
@@ -100,10 +90,15 @@
   color: $accent-color;
 }
 .form__field {
+  margin: 0 auto;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 270px;
+  @media screen and (min-width: 768px) {
+    width: 390px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 478px;
+  }
 }
 
 .intput__form,
@@ -111,13 +106,9 @@
   background: none;
 }
 
-.intput__form + .intput__form {
-  margin: 20px 0 30px;
-}
-
 .intput__form {
   height: 40px;
-  width: 478px;
+  width: 100%;
   outline: none;
   color: $primary-white-color;
   font-weight: 600;
@@ -133,18 +124,37 @@
   transition: border;
   transition-timing-function: linear;
   transition-duration: 3s;
+}
+.intput__form::placeholder {
+  color: transparent;
+}
 
-  @media screen and (max-width: 480px) {
-    margin: auto;
-    width: 270px;
+.intput__form:focus+.form__label,
+.intput__form:not(:placeholder-shown)+.form__label {
+  display: none;
+}
+
+.intput__form--first {
+  margin-bottom: 20px;
+}
+.form__field + .form__field {
+  margin-bottom: 50px;
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 80px;
   }
 
-  @media screen and (min-width: 768px) {
-    margin: auto;
-    width: 390px;
-  }
+}
+.form__label {
+  position: absolute;
+  top: 15px;
+  left: 31px;
+  @include font (600, 14px, 17px);
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  pointer-events: none;
 }
 .button__form {
+  margin: 0 auto;
   display: block;
   width: 354px;
   height: 70px;
