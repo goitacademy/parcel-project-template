@@ -51,11 +51,11 @@
 }
 
 .problems__list {
-  margin: -20px;
   background-color: $primary-white-color;
   box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
   padding: 20px 14px 20px 30px;
   @media screen and (min-width: 768px) {
+    margin: -20px;
     display: flex;
     flex-wrap: wrap;
     padding: 30px 46px 26px 96px;
@@ -69,8 +69,36 @@
   @media screen and (min-width: 1680px) {
     padding: 70px 80px 70px 80px;
   }
+  .problems__item:not(:last-child) {
+    @media screen and (max-width: 767px) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .problems__item:nth-child(odd) {
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+      margin-right: 40px;
+    }
+  }
+
+  .problems__item:not(:nth-last-child(-n+2)) {
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .problems__item:not(:nth-child(3n)) {
+    @media screen and (min-width: 1280px) {
+      margin-right: 40px;
+    }
+  }
+
+  .problems__item:not(:nth-last-child(-n+3)) {
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 30px;
+    }
+  }
   .problems__item {
-    margin: 20px;
     @media screen and (min-width: 768px) {
       width: calc((100% - 80px) / 2);
     }
@@ -114,6 +142,7 @@
     }
   }
 }
+
 .problems__item-number::before {
   display: inline-block;
   content: '';
