@@ -1,22 +1,26 @@
 .form {
-  background: $primary-black-color url(../images/form-d.png);
+  background: $primary-black-color;
+  background-image: url(../images/form-d.png);
   background-repeat: no-repeat;
   background-size: cover;
 
   @media screen and (max-width: 480px) {
-    background: $primary-black-color url(../images/form-m.png);
+    background: $primary-black-color;
+    background-image: url(../images/form-m.png);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 55px 0 60px;
   }
   @media screen and (min-width: 768px) {
-    background: $primary-black-color url(../images/form-t.png);
+    background: $primary-black-color;
+    background-image: url(../images/form-t.png);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 55px 0 60px;
   }
   @media screen and (min-width: 1344px) {
-    background: $primary-black-color url(../images/form-d.png);
+    background: $primary-black-color;
+    background-image: url(../images/form-d.png);
     padding: 55px 0 60px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -96,6 +100,7 @@
   color: $accent-color;
 }
 .form__field {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -150,7 +155,10 @@
   transition-duration: 1s;
   outline: none;
   font-weight: 700;
-  transition: all 0.3s linear;
+  background: $accent-color;
+  border: 2px;
+  transition: color $transition-duration cubic-bezier($cubic-bezier),
+    background-color $transition-duration cubic-bezier($cubic-bezier);
 
   @media screen and (max-width: 480px) {
     width: 290px;
@@ -159,4 +167,6 @@
 .button__form:hover,
 .button__form:focus {
   background-color: $primary-white-color;
+  color: $accent-color;
+  cursor: pointer;
 }
