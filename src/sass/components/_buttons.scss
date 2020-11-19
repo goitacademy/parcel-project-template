@@ -1,4 +1,5 @@
 .button {
+  position: relative;
   display: inline-block;
   border: 2px solid $accent-color;
   text-align: center;
@@ -12,12 +13,14 @@
   width: 260px;
   height: 48px;
   cursor: pointer;
-
+  
   &:hover,
-  &:focus {
+  &:focus 
+  {
     transform: scale(0.9);
   }
 
+  
   @media screen and (min-width: 1680px) {
     width: 336px;
     height: 70px;
@@ -64,7 +67,7 @@
 
   &.is-open .icon-cross {
     display: block;
-    fill: #ffffff;
+    fill: $secondary-background;
   }
 
   &.is-open .icon-menu {
@@ -73,5 +76,51 @@
 
   @media screen and (min-width: 1680px) {
     display: none;
+  }
+}
+.button::after {
+  content: "";
+  display: inline-block;
+  transition: background .15s ease-in-out;
+  background: linear-gradient(90deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.03) 1%,hsla(0,0%,100%,.6) 30%,hsla(0,0%,100%,.85) 50%,hsla(0,0%,100%,.85) 70%,hsla(0,0%,100%,.85) 71%,hsla(0,0%,100%,0));
+  width: 35%;
+  height: 100%;
+  transform: skew(-15deg,0deg);
+  animation: move 2s;
+  animation-iteration-count: infinite;
+  animation-play-state: none;
+  animation-delay: 1s;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+@keyframes move {
+  0%
+  {
+    left:0;
+    opacity:0
+  }
+  
+  5%
+  {
+    opacity:.05
+  }
+  
+  48%
+  {
+    opacity:.2
+  }
+  
+  80%
+  {
+    opacity:0
+  }
+  
+  to
+  {
+    left:75%
   }
 }
