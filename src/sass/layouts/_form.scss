@@ -28,31 +28,29 @@
   letter-spacing: 0.03em;
   font-size: 14px;
   line-height: 19px;
-  text-align: center;
   font-weight: 800;
   padding-left: 20px;
   padding-right: 20px;
-  margin: 0 0 26px;
+  margin-bottom: 30px;
 
   @media screen and (min-width: 768px) {
+    width: 688px;
     font-weight: 800;
     font-size: 26px;
     line-height: 34px;
     letter-spacing: 0.03em;
     text-align: center;
-    margin: 0 0 35px;
+    margin-bottom: 30px;
     padding: 0 50px;
   }
 
   @media screen and (min-width: 1280px) {
+    width: 1090px;
     font-weight: 800;
     font-size: 46px;
     line-height: 60px;
     letter-spacing: 0.03em;
-    text-align: center;
-    padding-left: 120px;
-    padding-right: 120px;
-    margin: 0px;
+    margin-bottom: 50px;
   }
 }
 
@@ -61,9 +59,10 @@
   font-size: 12px;
   line-height: 15px;
   text-align: center;
+  letter-spacing: 0.08em;
   font-weight: 600;
   padding: 0 10px;
-  margin: 0 0 28px;
+  margin: 0 0 30px;
 
   @media screen and (min-width: 768px) {
     font-style: normal;
@@ -72,17 +71,18 @@
     line-height: 17px;
     letter-spacing: 0.08em;
     text-align: center;
-    margin: 0 0 38px;
+    margin: 0 0 40px;
     padding: 0 128px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1680px) {
     font-weight: 600;
     font-size: 30px;
     line-height: 1.2;
     text-align: center;
     letter-spacing: 0.08em;
-    padding: 50px 200px;
+    margin-bottom: 56px;
+    padding: 0 180px;
   }
 }
 
@@ -93,6 +93,7 @@
   margin: 0 auto;
   position: relative;
   width: 270px;
+  overflow: hidden;
   @media screen and (min-width: 768px) {
     width: 390px;
   }
@@ -128,24 +129,13 @@
     height: 48px;
   }
   @media screen and (min-width: 1280px) {
+    @include font(700, 20px, 24px);
     height: 70px;
   }
 }
 .intput__form::placeholder {
   color: transparent;
 }
-
-.intput__form:focus+.form__label,
-.intput__form:not(:placeholder-shown)+.form__label {
-  transform: translateX(150px);
-  @media screen and (min-width: 768px) {
-    transform: translateX(265px);
-  }
-  @media screen and (min-width: 1280px) {
-    transform: translateX(315px);
-  }
-}
-
 .intput__form--first {
   margin-bottom: 20px;
 }
@@ -154,45 +144,63 @@
   @media screen and (min-width: 1280px) {
     margin-bottom: 80px;
   }
-
 }
 .form__label {
   position: absolute;
+  width: 100%;
   top: 15px;
   left: 31px;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.214;
   letter-spacing: 0.08em;
-  color: #FFFFFF;
+  text-align: start;
+  color: #ffffff;
   pointer-events: none;
-  transition: transform $transition-duration cubic-bezier($cubic-bezier);
-  @media screen and (min-width: 1280px) {
-    top: 22px;
-    font-size: 20px;
-    line-height: 1.2;
-  }
+  transform: translateX(0);
+  transition: transform $transition-duration $cubic-bezier,
+    color $transition-duration $cubic-bezier;
 
+  @media screen and (min-width: 1680px) {
+    @include font(600, 20px, 24px);
+    top: 23px;
+  }
 }
+
+.intput__form:focus + .form__label,
+.intput__form:not(:placeholder-shown) + .form__label {
+  transform: translateX(55%);
+  color: $primary-text-color;
+
+  @media screen and (min-width: 768px) {
+    transform: translateX(67%);
+  }
+}
+
 .button__form {
   margin: 0 auto;
   display: block;
-  width: 354px;
-  height: 70px;
-  padding: 0 18px;
+  width: 260px;
+  height: 48px;
+
+  @include font(700, 12px, 15px);
   color: $primary-white-color;
+  text-transform: uppercase;
+
   background-color: $accent-color;
   border-style: none;
   transition-duration: 1s;
   outline: none;
-  font-weight: 700;
+
   background: $accent-color;
-  border: 2px;
+  border: 2px solid $accent-color;
   transition: color $transition-duration cubic-bezier($cubic-bezier),
     background-color $transition-duration cubic-bezier($cubic-bezier);
 
-  @media screen and (max-width: 480px) {
-    width: 290px;
+  @media screen and (min-width: 1680px) {
+    width: 354px;
+    height: 70px;
+    @include font(700, 14px, 17px);
   }
 }
 .button__form:hover,
