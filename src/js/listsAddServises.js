@@ -1,32 +1,35 @@
 import storage from './storage';
 
+let btnWatched = null;
+let btnQueue = null;
+
 export function onModalButtons() {
-    const addToWatchedBtn = document.querySelector('.js-watched');
-    const addToQueueBtn = document.querySelector('.js-queue');
-    addToWatchedBtn.addEventListener('click', onWatchedBtn);
-    addToQueueBtn.addEventListener('click', onQueueBtn);
+    btnWatched = document.querySelector('.js-watched');
+    btnQueue = document.querySelector('.js-queue');
+    btnWatched.addEventListener('click', onWatchedBtn);
+    btnQueue.addEventListener('click', onQueueBtn);
 
     const watchedList = storage.load('WatchedList');
     const queueList = storage.load('QueueList');
 
-    if (watchedList !== undefined && watchedList.includes(addToWatchedBtn.dataset.id)) {
-        addToWatchedBtn.textContent = 'remove from watched';
-        addToWatchedBtn.dataset.action = 'remove';
+    if (watchedList !== undefined && watchedList.includes(btnWatched.dataset.id)) {
+        btnWatched.textContent = 'remove from watched';
+        btnWatched.dataset.action = 'remove';
     }
 
-    if (queueList !== undefined && queueList.includes(addToQueueBtn.dataset.id)) {
-        addToQueueBtn.textContent = 'remove from queue';
-        addToQueueBtn.dataset.action = 'remove';
+    if (queueList !== undefined && queueList.includes(btnQueue.dataset.id)) {
+        btnQueue.textContent = 'remove from queue';
+        btnQueue.dataset.action = 'remove';
     }
 }
 
 function onWatchedBtn(event) {
     event.preventDefault();
 
-	if (event.target.dataset.action === 'add') {
-		addToWatchedList(event);
+    if (event.target.dataset.action === 'add') {
+        addToWatchedList(event);
         renameWatchedBtn(event);
-        
+
         return;
     }
 
@@ -39,8 +42,8 @@ function onWatchedBtn(event) {
 function onQueueBtn(event) {
     event.preventDefault();
 
-	if (event.target.dataset.action === 'add') {
-		addToQueueList(event);
+    if (event.target.dataset.action === 'add') {
+        addToQueueList(event);
         renameQueueBtn(event);
 
         return;
@@ -85,4 +88,9 @@ function renameQueueBtn(event) {
 function renameWatchedBtn(event) {
     event.target.textContent = 'remove from watched';
     event.target.dataset.action = 'remove';
+}
+
+export function clearListener() {
+    btnWatched.removeEventListener('click', onWatchedBtn);
+    btnQueue.removeEventListener('click', onQueueBtn);
 }
