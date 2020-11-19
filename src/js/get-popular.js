@@ -1,7 +1,6 @@
 import popularTpl from '../templates/movies.hbs';
 import FilmsApiService from './api-service';
 import refs from './refs';
-import { startPopup } from './popup';
 import loaderToggle from './loader';
 import '../js/event/click-on-card';
 
