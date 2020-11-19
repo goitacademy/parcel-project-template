@@ -1,9 +1,13 @@
 {{#each this}}
 <li class="movies-item">
   <div class="movies-poster">
-    <img class="movies-image" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{poster_path}}"
-      onerror="this.src = 'https://dummyimage.com/294x441/f0f0f0/000.jpg&text=Image+not+found'"
-      alt="{{title}}" data-id="{{id}}" />
+    {{#if poster_path}}
+    <img class="movies-image" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{poster_path}}" alt="{{title}}"
+      data-id="{{id}}" />
+    {{else}}
+    <img class="movies-image" src="https://dummyimage.com/294x441/f0f0f0/000.jpg&text=YOU%27RE+AWESOME+:)"
+      alt="placeholder" />
+    {{/if}}
   </div>
 
   <div class="description">
