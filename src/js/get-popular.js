@@ -2,6 +2,7 @@ import popularTpl from '../templates/movies.hbs';
 import FilmsApiService from './api-service';
 import refs from './refs';
 import { startPopup } from './popup';
+import loaderToggle from './loader'
 
 const filmsApiService = new FilmsApiService();
 
@@ -10,7 +11,8 @@ export default function markupPopularMovies(movies) {
 }
 
 function showPopular(url) {
-  return filmsApiService.showFilmsResult(url).then(markupPopularMovies);
+  loaderToggle();
+  return filmsApiService.showFilmsResult(url).then(markupPopularMovies).then(loaderToggle);
 }
 
 showPopular('trending/movie/day');

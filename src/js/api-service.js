@@ -19,15 +19,15 @@ export default class FilmsApiService {
   fetchGenres() {
     return fetch(`${BASE_URL}genre/movie/list?api_key=${API_KEY}`)
       .then(response => response.json())
-      .then(list => {
-        return list.genres;
+      .then(data => {
+        return data.genres;
       });
   }
 
   getGenres(url) {
-    return this.fetchFilms(url).then(list => {
+    return this.fetchFilms(url).then(data => {
       return this.fetchGenres().then(arr =>
-        list.map(el => ({
+        data.map(el => ({
           ...el,
           genre_ids: el.genre_ids.flatMap(num =>
             arr.filter(el => el.id === num),
@@ -38,10 +38,11 @@ export default class FilmsApiService {
   }
 
   showFilmsResult(url) {
-    return this.getGenres(url).then(list => {
-      return list.map(el => ({
-        ...el,
+    return this.getGenres(url).then(data => {
+      return data.map(el => ({
+				...el,				
         release_date: el.release_date.split('-')[0],
+        vote_average: el.vote_average.toFixed(1),
       }));
     });
   }

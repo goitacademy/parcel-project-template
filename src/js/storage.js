@@ -1,9 +1,9 @@
 // Принимает ключ `key` по которому будет произведена выборка.
 const load = key => {
   try {
-    const serializedState = localStorage.getItem(key);
+    const localData = localStorage.getItem(key);
 
-    return serializedState === null ? undefined : JSON.parse(serializedState);
+    return localData === null ? undefined : JSON.parse(localData);
   } catch (err) {
     console.error('Get state error: ', err);
   }
@@ -12,11 +12,18 @@ const load = key => {
 // Принимает ключ `key` и значение `value`.
 const save = (key, value) => {
   try {
-    const serializedState = JSON.stringify(value);
-    localStorage.setItem(key, serializedState);
+    const localData = JSON.stringify(value);
+    localStorage.setItem(key, localData);
   } catch (err) {
     console.error('Set state error: ', err);
   }
 };
 
-export default { load, save };
+// Принимает ключ `key` и значение `value`.
+const remove = (key, value) => {
+  const localData = load(key);
+  localData.splice(localData.indexOf(value), 1);
+  save (key, localData);
+};
+
+export default { load, save, remove };
