@@ -124,6 +124,12 @@
   transition: border;
   transition-timing-function: linear;
   transition-duration: 3s;
+  @media screen and (min-width: 768px) {
+    height: 48px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 70px;
+  }
 }
 .intput__form::placeholder {
   color: transparent;
@@ -131,7 +137,13 @@
 
 .intput__form:focus+.form__label,
 .intput__form:not(:placeholder-shown)+.form__label {
-  display: none;
+  transform: translateX(150px);
+  @media screen and (min-width: 768px) {
+    transform: translateX(265px);
+  }
+  @media screen and (min-width: 1280px) {
+    transform: translateX(315px);
+  }
 }
 
 .intput__form--first {
@@ -148,10 +160,19 @@
   position: absolute;
   top: 15px;
   left: 31px;
-  @include font (600, 14px, 17px);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.214;
   letter-spacing: 0.08em;
   color: #FFFFFF;
   pointer-events: none;
+  transition: transform $transition-duration cubic-bezier($cubic-bezier);
+  @media screen and (min-width: 1280px) {
+    top: 22px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
 }
 .button__form {
   margin: 0 auto;
@@ -176,7 +197,8 @@
 }
 .button__form:hover,
 .button__form:focus {
-  background-color: $primary-white-color;
+  border: 2px solid $accent-color;
+  background-color: transparent;
   color: $accent-color;
   cursor: pointer;
 }
