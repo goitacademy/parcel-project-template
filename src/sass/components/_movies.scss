@@ -1,33 +1,48 @@
 .movies-list {
-  @media screen and (min-width: $tablet) {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -15px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: -15px;
 }
 
 .movies-item {
-  &:not(:last-child) {
-    @media screen and (max-width: $tablet - 1) {
-      margin-bottom: 20px;
-    }
-  }
-
-  @media screen and (min-width: $tablet) {
-    width: calc((100% - 2 * 30px) / 2);
-    margin: 15px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    width: calc((100% - 3 * 30px) / 3);
-  }
+  max-width: 294px;
+  margin: 15px;
 }
 
 .movies-poster {
+  position: relative;
   margin-bottom: 10px;
   border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
+
+  transition: all 200ms $timing-function;
+  &:hover {
+    opacity: 0.5;
+    transform: scale(1.01);
+    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      0px 1px 1px rgba(0, 0, 0, 0.12);
+
+    &:after {
+      visibility: visible;
+    }
+  }
+
+  &:after {
+    content: '';
+    background: transparent url(../images/eye-icon.png) no-repeat center;
+    width: 52px;
+    height: 35px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .description-title {
@@ -43,7 +58,7 @@
 }
 
 .description-info {
-  margin-right: 10px;
+  margin-right: 7px;
 }
 
 .description-popularity {
