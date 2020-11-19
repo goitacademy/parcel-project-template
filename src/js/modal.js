@@ -4,6 +4,7 @@
   const mobileMenuRef = document.querySelector("[data-menu]");
   const headerLogoRef = document.querySelector("[header-menu]");
   const burgerButtonRef = document.querySelector("[burger-button]");
+  const bodyRef = document.querySelector("[data-body]");
   
 
   menuBtnRef.addEventListener("click", () => {
@@ -11,6 +12,7 @@
       menuBtnRef.getAttribute("aria-expanded") === "true" || false;
     headerLogoRef.classList.toggle("is-open");
     burgerButtonRef.classList.toggle("is-active");
+    bodyRef.classList.toggle("is-active");
     
     menuBtnRef.classList.toggle("is-open");
     menuBtnRef.setAttribute("aria-expanded", !expanded);
