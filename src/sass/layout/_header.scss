@@ -10,6 +10,11 @@
     display: flex;
     align-items: center;
   }
+
+  &__menu-container {
+    padding-left: calc(100vw - 100%);
+    padding-right: 0;
+  }
 }
 
 @media screen and (max-width: 1354px) {
@@ -24,15 +29,8 @@
         height: 100%;
         background-color: rgba(17, 21, 24, 0.9);
         opacity: 1;
-        transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-          visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: opacity $transition, visibility $transition;
         overflow-y: scroll;
-      }
-    }
-
-    &__logo-container {
-      .header__menu-container.is-open & {
-        margin-bottom: 50px;
       }
     }
 
@@ -45,15 +43,15 @@
     }
 
     &__icon-menu {
-      stroke: $title;
+      stroke: #111518;
 
       .header__menu-button:hover &,
       .header__menu-button:focus & {
-        stroke: $accent-color;
+        stroke: #ff6b09;
       }
 
       .header__menu-button.is-open & {
-        stroke: $title;
+        stroke: #111518;
       }
     }
 
@@ -67,7 +65,7 @@
 
       .header__menu-button.is-open:hover &,
       .header__menu-button.is-open:focus & {
-        stroke: $accent-color;
+        stroke: #ff6b09;
       }
     }
   }
@@ -75,7 +73,7 @@
   .logo {
     .header__menu-container.is-open &__title,
     .header__menu-container.is-open &__subtitle {
-      color: #ffffff;
+      color: $second-title;
     }
   }
 }
@@ -86,6 +84,12 @@
 
     &__container {
       padding-top: 30px;
+    }
+
+    &__logo-container {
+      .header__menu-container.is-open & {
+        margin-bottom: 50px;
+      }
     }
 
     &__button {
@@ -105,6 +109,12 @@
     &__container {
       position: relative;
       padding-top: 40px;
+    }
+
+    &__logo-container {
+      .header__menu-container.is-open & {
+        margin-bottom: 71px;
+      }
     }
 
     &__button {
@@ -140,8 +150,6 @@
 }
 
 .navigation {
-  font-family: $main-font;
-
   &__link {
     &:hover,
     &:focus {
@@ -169,7 +177,7 @@
     }
 
     &__link {
-      color: #ffffff;
+      color: $second-title;
     }
   }
 }
@@ -185,7 +193,6 @@
     &__list {
       .header__menu-container.is-open & {
         max-width: 260px;
-        margin: 0 auto;
       }
     }
   }

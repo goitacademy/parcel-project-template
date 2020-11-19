@@ -2,23 +2,35 @@
 .button {
   min-width: 260px;
   height: 48px;
-  background: $accent-color;
+  padding: 14px 6px;
+  background-color: $accent-color;
+  border: 2px solid transparent;
   font-weight: 700;
   @include font(12px, 15px);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  text-align: center;
-  color: #ffffff;
-  border-color: transparent;
-  padding: 14px 0;
+  color: $second-title;
+  transition: background-color $transition, border-color $transition, color $transition;
   cursor: pointer;
-  transition: $transition;
 
   &:hover,
   &:focus {
-    color: $accent-color;
-    background: transparent;
+    background-color: transparent;
     border-color: $accent-color;
+    color: $accent-color;
+  }
+
+  &--reverse {
+    background-color: transparent;
+    border-color: $accent-color;
+    color: $accent-color;
+
+    &:hover,
+    &:focus {
+      background-color: $accent-color;
+      border-color: transparent;
+      color: $second-title;
+    }
   }
 }
 
@@ -26,9 +38,14 @@
   .button {
     min-width: 354px;
     height: 70px;
+    padding: 23px;
     @include font(14px, 17px);
     letter-spacing: 0.14em;
-    padding: 27px 25px 26px 26px;
+
+    &--reverse {
+      min-width: 336px;
+      padding: 26px 21px;
+    }
   }
 }
 /* ========== End Button ========== */
