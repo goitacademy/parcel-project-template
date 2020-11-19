@@ -1,16 +1,23 @@
 .header {
-  position: absolute;
+  // position: absolute;
+  z-index: 999;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
-  background-color: $secondBgColor;
+  background-color: $secondBgColor; //delete before deploy
+
+  @include media-size(tablet-1) {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color: $secondBgColor;
+  }
 }
 
 .header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 2px solid orange;
 }
 
 /* ---------LOGO------------ */
@@ -36,9 +43,30 @@
 
 /* ----------MENU----------- */
 .menu-block {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+
+  @include media-size(min-desktop) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 1;
+    pointer-events: initial;
+  }
+}
+
+.menu-block.is-open {
+  position: absolute;
+  pointer-events: initial;
+  opacity: 1;
+  background-color: $menuBgColor;
+}
+
+@include media-size(tablet-1) {
+  .site-nav,
+  .header .buttons-with-icon {
+    @include visuallyHidden;
+  }
 }
 
 .header__nav {
@@ -61,7 +89,7 @@
 }
 
 /* --------Global BUTTONS------------- */
-.header .buttons {
+.buttons {
   flex-shrink: 0;
   display: inline-block;
   padding-top: 15px;
@@ -87,27 +115,58 @@
   }
 }
 
+.buttons-with-icon {
+  @extend .buttons;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .buttons__icon {
   align-items: center;
-  // stroke: currentColor;
-  fill: currentColor;
+  stroke: currentColor;
+  margin-left: 10px;
 }
 /* --------------------- */
 
+/* -----------MENU BUTTON close/open------------------ */
 .menu-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
+  padding: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
   border: none;
   background-color: transparent;
   outline: none;
+  cursor: pointer;
+
+  @include media-size(min-desktop) {
+    @include visuallyHidden;
+  }
 }
 
-.icon-open {
+.menu-button .icon {
   stroke: $accentColor;
 }
 
-.menu-button:hover .icon-open {
+.menu-button:hover .icon {
   stroke: $primaryColor;
 }
 
-@include media-size(tablet-1) {
+.menu-button .icon-close {
+  display: none;
 }
+
+.menu-button.is-open {
+  & .icon-close {
+    display: block;
+  }
+
+  & .icon-open {
+    display: none;
+  }
+}
+/* ----------------------------- */
