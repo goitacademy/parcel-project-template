@@ -40,8 +40,7 @@ export default class FilmsApiService {
   showFilmsResult(url) {
     return this.getGenres(url).then(data => {
       return data.map(el => ({
-				...el,
-				
+				...el,				
         release_date: el.release_date.split('-')[0],
         vote_average: el.vote_average.toFixed(1),
       }));
