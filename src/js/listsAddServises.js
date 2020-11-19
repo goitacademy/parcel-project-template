@@ -24,7 +24,7 @@ export function onModalButtons() {
 }
 
 function onWatchedBtn(event) {
-    event.preventDefault();
+    event.target.blur();
 
     if (event.target.dataset.action === 'add') {
         addToWatchedList(event);
@@ -40,7 +40,7 @@ function onWatchedBtn(event) {
 }
 
 function onQueueBtn(event) {
-    event.preventDefault();
+    event.target.blur();
 
     if (event.target.dataset.action === 'add') {
         addToQueueList(event);
