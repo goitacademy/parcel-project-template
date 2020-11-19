@@ -5,6 +5,10 @@
   z-index: 1;
 
   padding: 0;
+
+  @include for-size(desktop) {
+    display: none;
+  }
 }
 .header-nav {
   display: flex;
@@ -12,6 +16,30 @@
   align-items: center;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.header-nav .list {
+  display: none;
+  margin-top: 0;
+  margin-left: 144px;
+  margin-bottom: 0;
+  padding-left: 0;
+
+  @include for-size(desktop) {
+    display: flex;
+  }
+}
+
+.header-nav .item {
+  &:not(:last-child) {
+    margin-right: 40px;
+  }
+}
+
+.header-nav .link {
+  line-height: 1.21;
+
+  color: $silver-color;
 }
 
 .menu-burger {
@@ -71,7 +99,6 @@
   line-height: 1.22;
   color: $orange-color;
 
-  display: inline-block;
   text-align: center;
   padding: 12px 12px;
   border: 2px solid $orange-color;
@@ -81,20 +108,31 @@
   }
 }
 
-.consultation-call.header {
-  @include for-size(mobile-only) {
-    display: none;
-  }
+.header .consultation-call {
+  display: none;
+
   @include for-size(tablet) {
     display: block;
     margin-left: auto;
     margin-right: 45px;
+  }
+
+  @include for-size(desktop) {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
 .header-logo {
   position: relative;
   z-index: 1;
+
+  @include for-size(tablet) {
+    &-icon {
+      width: 128px;
+      height: 45px;
+    }
+  }
 }
 
 .header-logo.is-open {
