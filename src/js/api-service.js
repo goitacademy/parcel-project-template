@@ -8,7 +8,9 @@ export default class FilmsApiService {
   }
 
   fetchFilms(url) {
-    return fetch(`${BASE_URL}${url}?api_key=${API_KEY}&page=${this.page}`)
+    return fetch(
+      `${BASE_URL}${url}?api_key=${API_KEY}&page=${this.page}&query=${this.searchQuery}`,
+    )
       .then(response => response.json())
       .then(({ results }) => {
         this.incrementPage();
