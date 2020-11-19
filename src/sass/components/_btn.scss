@@ -1,24 +1,4 @@
 
-  
-
-    
-//       margin: 50px auto 0;
-//       padding: 14px 10px;
-//       background-color: transparent;
-//       border: 2px solid $accent-color;
-//       font-weight: 700;
-//       font-size: 12px;
-//       line-height: 1.25;
-//       letter-spacing: 0.08em;
-//       text-align: center;
-
-//       @media screen and (min-width: 768px) {
-//         display: none;
-//       }
-//     }
-//   }
-// }
-
 /* кнопка героя и регистрации */
 $time: 1000ms;
 
@@ -73,11 +53,9 @@ $btns: (
 
     .header-buttons & {
 
-      display: none;
-    
-    @media screen and (min-width: 768px) {
-      display: block;
-   }
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
    
   }
 
@@ -117,11 +95,6 @@ $btns: (
     border: 2px solid $accent-color;
   }
 
-  /*  &:hover {
-    color: $accent-color;
-    background-color: $third-color;
-    border: 2px solid $accent-color;
-  } */
 }
 
 
@@ -145,6 +118,150 @@ $btns: (
     &:focus,
     &:active {
       color: map-get($bcolors, tend);
+    }
+  }
+}
+
+.btn-menu-box {
+  width: 20px;
+  border: 0;
+  background-color: transparent;
+  position: relative;
+
+  .btn-menu {
+    width: 20px;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+    /*position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);*/
+    /*z-index: 990;*/
+    cursor: pointer;
+  }
+
+  span {
+    display: block;
+    width: 100%;
+    /*box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);*/
+    border-radius: 1px;
+    height: 2px;
+    background: #000000;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  span + span {
+    margin-top: 3px;
+  }
+
+  .active span {
+    background: #fff;
+  }
+
+  .active span:nth-child(1) {
+    animation: ease 0.7s top forwards;
+  }
+
+  .not-active span:nth-child(1) {
+    animation: ease 0.7s top-2 forwards;
+  }
+
+  .active span:nth-child(2) {
+    animation: ease 0.7s scaled forwards;
+  }
+
+  .not-active span:nth-child(2) {
+    animation: ease 0.7s scaled-2 forwards;
+  }
+
+  .active span:nth-child(3) {
+    animation: ease 0.7s bottom forwards;
+  }
+
+  .not-active span:nth-child(3) {
+    animation: ease 0.7s bottom-2 forwards;
+  }
+
+  @keyframes top {
+    0% {
+      top: 0;
+      transform: rotate(0);
+    }
+    50% {
+      top: 5px;
+      transform: rotate(0);
+    }
+    100% {
+      top: 5px;
+      transform: rotate(225deg);
+    }
+  }
+
+  @keyframes top-2 {
+    0% {
+      top: 5px;
+      transform: rotate(225deg);
+    }
+    50% {
+      top: 5px;
+      transform: rotate(0deg);
+    }
+    100% {
+      top: 0;
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes bottom {
+    0% {
+      bottom: 0;
+      transform: rotate(0);
+    }
+    50% {
+      bottom: 5px;
+      transform: rotate(0);
+    }
+    100% {
+      bottom: 5px;
+      transform: rotate(315deg);
+    }
+  }
+
+  @keyframes bottom-2 {
+    0% {
+      bottom: 5px;
+      transform: rotate(315deg);
+    }
+    50% {
+      bottom: 5px;
+      transform: rotate(0);
+    }
+    100% {
+      bottom: 0;
+      transform: rotate(0);
+    }
+  }
+
+  @keyframes scaled {
+    50% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+
+  @keyframes scaled-2 {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
     }
   }
 }

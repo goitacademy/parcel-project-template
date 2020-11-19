@@ -1,13 +1,31 @@
 .header {
-    position: absolute;
-    z-index: 998;
-    top: 33px;
+    position: fixed;
+    z-index: 999;
+    padding-top: 33px;
     width: 100%;
+    background-color: rgba(17, 21, 24, 0.9);
+
+    @media screen and (min-width: 1366px) {
+        background-color: transparent;
+    }
 
     &-wrap {
         display: flex;
+        width: 100%;
         justify-content: space-between;
         align-items: center;
+    }
+    &-logo {
+        display: none;
+        @media screen and (min-width: 1366px) {
+            display: block;
+        }
+    }
+    .menu-logo {
+        display: block;
+        @media screen and (min-width: 1366px) {
+            display: none;
+        }
     }
     &-nav {
         display: none;
@@ -58,11 +76,8 @@
             margin-left: 135px;
             line-height: 1.214;
             text-transform: uppercase;
-            
         }
         
-
-
         &-mobile {
             text-align: left;
             list-style: none;
@@ -79,52 +94,56 @@
     }
     &-item {
         
-        
         @media screen and (min-width: 1366px) {
-            
         }
         &:not(:last-child) {
             @media screen and (min-width: 1366px) {
                 margin-right: 40px;
             }
         }
-        
     }
-    &-buttons {
-        display: flex;
-        align-items: center;
-    }
-}
 
-.logo {
-    display: inline-block;
-    width: 128px;
-    height: 45px;
-}
-
-.menu-btn {
-    width: 40px;
-    height: 40px;
-    border: 0;
-    background-color: transparent;
-    
-    @media screen and (min-width: 768px) {
-        margin-left: 40px;
-      }
-    &-mobile {
-        width: 40px;
-        height: 40px;
-        border: 0;
-        fill: $third-color;
-        background-color: transparent;
+    .backdrop {
+        display: block;
+        height: 100vh;
         @media screen and (min-width: 1366px) {
             display: none;
         }
     }
-    @media screen and (min-width: 1366px) {
-        display: none;
+    &-buttons {
+        display: flex;
+        align-items: center;
+        
+        .btn-beta {
+            @media screen and (min-width: 768px) and (max-width: 1365px) {
+                display: none;
+            
+            }
+        }
+      
+    
+        @media screen and (min-width: 768px) and (max-width: 1365px) {
+             justify-content: space-between; 
+        }
+        @media screen and (min-width: 1366px) {
+            display: inline-block;
+             
+        }
+
+        .btn-menu {
+            @media screen and (min-width: 1366px) {
+                display: none;
+            }
+        }
+
     }
 }
+
+.logo {
+    width: 128px;
+    height: 45px;
+}
+
 
 .button-link {
     border: 0;
@@ -143,4 +162,48 @@
 
 body.modal-open {
     overflow: hidden;
+}
+
+
+.header.is-hidden {
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    padding-top: 33px;
+    display: block;
+    background-color: transparent;
+    .header-logo {
+        display: block;
+    }
+    .menu-logo {
+        display: none;
+    }
+    .backdrop {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    &-buttons {
+        @media screen and (min-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-menu {
+            @media screen and (min-width: 1366px) {
+                display: none;
+            }
+        }
+    }
+
+    .btn-beta {
+        @media screen and (min-width: 768px) {
+          display: block;
+          margin-right: 40px;
+        }
+        @media screen and (min-width: 1366px) {
+            margin-right: 0;
+          }
+    }
 }
