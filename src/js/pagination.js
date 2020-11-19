@@ -15,7 +15,8 @@ makeFetch(currentPage + 1)
   .then(response => response.json())
   .then(({ total_pages }) => {
     renderPaginationMarkup(total_pages);
-  });
+  })
+  .then(setActiveBtn);
 
 paginationEl.addEventListener('click', event => {
   if (event.target.nodeName === 'BUTTON') {
@@ -142,17 +143,33 @@ function clearPaginationMarkup() {
 }
 
 function setActiveBtn(event) {
-  // const numberBtnsEl = document.querySelectorAll(".button-number");
-  // const btnsArray = [...numberBtnsEl];
-  // if (currentPage === 0) {
-  // numberBtnsEl[0].classList.add("active-pagination");
-  // } else {
-  // btnsArray.find((btn, index) => {
-  //   if (btn.classList.contains("active-pagination")) {
-  //     numberBtnsEl[index].classList.remove("active-pagination");
-  //   }
-  // });
-  //   event.target.classList.add('active-pagination');
+  const numberBtnsEl = document.querySelectorAll('button.button-number');
+  const btnsArray = [...numberBtnsEl];
+
+  if (currentPage === 0) {
+    numberBtnsEl[0].classList.add('active-pagination');
+  } else {
+    let targetBtnValue = 0;
+
+    if (event.target.textContent === '→' || event.target.textContent === '←') {
+      targetBtnValue = currentPage + 1;
+    } else {
+      targetBtnValue = Number(event.target.textContent);
+    }
+
+    btnsArray.find((btn, index) => {
+      if (btn.classList.contains('active-pagination')) {
+        numberBtnsEl[index].classList.remove('active-pagination');
+      }
+    });
+    // event.target.classList.add('active-pagination');
+    btnsArray.find((btn, index) => {
+      if (Number(btn.textContent) === targetBtnValue) {
+        numberBtnsEl[index].classList.add('active-pagination');
+      }
+    });
+  }
+  console.log(numberBtnsEl);
 }
 
 function onNumberBtnClick(event) {
@@ -192,7 +209,11 @@ function onBtnsClick(event) {
       renderPaginationMarkup(total_pages);
       markupPopularMovies(results);
     })
-    .then(setActiveBtn(event));
+    .then(
+      setTimeout(() => {
+        setActiveBtn(event);
+      }, 500),
+    );
 }
 
 function clearMovieContainer() {
@@ -200,7 +221,7 @@ function clearMovieContainer() {
 }
 
 // ПРОБЛЕМЫ:
-// 1. Не подсвечивается активная страница(кнопка)
+// 1. Подсвечивается активная страница(кнопка), но через костыли
 // 2. Запросы за фильмами работают не из api-service.js по причине сложных методов класса FilmsApiService
 // 3. Заменить адрес запросов на странице Избранного
-console.log(document);
+// Поборол подсветку активной страницы, правда через костыли :(
