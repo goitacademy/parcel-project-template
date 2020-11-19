@@ -7,6 +7,7 @@ const refs = {
   btnClose: document.querySelector('.js-close'),
   watchedBtn: document.querySelector('.watched-btn'),
   queueBtn: document.querySelector('.queue-btn'),
+  searchForm: document.querySelector('#search-form'),
 };
 
 export default refs;
