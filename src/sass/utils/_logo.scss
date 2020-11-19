@@ -8,19 +8,48 @@
   font-size: 24px;
   text-transform: uppercase;
   margin-right: auto;
+  @include transition(transform);
+
+  &:hover,
+  &:focus {
+    transform: scale(0.9);
+
+    .logo__bg-img {
+      box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+      background-color: $primaryColor;
+    }
+
+    .logo__text {
+      text-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+      color: $primaryColor;
+    }
+  }
 
   .header.mobile-menu-open & {
-  opacity: 0;
-  pointer-events: none;
-}
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 .logo__bg-img {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 18px;
   width: 50px;
   height: 50px;
-  background-color: $accentColor;
   border-radius: 50%;
+  background-color: $accentColor;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+  @include transitionTwoProp(box-shadow, background-color);
+}
+
+.logo__icon {
+  fill: $accentColor;
+}
+
+.logo__text {
+  text-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+  @include transitionTwoProp(text-shadow, color);
 }
 /* --------------------- */

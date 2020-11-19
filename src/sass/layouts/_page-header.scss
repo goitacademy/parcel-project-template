@@ -31,9 +31,18 @@
 .header .container {
   display: flex;
   align-items: center;
+  width: 100%;
 
-  @include media-size(desktop-1) {
-    width: 100%;
+  @include media-size(tablet-1) {
+    max-width: 450px;
+  }
+
+  @include media-size(min-tablet-desktop-1) {
+    max-width: 848px;
+  }
+
+  @include media-size(min-desktop) {
+    max-width: 1280px;
   }
 }
 
@@ -87,7 +96,13 @@
 .header__nav {
   @include media-size(desktop-1) {
     .menu-block.is-close & {
+      transform: translateX(100%);
       @include visuallyHidden;
+    }
+
+    .menu-block.is-open & {
+      transform: translateX(0);
+      @include transitionTwoProp(transform, opacity, 250ms);
     }
 
     .item {
@@ -118,13 +133,14 @@
 
   .link {
     display: inline-block;
-
+    width: 100%;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 24px;
     font-weight: 700;
     font-size: 14px;
     line-height: 1.3;
+    @include transition(transform);
 
     @include media-size(min-desktop) {
       padding-top: 50px;
@@ -135,6 +151,7 @@
     &:hover,
     &:focus {
       color: $accentColor;
+      transform: scale(0.9);
     }
   }
 }
@@ -174,9 +191,11 @@
 
 .menu-button__icon {
   stroke: $accentColor;
+  @include transitionTwoProp(stroke, stroke-width);
 
   .menu-button:hover & {
     stroke: $primaryColor;
+    stroke-width: 2;
   }
 }
 
