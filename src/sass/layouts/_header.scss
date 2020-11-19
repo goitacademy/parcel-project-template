@@ -1,0 +1,134 @@
+.body.is-active {
+  overflow-y: hidden;
+}
+
+.header .consultation-call {
+  display: none;
+
+  @include for-size(tablet) {
+    display: block;
+    margin-left: auto;
+    margin-right: 45px;
+  }
+
+  @include for-size(desktop) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.header-logo {
+  position: relative;
+  z-index: 1;
+
+  @include for-size(tablet) {
+    &-icon {
+      width: 128px;
+      height: 45px;
+    }
+  }
+  &.is-open {
+    fill: $white-color;
+  }
+}
+
+.burger-button {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  z-index: 1;
+
+  padding: 0;
+
+  @include for-size(desktop) {
+    display: none;
+  }
+}
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  .list {
+    display: none;
+    margin-top: 0;
+    margin-left: 144px;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    @include for-size(desktop) {
+      display: flex;
+    }
+  }
+
+  .item {
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+  .link {
+    line-height: 1.21;
+
+    color: $silver-color;
+  }
+}
+
+.menu-burger {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 110px;
+  text-align: center;
+  background-color: rgba(17, 21, 24, 0.95);
+
+  & .link:hover,
+  & .link:focus {
+    color: $orange-color;
+  }
+
+  .list {
+    margin-top: 0;
+    margin-bottom: 50px;
+    padding-left: 0;
+
+    text-align: left;
+
+    @include for-size(tablet) {
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .link {
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+
+    color: $white-color;
+  }
+
+  &.is-open {
+    display: block;
+    position: fixed;
+  }
+}
+
+.consultation-call {
+  font-size: 12px;
+  line-height: 1.22;
+  color: $orange-color;
+
+  text-align: center;
+  padding: 12px 12px;
+  border: 2px solid $orange-color;
+
+  @include for-size(tablet) {
+    display: none;
+  }
+}
