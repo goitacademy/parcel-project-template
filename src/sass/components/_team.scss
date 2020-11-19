@@ -27,11 +27,6 @@ body.show-modal .modal {
   overflow-y: scroll;
 }
 
-// .backdrop.is-hidden {
-//   opacity: 0;
-//   pointer-events: none;
-// }
-
 .modal {
   padding: 20px;
   border-radius: 4px;
@@ -48,23 +43,20 @@ body.show-modal .modal {
   transition: transform 200ms ease-in-out;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $tablet - 1px) {
   .modal {
     max-width: 450px;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+@media screen and (min-width: $tablet) and (max-width: $desktop - 1px) {
   .modal {
     max-width: 618px;
     width: 100%;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: $desktop) {
   .modal {
-    /* position: absolute;
-    top: 50%;
-    left: 50%; */
     max-width: 882px;
   }
 }
@@ -78,46 +70,44 @@ body.show-modal .modal {
   flex-wrap: wrap;
   justify-content: space-around;
 }
-.item {
+.member {
   margin-left: 10px;
   margin-top: 10px;
-  /* flex-basis: calc(100% / 4 - 10px); */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 @media screen and (max-width: 767px) {
-  .item {
+  .member {
     flex-basis: calc(100% / 2 - 10px);
   }
 }
 
 @media screen and (min-width: 500px) and (max-width: 1199px) {
-  .item {
+  .member {
     flex-basis: calc(100% / 3 - 10px);
   }
 }
 @media screen and (min-width: 1200px) {
-  .item {
+  .member {
     flex-basis: calc(100% / 4 - 10px);
   }
 }
 
-.item p {
+.member p {
   margin-bottom: 10px;
 }
 
-.item img {
-  display: block;
+.member img {
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 10px;
 }
 .team-heading {
   margin-bottom: 20px;
-  // text-align: center;
 }
+
 .team-role {
   color: $accent-color;
 }
@@ -127,4 +117,23 @@ body.show-modal .modal {
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  @include flex();
+  height: 30px;
+  width: 30px;
+  background-color: $white-color;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  @include transition(fill, border);
+
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+    border-color: $accent-color;
+  }
 }
