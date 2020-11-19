@@ -1,29 +1,33 @@
 
 .hero-text{
     margin: 0px;
-    line-height: 1.57; 
+    line-height: 1.6; 
     font-weight: 500;
     @include for-size(desktop){
         font-size: 20px;
-        line-height: 1.164;
         letter-spacing: 0.08em;
-        display: inline-block;
-    }
-    &.grey{
-        color: $silver-color;
-        @include for-size(desktop){
-            display: block;
         }
+    .grey{
+        color: $silver-color;
+        
     }
-    &.orange{
+    .orange{
            color: $orange-color;
+           @include for-size(tablet-only){
+               display: block;
+           }
            
         }
 }
+.grey{
+    color: $silver-color;
+    
+}
 .hero{
+    position: relative;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: left bottom;
+    background-position: left bottom -50px;
     background-image: url(../images/mobile/hero-bg-mob@x1.png);
     
   @media screen and (min-device-pixel-ratio: 2),
@@ -81,11 +85,10 @@
             font-size: 14px;
             letter-spacing: 0.14em;
             padding: 27px 28px;
-            margin-bottom: 40px;
-        }
+            }
         
     }
-          
+            
      .container{
      padding-top: 50px;
      padding-bottom: 50px;
@@ -95,7 +98,17 @@
      @include for-size(desktop){
     padding-bottom: 145px;
      }
-}   
+}  
+.img{
+    margin-left: auto;
+    margin-right: auto;
+} 
+}
+.hero-button-container{
+    text-align: center;
+    @include for-size(tablet){
+    text-align: left;
+    }
 }
 .hero-info{
     @include for-size(tablet){
@@ -105,8 +118,19 @@
 .hero-image{
     @include for-size(tablet){
     position: absolute;
-    top: 80px;
+    top: 50px;
     left: 50%;
+    transform: translateX(20px);
+}
+    @include for-size(desktop){
+        top: 0px;
     }
-    transform: translateX(-20px);
+
+}
+.key-phrase{
+    white-space: nowrap;
+    display: block;
+    @include for-size(tablet){
+        display: inline;
+    }
 }
