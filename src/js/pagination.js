@@ -151,9 +151,7 @@ function setActiveBtn(event) {
   } else {
     let targetBtnValue = 0;
 
-    if (event.target.textContent === '→') {
-      targetBtnValue = currentPage + 1;
-    } else if (event.target.textContent === '←') {
+    if (event.target.textContent === '→' || event.target.textContent === '←') {
       targetBtnValue = currentPage + 1;
     } else {
       targetBtnValue = Number(event.target.textContent);
@@ -214,7 +212,7 @@ function onBtnsClick(event) {
     .then(
       setTimeout(() => {
         setActiveBtn(event);
-      }, 300),
+      }, 500),
     );
 }
 
@@ -226,3 +224,4 @@ function clearMovieContainer() {
 // 1. Подсвечивается активная страница(кнопка), но через костыли
 // 2. Запросы за фильмами работают не из api-service.js по причине сложных методов класса FilmsApiService
 // 3. Заменить адрес запросов на странице Избранного
+// Поборол подсветку активной страницы, правда через костыли :(
