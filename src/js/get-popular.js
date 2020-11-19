@@ -3,6 +3,7 @@ import FilmsApiService from './api-service';
 import refs from './refs';
 import { startPopup } from './popup';
 import loaderToggle from './loader';
+import '../js/event/click-on-card';
 
 const filmsApiService = new FilmsApiService();
 
@@ -19,11 +20,3 @@ function showPopular(url) {
 }
 
 showPopular('trending/movie/day');
-
-refs.moviesContainer.addEventListener('click', checkClick);
-
-function checkClick(evt) {
-  if (evt.target.tagName === 'IMG') {
-    startPopup(evt.target.dataset.id);
-  }
-}

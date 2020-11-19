@@ -16,18 +16,25 @@ function onSearch(e) {
     clearMarkup();
     fetchCards('search/movie');
   } else {
+    filmsApiService.resetPage();
     clearMarkup();
+    filmsApiService.query = 'nothing';
+    fetchCards('search/movie');
   }
 }
 
 function fetchCards(url) {
   loaderToggle();
-  return filmsApiService
-    .showFilmsResult(url)
-    .then(markupPopularMovies)
-    .then(loaderToggle);
+  return filmsApiService.showFilmsResult(url).then(films => {
+    loaderToggle();
+    markupPopularMovies(films);
+    if (films.length === 0) {
+      refs.notification.classList.add('active');
+    }
+  });
 }
 
 function clearMarkup() {
   refs.moviesContainer.innerHTML = '';
+  refs.notification.classList.remove('active');
 }
