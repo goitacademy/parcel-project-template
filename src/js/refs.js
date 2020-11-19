@@ -5,6 +5,8 @@ const refs = {
   popupOverlay: document.querySelector('.popup-overlay'),
   movieField: document.querySelector('.popup-movie'),
   btnClose: document.querySelector('.js-close'),
+  watchedBtn: document.querySelector('.watched-btn'),
+  queueBtn: document.querySelector('.queue-btn'),
   searchForm: document.querySelector('#search-form'),
 };
 

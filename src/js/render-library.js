@@ -1,15 +1,12 @@
 import FilmsApiService from './api-service';
+import refs from './refs';
 import getCollection from './get-local-storage';
 import popularTpl from '../templates/movies.hbs';
 
+import '../js/event/click-on-card';
+
 const WATCHEDKEY = 'watched';
 const QUEUEKEY = 'queue';
-
-const refs = {
-  movieList: document.querySelector('.movies-list'),
-  watchedBtn: document.querySelector('.watched-btn'),
-  queueBtn: document.querySelector('.queue-btn'),
-};
 
 addEvents(); // устанавливаем слушатели
 
@@ -34,7 +31,7 @@ function setTab(page) {
       infoMsg();
       return;
     }
-    refs.movieList.innerHTML = popularTpl(films);
+    refs.moviesContainer.innerHTML = popularTpl(films);
   });
 }
 
@@ -50,6 +47,6 @@ function addEvents() {
 }
 
 function infoMsg() {
-  refs.movieList.innerHTML =
+  refs.moviesContainer.innerHTML =
     '<li class="info-msg">Вы еще не добавили фильмы в свою библиотеку.</li>';
 }
