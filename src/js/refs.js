@@ -8,6 +8,7 @@ const refs = {
   watchedBtn: document.querySelector('.watched-btn'),
   queueBtn: document.querySelector('.queue-btn'),
   searchForm: document.querySelector('#search-form'),
+  notification: document.querySelector('.notification'),
 };
 
 export default refs;
