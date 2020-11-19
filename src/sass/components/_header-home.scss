@@ -1,0 +1,143 @@
+.header-home {
+  min-height: 230px;
+  padding-top: 46px;
+  padding-bottom: 43px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-image: url('../images/bg-home-mob.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.logo-title {
+  display: none;
+}
+
+.top-flex-home {
+  @include flex(space-between, baseline);
+  margin-bottom: 41px;
+}
+
+.site-nav {
+  @include flex(flex-end, center);
+  @include font(500, 12px, 1.17, 0.02em, $basic-font);
+
+  text-transform: uppercase;
+}
+
+.site-nav a {
+  color: $white-color;
+  text-decoration: none;
+}
+
+.nav-item:not(:last-child) {
+  margin-right: 39px;
+}
+
+.link.current {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: -3px;
+    background-color: $accent-color;
+  }
+}
+
+.search-form {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 22px;
+  width: 90%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 4px;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  border-bottom: 0.5px solid $white-color;
+  @include font(400, 14px, 1.17, 0.02em, $basic-font);
+  color: $white-color;
+
+  &::placeholder {
+    color: $white-color;
+    opacity: 1;
+    @include transition(opacity);
+  }
+
+  &:focus::placeholder {
+    opacity: 0;
+  }
+}
+
+.search-btn {
+  position: absolute;
+  outline: none;
+  right: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.notification {
+  opacity: 0;
+  @include font(400, 14px, 1.17, 0.02em, $basic-font);
+  text-align: left;
+  color: $notify-text-color;
+}
+
+@media screen and (min-width: $mobile) {
+  .search-form {
+    width: 280px;
+  }
+
+  .notification {
+    opacity: 0;
+    text-align: center;
+  }
+
+  .header-home {
+    padding-top: 48px;
+    padding-bottom: 59px;
+    background-image: url('../images/bg-home-tab.jpg');
+  }
+}
+
+@media screen and (min-width: $tablet + 1px) {
+  .header-home {
+    background-image: url('../images/bg-home-desk.jpg');
+  }
+
+  .logo-title {
+    display: block;
+    margin: 0;
+    @include font(500, 30px, 1.17, 0.02em, $basic-font);
+    color: $white-color;
+  }
+
+  .logo {
+    @include flex(flex-start, baseline);
+  }
+
+  .logo-icon {
+    margin-right: 10px;
+  }
+
+  .top-flex {
+    margin-bottom: 37px;
+  }
+
+  .search-form {
+    width: 336px;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+}

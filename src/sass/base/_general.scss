@@ -5,6 +5,9 @@
 body {
   background-color: $white-color;
   font-family: $basic-font;
+  &.popup-open {
+    overflow: hidden;
+  }
 }
 
 ul,
@@ -18,10 +21,10 @@ a {
   text-decoration: none;
 }
 
-button {
+.button {
   display: inline-block;
-  padding: 11px 8px;
-  min-width: 136px;
+  padding: 13px 8px 11px;
+  min-width: 130px;
   cursor: pointer;
 
   border: 1px solid $accent-color;
@@ -33,18 +36,20 @@ button {
   @include font(500, 12px, 1.33);
 
   color: $black-color;
-  @include transition(color, background-color);
+  background-color: transparent;
+  @include transition(color, background-color, border-color);
 
   &:hover,
   &:focus {
     background-color: $accent-color;
+    border-color: $accent-color;
     color: $white-color;
   }
 }
 
 .section {
-  padding-top: $sec-pad-mob;
-  padding-bottom: $sec-pad-mob;
+  min-width: 300px;
+  padding: $sec-pad-mob;
 
   @media screen and (min-width: $tablet) {
     padding-top: $sec-pad;
@@ -56,6 +61,7 @@ button {
   position: relative;
   margin-right: auto;
   margin-left: auto;
+  min-width: 300px;
   max-width: $tablet - 1;
   padding-left: $cont-pad-mob;
   padding-right: $cont-pad-mob;
@@ -88,4 +94,5 @@ h6,
 p,
 label {
   margin-top: 0px;
+  margin-bottom: 0px;
 }

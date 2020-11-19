@@ -1,0 +1,75 @@
+.movies-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: -15px;
+}
+
+.movies-item {
+  max-width: 294px;
+  margin: 15px;
+}
+
+.movies-poster {
+  position: relative;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+
+  transition: all 200ms $timing-function;
+  &:hover {
+    opacity: 0.5;
+    transform: scale(1.01);
+    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      0px 1px 1px rgba(0, 0, 0, 0.12);
+
+    &:after {
+      visibility: visible;
+    }
+  }
+
+  &:after {
+    content: '';
+    background: transparent url(../images/eye-icon.png) no-repeat center;
+    width: 52px;
+    height: 35px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.description-title {
+  margin-bottom: 2px;
+  @include font(500, 12px, 1.16667);
+  text-transform: uppercase;
+  color: $black-color;
+}
+
+.description-container {
+  @include font(500, 12px, 1.333);
+  color: $accent-color;
+}
+
+.description-info {
+  margin-right: 7px;
+}
+
+.description-popularity {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 36px;
+  height: 16px;
+  background-color: $accent-color;
+  border-radius: 5px;
+  line-height: 1.16667;
+  color: $white-color;
+}
