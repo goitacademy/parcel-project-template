@@ -30,9 +30,6 @@
 
 .tradition__photo {
   margin: 0;
-
-  //   @include tablet1 {
-  // width: 340px;
 }
 
 .tradition .container {
@@ -48,6 +45,8 @@
   @include desktop-s {
     padding-top: 125px;
     padding-bottom: 310px;
+    padding-right: 75px;
+    padding-left: 75px; /*Паддинги секции больше стандартных 60рх*/
   }
 }
 
@@ -60,10 +59,28 @@
   @include tablet-s {
     padding-top: 50px;
     padding-bottom: 27px; /*66px по макету - 39px блоку statistic*/
+
+    display: flex;
+    justify-content: center;
+    margin-left: -17px; /*Для калькулятора*/
   }
   @include desktop-s {
     padding-top: 55px;
     padding-bottom: 0px;
+    margin-left: -74px; /*Для калькулятора*/
+  }
+}
+
+.tradition__photobox,
+.tradition__box {
+  @include tablet-s {
+    margin-left: 17px;
+    flex-basis: calc(100% / 2 - 0px);
+  }
+
+  @include desktop-s {
+    margin-left: 74px;
+    flex-basis: calc(100% / 2 - 0px);
   }
 }
 
@@ -110,20 +127,40 @@
   }
 }
 
-.static__box {
+.statistic__box {
   padding: 0px;
-}
-
-.statistic__title {
-  @include mobile-end-s {
-    margin-bottom: 0px;
-  }
 
   @include tablet-s {
-    margin-bottom: 13px;
+    padding-left: 2px;
+    padding-right: 41px;
+  }
+
+  @include desktop-s {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+.statistic__flex {
+  @include tablet-s {
+    display: flex;
+    justify-content: center;
+    margin-left: -60px; /*калькулятор*/
   }
   @include desktop-s {
-    margin-bottom: 15px;
+    margin-left: -30px; /*калькулятор*/
+  }
+}
+
+.statistic__item {
+  @include tablet-s {
+    margin-left: 60px;
+    flex-basis: calc(100% / 3 - 0px);
+  }
+
+  @include desktop-s {
+    margin-left: 30px;
+    flex-basis: calc(100% / 3 - 0px);
   }
 }
 
@@ -158,4 +195,17 @@
 }
 .statistic__item:nth-child(3)::before {
   background-image: url(/img/tradition/heart.svg);
+}
+
+.statistic__title {
+  @include mobile-end-s {
+    margin-bottom: 0px;
+  }
+
+  @include tablet-s {
+    margin-bottom: 13px;
+  }
+  @include desktop-s {
+    margin-bottom: 15px;
+  }
 }
