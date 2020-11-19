@@ -1,4 +1,8 @@
 .guarantees {
+  .container {
+    /*background-color: $guarantees-color-theme;*/
+  }
+
   &__title {
     font-family: $main-font;
     font-style: normal;
@@ -11,6 +15,20 @@
 
     padding-bottom: 60px;
   }
+
+  &__list {
+    position: relative;
+  }
+
+  &__line {
+    position: absolute;
+    z-index: 999;
+    top: 45px;
+    left: -25px;
+    height: 284px;
+    border: 1px dashed #b9b9b9;
+  }
+
   &__item {
     font-family: $main-font;
     font-style: normal;
@@ -18,8 +36,21 @@
     font-size: 12px;
     line-height: 1.67;
     color: $description-color-secontary-theme;
+
     &:not(:last-child) {
       margin-bottom: 23px;
     }
+    &::before {
+      content: '';
+      display: block;
+      background-image: url(../images/guarantees/campfire.svg);
+      width: 14px;
+      height: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  &__text {
+    color: $accent-color;
   }
 }
