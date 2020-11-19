@@ -22,12 +22,40 @@
 }
 .hero{
     background-repeat: no-repeat;
-    background-image: url(../images/icons/herobg-mobile.svg);
     background-size: cover;
     background-position: left bottom;
-    @include for-size(tablet){
-        background-size:contain;  
+    background-image: url(../images/mobile/hero-bg-mob@x1.png);
+    
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: 
+      url(../images/mobile/hero-bg-mob@x2.png);
+  }
+
+  @include for-size(tablet) {
+      background-image: 
+      url(../images/tablet/hero-bg-tabl@x1.png);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: 
+        url(../images/tablet/hero-bg-tabl@x2.png);
     }
+  }
+  @include for-size(desktop) {
+      background-image: 
+      url(../images/desctop/hero-bg@x1.png);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: 
+        url(../images/desctop/hero-bg@x2.png);
+    }
+  }
+    
     .title{
         text-align: left;
         margin-bottom: 30px;
@@ -40,13 +68,12 @@
         
     }
     .button{
-        display: inline-block;
         margin-left: auto;
         margin-right: auto;
         margin-top: 30px;
         margin-bottom: 30px;
         padding: 14px 10px;
-         @include for-size(tablet){
+        @include for-size(tablet){
         margin-left: 0px;
         margin-bottom: 0px;
         }
@@ -62,6 +89,12 @@
      .container{
      padding-top: 50px;
      padding-bottom: 50px;
+     @include for-size(tablet){
+    padding-bottom: 93px;
+     }
+     @include for-size(desktop){
+    padding-bottom: 145px;
+     }
 }   
 }
 .hero-info{
@@ -75,4 +108,5 @@
     top: 80px;
     left: 50%;
     }
+    transform: translateX(-20px);
 }
