@@ -1,0 +1,113 @@
+/* ========== warranty ========== */
+.warranty {
+  &__title {
+    font-weight: 800;
+    @include font(26px, 34px);
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: $title;
+    margin-bottom: 30px;
+  }
+
+  &__container {
+    background-color: #f1f1f1;
+    width: 320px;
+    padding: 30px 20px;
+    margin: 0 auto;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 23px;
+    }
+  }
+
+  &__text {
+    width: 245px;
+    font-weight: 500;
+    @include font(12px, 20px);
+    color: $second-text;
+    margin-left: 28px;
+  }
+
+  &__accent {
+    color: $accent-color;
+  }
+}
+
+.icon {
+  position: relative;
+  background-image: url('../images/svg/campfire-m.svg');
+  background-repeat: no-repeat;
+
+  &:not(:last-child)::after {
+    position: absolute;
+    top: 25px;
+    left: 7.5px;
+    display: block;
+    content: '';
+    border-left: 1px dashed #b9b9b9;
+    width: 0px;
+    height: 68px;
+  }
+}
+
+// ========================= TABLET =======================
+@media screen and (min-width: 727px) {
+  .warranty {
+    &__container {
+      width: 688px;
+      padding: 30px 64px;
+    }
+
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__text {
+      width: 520px;
+      margin-left: 32px;
+    }
+  }
+
+  .icon {
+    &:not(:last-child)::after {
+      top: 24px;
+      height: 30px;
+    }
+  }
+}
+
+// ========================= DESKTOP =======================
+@media screen and (min-width: 1355px) {
+  .warranty {
+    &__title {
+      @include font(46px, 60px);
+      margin-bottom: 50px;
+    }
+
+    &__container {
+      width: 1314px;
+      padding: 45px 112px;
+    }
+
+    &__text {
+      width: 1038px;
+      @include font(20px, 28px);
+      margin-left: 41px;
+    }
+  }
+
+  .icon {
+    background-image: url('../images/svg/campfire.svg');
+
+    &:not(:last-child)::after {
+      top: 34px;
+      left: 11px;
+      height: 40px;
+    }
+  }
+}
+/* ========== end warranty ========== */
