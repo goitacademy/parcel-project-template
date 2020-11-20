@@ -5,6 +5,7 @@ $(document).ready(function () {
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		asNavFor: '.slid-list-small',
+		arrows: true,
 		mobileFirst: true,
 		responsive: [
 			{
@@ -12,6 +13,20 @@ $(document).ready(function () {
 				settings: {
 					arrows: false,
 				}
+			},
+			{
+				breakpoint: 767,
+				settings: {
+					arrows: true,
+
+				}
+			},
+			{
+				breakpoint: 1314,
+				settings: {
+					arrows: true,
+				},
+
 			},]
 
 
