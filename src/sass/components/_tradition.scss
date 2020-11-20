@@ -1,0 +1,466 @@
+@mixin mobile-s {
+  @media screen and (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin mobile-end-s {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet-s {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet-end-s {
+  @media screen and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin desktop-s {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+.tradition {
+
+       @include mobile-end-s {
+         background-image: url(/img/tradition/bg-320-@1x.png);
+         background-size: contain;
+         background-repeat: no-repeat;
+         background-position: 0px 766px;
+       }
+
+       @include desktop-s {
+         background-image: url(/img/tradition/bg-1282-@1x.png);
+         background-size: contain;
+         background-repeat: no-repeat;
+         background-position: 0px 342px;
+       }
+      }
+
+
+
+@media screen and (min-device-pixel-ratio: 2),
+screen and (min-resolution: 192dpi),
+screen and (min-resolution: 2dppx) { 
+  .tradition {
+  
+     @include mobile-end-s {
+        background-image: url(/img/tradition/bg-320-@2x.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 0px 766px;
+      }
+
+     @include desktop-s {
+      background-image: url(/img/tradition/bg-1282-@2x.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 0px 342px;
+    }
+  }
+}
+
+
+.tradition__photo {
+  margin: 0;
+}
+
+.tradition .container {
+  @include mobile-end-s {
+    padding-top: 125px;
+    padding-bottom: 145px;
+  }
+
+  @include tablet-s {
+    padding-top: 130px;
+    padding-bottom: 246px;
+  }
+  @include desktop-s {
+    padding-top: 125px;
+    padding-bottom: 310px;
+    padding-right: 75px;
+    padding-left: 75px; /*Паддинги секции больше стандартных 60рх*/
+  }
+}
+
+.tradition__flex {
+  @include mobile-end-s {
+    padding-top: 26px;
+    padding-bottom: 0px;
+  }
+
+  @include tablet-s {
+    padding-top: 50px;
+    padding-bottom: 27px; /*66px по макету - 39px блоку statistic*/
+
+    display: flex;
+    justify-content: center;
+    margin-left: -17px; /*Для калькулятора*/
+  }
+  @include desktop-s {
+    padding-top: 55px;
+    padding-bottom: 0px;
+    justify-content: center;
+    margin-left: -15px; /*Для калькулятора*/
+  }
+}
+
+.tradition__photobox,
+.tradition__box {
+  @include tablet-s {
+    margin-left: 17px;
+    flex-basis: calc(100% / 2 - 0px);
+  }
+
+  @include desktop-s {
+    margin-left: 15px;
+    flex-basis: calc(100% / 2 - 0px);
+  }
+}
+
+
+.tradition__photo {
+  @include mobile-end-s {
+    margin-bottom: 46px;
+  }
+
+  @include tablet-s {
+    margin-bottom: 0px;
+  }
+  @include desktop-s {
+    margin-bottom: 0px;
+  }
+}
+
+.tradition__box {
+  padding: 0px;
+
+  @include mobile-s {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @include tablet-s {
+   padding: 0px;
+   padding-top: 50px;
+
+  }
+
+  @include desktop-s {
+    padding-left: 55px;
+    padding-top: 55px;
+  }
+}
+
+.tradition__text {
+  @include mobile-s {
+  margin-bottom: 25px;
+  }
+  
+  @include tablet-s {
+  margin-bottom: 27px;
+  }
+
+ @include desktop-s { 
+  margin-bottom: 35px;
+ }
+}
+
+.tradition__desc {
+  @include mobile-end-s {
+    margin-bottom: 19px; /*высчитано вручную*/
+  }
+
+  @include tablet-s {
+    margin-bottom: 56px;
+  }
+  @include desktop-s {
+    margin-bottom: 45px;
+  }
+}
+
+.statistic__box {
+  padding: 0px;
+
+  @include tablet-s {
+    padding-left: 2px;
+    padding-right: 41px;
+  }
+
+  @include desktop-s {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+.statistic__flex {
+  @include tablet-s {
+    display: flex;
+    justify-content: center;
+    margin-left: -60px; /*калькулятор*/
+  }
+  @include desktop-s {
+    margin-left: -30px; /*калькулятор*/
+  }
+}
+
+.statistic__item {
+  @include tablet-s {
+    margin-left: 60px;
+    flex-basis: calc(100% / 3 - 0px);
+  }
+
+  @include desktop-s {
+    margin-left: 30px;
+    flex-basis: calc(100% / 3 - 0px);
+  }
+}
+
+.statistic__item::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 50px;
+
+  background-repeat: no-repeat;
+  background-color: $traditionColor;
+  margin-bottom: 0px;
+
+  @include mobile-s {
+    margin-bottom: 17px;
+    margin-top: 40px;
+  }
+
+  @include tablet-s {
+    margin-bottom: 36px;
+    margin-top: 38px;
+  }
+  @include desktop-s {
+    margin-bottom: 39px;
+    margin-top: 38px;
+  }
+}
+
+.statistic__item:nth-child(1)::before {
+  background-image: url(/img/tradition/milk.svg);
+}
+.statistic__item:nth-child(2)::before {
+  background-image: url(/img/tradition/food.svg);
+}
+.statistic__item:nth-child(3)::before {
+  background-image: url(/img/tradition/heart.svg);
+}
+
+.statistic__title {
+  @include mobile-end-s {
+    margin-bottom: 0px;
+  }
+
+  @include tablet-s {
+    margin-bottom: 13px;
+  }
+  @include desktop-s {
+    margin-bottom: 14px;
+  }
+}
+
+
+/*-----------------------FONTS--------------------------*/
+
+.tradition {
+  background-color: $traditionColor;
+  // background-color: yellowgreen;
+}
+
+.tradition__accent {
+  font-family: Titan One;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0px;
+
+  color: #d41443;
+
+  @include mobile-end-s {
+    font-size: 34px;
+    line-height: 39px;
+  }
+
+  @include tablet-s {
+    font-size: 48px;
+    line-height: 55px;
+  }
+
+  @include desktop-s {
+    font-size: 58px;
+    line-height: 66px;
+  }
+}
+
+.tradition__title {
+  font-family: Titan One;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+
+  color: #ffa5ba;
+
+  @include mobile-end-s {
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  @include tablet-s {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  @include desktop-s {
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+.tradition__text {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+
+  color: #000000;
+
+  @include mobile-end-s {
+    font-size: 12px;
+    line-height: 19px;
+  }
+
+  @include tablet-s {
+    font-size: 14px;
+    line-height: 25px;
+  }
+
+  @include desktop-s {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+
+.tradition__desc {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+
+  color: #907e82;
+
+  @include mobile-end-s {
+    font-size: 12px;
+    line-height: 19px;
+  }
+
+  @include tablet-s {
+    font-size: 14px;
+    line-height: 25px;
+  }
+
+  @include desktop-s {
+    font-size: 14px;
+    line-height: 27px;
+  }
+}
+
+.statistic__title {
+  font-family: Titan One;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+
+  color: #d41443;
+
+  @include mobile-end-s {
+    font-size: 36px;
+    line-height: 41px;
+  }
+
+  @include tablet-s {
+    font-size: 48px;
+    line-height: 55px;
+  }
+
+  @include desktop-s {
+    font-size: 58px;
+    line-height: 66px;
+  }
+}
+
+.statistic__text {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+
+  color: #000000;
+
+  @include mobile-end-s {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  @include tablet-s {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  @include desktop-s {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+
+/*------------------------------К Н О П К А --------------------------*/
+.tradition__button {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+
+  height: 44px;
+  width: 174px;
+  padding: 0px;
+  margin: 0px;
+
+  border: none;
+  border-radius: 22px;
+
+  @include mobile-end-s {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  @include tablet-s {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+.tradition__button {
+  background-color: $primaryColor;
+  color: $titleColor;
+}
+
+.tradition__button:hover,
+.tradition__button:focus {
+  background-color: #ecebeb;
+}
