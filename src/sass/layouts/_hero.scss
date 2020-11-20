@@ -99,6 +99,37 @@
   color: $bgn-dark-theme;
   width: 280px;
 
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    animation-timing-function: ease;
+    animation-name: slideRight;
+    -webkit-animation-name: slideRight;
+    animation-duration: 800ms;
+    -webkit-animation-duration: 800ms;
+    -webkit-animation-timing-function: ease;
+  }
+
+  @keyframes slideRight {
+    0% {
+      transform: translateX(-150%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes slideRight {
+    0% {
+      -webkit-transform: translateX(-150%);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
   @media screen and (min-width: 768px) {
     @include font(800, 26px, 24px);
     width: 310px;
@@ -139,6 +170,41 @@
   }
 }
 
+.hero-caption,
+.hero-subtitle {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    animation-timing-function: ease;
+    animation-name: slideRight;
+    -webkit-animation-name: slideRight;
+    animation-duration: 800ms;
+    animation-delay: 400ms;
+    -webkit-animation-duration: 800ms;
+    -webkit-animation-timing-function: ease;
+  }
+
+  @keyframes slideRight {
+    0% {
+      transform: translateX(-150%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes slideRight {
+    0% {
+      -webkit-transform: translateX(-150%);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
 .hero-subtitle-accent {
   text-align: left;
   @include font(700, 14px, 22px);
@@ -173,6 +239,36 @@
   width: 178px;
   margin: 0px auto;
   z-index: 1;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    visibility: visible !important;
+    animation-name: zoomer;
+    -webkit-animation-name: zoomer;
+    -webkit-animation-duration: 1500ms;
+    -webkit-animation-timing-function: cubic-bezier(0.5, 0.2, 0.3, 1);
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.5, 0.2, 0.3, 1);
+    animation-duration: 1500ms;
+  }
+
+  @-webkit-keyframes zoomer {
+    0% {
+      -webkit-transform: scale(0.3);
+    }
+    100% {
+      -webkit-transform: scale(1);
+    }
+  }
+
+  @keyframes zoomer {
+    0% {
+      transform: scale(0.3);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 
   @media screen and (min-width: 768px) {
     visibility: visible !important;
