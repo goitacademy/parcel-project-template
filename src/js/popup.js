@@ -13,8 +13,8 @@ export function startPopup(id) {
 
   refs.body.classList.add('popup-open');
   refs.popup.classList.add('is-open');
+  refs.popup.addEventListener('click', onBackdropClick);
   refs.btnClose.addEventListener('click', closePopup);
-  refs.popupOverlay.addEventListener('click', closePopup);
   window.addEventListener('keyup', closePopup);
 }
 
@@ -29,8 +29,8 @@ function closePopup({ type, key }) {
   const clearPopup = () => {
     refs.body.classList.remove('popup-open');
     refs.popup.classList.remove('is-open');
+    refs.popup.removeEventListener('click', closePopup);
     refs.btnClose.removeEventListener('click', closePopup);
-    refs.popupOverlay.removeEventListener('click', closePopup);
     window.removeEventListener('keyup', closePopup);
     refs.movieField.innerHTML = '';
     clearListener();
@@ -42,6 +42,12 @@ function closePopup({ type, key }) {
     }
   } else {
     clearPopup();
+  }
+}
+
+function onBackdropClick(event) {
+  if (event.currentTarget === event.target) {
+    closePopup(event);
   }
 }
 

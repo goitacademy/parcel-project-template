@@ -1,16 +1,12 @@
-const refs = {
-  body: document.querySelector('body'),
-  openModalBtn: document.querySelector('.open-modal'),
-  closeModalBtn: document.querySelector('.close-modal'),
-  backdrop: document.querySelector('.js-backdrop'),
-};
+import refs from './refs';
 
-refs.openModalBtn.addEventListener('click', onOpenModal);
-refs.closeModalBtn.addEventListener('click', onCloseModal);
-refs.backdrop.addEventListener('click', onBackdropClick);
+refs.openTeamModalBtn.addEventListener('click', onOpenModal);
+refs.closeTeamModalBtn.addEventListener('click', onCloseModal);
+refs.backdropTeamModal.addEventListener('click', onBackdropClick);
 
 function onOpenModal(evt) {
   evt.preventDefault();
+
   window.addEventListener('keydown', onEscKeyPress);
   refs.body.classList.add('popup-open');
   refs.body.classList.add('show-modal');
@@ -20,19 +16,20 @@ function onCloseModal() {
   window.removeEventListener('keydown', onEscKeyPress);
   document.body.classList.remove('show-modal');
   document.body.classList.remove('popup-open');
+
+  refs.closeTeamModalBtn.removeEventListener('click', onCloseModal);
+  refs.backdropTeamModal.removeEventListener('click', onBackdropClick);
 }
 
 function onBackdropClick(event) {
+  console.log(event, event.currentTarget, event.target);
   if (event.currentTarget === event.target) {
     onCloseModal();
   }
 }
 
 function onEscKeyPress(event) {
-  const ESC_KEY_CODE = 'Escape';
-  const isEscKey = event.code === ESC_KEY_CODE;
-
-  if (isEscKey) {
+  if (event.code === 'Escape') {
     onCloseModal();
   }
 }
