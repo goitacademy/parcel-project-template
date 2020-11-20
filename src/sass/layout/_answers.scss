@@ -17,17 +17,20 @@
     display: block;
     margin-top: 30px;
     text-align: center;
-
-    box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+    padding-left: auto;
+    padding-right: auto;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+
+    transition-property: background-color;
+    transition-duration: 450ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
     &:hover,
-    &:focus,
-    &:hover .answers-section__icon,
-    &:hover .answers-section__subtitle,
-    &:hover .answers-section__description {
+    &:focus {
       background-color: $accent-color;
-      color: $title-color-dark-theme;
-      fill: $title-color-dark-theme;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
     }
   }
   &__subtitle {
@@ -41,6 +44,12 @@
     text-align: center;
     letter-spacing: 0.08em;
     color: $title-color-light-theme;
+    transform: color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__item:hover .answers-section__subtitle,
+  &__item:focus .answers-section__subtitle {
+    color: $title-color-dark-theme;
   }
 
   &__description {
@@ -55,6 +64,7 @@
     text-align: center;
     letter-spacing: 0.08em;
     color: #b9b9b9;
+    transform: color 450ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &::before {
       content: '';
@@ -69,7 +79,17 @@
       text-align: center;
       border-radius: 2px;
       background-color: $accent-color;
+      transform: background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
     }
+  }
+
+  &__item:hover .answers-section__description,
+  &__item:focus .answers-section__description {
+    color: $title-color-dark-theme;
+  }
+  &__item:hover .answers-section__description:before,
+  &__item:focus .answers-section__description:before {
+    background-color: #fff;
   }
 
   &__icon {
@@ -78,12 +98,14 @@
     fill: $accent-color;
     cursor: pointer;
     margin-bottom: 20px;
+    transform: fill 450ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
-
-.answers-section__item:hover .answers-section__description::before {
-  background-color: $title-color-dark-theme;
+.answers-section__item:hover .answers-section__icon,
+.answers-section__item:focus .answers-section__icon {
+  fill: $title-color-dark-theme;
 }
+
 @media screen and (max-width: 767px) {
   .answers-section {
     .container {
