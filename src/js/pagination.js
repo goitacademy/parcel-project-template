@@ -43,9 +43,8 @@ function renderPaginationMarkupForMobile(length) {
 
   if (length <= BTNS_ON_PAGE) {
     for (let i = 0; i < length; i += 1) {
-      pagMarkup += `<li class='pagination-item'><button class="button-number">${
-        i + 1
-      }</button></li>`;
+      pagMarkup += `<li class='pagination-item'><button class="button-number">${i + 1
+        }</button></li>`;
     }
   } else {
     if (currentPage + 1 < BTNS_ON_PAGE) {
@@ -63,34 +62,26 @@ function renderPaginationMarkupForMobile(length) {
       currentPage + 1 < length - 3
     ) {
       pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        currentPage - 1
-      }</button></li>
+      <li class='pagination-item'><button class="button-number">${currentPage - 1
+        }</button></li>
       <li class='pagination-item'><button class="button-number">${currentPage}</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        currentPage + 1
-      }</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        currentPage + 2
-      }</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        currentPage + 3
-      }</button></li>
+      <li class='pagination-item'><button class="button-number">${currentPage + 1
+        }</button></li>
+      <li class='pagination-item'><button class="button-number">${currentPage + 2
+        }</button></li>
+      <li class='pagination-item'><button class="button-number">${currentPage + 3
+        }</button></li>
       <li class="pagination-item"><button class="right">&#8594</button></li>`;
     } else {
       pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
-        <li class='pagination-item'><button class="button-number">${
-          length - 4
+        <li class='pagination-item'><button class="button-number">${length - 4
         }</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        length - 3
-      }</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        length - 2
-      }</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        length - 1
-      }</button></li>
+      <li class='pagination-item'><button class="button-number">${length - 3
+        }</button></li>
+      <li class='pagination-item'><button class="button-number">${length - 2
+        }</button></li>
+      <li class='pagination-item'><button class="button-number">${length - 1
+        }</button></li>
       <li class='pagination-item'><button class="button-number">${length}</button></li>
       <li class="pagination-item"><button class="right">&#8594</button></li>`;
     }
@@ -102,9 +93,8 @@ function renderPaginationMarkupForTabletAndDesktop(length) {
 
   if (length <= BTNS_ON_PAGE) {
     for (let i = 0; i < length; i += 1) {
-      pagMarkup += `<li class='pagination-item'><button class="button-number">${
-        i + 1
-      }</button></li>`;
+      pagMarkup += `<li class='pagination-item'><button class="button-number">${i + 1
+        }</button></li>`;
     }
   } else {
     if (currentPage + 1 < BTNS_ON_PAGE) {
@@ -126,19 +116,15 @@ function renderPaginationMarkupForTabletAndDesktop(length) {
       pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
       <li class='pagination-item'><button class="button-number">1</button></li>
       <li class='pagination-item'><button class="more-pages">...</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        currentPage - 1
-      }</button></li>
+      <li class='pagination-item'><button class="button-number">${currentPage - 1
+        }</button></li>
       <li class='pagination-item'><button class="button-number">${currentPage}</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        currentPage + 1
-      }</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        currentPage + 2
-      }</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        currentPage + 3
-      }</button></li>
+      <li class='pagination-item'><button class="button-number">${currentPage + 1
+        }</button></li>
+      <li class='pagination-item'><button class="button-number">${currentPage + 2
+        }</button></li>
+      <li class='pagination-item'><button class="button-number">${currentPage + 3
+        }</button></li>
       <li class='pagination-item'><button class="more-pages">...</button></li>
       <li class='pagination-item'><button class="button-number">${length}</button></li>
       <li class="pagination-item"><button class="right">&#8594</button></li>`;
@@ -146,18 +132,14 @@ function renderPaginationMarkupForTabletAndDesktop(length) {
       pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
   <li class='pagination-item'><button class="button-number">1</button></li>
       <li class='pagination-item'><button class="more-pages">...</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        length - 4
-      }</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        length - 3
-      }</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        length - 2
-      }</button></li>
-      <li class='pagination-item'><button class="button-number">${
-        length - 1
-      }</button></li>
+      <li class='pagination-item'><button class="button-number">${length - 4
+        }</button></li>
+      <li class='pagination-item'><button class="button-number">${length - 3
+        }</button></li>
+      <li class='pagination-item'><button class="button-number">${length - 2
+        }</button></li>
+      <li class='pagination-item'><button class="button-number">${length - 1
+        }</button></li>
       <li class='pagination-item'><button class="button-number">${length}</button></li>
       <li class="pagination-item"><button class="right">&#8594</button></li>`;
     }
