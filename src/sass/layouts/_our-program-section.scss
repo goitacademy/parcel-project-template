@@ -1,6 +1,16 @@
 .our-program {
   background-color: $primary-black-color;
-  padding-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 440px;
+  
+  @include for-size(tablet){
+    padding-top: 60px;
+    padding-bottom: 253px;
+  }
+  @include for-size(desktop){
+    padding-top: 120px;
+    padding-bottom: 363px;
+  }
 }
 .our-program-list {
   outline: 1px solid red;
@@ -182,11 +192,42 @@ line-height: 1.56;
   }
 }
 
-
-.our-program-image {
+.our-program-image-mobile {
+  display: none;
+@include for-size(mobile-only) {
+  display: block;
   float: right;
   margin: 0 -20px 0 -5px;
+  opacity: 0.5;
+}}
+
+.our-program-image-tablet {
+  display: none;
+@include for-size(tablet-only) {
+  @include for-size(tablet){
+  display: block;
+  float: right;
+  margin: -26px -20px 0 0;
+  opacity: 0.5;
+}}
 }
+.our-program-section {
+  position: relative;
+}
+.our-program-image-desktop {
+  display: none;
+  @include for-size(desktop){
+    position: absolute;
+    display: block;
+    float: right;
+  margin: 0 0 0 -83px;
+  bottom: 0px;
+  height: 760px;
+  width: 502px;
+  }
+}
+
+
 /* .our-program-img {
   position: relative;
 }
