@@ -19,7 +19,7 @@
   border-radius: 35px;
   background-color: $primaryColor;
   box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
-  @include transitionTwoProp(transform, box-shadow);
+  @include transitionThreeProp(transform, box-shadow, background-color);
 
   &:hover,
   &:focus {
@@ -56,3 +56,26 @@
   margin-left: 10px;
 }
 /* --------------------- */
+
+.button-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $primaryColor;
+  @include transitionTwoProp(transform, background-color);
+
+  &:hover,
+  &:focus {
+    transform: scale(0.9);
+    background-color: darken($primaryColor, 5%);
+  }
+}
+
+.button-arrow__icon {
+  width: 20px;
+  height: 20px;
+  fill: $accentColor;
+}
