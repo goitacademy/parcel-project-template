@@ -17,8 +17,8 @@ function onCloseModal() {
   document.body.classList.remove('show-modal');
   document.body.classList.remove('popup-open');
 
-  refs.closeTeamModalBtn.removeEventListener('click', onCloseModal);
-  refs.backdropTeamModal.removeEventListener('click', onBackdropClick);
+  //refs.closeTeamModalBtn.removeEventListener('click', onCloseModal);
+  //refs.backdropTeamModal.removeEventListener('click', onBackdropClick);
 }
 
 function onBackdropClick(event) {
