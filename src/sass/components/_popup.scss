@@ -200,10 +200,32 @@ td {
     font-size: 14px;
   }
 }
+
+.popup-buttons {
+  @include flex(center, center);
+  flex-direction: column;
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: $desktop) {
+    justify-content: flex-start;
+  }
+}
+
 .popup-buttons button {
   border: 1px solid $black-color;
 
   &:first-child {
-    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    &:first-child {
+      margin-right: 15px;
+      margin-bottom: 0;
+    }
+    flex-direction: row;
   }
 }
