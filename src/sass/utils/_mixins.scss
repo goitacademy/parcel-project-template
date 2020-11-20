@@ -1,3 +1,54 @@
+@mixin transition(
+  $property,
+  $delay: 0ms,
+  $duration: 250ms,
+  $timeFunc: cubic-bezier(0.4, 0, 0.2, 1)
+) {
+  transition-property: $property;
+  transition-delay: $delay;
+  transition-duration: $duration;
+  transition-timing-function: $timeFunc;
+}
+
+@mixin transitionTwoProp(
+  $property1,
+  $property2,
+  $delay: 0ms,
+  $duration: 250ms,
+  $timeFunc: cubic-bezier(0.4, 0, 0.2, 1)
+) {
+  transition-property: $property1, $property2;
+  transition-delay: $delay;
+  transition-duration: $duration;
+  transition-timing-function: $timeFunc;
+}
+
+@mixin transitionThreeProp(
+  $property1,
+  $property2,
+  $property3,
+  $delay: 0ms,
+  $duration: 250ms,
+  $timeFunc: cubic-bezier(0.4, 0, 0.2, 1)
+) {
+  transition-property: $property1, $property2, $property3;
+  transition-delay: $delay;
+  transition-duration: $duration;
+  transition-timing-function: $timeFunc;
+}
+
+@mixin itemWidth($row_item, $margin_width: 30px) {
+  /* $row_item - к-ть блоків в один ряд */
+  /* $margin_width - ширина марджина між item */
+  width: calc((100% - (#{$row_item} - 1) * #{$margin_width}) / #{$row_item});
+}
+
+@mixin itemWidthMargin($row_item, $margin_width: 15px) {
+  /* $row_item - к-ть блоків в один ряд */
+  /* $margin_width - ширина марджина між item */
+  width: calc((100% - (#{$row_item} * 2) * #{$margin_width}) / #{$row_item});
+}
+
 @mixin media-size($range) {
   $mobile: 320px;
   $tablet: 768px;
@@ -28,4 +79,16 @@
       @content;
     }
   }
+}
+
+@mixin visuallyHidden() {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+  margin: -1px;
 }
