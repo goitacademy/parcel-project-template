@@ -2,7 +2,8 @@ $(document).ready(function () {
   $('.slider-container').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
-    fade: true,
+    // fade: true,
+    speed: 700,
     asNavFor: '.slider-list',
     responsive: [
       {
@@ -16,7 +17,7 @@ $(document).ready(function () {
   $('.slider-list').slick({
     infinite: false,
 
-    speed: 300,
+    speed: 100,
     focusOnSelect: true,
     slidesToShow: 7,
     slidesToScroll: 7,
