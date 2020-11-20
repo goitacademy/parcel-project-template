@@ -1,14 +1,18 @@
 const refs = {
-  moviesContainer: document.querySelector('.js-film-container'),
   body: document.querySelector('body'),
-  popup: document.querySelector('.js-popup'),
-  popupOverlay: document.querySelector('.popup-overlay'),
-  movieField: document.querySelector('.popup-movie'),
-  btnClose: document.querySelector('.js-close'),
+  moviesContainer: document.querySelector('.js-film-container'),
+  searchForm: document.querySelector('#search-form'),
   watchedBtn: document.querySelector('.watched-btn'),
   queueBtn: document.querySelector('.queue-btn'),
-  searchForm: document.querySelector('#search-form'),
   notification: document.querySelector('.notification'),
+
+  popup: document.querySelector('.js-popup'),
+  movieField: document.querySelector('.popup-movie'),
+  btnClose: document.querySelector('.js-close'),
+
+  openTeamModalBtn: document.querySelector('.js-open-modal'),
+  closeTeamModalBtn: document.querySelector('.js-team-close'),
+  backdropTeamModal: document.querySelector('.js-backdrop'),
 };
 
 export default refs;
