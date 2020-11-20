@@ -4,6 +4,7 @@
 }
 
 .advantages-title {
+  position: relative;
   margin: 0px;
   font-weight: bold;
   font-size: 14px;
@@ -14,39 +15,79 @@
   color: $primary-black-color;
 }
 
-.advantages-svg {
+.advantages-title:before {
+  position: absolute;
+  display: block;
+  content: '';
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 60px;
+  width: 59px;
   margin-right: 10px;
-  max-width: 59px;
+}
+
+.advantages-svg-man:before {
+  background-image: url(../images/icons/man.svg);
+}
+.advantages-svg-phone:before {
+  background-image: url(../images/icons/phone.svg);
+}
+.advantages-svg-dollar:before {
+  background-image: url(../images/icons/dollar.svg);
+}
+
+/* .advantages-svg {
+  margin-right: 10px;
+
   height: 60px;
   fill: $orange-color;
-}
+} */
+
 @include for-size(mobile-only) {
   .advantages-item {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: calc((100% - 10px) * 2 / 3);
+    margin-left: auto;
   }
   .advantages-item:not(:last-child) {
     margin-bottom: 30px;
   }
   .advantages-list {
-    width: 320px;
     margin: 0 auto;
+  }
+  .advantages-title:before {
+    left: -69px;
   }
 }
 
 @include for-size(tablet) {
   .advantages-list {
     display: flex;
+    justify-content: center;
   }
   .advantages-item {
     display: flex;
     width: calc((100% - 21px * 2) / 3);
   }
-  @include for-size(tablet-only) {
-    .advantages-item:not(:last-child) {
-      margin-right: 21px;
-    }
+
+  .advantages-svg-man {
+    margin-left: 68px;
+  }
+  .advantages-svg-phone,
+  .advantages-svg-dollar {
+    margin-left: 96px;
+  }
+  .advantages-title:before {
+    left: -74px;
+  }
+  .advantages {
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 }
 
@@ -54,7 +95,26 @@
   .advantages-item {
     width: calc(100% / 3);
   }
-  .advantages-svg {
-    margin-right: -12px;
+  .advantages-title:before {
+    margin-right: -82px;
+    height: 100px;
+    width: 102px;
+  }
+  .advantages-title {
+    font-size: 20px;
+    line-height: 1.64;
+  }
+  .advantages-svg-man:before {
+    background-image: url(../images/icons/man-desktop.svg);
+  }
+  .advantages-svg-phone:before {
+    background-image: url(../images/icons/phone-desktop.svg);
+  }
+  .advantages-svg-dollar:before {
+    background-image: url(../images/icons/dollar-desktop.svg);
+  }
+  .advantages {
+    padding-top: 96.5px;
+    padding-bottom: 130px;
   }
 }
