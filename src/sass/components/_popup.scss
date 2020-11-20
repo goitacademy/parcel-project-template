@@ -2,6 +2,7 @@
 .popup {
   position: fixed;
   @include allSpace();
+  padding: 20px;
   overflow-y: scroll;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.8);
@@ -17,24 +18,23 @@
     transform: perspective(600px) rotateX(0) scale(1);
   }
 
-  &-overlay {
-    position: absolute;
-    @include allSpace();
+  @media screen and (min-width: $tablet) and (min-height: 500px) {
+    @include flex();
   }
 
-  @media screen and (min-width: $tablet) {
-    padding: 15px;
+  @media screen and (min-width: $desktop) and (min-height: 600px) {
+    @include flex();
   }
 }
 
 .popup-movie {
   max-width: $mobile;
   padding: 20px;
-  margin: 20px auto;
+  margin: 0 auto;
+
   background-color: $grey-bg-color;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset;
   border-radius: 4px;
-  overflow: hidden;
 
   @media screen and (min-width: $tablet) {
     max-width: $tablet;
@@ -44,7 +44,6 @@
 
   @media screen and (min-width: $desktop) {
     max-width: $desktop;
-    // padding: 60px 70px;
   }
 
   transform: scale(0.5);
@@ -55,8 +54,7 @@
   }
 }
 
-.popup-btn-close,
-.team-btn-close {
+.popup-btn-close {
   position: fixed;
   top: 10px;
   right: 10px;
