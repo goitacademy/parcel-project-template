@@ -49,5 +49,5 @@ function addEvents() {
 
 function infoMsg() {
   refs.moviesContainer.innerHTML =
-    '<li class="info-msg">Вы еще не добавили фильмы в свою библиотеку.</li>';
+    '<li class="info-msg"><img src="https://chance2.ru/photo/img/vzgliad-kota-iz-shreka-foto-3.jpg" alt="Cat">Please add a film.</li>';
 }
