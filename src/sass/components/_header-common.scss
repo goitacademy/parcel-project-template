@@ -1,0 +1,80 @@
+.header {
+  min-height: 230px;
+  padding-top: 46px;
+  padding-bottom: 43px;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.logo-title {
+  display: none;
+
+  @media screen and (min-width: $tablet) {
+    display: block;
+    margin: 0;
+
+    @include font(500, 30px, 1.17, 0.02em, $basic-font);
+    color: $white-color;
+  }
+}
+
+.site-nav {
+  @include flex(flex-end, center);
+  @include font(500, 12px, 1.17, 0.02em, $basic-font);
+  text-transform: uppercase;
+}
+
+.site-nav a {
+  color: $white-color;
+  text-decoration: none;
+}
+
+.nav-item:not(:last-child) {
+  margin-right: 39px;
+}
+
+.link.current {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: -3px;
+    background-color: $accent-color;
+  }
+}
+
+.notification {
+  opacity: 0;
+  @include font(400, 14px, 1.17, 0.02em, $basic-font);
+  text-align: left;
+  color: $notify-text-color;
+  transition: opacity 200ms $timing-function;
+
+  &.active {
+    opacity: 1;
+  }
+
+  @media screen and (min-width: $tablet) {
+    text-align: center;
+  }
+}
+
+.logo {
+  @media screen and (min-width: $tablet) {
+    @include flex(flex-start, baseline);
+  }
+}
+
+.logo-icon {
+  @media screen and (min-width: $tablet) {
+    margin-right: 10px;
+  }
+}
