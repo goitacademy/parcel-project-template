@@ -13,6 +13,7 @@ export function startPopup(id) {
 
   refs.body.classList.add('popup-open');
   refs.popup.classList.add('is-open');
+
   refs.btnClose.addEventListener('click', closePopup);
   refs.popupOverlay.addEventListener('click', closePopup);
   window.addEventListener('keyup', closePopup);
