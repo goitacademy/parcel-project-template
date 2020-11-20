@@ -39,18 +39,30 @@ function renderPaginationMarkup(length) {
 }
 
 function renderPaginationMarkupForMobile(length) {
-  if (currentPage + 1 < BTNS_ON_PAGE) {
-    pagMarkup =
-      '<li class="pagination-item"><button class="left">&#8592</button></li>';
+  pagMarkup = '';
 
-    for (let i = 1; i <= BTNS_ON_PAGE; i += 1) {
-      const pagItem = `<li class='pagination-item'><button class="button-number">${i}</button></li>`;
-      pagMarkup += pagItem;
+  if (length <= BTNS_ON_PAGE) {
+    for (let i = 0; i < length; i += 1) {
+      pagMarkup += `<li class='pagination-item'><button class="button-number">${
+        i + 1
+      }</button></li>`;
     }
+  } else {
+    if (currentPage + 1 < BTNS_ON_PAGE) {
+      pagMarkup =
+        '<li class="pagination-item"><button class="left">&#8592</button></li>';
 
-    pagMarkup += `<li class="pagination-item"><button class="right">&#8594</button></li>`;
-  } else if (currentPage + 1 >= BTNS_ON_PAGE && currentPage + 1 < length - 3) {
-    pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
+      for (let i = 1; i <= BTNS_ON_PAGE; i += 1) {
+        const pagItem = `<li class='pagination-item'><button class="button-number">${i}</button></li>`;
+        pagMarkup += pagItem;
+      }
+
+      pagMarkup += `<li class="pagination-item"><button class="right">&#8594</button></li>`;
+    } else if (
+      currentPage + 1 >= BTNS_ON_PAGE &&
+      currentPage + 1 < length - 3
+    ) {
+      pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
       <li class='pagination-item'><button class="button-number">${
         currentPage - 1
       }</button></li>
@@ -65,8 +77,8 @@ function renderPaginationMarkupForMobile(length) {
         currentPage + 3
       }</button></li>
       <li class="pagination-item"><button class="right">&#8594</button></li>`;
-  } else {
-    pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
+    } else {
+      pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
         <li class='pagination-item'><button class="button-number">${
           length - 4
         }</button></li>
@@ -81,24 +93,37 @@ function renderPaginationMarkupForMobile(length) {
       }</button></li>
       <li class='pagination-item'><button class="button-number">${length}</button></li>
       <li class="pagination-item"><button class="right">&#8594</button></li>`;
+    }
   }
 }
 
 function renderPaginationMarkupForTabletAndDesktop(length) {
-  if (currentPage + 1 < BTNS_ON_PAGE) {
-    pagMarkup =
-      '<li class="pagination-item"><button class="left">&#8592</button></li>';
+  pagMarkup = '';
 
-    for (let i = 1; i <= BTNS_ON_PAGE; i += 1) {
-      const pagItem = `<li class='pagination-item'><button class="button-number">${i}</button></li>`;
-      pagMarkup += pagItem;
+  if (length <= BTNS_ON_PAGE) {
+    for (let i = 0; i < length; i += 1) {
+      pagMarkup += `<li class='pagination-item'><button class="button-number">${
+        i + 1
+      }</button></li>`;
     }
+  } else {
+    if (currentPage + 1 < BTNS_ON_PAGE) {
+      pagMarkup =
+        '<li class="pagination-item"><button class="left">&#8592</button></li>';
 
-    pagMarkup += `<li class='pagination-item'><button class="more-pages">...</button></li>
+      for (let i = 1; i <= BTNS_ON_PAGE; i += 1) {
+        const pagItem = `<li class='pagination-item'><button class="button-number">${i}</button></li>`;
+        pagMarkup += pagItem;
+      }
+
+      pagMarkup += `<li class='pagination-item'><button class="more-pages">...</button></li>
       <li class='pagination-item'><button class="button-number">${length}</button></li>
       <li class="pagination-item"><button class="right">&#8594</button></li>`;
-  } else if (currentPage + 1 >= BTNS_ON_PAGE && currentPage + 1 < length - 3) {
-    pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
+    } else if (
+      currentPage + 1 >= BTNS_ON_PAGE &&
+      currentPage + 1 < length - 3
+    ) {
+      pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
       <li class='pagination-item'><button class="button-number">1</button></li>
       <li class='pagination-item'><button class="more-pages">...</button></li>
       <li class='pagination-item'><button class="button-number">${
@@ -117,8 +142,8 @@ function renderPaginationMarkupForTabletAndDesktop(length) {
       <li class='pagination-item'><button class="more-pages">...</button></li>
       <li class='pagination-item'><button class="button-number">${length}</button></li>
       <li class="pagination-item"><button class="right">&#8594</button></li>`;
-  } else {
-    pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
+    } else {
+      pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
   <li class='pagination-item'><button class="button-number">1</button></li>
       <li class='pagination-item'><button class="more-pages">...</button></li>
       <li class='pagination-item'><button class="button-number">${
@@ -135,6 +160,7 @@ function renderPaginationMarkupForTabletAndDesktop(length) {
       }</button></li>
       <li class='pagination-item'><button class="button-number">${length}</button></li>
       <li class="pagination-item"><button class="right">&#8594</button></li>`;
+    }
   }
 }
 
@@ -162,14 +188,13 @@ function setActiveBtn(event) {
         numberBtnsEl[index].classList.remove('active-pagination');
       }
     });
-    // event.target.classList.add('active-pagination');
+
     btnsArray.find((btn, index) => {
       if (Number(btn.textContent) === targetBtnValue) {
         numberBtnsEl[index].classList.add('active-pagination');
       }
     });
   }
-  console.log(numberBtnsEl);
 }
 
 function onNumberBtnClick(event) {
@@ -213,15 +238,22 @@ function onBtnsClick(event) {
       setTimeout(() => {
         setActiveBtn(event);
       }, 500),
-    );
+    )
+    .then(goToTop);
 }
 
 function clearMovieContainer() {
   refs.moviesContainer.innerHTML = '';
 }
 
+function goToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+}
+
 // ПРОБЛЕМЫ:
 // 1. Подсвечивается активная страница(кнопка), но через костыли
 // 2. Запросы за фильмами работают не из api-service.js по причине сложных методов класса FilmsApiService
-// 3. Заменить адрес запросов на странице Избранного
-// Поборол подсветку активной страницы, правда через костыли :(
+// 3. Нужно добавить функционал пагинации при поиске
