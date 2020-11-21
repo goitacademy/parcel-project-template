@@ -13,7 +13,8 @@ addEvents(); // устанавливаем слушатели
 //то считаем, что пользователь впервые перешел в библиотеку и устанавливаем последнюю вкладку как watched
 if (localStorage.getItem('last-tab') === null)
   localStorage.setItem('last-tab', storageKey.WATCHEDKEY);
-else renderPage(localStorage.getItem('last-tab'));
+
+renderPage(localStorage.getItem('last-tab'));
 
 async function renderPage(page) {
   setPage(page);
