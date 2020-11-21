@@ -2,7 +2,9 @@
 .backdrop {
   position: fixed;
   @include allSpace();
+  padding: 20px;
   overflow-y: scroll;
+  z-index: 2;
   background-color: rgba(0, 0, 0, 0.3);
 
   @media screen and (min-height: 700px) {
@@ -22,7 +24,7 @@
 }
 
 .modal {
-  margin: 20px auto;
+  margin: 0 auto;
   padding: 20px;
   border-radius: 4px;
   min-height: 320px;
@@ -54,30 +56,26 @@
 }
 
 .team-members {
-  @include flex(space-around);
+  @include flex(center, stretch);
   flex-wrap: wrap;
-  margin-left: -10px;
-  margin-top: -10px;
-  padding: 0;
-  list-style: none;
+  margin: -5px;
 }
 
 .member {
-  margin-left: 10px;
-  margin-top: 10px;
+  margin: 5px;
   @include flex();
   flex-direction: column;
 
   @media screen and (max-width: 767px) {
-    flex-basis: calc(100% / 2 - 10px);
+    width: calc(100% / 2 - 10px);
   }
 
   @media screen and (min-width: 500px) and (max-width: 1199px) {
-    flex-basis: calc(100% / 3 - 10px);
+    width: calc(100% / 3 - 10px);
   }
 
   @media screen and (min-width: 1200px) {
-    flex-basis: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
   }
 
   & p {
@@ -104,25 +102,6 @@
   flex-direction: column;
   flex-grow: 1;
 }
-
-// .close-modal {
-//   position: absolute;
-//   top: 15px;
-//   right: 15px;
-//   @include flex();
-//   height: 30px;
-//   width: 30px;
-//   background-color: $white-color;
-//   border-radius: 50%;
-//   border: 1px solid rgba(0, 0, 0, 0.1);
-//   @include transition(fill, border);
-
-//   &:hover,
-//   &:focus {
-//     fill: $accent-color;
-//     border-color: $accent-color;
-//   }
-// }
 
 .team-btn-close {
   @extend .popup-btn-close;

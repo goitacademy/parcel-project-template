@@ -48,4 +48,3 @@ function addEvents() {
     renderPage(storageKey.QUEUEKEY);
     localStorage.setItem('last-tab', storageKey.QUEUEKEY);
   });
-}
