@@ -3,7 +3,7 @@ import FilmsApiService from '../api-service.js';
 import refs from '../refs';
 import { onModalButtons, clearListener } from '../lists-add-servises';
 import loaderToggle from '../loader';
-import { setLastTab } from './render-library';
+import setLastTab from './render-library';
 
 const filmsApiService = new FilmsApiService();
 
