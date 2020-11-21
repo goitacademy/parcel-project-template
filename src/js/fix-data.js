@@ -24,11 +24,13 @@ function getGenres() {
 }
 
 function fixDate(date) {
-  return date.split('-')[0];
+  if (date != undefined) return date.split('-')[0];
+  return '';
 }
 
 function fixRating(raiting) {
-  return raiting.toFixed(1);
+  if (raiting != undefined) return raiting.toFixed(1);
+  return '';
 }
 
 //функция заменяет id жанра на его название
