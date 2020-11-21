@@ -6,7 +6,9 @@ import notification from './notification';
 import fixData from '../fix-data';
 import { startPopup } from './popup-library';
 
-addEvents(); // устанавливаем слушатели
+const eventID = null;
+
+addBtnEvents(); // устанавливаем слушатели
 setLastTab();
 
 //проверяем, есть ли запись в localstorage о последней используемой вкладке, если нет,
@@ -19,9 +21,11 @@ export default function setLastTab() {
 }
 
 async function renderPage(page) {
+  refs.moviesContainer.addEventListener('click', checkClick);
   setPage(page);
   const films = await getCollection(page);
   if (films.length < 1) {
+    refs.moviesContainer.removeEventListener('click', checkClick);
     notification(page);
     return;
   }
@@ -42,9 +46,7 @@ function setPage(page) {
   }
 }
 
-function addEvents() {
-  refs.moviesContainer.addEventListener('click', checkClick);
-
+function addBtnEvents() {
   refs.watchedBtn.addEventListener('click', () => {
     renderPage(storageKey.WATCHEDKEY);
     localStorage.setItem('last-tab', storageKey.WATCHEDKEY);
