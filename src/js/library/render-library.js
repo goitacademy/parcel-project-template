@@ -1,6 +1,7 @@
 import refs from '../refs';
 import getCollection from './get-local-storage';
-import popularTpl from '../../templates/movies.hbs';
+import popularTpl from '../../templates/movies-items.hbs';
+// '../../templates/movies.hbs';
 import storageKey from './storage-key';
 import notification from './notification';
 import fixData from '../fix-data';
