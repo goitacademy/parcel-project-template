@@ -25,12 +25,14 @@ paginationEl.addEventListener('click', event => {
 refs.watchedBtn.addEventListener('click', () => {
   currentPage = 0;
   quntityOfPages = 1;
+  watchedLibreryArray = [];
   clearPaginationMarkup();
   createPagination();
 });
 refs.queueBtn.addEventListener('click', () => {
   currentPage = 0;
   quntityOfPages = 1;
+  watchedLibreryArray = [];
   clearPaginationMarkup();
   createPagination();
 });
