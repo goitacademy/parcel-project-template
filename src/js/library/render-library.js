@@ -4,15 +4,14 @@ import popularTpl from '../../templates/movies.hbs';
 import storageKey from './storage-key';
 import notification from './notification';
 import fixData from '../fix-data';
-
-import '../event/click-on-card';
+import { startPopup } from './popup-library';
 
 addEvents(); // устанавливаем слушатели
 setLastTab();
 
 //проверяем, есть ли запись в localstorage о последней используемой вкладке, если нет,
 //то считаем, что пользователь впервые перешел в библиотеку и устанавливаем последнюю вкладку как watched
-function setLastTab() {
+export function setLastTab() {
   if (localStorage.getItem('last-tab') === null)
     localStorage.setItem('last-tab', storageKey.WATCHEDKEY);
 
@@ -44,6 +43,8 @@ function setPage(page) {
 }
 
 function addEvents() {
+  refs.moviesContainer.addEventListener('click', checkClick);
+
   refs.watchedBtn.addEventListener('click', () => {
     renderPage(storageKey.WATCHEDKEY);
     localStorage.setItem('last-tab', storageKey.WATCHEDKEY);
@@ -53,3 +54,10 @@ function addEvents() {
     localStorage.setItem('last-tab', storageKey.QUEUEKEY);
   });
 }
+
+function checkClick(evt) {
+  if (evt.target.tagName === 'IMG') {
+    startPopup(evt.target.dataset.id);
+  }
+}
+
