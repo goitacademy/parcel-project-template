@@ -1,8 +1,8 @@
-import storage from "./storage";
+import storage from './storage';
 
 const API_KEY = '6914e86918040074e2fe382ba8e8cb5e';
 const BASE_URL = 'https://api.themoviedb.org/3/';
-const GENRES = "genres";
+const GENRES = 'genres';
 
 export default class FilmsApiService {
   constructor() {

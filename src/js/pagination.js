@@ -1,6 +1,7 @@
 import FilmsApiService from './api-service';
 import markupPopularMovies from './get-popular';
 import refs from './refs';
+import loaderToggle from './loader';
 
 const mediaQuery = window.matchMedia('(max-width: 767px)');
 
@@ -40,7 +41,7 @@ function onSearch(event) {
     }
 
     if (films.superResults.length !== 0) {
-      setTimeout(setActiveBtn, 500);
+      setTimeout(setActiveBtn, 1500);
     }
   });
 }
@@ -214,6 +215,8 @@ function onBtnsClick(event) {
     paginationBtnsList[paginationBtnsList.length - 1].textContent,
   );
 
+  loaderToggle();
+
   if (Number(event.target.textContent)) {
     onNumberBtnClick(event);
   } else if (event.target.textContent === '→' && currentPage < lastPage - 1) {
@@ -236,8 +239,9 @@ function onBtnsClick(event) {
     .then(
       setTimeout(() => {
         setActiveBtn(event);
-      }, 500),
+      }, 1500),
     )
+    .then(loaderToggle)
     .then(goToTop);
 }
 
