@@ -11,29 +11,18 @@ export default class FilmsApiService {
   }
 
   fetchFilms(url, numberOfPage = 0) {
-    if (numberOfPage === 0) {
-      return fetch(
-        `${BASE_URL}${url}?api_key=${API_KEY}&page=${this.page}&query=${this.searchQuery}`,
-      )
-        .then(response => response.json())
-        .then(({ results, total_pages }) => {
-          this.incrementPage();
-          return { results, total_pages };
-        });
-    } else {
-      return fetch(
-        `${BASE_URL}${url}?api_key=${API_KEY}&page=${numberOfPage}&query=${this.searchQuery}`,
-      )
-        .then(response => response.json())
-        .then(({ results, total_pages }) => {
-          this.incrementPage();
-          return { results, total_pages };
-        });
-    }
+    const page = numberOfPage || this.page;
+    return fetch(`${BASE_URL}${url}?api_key=${API_KEY}&page=${page}&query=${this.searchQuery}`)
+      .then(response => response.json())
+      .then(({ results, total_pages }) => {
+        this.incrementPage();
+        console.log(results, total_pages);
+        return { results, total_pages };
+      });
   }
 
   fetchGenres() {
-    return fetch(`${BASE_URL}genre/movie/list?api_key=${API_KEY}`)
+    fetch(`${BASE_URL}genre/movie/list?api_key=${API_KEY}`)
       .then(response => response.json())
       .then(data => {
         const genres = {};
@@ -45,29 +34,23 @@ export default class FilmsApiService {
   }
 
   showFilmsResult(url, numberOfPage) {
-    const genresList = storage.load(GENRES) || this.fetchGenres();
+    if (!storage.load(GENRES)) {
+      this.fetchGenres();
+    }
 
     return this.fetchFilms(url, numberOfPage).then(data => {
-      console.log(data);
       const total_pages = data.total_pages;
-      const superResults = data.results.map(el =>
-        el.release_date
-          ? {
-            ...el,
-            genre_ids: el.genre_ids.map(id => genresList[id]),
-            release_date: el.release_date.split('-')[0],
-            vote_average: el.vote_average.toFixed(1),
-          }
-          : {
-            ...el,
-            genre_ids: el.genre_ids.map(id => genresList[id]),
-            release_date: 'Unknown',
-            vote_average: el.vote_average.toFixed(1),
-          }
-      )
+      const superResults = data.results.map(el => {
+        const filmDate = el.release_date.split('-')[0] || "Unknown";
+        return {
+          ...el,
+          genre_ids: el.genre_ids.map(id => storage.load(GENRES)[id]),
+          release_date: filmDate,
+          vote_average: el.vote_average.toFixed(1),
+        }
+      })
       return { total_pages, superResults };
-    }
-    );
+    });
   };
 
   incrementPage() {
