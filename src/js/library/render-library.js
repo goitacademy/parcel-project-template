@@ -1,20 +1,23 @@
-import FilmsApiService from '../api-service';
 import refs from '../refs';
 import getCollection from './get-local-storage';
 import popularTpl from '../../templates/movies.hbs';
 import storageKey from './storage-key';
 import notification from './notification';
-import '../event/click-on-card';
 import fixData from '../fix-data';
 
+import '../event/click-on-card';
+
 addEvents(); // устанавливаем слушатели
+setLastTab();
 
 //проверяем, есть ли запись в localstorage о последней используемой вкладке, если нет,
 //то считаем, что пользователь впервые перешел в библиотеку и устанавливаем последнюю вкладку как watched
-if (localStorage.getItem('last-tab') === null)
-  localStorage.setItem('last-tab', storageKey.WATCHEDKEY);
+function setLastTab() {
+  if (localStorage.getItem('last-tab') === null)
+    localStorage.setItem('last-tab', storageKey.WATCHEDKEY);
 
-renderPage(localStorage.getItem('last-tab'));
+  renderPage(localStorage.getItem('last-tab'));
+}
 
 async function renderPage(page) {
   setPage(page);

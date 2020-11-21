@@ -9,6 +9,8 @@ function getArrayID(goal) {
 export default async function getUserCollection(goal) {
   const userCollectionPromises = [];
   const arrayID = getArrayID(goal);
+  if (arrayID < 1) return [];
+
   arrayID.map(id => {
     userCollectionPromises.push(filmsApiService.singleRequest(id));
   });
