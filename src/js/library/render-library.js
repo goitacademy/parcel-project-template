@@ -23,7 +23,7 @@ async function renderPage(page) {
   setPage(page);
   const films = await getCollection(page);
   if (films.length < 1) {
-    notification();
+    notification(page);
     return;
   }
 
