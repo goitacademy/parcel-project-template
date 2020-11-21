@@ -44,15 +44,15 @@ export default class FilmsApiService {
       return data.map(el =>
         el.release_date
           ? {
-              ...el,
-              release_date: el.release_date.split('-')[0],
-              vote_average: el.vote_average.toFixed(1),
-            }
+            ...el,
+            release_date: el.release_date.split('-')[0],
+            vote_average: el.vote_average.toFixed(1),
+          }
           : {
-              ...el,
-              release_date: 'Unknown',
-              vote_average: el.vote_average.toFixed(1),
-            },
+            ...el,
+            release_date: 'Unknown',
+            vote_average: el.vote_average.toFixed(1),
+          },
       );
     });
   }

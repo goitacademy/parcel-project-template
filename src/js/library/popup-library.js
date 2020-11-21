@@ -1,8 +1,9 @@
-import popupMovieTpl from '../templates/popup-movie.hbs';
-import FilmsApiService from './api-service.js';
-import refs from './refs';
-import { onModalButtons, clearListener } from './lists-add-servises';
-import loaderToggle from './loader';
+import popupMovieTpl from '../../templates/popup-movie.hbs';
+import FilmsApiService from '../api-service.js';
+import refs from '../refs';
+import { onModalButtons, clearListener } from '../lists-add-servises';
+import loaderToggle from '../loader';
+import setLastTab from './render-library';
 
 const filmsApiService = new FilmsApiService();
 
@@ -37,6 +38,7 @@ function closePopup({ type, key }) {
     window.removeEventListener('keyup', closePopup);
     refs.movieField.innerHTML = '';
     clearListener();
+    setLastTab();
   };
 
   if (type === 'keyup') {

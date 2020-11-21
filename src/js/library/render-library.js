@@ -5,8 +5,7 @@ import popularTpl from '../../templates/movies-items.hbs';
 import storageKey from './storage-key';
 import notification from './notification';
 import fixData from '../fix-data';
-
-import '../event/click-on-card';
+import { startPopup } from './popup-library';
 
 addEvents(); // устанавливаем слушатели
 setLastTab();
@@ -45,6 +44,8 @@ function setPage(page) {
 }
 
 function addEvents() {
+  refs.moviesContainer.addEventListener('click', checkClick);
+
   refs.watchedBtn.addEventListener('click', () => {
     renderPage(storageKey.WATCHEDKEY);
     localStorage.setItem('last-tab', storageKey.WATCHEDKEY);
@@ -54,3 +55,10 @@ function addEvents() {
     localStorage.setItem('last-tab', storageKey.QUEUEKEY);
   });
 }
+
+function checkClick(evt) {
+  if (evt.target.tagName === 'IMG') {
+    startPopup(evt.target.dataset.id);
+  }
+}
+
