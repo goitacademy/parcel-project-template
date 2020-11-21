@@ -40,7 +40,12 @@ refs.queueBtn.addEventListener('click', () => {
 
 function choseLibrary(chosedBtn) {
   if (chosedBtn === '') {
-    return '';
+    return;
+  } else if (
+    localStorage.getItem(QUEUEKEY) === null &&
+    localStorage.getItem(WATCHEDKEY) === null
+  ) {
+    return;
   } else if (chosedBtn === WATCHEDKEY) {
     watchedLibreryArray = JSON.parse(localStorage.WatchedList);
   } else {
@@ -67,7 +72,9 @@ function makeFetch(page) {
 }
 
 function renderPaginationMarkup(length) {
-  if (mediaQuery.matches) {
+  if (watchedLibreryArray.length === 0) {
+    return;
+  } else if (mediaQuery.matches) {
     renderPaginationMarkupForMobile(length);
   } else {
     renderPaginationMarkupForTabletAndDesktop(length);
@@ -207,6 +214,9 @@ function clearPaginationMarkup() {
 }
 
 function setActiveBtn(event) {
+  if (watchedLibreryArray.length === 0) {
+    return;
+  }
   const numberBtnsEl = document.querySelectorAll('button.button-number');
   const btnsArray = [...numberBtnsEl];
 

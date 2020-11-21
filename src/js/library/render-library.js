@@ -1,6 +1,7 @@
 import refs from '../refs';
 import getCollection from './get-local-storage';
-import popularTpl from '../../templates/movies.hbs';
+import popularTpl from '../../templates/movies-items.hbs';
+// '../../templates/movies.hbs';
 import storageKey from './storage-key';
 import notification from './notification';
 import fixData from '../fix-data';
@@ -11,7 +12,7 @@ setLastTab();
 
 //проверяем, есть ли запись в localstorage о последней используемой вкладке, если нет,
 //то считаем, что пользователь впервые перешел в библиотеку и устанавливаем последнюю вкладку как watched
-export function setLastTab() {
+export default function setLastTab() {
   if (localStorage.getItem('last-tab') === null)
     localStorage.setItem('last-tab', storageKey.WATCHEDKEY);
 

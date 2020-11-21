@@ -24,15 +24,11 @@ function getGenres() {
 }
 
 function fixDate(date) {
-  // if (date != undefined) return date.split('-')[0];
-  // return '';  
   if (date) return date.split('-')[0];
   return '';
 }
 
 function fixRating(raiting) {
-  // if (raiting != undefined) return raiting.toFixed(1);
-  // return '';
   if (raiting) return raiting.toFixed(1);
   return '';
 }
