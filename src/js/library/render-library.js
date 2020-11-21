@@ -3,7 +3,9 @@ import refs from '../refs';
 import getCollection from './get-local-storage';
 import popularTpl from '../../templates/movies.hbs';
 import storageKey from './storage-key';
+import notification from './notification';
 import '../event/click-on-card';
+import fixData from '../fix-data';
 
 addEvents(); // устанавливаем слушатели
 
@@ -13,16 +15,17 @@ if (localStorage.getItem('last-tab') === null)
   localStorage.setItem('last-tab', storageKey.WATCHEDKEY);
 else renderPage(localStorage.getItem('last-tab'));
 
-function renderPage(page) {
+async function renderPage(page) {
   setPage(page);
-  getCollection(page).then(films => {
-    console.log(films.length);
-    if (films.length < 1) {
-      infoMsg();
-      return;
-    }
-    refs.moviesContainer.innerHTML = popularTpl(films);
-  });
+  const films = await getCollection(page);
+  if (films.length < 1) {
+    notification();
+    return;
+  }
+
+  const fixDataFilms = fixData(films);
+
+  refs.moviesContainer.innerHTML = popularTpl(fixDataFilms);
 }
 
 function setPage(page) {
@@ -45,9 +48,3 @@ function addEvents() {
     renderPage(storageKey.QUEUEKEY);
     localStorage.setItem('last-tab', storageKey.QUEUEKEY);
   });
-}
-
-function infoMsg() {
-  refs.moviesContainer.innerHTML =
-    '<li class="info-msg"><img src="https://chance2.ru/photo/img/vzgliad-kota-iz-shreka-foto-3.jpg" alt="Cat">Please add a film.</li>';
-}

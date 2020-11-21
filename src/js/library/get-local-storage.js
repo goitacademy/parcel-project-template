@@ -1,26 +1,18 @@
-const apiKey = '6914e86918040074e2fe382ba8e8cb5e';
-const BASEURL = 'https://api.themoviedb.org/3/movie/';
+import FilmsApiService from '../api-service';
+
+const filmsApiService = new FilmsApiService();
 
 function getArrayID(goal) {
   return JSON.parse(localStorage.getItem(goal));
 }
 
-function getMovieByID(id) {
-  const url = `${BASEURL}${id}?api_key=${apiKey}`;
-  try {
-    return fetch(url).then(r => r.json());
-  } catch (error) {
-    console.log('Что-то пошло не так', error);
-  }
-}
-
 export default async function getUserCollection(goal) {
-  const userCollectionPromise = [];
+  const userCollectionPromises = [];
   const arrayID = getArrayID(goal);
   arrayID.map(id => {
-    userCollectionPromise.push(getMovieByID(id));
+    userCollectionPromises.push(filmsApiService.singleRequest(id));
   });
-  const userCollection = Promise.all(userCollectionPromise);
+  const userCollection = Promise.all(userCollectionPromises);
 
   return await userCollection;
 }
