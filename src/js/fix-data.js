@@ -51,8 +51,3 @@ function fixGenres(film) {
   delete film.genres;
   return film;
 }
-
-// filmsApiService
-//   .fetchFilms('trending/movie/day')
-//   .then(fixData)
-//   .then(console.log);

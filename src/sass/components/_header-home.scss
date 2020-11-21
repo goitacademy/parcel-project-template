@@ -39,7 +39,7 @@
   border: none;
   box-shadow: none;
   border-bottom: 0.5px solid $white-color;
-  @include font(400, 14px, 1.17, 0.02em, $basic-font);
+  @include font(400, 14px, 1.17);
   color: $white-color;
 
   &::placeholder {
@@ -59,14 +59,23 @@
   right: 0;
   border: none;
   background-color: transparent;
+  cursor: pointer;
+
+  transform: scale(1);
+  @include transition(transform);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 }
 
 .notification {
   opacity: 0;
-  @include font(400, 14px, 1.17, 0.02em, $basic-font);
+  @include font(400, 14px, 1.17);
   text-align: left;
   color: $notify-text-color;
-  transition: opacity 200ms $timing-function;
+  @include transition(opacity);
 
   &.active {
     opacity: 1;

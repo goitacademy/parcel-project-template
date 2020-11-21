@@ -6,6 +6,7 @@ const refs = {
   watchedBtn: document.querySelector('.watched-btn'),
   queueBtn: document.querySelector('.queue-btn'),
   notification: document.querySelector('.notification'),
+  paginationEl: document.querySelector('ul.pagination'),
 
   popup: document.querySelector('.js-popup'),
   movieField: document.querySelector('.popup-movie'),
