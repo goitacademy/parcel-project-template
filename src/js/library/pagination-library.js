@@ -1,10 +1,7 @@
-// import FilmsApiService from './api-service';
 import refs from '../refs';
 import getCollection from './get-local-storage';
 import popularTpl from '../../templates/movies.hbs';
 
-const API_KEY = '6914e86918040074e2fe382ba8e8cb5e';
-const BASE_URL = 'https://api.themoviedb.org/3/';
 const paginationEl = document.querySelector('ul.pagination');
 const mediaQuery = window.matchMedia('(max-width: 767px)');
 
