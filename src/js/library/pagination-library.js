@@ -283,7 +283,7 @@ function onBtnsClick(event) {
       if (films.length < 1) {
         infoMsg();
         return;
-      } else if (films.length <= 20) {
+      } else if (films.length <= FILMS_ON_PAGE) {
         refs.moviesContainer.innerHTML = popularTpl(films);
       } else {
         films.filter((film, index) => {

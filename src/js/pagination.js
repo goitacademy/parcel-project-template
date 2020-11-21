@@ -7,11 +7,12 @@ const mediaQuery = window.matchMedia('(max-width: 767px)');
 
 let pagMarkup = '';
 let currentPage = 0;
+let url = 'trending/movie/day';
 const BTNS_ON_PAGE = 5;
 const filmsApiService = new FilmsApiService();
 
 filmsApiService
-  .fetchFilms('trending/movie/day')
+  .fetchFilms(url)
   .then(data => {
     renderPaginationMarkup(data.total_pages);
   })
@@ -22,6 +23,28 @@ paginationEl.addEventListener('click', event => {
     onBtnsClick(event);
   }
 });
+refs.searchForm.addEventListener('submit', onSearch);
+
+function onSearch(event) {
+  event.preventDefault();
+
+  url = 'search/movie';
+  currentPage = 0;
+  filmsApiService.query = event.currentTarget.elements.query.value;
+  clearPaginationMarkup();
+  filmsApiService.resetPage();
+
+  filmsApiService.showFilmsResult(url).then(films => {
+    renderPaginationMarkup(films.total_pages);
+    if (currentPage !== 0) {
+      markupPopularMovies(films.superResults);
+    }
+
+    if (films.superResults.length !== 0) {
+      setTimeout(setActiveBtn, 500);
+    }
+  });
+}
 
 function renderPaginationMarkup(length) {
   if (mediaQuery.matches) {
@@ -224,7 +247,7 @@ function onBtnsClick(event) {
   clearMovieContainer();
 
   filmsApiService
-    .showFilmsResult('trending/movie/day', currentPage + 1)
+    .showFilmsResult(url, currentPage + 1)
     .then(data => {
       renderPaginationMarkup(data.total_pages);
       markupPopularMovies(data.superResults);
@@ -250,4 +273,3 @@ function goToTop() {
 
 // ПРОБЛЕМЫ:
 // 1. Подсвечивается активная страница(кнопка), но через костыли
-// 2. Нужно добавить функционал пагинации при поиске
