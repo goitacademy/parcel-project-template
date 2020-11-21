@@ -1,4 +1,4 @@
-// import FilmsApiService from './api-service';
+import FilmsApiService from './api-service';
 import markupPopularMovies from './get-popular';
 import refs from './refs';
 
@@ -10,11 +10,12 @@ const mediaQuery = window.matchMedia('(max-width: 767px)');
 let pagMarkup = '';
 let currentPage = 0;
 const BTNS_ON_PAGE = 5;
+const filmsApiService = new FilmsApiService();
 
-makeFetch(currentPage + 1)
-  .then(response => response.json())
-  .then(({ total_pages }) => {
-    renderPaginationMarkup(total_pages);
+filmsApiService
+  .fetchFilms('trending/movie/day')
+  .then(data => {
+    renderPaginationMarkup(data.total_pages);
   })
   .then(setActiveBtn);
 
@@ -23,10 +24,6 @@ paginationEl.addEventListener('click', event => {
     onBtnsClick(event);
   }
 });
-
-function makeFetch(page) {
-  return fetch(`${BASE_URL}trending/movie/day?api_key=${API_KEY}&page=${page}`);
-}
 
 function renderPaginationMarkup(length) {
   if (mediaQuery.matches) {
@@ -43,8 +40,9 @@ function renderPaginationMarkupForMobile(length) {
 
   if (length <= BTNS_ON_PAGE) {
     for (let i = 0; i < length; i += 1) {
-      pagMarkup += `<li class='pagination-item'><button class="button-number">${i + 1
-        }</button></li>`;
+      pagMarkup += `<li class='pagination-item'><button class="button-number">${
+        i + 1
+      }</button></li>`;
     }
   } else {
     if (currentPage + 1 < BTNS_ON_PAGE) {
@@ -62,26 +60,34 @@ function renderPaginationMarkupForMobile(length) {
       currentPage + 1 < length - 3
     ) {
       pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
-      <li class='pagination-item'><button class="button-number">${currentPage - 1
-        }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage - 1
+      }</button></li>
       <li class='pagination-item'><button class="button-number">${currentPage}</button></li>
-      <li class='pagination-item'><button class="button-number">${currentPage + 1
-        }</button></li>
-      <li class='pagination-item'><button class="button-number">${currentPage + 2
-        }</button></li>
-      <li class='pagination-item'><button class="button-number">${currentPage + 3
-        }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage + 1
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage + 2
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage + 3
+      }</button></li>
       <li class="pagination-item"><button class="right">&#8594</button></li>`;
     } else {
       pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
-        <li class='pagination-item'><button class="button-number">${length - 4
+        <li class='pagination-item'><button class="button-number">${
+          length - 4
         }</button></li>
-      <li class='pagination-item'><button class="button-number">${length - 3
-        }</button></li>
-      <li class='pagination-item'><button class="button-number">${length - 2
-        }</button></li>
-      <li class='pagination-item'><button class="button-number">${length - 1
-        }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 3
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 2
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 1
+      }</button></li>
       <li class='pagination-item'><button class="button-number">${length}</button></li>
       <li class="pagination-item"><button class="right">&#8594</button></li>`;
     }
@@ -93,8 +99,9 @@ function renderPaginationMarkupForTabletAndDesktop(length) {
 
   if (length <= BTNS_ON_PAGE) {
     for (let i = 0; i < length; i += 1) {
-      pagMarkup += `<li class='pagination-item'><button class="button-number">${i + 1
-        }</button></li>`;
+      pagMarkup += `<li class='pagination-item'><button class="button-number">${
+        i + 1
+      }</button></li>`;
     }
   } else {
     if (currentPage + 1 < BTNS_ON_PAGE) {
@@ -116,15 +123,19 @@ function renderPaginationMarkupForTabletAndDesktop(length) {
       pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
       <li class='pagination-item'><button class="button-number">1</button></li>
       <li class='pagination-item'><button class="more-pages">...</button></li>
-      <li class='pagination-item'><button class="button-number">${currentPage - 1
-        }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage - 1
+      }</button></li>
       <li class='pagination-item'><button class="button-number">${currentPage}</button></li>
-      <li class='pagination-item'><button class="button-number">${currentPage + 1
-        }</button></li>
-      <li class='pagination-item'><button class="button-number">${currentPage + 2
-        }</button></li>
-      <li class='pagination-item'><button class="button-number">${currentPage + 3
-        }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage + 1
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage + 2
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        currentPage + 3
+      }</button></li>
       <li class='pagination-item'><button class="more-pages">...</button></li>
       <li class='pagination-item'><button class="button-number">${length}</button></li>
       <li class="pagination-item"><button class="right">&#8594</button></li>`;
@@ -132,14 +143,18 @@ function renderPaginationMarkupForTabletAndDesktop(length) {
       pagMarkup = `<li class="pagination-item"><button class="left">&#8592</button></li>
   <li class='pagination-item'><button class="button-number">1</button></li>
       <li class='pagination-item'><button class="more-pages">...</button></li>
-      <li class='pagination-item'><button class="button-number">${length - 4
-        }</button></li>
-      <li class='pagination-item'><button class="button-number">${length - 3
-        }</button></li>
-      <li class='pagination-item'><button class="button-number">${length - 2
-        }</button></li>
-      <li class='pagination-item'><button class="button-number">${length - 1
-        }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 4
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 3
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 2
+      }</button></li>
+      <li class='pagination-item'><button class="button-number">${
+        length - 1
+      }</button></li>
       <li class='pagination-item'><button class="button-number">${length}</button></li>
       <li class="pagination-item"><button class="right">&#8594</button></li>`;
     }
@@ -210,11 +225,11 @@ function onBtnsClick(event) {
   clearPaginationMarkup();
   clearMovieContainer();
 
-  makeFetch(currentPage + 1)
-    .then(response => response.json())
-    .then(({ total_pages, results }) => {
-      renderPaginationMarkup(total_pages);
-      markupPopularMovies(results);
+  filmsApiService
+    .fetchFilms('trending/movie/day', currentPage + 1)
+    .then(data => {
+      renderPaginationMarkup(data.total_pages);
+      markupPopularMovies(data.results);
     })
     .then(
       setTimeout(() => {
@@ -237,5 +252,4 @@ function goToTop() {
 
 // ПРОБЛЕМЫ:
 // 1. Подсвечивается активная страница(кнопка), но через костыли
-// 2. Запросы за фильмами работают не из api-service.js по причине сложных методов класса FilmsApiService
-// 3. Нужно добавить функционал пагинации при поиске
+// 2. Нужно добавить функционал пагинации при поиске

@@ -7,15 +7,26 @@ export default class FilmsApiService {
     this.page = 1;
   }
 
-  fetchFilms(url) {
-    return fetch(
-      `${BASE_URL}${url}?api_key=${API_KEY}&page=${this.page}&query=${this.searchQuery}`,
-    )
-      .then(response => response.json())
-      .then(({ results }) => {
-        this.incrementPage();
-        return results;
-      });
+  fetchFilms(url, numberOfPage = 0) {
+    if (numberOfPage === 0) {
+      return fetch(
+        `${BASE_URL}${url}?api_key=${API_KEY}&page=${this.page}&query=${this.searchQuery}`,
+      )
+        .then(response => response.json())
+        .then(({ results, total_pages }) => {
+          this.incrementPage();
+          return { results, total_pages };
+        });
+    } else {
+      return fetch(
+        `${BASE_URL}${url}?api_key=${API_KEY}&page=${numberOfPage}&query=${this.searchQuery}`,
+      )
+        .then(response => response.json())
+        .then(({ results, total_pages }) => {
+          this.incrementPage();
+          return { results, total_pages };
+        });
+    }
   }
 
   fetchGenres() {
@@ -29,7 +40,7 @@ export default class FilmsApiService {
   getGenres(url) {
     return this.fetchFilms(url).then(data => {
       return this.fetchGenres().then(arr =>
-        data.map(el => ({
+        data.results.map(el => ({
           ...el,
           genre_ids: el.genre_ids.flatMap(num =>
             arr.filter(el => el.id === num),
