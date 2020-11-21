@@ -40,7 +40,7 @@ refs.queueBtn.addEventListener('click', () => {
 
 function choseLibrary(chosedBtn) {
   if (chosedBtn === '') {
-    return '';
+    return;
   } else if (chosedBtn === WATCHEDKEY) {
     watchedLibreryArray = JSON.parse(localStorage.WatchedList);
   } else {
@@ -304,6 +304,12 @@ function goToTop() {
 }
 
 function createPagination() {
+  // if (
+  //   (localStorage.WatchedList === '' && localStorage.QueueList === '') ||
+  //   (localStorage.WatchedList === [] && localStorage.QueueList === [])
+  // ) {
+  //   return;
+  // }
   findActiveBtn();
   choseLibrary(page);
   calculateQuntityOfPages(FILMS_ON_PAGE);
