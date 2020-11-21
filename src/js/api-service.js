@@ -37,22 +37,26 @@ export default class FilmsApiService {
       });
   }
 
-  getGenres(url) {
-    return this.fetchFilms(url).then(data => {
-      return this.fetchGenres().then(arr =>
-        data.results.map(el => ({
+  getGenres(url, numberOfPage) {
+    return this.fetchFilms(url, numberOfPage).then(data => {
+      return this.fetchGenres().then(arr => {
+        const total_pages = data.total_pages;
+        const newResults = data.results.map(el => ({
           ...el,
           genre_ids: el.genre_ids.flatMap(num =>
             arr.filter(el => el.id === num),
           ),
-        })),
-      );
+        }));
+
+        return { total_pages, newResults };
+      });
     });
   }
 
-  showFilmsResult(url) {
-    return this.getGenres(url).then(data => {
-      return data.map(el =>
+  showFilmsResult(url, numberOfPage) {
+    return this.getGenres(url, numberOfPage).then(data => {
+      const total_pages = data.total_pages;
+      const superResults = data.newResults.map(el =>
         el.release_date
           ? {
               ...el,
@@ -65,6 +69,8 @@ export default class FilmsApiService {
               vote_average: el.vote_average.toFixed(1),
             },
       );
+
+      return { total_pages, superResults };
     });
   }
 

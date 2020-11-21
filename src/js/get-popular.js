@@ -14,7 +14,7 @@ function showPopular(url) {
   loaderToggle();
   return filmsApiService
     .showFilmsResult(url)
-    .then(markupPopularMovies)
+    .then(response => markupPopularMovies(response.superResults))
     .then(loaderToggle);
 }
 

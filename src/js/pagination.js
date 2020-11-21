@@ -224,10 +224,10 @@ function onBtnsClick(event) {
   clearMovieContainer();
 
   filmsApiService
-    .fetchFilms('trending/movie/day', currentPage + 1)
+    .showFilmsResult('trending/movie/day', currentPage + 1)
     .then(data => {
       renderPaginationMarkup(data.total_pages);
-      markupPopularMovies(data.results);
+      markupPopularMovies(data.superResults);
     })
     .then(
       setTimeout(() => {
