@@ -5,7 +5,7 @@ import loaderToggle from './loader';
 import { startPopup } from './popup';
 
 const filmsApiService = new FilmsApiService();
-refs.moviesContainer.addEventListener('click', checkClick);
+const evetnID = refs.moviesContainer.addEventListener('click', checkClick);
 
 export default function markupPopularMovies(movies) {
   refs.moviesContainer.insertAdjacentHTML('beforeend', popularTpl(movies));
@@ -26,4 +26,3 @@ function checkClick(evt) {
     startPopup(evt.target.dataset.id);
   }
 }
-
