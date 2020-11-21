@@ -13,7 +13,7 @@ setLastTab();
 
 //проверяем, есть ли запись в localstorage о последней используемой вкладке, если нет,
 //то считаем, что пользователь впервые перешел в библиотеку и устанавливаем последнюю вкладку как watched
-function setLastTab() {
+export default function setLastTab() {
   if (localStorage.getItem('last-tab') === null)
     localStorage.setItem('last-tab', storageKey.WATCHEDKEY);
 
