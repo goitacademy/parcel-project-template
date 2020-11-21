@@ -10,15 +10,26 @@ export default class FilmsApiService {
     this.page = 1;
   }
 
-  fetchFilms(url) {
-    return fetch(
-      `${BASE_URL}${url}?api_key=${API_KEY}&page=${this.page}&query=${this.searchQuery}`,
-    )
-      .then(response => response.json())
-      .then(({ results }) => {
-        this.incrementPage();
-        return results;
-      });
+  fetchFilms(url, numberOfPage = 0) {
+    if (numberOfPage === 0) {
+      return fetch(
+        `${BASE_URL}${url}?api_key=${API_KEY}&page=${this.page}&query=${this.searchQuery}`,
+      )
+        .then(response => response.json())
+        .then(({ results, total_pages }) => {
+          this.incrementPage();
+          return { results, total_pages };
+        });
+    } else {
+      return fetch(
+        `${BASE_URL}${url}?api_key=${API_KEY}&page=${numberOfPage}&query=${this.searchQuery}`,
+      )
+        .then(response => response.json())
+        .then(({ results, total_pages }) => {
+          this.incrementPage();
+          return { results, total_pages };
+        });
+    }
   }
 
   fetchGenres() {
@@ -33,11 +44,13 @@ export default class FilmsApiService {
       });
   }
 
-  showFilmsResult(url) {
+  showFilmsResult(url, numberOfPage) {
     const genresList = storage.load(GENRES) || this.fetchGenres();
-
-    return this.fetchFilms(url).then(data => data.map(el => {
-      const newDate = el.release_date
+   
+  return this.fetchFilms(url, numberOfPage).then(data => {
+    const total_pages = data.total_pages;
+    const superResults = data.map(el => 
+     el.release_date
         ? {
           ...el,
           genre_ids: el.genre_ids.map(id => genresList[id]),
@@ -48,12 +61,13 @@ export default class FilmsApiService {
           ...el,
           genre_ids: el.genre_ids.map(id => genresList[id]),
           release_date: 'Unknown',
-          vote_average: el.vote_average.toFixed(1),
-        }
-      return newDate;
-    }));
+          vote_average: el.vote_average.toFixed(1),       
+    }
+      )
+    return { total_pages, superResults };
+  }
+    );
   };
-
 
   incrementPage() {
     this.page += 1;

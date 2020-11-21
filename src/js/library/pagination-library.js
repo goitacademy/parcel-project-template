@@ -1,10 +1,7 @@
-// import FilmsApiService from './api-service';
-import refs from './refs';
-import getCollection from './library/get-local-storage';
-import popularTpl from '../templates/movies.hbs';
+import refs from '../refs';
+import getCollection from './get-local-storage';
+import popularTpl from '../../templates/movies.hbs';
 
-const API_KEY = '6914e86918040074e2fe382ba8e8cb5e';
-const BASE_URL = 'https://api.themoviedb.org/3/';
 const paginationEl = document.querySelector('ul.pagination');
 const mediaQuery = window.matchMedia('(max-width: 767px)');
 
@@ -28,28 +25,35 @@ paginationEl.addEventListener('click', event => {
 refs.watchedBtn.addEventListener('click', () => {
   currentPage = 0;
   quntityOfPages = 1;
+  watchedLibreryArray = [];
   clearPaginationMarkup();
   createPagination();
 });
 refs.queueBtn.addEventListener('click', () => {
   currentPage = 0;
   quntityOfPages = 1;
+  watchedLibreryArray = [];
   clearPaginationMarkup();
   createPagination();
 });
 
 function choseLibrary(chosedBtn) {
-  if (chosedBtn === '') {
-    return;
-  } else if (
-    localStorage.getItem(QUEUEKEY) === null &&
-    localStorage.getItem(WATCHEDKEY) === null
+  if (
+    chosedBtn === '' ||
+    (localStorage.getItem(QUEUEKEY) === null &&
+      localStorage.getItem(WATCHEDKEY) === null)
   ) {
     return;
   } else if (chosedBtn === WATCHEDKEY) {
-    watchedLibreryArray = JSON.parse(localStorage.WatchedList);
+    if (localStorage.getItem(WATCHEDKEY) === '[]') {
+      return;
+    }
+    watchedLibreryArray = JSON.parse(localStorage.getItem(WATCHEDKEY));
   } else {
-    watchedLibreryArray = JSON.parse(localStorage.QueueList);
+    if (localStorage.getItem(QUEUEKEY) === '[]') {
+      return;
+    }
+    watchedLibreryArray = JSON.parse(localStorage.getItem(QUEUEKEY));
   }
 }
 
@@ -67,12 +71,8 @@ function findActiveBtn() {
   }
 }
 
-function makeFetch(page) {
-  return fetch(`${BASE_URL}trending/movie/day?api_key=${API_KEY}&page=${page}`);
-}
-
 function renderPaginationMarkup(length) {
-  if (watchedLibreryArray.length === 0) {
+  if (watchedLibreryArray.length === 0 || watchedLibreryArray === []) {
     return;
   } else if (mediaQuery.matches) {
     renderPaginationMarkupForMobile(length);
@@ -214,7 +214,7 @@ function clearPaginationMarkup() {
 }
 
 function setActiveBtn(event) {
-  if (watchedLibreryArray.length === 0) {
+  if (watchedLibreryArray.length === 0 || watchedLibreryArray === []) {
     return;
   }
   const numberBtnsEl = document.querySelectorAll('button.button-number');
@@ -283,7 +283,7 @@ function onBtnsClick(event) {
       if (films.length < 1) {
         infoMsg();
         return;
-      } else if (films.length <= 20) {
+      } else if (films.length <= FILMS_ON_PAGE) {
         refs.moviesContainer.innerHTML = popularTpl(films);
       } else {
         films.filter((film, index) => {
@@ -320,5 +320,3 @@ function createPagination() {
   renderPaginationMarkup(quntityOfPages);
   setActiveBtn();
 }
-// ПРОБЛЕМЫ:
-// 1. Запросы за фильмами работают не из api-service.js по причине сложных методов класса FilmsApiService

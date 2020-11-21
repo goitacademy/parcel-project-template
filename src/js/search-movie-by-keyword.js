@@ -27,8 +27,8 @@ function fetchCards(url) {
   loaderToggle();
   return filmsApiService.showFilmsResult(url).then(films => {
     loaderToggle();
-    markupPopularMovies(films);
-    if (films.length === 0) {
+    markupPopularMovies(films.superResults);
+    if (films.superResults.length === 0) {
       refs.notification.classList.add('active');
     }
   });
