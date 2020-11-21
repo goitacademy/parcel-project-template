@@ -2,6 +2,7 @@
 const load = key => {
   try {
     const localData = localStorage.getItem(key);
+    localStorage.getItem('last-tab')
 
     return localData === null ? undefined : JSON.parse(localData);
   } catch (err) {
@@ -23,7 +24,7 @@ const save = (key, value) => {
 const remove = (key, value) => {
   const localData = load(key);
   localData.splice(localData.indexOf(value), 1);
-  save (key, localData);
+  save(key, localData);
 };
 
 export default { load, save, remove };

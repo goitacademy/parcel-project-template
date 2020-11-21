@@ -1,5 +1,8 @@
+import storage from "./storage";
+
 const API_KEY = '6914e86918040074e2fe382ba8e8cb5e';
 const BASE_URL = 'https://api.themoviedb.org/3/';
+const GENRES = "genres";
 
 export default class FilmsApiService {
   constructor() {
@@ -22,40 +25,35 @@ export default class FilmsApiService {
     return fetch(`${BASE_URL}genre/movie/list?api_key=${API_KEY}`)
       .then(response => response.json())
       .then(data => {
-        return data.genres;
+        const genres = {};
+        data.genres.forEach(el => {
+          genres[`${el.id}`] = el.name;
+        });
+        storage.save(GENRES, genres);
       });
   }
 
-  getGenres(url) {
-    return this.fetchFilms(url).then(data => {
-      return this.fetchGenres().then(arr =>
-        data.map(el => ({
-          ...el,
-          genre_ids: el.genre_ids.flatMap(num =>
-            arr.filter(el => el.id === num),
-          ),
-        })),
-      );
-    });
-  }
-
   showFilmsResult(url) {
-    return this.getGenres(url).then(data => {
-      return data.map(el =>
-        el.release_date
-          ? {
-            ...el,
-            release_date: el.release_date.split('-')[0],
-            vote_average: el.vote_average.toFixed(1),
-          }
-          : {
-            ...el,
-            release_date: 'Unknown',
-            vote_average: el.vote_average.toFixed(1),
-          },
-      );
-    });
-  }
+    const genresList = storage.load(GENRES) || this.fetchGenres();
+
+    return this.fetchFilms(url).then(data => data.map(el => {
+      const newDate = el.release_date
+        ? {
+          ...el,
+          genre_ids: el.genre_ids.map(id => genresList[id]),
+          release_date: el.release_date.split('-')[0],
+          vote_average: el.vote_average.toFixed(1),
+        }
+        : {
+          ...el,
+          genre_ids: el.genre_ids.map(id => genresList[id]),
+          release_date: 'Unknown',
+          vote_average: el.vote_average.toFixed(1),
+        }
+      return newDate;
+    }));
+  };
+
 
   incrementPage() {
     this.page += 1;
