@@ -24,19 +24,20 @@ function getGenres() {
 }
 
 function fixDate(date) {
-  if (date != undefined) return date.split('-')[0];
-  return false;
+  if (date) return date.split('-')[0];
+  return '';
 }
 
 function fixRating(raiting) {
-  if (raiting != undefined && raiting != 0) return raiting.toFixed(1);
-  return false;
+  if (raiting) return raiting.toFixed(1);
+  return '';
 }
 
 //функция заменяет id жанра на его название
 async function fixGenresID(idGenres) {
   let fixedGenres = [];
-  if (genres === null) {
+  // if (genres === null) {
+  if (!genres) {
     //делаем запрос за жанрами, если ранее еще не делали
     genres = await getGenres();
   }

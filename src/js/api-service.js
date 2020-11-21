@@ -1,5 +1,8 @@
+import storage from "./storage";
+
 const API_KEY = '6914e86918040074e2fe382ba8e8cb5e';
 const BASE_URL = 'https://api.themoviedb.org/3/';
+const GENRES = "genres";
 
 export default class FilmsApiService {
   constructor() {
@@ -33,46 +36,38 @@ export default class FilmsApiService {
     return fetch(`${BASE_URL}genre/movie/list?api_key=${API_KEY}`)
       .then(response => response.json())
       .then(data => {
-        return data.genres;
+        const genres = {};
+        data.genres.forEach(el => {
+          genres[`${el.id}`] = el.name;
+        });
+        storage.save(GENRES, genres);
       });
-  }
-
-  getGenres(url, numberOfPage) {
-    return this.fetchFilms(url, numberOfPage).then(data => {
-      return this.fetchGenres().then(arr => {
-        const total_pages = data.total_pages;
-        const newResults = data.results.map(el => ({
-          ...el,
-          genre_ids: el.genre_ids.flatMap(num =>
-            arr.filter(el => el.id === num),
-          ),
-        }));
-
-        return { total_pages, newResults };
-      });
-    });
   }
 
   showFilmsResult(url, numberOfPage) {
-    return this.getGenres(url, numberOfPage).then(data => {
-      const total_pages = data.total_pages;
-      const superResults = data.newResults.map(el =>
-        el.release_date
-          ? {
-              ...el,
-              release_date: el.release_date.split('-')[0],
-              vote_average: el.vote_average.toFixed(1),
-            }
-          : {
-              ...el,
-              release_date: 'Unknown',
-              vote_average: el.vote_average.toFixed(1),
-            },
-      );
-
-      return { total_pages, superResults };
-    });
+    const genresList = storage.load(GENRES) || this.fetchGenres();
+   
+  return this.fetchFilms(url, numberOfPage).then(data => {
+    const total_pages = data.total_pages;
+    const superResults = data.map(el => 
+     el.release_date
+        ? {
+          ...el,
+          genre_ids: el.genre_ids.map(id => genresList[id]),
+          release_date: el.release_date.split('-')[0],
+          vote_average: el.vote_average.toFixed(1),
+        }
+        : {
+          ...el,
+          genre_ids: el.genre_ids.map(id => genresList[id]),
+          release_date: 'Unknown',
+          vote_average: el.vote_average.toFixed(1),       
+    }
+      )
+    return { total_pages, superResults };
   }
+    );
+  };
 
   incrementPage() {
     this.page += 1;

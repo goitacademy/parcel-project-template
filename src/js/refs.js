@@ -1,5 +1,6 @@
 const refs = {
   body: document.querySelector('body'),
+  main: document.querySelector('main'),
   moviesContainer: document.querySelector('.js-film-container'),
   searchForm: document.querySelector('#search-form'),
   watchedBtn: document.querySelector('.watched-btn'),
