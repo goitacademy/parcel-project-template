@@ -1,8 +1,8 @@
-import storage from "./storage";
+import storage from './storage';
 
 const API_KEY = '6914e86918040074e2fe382ba8e8cb5e';
 const BASE_URL = 'https://api.themoviedb.org/3/';
-const GENRES = "genres";
+const GENRES = 'genres';
 
 export default class FilmsApiService {
   constructor() {
@@ -46,28 +46,27 @@ export default class FilmsApiService {
 
   showFilmsResult(url, numberOfPage) {
     const genresList = storage.load(GENRES) || this.fetchGenres();
-   
-  return this.fetchFilms(url, numberOfPage).then(data => {
-    const total_pages = data.total_pages;
-    const superResults = data.map(el => 
-     el.release_date
-        ? {
-          ...el,
-          genre_ids: el.genre_ids.map(id => genresList[id]),
-          release_date: el.release_date.split('-')[0],
-          vote_average: el.vote_average.toFixed(1),
-        }
-        : {
-          ...el,
-          genre_ids: el.genre_ids.map(id => genresList[id]),
-          release_date: 'Unknown',
-          vote_average: el.vote_average.toFixed(1),       
-    }
-      )
-    return { total_pages, superResults };
+
+    return this.fetchFilms(url, numberOfPage).then(data => {
+      const total_pages = data.total_pages;
+      const superResults = data.results.map(el =>
+        el.release_date
+          ? {
+              ...el,
+              genre_ids: el.genre_ids.map(id => genresList[id]),
+              release_date: el.release_date.split('-')[0],
+              vote_average: el.vote_average.toFixed(1),
+            }
+          : {
+              ...el,
+              genre_ids: el.genre_ids.map(id => genresList[id]),
+              release_date: 'Unknown',
+              vote_average: el.vote_average.toFixed(1),
+            },
+      );
+      return { total_pages, superResults };
+    });
   }
-    );
-  };
 
   incrementPage() {
     this.page += 1;

@@ -60,4 +60,3 @@ function checkClick(evt) {
     startPopup(evt.target.dataset.id);
   }
 }
-

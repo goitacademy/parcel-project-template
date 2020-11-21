@@ -1,6 +1,8 @@
 import refs from '../refs';
 import getCollection from './get-local-storage';
-import popularTpl from '../../templates/movies.hbs';
+import popularTpl from '../../templates/movies-items.hbs';
+import loaderToggle from '../loader';
+import fixData from '../fix-data';
 
 const paginationEl = document.querySelector('ul.pagination');
 const mediaQuery = window.matchMedia('(max-width: 767px)');
@@ -36,6 +38,24 @@ refs.queueBtn.addEventListener('click', () => {
   clearPaginationMarkup();
   createPagination();
 });
+refs.btnClose.addEventListener('click', () => {
+  quntityOfPages = 1;
+  watchedLibreryArray = [];
+  clearPaginationMarkup();
+  createPagination();
+});
+refs.popup.addEventListener('click', () => {
+  quntityOfPages = 1;
+  watchedLibreryArray = [];
+  clearPaginationMarkup();
+  createPagination();
+});
+window.addEventListener('keyup', () => {
+  quntityOfPages = 1;
+  watchedLibreryArray = [];
+  clearPaginationMarkup();
+  createPagination();
+});
 
 function choseLibrary(chosedBtn) {
   if (
@@ -55,6 +75,7 @@ function choseLibrary(chosedBtn) {
     }
     watchedLibreryArray = JSON.parse(localStorage.getItem(QUEUEKEY));
   }
+  // console.log(watchedLibreryArray);
 }
 
 function calculateQuntityOfPages(filmsPerPage) {
@@ -263,6 +284,8 @@ function onBtnsClick(event) {
     paginationBtnsList[paginationBtnsList.length - 1].textContent,
   );
 
+  loaderToggle();
+
   if (Number(event.target.textContent)) {
     onNumberBtnClick(event);
   } else if (event.target.textContent === '→' && currentPage < lastPage - 1) {
@@ -279,14 +302,15 @@ function onBtnsClick(event) {
   getCollection(page)
     .then(films => {
       const filteredFilms = [];
+      const fixDataFilms = fixData(films);
 
-      if (films.length < 1) {
+      if (fixDataFilms.length < 1) {
         infoMsg();
         return;
-      } else if (films.length <= FILMS_ON_PAGE) {
-        refs.moviesContainer.innerHTML = popularTpl(films);
+      } else if (fixDataFilms.length <= FILMS_ON_PAGE) {
+        refs.moviesContainer.innerHTML = popularTpl(fixDataFilms);
       } else {
-        films.filter((film, index) => {
+        fixDataFilms.filter((film, index) => {
           if (
             index > FILMS_ON_PAGE * currentPage &&
             index <= FILMS_ON_PAGE * (currentPage + 1)
@@ -299,6 +323,7 @@ function onBtnsClick(event) {
     })
     .then(renderPaginationMarkup(quntityOfPages))
     .then(setActiveBtn(event))
+    .then(loaderToggle)
     .then(goToTop);
 }
 
@@ -314,9 +339,11 @@ function goToTop() {
 }
 
 function createPagination() {
-  findActiveBtn();
-  choseLibrary(page);
-  calculateQuntityOfPages(FILMS_ON_PAGE);
-  renderPaginationMarkup(quntityOfPages);
-  setActiveBtn();
+  setTimeout(() => {
+    findActiveBtn();
+    choseLibrary(page);
+    calculateQuntityOfPages(FILMS_ON_PAGE);
+    renderPaginationMarkup(quntityOfPages);
+    setActiveBtn();
+  }, 0);
 }
