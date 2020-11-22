@@ -1,0 +1,124 @@
+.main-problems-section {
+  background-image: linear-gradient(
+    to bottom,
+    $primary-black-color 80%,
+    $white-color 80%
+  );
+
+  @include for-size(tablet) {
+    background-image: linear-gradient(
+      to bottom,
+      $primary-black-color 67%,
+      $white-color 67%
+    );
+  }
+
+  @include for-size(desktop) {
+    position: relative;
+    background-image: linear-gradient(
+      to bottom,
+      $primary-black-color 77%,
+      $white-color 77%
+    );
+  }
+
+  &::before {
+    display: none;
+
+    @include for-size(desktop) {
+      display: block;
+      content: '';
+      background-image: url(../images/icons/bomba.svg);
+      background-repeat: no-repeat;
+      position: absolute;
+      // background-size: contain;
+      width: 455px;
+      height: 472px;
+      bottom: 23%;
+      right: -50px;
+    }
+  }
+}
+
+.main-problems-container {
+  padding-top: 50px;
+}
+
+.main-problems-title {
+  color: $white-color;
+  text-align: left;
+  line-height: 1.36;
+  margin-bottom: 27px;
+
+  & span {
+    color: $orange-color;
+  }
+
+  @include for-size(tablet) {
+    margin-bottom: 25px;
+  }
+
+  @include for-size(desktop) {
+    margin-bottom: 70px;
+  }
+}
+
+.main-problems-card {
+  background-color: white;
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+
+  padding: 20px 30px;
+
+  @include for-size(tablet) {
+    padding: 30px 96px;
+  }
+
+  @include for-size(desktop) {
+    padding: 70px 114px 62px;
+  }
+}
+
+.main-problems-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin: -5px;
+  padding: 0;
+
+  counter-reset: main-problems;
+
+  @include for-size(tablet) {
+    margin: -11px;
+  }
+
+  @include for-size(desktop) {
+    margin: -20px;
+    font-size: 20px;
+  }
+}
+
+.main-problems-list li::before {
+  counter-increment: main-problems;
+  content: '— 0' counter(main-problems) '';
+
+  display: block;
+  color: $orange-color;
+  margin-bottom: 5px;
+}
+
+.main-problems-list li {
+  margin: 5px;
+  width: 100%;
+
+  @include for-size(tablet) {
+    margin: 11px;
+    width: calc((100% - 4 * 11px) / 2);
+  }
+
+  @include for-size(desktop) {
+    margin: 20px;
+    width: calc((100% - 6 * 20px) / 3);
+    line-height: 1.4;
+  }
+}
