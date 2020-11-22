@@ -62,14 +62,14 @@ $slick-opacity-not-active: 0.25 !default;
 
 /* Arrows */
 
-.slick-prev,
-.slick-next {
+.slick-prev {
   position: absolute;
   display: block;
   height: 25px;
   width: 25px;
   line-height: 0px;
   font-size: 0px;
+  left: 0;
   cursor: pointer;
   background: transparent;
   color: transparent;
@@ -79,6 +79,7 @@ $slick-opacity-not-active: 0.25 !default;
   transform: translate(0, -50%);
   padding: 0;
   border: none;
+  z-index: 5;
   outline: none;
   &:hover,
   &:focus {
@@ -100,6 +101,66 @@ $slick-opacity-not-active: 0.25 !default;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  @include for-size(tablet) {
+    & {
+      left: -15px;
+    }
+  }
+  @include for-size(desktop) {
+    & {
+      left: -100px;
+    }
+  }
+}
+.slick-next {
+  position: absolute;
+  display: block;
+  height: 25px;
+  width: 25px;
+  line-height: 0px;
+  font-size: 0px;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding: 0;
+  border: none;
+  z-index: 5;
+  outline: none;
+  &:hover,
+  &:focus {
+    outline: none;
+    background: transparent;
+    color: transparent;
+    &:before {
+      opacity: $slick-opacity-on-hover;
+    }
+  }
+  &.slick-disabled:before {
+    opacity: $slick-opacity-not-active;
+  }
+  &:before {
+    font-family: $slick-font-family;
+    font-size: 20px;
+    line-height: 1;
+    opacity: $slick-opacity-default;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @include for-size(tablet) {
+    & {
+      right: -15px;
+    }
+  }
+  @include for-size(desktop) {
+    & {
+      right: -100px;
+    }
+  }
 }
 
 .slick-prev {
@@ -107,13 +168,15 @@ $slick-opacity-not-active: 0.25 !default;
     left: auto;
   }
   &:before {
+    position: relative;
     background-image: url(../images/icons/arrow-left-icon.svg);
     background-repeat: no-repeat;
     background-size: contain;
+    z-index: 200;
 
-    content: $slick-prev-character;
+    content: $slick-next-character;
     [dir='rtl'] & {
-      content: $slick-next-character;
+      content: $slick-prev-character;
     }
   }
 }
@@ -122,7 +185,6 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-next {
-  right: 0;
   bottom: 0;
   [dir='rtl'] & {
     right: auto;
