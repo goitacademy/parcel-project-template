@@ -40,7 +40,7 @@ export default class FilmsApiService {
     return this.fetchFilms(url, numberOfPage).then(data => {
       const total_pages = data.total_pages;
       const superResults = data.results.map(el => {
-        const filmDate = el.release_date.split('-')[0] || "Unknown";
+        const filmDate = el.release_date ? el.release_date.split('-')[0] : "Unknown";
         return {
           ...el,
           genre_ids: el.genre_ids.map(id => storage.load(GENRES)[id]),
