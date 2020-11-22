@@ -1,21 +1,21 @@
 .header {
-    position: fixed;
-    z-index: 999;
-    padding-top: 33px;
-    width: 100%;
-    background-color: rgba(17, 21, 24, 0.9);
+  position: absolute;
+  z-index: 999;
+  padding-top: 33px;
+  width: 100%;
+  background-color: rgba(17, 21, 24, 0.9);
 
-    @media screen and (min-width: 1366px) {
-        background-color: transparent;
-        animation-timing-function: ease;
-        animation-name: slideRight;
-        -webkit-animation-name: slideRight;
-        animation-duration: 1700ms;
-        -webkit-animation-duration: 1700ms;
-        -webkit-animation-timing-function: ease;
-    }
-          
-    @keyframes slideRight {
+  @media screen and (min-width: 1366px) {
+    background-color: transparent;
+    animation-timing-function: ease;
+    animation-name: slideRight;
+    -webkit-animation-name: slideRight;
+    animation-duration: 1700ms;
+    -webkit-animation-duration: 1700ms;
+    -webkit-animation-timing-function: ease;
+  }
+
+  @keyframes slideRight {
     0% {
       transform: translateX(-150%);
       opacity: 0;
@@ -24,211 +24,203 @@
       transform: translateX(0);
       opacity: 1;
     }
-    }
-          
-    @-webkit-keyframes slideRight {
-      0% {
-        -webkit-transform: translateX(-150%);
-        opacity: 0;
-      }
-      100% {
-        -webkit-transform: translateX(0);
-        opacity: 1;
-      }
-    
-    }
+  }
 
-    &-wrap {
+  @-webkit-keyframes slideRight {
+    0% {
+      -webkit-transform: translateX(-150%);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  &-wrap {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-logo {
+    display: none;
+    @media screen and (min-width: 1366px) {
+      display: block;
+    }
+  }
+  .menu-logo {
+    display: block;
+    @media screen and (min-width: 1366px) {
+      display: none;
+    }
+  }
+  &-nav {
+    display: none;
+    @media screen and (min-width: 1366px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &-mobile {
+      margin-top: 100px;
+      @media screen and (min-width: 768px) and (max-width: 1366px) {
         display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: center;
+      }
     }
-    &-logo {
+  }
+  &-link {
+    text-decoration: none;
+    color: $secondary-color;
+    transition: all 250ms $timing-function;
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+    &-mobile {
+      text-decoration: none;
+      color: $third-color;
+      transition: all 250ms $timing-function;
+      &:hover,
+      &:focus {
+        color: $accent-color;
+      }
+    }
+  }
+  &-list {
+    display: none;
+    padding: 10px 20px;
+    list-style: none;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.5;
+
+    @media screen and (min-width: 1366px) {
+      display: flex;
+      padding: 0;
+      align-items: center;
+      margin-right: 55px;
+      margin-left: 135px;
+      line-height: 1.214;
+      text-transform: uppercase;
+    }
+
+    &-mobile {
+      text-align: left;
+      list-style: none;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+      color: $third-color;
+      @media screen and (min-width: 768px) and (max-width: 1366px) {
+        font-size: 26px;
+        line-height: 1.808;
+      }
+    }
+  }
+  &-item {
+    @media screen and (min-width: 1366px) {
+    }
+    &:not(:last-child) {
+      @media screen and (min-width: 1366px) {
+        margin-right: 40px;
+      }
+    }
+  }
+
+  .backdrop {
+    display: block;
+    height: 100vh;
+    @media screen and (min-width: 1366px) {
+      display: none;
+    }
+  }
+  &-buttons {
+    display: flex;
+    align-items: center;
+
+    .btn-beta {
+      @media screen and (min-width: 768px) and (max-width: 1365px) {
         display: none;
-        @media screen and (min-width: 1366px) {
-            display: block;
-        }
+      }
     }
-    .menu-logo {
-        display: block;
-        @media screen and (min-width: 1366px) {
-            display: none;
-        }
+
+    @media screen and (min-width: 768px) and (max-width: 1365px) {
+      justify-content: space-between;
     }
-    &-nav {
+    @media screen and (min-width: 1366px) {
+      display: inline-block;
+    }
+
+    .btn-menu {
+      @media screen and (min-width: 1366px) {
         display: none;
-        @media screen and (min-width: 1366px) {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        &-mobile {
-            margin-top: 100px;
-            @media screen and (min-width: 768px) and (max-width: 1366px) {
-                display: flex;
-                justify-content: center;
-            }
-        }
+      }
     }
-    &-link {
-        text-decoration: none;
-        color:$secondary-color;
-        transition: all 250ms $timing-function;
-        &:hover,
-        &:focus {
-            color: $accent-color;
-        }
-        &-mobile {
-            text-decoration: none;
-            color:$third-color;
-            transition: all 250ms $timing-function;
-            &:hover,
-            &:focus {
-                color: $accent-color;
-            } 
-        }
-    }
-    &-list {
-        display: none;
-        padding: 10px 20px;
-        list-style: none;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 1.5;
-
-        @media screen and (min-width: 1366px) {
-            display: flex;
-            padding: 0;
-            align-items: center;
-            margin-right: 55px;
-            margin-left: 135px;
-            line-height: 1.214;
-            text-transform: uppercase;
-        }
-        
-        &-mobile {
-            text-align: left;
-            list-style: none;
-            font-weight: 800;
-            font-size: 20px;
-            line-height: 1.8;
-            letter-spacing: 0.03em;
-            color: $third-color;
-            @media screen and (min-width: 768px) and (max-width: 1366px) {
-                font-size: 26px;
-                line-height: 1.808;
-            }
-        }
-    }
-    &-item {
-        
-        @media screen and (min-width: 1366px) {
-        }
-        &:not(:last-child) {
-            @media screen and (min-width: 1366px) {
-                margin-right: 40px;
-            }
-        }
-    }
-
-    .backdrop {
-        display: block;
-        height: 100vh;
-        @media screen and (min-width: 1366px) {
-            display: none;
-        }
-    }
-    &-buttons {
-        display: flex;
-        align-items: center;
-        
-        .btn-beta {
-            @media screen and (min-width: 768px) and (max-width: 1365px) {
-                display: none;
-            
-            }
-        }
-      
-    
-        @media screen and (min-width: 768px) and (max-width: 1365px) {
-             justify-content: space-between; 
-        }
-        @media screen and (min-width: 1366px) {
-            display: inline-block;
-             
-        }
-
-        .btn-menu {
-            @media screen and (min-width: 1366px) {
-                display: none;
-            }
-        }
-
-    }
+  }
 }
 
 .logo {
-    width: 128px;
-    height: 45px;
+  width: 128px;
+  height: 45px;
 }
 
-
 .button-link {
+  border: 0;
+  color: $third-color;
+  background-color: transparent;
+  @include font($fw: 800, $fs: 26px, $lh: 36px);
+  letter-spacing: 0.03em;
+  transition: all 250ms $timing-function;
+  &:hover,
+  &:focus,
+  &:active {
+    color: $accent-color;
     border: 0;
-    color: $third-color;
-    background-color: transparent;
-    @include font($fw: 800, $fs: 26px, $lh: 36px);
-    letter-spacing: 0.03em;
-    transition: all 250ms $timing-function;
-    &:hover,
-    &:focus,
-    &:active {
-        color: $accent-color;
-        border: 0;
-    } 
+  }
 }
 
 .header.is-hidden {
-    width: 100%;
-    position: absolute;
-    z-index: 999;
-    padding-top: 33px;
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  padding-top: 33px;
+  display: block;
+  background-color: transparent;
+  .header-logo {
     display: block;
-    background-color: transparent;
-    .header-logo {
-        display: block;
+  }
+  .menu-logo {
+    display: none;
+  }
+  .backdrop {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  &-buttons {
+    @media screen and (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .menu-logo {
+    .btn-menu {
+      @media screen and (min-width: 1366px) {
         display: none;
+      }
     }
-    .backdrop {
-        display: none;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
-    &-buttons {
-        @media screen and (min-width: 768px) {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .btn-menu {
-            @media screen and (min-width: 1366px) {
-                display: none;
-            }
-        }
-    }
+  }
 
-    .btn-beta {
-        
-        @media screen and (min-width: 768px) {
-            display: inline-flex;
-          margin-right: 40px;
-        }
-        @media screen and (min-width: 1366px) {
-            margin-right: 0;
-          }
+  .btn-beta {
+    @media screen and (min-width: 768px) {
+      display: inline-flex;
+      margin-right: 40px;
     }
+    @media screen and (min-width: 1366px) {
+      margin-right: 0;
+    }
+  }
 }
