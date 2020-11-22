@@ -16,7 +16,6 @@ export default class FilmsApiService {
       .then(response => response.json())
       .then(({ results, total_pages }) => {
         this.incrementPage();
-        console.log(results, total_pages);
         return { results, total_pages };
       });
   }

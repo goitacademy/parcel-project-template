@@ -100,7 +100,7 @@ function renderPaginationMarkup(length) {
     renderPaginationMarkupForTabletAndDesktop(length);
   }
 
-  paginationEl.insertAdjacentHTML('beforeend', pagMarkup);
+  refs.paginationEl.insertAdjacentHTML('beforeend', pagMarkup);
 }
 
 function renderPaginationMarkupForMobile(length) {
@@ -212,7 +212,7 @@ function renderPaginationMarkupForTabletAndDesktop(length) {
 }
 
 function clearPaginationMarkup() {
-  paginationEl.innerHTML = '';
+  refs.paginationEl.innerHTML = '';
 }
 
 function setActiveBtn(event) {

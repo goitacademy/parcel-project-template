@@ -9,15 +9,15 @@ export function onModalButtons() {
     btnWatched.addEventListener('click', onWatchedBtn);
     btnQueue.addEventListener('click', onQueueBtn);
 
-    const watchedList = storage.load('WatchedList');
-    const queueList = storage.load('QueueList');
+    const watchedList = storage.load(storage.keys.WATCHEDKEY);
+    const queueList = storage.load(storage.keys.QUEUEKEY);
 
-    if (watchedList !== undefined && watchedList.includes(btnWatched.dataset.id)) {
+    if (watchedList && watchedList.includes(btnWatched.dataset.id)) {
         btnWatched.textContent = 'remove from watched';
         btnWatched.dataset.action = 'remove';
     }
 
-    if (queueList !== undefined && queueList.includes(btnQueue.dataset.id)) {
+    if (queueList && queueList.includes(btnQueue.dataset.id)) {
         btnQueue.textContent = 'remove from queue';
         btnQueue.dataset.action = 'remove';
     }
@@ -33,10 +33,9 @@ function onWatchedBtn(event) {
         return;
     }
 
-    storage.remove('WatchedList', event.target.dataset.id);
+    storage.remove(storage.keys.WATCHEDKEY, event.target.dataset.id);
     event.target.textContent = 'add to watched';
     event.target.dataset.action = 'add';
-
 }
 
 function onQueueBtn(event) {
@@ -49,35 +48,34 @@ function onQueueBtn(event) {
         return;
     }
 
-    storage.remove('QueueList', event.target.dataset.id);
+    storage.remove(storage.keys.QUEUEKEY, event.target.dataset.id);
     event.target.textContent = 'add to queue';
     event.target.dataset.action = 'add';
 
 }
 
 function addToWatchedList(event) {
-    const watchedList = storage.load('WatchedList');
+    const watchedList = storage.load(storage.keys.WATCHEDKEY);
 
-    if (watchedList === undefined) {
-        storage.save('WatchedList', [event.target.dataset.id]);
+    if (!watchedList) {
+        storage.save(storage.keys.WATCHEDKEY, [event.target.dataset.id]);
         return
     }
 
     watchedList.push(event.target.dataset.id);
-    storage.save('WatchedList', watchedList);
-
+    storage.save(storage.keys.WATCHEDKEY, watchedList);
 }
 
 function addToQueueList(event) {
-    const queueList = storage.load('QueueList');
-    if (queueList === undefined) {
-        storage.save('QueueList', [event.target.dataset.id]);
+    const queueList = storage.load(storage.keys.QUEUEKEY);
 
+    if (!queueList) {
+        storage.save(storage.keys.QUEUEKEY, [event.target.dataset.id]);
         return
     }
 
     queueList.push(event.target.dataset.id);
-    storage.save('QueueList', queueList);
+    storage.save(storage.keys.QUEUEKEY, queueList);
 }
 
 function renameQueueBtn(event) {

@@ -27,4 +27,10 @@ const remove = (key, value) => {
   save(key, localData);
 };
 
-export default { load, save, remove };
+const keys = {
+  WATCHEDKEY: 'WatchedList',
+  QUEUEKEY: 'QueueList',
+};
+
+
+export default { load, save, remove, keys };
