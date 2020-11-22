@@ -35,7 +35,7 @@ $(document).ready(function () {
     responsive: [
     
     {
-       breakpoint: 728,
+       breakpoint: 768,
         settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -51,7 +51,7 @@ $(document).ready(function () {
     responsive: [
     
     {
-       breakpoint: 728,
+       breakpoint: 768,
         settings: {
         asNavFor: '#reviews-slider',
         arrows: true,
