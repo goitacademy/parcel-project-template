@@ -1,0 +1,108 @@
+.why-we-are-chose-section {
+  background-image: linear-gradient(
+    to bottom,
+    $primary-black-color 80%,
+    $white-color 80%
+  );
+
+  @include for-size(tablet) {
+    background-image: linear-gradient(
+      to bottom,
+      $primary-black-color 67%,
+      $white-color 67%
+    );
+  }
+
+  @include for-size(desktop) {
+    background-image: linear-gradient(
+      to bottom,
+      $primary-black-color 77%,
+      $white-color 77%
+    );
+  }
+}
+
+// .why-we-are-chose-container {
+//   padding-top: 0px;
+// }
+
+.why-we-are-chose-title {
+  color: $white-color;
+  text-align: left;
+  line-height: 1.36;
+  margin-bottom: 27px;
+
+  & span {
+    color: $orange-color;
+  }
+
+  @include for-size(tablet) {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  @include for-size(desktop) {
+    display: none;
+    margin-bottom: 70px;
+  }
+}
+
+.why-we-are-chose-card {
+  background-color: white;
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+
+  padding: 20px 30px;
+
+  @include for-size(tablet) {
+    padding: 30px 96px;
+  }
+
+  @include for-size(desktop) {
+    padding: 70px 114px 62px;
+  }
+}
+
+.why-we-are-chose-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin: -5px;
+  padding: 0;
+
+  counter-reset: main-problems;
+
+  @include for-size(tablet) {
+    margin: -11px;
+  }
+
+  @include for-size(desktop) {
+    margin: -20px;
+    font-size: 20px;
+  }
+}
+
+.why-we-are-chose-list li::before {
+  counter-increment: main-problems;
+  content: '— 0' counter(main-problems) '';
+
+  display: block;
+  color: $orange-color;
+  margin-bottom: 5px;
+}
+
+.why-we-are-chose-list li {
+  margin: 5px;
+  width: 100%;
+
+  @include for-size(tablet) {
+    margin: 11px;
+    width: calc((100% - 4 * 11px) / 2);
+  }
+
+  @include for-size(desktop) {
+    margin: 20px;
+    width: calc((100% - 6 * 20px) / 3);
+    line-height: 1.4;
+  }
+}
