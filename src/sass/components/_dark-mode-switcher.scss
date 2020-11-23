@@ -1,0 +1,56 @@
+.switch {
+  z-index: 1000;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  width: 55px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.switch-slider {
+  position: relative;
+  display: flex;
+  background: #ebebeb;
+  width: 34px;
+  height: 18px;
+  border-radius: 50px;
+  padding: 2px 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.switch-slider::before {
+  content: '';
+  display: block;
+  width: 34px;
+  height: 18px;
+  background-image: url(../images/svg/sun.svg), url(../images/svg/moon.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 0% 15%, 100% 15%;
+}
+
+.fa-adjust {
+  transform: rotate(180deg);
+}
+
+.switch input {
+  display: none;
+}
+
+.slider-switch {
+  position: absolute;
+  display: block;
+  background-color: $third-color;
+  transition: 0.4s;
+  border-radius: 34px;
+  height: 14px;
+  width: 14px;
+  display: inline-block;
+}
+
+input:checked + .slider-switch {
+  transform: translateX(14px);
+}
