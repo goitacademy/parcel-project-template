@@ -1,0 +1,440 @@
+body.dark-theme {
+  background-color: $background-dark;
+
+  img {
+    opacity: 0.5;
+  }
+
+  .header img {
+    opacity: 0.8;
+  }
+
+  .footer img {
+    opacity: 0.8;
+  }
+
+  .slick-slide img {
+    border-radius: 50%;
+  }
+
+  //HEADER
+  .header-link {
+    color: $secondary-color-dark;
+    &:hover,
+    &:focus {
+      color: $accent-color-dark;
+    }
+    &-mobile {
+      color: $secondary-color;
+      &:hover,
+      &:focus {
+        color: $accent-color-dark;
+      }
+    }
+  }
+
+  .button-link {
+    color: $third-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $accent-color-dark;
+    }
+  }
+
+  //HERO
+  .section-hero {
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      background-image: none;
+    }
+
+    @media screen and (min-width: 768px) {
+      background-image: none;
+    }
+
+    @media screen and (min-width: 1366px) {
+      background-image: none;
+    }
+  }
+
+  .hero-title {
+    color: $primary-color-dark;
+  }
+
+  .hero-caption {
+    color: $secondary-color-dark;
+  }
+
+  .hero-subtitle {
+    color: $primary-color-dark;
+  }
+
+  .hero-subtitle-accent {
+    color: $accent-color-dark;
+  }
+
+  //OFFER
+  .offer-list-description {
+    color: $primary-color-dark;
+  }
+
+  //BTNS
+  $btns: (
+    alpha: (
+      gstart: $accent-color-dark,
+      gend: $background-dark,
+      tstart: $background-dark,
+      tend: $accent-color-dark,
+    ),
+    beta: (
+      gstart: $background-dark,
+      gend: $accent-color-dark,
+      tstart: $accent-color-dark,
+      tend: $background-dark,
+    ),
+    gamma: (
+      gstart: transparent,
+      gend: $accent-color-dark,
+      tstart: $accent-color-dark,
+      tend: $primary-color-dark,
+    ),
+  );
+
+  .button-registration {
+    color: $third-color;
+    background-color: $accent-color-dark;
+    border: 2px solid $accent-color-dark;
+
+    .backdrop & {
+      border: 2px solid $accent-color-dark;
+    }
+
+    &:before {
+      background-color: $background-dark;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      border: 2px solid $accent-color-dark;
+    }
+  }
+
+  @each $bname, $bcolors in $btns {
+    .btn--#{$bname} {
+      background-color: map-get($bcolors, gstart);
+      color: map-get($bcolors, tstart);
+
+      &:before {
+        background-color: map-get($bcolors, gend);
+        background-image: linear-gradient(
+          to right,
+          map-get($bcolors, gend) 30%,
+          map-get($bcolors, gstart) 100%
+        );
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: map-get($bcolors, tend);
+      }
+    }
+  }
+
+  .btn-menu-box {
+    span {
+      background: $primary-color-dark;
+
+      span + span {
+        margin-top: 3px;
+      }
+    }
+    .active span {
+      background: $secondary-color;
+    }
+  }
+
+  .switch-slider {
+    background: $secondary-color-dark;
+  }
+
+  .slider-switch {
+    background-color: $background-dark;
+  }
+
+  //PROBLEMS
+  .problems {
+    @media screen and (max-width: 767px) {
+      background-image: linear-gradient(
+        to bottom,
+        $bgn-dark-theme 80%,
+        $background-dark 20%
+      );
+    }
+    @media screen and (min-width: 768px) {
+      background-image: linear-gradient(
+        to bottom,
+        $bgn-dark-theme 72%,
+        $background-dark 28%
+      );
+    }
+    @media screen and (min-width: 1366px) {
+      background-image: linear-gradient(
+        to bottom,
+        $bgn-dark-theme 75%,
+        $background-dark 25%
+      );
+    }
+
+    &-titule {
+      color: $secondary-color;
+
+      &-primary {
+        color: $accent-color-dark;
+      }
+    }
+
+    &-list {
+      background-color: $background-dark;
+
+      &-item {
+        &::before {
+          background-color: $accent-color-dark;
+        }
+        &::after {
+          color: $accent-color-dark;
+        }
+      }
+    }
+  }
+
+  //METHODS
+  .methods {
+    &-title {
+      color: $primary-color-dark;
+    }
+
+    &-list-item {
+      background-color: $background-dark;
+      box-shadow: $cards-shadow;
+
+      &:hover,
+      &:focus {
+        background-color: $accent-color-dark;
+      }
+
+      &:hover &-title,
+      &:hover &-description,
+      &:hover &-line,
+      &:hover svg,
+      &:focus &-title,
+      &:focus &-description,
+      &:focus &-line,
+      &:focus svg {
+        color: $secondary-color;
+        fill: $secondary-color;
+      }
+
+      &-title {
+        color: $primary-color-dark;
+      }
+
+      &-line {
+        color: $accent-color-dark;
+      }
+
+      &-description {
+        color: #22282b;
+      }
+    }
+
+    &-svg {
+      fill: $accent-color-dark;
+    }
+  }
+
+  //PROGRAM
+  .section-program {
+    background-color: $bgn-dark-theme;
+
+    .title {
+      color: $secondary-color;
+    }
+  }
+
+  .list {
+    &::before {
+      background-color: $secondary-color;
+    }
+  }
+
+  .item {
+    &-heading {
+      color: $secondary-color;
+
+      &::before {
+        background-color: $accent-color-dark;
+      }
+    }
+
+    &-subtitle {
+      color: $accent-color-dark;
+
+      &::before {
+        background-color: $accent-color-dark;
+      }
+    }
+
+    &-description {
+      color: $secondary-color-dark;
+    }
+  }
+
+  .title-advantages {
+    color: $secondary-color;
+  }
+
+  .list-advantages {
+    background-color: $background-dark;
+
+    .number {
+      color: $accent-color-dark;
+
+      &::before {
+        background-color: $accent-color-dark;
+      }
+    }
+  }
+
+  //TEACHER
+  .teacher-name::after {
+    background-color: $secondary-color-dark;
+  }
+
+  .teacher-exp-list::after {
+    background-color: $accent-color-dark;
+  }
+
+  .teacher-resume-list {
+    color: $secondary-color-dark;
+  }
+
+  //GUARANTIES
+  .guaranties {
+    &-wraper {
+      background-color: $primary-color-dark;
+    }
+
+    &-title {
+      color: $primary-color-dark;
+    }
+
+    &-color {
+      color: $accent-color-dark;
+    }
+
+    &-item {
+      color: $secondary-color-dark;
+    }
+    .guaranties-item:not(:last-child) {
+      border-left: 1px dashed $secondary-color-dark;
+    }
+  }
+
+  //SLIDER
+  .slider-container {
+    &-title {
+      color: $accent-color-dark;
+    }
+    &-text {
+      color: $secondary-color;
+    }
+    &-comment {
+      color: $secondary-color-dark;
+    }
+    &-link {
+      color: $accent-color-dark;
+    }
+  }
+
+  .slider-list-item:hover img,
+  .slider-list-item:focus img {
+    border: 1px solid $accent-color-dark;
+  }
+
+  .slider-item {
+    /*background-color: $primary-color-dark;*/
+    background: linear-gradient(
+      to bottom,
+      rgba(61, 61, 61, 1) 0%,
+      rgba(17, 21, 24, 0.264) 29%,
+      rgba(61, 61, 61, 1) 100%
+    );
+  }
+
+  //REGISTRATION
+  .registration {
+    background-color: $bgn-dark-theme;
+    color: $secondary-color;
+
+    &-text__second-color {
+      color: $accent-color-dark;
+    }
+
+    &-form-input {
+      border: 1px solid $secondary-color;
+      color: $secondary-color;
+
+      &:focus {
+        border-color: $accent-color-dark;
+      }
+    }
+  }
+
+  .registration-form-input:focus + .registration-form-lable,
+  .registration-form-input:not(:placeholder-shown) + .registration-form-lable {
+    color: $accent-color-dark;
+  }
+
+  .registration-form-svg {
+    fill: $accent-color-dark;
+  }
+
+  .registration-form-input ~ .registration-form-svg {
+    fill: $secondary-color;
+  }
+
+  .registration-form-input:focus ~ .registration-form-svg {
+    fill: $accent-color-dark;
+  }
+
+  //FOOTER
+  .footer {
+    &-phone {
+      color: $primary-color-dark;
+
+      @media screen and (min-width: 768px) {
+        &::after {
+          border: 1px solid $secondary-color;
+        }
+      }
+
+      &:hover &-wrap,
+      &:focus &-wrap {
+        color: $accent-color-dark;
+      }
+    }
+
+    &-copyright {
+      &-text {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  * {
+    transition: background-color 0.6s ease, color 1s ease;
+  }
+}
