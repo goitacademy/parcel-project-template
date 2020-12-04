@@ -1,13 +1,25 @@
 .header {
-  position: relative;
-  padding-top: 6px;
-  padding-bottom: 27px;
-  // overflow: hidden;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    position: relative;
+    padding-top: 6px;
+    padding-bottom: 27px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    padding-top: 37px;
+  }
   background-color: #ffb8ca;
   &__container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      align-items: center;
+      justify-content: space-between;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      justify-content: space-between;
+    }
   }
   &__link {
     background-color: #ffb8ca;
@@ -17,17 +29,45 @@
       display: none;
     }
   }
-  &__btn {
-    @media screen and (min-width: 320px) and (max-width: 1199px) {
+  &__btns-tablet {
+    display: flex;
+  }
+  &__btn-buy {
+    @media screen and (min-width: 320px) and (max-width: 767px) {
       display: none;
     }
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $main;
+    background: #ffffff;
+    border-radius: 22px;
+    border: none;
+    outline: none;
+    padding: 0 37px;
+    margin-left: 42px;
+    height: 44px;
+  }
+  &__btn-span {
+    margin-left: 12px;
   }
 }
 
 .mobile-btn {
   border: none;
   outline: none;
-  background-color: #ffb8ca;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    background-color: #ffb8ca;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    width: 0;
+    z-index: 10;
+  }
   &-svg {
     width: 20px;
     height: 17px;
@@ -39,11 +79,18 @@
   z-index: 100;
   top: 0;
   right: 0;
-  width: 250px;
-  height: 502px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 250px;
+    height: 502px;
+    padding: 60px 20px 171px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    width: 254px;
+    height: 1020px;
+    padding: 60px 24px 171px;
+  }
   background-color: #e17992;
   text-align: center;
-  padding: 60px 20px 171px;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &.is-hidden {
     display: block;
@@ -57,6 +104,15 @@
     background-color: #e17992;
   }
   &-btn-buy {
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      width: 209px;
+      padding: 0 48px 0 48px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      width: 186px;
+      padding: 0 43px 0 43px;
+      margin-left: 10px;
+    }
     font-family: 'DM Sans';
     font-style: normal;
     font-weight: bold;
@@ -67,7 +123,6 @@
     text-align: center;
     background: #ffffff;
     border-radius: 22px;
-    padding: 0 48px 0 48px;
     color: #d41443;
     border: none;
     outline: none;
@@ -75,7 +130,12 @@
     margin-bottom: 19px;
   }
   &-btn-span {
-    margin-left: 30px;
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      margin-left: 30px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      margin-left: 14px;
+    }
   }
   &-svg {
     width: 14px;
