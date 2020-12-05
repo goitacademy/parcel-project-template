@@ -11,7 +11,7 @@ $slick-font-path: "./fonts/" !default;
 $slick-font-family: "slick" !default;
 $slick-loader-path: "./" !default;
 $slick-arrow-color: white !default;
-$slick-dot-color: black !default;
+$slick-dot-color: #D9D9D9 !default;
 $slick-dot-color-active: $slick-dot-color !default;
 $slick-prev-character: "\2190" !default;
 $slick-next-character: "\2192" !default;
@@ -136,7 +136,7 @@ $slick-opacity-not-active: 0.25 !default;
         content: $slick-next-character;
 
         [dir="rtl"] & {
-            content: $slick-prev-character;
+            content: '';
         }
     }
 }
@@ -192,7 +192,7 @@ $slick-opacity-not-active: 0.25 !default;
                 position: absolute;
                 top: 0;
                 left: 0;
-                content: $slick-dot-character;
+                content: '';
                 width: 20px;
                 height: 20px;
                 font-family: $slick-font-family;
@@ -200,15 +200,22 @@ $slick-opacity-not-active: 0.25 !default;
                 line-height: 20px;
                 text-align: center;
                 color: $slick-dot-color;
-                opacity: $slick-opacity-not-active;
+                opacity: 1;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
             }
         }
 
         &.slick-active button:before {
-            color: $slick-dot-color-active;
-            opacity: $slick-opacity-default;
+            content: '';
+            background-image: url(../images/svg/home.svg);
+            fill: #D31342;
+            width: 16px;
+            height: 16px;
+            opacity: 1;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-color: $slick-arrow-color;
         }
     }
 }
