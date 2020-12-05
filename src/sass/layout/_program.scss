@@ -1,4 +1,6 @@
 .program {
+  position: relative;
+
   padding-top: 50px;
   background-color: $bg-color;
 
@@ -14,6 +16,7 @@
 
   &-list {
     margin-left: 74px;
+
     &-item {
       position: relative;
       padding-bottom: 40px;
@@ -72,7 +75,17 @@
     @include font(12px, 500, 20px);
     color: $secondary-text-color;
     opacity: 0.5;
+
+    &:last-child {
+      width: 80px;
+    }
   }
+}
+
+.photo-program {
+  position: absolute;
+  top: 65%;
+  left: 62%;
 }
 
 .choose {
@@ -86,7 +99,7 @@
   }
 
   &-list {
-    padding: 20px 30px;
+    padding: 20px 14px 20px 30px;
     background: $white-color;
     box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 
@@ -115,6 +128,138 @@
         @include font(14px, 700, 20px);
 
         color: $primary-text-color;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px), (min-width: 1199px) {
+  .program {
+    &-title {
+      @include font(26px, 800, 34px);
+      text-align: left;
+    }
+
+    &-list {
+      margin-left: 65px;
+    }
+  }
+
+  .semester-list {
+    display: flex;
+
+    &-item {
+      width: 176px;
+
+      &:nth-child(2) {
+        width: 155px;
+      }
+
+      &:nth-child(3) {
+        width: 110px;
+      }
+
+      &:not(:last-child) {
+        margin-right: 50px;
+      }
+    }
+  }
+
+  .photo-program {
+    top: 58%;
+    left: 46%;
+  }
+
+  .choose {
+    &-title {
+      @include font(26px, 800, 34px);
+      text-align: center;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 30px 118px 25px 98px;
+      margin: -10px;
+
+      &-item {
+        width: calc((100% - 4 * 10px) / 2);
+        margin: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .program {
+    &-title {
+      margin-bottom: 92px;
+      @include font(46px, 800, 60px);
+
+      text-align: left;
+    }
+
+    &-list {
+      display: flex;
+
+      &-item {
+        &::before {
+          top: -52px;
+          left: 24px;
+        }
+
+        &:not(:last-child) {
+          border-left: none;
+        }
+
+        &-title {
+          @include font(20px);
+          margin-bottom: 25px;
+        }
+      }
+    }
+  }
+
+  .semester-list {
+    display: block;
+  }
+
+  .topic-list-item {
+    @include font(18px, 500, 28px);
+
+    &-title {
+      @include font(20px, 700, 33px);
+    }
+  }
+
+  .photo-program {
+    top: 50%;
+    left: 0;
+  }
+
+  .choose {
+    &-title {
+      display: none;
+    }
+
+    &-list {
+      display: flex;
+      padding: 70px 82px 70px 84px;
+      margin: -20px;
+
+      &-item {
+        width: calc((100% - 6 * 20px) / 3);
+        margin: 20px;
+
+        &-title {
+          @include font(20px, 700, 33px);
+        }
+
+        &-text {
+          @include font(20px, 700, 28px);
+        }
       }
     }
   }
