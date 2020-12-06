@@ -11,21 +11,7 @@
 }
 
 .section__subtitle {
-  font-family: Titan One;
-  font-size: 18px;
-  line-height: 21px;
-  text-align: center;
-  text-transform: uppercase;
-  color: $text-color-pink;
   margin-bottom: 15px;
-}
-
-.section__title {
-  font-family: Titan One;
-  font-size: 34px;
-  line-height: 1, 147;
-  text-align: center;
-  letter-spacing: 0.04em;
 }
 
 .products-list {
@@ -41,6 +27,7 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: $text-color-secondary;
+    user-select: none;
 
     &::before {
       position: absolute;
@@ -66,6 +53,7 @@
   letter-spacing: 0.04em;
   color: $background-primary;
   margin: 66px auto 0;
+  user-select: none;
 }
 
 .products-list__item--first {
@@ -128,44 +116,6 @@
   background-repeat: no-repeat;
   transition-duration: 300ms;
 
-  @keyframes swing {
-    15% {
-      -webkit-transform: translateX(-6px);
-      transform: translateX(-6px);
-    }
-    30% {
-      -webkit-transform: translateX(3px);
-      transform: translateX(3px);
-    }
-    40% {
-      -webkit-transform: translateX(-6px);
-      transform: translateX(-6px);
-    }
-    50% {
-      -webkit-transform: translateX(3px);
-      transform: translateX(3px);
-    }
-    65% {
-      -webkit-transform: translateX(-1px);
-      transform: translateX(-1px);
-    }
-    100% {
-      -webkit-transform: translateX(1);
-      transform: translateX(1);
-    }
-  }
-
-  .products-list__item--first:hover &,
-  .products-list__item--second:hover &,
-  .products-list__item--third:hover & {
-    -webkit-animation: swing 0.6s ease;
-    animation: swing 0.6s ease;
-    -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1;
-    animation-delay: 0ms;
-    animation-duration: 600ms;
-  }
-
   &:hover {
     transform: scale(1.2);
   }
@@ -190,6 +140,10 @@
     padding-bottom: 112px;
   }
 
+  .products__content-box {
+    padding-top: 152px;
+  }
+
   .products-list {
     display: flex;
     margin-top: 150px;
@@ -202,6 +156,9 @@
       &:hover {
         transform: scale(1.06);
       }
+      & .products-list__img {
+        top: -103px;
+      }
     }
 
     &__item--second {
@@ -211,6 +168,10 @@
 
       &:hover {
         transform: scale(1.06);
+      }
+
+      & .products-list__img {
+        top: -110px;
       }
     }
 
@@ -224,8 +185,16 @@
     }
     &__img {
       display: block;
-      top: -115px;
+      top: -101px;
       width: 220px;
+    }
+
+    &__description {
+      line-height: 1.785;
+    }
+
+    &__link {
+      margin: 40px auto;
     }
   }
 
@@ -300,18 +269,6 @@
         right: 50%;
         transform: translate(-50%, -50%);
       }
-    }
-
-    &::before {
-      position: absolute;
-      content: '';
-      background-image: url(../images/products/dots.png);
-      width: 26px;
-      height: 6px;
-      top: 55px;
-      left: 50%;
-      right: 50%;
-      transform: translate(-50%, -50%);
     }
 
     &__text-part {
