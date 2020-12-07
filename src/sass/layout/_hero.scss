@@ -1,14 +1,67 @@
+.container {
+  position: relative;
+}
 .hero {
-  padding-top: 50px;
-  padding-bottom: 100px;
+  // padding-top: 50px;
+  padding-bottom: 40px;
   background-image: url('../images/hero/mobile-hero-bg.png');
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media screen and (min-width: 320px) {
+    background-image: url('../images/hero/mobile-hero-bg.png');
+  }
+
+  @media screen and (min-width: 320px) and (min-device-pixel-ratio: 2),
+    screen and (min-width: 320px) and (min-device-pixel-ratio: 2) and (min-resolution: 192dpi),
+    screen and (min-width: 320px) and (min-device-pixel-ratio: 2) and (min-resolution: 2dppx) {
+    background-image: url('../images/hero/mobile-hero-bg@2x.png');
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url('../images/hero/tablet-hero-bg.png');
+  }
+
+  @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+    screen and (min-width: 768px) and (min-device-pixel-ratio: 2) and (min-resolution: 192dpi),
+    screen and (min-width: 768px) and (min-device-pixel-ratio: 2) and (min-resolution: 2dppx) {
+    background-image: url('../images/hero/tablet-hero-bg@2x.png');
+  }
+
+  @media screen and (min-width: 1400px) {
+    background-image: url('../images/hero/desktop-hero-bg.png');
+  }
+
+  @media screen and (min-width: 1400px) and (min-device-pixel-ratio: 2),
+    screen and (min-width: 1400px) and (min-device-pixel-ratio: 2) and (min-resolution: 192dpi),
+    screen and (min-width: 1400px) and (min-device-pixel-ratio: 2) and (min-resolution: 2dppx) {
+    background-image: url('../images/hero/desktop-hero-bg@2x.png');
+  }
+}
+
+.hero-picture {
+  max-width: 208px;
+  display: block;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 375px;
+    position: absolute;
+    top: 43px;
+    right: -20px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    max-width: 800px;
+    top: 0;
+    right: -20px;
+  }
 }
 
 .hero-title {
   margin: 0;
+  padding-top: 50px;
   font-weight: 800;
   font-size: 20px;
   line-height: 1.35;
@@ -18,7 +71,7 @@
     max-width: 250px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1400px) {
     @include font(58px, 800, 75px);
     max-width: 612px;
   }
@@ -26,11 +79,11 @@
   &-undertitle {
     margin-top: 30px;
 
-    @media screen and (max-width: 1200px) {
-      min-width: 330px;
+    @media screen and (min-width: 320px) and (max-width: 1199px) {
+      max-width: 330px;
     }
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1400px) {
       margin-top: 40px;
     }
 
@@ -38,7 +91,7 @@
       @include font(14px, 500, 22px);
       color: $secondary-text-color;
 
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 1400px) {
         @include font(20px, 500, 33px);
       }
     }
@@ -46,8 +99,9 @@
     &-bold {
       @include font(14px, 700, 22px);
       color: $primary-text-color;
+      max-width: 276px;
 
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 1400px) {
         @include font(20px, 700, 33px);
       }
     }
@@ -56,7 +110,7 @@
       @include font(14px, 700, 22px);
       color: $accent-color;
 
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 1400px) {
         @include font(20px, 700, 33px);
       }
     }
@@ -75,14 +129,44 @@
   line-height: inherit;
 
   @media screen and (min-width: 768px) {
-    margin: 30px 0;
+    margin: 30px auto 141px 0;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1400px) {
     @include font(14px, 700, 17px);
+    margin: 40px auto 241px auto;
     min-width: 354px;
     min-height: 70px;
     letter-spacing: 0.14em;
-    margin: 40px 0;
+  }
+}
+
+.features-list {
+  @include font(14px, 700, 20px);
+  list-style: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width: 1400px) {
+    @include font(20px, 700, 33px);
+  }
+
+  &-item {
+    margin: 0 auto;
+
+    @media screen and (min-width: 768px) {
+      max-width: 146px;
+    }
+
+    @media screen and (min-width: 1400px) {
+      max-width: 366px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
   }
 }
