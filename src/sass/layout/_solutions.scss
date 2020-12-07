@@ -1,6 +1,12 @@
+// * {
+//   outline: 1px dashed darkgreen;
+// }
+
 .solutions {
   text-align: center;
   margin-bottom: 50px;
+  // outline: 1px solid red;
+  margin-top: 50px;
 }
 
 .solutions-title {
@@ -16,6 +22,8 @@
   @include font(14px, 700, 20px);
   letter-spacing: 0.08em;
   color: $primary-text-color;
+  text-align: center;
+  margin: 0px auto;
 }
 .solutions-list-item-text {
   @include font(12px, 500, 20px);
@@ -23,19 +31,22 @@
   color: $secondary-text-color;
 }
 
-// .solutions-list-item:hover .solutions-list-item-title,
-// .solutions-list-item:hover .solutions-list-item-dash,
-// .solutions-list-item:hover .solutions-list-item-text,
-// .solutions-list-item:focus .solutions-list-item-title,
-// .solutions-list-item:focus .solutions-list-item-dash,
-// .solutions-list-item:focus .solutions-list-item-text {
-//   color: $white-color;
-//   background: $accent-color;
-// }
+.solutions-list-item:hover,
+.solutions-list-item:focus {
+  background: $accent-color;
+}
+
+.solutions-list-item:hover .solutions-list-item-title,
+.solutions-list-item:hover .solutions-list-item-dash,
+.solutions-list-item:hover .solutions-list-item-text,
+.solutions-list-item:focus .solutions-list-item-title,
+.solutions-list-item:focus .solutions-list-item-dash,
+.solutions-list-item:focus .solutions-list-item-text {
+  color: $white-color;
+}
 
 // ! --------------------------Size, margin & paddings   ---------------------
 .solutions-list {
-  // margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,27 +54,36 @@
 }
 
 .solutions-list-item {
-  margin-left: 20px;
-  margin-right: 20px;
   text-align: center;
-  padding-bottom: 22px;
-  width: 280px;
-  height: 280px;
   background: $white-color;
   box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.1);
-}
-
-.solutions-list-item:not(:last-child) {
-  margin-bottom: 15px;
+  // outline: 1px solid blue;
 }
 
 .solutions-list-item-svg {
-  max-width: 280px;
+  fill: $accent-color;
+  // max-width: 280px;
+  width: 100%;
   height: 98px;
+  height: 40%;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.solutions-list-item-svg:hover,
+.solutions-list-item-svg:focus {
+  fill: $white-color;
+}
+
+.solutions-list-item:hover .solutions-list-item-svg,
+.solutions-list-item:focus .solutions-list-item-svg {
+  fill: $white-color;
 }
 
 .solutions-list-item-title {
-  max-width: 280px;
+  // max-width: 280px;
+  width: 100%;
+  // padding: 0 5%;
 }
 
 .solutions-list-item-dash {
@@ -86,26 +106,42 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
+  .solutions-list-item {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 22px;
+    width: 280px;
+    height: 280px;
+  }
+
   .solutions-list-item:not(:last-child) {
     margin-bottom: 15px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .solutions-title {
-    @include font(26px, 800, 34px);
-    max-width: 688px;
-  }
-
   .solutions-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  .solutions-list-item-svg {
+    // max-width: 280px;
+    // height: 98px;
+    height: 40%;
+    padding-top: 40px;
+    padding-bottom: 30px;
+  }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+@media screen and (min-width: 768px) and (max-width: 1399px) {
+  .solutions-title {
+    @include font(26px, 800, 34px);
+    max-width: 688px;
+  }
+
   .solutions-list-item:nth-child(odd) {
     margin-right: 20px;
   }
@@ -118,45 +154,62 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
+
+  .solutions-list-item {
+    width: 334px;
+    height: 334px;
+    padding: 0 15px;
+  }
 }
 
 // ! check margins & paddings
 
-// @media screen and (min-width: 1200px) {
-//   .solutions-title {
-//     @include font(46px, 800, 60px);
-//     text-align: left;
-//     padding: 0;
-//   }
+@media screen and (min-width: 1400px) {
+  .solutions {
+    margin-top: 130px;
+  }
 
-//   .solutions-list-item-title {
-//     @include font(20px, 700, 28px);
-//     letter-spacing: 0.08em;
-//     color: $primary-text-color;
-//     text-align: center;
-//     margin: 0 auto;
-//   }
+  .solutions-title {
+    @include font(46px, 800, 60px);
+    text-align: left;
+    padding: 0;
+    max-width: 866px;
+    margin-right: auto;
+  }
 
-//   .solutions-list-item-text {
-//     @include font(18px, 500, 28px);
-//     letter-spacing: 0.08em;
-//     color: $secondary-text-color;
-//   }
+  .solutions-list-item-title {
+    @include font(20px, 700, 28px);
+    letter-spacing: 0.08em;
+    color: $primary-text-color;
+    text-align: center;
+    margin: 0 auto;
+  }
 
-//   .solutions-list {
-//     margin-top: 50px;
-//   }
+  .solutions-list-item-text {
+    @include font(18px, 500, 28px);
+    letter-spacing: 0.08em;
+    color: $secondary-text-color;
+  }
 
-//   .solutions-list-item:nth-child(-n + 3) {
-//     margin-bottom: 20px;
-//   }
+  .solutions-list {
+    margin: calc(50px - 10px) -10px -10px;
+    // margin: -20px;
+  }
 
-//   .solutions-list-item:not(:nth-child(3n)) {
-//     margin-right: 20px;
-//   }
+  .solutions-list-item {
+    // width: 424px;
+    height: 396px;
+    padding: 0 30px 55px;
 
-//   .solutions-list-item {
-//     width: 424px;
-//     height: 396px;
-//   }
-// }
+    width: calc((100% - 6 * 10px) / 3);
+    margin: 10px;
+  }
+
+  // .solutions-list-item:nth-child(-n + 3) {
+  //   margin-bottom: 20px;
+  // }
+
+  // .solutions-list-item:not(:nth-child(3n)) {
+  //   margin-right: 20px;
+  // }
+}
