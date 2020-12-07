@@ -1,6 +1,5 @@
 .program {
-  position: relative;
-
+  padding-bottom: 537px;
   padding-top: 50px;
   background-color: $bg-color;
 
@@ -82,10 +81,14 @@
   }
 }
 
+.photo-position {
+  position: relative;
+}
+
 .photo-program {
   position: absolute;
-  top: 65%;
-  left: 62%;
+  bottom: -50px;
+  right: -20px;
 }
 
 .choose {
@@ -133,8 +136,9 @@
   }
 }
 
-@media screen and (min-width: 768px), (min-width: 1199px) {
+@media screen and (min-width: 768px) and (max-width: 1399px) {
   .program {
+    padding-bottom: 392px;
     &-title {
       @include font(26px, 800, 34px);
       text-align: left;
@@ -166,8 +170,8 @@
   }
 
   .photo-program {
-    top: 58%;
-    left: 46%;
+    bottom: -90px;
+    right: -12px;
   }
 
   .choose {
@@ -182,32 +186,48 @@
       display: flex;
       flex-wrap: wrap;
       padding: 30px 118px 25px 98px;
-      margin: -10px;
+      margin: -10px -10px;
 
       &-item {
         width: calc((100% - 4 * 10px) / 2);
-        margin: 10px;
+        margin: 10px 10px;
       }
     }
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1400px) {
   .program {
+    position: relative;
+    padding-bottom: 0;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 222px;
+      width: 100%;
+      height: 1px;
+      background-color: $white-color;
+    }
     &-title {
-      margin-bottom: 92px;
+      margin-bottom: 160px;
       @include font(46px, 800, 60px);
 
       text-align: left;
     }
 
     &-list {
+      margin-left: 0;
       display: flex;
+      justify-content: space-between;
 
       &-item {
+        padding-bottom: 0;
+        padding-left: 0;
         &::before {
           top: -52px;
-          left: 24px;
+          left: 0;
         }
 
         &:not(:last-child) {
@@ -224,19 +244,35 @@
 
   .semester-list {
     display: block;
-  }
 
-  .topic-list-item {
-    @include font(18px, 500, 28px);
-
-    &-title {
-      @include font(20px, 700, 33px);
+    &-item {
+      width: 240px;
     }
   }
 
+  .topic-list {
+    margin-bottom: 25px;
+    &-item {
+      @include font(18px, 500, 28px);
+
+      &:last-child {
+        width: 240px;
+      }
+
+      &-title {
+        @include font(20px, 700, 33px);
+      }
+    }
+  }
+
+  .photo-position {
+    padding-bottom: 397px;
+  }
+
   .photo-program {
-    top: 50%;
-    left: 0;
+    bottom: 115px;
+    right: unset;
+    left: -183px;
   }
 
   .choose {
@@ -246,12 +282,13 @@
 
     &-list {
       display: flex;
+      flex-wrap: wrap;
       padding: 70px 82px 70px 84px;
-      margin: -20px;
+      margin: -16px -20px;
 
       &-item {
-        width: calc((100% - 6 * 20px) / 3);
-        margin: 20px;
+        max-width: calc((100% - 6 * 20px) / 3);
+        margin: 16px 20px;
 
         &-title {
           @include font(20px, 700, 33px);
