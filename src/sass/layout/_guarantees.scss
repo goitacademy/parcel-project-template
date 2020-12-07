@@ -14,12 +14,37 @@
     padding-bottom: 30px;
     padding-right: 20px;
     padding-left: 20px;
-    display: block;
     margin: 0 auto;
 
     &-item {
       @include font(12px, 500, 20px);
       color: #3d3d3d;
+      display: flex;
+      position: relative;
+
+      &:not(:last-child) {
+        border-left: 1px dashed #b9b9b9;
+      }
+
+      &-text {
+        margin-left: 20px;
+        display: inline;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        width: 22px;
+        height: 35px;
+        background-image: url(../images/fire.svg);
+        background-repeat: no-repeat;
+        background-color: #f1f1f1;
+        flex-shrink: 0;
+        margin-left: 10px;
+        position: absolute;
+        top: 0px;
+        left: -21px;
+      }
     }
   }
 
@@ -34,32 +59,45 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1399px) {
+  .guarantees-list {
+    padding-right: 80px;
+    padding-left: 50px;
+    margin: 0 auto;
+  }
+
   .guarantees-list-item:not(:last-child) {
     padding-bottom: 20px;
   }
-}
 
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .guarantees-list {
-    padding-top: 50px;
-    padding-bottom: 45px;
-    padding-left: 79px;
-    padding-right: 50px;
+  .guarantees-list-item-text {
+    margin-left: 25px;
+    display: inline;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1400px) {
   .guarantees-title {
     @include font(46px, 800, 60px);
     padding-bottom: 50px;
   }
+
   .guarantees-list {
-    padding-left: 79px;
-    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 45px;
+    padding-left: 112px;
+    padding-right: 112px;
+
+    &-item {
+      @include font(20px, 500, 28px);
+    }
   }
 
-  .guarantees-list-item {
-    @include font(20px, 500, 28px);
+  .guarantees-list-item-text {
+    margin-left: 30px;
+  }
+
+  .guarantees-list-item:not(:last-child) {
+    padding-bottom: 20px;
   }
 }
