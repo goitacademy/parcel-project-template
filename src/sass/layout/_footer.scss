@@ -2,6 +2,9 @@
   padding-top: 30px;
   text-align: center;
   &-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 21px;
     margin-bottom: 31px;
     @include font(14px, 600 17px);
@@ -9,58 +12,76 @@
       color: $primary-text-color;
       font-style: normal;
     }
+    &::before {
+      content: '';
+      display: block;
+
+      margin-right: 10px;
+      width: 20px;
+      height: 19px;
+      background-image: url(../images/demo.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      border: 1px solid #000000;
+    }
   }
   &-social-link {
     display: inline-block;
     margin-bottom: 30px;
     height: 40px;
-    border: 1px solid #000000;
   }
-
-  &-text {
-    display: block;
-    padding-top: 21px;
-    padding-bottom: 21px;
-    width: 100%;
-    @include font(14px, 500, 28px);
-    font-weight: 500;
-    color: $secondary-text-color;
+  &-policy {
+    background-color: $bg-color;
+    &-text {
+      display: block;
+      padding-top: 21px;
+      padding-bottom: 21px;
+      width: 100%;
+      @include font(14px, 500, 28px);
+      font-weight: 500;
+      color: $secondary-text-color;
+    }
   }
-}
-
-.logo-mobile {
-  display: inline-block;
-  border: 1px solid #000000;
-}
-
-.logo-main {
-  display: none;
 }
 
 @media screen and (min-width: 768px) {
-  .logo-main {
-    display: inline-block;
-    width: 128px;
-    height: 45px;
-    border: 1px solid #000;
+  .footer .logo-main {
+    display: flex;
   }
+
   .logo-mobile {
     display: none;
   }
 
   .footer {
     text-align: left;
+    padding: 0;
     &-container {
       display: flex;
+      align-items: center;
       padding-top: 40px;
       padding-bottom: 40px;
     }
     &-contact {
+      display: flex;
+      align-items: center;
       padding-top: 11px;
       padding-bottom: 10px;
       margin: 0;
-      margin-left: 128px;
+      margin-left: auto;
       @include font(20px, 600, 24px);
+    }
+    &-contact::before {
+      content: '';
+      display: block;
+
+      margin-right: 10px;
+      width: 24px;
+      height: 23px;
+      // background-image: url(../images);
+      background-repeat: no-repeat;
+      background-position: center;
+      border: 1px solid #000000;
     }
     &-social-link {
       display: flex;
@@ -73,7 +94,7 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1400px) {
   .footer {
     text-align: left;
     &-container {
@@ -85,6 +106,18 @@
       padding-bottom: 4px;
       margin-left: 290px;
       @include font(30px, 600, 37px);
+    }
+    &-contact::before {
+      content: '';
+      display: block;
+
+      margin-right: 10px;
+      width: 30px;
+      height: 29px;
+      // background-image: url(../images);
+      background-repeat: no-repeat;
+      background-position: center;
+      border: 1px solid #000000;
     }
     &-social-link {
       margin-left: 16px;
