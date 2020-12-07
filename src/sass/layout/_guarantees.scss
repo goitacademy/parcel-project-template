@@ -14,17 +14,32 @@
     padding-bottom: 30px;
     padding-right: 20px;
     padding-left: 20px;
-    display: block;
     margin: 0 auto;
 
     &-item {
       @include font(12px, 500, 20px);
       color: #3d3d3d;
+      display: flex;
+
+      &-text {
+        max-width: 245px;
+        margin-left: 20px;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        width: 22px;
+        height: 30px;
+        background-image: url(../images/fire.svg);
+        background-repeat: no-repeat;
+      }
     }
   }
 
   & .text-color {
     color: $accent-color;
+    display: block;
   }
 }
 
@@ -34,32 +49,40 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1399px) {
+  .guarantees-list {
+    padding-right: 80px;
+    padding-left: 50px;
+    margin: 0 auto;
+  }
+
   .guarantees-list-item:not(:last-child) {
     padding-bottom: 20px;
   }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .guarantees-list {
-    padding-top: 50px;
-    padding-bottom: 45px;
-    padding-left: 79px;
-    padding-right: 50px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .guarantees-title {
-    @include font(46px, 800, 60px);
-    padding-bottom: 50px;
-  }
-  .guarantees-list {
-    padding-left: 79px;
-    padding-right: 50px;
+  .guarantees-list-item-text {
+    max-width: 520px;
+    margin-left: 25px;
   }
 
-  .guarantees-list-item {
-    @include font(20px, 500, 28px);
+  @media screen and (min-width: 1400px) {
+    .guarantees-title {
+      @include font(46px, 800, 60px);
+      padding-bottom: 50px;
+    }
+
+    .guarantees-list {
+      padding-top: 50px;
+      padding-bottom: 45px;
+      padding-right: 50px;
+      margin: 0 auto;
+      // padding-left: 112px;
+      // padding-right: 112px;
+      // max-width: 1038px;
+
+      &-item {
+        @include font(20px, 500, 28px);
+        max-width: 1038px;
+      }
+    }
   }
 }
