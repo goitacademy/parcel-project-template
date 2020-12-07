@@ -1,53 +1,56 @@
 //============== button ==============//
-.secondary-button {
-  min-width: 260px;
+.primary-button.header {
   height: 48px;
   text-align: center;
-  @include font(12px, 700, 15px);
+  letter-spacing: 0.08em;
   color: $accent-color;
-  text-transform: uppercase;
   border: 2px solid $accent-color;
   background-color: transparent;
 }
-// ============= header css============== //
 
-.header .logo-main {
-  display: none;
-}
-.secondary-button.main {
+.primary-button.main {
   display: none;
 }
 
-.header-container {
-  position: relative;
+.icon-cross {
+  display: none;
+  top: 100px;
+  fill: $white-color;
+}
+
+.menu-button.is-open .icon-cross {
+  display: block;
+}
+
+.logo-mobile {
+  line-height: 0;
 }
 
 .header {
+  .logo-main {
+    display: none;
+  }
+  &-container {
+    position: relative;
+    padding-top: 30px;
+  }
   &-navigation-container {
     position: relative;
     display: flex;
     align-items: center;
-    padding-top: 30px;
   }
 }
 
 .menu-button {
   position: absolute;
-  top: 35px;
-  right: 20px;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 0;
   margin-left: auto;
   background-color: transparent;
   border: 0;
   z-index: 1;
-}
-
-// .icon-cross {
-//   display: none;
-// }
-
-.icon-cross {
-  top: 100px;
-  fill: $accent-color;
+  cursor: pointer;
 }
 
 .site-nav {
@@ -66,13 +69,14 @@
     }
   }
 }
+
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .menu-container {
     display: none;
     position: absolute;
-    text-align: center;
     top: 0;
     left: 0;
+    padding-top: 30px;
     width: 100%;
     height: 568px;
     background-color: rgba(17, 21, 24, 0.9);
@@ -82,19 +86,24 @@
     &.is-open {
       display: block;
     }
+    &.is-open .icon-cross {
+      display: block;
+    }
   }
 
-  .secondary-button.mobile {
-    width: 260px;
+  .primary-button.mobile {
     margin-left: auto;
+    margin-right: auto;
   }
 }
+
 @media screen and (min-width: 768px) and (max-width: 1399px) {
   .menu-container {
     display: none;
     position: absolute;
     top: 0;
     left: 0;
+    padding-top: 40px;
     width: 100%;
     height: 768px;
     background-color: rgba(17, 21, 24, 0.9);
@@ -117,24 +126,22 @@
   .logo-mobile {
     display: none;
   }
+  .header {
+    .logo-main {
+      display: flex;
+    }
+    .header-container {
+      padding-top: 40px;
+    }
+  }
 
-  .secondary-button.mobile {
+  .primary-button.mobile {
     display: none;
   }
 
-  .header .logo-main {
-    display: flex;
-  }
-
-  .secondary-button.main {
+  .primary-button.main {
     display: block;
     margin-left: 239px;
-  }
-
-  .header {
-    &-navigation-container {
-      padding-top: 40px;
-    }
   }
 
   .site-nav {
@@ -151,20 +158,33 @@
   .menu-button {
     display: none;
   }
-  .secondary-button.main {
+  .primary-button.main {
     display: none;
   }
-  .logo-main.black {
-    display: flex;
-  }
-
   .logo-main.white {
     display: none;
   }
 
-  .secondary-button.mobile {
+  .header {
+    &-container {
+      padding-top: 30px;
+    }
+    &-navigation {
+      display: flex;
+      align-items: center;
+      &-container {
+        padding: 0;
+      }
+    }
+  }
+
+  .logo-main.black {
+    display: flex;
+  }
+
+  .primary-button.mobile {
     display: block;
-    margin-left: 60px;
+    margin-left: 64px;
     min-width: 336px;
     height: 70px;
     @include font(14px, 700, 17px);
@@ -189,14 +209,6 @@
     }
   }
 
-  .header-navigation {
-    display: flex;
-    align-items: center;
-    &-container {
-      padding: 0;
-    }
-    padding-top: 30px;
-  }
   .menu-container {
     display: flex;
     align-items: center;
