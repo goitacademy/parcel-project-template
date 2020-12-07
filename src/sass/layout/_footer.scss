@@ -1,12 +1,20 @@
 .footer {
   padding-top: 30px;
   text-align: center;
+  .logo-main {
+    display: none;
+  }
+
+  .logo-mobile.link {
+    display: block;
+    line-height: 0px;
+  }
+
   &-contact {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 21px;
-    margin-bottom: 31px;
     @include font(14px, 600 17px);
     &-tel {
       color: $primary-text-color;
@@ -19,17 +27,28 @@
       margin-right: 10px;
       width: 20px;
       height: 19px;
-      background-image: url(../images/demo.jpg);
+      background-image: url(../images/phone.svg);
       background-repeat: no-repeat;
       background-position: center;
-      border: 1px solid #000000;
     }
   }
-  &-social-link {
-    display: inline-block;
-    margin-bottom: 30px;
-    height: 40px;
+  &-social-link.link {
+    display: block;
+    line-height: 0;
   }
+
+  &-social-link::after {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-top: 31px;
+    margin-bottom: 30px;
+    background-image: url(../images/instagram.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   &-policy {
     background-color: $bg-color;
     &-text {
@@ -45,12 +64,13 @@
 }
 
 @media screen and (min-width: 768px) {
-  .footer .logo-main {
-    display: flex;
-  }
-
-  .logo-mobile {
-    display: none;
+  .footer {
+    .logo-main {
+      display: flex;
+    }
+    .logo-mobile-svg {
+      display: none;
+    }
   }
 
   .footer {
@@ -67,29 +87,19 @@
       align-items: center;
       padding-top: 11px;
       padding-bottom: 10px;
+      padding-right: 24px;
       margin: 0;
       margin-left: auto;
       @include font(20px, 600, 24px);
+      border-right: 1px solid $secondary-text-color;
     }
     &-contact::before {
-      content: '';
-      display: block;
-
-      margin-right: 10px;
       width: 24px;
       height: 23px;
-      // background-image: url(../images);
-      background-repeat: no-repeat;
-      background-position: center;
-      border: 1px solid #000000;
+      background-size: cover;
     }
-    &-social-link {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0;
+    &-social-link:after {
       margin-left: 24px;
-      padding-left: 24px;
-      border-left: 1px solid $secondary-text-color;
     }
   }
 }
@@ -104,23 +114,13 @@
     &-contact {
       padding-top: 4px;
       padding-bottom: 4px;
+      padding-right: 16px;
       margin-left: 290px;
       @include font(30px, 600, 37px);
     }
     &-contact::before {
-      content: '';
-      display: block;
-
-      margin-right: 10px;
       width: 30px;
       height: 29px;
-      // background-image: url(../images);
-      background-repeat: no-repeat;
-      background-position: center;
-      border: 1px solid #000000;
-    }
-    &-social-link {
-      margin-left: 16px;
     }
   }
 }
