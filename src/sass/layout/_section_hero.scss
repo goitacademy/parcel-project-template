@@ -1,8 +1,6 @@
 .hero {
+  overflow: hidden;
   display: flex;
-
-  // position: absolute; НИЗЯ ТАК!!!)
-
   color: $text-color-secondary;
   background-color: $background-pink;
   width: 100%;
@@ -16,53 +14,66 @@
   @media screen and (min-width: 1200px) {
     height: 665px;
   }
-}
 
-.hero__title {
-  margin-bottom: 19px;
-  text-align: left;
-  color: $text-color-secondary;
-  font-family: Titan One;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 26px;
-  line-height: 1.15;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 20px;
-    font-size: 22px;
-    line-height: 1.14;
-  }
-
-  @media screen and (min-width: 1200px) {
-    margin-bottom: 25px;
-    padding-left: 38px;
-    font-size: 38px;
-    line-height: 1.16;
+  &__title {
+    margin-bottom: 19px;
+    text-align: left;
+    color: $text-color-secondary;
+    font-family: Titan One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 1.15;
     letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 20px;
+      font-size: 22px;
+      line-height: 1.14;
+    }
+
+    @media screen and (min-width: 1200px) {
+      margin-bottom: 25px;
+      padding-left: 38px;
+      font-size: 38px;
+      line-height: 1.16;
+      letter-spacing: 0.04em;
+    }
   }
-}
 
-.hero__title--accent {
-  color: $text-color-primary;
-  font-family: Titan One;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 48px;
-  line-height: 0.965;
-  text-transform: uppercase;
+  &__title--accent {
+    color: $text-color-primary;
+    font-family: Titan One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 0.965;
+    text-transform: uppercase;
 
-  @media screen and (min-width: 768px) {
-    font-size: 34px;
-    line-height: 0.905;
-    letter-spacing: 0.04em;
+    @media screen and (min-width: 768px) {
+      font-size: 34px;
+      line-height: 0.905;
+      letter-spacing: 0.04em;
+    }
+
+    @media screen and (min-width: 1200px) {
+      font-size: 58px;
+      line-height: 0.905;
+    }
   }
 
-  @media screen and (min-width: 1200px) {
-    font-size: 58px;
-    line-height: 0.905;
+  &__main {
+    width: 218px;
+    padding-top: 193px;
+    @media screen and (min-width: 768px) {
+      padding-top: 102px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      width: 315px;
+      padding-top: 171px;
+    }
   }
 }
 
@@ -128,36 +139,32 @@
   justify-content: space-between;
   padding-left: 20px;
 
+  @media screen and (min-width: 320px) {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
   @media screen and (min-width: 768px) {
+    max-width: 1100px;
+    margin: 0 auto;
     padding-left: 35px;
     padding-right: 35px;
   }
 
   @media screen and (min-width: 1200px) {
+    max-width: 1600px;
+    margin: 0 auto;
     padding-left: 77px;
     padding-right: 97px;
   }
 }
 
-.hero__main {
-  width: 218px;
-  padding-top: 193px;
-  // position: relative;
-
-  @media screen and (min-width: 768px) {
-    padding-top: 102px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    width: 315px;
-    padding-top: 171px;
-  }
-}
-
-.hero__picture-milk {
-  width: 144px;
+.hero__description {
+  display: flex;
+  align-items: flex-end;
   position: absolute;
-  bottom: 28px;
+  bottom: 26px;
+  left: 34px;
 
   @media screen and (max-width: 767px) {
     display: none;
@@ -165,80 +172,44 @@
 
   @media screen and (min-width: 1200px) {
     bottom: 45px;
+    left: 77px;
+  }
+}
+
+.hero__description::before {
+  display: flex;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    background-image: url('../images/hero/t-milk.png');
+    background-size: contain;
+    content: '';
+    width: 124px;
+    height: 126px;
+  }
+
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1199px),
+    screen and (min-resolution: 192dpi) and (min-width: 768px),
+    screen and (min-resolution: 2dppx) and (min-width: 768px) {
+    background-image: url('../images/hero/t-milk@2x.png');
+  }
+
+  @media screen and (min-width: 1200px) {
+    background-image: url('../images/hero/d-milk.png');
+    background-size: contain;
+    content: '';
     width: 188px;
-  }
-}
-
-.hero__icecream {
-  display: block;
-  position: absolute;
-  width: 171px;
-  bottom: 0;
-  left: 36.56vw;
-  z-index: -1;
-
-  @media screen and (min-width: 768px) {
-    left: 49.22vw;
-    width: 143px;
-  }
-  @media screen and (min-width: 1200px) {
-    left: 46.4vw;
-    width: 236px;
-  }
-}
-
-.hero__icecream-picture {
-  position: relative;
-  display: block;
-  z-index: 2;
-  height: 100%;
-}
-
-.hero__icecream-picture::before {
-  display: block;
-  content: '';
-  position: absolute;
-  left: -81px;
-  top: -9px;
-  z-index: -1;
-  background-color: $text-color-pink;
-  border-radius: 50%;
-  width: 346px;
-  height: 344px;
-
-  @media screen and (min-width: 768px) {
-    width: 324px;
-    height: 322px;
-    left: -71px;
-    top: -32px;
+    height: 191px;
   }
 
-  @media screen and (min-width: 1200px) {
-    width: 538px;
-    height: 538px;
-    left: -119px;
-    top: -56px;
-  }
-}
-
-.hero__description {
-  position: absolute;
-  bottom: 34px;
-  left: 154px;
-
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
-
-  @media screen and (min-width: 1200px) {
-    bottom: 56px;
-    left: 295px;
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
+    screen and (min-resolution: 192dpi) and (min-width: 1200px),
+    screen and (min-resolution: 2dppx) and (min-width: 1200px) {
+    background-image: url('../images/hero/d-milk@2x.png');
   }
 }
 
 .hero__description--text {
   width: 114px;
-  margin-bottom: 7px;
   font-family: DM Sans;
   font-style: normal;
   font-weight: normal;
@@ -247,22 +218,24 @@
 
   @media screen and (min-width: 1200px) {
     width: 200px;
-
     font-size: 14px;
     line-height: 1.4;
   }
 }
 
 .hero__description--icon {
+  margin-top: 7px;
   width: 14px;
   height: 14px;
+
+  @media screen and (min-width: 1200px) {
+    margin-top: 20px;
+    width: 26px;
+    height: 26px;
+  }
 }
 
 .hero__decor {
-  display: flex;
-  // height: 100px;
-  flex-direction: column;
-  align-items: flex-end;
   padding-top: 94px;
   padding-right: 5px;
   font-family: DM Sans;
@@ -282,7 +255,12 @@
   }
 }
 
-.hero__decor-text--sale {
+.hero__decor-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__decor-item {
   position: relative;
 }
 
@@ -290,11 +268,11 @@
   text-align: right;
 }
 
-.hero__decor-text:first-child {
-  padding-bottom: 13px;
+.hero__decor-item:first-child {
+  margin-bottom: 17px;
 
   @media screen and (min-width: 1200px) {
-    padding-bottom: 45px;
+    margin-bottom: 45px;
   }
 }
 
@@ -311,7 +289,7 @@
   z-index: -1;
 
   @media screen and (min-width: 1200px) {
-    top: -5px;
+    top: -30px;
     right: -15px;
     width: 30px;
     height: 30px;
@@ -332,23 +310,57 @@
   }
 }
 
-.hero__picture-rightside--girl {
-  position: relative;
-}
-.hero__picture-rightside {
-  position: relative;
-  width: 168px;
-  bottom: -78px;
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .hero-page {
+    background-image: url('../images/hero/m-ice.png');
+    background-size: 346px 419px;
+    background-position: bottom 0px left 11.25vw;
+    background-repeat: no-repeat;
+  }
 
-  @media screen and (min-width: 1200px) {
-    width: 293px;
-    bottom: -138px;
-    right: 12px;
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 320px),
+    screen and (min-resolution: 192dpi) and (min-width: 320px),
+    screen and (min-resolution: 2dppx) and (min-width: 320px) {
+    .hero-page {
+      background-image: url('../images/hero/m-ice@2x.png');
+    }
   }
 }
 
-// .hero__decor-box {
-// }
-// @media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .hero-page {
+    background-image: url('../images/hero/t-girl.png'),
+      url('../images/hero/t-ice.png');
+    background-size: 168px 133px, 324px 368px;
+    background-position: bottom 0px right 34px, bottom 0px left 39.97vw;
+    background-repeat: no-repeat;
+  }
 
-// }
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+    screen and (min-resolution: 192dpi) and (min-width: 768px),
+    screen and (min-resolution: 2dppx) and (min-width: 768px) {
+    .hero-page {
+      background-image: url('../images/hero/t-girl@2x.png'),
+        url('../images/hero/t-ice@2x.png');
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero-page {
+    background-image: url('../images/hero/d-girl.png'),
+      url('../images/hero/d-ice.png');
+    background-size: 293px 232px, 538px 613px;
+    background-position: bottom 0px right 109px, bottom 0px left 37.1vw;
+    background-repeat: no-repeat;
+  }
+
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+    screen and (min-resolution: 192dpi) and (min-width: 768px),
+    screen and (min-resolution: 2dppx) and (min-width: 768px) {
+    .hero-page {
+      background-image: url('../images/hero/d-girl@2x.png'),
+        url('../images/hero/d-ice@2x.png');
+    }
+  }
+}
