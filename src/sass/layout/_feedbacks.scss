@@ -1,6 +1,6 @@
-// * {
-//   outline: 1px dashed darkgreen;
-// }
+* {
+  outline: 1px dashed darkgreen;
+}
 
 .feedbacks {
   text-align: center;
@@ -11,12 +11,9 @@
   align-items: center;
   margin: 0 auto;
 
-  // outline: 1px solid red;
-}
+  position: relative;
 
-.feedbacks-student-about,
-.feedbacks-student-about-text {
-  margin: 0 20px;
+  outline: 1px solid red;
 }
 
 .feedbacks-title {
@@ -33,12 +30,7 @@
 .feedbacks-card {
   padding: 20px 20px 30px;
   margin-bottom: 20px;
-  // outline: 1px solid blue;
-}
-
-.feedbacks-student-photos-list {
-  width: 100%;
-  height: 74px;
+  outline: 1px solid blue;
 }
 
 .feedbacks-photo {
@@ -58,7 +50,7 @@
 
 .feedbacks-student-photos-list {
   height: 54px;
-  width: 280px;
+  width: 182px;
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -72,22 +64,26 @@
   content: '';
   width: 25px;
   height: 15px;
+  position: absolute;
+  bottom: 20px;
+  border: 3px solid #ff6b09;
+  box-sizing: border-box;
 }
 
 .feedbacks-student-photos-list::before {
-  margin-right: 24px;
   background-image: url('../images/arrow-1.svg');
   background-size: cover;
   background-repeat: no-repeat;
   border: none;
+  left: 40px;
 }
 
 .feedbacks-student-photos-list::after {
-  margin-left: 24px;
   background-image: url('../images/arrow-2.svg');
   background-size: cover;
   background-repeat: no-repeat;
   border: none;
+  right: 40px;
 }
 
 .feedbacks-photo-svg {
@@ -99,7 +95,6 @@
   padding-bottom: 10px;
   width: 100%;
   margin: 0 auto;
-  text-align: center;
   @include font(14px, 800, 17px);
   text-align: center;
   letter-spacing: 0.08em;
@@ -128,16 +123,18 @@
   color: $accent-color;
 }
 
-.feedbacks-student-photos-list {
-  display: flex;
-  justify-content: center;
-}
-
 .feedbacks-student-photos-item:not(:last-child) {
   margin-right: 10px;
 }
 
 // ! ------------------------------------   MEDIA   ------------------------
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .feedbacks-student-about,
+  .feedbacks-student-about-text {
+    margin: 0 20px;
+  }
+}
 
 @media screen and (min-width: 768px) {
   .feedbacks-title {
@@ -149,5 +146,68 @@
     text-align: center;
     letter-spacing: 0.03em;
     color: $primary-text-color;
+  }
+
+  .feedbacks-card {
+    display: flex;
+    padding: 40px 38px 40px 40px;
+  }
+
+  .feedbacks-photo-img {
+    width: 150px;
+  }
+
+  .feedbacks-student {
+    padding-left: 44px;
+    text-align: left;
+  }
+
+  .feedbacks-student-title {
+    padding-bottom: 20px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    @include font(20px, 800, 24px);
+    letter-spacing: 0.08em;
+    color: $accent-color;
+  }
+
+  .feedbacks-student-about {
+    text-align: left;
+    padding-bottom: 20px;
+  }
+
+  .feedbacks-student-about-text {
+    text-align: left;
+    letter-spacing: -0.01em;
+  }
+
+  .feedbacks-student-accent {
+    text-align: left;
+    color: $accent-color;
+  }
+
+  .feedbacks-student-photos-list::before,
+  .feedbacks-student-photos-list::after {
+    content: '';
+    width: 25px;
+    height: 15px;
+    position: absolute;
+    top: 45%;
+  }
+
+  .feedbacks-student-photos-list {
+    height: 54px;
+    width: 558px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .feedbacks-student-photos-item:not(:last-child) {
+    margin-right: 30px;
   }
 }
