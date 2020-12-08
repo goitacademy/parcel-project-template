@@ -2,7 +2,6 @@
   padding-top: 50px;
   padding-bottom: 367px;
   background-color: $bg-color;
-  //  position: relative;
 
   &-title {
     @include font(20px, 800, 27px);
@@ -18,48 +17,58 @@
   }
 }
 
-.challenges-list {
-  padding-left: 30px;
-  padding-right: 14px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: $white-color;
-  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+.absolute-list {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  transform: translateY(50%);
+  width: 100%;
 
-  &-item {
-    &:not(:last-child) {
-      margin-bottom: 10px;
-    }
+  .challenges-list {
+    padding-left: 30px;
+    padding-right: 14px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: $white-color;
+    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 
-    &-order {
-      color: $accent-color;
-      @include font(20px, 700, 24px);
-      margin-bottom: 5px;
-      display: flex;
-      align-items: center;
-
-      &::before {
-        content: '';
-        display: inline-block;
-        margin-right: 6px;
-        width: 14px;
-        height: 1px;
-        background-color: $accent-color;
+    &-item {
+      &:not(:last-child) {
+        margin-bottom: 10px;
       }
-    }
-    &-text {
-      @include font(14px, 700, 20px);
+
+      &-order {
+        color: $accent-color;
+        @include font(20px, 700, 24px);
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+
+        &::before {
+          content: '';
+          display: inline-block;
+          margin-right: 6px;
+          width: 14px;
+          height: 1px;
+          background-color: $accent-color;
+        }
+      }
+      &-text {
+        @include font(14px, 700, 20px);
+      }
     }
   }
 }
 
-.challengees-list-item:hover .challengees-list-item-order {
-  transform: scale(1.5);
+.section-position {
+  position: relative;
 }
+
+//////________________MEDIA____________////////////////
 
 @media screen and (min-width: 768px) and (max-width: 1399px) {
   .challenges {
-    padding-top: 57x;
+    padding-top: 57px;
     padding-bottom: 180px;
 
     &-title {
@@ -69,30 +78,35 @@
     }
   }
 
-  .challenges-list {
-    padding-left: 96px;
-    padding-right: 46px;
-    padding-top: 30px;
-    padding-bottom: 26px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: -11px -11px;
+  .absolute-list {
+    position: absolute;
+    top: 50px;
 
-    &-item {
-      width: calc((100% - 4 * 11px) / 2);
-      margin: 11px 11px;
-      max-width: 245px;
-    }
+    .challenges-list {
+      padding-left: 96px;
+      padding-right: 46px;
+      padding-top: 30px;
+      padding-bottom: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: -11px -11px;
 
-    &-item-order {
-      color: $accent-color;
-      @include font(14px, 700, 17px);
-      margin-bottom: 5px;
-    }
+      &-item {
+        width: calc((100% - 4 * 11px) / 2);
+        margin: 11px 11px;
+        max-width: 245px;
+      }
 
-    &-text {
-      @include font(14px, 700, 20px);
+      &-item-order {
+        color: $accent-color;
+        @include font(14px, 700, 17px);
+        margin-bottom: 5px;
+      }
+
+      &-text {
+        @include font(14px, 700, 20px);
+      }
     }
   }
 }
@@ -100,8 +114,7 @@
 @media screen and (min-width: 1400px) {
   .challenges {
     padding-top: 100px;
-    padding-left: 183px;
-    padding-right: auto;
+    padding-bottom: 282px;
     background-image: url(../images/challengees/bg-challengees.png);
     background-repeat: no-repeat;
     background-position: right bottom;
@@ -113,34 +126,35 @@
     }
   }
 
-  .challenges-list {
-    padding-left: 80px;
-    padding-right: 80px;
-    padding-top: 70px;
-    padding-bottom: 62px;
-    // max-width: 1314px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: -16px -12px;
+  .absolute-list {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 35%);
 
-    &-item {
-      width: calc((100% - 6 * 12px) / 3);
-      margin: 16px 12px;
-      max-width: 350px;
-    }
+    .challenges-list {
+      padding-left: 114px;
+      padding-right: 112px;
+      padding-top: 70px;
+      padding-bottom: 62px;
+      display: flex;
+      flex-wrap: wrap;
+      margin: -16px -12px;
 
-    &-item-order {
-      color: $accent-color;
-      @include font(20px, 700, 33px);
-      margin-bottom: 10px;
-    }
+      &-item {
+        width: calc((100% - 6 * 12px) / 3);
+        margin: 16px 12px;
+        max-width: 350px;
+      }
 
-    &-item-text {
-      @include font(20px, 700, 24px);
+      &-item-order {
+        color: $accent-color;
+        @include font(20px, 700, 33px);
+        margin-bottom: 10px;
+      }
+
+      &-item-text {
+        @include font(20px, 700, 24px);
+      }
     }
   }
 }
-
-// .absolute-list {
-//   position: absolute;
-// }
