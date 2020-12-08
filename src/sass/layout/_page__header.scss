@@ -5,13 +5,15 @@
 }
 
 .container-header {
+  display: flex;
+
+  align-items: center;
   padding-right: 20px;
   padding-left: 20px;
   width: 100%;
   position: relative;
   padding-top: 6px;
   padding-bottom: 0px;
-  display: block;
 }
 
 .button-buy {
@@ -32,22 +34,16 @@
   background: #ecebeb;
   border-radius: 22px;
 }
-
+.nav-svg-wrapper {
+  margin-left: 90%;
+  margin-bottom: 23px;
+}
 .button-svg {
   width: 20px;
   height: 12px;
-  cursor: pointer;
-  position: absolute;
-  left: 90%;
-  top: 40%;
-  z-index: 5;
 }
 .button-svg-close {
   cursor: pointer;
-  position: absolute;
-  left: 90%;
-  top: 35%;
-  z-index: 6;
 }
 .button__header {
   display: inline-flex;
@@ -60,7 +56,7 @@
   display: none;
 }
 
-.button__header.is-open .icon--close {
+.button__header-close.is-open .icon--close {
   display: block;
 }
 .button__header.is-open .icon--burger {
@@ -71,6 +67,15 @@
 }
 .icon--close {
   fill: #d41443;
+}
+.button__header-close {
+  display: flex;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+}
+.button__header-close .icon--close {
+  border: none;
 }
 
 .link--nav {
@@ -106,6 +111,7 @@
 
 @media screen and (max-width: 767px) {
   .container-header {
+    justify-content: space-between;
     max-width: 480px;
     margin: 0 auto;
   }
@@ -113,10 +119,7 @@
     width: 209px;
     height: 44px;
   }
-  .button-svg {
-    left: 90%;
-    top: 40%;
-  }
+
   .button--tablet {
     display: none;
   }
@@ -128,50 +131,38 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
+  .button-svg {
+    border: none;
+    display: flex;
+  }
   .container-header {
+    padding-top: 30px;
+    justify-content: space-between;
+    padding-bottom: 0px;
+    padding-left: 36px;
+    padding-right: 34px;
     margin: 0 auto;
     max-width: 768px;
   }
-  .button-svg-close {
-    left: 90%;
-    top: 35%;
-  }
-  .button--tablet {
-    position: absolute;
-    left: 75%;
-    top: 40%;
-  }
+
   .button-buy {
+    margin-left: 30px;
     width: 160px;
     height: 44px;
   }
-  .button-svg {
-    left: 69%;
-    top: 56%;
-  }
-  .button-svg-close {
-    left: 100%;
-    top: 22%;
-  }
+
   .nav-container {
-    // position: relative;
-    left: 72%;
+    left: 66.5%;
     top: 0%;
     width: 254px;
     height: 1000px;
-  }
-  .container-header {
-    padding-top: 37px;
-    padding-bottom: 0px;
-    padding-left: 36px;
-    padding-right: 36px;
   }
 }
 
 @media screen and (max-width: 1199px) {
   .nav-container {
     background: #e17992;
-    padding-top: 60px;
+    padding-top: 23px;
     padding-bottom: 170px;
     justify-content: center;
     display: none;
@@ -191,10 +182,10 @@
   .button-svg-close {
     display: none;
   }
-  .nav-container {
-    display: flex;
-    flex-direction: row-reverse;
+  .button-svg {
+    display: none;
   }
+
   .item--nav {
     margin-right: 35px;
   }
@@ -206,16 +197,23 @@
     font-size: 16px;
     line-height: 1.312;
   }
+  .tablet-nav {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    justify-content: space-between;
+  }
 
   .container-header {
-    margin: 0 auto;
-    max-width: 1080px;
-    padding-right: 15px;
-    padding-bottom: 0px;
-    padding-top: 37px;
-    padding-left: 50px;
     align-items: center;
     display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1130px;
+    padding-right: 40px;
+    padding-bottom: 0px;
+    padding-top: 37px;
+    padding-left: 40px;
   }
 
   .site--nav {
@@ -230,15 +228,7 @@
   .button--wrapper {
     display: none;
   }
-  .button-svg {
-    display: none;
-  }
 
-  .button--tablet {
-    position: absolute;
-    left: 83%;
-    top: 44%;
-  }
   .button-buy {
     width: 160px;
     height: 44px;
