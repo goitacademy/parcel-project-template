@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+  // Animated numbers Caunter
     var show = true;
     var countbox = ".how-it-made__number";
     $(window).on("scroll load resize", function () {
@@ -20,6 +21,7 @@ $(document).ready(function () {
         }
     });
 
+    // Lite scroll navigation for page
     const anchors = document.querySelectorAll('a[href*="#"]')
 
 for (let anchor of anchors) {
@@ -34,4 +36,19 @@ for (let anchor of anchors) {
     })
   })
 }
+});
+
+// The button Back to top
+
+var btn = $('#button');
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
 });
