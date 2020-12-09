@@ -105,13 +105,23 @@
   }
 
   &-list {
+    list-style-type: none;
+    counter-reset: my-counter;
+
     padding: 20px 14px 20px 30px;
     background: $white-color;
     box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 
     &-item {
       margin-bottom: 20px;
-      // max-width: 236px;
+
+      &::before {
+        content: '0' counter(my-counter);
+        counter-increment: my-counter;
+        display: inline-block;
+        margin-bottom: 10px;
+        color: $accent-color;
+      }
 
       &-title {
         display: flex;
@@ -216,7 +226,7 @@
       content: '';
       display: block;
       position: absolute;
-      top: 222px;
+      top: 292px;
       width: 100%;
       height: 1px;
       background-color: $white-color;
