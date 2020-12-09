@@ -1,6 +1,6 @@
 .challenges {
   padding-top: 50px;
-  padding-bottom: 367px;
+  padding-bottom: 400px;
   background-color: $bg-color;
 
   &-title {
@@ -19,12 +19,14 @@
 
 .absolute-list {
   position: absolute;
-  top: -40px;
+  top: -35px;
   left: 0;
   transform: translateY(50%);
   width: 100%;
 
   .challenges-list {
+    list-style-type: none;
+    counter-reset: my-counter;
     padding-left: 30px;
     padding-right: 14px;
     padding-top: 20px;
@@ -33,26 +35,31 @@
     box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 
     &-item {
-      &:not(:last-child) {
-        margin-bottom: 10px;
-      }
+      position: relative;
+      margin-bottom: 10px;
 
-      &-order {
-        color: $accent-color;
-        @include font(20px, 700, 24px);
+      &::before {
+        @include font(14px, 700, 23px);
+        content: '0' counter(my-counter);
+        counter-increment: my-counter;
+        display: inline-block;
         margin-bottom: 5px;
-        display: flex;
-        align-items: center;
-
-        &::before {
-          content: '';
-          display: inline-block;
-          margin-right: 6px;
-          width: 14px;
-          height: 1px;
-          background-color: $accent-color;
-        }
+        margin-left: 22px;
+        color: $accent-color;
       }
+
+      &::after {
+        position: absolute;
+        top: 16px;
+        left: 0;
+        content: '';
+        display: inline-block;
+        margin-right: 6px;
+        width: 14px;
+        height: 1px;
+        background-color: $accent-color;
+      }
+
       &-text {
         @include font(14px, 700, 20px);
       }
@@ -97,12 +104,6 @@
         max-width: 245px;
       }
 
-      &-item-order {
-        color: $accent-color;
-        @include font(14px, 700, 17px);
-        margin-bottom: 5px;
-      }
-
       &-text {
         @include font(14px, 700, 20px);
       }
@@ -142,12 +143,11 @@
         width: calc((100% - 6 * 12px) / 3);
         margin: 16px 12px;
         max-width: 350px;
-      }
 
-      &-item-order {
-        color: $accent-color;
-        @include font(20px, 700, 33px);
-        margin-bottom: 10px;
+        &::before {
+          @include font(20px, 700, 33px);
+          margin-bottom: 10px;
+        }
       }
 
       &-item-text {
