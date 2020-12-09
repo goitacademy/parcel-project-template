@@ -12,6 +12,7 @@
 
 .section__subtitle {
   margin-bottom: 15px;
+  display: block;
 }
 
 .products-list {
@@ -56,10 +57,10 @@
   user-select: none;
 }
 
-.products-list__item--first {
+.products-list__item {
   position: relative;
   max-width: 280px;
-  min-height: 485px;
+
   background: $background-pink;
   border-radius: 24px;
   transition-duration: 500ms;
@@ -67,49 +68,31 @@
   &:hover {
     transform: scale(1.03);
   }
-}
 
-.products-list__item--second {
-  position: relative;
-  max-width: 280px;
-  min-height: 485px;
-  background: $background-coffee;
-  border-radius: 24px;
-  transition-duration: 500ms;
-
-  &:hover {
-    transform: scale(1.03);
+  &:nth-child(2) {
+    background-color: $background-coffee;
   }
-}
 
-.products-list__item--third {
-  position: relative;
-  max-width: 280px;
-  min-height: 485px;
-  background: $background-green;
-  border-radius: 24px;
-  transition-duration: 500ms;
-
-  &:hover {
-    transform: scale(1.03);
+  &:nth-child(3) {
+    background-color: $background-green;
   }
 }
 
 .products-list__img {
   position: absolute;
   display: block;
-  top: -115px;
+  top: -113px;
 }
 
 .products__content-box {
   // max-width: 200px;
-  padding-top: 161px;
+  padding: 161px 40px 41px;
   margin: 0 auto;
 }
 
 .products-list__link {
   display: block;
-  margin: 30px auto 41px;
+  margin: 30px auto 0;
   width: 40px;
   height: 40px;
   background: url(../images/products/arrow-right.png);
@@ -125,11 +108,8 @@
   .products-list__img {
     padding: 0 15px;
   }
-  .products-list__item--first {
-    margin-bottom: 130px;
-  }
-
-  .products-list__item--second {
+  .second-item {
+    margin-top: 130px;
     margin-bottom: 130px;
   }
 }
@@ -141,17 +121,16 @@
   }
 
   .products__content-box {
-    padding-top: 152px;
+    padding: 152px 11px 40px;
   }
 
   .products-list {
     display: flex;
+    justify-content: center;
     margin-top: 150px;
 
-    &__item--first {
-      width: 220px;
-      height: 485px;
-      margin-right: 20px;
+    &__item {
+      width: calc((100% - 25px) / 3);
 
       &:hover {
         transform: scale(1.06);
@@ -159,30 +138,13 @@
       & .products-list__img {
         top: -103px;
       }
-    }
 
-    &__item--second {
-      width: 220px;
-      height: 485px;
-      margin-right: 20px;
-
-      &:hover {
-        transform: scale(1.06);
-      }
-
-      & .products-list__img {
-        top: -110px;
+      &:nth-child(2) {
+        margin-right: 20px;
+        margin-left: 20px;
       }
     }
 
-    &__item--third {
-      width: 220px;
-      height: 485px;
-
-      &:hover {
-        transform: scale(1.06);
-      }
-    }
     &__img {
       display: block;
       top: -101px;
@@ -194,7 +156,7 @@
     }
 
     &__link {
-      margin: 40px auto;
+      margin: 40px auto 0;
     }
   }
 
@@ -216,43 +178,27 @@
 
   .products-list {
     display: flex;
+    justify-content: center;
     margin-top: 259px;
-    margin-right: auto;
-    margin-left: auto;
 
-    &__item--first {
-      min-width: 329px;
-      min-height: 525px;
-      margin-right: 29px;
+    &__item {
+      min-width: calc((100% - 59px) / 3);
 
       &:hover {
         transform: scale(1.06);
       }
     }
 
-    &__item--second {
-      min-width: 330px;
-      min-height: 525px;
-      margin-right: 29px;
-
-      &:hover {
-        transform: scale(1.06);
-      }
+    &__item:nth-child(2) {
+      margin-right: 30px;
+      margin-left: 29px;
     }
 
-    &__item--third {
-      min-width: 329px;
-      min-height: 525px;
-
-      &:hover {
-        transform: scale(1.06);
-      }
-    }
     &__img {
       position: absolute;
       display: block;
-      top: -215px;
-      width: 335px;
+      top: -214px;
+      width: 100%;
     }
 
     &__title {
@@ -280,7 +226,7 @@
     }
 
     &__link {
-      margin: 62px auto 50px;
+      margin: 60px auto 0;
       width: 40px;
       height: 40px;
     }
@@ -288,6 +234,10 @@
     &__item--second &__img {
       width: 320px;
       left: 5px;
+    }
+
+    .products__content-box {
+      padding-top: 163px 44px 50px;
     }
   }
 }
