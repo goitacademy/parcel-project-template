@@ -74,10 +74,6 @@
     @include font(12px, 500, 20px);
     color: $secondary-text-color;
     opacity: 0.5;
-
-    &:last-child {
-      width: 80px;
-    }
   }
 }
 
@@ -93,7 +89,7 @@
 
 .choose {
   position: absolute;
-  bottom: 200px;
+  bottom: 130px;
   left: 0;
   width: 100%;
   transform: translateY(50%);
@@ -115,14 +111,29 @@
     box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 
     &-item {
+      position: relative;
       margin-bottom: 20px;
 
       &::before {
+        @include font(14px, 700, 23px);
         content: '0' counter(my-counter);
         counter-increment: my-counter;
         display: inline-block;
         margin-bottom: 10px;
+        margin-left: 22px;
         color: $accent-color;
+      }
+
+      &::after {
+        position: absolute;
+        top: 16px;
+        left: 0;
+        content: '';
+        display: inline-block;
+        margin-right: 6px;
+        width: 14px;
+        height: 1px;
+        background-color: $accent-color;
       }
 
       &-title {
@@ -132,15 +143,6 @@
         @include font(14px, 700, 23px);
 
         color: $accent-color;
-
-        &::before {
-          content: '';
-          display: inline-block;
-          margin-right: 6px;
-          width: 14px;
-          height: 1px;
-          background-color: $accent-color;
-        }
       }
       &-text {
         @include font(14px, 700, 20px);
@@ -158,7 +160,7 @@
 @media screen and (min-width: 768px) and (max-width: 1399px) {
   .program {
     padding-top: 60px;
-    padding-bottom: 392px;
+    padding-bottom: 360px;
     &-title {
       @include font(26px, 800, 34px);
       text-align: left;
@@ -195,7 +197,7 @@
   }
 
   .choose {
-    bottom: 50px;
+    bottom: 0;
 
     &-title {
       @include font(26px, 800, 34px);
@@ -310,6 +312,10 @@
       &-item {
         max-width: calc((100% - 6 * 20px) / 3);
         margin: 16px 20px;
+
+        &::before {
+          @include font(20px, 700, 33px);
+        }
 
         &-title {
           @include font(20px, 700, 33px);
