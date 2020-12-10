@@ -9,6 +9,13 @@
     integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
     crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+        crossorigin="anonymous" />
 </head>
 
 <body>
@@ -37,6 +44,51 @@
   <script src="./index.js"></script>
   <script src="./js/header-burger.js"></script>
   <script src="./js/scroll_to_id.js"></script>
+
+<!-- SLIDER -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script type="text/javascript">
+      $(document).on('ready', function () {
+        $(".slider-photo").slick({
+          dots: false,
+          infinite: true,
+          arrows: false,
+          autoplay: true,
+          slidesToShow: 6,
+          slidesToScroll: 1,
+          speed: 1200,
+          autoplaySpeed: 12000,
+          asNavFor: '.slider-text',
+          // centerMode: true,
+          focusOnSelect: true,
+          responsive: [
+            {
+              breakpoint: 767,
+              settings: {
+                 slidesToShow: 3,
+                slidesToScroll: 1,
+              }
+            }
+          ]
+        });
+
+        $(".slider-text").slick({
+          dots: false,
+          infinite: true,
+          arrows: true,
+          autoplay: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          speed: 1200,
+          autoplaySpeed: 12000,
+          asNavFor: '.slider-photo'
+        });
+
+      });
+    </script>
+
 </body>
 
 </html>
