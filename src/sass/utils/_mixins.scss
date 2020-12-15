@@ -1,0 +1,22 @@
+@mixin for-size($range) {
+  $mobile: 320px;
+  $tablet: 740px;
+  $desktop: 1280px;
+  @if $range == mobile-only {
+    @media (max-width: #{$tablet - 1}) {
+      @content;
+    }
+  } @else if $range == mobile {
+    @media (min-width: $mobile) {
+      @content;
+    }
+  } @else if $range == tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if $range == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+}
