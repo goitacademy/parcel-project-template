@@ -3,11 +3,42 @@ $mobile: 320px;
 $tablet: 768px;
 $desktop: 1200px;
 
+// этот миксин для желающих
+@mixin for-size($range) {
+  $mobile: 320px;
+  $tablet: 768px;
+  $desktop: 1200px;
+  @if $range == mobile-only {
+    @media (max-width: #{$tablet - 1}) {
+      @content;
+    }
+  } @else if $range == mobile {
+    @media (min-width: $mobile) {
+      @content;
+    }
+  } @else if $range == tablet-only {
+    @media (max-width: #{$desktop - 1}) {
+      @content;
+    }
+  } @else if $range == tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if $range == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  } @else if $range == mobile-adaptive {
+    @media (max-width: $mobile) {
+      @content;
+    }
+  }
+}
+
 //Операясь на сетку в результате рабочие области
 //с учётом падингов вышли необычные 280px 700px 1050px
 //падинги выбраны как растояние от контента до точки перегиба.
 //если размер не выходит сообщите
-
 .container {
   margin-left: auto;
   margin-right: auto;
