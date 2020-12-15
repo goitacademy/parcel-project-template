@@ -20,3 +20,34 @@
     }
   }
 }
+
+///
+@mixin from($point) {
+  @media screen and (min-width: getRange($point)) {
+    @content;
+  }
+}
+
+@mixin to($point) {
+  @media screen and (max-width: getRange($point) - 1) {
+    @content;
+  }
+}
+
+@mixin from-to($pointFrom, $pointTo) {
+  @media screen and (min-width: getRange($pointFrom)) and (max-width: getRange($pointTo) - 1) {
+    @content;
+  }
+}
+// // использование
+//   @include to(mobile){
+//     padding: 20px;
+//   }
+
+//   @include from(tablet) {
+//    padding: 1px;
+//   }
+
+//   @include from-to(mobile, tablet) {
+//    display: none;
+//   }
