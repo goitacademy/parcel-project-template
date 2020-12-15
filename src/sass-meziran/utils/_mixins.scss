@@ -1,0 +1,45 @@
+  
+@mixin fonts ($fs, $fw, $lh){ 
+    font-weight: $fs;
+    font-size: $fw;
+    line-height: $lh;
+}
+
+@mixin padding ($pt, $pr, $pb, $pl){
+    padding-top: $pt;
+    padding-right: $pr;
+    padding-bottom: $pb;
+    padding-left: $pl;
+}
+
+@mixin size ($w, $h: auto){
+    width: $w;
+    height: $h;    
+}
+
+@mixin for-size($range) {
+    $mobile: 480px;
+    $tablet: 768px;
+    $desktop: 1200px;
+  
+    @if $range == mobile-only {
+      @media (max-width: #{$tablet - 1}) {
+        @content;
+      }
+
+    } @else if $range == mobile {
+      @media (min-width: $mobile) {
+        @content;
+      }
+
+    } @else if $range == tablet {
+      @media (min-width: $tablet) {
+        @content;
+      }
+
+    } @else if $range == desktop {
+      @media (min-width: $desktop) {
+        @content;
+      }
+    }
+}
