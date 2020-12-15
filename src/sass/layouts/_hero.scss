@@ -1,24 +1,87 @@
 .hero {
-  padding-top: 193px;
-  padding-bottom: 160px;
   background-color: #ffb8ca;
 
-  &-container {
-    width: 218px;
-    @include for-size(tablet) {
-      width: 162px;
-    }
+  @include for-size(mobile-only) {
+    padding-top: 193px;
+    padding-bottom: 160px;
+  }
+
+  background-image: url(../images/pictures/hero/mobile/hero_ice_1x_m.png),
+    url(../images/pictures/hero/mobile/hero_ellipse_1x_m.png);
+  background-repeat: no-repeat;
+  background-position: 80% 100%, right center;
+  background-size: 171px auto, 284px auto;
+
+  @media (min-resolution: 2dppx) {
+    background-image: url(../images/pictures/hero/mobile/hero_ice_2x_m.png),
+      url(../images/pictures/hero/mobile/hero_ellipse_2x_m.png);
   }
 
   @include for-size(tablet) {
-    padding-top: 94px;
-    padding-bottom: 34px;
+    background-image: url(../images/pictures/hero/tablet/hero_ice_1x_t.png),
+      url(../images/pictures/hero/tablet/hero_ellipse_1x_t.png);
+
+    background-size: 143px auto, 324px auto;
+    background-position: 60% 100%, 71% 31px;
+
+    @media (min-resolution: 2dppx) {
+      background-image: url(../images/pictures/hero/tablet/hero_ice_2x_t.png),
+        url(../images/pictures/hero/tablet/hero_ellipse_2x_t.png);
+    }
+  }
+
+  @include for-size(desktop) {
+    background-image: url(../images/pictures/hero/desktop/hero_ice_1x_d.png),
+      url(../images/pictures/hero/desktop/hero_ellipse_1x_d.png);
+
+    background-size: 236px auto, 538px auto;
+    background-position: 60% 100%, 71% 52px;
+
+    @media (min-resolution: 2dppx) {
+      background-image: url(../images/pictures/hero/tablet/hero_ice_2x_t.png),
+        url(../images/pictures/hero/tablet/hero_ellipse_2x_t.png);
+    }
   }
 }
 
 .hero .container {
-  background-image: url(../../images/pictures/how-made/mobile/how_made_cow_2x_m.png);
+  @include for-size(tablet) {
+    padding-top: 96px;
+    padding-bottom: 28px;
+    height: 400px;
+
+    background-image: url(../images/pictures/hero/tablet/hero_girl_1x_t.png),
+      url(../images/pictures/hero/tablet/hero_milk_1x_t.png);
+
+    background-repeat: no-repeat;
+    background-size: 168px auto, 124px auto;
+    background-position: right bottom, left 245px;
+
+    @media (min-resolution: 2dppx) {
+      background-image: url(../images/pictures/hero/tablet/hero_girl_2x_t.png),
+        url(../images/pictures/hero/tablet/hero_milk_2x_t.png);
+    }
+  }
+
+  @include for-size(desktop) {
+    padding-top: 160px;
+    padding-bottom: 45px;
+    height: 665px;
+
+    background-image: url(../images/pictures/hero/desktop/hero_girl_1x_d.png),
+      url(../images/pictures/hero/desktop/hero_milk_1x_d.png);
+
+    background-repeat: no-repeat;
+    background-size: 293px auto, 188px auto;
+    background-position: right bottom, left 429px;
+
+    @media (min-resolution: 2dppx) {
+      background-image: url(../images/pictures/hero/desktop/hero_girl_2x_d.png),
+        url(../images/pictures/hero/desktop/hero_milk_2x_d.png);
+    }
+  }
 }
+
 .page-title {
   margin-bottom: 19px;
   color: $white;
@@ -34,6 +97,11 @@
     line-height: 1.13;
   }
 
+  @include for-size(desktop) {
+    font-size: 38px;
+    line-height: 1.15;
+  }
+
   &-accent {
     color: $primary-accent;
     font-size: 46px;
@@ -42,5 +110,80 @@
     @include for-size(tablet) {
       font-size: 34px;
     }
+
+    @include for-size(desktop) {
+      font-size: 59px;
+      line-height: 0.95;
+    }
+  }
+}
+
+.hero-container {
+  width: 218px;
+
+  @include for-size(tablet) {
+    width: 162px;
+  }
+  @include for-size(desktop) {
+    width: 277px;
+  }
+}
+
+.hero-content {
+  @include for-size(mobile-only) {
+    display: none;
+  }
+  margin-left: 120px;
+  width: 114px;
+
+  @include for-size(desktop) {
+    margin-left: 180px;
+    width: 200px;
+  }
+
+  &-text {
+    margin-bottom: 8px;
+    color: $white;
+    font-size: 8px;
+    line-height: 1.5;
+
+    @include for-size(desktop) {
+      margin-bottom: 20px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  }
+
+  &-link {
+    display: block;
+    background-color: $white;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+
+    @include for-size(desktop) {
+      height: 26px;
+      width: 26px;
+    }
+  }
+}
+
+.hero-capacity {
+  text-align: right;
+
+  &-number {
+    font-family: $secondary-font;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.14;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $primary-accent;
+  }
+
+  &-text {
+    font-size: 8px;
+    line-height: 1.25;
+    color: $white;
   }
 }
