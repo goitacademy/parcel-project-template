@@ -27,13 +27,27 @@
 //   }
 // }
 
-// mobile - высота блока футер 298 px
+
 .page-footer{
     
     justify-content: center;
     margin: 0;
     padding: 0;
-    height: 298px;
+    @include for-size(mobile){
+        height: 321px;
+      
+    }
+    @include for-size(tablet){
+        height: 274px;
+    }
+    @include for-size(desktop){
+        height: 212px;
+        width: auto;
+        letter-spacing: 0.06em;
+        
+    }
+
+   
     background-color: $secondary-bg-color;
 }
 .section-title{
@@ -47,12 +61,17 @@
     text-transform: uppercase;
     @include for-size(mobile){
         width: 234px;
+        margin-bottom: 43px;
+      
     }
     @include for-size(tablet){
         width: 340px;
+        letter-spacing: 0.06em;
     }
     @include for-size(desktop){
         width: auto;
+        letter-spacing: 0.06em;
+        
     }
 
 
@@ -64,13 +83,19 @@
 .homemade-text{
     @extend %list;
     @include for-size(mobile){
+        letter-spacing: 0.04em;
     font-size: 18px;
+    line-height: 1.145;
+    
     }
     @include for-size(tablet){
     font-size: 26px;
+    letter-spacing: 0.06em;
     }
     @include for-size(desktop){
         font-size: 30px;
+        letter-spacing: 0.06em;
+ 
     }
     line-height: 1.66667;
     text-transform: uppercase;
@@ -82,6 +107,7 @@
     @extend %list;
     @include for-size(mobile){
     font-size: 34px;
+    line-height: 1.147;
     }
     @include for-size(tablet){
     font-size: 48px;
@@ -97,11 +123,26 @@
 }
 .container-footer{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+   
+    @include for-size(mobile){
+       
+        flex-direction: column;
+        // padding-bottom: 43px;
+    }
+    @include for-size(tablet){
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+    @include for-size(desktop){
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
 }
 .section-icon{
-text-align: right;
+    text-align: right;
+
 }
 .color-tel{
     color: $primary-title-color;
@@ -109,13 +150,27 @@ text-align: right;
 
 }
 .phone{
-    padding-top: 50px ;
+
+    padding-top: 46px ;
     font-family: $primary-font;
     font-style: normal;
     font-weight: bold;
-    font-size: 16px;
+    
     line-height: 1.86;
     letter-spacing: 0.02em;
+    @include for-size(mobile){
+    
+        font-size: 12px;
+
+    }
+    @include for-size(tablet){
+        font-size: 14px;
+
+    }
+    @include for-size(desktop){
+        font-size: 16px;
+    }
+    
 
 }
 .ul-icon{
@@ -148,13 +203,25 @@ text-align: right;
     background-color: $color-icon; 
     border-radius: 50%;
 
-    &:hover .contacts-icon-svg,
-    &:focus .contacts-icon-svg{
-        fill: $primary-title-color;  
+    &:hover,
+    &:focus{  
+        background-color:  $primary-title-color; 
+    }
+    @extend %list;
+    @include for-size(mobile){
+       
+        font-size: 34px;
+    }
+    @include for-size(tablet){
+        font-size: 48px;
+    }
+    @include for-size(desktop){
+        font-size: 58px;
     }
 }
 
 .reserved{
+    display: block;
     font-family: $primary-font;
     color: $alternate-text-color;
     font-style: normal;
@@ -166,7 +233,17 @@ text-align: right;
 
     border-top: 2px solid $primary-decor-color;
     text-align: center;
-    line-height: 45px;
+    @include for-size(mobile){
+        // margin-top: 43px;
+        line-height: 89px;
+        }
+    @include for-size(tablet){
+        line-height: 73px;
+    }
+    @include for-size(desktop){
+        line-height: 45px;
+    }
+
 }
 
 // border-inline: solid rgb(240, 136, 136);
