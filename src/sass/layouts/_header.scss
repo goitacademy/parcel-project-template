@@ -1,0 +1,122 @@
+.header {
+  background-color: $color-main-product-1;
+}
+
+.header-nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.menu-button {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.menu-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: calc(100% - 254px);
+  
+  background-color: $color-background-menu;
+  opacity: 1;
+  overflow-y: scroll;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 3;
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.is-hidden .menu-content {
+  transform: translateX(100%);
+}
+
+.menu-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 254px;
+  height: 100%;
+  padding-top: 60px;
+  background-color: inherit;
+  transform: translateX(0);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-button-open {
+  border: none;
+  background-color: transparent;
+}
+
+.menu-button-close {
+  position: absolute;
+  top: 23px;
+  right: 28px;
+  border: none;
+  background-color: transparent;
+}
+
+.button-purchase {
+  width: 209px;
+  min-height: 44px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 19px;
+  padding: 0;
+  background-color: $color-main;
+  color: $color-accent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  border-width: 0;
+  border-radius: 22px;
+
+  &:focus,
+  &:hover {
+    background-color: $color-accent-button-2;
+  }
+}
+
+.nav-item {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #E18298;
+
+  &:last-child {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #E18298;
+  }
+}
+
+.nav-link {
+  display: inline-block;
+  padding-top: 11px;
+  padding-bottom: 12px;
+  margin-left: 21px;
+  color: $color-main;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus,
+  &:hover {
+    color: $color-accent;
+  }
+}
