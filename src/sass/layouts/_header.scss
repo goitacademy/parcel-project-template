@@ -4,11 +4,11 @@
 
 .header-nav {
   position: relative;
-  padding-top: 6px;
-  padding-bottom: 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .menu-button {
@@ -22,14 +22,16 @@
 .menu-container {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
+  right: 0;
+  bottom: 0;
+  left: calc(100% - 254px);
+  
+  background-color: $color-background-menu;
   opacity: 1;
   overflow-y: scroll;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 3;
+
   &.is-hidden {
     opacity: 0;
     pointer-events: none;
@@ -37,40 +39,43 @@
 }
 
 .is-hidden .menu-content {
-  transform: translate(-50%, -50%) scale(1);
+  transform: translateX(100%);
 }
 
 .menu-content {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  background-color: $color-background-menu;
-  transform: translate(-50%, -50%) scale(0.8);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
+  width: 254px;
+  height: 100%;
   padding-top: 60px;
-  
+  background-color: inherit;
+  transform: translateX(0);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-button-open {
+  border: none;
+  background-color: transparent;
 }
 
 .menu-button-close {
   position: absolute;
   top: 23px;
-  right: 20px;
+  right: 28px;
   border: none;
   background-color: transparent;
 }
 
 .button-purchase {
   width: 209px;
-  height: 44px;
-  padding: 0;
-  margin-bottom: 19px;
+  min-height: 44px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 19px;
+  padding: 0;
   background-color: $color-main;
   color: $color-accent;
   font-family: 'DM Sans', sans-serif;
