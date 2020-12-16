@@ -1,28 +1,49 @@
-//пример для фона загрузки разных размеров и плотностей
-// body {
-//   @media screen and(max-width: $tablet - 1) {
-//     background-image: url('../images/gallery/mobile/gallary-bg.jpg');
-//     @media screen and (min-device-pixel-ratio: 2),
-//       screen and (min-resolution: 192dpi),
-//       screen and (min-resolution: 2dppx) {
-//       background-image: url('../images/gallery/mobile/gallary-bg@2x.jpg');
-//     }
-//   }
+.gallery {
+  background-image: linear-gradient(
+    to top,
+    $white 55%,
+    $secondary-bg-color 15%
+  );
 
-//   @media screen and(min-width: $tablet) {
-//     background-image: url('../images/gallery/tablet/gallary-bg.jpg');
-//     @media screen and (min-device-pixel-ratio: 2),
-//       screen and (min-resolution: 192dpi),
-//       screen and (min-resolution: 2dppx) {
-//       background-image: url('../images/gallery/tablet/gallary-bg@2x.jpg');
-//     }
-//   }
-//   @media screen and(min-width: $desktop) {
-//     background-image: url('../images/gallery/desktop/gallary-bg.jpg');
-//     @media screen and (min-device-pixel-ratio: 2),
-//       screen and (min-resolution: 192dpi),
-//       screen and (min-resolution: 2dppx) {
-//       background-image: url('../images/gallery/desktop/gallary-bg@2x.jpg');
-//     }
-//   }
-// }
+  @include for-size(mobile) {
+    background-image: linear-gradient(
+      to top,
+      $white 51%,
+      $secondary-bg-color 51%
+    );
+  }
+
+  @include for-size(tablet) {
+    background-image: linear-gradient(
+      to top,
+      $white 53.5%,
+      $secondary-bg-color 53.7%
+    );
+  }
+
+  @include for-size(desktop) {
+    background-image: linear-gradient(
+      to top,
+      $white 55%,
+      $secondary-bg-color 55%
+    );
+  }
+}
+
+.gallery-item {
+  padding: 139px 0 123px 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include for-size(mobile-only) {
+    width: 320px;
+  }
+
+  @include for-size(tablet) {
+    width: 768px;
+  }
+
+  @include for-size(desktop) {
+    width: 1280px;
+  }
+}
