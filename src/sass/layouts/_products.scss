@@ -1,6 +1,6 @@
-.products * {
-  outline: 1px solid blue;
-}
+// .products * {
+//   outline: 1px solid blue;
+// }
 
 .products {
   padding-top: 121px;
@@ -28,10 +28,10 @@
       padding-left: 34px;
       padding-right: 34px;
     }
-    @include for-size(desktop) {
-      width: 1080px;
-      padding-left: 34px;
-      padding-right: 34px;
+    @media screen and(min-width: 1200px) {
+      max-width: 1200px;
+      padding-left: 117px;
+      padding-right: 116px;
     }
   }
 
@@ -63,13 +63,6 @@
       letter-spacing: 0.06em;
     }
   }
-}
-
-.product-img-thumb {
-  position: relative;
-  margin-bottom: 22px;
-  height: 139px;
-  width: 100%;
 }
 
 .product-img {
@@ -106,6 +99,7 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: space-between;
     }
   }
 
@@ -113,6 +107,7 @@
     margin-left: -20px;
     margin-top: -20px;
   }
+
   @include for-size(desktop) {
     margin-left: -30px;
     margin-top: -30px;
@@ -133,6 +128,7 @@
 
     @include for-size(tablet) {
       flex-basis: calc(100% / 3 - 20px);
+      max-width: 290px;
       margin-left: 20px;
       margin-top: 20px;
       margin-bottom: 0;
@@ -141,6 +137,7 @@
 
     @include for-size(desktop) {
       flex-basis: calc(100% / 3 - 30px);
+      max-width: 330px;
       margin-left: 30px;
       margin-top: 30px;
       margin-bottom: 0;
@@ -156,7 +153,7 @@
         }
 
         @include for-size(desktop) {
-          top: -210px;
+          top: -193px;
         }
       }
     }
@@ -170,7 +167,7 @@
         }
 
         @include for-size(desktop) {
-          top: -210px;
+          top: -191px;
         }
       }
     }
@@ -184,7 +181,7 @@
         }
 
         @include for-size(desktop) {
-          top: -210px;
+          top: -193px;
         }
       }
     }
@@ -246,12 +243,28 @@
       align-items: center;
       justify-content: center;
       margin: 0 auto;
+      padding: 0;
       width: 40px;
       height: 40px;
       fill: $primary-accent;
       border: none;
       border-radius: 50%;
       background-color: $white;
+      transition-property: background-color, fill, box-shadow, transform;
+      transition-duration: 250ms;
+      transition-timing-function: $timing-function;
+
+      &:hover,
+      &:focus {
+        // fill: $white;
+        // background-color: $primary-accent;
+        box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+        transform: scale(1.2);
+      }
+
+      &:focus {
+        outline: 1px solid $primary-accent;
+      }
     }
   }
 
