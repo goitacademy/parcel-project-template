@@ -3,12 +3,24 @@
   text-decoration: none;
 }
 
+.overlay {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  padding-top: 6px;
+  height: 502px;
+
+  background-color: $heder-bg-color;
+  overflow-x: hidden;
+}
+
 .header {
   // Обертка для хедера
   &-layout {
     display: flex;
     align-items: center;
-    padding-top: 6px;
   }
 
   &-layout-item:nth-child(3) {
@@ -34,7 +46,14 @@
     background-color: $button-bg-1;
     border: 0;
     border-radius: 22px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
+
+  &-btn:hover,
+  &-btn:focus {
+    background-color: $button-hover-1;
+  }
+
   &-btn-icon {
     margin-left: 25px;
     width: 7px;
@@ -100,6 +119,7 @@
     height: 502px;
 
     background-color: $mobail-menu-bg-color;
+    box-shadow: (-8px 0px 20px rgba(0, 0, 0, 0.25));
   }
 }
 
@@ -125,6 +145,12 @@
     line-height: 1.286;
 
     color: $third-text-color;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &-link:hover,
+  &-link:focus {
+    color: $accent-color;
   }
 }
 
@@ -135,20 +161,22 @@
 // Стили блока-героя
 .hero {
   padding-top: 193px;
-  height: 502px;
+  padding-right: 0;
+  padding-left: 0;
 
-  &::after {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    content: '';
-    z-index: -1;
+  // Так не работает оставил для наглядности. Можно будет разобрать со всеми и во время мержа удалить.
+  // &::after {
+  //   position: absolute;
+  //   left: 0;
+  //   right: 0;
+  //   top: 0;
+  //   content: '';
+  //   z-index: -1;
 
-    height: 502px;
+  //   height: 502px;
 
-    background-color: $heder-bg-color;
-  }
+  //   background-color: $heder-bg-color;
+  // }
 
   // Круг за картинкой header-ice-cream
   &::before {
@@ -195,7 +223,7 @@
     color: $button-bg-1;
   }
 
-  // Кнопки под заголовком героя
+  // Кнопки героя
 
   &-btn {
     margin-right: 8px;
@@ -209,11 +237,23 @@
     background-color: $button-bg-1;
     border: 0;
     border-radius: 20px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &-btn:hover,
+  &-btn:focus {
+    background-color: $button-hover-1;
   }
 
   &-btn-accent {
     color: $button-bg-1;
     background-color: $button-bg-2;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &-btn-accent:hover,
+  &-btn-accent:focus {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: $button-hover-2;
   }
 }
 
