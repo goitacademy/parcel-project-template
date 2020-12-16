@@ -3,6 +3,7 @@
 }
 
 .header-nav {
+  position: relative;
   padding-top: 6px;
   padding-bottom: 6px;
   display: flex;
@@ -16,30 +17,101 @@
   padding: 0;
   border: none;
   background-color: transparent;
+}
 
-  .icon-burger {
-    width: 20px;
-    height: 12px;
+.menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  opacity: 1;
+  overflow-y: scroll;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 3;
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
   }
+}
 
-  .icon-close {
-    width: 14px;
-    height: 14px;
+.is-hidden .menu-content {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.menu-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: $color-background-menu;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+  
+}
+
+.menu-button-close {
+  position: absolute;
+  top: 23px;
+  right: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+.button-purchase {
+  width: 209px;
+  height: 44px;
+  padding: 0;
+  margin-bottom: 19px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $color-main;
+  color: $color-accent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  border-width: 0;
+  border-radius: 22px;
+
+  &:focus,
+  &:hover {
+    background-color: $color-accent-button-2;
   }
 }
 
-.menu-button .icon-burger {
-  display: block;
+.nav-item {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #E18298;
+
+  &:last-child {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #E18298;
+  }
 }
 
-.menu-button .icon-close {
-  display: none;
-}
+.nav-link {
+  display: inline-block;
+  padding-top: 11px;
+  padding-bottom: 12px;
+  margin-left: 21px;
+  color: $color-main;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-.menu-button.is-open .icon-close {
-  display: block;
-}
-
-.menu-button.is-open .icon-burger {
-  display: none;
+  &:focus,
+  &:hover {
+    color: $color-accent;
+  }
 }
