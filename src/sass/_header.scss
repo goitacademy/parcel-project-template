@@ -1,8 +1,6 @@
 .page-header {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
   padding-top: 6px;
 
   background: #ffb8ca;
@@ -11,13 +9,23 @@
     padding-top: 37px;
   }
 }
-
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .logo-icon {
-  width: 200px;
+  width: 199px;
   height: 50px;
 
   @media screen and(min-width: 1200px) {
-    margin-right: 110px;
+    position: absolute;
+    top: 33px;
+    left: 6px;
+  }
+
+  @media screen and(min-width: 1440px) {
+    left: 125px;
   }
 }
 
@@ -42,6 +50,7 @@
   width: 250px;
   height: 502px;
   padding-top: 23px;
+  z-index: 99;
 
   background: #e17992;
 
@@ -56,6 +65,7 @@
     position: relative;
     flex-grow: 2;
     height: auto;
+    margin-left: 212px;
     padding: 0;
     background: none;
   }
@@ -118,6 +128,10 @@
   &:focus {
     background: #ecebeb;
   }
+
+  @media screen and(min-width: 1200px) {
+    margin-left: 110px;
+  }
 }
 
 .arrow-icon {
@@ -141,11 +155,7 @@
     margin-right: 35px;
     padding: 0;
 
-    font-size: 16px;
-    line-height: 1.25;
-
     border: none;
-    color: $main-color;
   }
 
   &:last-child {
@@ -164,12 +174,16 @@
 
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  @media screen and(min-width: 1200px) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
   &:hover,
   &:focus {
     color: $accent-color;
   }
 }
-
 // Скрывает кнопку 'Buy now' для tablet/desktop
 .none {
   @media screen and(max-width: 767px) {
