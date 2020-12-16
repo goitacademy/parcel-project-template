@@ -1,10 +1,35 @@
 .cow {
   padding-top: 125px;
   padding-bottom: 97px;
-  background-color: $bg-pink;
   background-image: url(../images/mobile/cow/cow-bg.png);
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/mobile/cow/cow-bg@2x.png);
+  }
+
+  @include for-size(tablet) {
+    padding-bottom: 140px;
+    background-image: none;
+  }
+
+  @include for-size(desktop) {
+    background-image: url(../images/desktop/cow/cow-bg.png);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/desktop/cow/cow-bg@2x.png);
+    }
+  }
 }
 
 .section-title {
@@ -129,6 +154,16 @@
 .cow-grid {
   @include for-size(tablet) {
     display: flex;
+    flex-wrap: wrap;
+    margin-left: -60px;
+    margin-right: 40px;
+  }
+}
+
+.cow-grid-item {
+  @include for-size(tablet) {
+    margin-left: 60px;
+    flex-basis: calc(100% / 3 - 60px);
   }
 }
 
@@ -159,6 +194,10 @@
 
 .cow-grid-item:not(:last-child) {
   margin-bottom: 38px;
+
+  @include for-size(tablet) {
+    margin-bottom: 0;
+  }
 }
 
 .cow-grid-item-num {
@@ -169,6 +208,11 @@
   line-height: 1.139;
   text-transform: uppercase;
   color: $main-text-color;
+
+  @include for-size(tablet) {
+    font-size: 48px;
+    line-height: 1.146;
+  }
 }
 
 .cow-grid-item-info {
@@ -176,4 +220,9 @@
   font-size: 12px;
   line-height: 1.7;
   color: $text-black;
+
+  @include for-size(tablet) {
+    font-size: 14px;
+    line-height: 1.74;
+  }
 }
