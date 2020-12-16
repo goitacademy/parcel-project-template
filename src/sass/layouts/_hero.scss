@@ -1,21 +1,38 @@
 .hero {
   background-color: $color-main-product-1;
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 102px;
+    padding-bottom: 28px;
+  }
 }
 
 .hero .container {
   position: relative;
-  min-height: 502px;
+
+  @media screen and (max-width: $tablet) {
+    min-height: 502px;
+  }
+}
+
+.upper-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 19px;
 }
 
 .hero-box {
-  position: absolute;
-  top: 193px;
-  left: 20px;
-  z-index: 10;
+  @media screen and (max-width: $tablet) {
+    position: absolute;
+    top: 193px;
+    left: 20px;
+    z-index: 3;
+  }
 }
 
 .hero-title {
   max-width: 225px;
+  margin-top: 0;
   margin-bottom: 20px;
 
   font-family: 'Titan One', sans-serif;
@@ -75,9 +92,115 @@
   }
 }
 
+.places {
+  @media screen and (max-width: $tablet) {
+    display: none;
+  }
+}
+
+.places-item {
+  &::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: $color-main;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 13px;
+  }
+}
+
+.places-number {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Titan One', sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.14;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: $color-accent;
+}
+
+.places-text {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1.25;
+
+  color: $color-main;
+}
+
+.eco {
+  display: flex;
+  align-items: flex-end;
+  max-width: 235px;
+
+  @media screen and (max-width: $tablet) {
+    display: none;
+  }
+}
+
+.eco-img {
+  display: inline-block;
+}
+
+.eco-text {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 7px;
+
+  font-family: 'DM Sans', sans-serif;
+
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1.5;
+
+  color: $color-main;
+}
+
+.eco-link {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-color: $color-main;
+  border-radius: 50%;
+}
+
 .hero-img {
   position: absolute;
   max-width: 100%;
   right: 32px;
   bottom: 0;
+
+  @media screen and (min-width: $tablet) {
+    right: 233px;
+    bottom: -28px;
+  }
+}
+
+.hero-img::before {
+  content: '';
+  display: block;
+  width: 346px;
+  height: 344px;
+  border-radius: 50%;
+}
+
+.girl-img {
+  position: absolute;
+  right: 20px;
+  bottom: -28px;
+
+  @media screen and (max-width: $tablet) {
+    display: none;
+  }
 }
