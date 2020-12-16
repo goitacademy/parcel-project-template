@@ -1,5 +1,7 @@
 .header-container {
   background-color: $secondary-accent;
+}
+.header-wrapper {
   @include for-size(mobile-only) {
     position: relative;
   }
@@ -21,12 +23,14 @@
   @include for-size(desktop) {
     padding-top: 37px;
     padding-bottom: 37px;
+    justify-content: flex-end;
   }
 }
 .header-logo {
   margin-right: auto;
   @include for-size(desktop) {
-    // margin: 0;
+    position: absolute;
+    left: -5%;
   }
 }
 .header-burger-button {
@@ -74,13 +78,13 @@
     min-width: 250px;
     max-height: 502px;
     transition: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: $timing-function;
   }
 
   @include for-size(tablet) {
     display: block;
     transition: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: $timing-function;
   }
   @include for-size(desktop) {
     display: flex;
@@ -113,24 +117,26 @@
     align-items: center;
   }
   .header-menu-button {
+    transition: color 250ms $timing-function,
+      background-color 250ms $timing-function;
     @include for-size(tablet) {
       margin-bottom: 19px;
       margin-left: 0px;
     }
     @include for-size(desktop) {
       margin-bottom: 0px;
-      margin-left: 50px;
+      margin-left: 90px;
     }
   }
 }
-.header-menu-button:hover,
-.header-menu-button:focus {
-  transition: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+// .header-menu-button:hover,
+// .header-menu-button:focus {
+//   color 250ms $timing-function,
+//     background-color 250ms $timing-function;
+// }
 .header-menu-button:hover .header-menu-svg,
 .header-menu-button:focus .header-menu-svg {
-  fill: $white;
+  fill: currentColor;
 }
 .header-menu-tablet {
   @include for-size(tablet) {
@@ -169,7 +175,7 @@
   }
   @include for-size(desktop) {
     margin: 0px;
-    margin-left: 50px;
+    margin-left: 90px;
   }
 }
 .header-menu-svg {
@@ -199,6 +205,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 1.3em;
+  transition: color 250ms $timing-function;
   @include for-size(mobile-only) {
     padding-left: 20px;
     padding-right: 20px;
@@ -210,6 +217,10 @@
     border: none;
     font-size: 16px;
     padding-left: 0px;
+  }
+  &:hover,
+  &:focus {
+    color: $primary-accent;
   }
 }
 .header-navigation-list:not(:last-child) {
