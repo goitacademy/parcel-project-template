@@ -1,7 +1,12 @@
 .container-products {
   background-color: $white;
-  padding-top: 127px;
-  padding-bottom: 119px;
+  padding-top: 121px;
+  padding-bottom: 98px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 122px;
+    padding-bottom: 112px;
+  }
 }
 
 .products-slogan {
@@ -14,6 +19,11 @@
   line-height: 1.17;
   letter-spacing: 0.04em;
   color: $secondary-title-color;
+
+  @media screen and (min-width: 768px) {
+    font-size: 26px;
+    line-height: 1.15;
+  }
 }
 
 .products-title {
@@ -23,13 +33,23 @@
   font-size: 34px;
   line-height: 1.15;
   text-align: center;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: $primary-title-color;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 150px;
+    font-size: 48px;
+    line-height: 1.14;
+  }
 }
 
 .products-list {
   @extend %list;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 }
 
 .products-gallery {
@@ -45,6 +65,18 @@
   margin-bottom: 130px;
   padding-left: 41px;
   padding-right: 39px;
+
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 20px) / 3);
+    margin-bottom: 0;
+    padding-top: 152px;
+    padding-bottom: 40px;
+    padding-left: 11px;
+    padding-right: 11px;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
 }
 
 .products-one {
@@ -61,9 +93,32 @@
 
 .products-foto {
   position: absolute;
+  width: 249px;
+  height: 252px;
   top: -113px;
   right: 15px;
   justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    width: auto;
+
+    right: 0px;
+
+    .products-foto-first {
+      height: 226px;
+      top: -104px;
+    }
+
+    .products-foto-second {
+      height: 233px;
+      top: -111px;
+    }
+
+    .products-foto-third {
+      height: 224px;
+      top: -102px;
+    }
+  }
 }
 
 .products-gallery-title {
@@ -78,12 +133,71 @@
 
 .products-gallery-text {
   margin: 0;
-
+  font-family: DM Sans;
   font-style: normal;
-  font-weight: bold;
   font-size: 14px;
-  line-height: 152%;
+  line-height: 1.52;
   text-align: center;
+
+  @media screen and (min-width: 767px) {
+    display: none;
+  }
+
+  &::after {
+    display: block;
+    content: '';
+    width: 40px;
+    height: 40px;
+    background-color: $white;
+    border-radius: 50%;
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .products-gallery-text-short {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .products-gallery-text-short {
+    margin: 0;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.78;
+    text-align: center;
+
+    &::after {
+      display: block;
+      content: '';
+      width: 40px;
+      height: 40px;
+      background-color: $white;
+      border-radius: 50%;
+      background-size: 40px 40px;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-top: 40px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.arrow-right::after {
+  background-image: url(../images/products/arrow-right.jpg);
 }
 
 .products-ellipsis {
