@@ -3,21 +3,41 @@
 }
 
 .locations-cafe {
-  padding-left: 30px; /*50px;*/
-  padding-right: 30px; /*50px;*/
+  @include breakpoint(non-tablet) {
+    width: 220px;
+    margin-left: auto;
+    margin-right: auto;
+    /*padding-left: 30px;
+    padding-right: 30px;*/
+  }
+
+  @include breakpoint(tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -20px;
+  }
 }
 
 .locations-cafe-item {
   position: relative;
-  // top: -84px;
+  //top: -84px;
   padding: 43px 20px;
   background-color: $color-main;
   border-radius: 24px;
   box-shadow: 0px 8px 30px $color-location-shadow;
+
+  @include breakpoint(tablet) {
+    margin-left: 20px;
+    flex-basis: calc(100% / 3 - 20px);
+    //top: -78px;
+    padding: 50px 31px;
+  }
 }
 
 .locations-cafe-item:not(:last-child) {
-  margin-bottom: 20px;
+  @include breakpoint(non-tablet) {
+    margin-bottom: 20px;
+  }
 }
 
 .locations-cafe-header {
@@ -29,20 +49,33 @@
   line-height: 22px; /*186%;*/
   text-transform: uppercase;
   /*display: flex;
-    align-items: center;*/
+  align-items: center;*/
   text-align: center;
   letter-spacing: 0.04em;
   border-radius: 4px;
+
+  @include breakpoint(tablet) {
+    font-size: 16px;
+    line-height: 30px; /*186%;*/
+  }
 }
 
 .cafe {
   width: 80px;
   background-color: $color-main-product-2;
+
+  @include breakpoint(tablet) {
+    width: 73px;
+  }
 }
 
 .food {
-  width: 130px;
+  width: 80px;
   background-color: $color-main-product-3;
+
+  @include breakpoint(tablet) {
+    width: 138px;
+  }
 }
 
 .location-partition {
@@ -66,6 +99,11 @@
   font-size: 12px;
   line-height: 22px; /*186%;*/
   letter-spacing: 0.04em;
+
+  @include breakpoint(tablet) {
+    font-size: 14px;
+    line-height: 26px; /*186%;*/
+  }
 }
 
 .locations-text {
@@ -75,6 +113,11 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
+
+  @include breakpoint(tablet) {
+    font-size: 14px;
+    line-height: 23px;
+  }
 }
 
 .locations-text-accent {
@@ -84,20 +127,44 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 22px; /*186%;*/
+
+  @include breakpoint(tablet) {
+    font-size: 14px;
+    line-height: 26px; /*186%;*/
+  }
 }
 
-.locations-links-li {
+/*.locations-links-li {
   position: relative;
-  // top: -30px; 
-}
+  top: -30px;
+}*/
 
 .locations-links-li:not(:last-child) {
-  margin-bottom: 10px;
+  @include breakpoint(non-tablet) {
+    margin-bottom: 10px;
+  }
+
+  @include breakpoint(tablet) {
+    margin-right: 15px;
+  }
 }
 
 .locations-links {
-  padding-left: 60px; /*80px;*/
-  padding-right: 60px; /*80px;*/
+  @include breakpoint(non-tablet) {
+    width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    /*padding-left: 60px;
+    padding-right: 60px;*/
+    margin-top: -30px;
+  }
+
+  @include breakpoint(tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 3px;
+  }
 }
 
 .locations-links-item {
