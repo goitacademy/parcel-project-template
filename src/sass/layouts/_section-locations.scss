@@ -20,9 +20,17 @@
     top: -78px;
     margin: 0 -10px;
   }
+  @include for-size(desktop) {
+    top: -102px;
+    margin: 0 -10px;
+  }
 }
 .location__list {
   margin: 0 auto;
+  @include for-size(tablet) {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 .location__item {
   padding: 43px 20px;
@@ -39,6 +47,11 @@
     padding: 50px 31px;
     margin: 0 10px;
   }
+  @include for-size(desktop) {
+    width: 330px;
+    padding: 50px 44px 60px;
+    margin: 0 10px;
+  }
 }
 .location__type {
   display: flex;
@@ -48,6 +61,16 @@
   align-items: center;
   width: max-content;
   @include fonts(12px, 500, 1.86, 0.04em);
+  @include for-size(tablet) {
+    @include fonts(16px, 500, 1.86, 0.04em);
+    margin-bottom: 30px;
+    height: 28px;
+  }
+  @include for-size(desktop) {
+    @include fonts(16px, 500, 1.86, 0.04em);
+    margin-bottom: 32px;
+    height: 28px;
+  }
   text-transform: uppercase;
   border-radius: 4px;
   color: $primary-white-color;
@@ -60,22 +83,49 @@
   color: $primary-text-color;
   margin-bottom: 10px;
   @include fonts(12px, 500, 1.86, 0.04em);
+  @include for-size(tablet) {
+    @include fonts(14px, 500, 1.86, normal);
+    margin-bottom: 14px;
+  }
+  @include for-size(desktop) {
+    @include fonts(16px, 500, 1.86, normal);
+    margin-bottom: 10px;
+  }
 }
 .location__description {
   @include fonts(12px, 500, 1.5, normal);
   color: $secondary-text-color;
   margin-bottom: 25px;
+  @include for-size(tablet) {
+    @include fonts(14px, 500, 1.66, normal);
+    margin-bottom: 30px;
+  }
+  @include for-size(desktop) {
+    @include fonts(16px, 500, 1.83, normal);
+    margin-bottom: 32px;
+  }
   &::after {
     margin-top: 25px;
     content: '';
     border-bottom: 1px solid #e1e1e1;
     display: block;
     width: 100%;
-    height: 100%;
+    @include for-size(tablet) {
+      margin-top: 30px;
+    }
+    @include for-size(desktop) {
+      margin-top: 32px;
+    }
   }
 }
 .location__schedule {
   margin-bottom: 25px;
+  @include for-size(tablet) {
+    margin-bottom: 30px;
+  }
+  @include for-size(desktop) {
+    margin-bottom: 32px;
+  }
 }
 .location__schedule-item:not(:last-child) {
   margin-bottom: 10px;
@@ -84,12 +134,24 @@
   color: $primary-text-color;
   display: block;
   @include fonts(12px, 500, 1.5, normal);
+  @include for-size(tablet) {
+    @include fonts(14px, 500, 1.86, normal);
+  }
+  @include for-size(desktop) {
+    @include fonts(16px, 500, 1.86, normal);
+  }
 }
 
 .location__worktime {
   display: block;
   color: $primary-accent-color;
   @include fonts(12px, 500, 1.5, normal);
+  @include for-size(tablet) {
+    @include fonts(14px, 500, 1.86, normal);
+  }
+  @include for-size(desktop) {
+    @include fonts(16px, 500, 1.86, normal);
+  }
 }
 .location__contacts::before {
   margin-bottom: 25px;
@@ -97,17 +159,106 @@
   border-bottom: 1px solid #e1e1e1;
   display: block;
   width: 100%;
-  height: 100%;
+  @include for-size(tablet) {
+    margin-bottom: 30px;
+  }
+  @include for-size(desktop) {
+    margin-bottom: 32px;
+  }
 }
 .location__link {
   @include fonts(12px, 500, 1.5, normal);
   color: $secondary-text-color;
+  @include for-size(tablet) {
+    @include fonts(14px, 500, 1.83, normal);
+  }
+  @include for-size(desktop) {
+    @include fonts(16px, 500, 1.83, normal);
+  }
 }
+
 .location__buttons {
   margin: 54px auto 0;
+  & .location__button-red,
+  .location__button-white {
+    padding-left: 17px;
+    padding-right: 17px;
+    width: 162px;
+    display: block;
+    @include fonts(16px, 700, 1.31, normal);
+    @include for-size(tablet) {
+      width: 192px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    @include for-size(desktop) {
+      width: 198px;
+      padding-left: 35px;
+      padding-right: 35px;
+    }
+  }
+  @include for-size(tablet) {
+    margin-top: 81px;
+    display: flex;
+  }
+  @include for-size(desktop) {
+    margin-top: 86px;
+    display: flex;
+  }
 }
+
 .location__button:not(:last-child) {
   @include for-size(mobile-only) {
     margin-bottom: 10px;
   }
+  @include for-size(tablet) {
+    margin-right: 14.5px;
+  }
+  @include for-size(desktop) {
+    margin-right: 15px;
+  }
+}
+
+.location__button-red {
+  display: inline-block;
+  padding: 12px 23px;
+  border-radius: 20px;
+  color: $primary-white-color;
+  fill: $primary-white-color;
+  background-color: $accent-color;
+  border: 0;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+    fill: $accent-color;
+    background-color: $primary-white-color;
+  }
+}
+
+.location__button-white {
+  display: inline-block;
+  padding: 12px 23px;
+  border-radius: 20px;
+  color: $accent-color;
+  fill: $accent-color;
+  background-color: $primary-white-color;
+  border: 0;
+
+  &:hover,
+  &:focus {
+    color: $primary-white-color;
+    fill: $primary-white-color;
+    background-color: $accent-color;
+  }
+}
+.location__button-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.location__button-icon {
+  width: 10px;
+  height: 10px;
+  margin-left: 9px;
 }
