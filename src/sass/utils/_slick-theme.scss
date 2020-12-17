@@ -93,6 +93,7 @@ $slick-opacity-not-active: 0.25 !default;
     opacity: $slick-opacity-not-active;
   }
   &:before {
+    content: '';
     font-family: $slick-font-family;
     font-size: 20px;
     line-height: 1;
@@ -103,34 +104,63 @@ $slick-opacity-not-active: 0.25 !default;
   }
 }
 
-.slick-prev {
-  left: -25px;
+.slick-prev.slick-arrow {
+  background-image: url(../images/slider/arrow-back.svg);
+  background-repeat: no-repeat;
   outline: none;
-  [dir='rtl'] & {
-    left: auto;
-    right: -25px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 467px;
+  left: 80px;
+  &:hover,
+  &:focus {
+    display: block;
+    fill: #ffa5ba;
+    opacity: 1;
   }
-  &:before {
-    content: $slick-prev-character;
-    [dir='rtl'] & {
-      content: $slick-next-character;
-    }
-  }
+
+  // left: -25px;
+  // outline: none;
+  // [dir='rtl'] & {
+  //   left: auto;
+  //   right: -25px;
+  // }
+  // &:before {
+  //   content: $slick-prev-character;
+  //   [dir='rtl'] & {
+  //     content: $slick-next-character;
+  //   }
+  // }
 }
 
-.slick-next {
-  right: -25px;
+.slick-next.slick-arrow {
+  background-image: url(../images/slider/arrow-next.svg);
+  background-repeat: no-repeat;
   outline: none;
-  [dir='rtl'] & {
-    left: -25px;
-    right: auto;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 467px;
+  right: 80px;
+  stroke: #d41443;
+
+  &:hover,
+  &:focus {
+    stroke: #ffa5ba;
   }
-  &:before {
-    content: $slick-next-character;
-    [dir='rtl'] & {
-      content: $slick-prev-character;
-    }
-  }
+  // right: -25px;
+  // outline: none;
+  // [dir='rtl'] & {
+  //   left: -25px;
+  //   right: auto;
+  // }
+  // &:before {
+  //   content: $slick-next-character;
+  //   [dir='rtl'] & {
+  //     content: $slick-prev-character;
+  //   }
+  // }
 }
 
 /* Dots */
@@ -138,9 +168,7 @@ $slick-opacity-not-active: 0.25 !default;
 .slick-dotted.slick-slider {
   margin-bottom: 30px;
 }
-
-.slick-dots {
-  position: absolute;
+.dots-slik {
   bottom: -25px;
   list-style: none;
   display: block;
@@ -205,3 +233,9 @@ $slick-opacity-not-active: 0.25 !default;
     }
   }
 }
+
+//       // color: $slick-dot-color-active;
+//       // opacity: $slick-opacity-default;
+//     }
+//   }
+// }
