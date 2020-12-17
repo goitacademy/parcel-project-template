@@ -164,35 +164,6 @@
   padding-right: 0;
   padding-left: 0;
 
-  // Так не работает оставил для наглядности. Можно будет разобрать со всеми и во время мержа удалить.
-  // &::after {
-  //   position: absolute;
-  //   left: 0;
-  //   right: 0;
-  //   top: 0;
-  //   content: '';
-  //   z-index: -1;
-
-  //   height: 502px;
-
-  //   background-color: $heder-bg-color;
-  // }
-
-  // Круг за картинкой header-ice-cream
-  &::before {
-    position: absolute;
-    top: 83px;
-    right: -36px;
-
-    content: '';
-
-    width: 346px;
-    height: 346px;
-
-    border-radius: 50%;
-    background-color: $second-title-color;
-  }
-
   // Обертка для заголовка героя и кнопок под ним
   &-title-container {
     position: relative;
@@ -258,11 +229,31 @@
 }
 
 // Стили картинки header-ice-cream
+.icecr-bg {
+  position: absolute;
+  top: 92px;
+  right: 32px;
+
+  // Круг за картинкой header-ice-cream
+  &::before {
+    position: absolute;
+    top: -9px;
+    left: -81px;
+    z-index: 1;
+
+    content: '';
+
+    width: 346px;
+    height: 346px;
+
+    border-radius: 50%;
+    background-color: $second-title-color;
+  }
+}
+
 .img {
   &-icecr {
-    position: absolute;
-    top: 92px;
-    right: 32px;
-    bottom: 0;
+    position: relative;
+    z-index: 2;
   }
 }
