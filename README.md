@@ -1,4 +1,4 @@
-# parcel-project-template
+# team-icecream-12
 
 ## Developing
 
