@@ -3,7 +3,7 @@
          dots: true,
          arrows: false,
           autoplay: true,
-            autoplaySpeed: 9500,
+            autoplaySpeed: 7500,
          
      });
     });
