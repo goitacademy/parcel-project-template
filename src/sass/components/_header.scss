@@ -1,26 +1,45 @@
 // стиль для ссылок
 .link {
   text-decoration: none;
+  display: block;
 }
 
 .overlay {
   position: relative;
-  left: 0;
-  right: 0;
-  top: 0;
 
   padding-top: 6px;
   height: 502px;
 
-  background-color: $heder-bg-color;
   overflow-x: hidden;
+
+  @media screen and (min-width: 768px) {
+    height: 400px;
+    overflow-x: unset;
+    padding-top: 37px;
+    padding-bottom: 28px;
+  }
+  @media screen and (min-width: 1200px) {
+    height: 665px;
+    overflow-x: unset;
+    padding-top: 38px;
+    padding-bottom: 45px;
+  }
 }
 
 .header {
   // Обертка для хедера
+  background-color: $heder-bg-color;
+
   &-layout {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    &-item .btn.header-btn {
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+    }
   }
 
   &-layout-item:nth-child(3) {
@@ -65,15 +84,16 @@
 .menu {
   // кнопка меню
   &-btn {
-    position: relative;
-    display: block;
     z-index: 11;
-
     padding: 0;
-    width: 100%;
-
     border: 0;
     background-color: rgba(0, 0, 0, 0);
+
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      right: 224px;
+      top: 52px;
+    }
   }
 
   // Стили свг в кнопке меню
@@ -90,6 +110,21 @@
   // Стили для close
   &-close {
     stroke: $button-bg-1;
+  }
+
+  &-btn.is-open {
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      right: 34px;
+      top: 23px;
+      display: block;
+    }
+    @media screen and (max-width: 767px) {
+      position: absolute;
+      right: 28px;
+      top: 23px;
+      display: block;
+    }
   }
 
   // Стили для открытия-закрытия меню
@@ -120,11 +155,22 @@
 
     background-color: $mobail-menu-bg-color;
     box-shadow: (-8px 0px 20px rgba(0, 0, 0, 0.25));
+
+    @media screen and (min-width: 768px) {
+      height: 100vh;
+    }
   }
 }
 
 .is-open {
   display: block;
+}
+
+.positioned-btn {
+  position: absolute;
+  top: 38px;
+  right: 34px;
+  z-index: 10;
 }
 
 // Стили для основной навигации страницы
@@ -164,6 +210,20 @@
   padding-right: 0;
   padding-left: 0;
 
+  @media screen and (min-width: 768px) {
+    padding-top: 15px;
+  }
+
+  &-milk {
+    margin-top: 20px;
+    position: relative;
+    margin-bottom: 28px;
+
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+
   // Обертка для заголовка героя и кнопок под ним
   &-title-container {
     position: relative;
@@ -182,6 +242,12 @@
 
     color: $button-bg-2;
     text-transform: uppercase;
+
+    @media screen and (min-width: 768px) {
+      font-size: 34px;
+      line-height: 0.905;
+      letter-spacing: 0.04em;
+    }
   }
 
   &-accent {
@@ -192,10 +258,14 @@
     letter-spacing: 0.04em;
 
     color: $button-bg-1;
+    @media screen and (min-width: 768px) {
+      font-size: 22px;
+      line-height: 25px;
+      letter-spacing: 0.04em;
+    }
   }
 
   // Кнопки героя
-
   &-btn {
     margin-right: 8px;
     padding: 8px 13px;
@@ -228,17 +298,108 @@
   }
 }
 
+.statistics {
+  position: absolute;
+  top: 97px;
+  right: 34px;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 13px;
+    position: relative;
+
+    &::before {
+      content: '';
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: $third-text-color;
+      position: absolute;
+      top: -3px;
+      right: -8px;
+    }
+  }
+  &-number {
+    display: block;
+    font-family: $title-font;
+    font-style: normal;
+    font-size: 28px;
+    line-height: 1.13;
+
+    text-align: right;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    color: $accent-color;
+    z-index: 4;
+  }
+  &-text {
+    font-family: $main-text-font;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 8px;
+    line-height: 1.25;
+    text-align: right;
+
+    color: $third-text-color;
+    text-transform: lowercase;
+  }
+}
+
+.div-milk {
+  position: absolute;
+  left: 120px;
+  top: 47px;
+
+  &-text {
+    font-family: $main-text-font;
+    font-style: normal;
+    font-size: 8px;
+    line-height: 1.5;
+    color: $third-text-color;
+    width: 114px;
+    height: 48px;
+  }
+  &-btn {
+    height: 18px;
+    width: 18px;
+    background-color: $third-text-color;
+    border: 0;
+    border-radius: 50%;
+    display: block;
+    margin-top: 7px;
+    position: relative;
+  }
+  &-btn-icon {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    fill: $accent-color;
+    width: 8px;
+    height: 8px;
+  }
+}
+
 // Стили картинки header-ice-cream
 .icecr-bg {
   position: absolute;
   top: 92px;
   right: 32px;
 
+  @media screen and(min-width:768px) {
+    top: 63px;
+    right: 247px;
+  }
+
   // Круг за картинкой header-ice-cream
   &::before {
     position: absolute;
-    top: -9px;
-    left: -81px;
     z-index: 1;
 
     content: '';
@@ -248,10 +409,32 @@
 
     border-radius: 50%;
     background-color: $second-title-color;
+
+    left: -81px;
+    top: -9px;
+
+    @media screen and (min-width: 768px) {
+      top: -32px;
+      left: -71px;
+
+      width: 324px;
+      height: 322px;
+    }
   }
 }
 
 .img {
+  &-girl {
+    position: absolute;
+    right: 34px;
+    bottom: 0;
+    z-index: 9;
+
+    @media screen and(max-width:767px) {
+      display: none;
+    }
+  }
+
   &-icecr {
     position: relative;
     z-index: 2;
