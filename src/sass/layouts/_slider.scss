@@ -1,0 +1,166 @@
+$lh-slider-block: 30px;
+.slider {
+  margin-top: 155px;
+  margin-bottom: 85px;
+
+  @include for-size(tablet) {
+    margin-top: 280px;
+    margin-bottom: 120px;
+  }
+
+  @include for-size(desktop) {
+    margin-top: 380px;
+    margin-bottom: 130px;
+  }
+}
+.slider-block {
+  position: relative;
+}
+.swiper-container{
+  width: 100%;
+  margin: 0 auto;
+
+
+  @include for-size(mobile) {
+    margin-right: 20px ;
+    margin-left: 20px;
+  }
+
+  @include for-size(tablet) {
+    width: 620px;
+  }
+
+  @include for-size(desktop) {
+    width: 926px;
+  }
+
+
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-image {
+  width: 85px;
+  height: 85px;
+  margin-bottom: 15px;
+}
+
+.slider-description {
+  background-color: $slider-bg;
+  line-height: $lh-slider-block;
+  padding: 20px 50px;
+
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+
+  @include for-size(tablet) {
+    font-size: 14px;
+  }
+
+  @include for-size(desktop) {
+    font-size: 16px;
+  }
+}
+
+.slider-description__underline {
+  display: inline-block;
+  position: relative;
+
+  padding: 0 10px;
+
+  @include for-size(mobile) {
+    padding: 0 30px;
+  }
+
+
+
+  background-image: linear-gradient(transparent, transparent $lh-slider-block - 1px, $cards-line $lh-slider-block - 1px);
+  background-size: 100% $lh-slider-block;
+
+  z-index: 1;
+
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 55px;
+    height: 40px;
+
+    left: 0;
+    top: -10px;
+
+    background: url("../images/slider/apostrophe.svg") no-repeat;
+    z-index: -1;
+  }
+}
+
+.slider-dots {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.slider-dots__dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: $button-red-bg-hover;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.slider-title {
+  margin-top: 15px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.86;
+
+  @include for-size(tablet) {
+    font-size: 16px;
+  }
+
+  @include for-size(desktop) {
+    font-size: 20px;
+  }
+}
+
+.swiper-pagination {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.slider-block .swiper-pagination-bullet{
+
+  width: 12px;
+  height: 12px;
+  background-color: $slider-grey-dots;
+  opacity: 1;
+  transition-property: all;
+  @extend %animation;
+
+  &:first-child {
+    border-radius: 0;
+    background-image: url("../images/slider/icon-home.svg");
+    background-color: transparent;
+    &.swiper-pagination-bullet-active {
+      background-image: url("../images/slider/icon-home-active.svg");
+    }
+  }
+
+  &:not(:last-child) {
+    margin-right: 18px;
+  }
+
+  &-active {
+    background-color: $slider-icons;
+  }
+}
+
+
