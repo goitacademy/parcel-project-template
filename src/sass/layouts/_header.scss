@@ -1,13 +1,18 @@
 .header {
+  width: 100%;
   background-color: $color-main-product-1;
 
-  // @media screen and (min-width: $tablet){
-  //   background-color: transparent;
-  // }
+  @media screen and (min-width: $tablet){
+    position: absolute;
+    left: calc(50%);
+    transform: translateX(-50%);
+    background-color: transparent;
+    z-index: 98;
+  }
 }
 
 .header-nav {
-  position: relative;
+  // position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,8 +20,12 @@
   padding-bottom: 6px;
 
   @media screen and (min-width: $tablet){
-    padding-top: 38px;
+    padding-top: 37px;
     padding-bottom: 0;
+  }
+
+  @media screen and (min-width: $desktop){
+    padding-top: 25px;
   }
 }
 
@@ -88,7 +97,7 @@
   opacity: 1;
   overflow-y: scroll;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 15;
+  z-index: 99;
 
   &.is-hidden {
     opacity: 0;
@@ -138,6 +147,7 @@
   background-color: $color-main;
   border-width: 0;
   border-radius: 22px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:focus,
   &:hover {
