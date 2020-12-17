@@ -1,0 +1,236 @@
+.header-container {
+  background-color: $secondary-accent;
+}
+.header-wrapper {
+  @include for-size(mobile-only) {
+    position: relative;
+  }
+  @include for-size(tablet) {
+    position: relative;
+  }
+}
+.header {
+  display: flex;
+  align-items: center;
+  @include for-size(mobile-only) {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  @include for-size(tablet) {
+    padding-top: 37px;
+    padding-bottom: 37px;
+  }
+  @include for-size(desktop) {
+    padding-top: 37px;
+    padding-bottom: 37px;
+    justify-content: flex-end;
+  }
+}
+.header-logo {
+  margin-right: auto;
+  @include for-size(desktop) {
+    position: absolute;
+    left: -5%;
+  }
+}
+.header-burger-button {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background-color: inherit;
+  z-index: 100;
+
+  @include for-size(desktop) {
+    display: none;
+  }
+}
+
+.header-burger-button-svg {
+  width: 40px;
+  height: 40px;
+}
+.header-icon-close {
+  display: none;
+  fill: $white;
+}
+.header-burger-button.is-open .header-icon-close {
+  display: block;
+}
+.header-burger-button.is-open .header-icon-menu {
+  display: none;
+}
+
+.header-icon-menu {
+  fill: $primary-accent;
+}
+.header-menu {
+  display: none;
+  right: 0px;
+  top: 0;
+
+  @include for-size(mobile-only) {
+    position: absolute;
+    padding-top: 57px;
+    height: 502px;
+    background-color: #e17992;
+    min-width: 250px;
+    max-height: 502px;
+    transition: 250ms;
+    transition-timing-function: $timing-function;
+  }
+
+  @include for-size(tablet) {
+    display: block;
+    transition: 250ms;
+    transition-timing-function: $timing-function;
+  }
+  @include for-size(desktop) {
+    display: flex;
+    background-color: transparent;
+    padding-top: 0px;
+    flex-direction: row-reverse;
+    align-items: center;
+    position: relative;
+  }
+}
+.header-menu.is-open {
+  display: block;
+  text-align: center;
+  @include for-size(tablet) {
+    position: absolute;
+    padding-top: 85px;
+
+    background-color: #e17992;
+    min-width: 254px;
+    height: 1020px;
+  }
+  @include for-size(desktop) {
+    display: flex;
+    position: relative;
+    min-width: auto;
+    height: auto;
+    background-color: transparent;
+    padding-top: 0px;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  .header-menu-button {
+    transition: color 250ms $timing-function,
+      background-color 250ms $timing-function;
+    @include for-size(tablet) {
+      margin-bottom: 19px;
+      margin-left: 0px;
+    }
+    @include for-size(desktop) {
+      margin-bottom: 0px;
+      margin-left: 90px;
+    }
+  }
+}
+// .header-menu-button:hover,
+// .header-menu-button:focus {
+//   color 250ms $timing-function,
+//     background-color 250ms $timing-function;
+// }
+.header-menu-button:hover .header-menu-svg,
+.header-menu-button:focus .header-menu-svg {
+  fill: currentColor;
+}
+.header-menu-tablet {
+  @include for-size(tablet) {
+    display: none;
+  }
+  @include for-size(desktop) {
+    display: flex;
+  }
+}
+.header-menu.is-open .header-menu-tablet {
+  text-align: left;
+  @include for-size(tablet) {
+    display: block;
+  }
+  @include for-size(desktop) {
+    display: flex;
+  }
+}
+.header-menu-button {
+  padding: 0px;
+
+  border: 1px solid wheat;
+
+  background-color: $white;
+  min-width: 209px;
+  align-items: center;
+
+  @include for-size(mobile-only) {
+    margin-bottom: 22px;
+    margin-left: 15px;
+  }
+  @include for-size(tablet) {
+    margin: 0px;
+    margin-left: 30px;
+    // margin-bottom: 19px;
+  }
+  @include for-size(desktop) {
+    margin: 0px;
+    margin-left: 90px;
+  }
+}
+.header-menu-svg {
+  width: 6px;
+  height: 8px;
+  fill: $primary-accent;
+  margin-left: 25px;
+  transition: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.header-navigation {
+  padding: 0px;
+  margin: 0;
+  list-style: none;
+  @include for-size(desktop) {
+    display: flex;
+  }
+}
+.header-navigation-link {
+  display: block;
+  text-decoration: none;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  border: 1px solid #e18298;
+
+  color: $white;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3em;
+  transition: color 250ms $timing-function;
+  @include for-size(mobile-only) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @include for-size(tablet) {
+    padding-left: 24px;
+  }
+  @include for-size(desktop) {
+    border: none;
+    font-size: 16px;
+    padding-left: 0px;
+  }
+  &:hover,
+  &:focus {
+    color: $primary-accent;
+  }
+}
+.header-navigation-list:not(:last-child) {
+  @include for-size(desktop) {
+    padding-right: 35px;
+  }
+}
+.header-pr-link {
+  color: $primary-accent;
+}
+// .header-navigation-list:active {
+//   color: $primary-accent;
+// }
