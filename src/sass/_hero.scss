@@ -31,7 +31,8 @@
   &:hover,
   &:focus {
     background: #ecebeb;
-    border: 1px solid transparent;
+    /*     border: 1px solid #d41443;
+ */
     outline-color: transparent;
   }
 }
@@ -40,20 +41,25 @@
   @extend %btn;
   margin-right: 8px;
   color: $main-color;
-  background: #d41443;
+  background: $accent-color;
 
   &:hover,
   &:focus {
-    background: $main-color;
-    color: #d41443;
-    border: 1px solid transparent;
+    background: $advanced-bg;
+    color: $accent-color;
+    /*     border: 1px solid $accent-color;
+ */
   }
 }
 
 .hero {
   background-color: $main-bg;
   height: 502px;
-
+  @media screen and (max-width: 480px) {
+    background-image: url(../images/mobile/ellipse_hero.png);
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+  }
   @media screen and (min-width: 768px) {
     height: 399px;
   }
@@ -71,11 +77,9 @@
   margin: 0 auto;
   @media screen and (max-width: 767px) {
     background-size: 171px 410px, 346px 344px;
-    background-image: url(../images/mobile/icecreame_hero.png),
-      url(../images/mobile/ellipse_hero.png);
-    background-repeat: no-repeat, no-repeat;
-    background-position: top 83px left 36px;
-    background-position: 90% 100%, 100% 50%;
+    background-image: url(../images/mobile/icecreame_hero.png);
+    background-repeat: no-repeat;
+    background-position: 90% 100%;
   }
   @media screen and (min-device-pixel-ratio: 2),
     screen and (-webkit-min-device-pixel-ratio: 2),
@@ -88,13 +92,13 @@
     }
   }
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 481px) {
     background-repeat: no-repeat;
 
-    background-image: url(../images/tablet/ellipse_hero.png),
-      url(../images/tablet/icecreame_hero.png);
-    background-size: 168px 133px, 143px 336px, 324px 322px, 124px 126px;
-    background-position: 90% 100%, 100% 50%;
+    background-image: url(../images/tablet/icecreame_hero.png),
+      url(../images/tablet/ellipse_hero.png);
+    background-size: 143px 336px, 324px;
+    background-position: 70% 100%, 100% 70%;
   }
 
   @media screen and (min-width: 480px) {
@@ -119,7 +123,7 @@
       url(../images/tablet/ellipse_hero.png),
       url(../images/tablet/bidon-moloka.png);
     background-size: 168px 133px, 143px 336px, 324px 322px, 124px 126px;
-    background-position: 80% 100%, 50% 100%, 50% 50%, 5% 93%;
+    background-position: 95% 100%, 61% 100%, 70% 40%, 5% 93%;
   }
 
   @media screen and (min-width: 768px) {
@@ -144,9 +148,9 @@
       url(../images/icecreame_hero.png), url(../images/ellipse_hero.png),
       url(../images/bidon-moloka.png);
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-    background-position: 80% 100%, 50% 100%, 50% 50%, 5% 90%;
+    background-position: 90% 100%, 60% 100%, 63% 34%, 3% 92%;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     @media screen and (min-device-pixel-ratio: 2),
       screen and (-webkit-min-device-pixel-ratio: 2),
       screen and (-o-min-device-pixel-ratio: 2/1),
@@ -193,9 +197,11 @@
   text-transform: uppercase;
   margin-bottom: 19px;
   color: $main-color;
+  width: 200px;
   @media screen and (min-width: 480px) {
-    font-size: 22px;
-    line-height: 1.1363;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.154;
   }
   @media screen and (min-width: 768px) {
     width: 150px;
@@ -212,6 +218,19 @@
     font-size: 48px;
     line-height: 0.89;
     color: #d41443;
+    @media screen and (min-width: 480px) {
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 0.9375;
+    }
+    @media screen and (min-width: 768px) {
+      font-size: 34px;
+      line-height: 0.8824;
+    }
+    @media screen and (min-width: 1200px) {
+      font-size: 58px;
+      line-height: 0.8966;
+    }
   }
 }
 
@@ -227,7 +246,7 @@
     bottom: 59px;
     left: 154px;
     display: inline-block;
-    width: 114px;
+    width: 124px;
     height: 48px;
 
     font-family: 'DM Sans';
@@ -235,11 +254,11 @@
     line-height: 1.5;
   }
   @media screen and (min-width: 1200px) {
-    width: 200px;
+    width: 203px;
     height: 78px;
 
     bottom: 102px;
-    left: 295px;
+    left: 230px;
 
     font-size: 14px;
     line-height: 1.4;
@@ -290,6 +309,10 @@
 
   &-text:not(:last-child) {
     margin-bottom: 14px;
+
+    @media screen and (min-width: 1200px) {
+      margin-bottom: 18px;
+    }
   }
 }
 
