@@ -1,17 +1,42 @@
 .hero {
   background-color: $color-main-product-1;
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 102px;
+    padding-bottom: 28px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-bottom: 45px;
+  }
 }
 
 .hero .container {
   position: relative;
-  min-height: 502px;
+
+  @media screen and (max-width: 739px) {
+    min-height: 440px;
+  }
+}
+
+.upper-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 19px;
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 56px;
+    padding-left: 70px;
+  }
 }
 
 .hero-box {
-  position: absolute;
-  top: 193px;
-  left: 20px;
-  z-index: 10;
+  @media screen and (max-width: 739px) {
+    position: absolute;
+    top: 131px;
+    left: 20px;
+    z-index: 3;
+  }
 }
 
 .hero-title {
@@ -27,10 +52,26 @@
 
   color: $color-main;
 
+  @media screen and (min-width: $tablet) {
+    font-size: 22px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    max-width: 277px;
+    font-size: 37px;
+  }
+
   .text {
     font-size: 48px;
-
     color: $color-accent;
+
+    @media screen and (min-width: $tablet) {
+      font-size: 37px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      font-size: 58px;
+    }
   }
 }
 
@@ -40,6 +81,10 @@
 
 .anchors-item:not(:last-child) {
   margin-right: 8px;
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 15px;
+  }
 }
 
 .anchors-button {
@@ -51,17 +96,27 @@
   border-radius: 20px;
 
   font-family: 'DM Sans', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 400;
+  font-size: 8px;
   line-height: 1.25;
 
   background-color: $color-main;
   color: $color-accent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
     background-color: $color-accent-button-2;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 23px;
+    padding-right: 23px;
+
+    font-size: 10px;
+    line-height: 1.3;
   }
 }
 
@@ -75,9 +130,180 @@
   }
 }
 
+.places {
+  @media screen and (max-width: 739px) {
+    display: none;
+  }
+}
+
+.places-item {
+  &::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: $color-main;
+
+    @media screen and (min-width: $desktop) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 13px;
+  }
+}
+
+.places-number {
+  font-family: 'Titan One', sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.14;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: $color-accent;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 46px;
+    line-height: 1.13;
+  }
+}
+
+.places-text {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1.25;
+
+  color: $color-main;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+}
+
+.eco {
+  display: flex;
+  align-items: flex-end;
+
+  @media screen and (max-width: 739px) {
+    display: none;
+  }
+}
+
+.eco-content {
+  max-width: 115px;
+  padding-bottom: 6px;
+
+  @media screen and (min-width: $desktop) {
+    max-width: 200px;
+    padding-bottom: 11px;
+  }
+}
+
+.eco-img {
+  display: none;
+
+  @media screen and (min-width: $tablet) {
+    display: inline-block;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 30px;
+  }
+}
+
+.eco-text {
+  margin-bottom: 7px;
+
+  font-family: 'DM Sans', sans-serif;
+
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1.5;
+
+  color: $color-main;
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+.eco-link {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-color: $color-main;
+  border-radius: 50%;
+
+  @media screen and (min-width: $desktop) {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.hero-circle {
+  position: absolute;
+  left: 36px;
+  bottom: 75px;
+
+  display: block;
+  width: 346px;
+  height: 344px;
+  border-radius: 50%;
+
+  background-color: $color-background-hero;
+
+  @media screen and (min-width: $tablet) {
+    width: 324;
+    height: 322px;
+    left: 293px;
+    bottom: 18px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 538px;
+    height: 538px;
+    left: 449px;
+    bottom: 47px;
+  }
+}
+
 .hero-img {
   position: absolute;
   max-width: 100%;
   right: 32px;
   bottom: 0;
+
+  @media screen and (min-width: $tablet) {
+    right: 233px;
+    bottom: -45px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    left: 568px;
+  }
+}
+
+.girl-img {
+  display: none;
+
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    display: block;
+    right: 20px;
+    bottom: -28px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    right: 109px;
+    bottom: -45px;
+  }
 }
