@@ -1,0 +1,267 @@
+// стиль для ссылок
+.link {
+  text-decoration: none;
+}
+
+.overlay {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  padding-top: 6px;
+  height: 502px;
+
+  background-color: $heder-bg-color;
+  overflow-x: hidden;
+}
+
+.header {
+  // Обертка для хедера
+  &-layout {
+    display: flex;
+    align-items: center;
+  }
+
+  &-layout-item:nth-child(3) {
+    margin-left: auto;
+  }
+
+  // Кнопка купить
+  &-btn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    display: block;
+    width: 210px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.3125;
+
+    color: $button-bg-2;
+    background-color: $button-bg-1;
+    border: 0;
+    border-radius: 22px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &-btn:hover,
+  &-btn:focus {
+    background-color: $button-hover-1;
+  }
+
+  &-btn-icon {
+    margin-left: 25px;
+    width: 7px;
+    height: 10px;
+    stroke: $button-bg-2;
+  }
+}
+
+.menu {
+  // кнопка меню
+  &-btn {
+    position: relative;
+    display: block;
+    z-index: 11;
+
+    padding: 0;
+    width: 100%;
+
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  // Стили свг в кнопке меню
+  &-icon {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    display: block;
+    width: 20px;
+    height: 20px;
+
+    stroke: $button-bg-2;
+  }
+
+  // Стили для close
+  &-close {
+    stroke: $button-bg-1;
+  }
+
+  // Стили для открытия-закрытия меню
+  &-btn &-close {
+    display: none;
+  }
+
+  &-btn.is-open &-close {
+    display: block;
+  }
+
+  &-btn.is-open &-burger {
+    display: none;
+  }
+
+  // Стили блока меню
+  &-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+
+    padding-top: 60px;
+
+    display: none;
+    width: 250px;
+    height: 502px;
+
+    background-color: $mobail-menu-bg-color;
+    box-shadow: (-8px 0px 20px rgba(0, 0, 0, 0.25));
+  }
+}
+
+.is-open {
+  display: block;
+}
+
+// Стили для основной навигации страницы
+.site-nav {
+  &-item {
+    padding: 12px 20px;
+
+    border-bottom: 1px solid #e18298;
+  }
+
+  &-item:first-child {
+    border-top: 1px solid #e18298;
+  }
+
+  &-link {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.286;
+
+    color: $third-text-color;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &-link:hover,
+  &-link:focus {
+    color: $accent-color;
+  }
+}
+
+.current {
+  color: $accent-color;
+}
+
+// Стили блока-героя
+.hero {
+  padding-top: 193px;
+  padding-right: 0;
+  padding-left: 0;
+
+  // Обертка для заголовка героя и кнопок под ним
+  &-title-container {
+    position: relative;
+    z-index: 5;
+  }
+
+  // Заголовок героя
+  &-title {
+    margin-bottom: 20px;
+    max-width: 218px;
+
+    font-family: Titan One;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 0.965;
+
+    color: $button-bg-2;
+    text-transform: uppercase;
+  }
+
+  &-accent {
+    display: block;
+
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+
+    color: $button-bg-1;
+  }
+
+  // Кнопки героя
+
+  &-btn {
+    margin-right: 8px;
+    padding: 8px 13px;
+
+    font-weight: normal;
+    font-size: 8px;
+    line-height: 1.25;
+
+    color: $button-bg-2;
+    background-color: $button-bg-1;
+    border: 0;
+    border-radius: 20px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &-btn:hover,
+  &-btn:focus {
+    background-color: $button-hover-1;
+  }
+
+  &-btn-accent {
+    color: $button-bg-1;
+    background-color: $button-bg-2;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &-btn-accent:hover,
+  &-btn-accent:focus {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: $button-hover-2;
+  }
+}
+
+// Стили картинки header-ice-cream
+.icecr-bg {
+  position: absolute;
+  top: 92px;
+  right: 32px;
+
+  // Круг за картинкой header-ice-cream
+  &::before {
+    position: absolute;
+    top: -9px;
+    left: -81px;
+    z-index: 1;
+
+    content: '';
+
+    width: 346px;
+    height: 346px;
+
+    border-radius: 50%;
+    background-color: $second-title-color;
+  }
+}
+
+.img {
+  &-icecr {
+    position: relative;
+    z-index: 2;
+    width: 171px;
+
+    @media screen and(min-width:768px) {
+      width: 143px;
+    }
+    @media screen and(min-width:1200px) {
+      width: 100%;
+    }
+  }
+}
