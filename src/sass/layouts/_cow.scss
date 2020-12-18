@@ -1,6 +1,6 @@
 .cow {
   position: relative;
-  padding-top: 145px;
+  padding-top: 125px;
   padding-bottom: 97px;
   background-image: url(../images/mobile/cow/cow-bg.png);
   background-size: contain;
@@ -16,11 +16,13 @@
   }
 
   @include for-size(tablet) {
+    padding-top: 130px;
     padding-bottom: 140px;
     background-image: none;
   }
 
   @include for-size(desktop) {
+    padding-top: 125px;
     padding-bottom: 139px;
     background-image: url(../images/desktop/cow/cow-bg.png);
 
@@ -101,7 +103,9 @@
 }
 
 .cow-wrapper .content-box:nth-child(2) {
-  padding-top: 50px;
+  @include for-size(tablet) {
+    padding-top: 50px;
+  }
 }
 
 .cow-image {
@@ -182,32 +186,45 @@
     line-height: 1.31;
     margin: 0;
   }
+
+  &:hover,
+  &:focus {
+    background-color: $button-bg-hover;
+    @extend %animation;
+  }
 }
 
 .cow-link-icon {
   position: absolute;
-  top: 19px;
-  right: 38px;
-  width: 5px;
-  height: 8px;
+  top: 51%;
+  right: 33px;
+  width: 19px;
+  height: 17px;
+  transform: translateY(-50%);
   fill: $main-text-color;
 }
 
 .cow-grid {
-  @include for-size(tablet) {
+  margin-right: 50px;
+
+  @include for-size(mobile) {
     display: flex;
     flex-wrap: wrap;
     margin-left: -60px;
     margin-right: 40px;
   }
-
   @include for-size(tablet) {
+    margin-left: -60px;
+    margin-right: 40px;
+  }
+
+  @include for-size(desktop) {
     margin-right: 0;
   }
 }
 
 .cow-grid-item {
-  @include for-size(tablet) {
+  @include for-size(mobile) {
     margin-left: 60px;
     flex-basis: calc(100% / 3 - 60px);
   }
@@ -245,7 +262,7 @@
 .cow-grid-item:not(:last-child) {
   margin-bottom: 38px;
 
-  @include for-size(tablet) {
+  @include for-size(mobile) {
     margin-bottom: 0;
   }
 }
@@ -289,16 +306,61 @@
     linear-gradient(to bottom, $bg-pink 39.77%, $bg-white 39.77%);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: contain;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/mobile/cow/collage@2x.jpg),
+      linear-gradient(to bottom, $bg-pink 39.77%, $bg-white 39.77%);
+  }
+
+  @include for-size(mobile) {
+    height: 264px;
+    background-image: url(../images/tablet/cow/collage.jpg),
+      linear-gradient(to bottom, $bg-pink 39.77%, $bg-white 39.77%);
+    // background-size: contain;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/tablet/cow/collage@2x.jpg),
+        linear-gradient(to bottom, $bg-pink 39.77%, $bg-white 39.77%);
+    }
+  }
 
   @include for-size(tablet) {
     height: 264px;
     background-image: url(../images/tablet/cow/collage.jpg),
       linear-gradient(to bottom, $bg-pink 39.77%, $bg-white 39.77%);
+    background-size: auto;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/tablet/cow/collage@2x.jpg),
+        linear-gradient(to bottom, $bg-pink 39.77%, $bg-white 39.77%);
+    }
   }
 
   @include for-size(desktop) {
     height: 430px;
     background-image: url(../images/desktop/cow/collage.jpg),
       linear-gradient(to bottom, $bg-pink 39.77%, $bg-white 39.77%);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/desktop/cow/collage@2x.jpg),
+        linear-gradient(to bottom, $bg-pink 39.77%, $bg-white 39.77%);
+    }
   }
 }
