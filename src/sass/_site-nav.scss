@@ -2,46 +2,62 @@
 //   outline: 1px solid tomato;
 // }
 
-.btn {
-  border: none;
-  background-color: rgba(0, 0, 0, 0);
-}
-ul,
-li {
-  margin: 0;
-  padding: 0;
+%site-nav-list-utils {
   list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.site-nav {
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .container-site-nav {
   position: relative;
   display: flex;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 1);
 }
 
 .logo {
   margin-top: 6px;
   margin-bottom: 6px;
-  margin-left: 20px;
   @media screen and(min-width: $tablet) {
     margin-top: 37px;
     margin-bottom: 37px;
-    margin-left: 34px;
   }
   @media screen and(min-width: $desktop) {
+    position: relative;
+    left: -70px;
     margin-top: 35px;
     margin-bottom: 35px;
-    margin-left: 46px;
-    margin-right: 110px;
+
+    margin-right: 40px;
   }
 }
 
 .site-nav-list {
+  @extend %site-nav-list-utils;
   display: none;
   @media screen and(min-width: $desktop) {
     display: flex;
+    list-style: none;
+    padding: 0;
     // margin-top: 48px;
+  }
+}
+
+.link-site-nav {
+  text-decoration: none;
+  font-family: $primary-font;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.313;
+
+  color: $primary-text-color;
+
+  &:hover,
+  &:hover {
+    color: $primary-title-color;
   }
 }
 
@@ -49,22 +65,108 @@ li {
   margin-right: 35px;
 }
 
-.btn-site-nav.desktop {
+.btn-site-nav {
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: $white;
+
+  font-family: $primary-font;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.302;
+  color: $primary-title-color;
+}
+
+.btn-site-nav:hover,
+.btn-site-nav:focus {
+  color: $primary-title-color;
+  background-color: $secondary-accent-color;
+}
+
+.container-btn-site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 209px;
+  margin-top: 23px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: $white;
+  border-radius: 22px;
+  @media screen and(min-width: $tablet) {
+    width: 186px;
+  }
+}
+
+.btn-icon-site-nav {
+  margin-left: 16px;
+  fill: rgba(0, 0, 0, 0);
+  @media screen and(min-width: $tablet) {
+    margin-left: 12px;
+  }
+}
+.btn-icon-menu-site-nav {
+  @media screen and(min-width: $tablet) {
+    margin-left: 14px;
+  }
+}
+
+.close-btn-site-nav {
+  display: block;
+  height: 17px;
+  margin-left: 208px;
+  margin-top: 24px;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.btn-site-nav-desktop {
   display: none;
   @media screen and(min-width: $tablet) {
-    display: block;
-    // margin-top: 38px;
-    margin-right: 34px;
+    display: flex;
+    width: 160px;
+    margin-top: 0;
+    margin-right: 0;
     margin-left: auto;
   }
   @media screen and(min-width: $desktop) {
     // margin-top: 36px;
-    margin-right: 115px;
+    // margin-right: 115px;
   }
 }
 
+.btn-site-nav.mobile {
+  display: block;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 49px;
+  padding-right: 49px;
+}
+
 .mobile-nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  z-index: 55;
   background-color: rgba(225, 121, 146, 1);
+  width: 250px;
+  height: 502px;
+  margin-left: auto;
+  opacity: 0;
+  pointer-events: none;
+  &.is-open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: visiblePainted;
+  }
+  @media screen and(min-width: $tablet) {
+    width: 254px;
+    height: 1020px;
+  }
 }
 
 .burger-menu {
@@ -72,18 +174,19 @@ li {
   align-items: center;
   position: absolute;
   top: 23px;
-  right: 20px;
+  right: 1px;
   box-sizing: content-box;
   width: 20px;
   height: 16px;
   z-index: 1;
+  background-color: rgba(0, 0, 0, 0);
 
   padding-left: 0;
   padding-right: 0;
 
   @media screen and(min-width: $tablet) {
     top: 52px;
-    right: 224px;
+    right: 190px;
   }
   @media screen and(min-width: $desktop) {
     display: none;
@@ -110,6 +213,33 @@ li {
 .burger-menu > span::after {
   content: '';
   top: 6px;
+}
+
+.mobile-nav-list {
+  @extend %site-nav-list-utils;
+  margin-top: 32px;
+  margin-left: 21px;
+  @media screen and(min-width: $tablet) {
+    margin-left: 24px;
+  }
+}
+
+.mobile-nav-list .site-nav-item:not(:first-child) {
+  margin-top: 22px;
+}
+
+.link-mobile-site-nav {
+  text-decoration: none;
+  font-family: $primary-font;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.286;
+  color: $primary-text-color;
+
+  &:hover,
+  &:focus {
+    color: #d41443;
+  }
 }
 
 //пример для фона загрузки разных размеров и плотностей
