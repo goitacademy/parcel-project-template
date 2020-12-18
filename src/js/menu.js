@@ -12,9 +12,6 @@
     menuBtnClose.classList.toggle('is-open');
     menuBtnOpen.classList.toggle('is-open');
 
-    // menuBtnOpen.setAttribute('aria-expanded', !expanded);
-    // menuBtnClose.setAttribute('aria-expanded', !expanded2);
-
     mobileMenuRef.classList.toggle('is-open');
   });
 
@@ -26,9 +23,6 @@
 
     menuBtnClose.classList.toggle('is-open');
     menuBtnOpen.classList.toggle('is-open');
-
-    // menuBtnOpen.setAttribute('aria-expanded', !expanded);
-    // menuBtnClose.setAttribute('aria-expanded', !expanded2);
 
     mobileMenuRef.classList.toggle('is-open');
   });
