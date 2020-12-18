@@ -39,7 +39,6 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
-  outline: 2px solid red;
 }
 
 address {
@@ -192,6 +191,11 @@ address {
   margin-left: 20px;
 }
 
+.main-nav .tablet-menu {
+  display: flex;
+  align-items: center;
+}
+
 .main-nav .nav-box {
   display: none;
 }
@@ -257,46 +261,44 @@ address {
 }
 
 .btn-icon {
-  width: 10px;
-  height: 10px;
+  width: 19px;
+  height: 17px;
   position: absolute;
   display: inline-flex;
   right: 37px;
   fill: #d41443;
 }
 
-.menu-button {
+.menu-button-open {
   display: inline-block;
-  margin: 0;
   border: none;
   background-color: transparent;
+  fill: #d41443;
 }
 
 @media (min-width: 768px) {
-  .menu-button {
-    justify-content: end;
+  .menu-button-open {
+    margin-right: 30px;
   }
 }
 
 @media (min-width: 1050px) {
-  .menu-button {
+  .menu-button-open {
     display: none;
   }
 }
 
-.menu-button.is-open .icon-menu {
-  display: none;
-}
-
-.menu-button .icon-close {
-  display: none;
-}
-
-.icon-menu {
-  fill: #d41443;
+.menu-button-close {
+  display: inline-block;
+  position: absolute;
+  background-color: transparent;
 }
 
 .icon-close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   fill: #ffffff;
 }
 
@@ -324,19 +326,6 @@ address {
   .mobile-container {
     display: none;
   }
-}
-
-.mobile-container.is-open {
-  opacity: 1;
-  visibility: visible;
-  overflow: scroll;
-}
-
-.mobile-container.is-open .menu-button {
-  position: absolute;
-  display: block;
-  top: 23px;
-  right: 20px;
 }
 
 .btn-burger {
