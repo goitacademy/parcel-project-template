@@ -1,5 +1,24 @@
 .locations {
   background-color: $color-background-section;
+
+  @include breakpoint(desktop) {
+    background-image: url('../images/bitmap/section-locations/desk@1x.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /*max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;*/
+
+    @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+          background-image: url('../images/bitmap/section-locations/desk@2x.png');
+    }
+  }
+
+  @media screen and (min-width: 1960px) {
+    background-size: cover;
+  }
 }
 
 .locations-cafe {
@@ -14,7 +33,7 @@
   @include breakpoint(tablet) {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -20px;
+    justify-content: center;
   }
 }
 
@@ -27,16 +46,29 @@
   box-shadow: 0px 8px 30px $color-location-shadow;
 
   @include breakpoint(tablet) {
-    margin-left: 20px;
-    flex-basis: calc(100% / 3 - 20px);
+    flex-basis: 220px; /*calc(100% / 3 - 20px);*/
     //top: -78px;
     padding: 50px 31px;
+  }
+
+  @include breakpoint(desktop) {
+    flex-basis: 330px;
+    //top: -102px;
+    padding: 51px 43px 62px;
   }
 }
 
 .locations-cafe-item:not(:last-child) {
   @include breakpoint(non-tablet) {
     margin-bottom: 20px;
+  }
+
+  @include breakpoint(tablet) {
+    margin-right: 20px;
+  }
+
+  @include breakpoint(desktop) {
+    margin-right: 30px;
   }
 }
 
@@ -46,7 +78,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
-  line-height: 22px; /*186%;*/
+  line-height: 22px;
   text-transform: uppercase;
   /*display: flex;
   align-items: center;*/
@@ -56,7 +88,7 @@
 
   @include breakpoint(tablet) {
     font-size: 16px;
-    line-height: 30px; /*186%;*/
+    line-height: 30px;
   }
 }
 
@@ -70,7 +102,7 @@
 }
 
 .food {
-  width: 80px;
+  width: 130px;
   background-color: $color-main-product-3;
 
   @include breakpoint(tablet) {
@@ -97,12 +129,17 @@
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
-  line-height: 22px; /*186%;*/
+  line-height: 22px;
   letter-spacing: 0.04em;
 
   @include breakpoint(tablet) {
     font-size: 14px;
-    line-height: 26px; /*186%;*/
+    line-height: 26px;
+  }
+
+  @include breakpoint(desktop) {
+    font-size: 16px;
+    line-height: 30px;
   }
 }
 
@@ -118,6 +155,11 @@
     font-size: 14px;
     line-height: 23px;
   }
+
+  @include breakpoint(desktop) {
+    font-size: 16px;
+    line-height: 29px;
+  }
 }
 
 .locations-text-accent {
@@ -126,18 +168,18 @@
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
-  line-height: 22px; /*186%;*/
+  line-height: 22px;
 
   @include breakpoint(tablet) {
     font-size: 14px;
-    line-height: 26px; /*186%;*/
+    line-height: 26px;
+  }
+
+  @include breakpoint(desktop) {
+    font-size: 16px;
+    line-height: 30px;
   }
 }
-
-/*.locations-links-li {
-  position: relative;
-  top: -30px;
-}*/
 
 .locations-links-li:not(:last-child) {
   @include breakpoint(non-tablet) {
@@ -165,6 +207,10 @@
     justify-content: center;
     margin-top: 3px;
   }
+
+  @include breakpoint(tablet) {
+    margin-top: -16px;
+  }
 }
 
 .locations-links-item {
@@ -173,7 +219,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 160px;
   height: 44px;
   font-family: DM Sans;
   font-style: normal;
@@ -184,8 +229,17 @@
 }
 
 .locations-location {
+  width: 160px;
   color: $color-main;
   background-color: $color-location-button;
+
+  @include breakpoint(tablet) {
+    width: 191px;
+  }
+
+  @include breakpoint(desktop) {
+    width: 198px;
+  }
 
   &:hover,
   &:focus {
@@ -194,8 +248,17 @@
 }
 
 .locations-franchise {
+  width: 160px;
   color: $color-accent;
   background-color: $color-main;
+
+  @include breakpoint(tablet) {
+    width: 174px;
+  }
+
+  @include breakpoint(desktop) {
+    width: 180px;
+  }
 
   &:hover,
   &:focus {
