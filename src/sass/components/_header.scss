@@ -4,6 +4,33 @@
   display: block;
 }
 
+.content-container-overlay {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (max-width: 408px) {
+    min-width: 320px;
+  }
+
+  @media screen and (min-width: 409px) and (max-width: 768px) {
+    width: 408px;
+  }
+
+  @media screen and(min-width:768px) {
+    width: 768px;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  @media screen and(min-width:1280px) {
+    width: 1280px;
+    padding-left: 115px;
+    padding-right: 115px;
+  }
+}
+
 .overlay {
   position: relative;
 
@@ -16,10 +43,6 @@
     padding-left: 46px;
   }
 
-  @media screen and (max-width: 100vw) {
-    overflow-x: auto;
-  }
-
   @media screen and (min-width: 768px) {
     height: 400px;
     overflow-x: unset;
@@ -30,7 +53,6 @@
     height: 665px;
     overflow-x: unset;
     padding-top: 38px;
-    padding-bottom: 45px;
   }
 }
 
@@ -107,14 +129,18 @@
 }
 .main-menu {
   display: flex;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
   // margin-left: -46px;
+
+  @media screen and (min-width: 1280px) {
+    margin-left: -46px;
+  }
+  width: 100%;
 }
 
 .main-nav {
-  @media screen and (max-width: 1179px) {
+  @media screen and (max-width: 1279px) {
     display: none;
   }
   z-index: 5;
@@ -210,7 +236,13 @@
     display: block;
     position: absolute;
     top: 24px;
-    right: 34px;
+    right: 20px;
+
+    background-color: transparent;
+    width: auto;
+    height: 20px;
+    border: none;
+    padding: 0;
 
     &.open {
       @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -224,18 +256,7 @@
       }
     }
   }
-
-  &-btn {
-    display: block;
-    background-color: transparent;
-    width: auto;
-    height: 20px;
-    border: none;
-    padding: 0;
-  }
   &-icon {
-    padding-top: 2px;
-    padding-bottom: 2px;
     display: block;
     width: 20px;
     height: 20px;
@@ -344,6 +365,8 @@
       display: flex;
       align-items: center;
       margin-top: 56px;
+      position: absolute;
+      left: 30px;
     }
   }
 
@@ -385,6 +408,7 @@
       font-size: 58px;
       line-height: 0.905;
       width: 277px;
+      margin-left: -30px;
     }
   }
 
@@ -431,8 +455,10 @@
       font-size: 14px;
       line-height: 1.23;
       padding: 8px 20px;
+
       &-accent {
         margin-right: 15px;
+        margin-left: -30px;
       }
     }
   }
@@ -537,6 +563,12 @@
     top: 47px;
   }
 
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    left: 190px;
+    top: 55px;
+  }
+
   &-text {
     font-family: $main-text-font;
     font-style: normal;
@@ -611,8 +643,11 @@
   &-ice-cream {
     position: absolute;
     bottom: 0;
-    right: 32px;
-    width: 171px;
+
+    @media screen and (max-width: 767px) {
+      left: 117px;
+      width: 171px;
+    }
 
     @media screen and (min-width: 768px) {
       width: 143px;
