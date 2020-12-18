@@ -9,14 +9,15 @@
 
   padding-top: 6px;
   height: 502px;
+  overflow-x: hidden;
 
-  @media screen and (min-width: 1279px) {
+  @media screen and (min-width: 1280px) {
     padding-right: 46px;
     padding-left: 46px;
   }
 
-  @media screen and (max-width: 460px) {
-    overflow-x: hidden;
+  @media screen and (max-width: 100vw) {
+    overflow-x: auto;
   }
 
   @media screen and (min-width: 768px) {
@@ -37,23 +38,9 @@
   // Обертка для хедера
   background-color: $header-bg-color;
 
-  // &-layout {
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: space-between;
-
-  //   &-item .btn.header-btn {
-  //     @media screen and (max-width: 767px) {
-  //       display: none;
-  //     }
-  //   }
-  // }
-
-  // &-layout-item:nth-child(3) {
-  //   margin-left: auto;
-  // }
-
   &-ice-cream {
+    overflow-x: visible;
+
     &::before {
       content: '';
       background-color: $second-title-color;
@@ -61,7 +48,6 @@
       height: 344px;
       position: absolute;
       border-radius: 50%;
-      overflow-x: visible;
 
       @media screen and (max-width: 767px) {
         top: 83px;
@@ -121,12 +107,42 @@
 }
 .main-menu {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  @media screen and (min-width: 1279px) {
+  // margin-left: -46px;
+}
+
+.main-nav {
+  @media screen and (max-width: 1179px) {
+    display: none;
+  }
+  z-index: 5;
+  &-list {
     display: flex;
-    width: 70%;
-    z-index: 12;
+  }
+  &-item {
+    &:not(:first-child) {
+      margin-left: 35px;
+    }
+  }
+  &-link {
+    display: block;
+    font-family: $main-text-font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.31;
+
+    display: flex;
+    align-items: center;
+
+    color: $third-text-color;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
   }
 }
 
@@ -203,6 +219,9 @@
         z-index: 4;
         outline: none;
       }
+      @media screen and (min-width: 1280px) {
+        display: none;
+      }
     }
   }
 
@@ -263,17 +282,16 @@
 }
 
 .positioned-btn {
-  position: absolute;
-  top: 38px;
-  right: 34px;
+  position: relative;
   z-index: 5;
-  width: 160px;
-
   padding: 0;
   padding-top: 12px;
   padding-bottom: 12px;
   display: block;
-  width: 161px;
+  width: 159px;
+  text-align: start;
+  padding-left: 38px;
+
   font-weight: 700;
   font-size: 16px;
   line-height: 1.3125;
@@ -281,14 +299,26 @@
   background-color: $third-text-color;
   border: 0;
   border-radius: 22px;
+
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  @media screen and (max-width: 787px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 
-  @media screen and (min-width: 1279px) {
-    right: 115px;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    background-color: $button-hover-1;
+  }
+
+  &-icon {
+    width: 8px;
+    height: 16px;
+    position: absolute;
+    top: 15px;
+    right: 38px;
+    stroke: $accent-color;
   }
 }
 
@@ -310,9 +340,14 @@
     @media screen and (max-width: 767px) {
       display: none;
     }
+    @media screen and (min-width: 1280px) {
+      display: flex;
+      align-items: center;
+      margin-top: 56px;
+    }
   }
 
-  @media screen and (min-width: 1279px) {
+  @media screen and (min-width: 1280px) {
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -321,12 +356,16 @@
   &-title-container {
     position: relative;
     z-index: 5;
+
+    @media screen and (min-width: 1280px) {
+      margin-top: 84px;
+    }
   }
 
   // Заголовок героя
   &-title {
     margin-bottom: 20px;
-    width: 218px;
+    width: 230px;
 
     font-family: Titan One;
     font-weight: 400;
@@ -343,8 +382,9 @@
     }
 
     @media screen and (min-width: 1280px) {
-      font-size: 38px;
-      line-height: 1.16;
+      font-size: 58px;
+      line-height: 0.905;
+      width: 277px;
     }
   }
 
@@ -359,13 +399,20 @@
     @media screen and (min-width: 768px) {
       font-size: 22px;
       line-height: 25px;
-      letter-spacing: 0.04em;
+    }
+    @media screen and (min-width: 1280px) {
+      font-size: 38px;
+      line-height: 1.16;
+      width: 277px;
     }
   }
 
   // Кнопки героя
   &-btn {
-    margin-right: 8px;
+    cursor: pointer;
+    &-accent {
+      margin-right: 8px;
+    }
     padding: 8px 13px;
 
     font-weight: normal;
@@ -377,6 +424,17 @@
     border: 0;
     border-radius: 20px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    @media screen and (min-width: 1280px) {
+      min-width: 104px;
+      height: 40px;
+      font-size: 14px;
+      line-height: 1.23;
+      padding: 8px 20px;
+      &-accent {
+        margin-right: 15px;
+      }
+    }
   }
   &-btn:hover,
   &-btn:focus {
@@ -399,7 +457,7 @@
 .statistics {
   position: absolute;
   top: 97px;
-  right: 34px;
+  right: 42px;
 
   @media screen and (max-width: 767px) {
     display: none;
@@ -473,9 +531,11 @@
 }
 
 .div-milk {
-  position: absolute;
-  left: 120px;
-  top: 47px;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    position: absolute;
+    left: 120px;
+    top: 47px;
+  }
 
   &-text {
     font-family: $main-text-font;
@@ -485,6 +545,13 @@
     color: $third-text-color;
     width: 114px;
     height: 48px;
+
+    @media screen and (min-width: 1280px) {
+      font-size: 14px;
+      line-height: 1.4;
+      width: 200px;
+      height: 78px;
+    }
   }
   &-btn {
     height: 18px;
@@ -495,14 +562,31 @@
     display: block;
     margin-top: 7px;
     position: relative;
+
+    @media screen and (min-width: 1280px) {
+      margin-top: 20px;
+      width: 26px;
+      height: 26px;
+    }
+
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      background-color: $button-hover-1;
+    }
   }
   &-btn-icon {
     position: absolute;
     top: 25%;
-    left: 25%;
+    left: 30%;
     fill: $accent-color;
     width: 8px;
     height: 8px;
+    @media screen and (min-width: 1280px) {
+      top: 30%;
+      width: 11px;
+      height: 11px;
+    }
   }
 }
 
@@ -538,6 +622,12 @@
     @media screen and (min-width: 1280px) {
       width: 236px;
       right: 450px;
+    }
+  }
+
+  &-milk {
+    @media screen and (min-width: 1280px) {
+      width: 188px;
     }
   }
 }
