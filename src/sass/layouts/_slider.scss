@@ -1,5 +1,10 @@
 .slider {
+
+  position: relative;
+  padding-top: 120px;
+
   padding-top: 26px;
+
   padding-bottom: 230px;
 
   @include for-size(tablet) {
@@ -11,6 +16,35 @@
 
   text-align: center;
 
+  &-container {
+    width: 320px;
+    @include for-size(tablet) {
+      width: 768px;
+    }
+
+    @include for-size(desktop) {
+      width: 1200px;
+    }
+  }
+
+  &-box {
+    margin: 0 auto;
+    overflow: hidden;
+
+    @include for-size(tablet) {
+      width: 620px;
+    }
+
+    @include for-size(desktop) {
+      width: 920px;
+    }
+  }
+
+  &-item-wrapper {
+    display: flex;
+    transition: transform 0.3s $timing-function;
+  }
+
   &-item img {
     margin: 0 auto 30px;
 
@@ -21,6 +55,13 @@
     @include for-size(desktop) {
       margin: 0 auto 15px;
     }
+  }
+
+  &-item svg {
+    width: 32px;
+    height: 4px;
+
+    fill: #c7133e;
   }
 
   &-review {
@@ -49,7 +90,7 @@
   }
 
   &-text {
-    @include fonts(12px, 500, 2.5em);
+    @include fonts(12px, 500, 2.5);
     margin: 0 auto 15px;
     padding: 0 15px;
     width: 180px;
@@ -63,7 +104,7 @@
       url(../images/pictures/slider/vector.svg) no-repeat top 207px left 0,
       url(../images/pictures/slider/vector.svg) no-repeat top 237px left 0;
     @include for-size(tablet) {
-      @include fonts(14px, 500, 2.5em);
+      @include fonts(14px, 500, 2.5);
       width: 524px;
 
       background: url(../images/pictures/slider/vector-tablet.svg) no-repeat top
@@ -74,7 +115,7 @@
           left 0;
     }
     @include for-size(desktop) {
-      @include fonts(16px, 500, 2.5em);
+      @include fonts(16px, 500, 2.5);
       width: 813px;
       padding: 0 22px;
 
@@ -90,17 +131,86 @@
   }
 
   &-name {
-    @include fonts(14px, 500, 1.85em);
+    @include fonts(14px, 500, 1.85);
     margin-top: 18px;
 
     @include for-size(tablet) {
-      @include fonts(16px, 500, 1.81em);
+      @include fonts(16px, 500, 1.81);
       margin-top: 14px;
     }
 
     @include for-size(desktop) {
-      @include fonts(20px, 500, 1.85em);
+      @include fonts(20px, 500, 1.85);
       margin-top: 15px;
     }
   }
+
+  &-input {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  &-navigation {
+    position: absolute;
+    bottom: 195px;
+    left: 50%;
+    display: flex;
+
+    transform: translateX(-50%);
+  }
+  &-button {
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.3s $timing-function;
+
+    &:hover {
+      background-color: #c7133e;
+    }
+  }
+}
+
+#r1:checked ~ .slider-navigation .first {
+  transform: scale(1.4);
+  background: url(../images/pictures/slider/house.svg) transparent no-repeat;
+  background-size: cover;
+  border-radius: 0;
+}
+#r2:checked ~ .slider-navigation .second {
+  transform: scale(1.4);
+  background: url(../images/pictures/slider/house.svg) transparent no-repeat;
+  background-size: cover;
+  border-radius: 0;
+}
+#r3:checked ~ .slider-navigation .third {
+  transform: scale(1.4);
+  background: url(../images/pictures/slider/house.svg) transparent no-repeat;
+  background-size: cover;
+  border-radius: 0;
+}
+
+#r1:checked ~ .slider-item-wrapper {
+  transform: translateX(0);
+}
+#r2:checked ~ .slider-item-wrapper {
+  @media screen and (max-width: 479px) {
+    transform: translateX(-96%);
+  }
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    transform: translateX(-96%);
+  }
+  transform: translateX(-100%);
+}
+#r3:checked ~ .slider-item-wrapper {
+  @media screen and (max-width: 479px) {
+    transform: translateX(-192%);
+  }
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    transform: translateX(-192%);
+  }
+  transform: translateX(-200%);
 }
