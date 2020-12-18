@@ -1,0 +1,85 @@
+.menu-button {
+  display: inline-block;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+
+  @include for-size(tablet) {
+    justify-content: flex-end;
+  }
+
+  @include for-size(desktop) {
+    display: none;
+  }
+}
+
+.menu-button.is-open .icon-menu {
+  display: none;
+}
+.icon-menu {
+  fill: $main-text-color;
+}
+.icon-close {
+  fill: $bg-white;
+}
+
+.mobile-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 250px;
+  height: 500px;
+  background-color: $bg-mobile-menu;
+  padding: 60px 20px;
+  opacity: 0;
+  visibility: hidden;
+  overflow: auto;
+  z-index: 5;
+
+  @include for-size(desktop) {
+    display: none;
+  }
+}
+.mobile-container.is-open {
+  opacity: 1;
+  visibility: visible;
+  overflow: scroll;
+}
+.mobile-container.is-open .menu-button {
+  position: absolute;
+  display: block;
+  top: 23px;
+  right: 20px;
+}
+.btn-burger {
+  @extend %button;
+  width: 100%;
+  margin-top: 20px;
+  background-color: $bg-white;
+  color: $main-text-color;
+}
+.mobile-menu {
+  margin-top: 20px;
+}
+.mobile-menu .item {
+  position: relative;
+  border-top: 1px solid $mobile-lines;
+  border-bottom: 1px solid $mobile-lines;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+.nav-link {
+  display: block;
+  color: $bg-white;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+
+  &:hover,
+  &:focus {
+    color: $main-text-color;
+    transition-property: color;
+    @extend %animation;
+  }
+}
