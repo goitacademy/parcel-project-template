@@ -1,8 +1,38 @@
 .slider {
+  position: relative;
   padding-top: 120px;
   padding-bottom: 230px;
 
   text-align: center;
+
+  &-container {
+    width: 320px;
+    @include for-size(tablet) {
+      width: 768px;
+    }
+
+    @include for-size(desktop) {
+      width: 1200px;
+    }
+  }
+
+  &-box {
+    margin: 0 auto;
+    overflow: hidden;
+
+    @include for-size(tablet) {
+      width: 620px;
+    }
+
+    @include for-size(desktop) {
+      width: 920px;
+    }
+  }
+
+  &-item-wrapper {
+    display: flex;
+    transition: transform 0.3s $timing-function;
+  }
 
   &-item img {
     margin: 0 auto 30px;
@@ -14,6 +44,13 @@
     @include for-size(desktop) {
       margin: 0 auto 15px;
     }
+  }
+
+  &-item svg {
+    width: 32px;
+    height: 4px;
+
+    fill: #c7133e;
   }
 
   &-review {
@@ -96,4 +133,73 @@
       margin-top: 15px;
     }
   }
+
+  &-input {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  &-navigation {
+    position: absolute;
+    bottom: 195px;
+    left: 50%;
+    display: flex;
+
+    transform: translateX(-50%);
+  }
+  &-button {
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.3s $timing-function;
+
+    &:hover {
+      background-color: #c7133e;
+    }
+  }
+}
+
+#r1:checked ~ .slider-navigation .first {
+  transform: scale(1.4);
+  background: url(../images/pictures/slider/house.svg) transparent no-repeat;
+  background-size: cover;
+  border-radius: 0;
+}
+#r2:checked ~ .slider-navigation .second {
+  transform: scale(1.4);
+  background: url(../images/pictures/slider/house.svg) transparent no-repeat;
+  background-size: cover;
+  border-radius: 0;
+}
+#r3:checked ~ .slider-navigation .third {
+  transform: scale(1.4);
+  background: url(../images/pictures/slider/house.svg) transparent no-repeat;
+  background-size: cover;
+  border-radius: 0;
+}
+
+#r1:checked ~ .slider-item-wrapper {
+  transform: translateX(0);
+}
+#r2:checked ~ .slider-item-wrapper {
+  @media screen and (max-width: 479px) {
+    transform: translateX(-96%);
+  }
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    transform: translateX(-96%);
+  }
+  transform: translateX(-100%);
+}
+#r3:checked ~ .slider-item-wrapper {
+  @media screen and (max-width: 479px) {
+    transform: translateX(-192%);
+  }
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    transform: translateX(-192%);
+  }
+  transform: translateX(-200%);
 }
