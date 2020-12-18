@@ -1,6 +1,23 @@
 .made {
+  padding-top: 125px;
+  padding-bottom: 20px;
   font-family: $main-font;
   background-color: $background-made-footer-locations;
+
+  @include for-size(mobile-only) {
+    background-image: url(./../images/made/made-bg-320.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 95%;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(./../images/made/made-bg-320@2x.png);
+    }
+  }
 
   @include for-size(desktop) {
     background-image: url(./../images/made/made-bg-1280.png);
@@ -25,12 +42,18 @@
   color: $primary-accent-color;
 }
 
+.made-second-title {
+  margin-bottom: 15px;
+}
+
 .made-title {
+  margin-bottom: 26px;
   font-size: 34px;
   color: $accent-color;
 }
 
 .made-photo {
+  margin-bottom: 46px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -43,21 +66,25 @@
 .made-main-text,
 .made-text {
   @include fonts(12px, 400, 1.62);
-  color: $primary-text-color;
 }
 
+.made-main-text {
+  margin-bottom: 30px;
+}
 .made-text {
   color: $secondary-text-color;
+  margin-bottom: 15px;
 }
 
 .made-button {
   display: inline-flex;
+  position: relative;
   text-align: center;
   justify-content: center;
 
   min-width: 176px;
   padding: 10px 37px;
-  margin-bottom: 32px;
+  // margin-bottom: 32px;
 
   @include fonts(14px, 700, 1.302);
 
@@ -73,4 +100,19 @@
   &:focus {
     background: #ecebeb;
   }
+}
+
+.icon-made-arrow {
+  position: absolute;
+
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  fill: $accent-color;
+  // transition: fill 250ms $bezier-page;
+
+  // .made-button:hover &,
+  // .made-button:focus & {
+  //   fill: $accent-color;;
+  // }
 }
