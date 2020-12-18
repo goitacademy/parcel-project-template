@@ -1,27 +1,36 @@
-.menu-button {
+.menu-button-open {
   display: inline-block;
-  margin: 0;
+
   border: none;
   background-color: transparent;
+  fill: $main-text-color;
 
   @include for-size(tablet) {
-    justify-content: flex-end;
+    margin-right: 30px;
   }
 
   @include for-size(desktop) {
     display: none;
   }
 }
-
-.menu-button.is-open .icon-menu {
-  display: none;
-}
-.icon-menu {
-  fill: $main-text-color;
+.menu-button-close {
+  display: inline-block;
+  position: absolute;
+  background-color: transparent;
 }
 .icon-close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   fill: $bg-white;
 }
+// .menu-button.is-open .icon-menu {
+//   display: none;
+// }
+// .menu-button .icon-close {
+//   display: none;
+// }
 
 .mobile-container {
   position: absolute;
@@ -36,21 +45,24 @@
   overflow: auto;
   z-index: 5;
 
+  @include for-size(tablet) {
+    height: 1000px;
+  }
   @include for-size(desktop) {
     display: none;
   }
 }
-.mobile-container.is-open {
-  opacity: 1;
-  visibility: visible;
-  overflow: scroll;
-}
-.mobile-container.is-open .menu-button {
-  position: absolute;
-  display: block;
-  top: 23px;
-  right: 20px;
-}
+// .mobile-container.is-open {
+//   opacity: 1;
+//   visibility: visible;
+//   overflow: scroll;
+// }
+// .mobile-container.is-open .menu-button {
+//   position: absolute;
+//   display: block;
+//   top: 23px;
+//   right: 20px;
+// }
 .btn-burger {
   @extend %button;
   width: 100%;

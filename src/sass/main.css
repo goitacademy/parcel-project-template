@@ -153,6 +153,7 @@ address {
 
 @media (min-width: 1050px) {
   .header-container {
+    min-width: 1050px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -163,12 +164,7 @@ address {
   width: 100%;
   display: flex;
   justify-content: space-between;
-}
-
-@media (min-width: 768px) {
-  .main-nav {
-    width: 100%;
-  }
+  align-items: center;
 }
 
 @media (min-width: 1050px) {
@@ -178,7 +174,7 @@ address {
   }
 }
 
-.main-nav .logo-header {
+.main-nav .logo-link {
   display: flex;
   width: 200px;
 }
@@ -198,6 +194,11 @@ address {
   margin-left: 20px;
 }
 
+.main-nav .tablet-menu {
+  display: flex;
+  align-items: center;
+}
+
 .main-nav .nav-box {
   display: none;
 }
@@ -205,7 +206,7 @@ address {
 @media (min-width: 1050px) {
   .main-nav .nav-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 }
 
@@ -249,6 +250,7 @@ address {
     border-radius: 22px;
     border-style: none;
     width: 160px;
+    height: 44px;
     position: relative;
     display: inline-flex;
     justify-content: space-between;
@@ -264,42 +266,44 @@ address {
 }
 
 .btn-icon {
-  width: 10px;
-  height: 10px;
+  width: 19px;
+  height: 17px;
   position: absolute;
   display: inline-flex;
   right: 37px;
   fill: #d41443;
 }
 
-.menu-button {
+.menu-button-open {
   display: inline-block;
-  margin: 0;
   border: none;
   background-color: transparent;
+  fill: #d41443;
 }
 
 @media (min-width: 768px) {
-  .menu-button {
-    justify-content: flex-end;
+  .menu-button-open {
+    margin-right: 30px;
   }
 }
 
 @media (min-width: 1050px) {
-  .menu-button {
+  .menu-button-open {
     display: none;
   }
 }
 
-.menu-button.is-open .icon-menu {
-  display: none;
-}
-
-.icon-menu {
-  fill: #d41443;
+.menu-button-close {
+  display: inline-block;
+  position: absolute;
+  background-color: transparent;
 }
 
 .icon-close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   fill: #ffffff;
 }
 
@@ -317,23 +321,16 @@ address {
   z-index: 5;
 }
 
+@media (min-width: 768px) {
+  .mobile-container {
+    height: 1000px;
+  }
+}
+
 @media (min-width: 1050px) {
   .mobile-container {
     display: none;
   }
-}
-
-.mobile-container.is-open {
-  opacity: 1;
-  visibility: visible;
-  overflow: scroll;
-}
-
-.mobile-container.is-open .menu-button {
-  position: absolute;
-  display: block;
-  top: 23px;
-  right: 20px;
 }
 
 .btn-burger {
