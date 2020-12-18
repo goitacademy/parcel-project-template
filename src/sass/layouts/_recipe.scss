@@ -1,6 +1,30 @@
 .recipe {
-  position: relative;
-
+  @media screen and (max-width: 739px) {
+    background-image: url('../images/bitmap/how-its-made/milk-splash/mob-bcg@1x.png');
+    background-size: 320px 133px;
+    background-position: 0 766px;
+    background-repeat: no-repeat;
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      & {
+        background-image: url('../images/bitmap/how-its-made/milk-splash/mob-bcg@2x.png');
+      }
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    background-size: 1280px 534px;
+    background-image: url('../images/bitmap/how-its-made/milk-splash/desk-bcg@1x.png');
+    background-position: 0 342px;
+    background-repeat: no-repeat;
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      & {
+        background-image: url('../images/bitmap/how-its-made/milk-splash/desk-bcg@2x.png');
+      }
+    }
+  }
   padding-top: 125px;
   background-color: $color-background-section;
   text-align: center;
@@ -45,14 +69,16 @@
   }
 }
 .recipe_cow {
-  width: 280px;
+  min-width: 280px;
+  margin-bottom: 46px;
   @media screen and (min-width: $tablet) {
-    width: 340px;
+    min-width: 340px;
     margin-right: 17px;
   }
   @media screen and (min-width: $desktop) {
-    width: 516px;
+    min-width: 516px;
     margin-right: 74px;
+    margin-bottom: 0;
   }
 }
 .recipe_all-text {
@@ -60,6 +86,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    // align-items: spase-between;
   }
 }
 .recipe_bold-text {
@@ -136,19 +163,6 @@
   margin-left: 10px;
 }
 
-.recipe_splash {
-  position: absolute;
-  top: 766px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  @media screen and (min-width: $tablet) and (max-width: 1279px) {
-    display: none;
-  }
-  @media screen and (min-width: $desktop) {
-    top: 342px;
-  }
-}
 .recipe_card {
   @media screen and (min-width: $tablet) {
     display: flex;
