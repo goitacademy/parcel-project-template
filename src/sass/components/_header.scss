@@ -10,7 +10,14 @@
   padding-top: 6px;
   height: 502px;
 
-  overflow-x: hidden;
+  @media screen and (min-width: 1279px) {
+    padding-right: 46px;
+    padding-left: 46px;
+  }
+
+  @media screen and (max-width: 460px) {
+    overflow-x: hidden;
+  }
 
   @media screen and (min-width: 768px) {
     height: 400px;
@@ -18,7 +25,7 @@
     padding-top: 37px;
     padding-bottom: 28px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     height: 665px;
     overflow-x: unset;
     padding-top: 38px;
@@ -28,22 +35,54 @@
 
 .header {
   // Обертка для хедера
-  background-color: $heder-bg-color;
+  background-color: $header-bg-color;
 
-  &-layout {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  // &-layout {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-between;
 
-    &-item .btn.header-btn {
+  //   &-item .btn.header-btn {
+  //     @media screen and (max-width: 767px) {
+  //       display: none;
+  //     }
+  //   }
+  // }
+
+  // &-layout-item:nth-child(3) {
+  //   margin-left: auto;
+  // }
+
+  &-ice-cream {
+    &::before {
+      content: '';
+      background-color: $second-title-color;
+      width: 346px;
+      height: 344px;
+      position: absolute;
+      border-radius: 50%;
+      overflow-x: visible;
+
       @media screen and (max-width: 767px) {
-        display: none;
+        top: 83px;
+        left: 36px;
+        overflow-x: visible;
+      }
+
+      @media screen and (min-width: 768px) {
+        width: 324px;
+        height: 322px;
+        top: 31px;
+        right: 137px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        width: 538px;
+        height: 538px;
+        top: 52px;
+        right: 267px;
       }
     }
-  }
-
-  &-layout-item:nth-child(3) {
-    margin-left: auto;
   }
 
   // Кнопка купить
@@ -80,23 +119,101 @@
     stroke: $button-bg-2;
   }
 }
+.main-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (min-width: 1279px) {
+    display: flex;
+    width: 70%;
+    z-index: 12;
+  }
+}
 
-.menu {
-  // кнопка меню
-  &-btn {
-    z-index: 11;
-    padding: 0;
-    border: 0;
-    background-color: rgba(0, 0, 0, 0);
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  background-color: rgba(144, 126, 130, 0.7);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    @media screen and (min-width: 768px) {
-      position: absolute;
-      right: 224px;
-      top: 52px;
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: initial;
+  }
+
+  &.is-open &-content {
+    transform: translateX(0);
+  }
+
+  &-content {
+    margin-left: auto;
+    filter: drop-shadow(-8px 0px 20px rgba(0, 0, 0, 0.25));
+
+    position: relative;
+    height: 100%;
+    background-color: $mobile-menu-bg-color;
+    width: 254px;
+    transform: translateX(100%);
+
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    padding-top: 60px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  &-close {
+    display: none;
+  }
+
+  &-btn.is-open &-burger {
+    display: none;
+  }
+
+  &-close {
+    display: block;
+    stroke: $third-text-color;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      stroke: $accent-color;
     }
   }
 
-  // Стили свг в кнопке меню
+  &-btn {
+    display: block;
+    position: absolute;
+    top: 24px;
+    right: 34px;
+
+    &.open {
+      @media screen and (min-width: 768px) and (max-width: 1279px) {
+        top: 52px;
+        right: 224px;
+        z-index: 4;
+        outline: none;
+      }
+    }
+  }
+
+  &-btn {
+    display: block;
+    background-color: transparent;
+    width: auto;
+    height: 20px;
+    border: none;
+    padding: 0;
+  }
   &-icon {
     padding-top: 2px;
     padding-bottom: 2px;
@@ -106,102 +223,73 @@
 
     stroke: $button-bg-2;
   }
-
-  // Стили для close
-  &-close {
-    stroke: $button-bg-1;
-  }
-
-  &-btn.is-open {
-    @media screen and (min-width: 768px) {
-      position: absolute;
-      right: 34px;
-      top: 23px;
-      display: block;
-    }
-    @media screen and (max-width: 767px) {
-      position: absolute;
-      right: 28px;
-      top: 23px;
-      display: block;
-    }
-  }
-
-  // Стили для открытия-закрытия меню
-  &-btn &-close {
-    display: none;
-  }
-
-  &-btn.is-open &-close {
-    display: block;
-  }
-
-  &-btn.is-open &-burger {
-    display: none;
-  }
-
-  // Стили блока меню
-  &-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 10;
-
-    padding-top: 60px;
-
-    display: none;
-    width: 250px;
-    height: 502px;
-
-    background-color: $mobail-menu-bg-color;
-    box-shadow: (-8px 0px 20px rgba(0, 0, 0, 0.25));
-
-    @media screen and (min-width: 768px) {
-      height: 100vh;
-    }
-  }
 }
 
-.is-open {
-  display: block;
+.site-nav {
+  &-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-left: -24px;
+    margin-right: -24px;
+
+    border-top: 1px solid #e18298;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    width: 100%;
+    height: 42px;
+    border-bottom: 1px solid #e18298;
+  }
+
+  &-link {
+    font-family: $main-text-font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.3;
+
+    color: $third-text-color;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+  }
 }
 
 .positioned-btn {
   position: absolute;
   top: 38px;
   right: 34px;
-  z-index: 10;
-}
+  z-index: 5;
+  width: 160px;
 
-// Стили для основной навигации страницы
-.site-nav {
-  &-item {
-    padding: 12px 20px;
-
-    border-bottom: 1px solid #e18298;
-  }
-
-  &-item:first-child {
-    border-top: 1px solid #e18298;
-  }
-
-  &-link {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.286;
-
-    color: $third-text-color;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  &-link:hover,
-  &-link:focus {
-    color: $accent-color;
-  }
-}
-
-.current {
+  padding: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  display: block;
+  width: 161px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3125;
   color: $accent-color;
+  background-color: $third-text-color;
+  border: 0;
+  border-radius: 22px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (max-width: 787px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1279px) {
+    right: 115px;
+  }
 }
 
 // Стили блока-героя
@@ -224,6 +312,11 @@
     }
   }
 
+  @media screen and (min-width: 1279px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
   // Обертка для заголовка героя и кнопок под ним
   &-title-container {
     position: relative;
@@ -233,12 +326,13 @@
   // Заголовок героя
   &-title {
     margin-bottom: 20px;
-    max-width: 218px;
+    width: 218px;
 
     font-family: Titan One;
     font-weight: 400;
     font-size: 48px;
     line-height: 0.965;
+    letter-spacing: 0.04em;
 
     color: $button-bg-2;
     text-transform: uppercase;
@@ -246,7 +340,11 @@
     @media screen and (min-width: 768px) {
       font-size: 34px;
       line-height: 0.905;
-      letter-spacing: 0.04em;
+    }
+
+    @media screen and (min-width: 1280px) {
+      font-size: 38px;
+      line-height: 1.16;
     }
   }
 
@@ -307,6 +405,11 @@
     display: none;
   }
 
+  @media screen and (min-width: 1280px) {
+    top: 156px;
+    right: 97px;
+  }
+
   &-item {
     display: flex;
     flex-direction: column;
@@ -323,6 +426,13 @@
       position: absolute;
       top: -3px;
       right: -8px;
+
+      @media screen and (min-width: 1280px) {
+        width: 30px;
+        height: 30px;
+        top: -6px;
+        right: -18px;
+      }
     }
   }
   &-number {
@@ -338,6 +448,11 @@
 
     color: $accent-color;
     z-index: 4;
+
+    @media screen and (min-width: 1280px) {
+      font-size: 46px;
+      line-height: 1.15;
+    }
   }
   &-text {
     font-family: $main-text-font;
@@ -349,6 +464,11 @@
 
     color: $third-text-color;
     text-transform: lowercase;
+
+    @media screen and (min-width: 1280px) {
+      font-size: 14px;
+      line-height: 1.3;
+    }
   }
 }
 
@@ -387,42 +507,6 @@
 }
 
 // Стили картинки header-ice-cream
-.icecr-bg {
-  position: absolute;
-  top: 92px;
-  right: 32px;
-
-  @media screen and(min-width:768px) {
-    top: 63px;
-    right: 247px;
-  }
-
-  // Круг за картинкой header-ice-cream
-  &::before {
-    position: absolute;
-    z-index: 1;
-
-    content: '';
-
-    width: 346px;
-    height: 346px;
-
-    border-radius: 50%;
-    background-color: $second-title-color;
-
-    left: -81px;
-    top: -9px;
-
-    @media screen and (min-width: 768px) {
-      top: -32px;
-      left: -71px;
-
-      width: 324px;
-      height: 322px;
-    }
-  }
-}
-
 .img {
   &-girl {
     position: absolute;
@@ -433,18 +517,27 @@
     @media screen and(max-width:767px) {
       display: none;
     }
+
+    @media screen and (min-width: 1280px) {
+      width: 293px;
+      right: 109px;
+    }
   }
 
-  &-icecr {
-    position: relative;
-    z-index: 2;
+  &-ice-cream {
+    position: absolute;
+    bottom: 0;
+    right: 32px;
     width: 171px;
 
-    @media screen and(min-width:768px) {
+    @media screen and (min-width: 768px) {
       width: 143px;
+      right: 247px;
     }
-    @media screen and(min-width:1200px) {
-      width: 100%;
+
+    @media screen and (min-width: 1280px) {
+      width: 236px;
+      right: 450px;
     }
   }
 }

@@ -1,14 +1,35 @@
 (() => {
-  const menuBtnRef = document.querySelector("[data-menu-button]");
-  const mobileMenuRef = document.querySelector("[data-menu]");
+  const menuBtnOpen = document.querySelector('[menu-button-open]');
+  const menuBtnClose = document.querySelector('[menu-button-close]');
+  const mobileMenuRef = document.querySelector('[data-menu]');
 
-  menuBtnRef.addEventListener("click", () => {
+  menuBtnOpen.addEventListener('click', () => {
     const expanded =
-      menuBtnRef.getAttribute("aria-expanded") === "true" || false;
+      menuBtnOpen.getAttribute('aria-expanded') === 'true' || false;
+    const expanded2 =
+      menuBtnClose.getAttribute('aria-expanded') === 'false' || true;
 
-    menuBtnRef.classList.toggle("is-open");
-    menuBtnRef.setAttribute("aria-expanded", !expanded);
+    menuBtnClose.classList.toggle('is-open');
+    menuBtnOpen.classList.toggle('is-open');
 
-    mobileMenuRef.classList.toggle("is-open");
+    // menuBtnOpen.setAttribute('aria-expanded', !expanded);
+    // menuBtnClose.setAttribute('aria-expanded', !expanded2);
+
+    mobileMenuRef.classList.toggle('is-open');
+  });
+
+  menuBtnClose.addEventListener('click', () => {
+    const expanded =
+      menuBtnOpen.getAttribute('aria-expanded') === 'true' || false;
+    const expanded2 =
+      menuBtnClose.getAttribute('aria-expanded') === 'false' || true;
+
+    menuBtnClose.classList.toggle('is-open');
+    menuBtnOpen.classList.toggle('is-open');
+
+    // menuBtnOpen.setAttribute('aria-expanded', !expanded);
+    // menuBtnClose.setAttribute('aria-expanded', !expanded2);
+
+    mobileMenuRef.classList.toggle('is-open');
   });
 })();
