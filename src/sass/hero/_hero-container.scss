@@ -1,9 +1,27 @@
 .hero-container {
   background-color: getColor('heroBgrd');
+  padding-top: 137px;
+  padding-left: 20px;
+  padding-bottom: 160px;
+  position: relative;
+  overflow: hidden;
+
+  @include for-size(tablet) {
+    padding-top: 15px;
+    padding-left: 34px;
+    padding-bottom: 0px;
+  }
+
+  @include for-size(desktop) {
+    padding-top: 84px;
+    padding-left: 74px;
+  }
 }
 
 .hero-about {
   width: 218px;
+  position: relative;
+  z-index: 2;
 
   @include for-size(tablet) {
     width: 162px;
@@ -11,6 +29,7 @@
 
   @include for-size(desktop) {
     width: 277px;
+    margin-left: 38px;
   }
 }
 
@@ -51,9 +70,10 @@
   background-color: getColor('textLight');
   border-radius: 20px;
   border-color: transparent;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 13px;
+  padding-right: 13px;
   height: 24px;
+  margin-top: 20px;
 
   &:hover,
   &:focus {
@@ -66,5 +86,13 @@
     height: 40px;
     padding-left: 20px;
     padding-right: 20px;
+    margin-top: 25px;
+  }
+
+  &:not(:last-child) {
+    margin-right: 8px;
+    @include for-size(desktop) {
+      margin-right: 17px;
+    }
   }
 }
