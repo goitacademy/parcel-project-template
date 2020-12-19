@@ -2,6 +2,12 @@
     background-color: getColor('lightBgrd');
 }
 
+.mass-list {
+    @include for-size('tablet') {
+        display: flex;
+    }
+}
+
 .mass-item {
     @media screen and (max-width: 767px) {
         max-width: 230px;
@@ -10,34 +16,51 @@
             margin-bottom: 38px;
         }
     }
-
     @include for-size('tablet') {
-        
+        width: 180px;
+
+        &:not(:last-child) {
+            margin-right: 60px;
+        }
+    }
+    @include for-size('desktop') {
+        width: 330px;
+
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
     }
 
     .mass-overhead {
         font-family: 'Titan One', cursive;
         color: getColor('accent');
-        text-transform: uppercase;
 
         @media screen and (max-width: 767px) {
             margin-bottom: 16px;
             @include fonts(400, 36px, 1.13, 0.05em);
         }
-
         @include for-size('tablet') {
             margin-bottom: 13px;
             @include fonts(400, 48px, 1.14, 0.05em);
+        }
+        @include for-size('desktop') {
+            margin-bottom: 15px;
+            @include fonts(400, 58px, 1.13, 0.05em);
         }
     }
     
     .mass-label {
         font-family: 'DM Sans', sans-serif;
-        @include fonts(700, 12px, 1.7, 0.03em);
         color: getColor('primaryText');
 
         @media screen and (max-width: 767px) {
             @include fonts(700, 12px, 1.7, 0.03em);
+        }
+        @include for-size('tablet') {
+            @include fonts(700, 14px, 1.7, 0.03em);
+        }
+        @include for-size('desktop') {
+            @include fonts(700, 16px, 1.7, 0.02em);
         }
     }
     
