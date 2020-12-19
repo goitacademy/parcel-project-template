@@ -1,0 +1,74 @@
+@mixin for-size($range) {
+  $mobile: 320px;
+  $tablet: 740px;
+  $desktop: 1280px;
+  @if $range == mobile-only {
+    @media (max-width: #{$tablet - 1}) {
+      @content;
+    }
+  } @else if $range == mobile {
+    @media (min-width: $mobile) {
+      @content;
+    }
+  } @else if $range == tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if $range == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+}
+
+///
+@mixin from($point) {
+  @media screen and (min-width: getRange($point)) {
+    @content;
+  }
+}
+
+@mixin to($point) {
+  @media screen and (max-width: getRange($point) - 1) {
+    @content;
+  }
+}
+
+@mixin from-to($pointFrom, $pointTo) {
+  @media screen and (min-width: getRange($pointFrom)) and (max-width: getRange($pointTo) - 1) {
+    @content;
+  }
+}
+// // использование
+//   @include to(mobile){
+//     padding: 20px;
+//   }
+
+//   @include from(tablet) {
+//    padding: 1px;
+//   }
+
+//   @include from-to(mobile, tablet) {
+//    display: none;
+//   }
+
+@mixin dpr2 {
+  @media screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min--moz-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+@mixin dpr3 {
+  @media screen and (-webkit-min-device-pixel-ratio: 3),
+    screen and (min--moz-device-pixel-ratio: 3),
+    screen and (-o-min-device-pixel-ratio: 3/1),
+    screen and (min-device-pixel-ratio: 3),
+    screen and (min-resolution: 288dpi),
+    screen and (min-resolution: 3dppx) {
+    @content;
+  }
+}
