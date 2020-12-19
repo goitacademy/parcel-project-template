@@ -72,10 +72,28 @@
     display: flex;
     justify-content: flex-end;
     margin-bottom: 46px;
+
+    @include from(desktop) {
+        margin-bottom: 50px;
+    }
 }
 
 .footer-social-item:not(:last-child) {
     margin-right: 28px;
+
+    @include from(tablet) {
+        margin-right: 30px;
+    }
+
+    @include from(desktop) {
+        margin-right: 24px;
+    }
+}
+
+@include from(desktop) {
+    .footer-social-item:last-child {
+        margin-right: 5px;
+    }
 }
 
 .footer-social-link {
@@ -90,6 +108,11 @@
     &:hover,
     &:focus {
         background-color: $accent-color;
+    }
+
+    @include from(tablet){
+        width: 34px;
+        height: 34px;
     }
 }
 
@@ -132,8 +155,18 @@
     padding-bottom: 24px;
     
     @include to(tablet) {
-    width: 150px;
+    max-width: 150px;
     margin-right: auto;
     margin-left: auto;
+    }
+
+    @include from(tablet) {
+        padding-top: 29px;
+        padding-bottom: 18px;
+    }
+
+    @include from(desktop) {
+        padding-top: 9px;
+        padding-bottom: 10px;
     }
 }
