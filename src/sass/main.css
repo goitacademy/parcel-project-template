@@ -206,31 +206,106 @@ img {
 
 .head-container {
   position: relative;
+  padding-top: 6px;
   padding-left: 20px;
   height: 502px;
-  background-image: url("./../images/hero/icecream_mob.png");
+  background-image: url("./../images/hero/icecream_mob.png"), url("./../images/hero/ellipse_mob.png");
   background-repeat: no-repeat;
-  background-position: left 117px bottom 0px;
+  background-position: left 117px bottom 0px, top 92px right 0px;
   background-color: #FFB8CA;
 }
 
 @media screen and (min-device-pixel-ratio: 2), screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
   .head-container {
-    background-image: url("./../images/hero/icecream_mob@2x.png");
+    background-image: url("./../images/hero/icecream_mob@2x.png"), url("./../images/hero/ellipse_mob@2x.png");
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1199px) {
   .head-container {
     padding-top: 37px;
+    padding-right: 34px;
     height: 399px;
+    background-image: url("./../images/hero/icecream_tablet.png"), url("./../images/hero/ellipse_tablet.png");
+    background-repeat: no-repeat;
+    background-position: top 63px right 247px, top 31px right 137px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (max-width: 1199px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 768px) and (max-width: 1199px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (max-width: 1199px) and (min-resolution: 2dppx) {
+  .head-container {
+    background-image: url("./../images/hero/icecream_tablet@2x.png"), url("./../images/hero/ellipse_tablet@2x.png");
   }
 }
 
 @media screen and (min-width: 1200px) {
   .head-container {
+    padding-top: 37px;
     height: 665px;
     padding-right: 115px;
+    background-image: url("./../images/hero/icecream_desktop.png"), url("./../images/hero/ellipse_desktop.png");
+    background-repeat: no-repeat;
+    background-position: top 108px right 450px, top 55px right 267px;
+  }
+}
+
+@media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2), screen and (min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1200px) and (min-resolution: 192dpi), screen and (min-width: 1200px) and (min-resolution: 2dppx) {
+  .head-container {
+    background-image: url("./../images/hero/icecream_desktop@2x.png"), url("./../images/hero/ellipse_desktop@2x.png");
+  }
+}
+
+.nav {
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 56px;
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    padding-right: 19px;
+    padding-left: 19px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    padding-right: 0px;
+  }
+}
+
+.logo_icon {
+  fill: #D41443;
+  width: 199px;
+  height: 50px;
+}
+
+.menu-btn {
+  background-color: transparent;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 1200px) {
+  .menu-btn {
+    display: none;
   }
 }
 
@@ -295,61 +370,6 @@ img {
   height: 9px;
 }
 
-.nav {
-  padding-top: 6px;
-  margin-left: auto;
-  margin-right: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 56px;
-}
-
-@media screen and (min-width: 768px) {
-  .nav {
-    padding-right: 19px;
-    padding-left: 19px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .nav {
-    padding-right: 0px;
-  }
-}
-
-.logo_icon {
-  fill: #D41443;
-  width: 199px;
-  height: 50px;
-}
-
-.menu-btn {
-  background-color: transparent;
-  border: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-@media screen and (min-width: 1200px) {
-  .menu-btn {
-    display: none;
-  }
-}
-
 .close-btn {
   position: absolute;
   top: 23px;
@@ -374,6 +394,7 @@ img {
 }
 
 .mobile-menu {
+  display: none;
   position: absolute;
   z-index: 999;
   top: 0;
@@ -383,6 +404,8 @@ img {
           transform: translateX(100%);
   -webkit-transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-delay: 450ms;
+          transition-delay: 450ms;
   padding-bottom: 185px;
   width: 250px;
   height: 502px;
@@ -390,23 +413,26 @@ img {
 }
 
 .mobile-menu.is-open {
+  display: block;
   opacity: 1;
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
   -webkit-transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-delay: 450ms;
+          transition-delay: 450ms;
+}
+
+@media screen and (min-width: 1200px) {
+  .mobile-menu.is-open {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .mobile-menu {
     width: 254px;
     height: 1020px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .mobile-menu {
-    display: none;
   }
 }
 
@@ -473,7 +499,7 @@ img {
 @media screen and (min-width: 768px) {
   .hero {
     padding-left: 19px;
-    padding-right: 10px;
+    padding-right: 8px;
   }
 }
 
