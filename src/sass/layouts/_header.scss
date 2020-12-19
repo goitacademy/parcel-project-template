@@ -18,7 +18,7 @@
 
     padding: 6px 15px;
 
-    @media screen and (min-width: 768px) and (max-width: 1199px) {
+    @include for-size(tablet) {
       max-width: 1199px;
       padding: 37px 34px 0px;
     }
@@ -29,51 +29,58 @@
     }
   }
 
-  &__logo {
-    display: inline-block;
-    margin-right: 60px;
-  }
-
   &__buttons {
     display: flex;
   }
 
-  &__btn-buy.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 44px;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 21px;
-
-    border-radius: 22px;
-    border: inherit;
-
-    color: #d41443;
-    fill: #d41443;
-
-    background-color: white;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    @media screen and (max-width: 767px) {
-      display: none;
-    }
-
-    @media screen and (min-width: 768px) {
-      min-width: 160px;
-      margin-left: 30px;
-    }
-
-    &:hover,
-    &:focus {
-      color: white;
-      background: #c7133e;
-      fill: white;
-    }
-  }
   .title {
     padding-right: 12px;
+  }
+}
+
+.btn-buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+
+  border-radius: 22px;
+  border: inherit;
+
+  color: #d41443;
+  fill: #d41443;
+
+  background-color: white;
+  // transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
+  animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    min-width: 160px;
+    margin-left: 30px;
+  }
+
+  &:hover,
+  &:focus {
+    color: white;
+    background: #c7133e;
+    fill: white;
+
+    animation: none;
+
+    @keyframes pulse {
+      to {
+        box-shadow: 0 0 5px 5px rgba(232, 76, 61, 0.7);
+      }
+    }
   }
 }
 
@@ -97,11 +104,19 @@
   .list {
     display: flex;
   }
+
   .item:not(:last-child) {
     margin-right: 35px;
   }
-  .item:hover,
-  .item:focus {
+
+  .link {
+    display: block;
+    transition: all 0.2s $bezier-page;
+  }
+
+  .link:hover,
+  .link:focus {
     color: #d41443;
+    transform: rotateZ(-30deg) scale(1.4);
   }
 }
