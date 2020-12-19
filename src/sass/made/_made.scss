@@ -2,39 +2,92 @@
     background-color: getColor('lightBgrd');
     padding-top: 125px;
     padding-bottom: 39px;
+
+    @include for-size(tablet) {
+      padding-top: 130px;
+      padding-bottom: 66px;
+    }
+
+    @include for-size(desktop) {
+      padding-top: 125px;
+      padding-bottom: 172px;
+      background-image: url(../images/how-its-made/milk-bg.png);
+      background-size: contain;
+      background-position: bottom;
+      background-repeat: no-repeat;
+
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (-webkit-min-device-pixel-ratio: 2),
+        screen and (-o-min-device-pixel-ratio: 2/1),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url(../images/how-its-made/milk-bg@2x.png);
+    }
+  }
 }
 
 .made-label {
     font-family: Titan One, cursive;
-    @include fonts(400, 18px, 1.17, 0.03em);
+    @include fonts(400, 26px, 1.15, 0.03em);
     text-align: center;
     text-transform: uppercase;
     color: getColor('titleLight');
     margin-bottom: 15px;
+
+    @include for-size(tablet) {
+      @include fonts(400, 26px, 1.13, 0.04em);
+    }
+
+    @include for-size(desktop) {
+      @include fonts(400, 30px, 1.17, 0.03em);
+    }
   }
 
-  .made-title {
+  .section-made .title {
     font-family: Titan One, cursive;
     @include fonts(400, 34px, 1.15, 0.04em);
     text-align: center;
     text-transform: uppercase;
     color: getColor('accent');
     margin-bottom: 26px;
+
+    @include for-size(tablet) {
+      @include fonts(400, 48px, 1.14, 0.03em);
+      margin-bottom: 50px;
+    }
+
+    @include for-size(desktop) {
+      @include fonts(400, 58px, 1.15, 0.06em);
+      margin-bottom: 102px;
+    }
+
   }
 
-  .btn {
-    display: inline-block;
-    width: 176px;
-    height: 44px;
+  .made-button {
     font-family: DM Sans, sans-serif;
     @include fonts(700, 14px, 1.29, 0.03em);
-    color: getColor('accent');
+    padding: 12px 17px;
     border-radius: 22px;
-    border: none;
-    padding: 0;
-    margin-left: 30px;
+    width: 176px;
+    height: 44px;
+    color: getColor('accent');
     background-color: getColor('textLight');
+    border: none;
+    margin-left: 30px;
+    transition: background-color 250ms $timing-function; 
+
+    @include for-size(tablet) {
+      margin-left: 0;
+      @include fonts(700, 16px, 1.29, 0.03em);
+    }
+    
+    &:hover,
+    &:focus {
+    background-color: getColor('secondaryBtnActive');
+
+    
   }
+}
 
   .decor-icon {
     display: inline-flex;
@@ -43,9 +96,29 @@
 
   .made-content {
     position: relative;
-    display: block;
     align-items: center;
     padding: 46px 30px 0 30px;
+
+    @include for-size(tablet) {
+      position: unset;
+      padding: 46px 15px 0 16px;
+    }
+
+    @include for-size(desktop) {
+      position: unset;
+      padding: 46px 80px 0 70px;
+    }
+  }
+
+  .made-thumb {
+    position: absolute;
+    bottom: 60px;
+    right: -20px;
+    left: -20px;
+
+    @media (min-width: 466px) {
+      display: none;
+    }
   }
 
   .list {
@@ -54,25 +127,49 @@
     margin: 0;
 }
 
-  .content-item1 {
-    font-family: DM Sans, sans-serif;
-    @include fonts(500, 12px, 1.58, 0.03em);
-    text-align: left;
-    color: getColor('primaryText');
-    margin-bottom: 36px;
-    
+.content-title {
+  font-family: DM Sans, sans-serif;
+  @include fonts(500, 12px, 1.9, 0.03em);
+  color: getColor('primaryText');
+  margin-top: 0;
+  margin-bottom: 36px;
+
+  @include for-size(tablet) {
+    @include fonts(500, 13px, 1.8, 0.02em);
+    margin-bottom: 33px;
+  }
+  @include for-size(desktop) {
+    @include fonts(500, 15px, 1.58, 0.03em);
+    margin-bottom: 35px;
   }
 
-  .content-item2 {
-    font-family: DM Sans, sans-serif;
-    @include fonts(500, 12px, 1.58, 0.03em);
-    text-align: left;
-    color: getColor('secondaryText');
-    margin-bottom: 20px;
+}
+
+.content-list > .item {
+  font-family: DM Sans, sans-serif;
+  @include fonts(500, 12px, 1.58, 0.04em);
+  color: getColor('secondaryText');
+  margin-bottom: 20px;
+
+  @include for-size(tablet) {
+    @include fonts(500, 14px, 1.58, 0.05em);
+  }
+  @include for-size(desktop) {
+    @include fonts(500, 14px, 1.9, 0.04em);
+    margin-bottom: 45px;
+  }  
+}
+
+.flex-container {
+  @include for-size(tablet) {
+    display: flex;
+    margin-left: 20px;
   }
 
-  .made-thumb {
-    position: absolute;
-    bottom: 0;
-    right: -20px;
+  @include for-size(desktop) {
+    margin-left: 92px;
   }
+  
+}
+
+ 
