@@ -7,15 +7,18 @@
 
 .locations-item {
   font-family: $secondary-font;
-  @include fonts(400, 28px, 1.14, 0.04em);
-  color: getColor('accent');
+  position: relative;
 
-  @include for-size(desktop) {
-    @include fonts(400, 46px, 1.15, 0.04em);
+  &:not(:last-child) {
+    @include for-size(tablet) {
+      margin-bottom: 13px;
+    }
   }
 
   &::before {
     display: block;
+    position: absolute;
+    right: 0;
     content: '';
     height: 16px;
     width: 16px;
@@ -31,10 +34,24 @@
 
 .locations-text {
   font-family: $main-font;
+  text-align: center;
+
   @include fonts(400, 8px, 1.25, 0em);
   color: getColor('textLight');
 
   @include for-size(desktop) {
     @include fonts(400, 14px, 1.28, 0em);
+  }
+}
+
+.locations-quantity {
+  position: relative;
+  z-index: 2;
+  @include fonts(400, 28px, 1.14, 0.04em);
+  color: getColor('accent');
+
+  @include for-size(desktop) {
+    @include fonts(400, 46px, 1.15, 0.04em);
+    margin-bottom: 15px;
   }
 }
