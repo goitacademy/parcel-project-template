@@ -6,8 +6,23 @@
   }
   @include for-size(tablet) {
     height: 755px;
-     }
+
+  }
+  @media screen and (min-width: 1200px) {
+    background-image: url('/images/locations/locations-desktop.png');
+    background-repeat: no-repeat;
+    background-position: top;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('/images/locations/locations-desktop@2x.png');
+      background-size: 1280px 382px;
+    }
+  }
+
 }
+
 .location .location__container {
   position: absolute;
   top: -84px;
@@ -18,11 +33,9 @@
   justify-content: center;
   @include for-size(tablet) {
     top: -78px;
-    margin: 0 -10px;
   }
   @include for-size(desktop) {
     top: -102px;
-    margin: 0 -10px;
   }
 }
 .location__list {
@@ -31,12 +44,20 @@
 
     display: flex;
     flex-wrap: wrap;
+    margin-right: -20px;
+  }
+  @include for-size(desktop) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -30px;
   }
 
 }
 .location__item {
   padding: 43px 20px;
   width: 220px;
+  margin-right: auto;
+  margin-left: auto;
   background-color: $primary-white-color;
   box-shadow: 0 8px 30px rgba(212, 20, 67, 0.1);
   border-radius: 24px;
@@ -46,13 +67,14 @@
     }
   }
   @include for-size(tablet) {
+    width: calc(100% / 3 - 20px);
     padding: 50px 31px;
-    margin: 0 10px;
+    margin-right: 20px;
   }
   @include for-size(desktop) {
-    width: 330px;
+    width: calc(100% / 3 - 30px);
     padding: 50px 44px 60px;
-    margin: 0 10px;
+    margin-right: 30px;
   }
 }
 .location__type {
