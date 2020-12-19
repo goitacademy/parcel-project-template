@@ -1,23 +1,77 @@
+.reviews {
+  padding-top: 155px;
+  padding-bottom: 170px;
+
+  @include for-size(tablet) {
+    padding-top: 280px;
+    padding-bottom: 190px;
+  }
+
+  @include for-size(desktop) {
+    padding-top: 375px;
+    padding-bottom: 232px;
+  }
+}
+
+.slide:hover,
+.slide:focus {
+  outline: none;
+}
+
 .slider-img {
   display: block;
   border-radius: 50%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
 
 .review-text {
   position: relative;
   background-color: #fafafa;
-
-  // background-image: url(../img/quotes.svg);
-
+  background-image: url(../images/slider/quotes.svg);
   background-position: left 60px top 30px;
+
   text-align: center;
   padding: 40px 60px 20px;
   background-repeat: no-repeat;
+  @include for-size(tablet) {
+    background-position: left 40px top 30px;
+  }
+  @include for-size(desktop) {
+    background-position: left 50px top 32px;
+  }
+}
 
-  text-decoration: underline 1px solid #e1e1e1;
-  text-underline-offset: 20%;
+.review-text-underlined {
+  display: inline-block;
+  text-align: center;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 29px,
+    #e1e1e1 1px,
+    #e1e1e1 30px
+  );
+
+  background-size: 100%;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 2.55;
+  @include for-size(tablet) {
+    font-size: 14px;
+    line-height: 2.16;
+  }
+  @include for-size(desktop) {
+    background-image: repeating-linear-gradient(
+      transparent,
+      transparent 28px,
+      rgb(225, 225, 225) 1px,
+      rgb(225, 225, 225) 29px
+    );
+
+    font-size: 16px;
+    line-height: 1.86;
+  }
 }
 
 .reviewer-name {
