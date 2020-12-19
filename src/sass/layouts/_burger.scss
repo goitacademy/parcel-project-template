@@ -1,9 +1,27 @@
-.menu-button-open {
+.menu-button {
   display: inline-block;
-
   border: none;
   background-color: transparent;
   fill: $main-text-color;
+
+  &.is-open {
+    z-index: 20;
+    position: absolute;
+    right: 20px;
+    fill: $bg-white;
+  }
+
+  &.is-open .icon-menu-open {
+    display: none;
+  }
+
+  .icon-menu-close {
+    display: none;
+  }
+
+  &.is-open .icon-menu-close {
+    display: block;
+  }
 
   @include for-size(tablet) {
     margin-right: 30px;
@@ -13,18 +31,21 @@
     display: none;
   }
 }
-.menu-button-close {
-  display: inline-block;
-  position: absolute;
-  background-color: transparent;
-}
-.icon-close {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  fill: $bg-white;
-}
+
+
+// .menu-button-close {
+//   display: inline-block;
+//   position: absolute;
+//   background-color: transparent;
+// }
+
+// .icon-close {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   fill: $bg-white;
+// }
 // .menu-button.is-open .icon-menu {
 //   display: none;
 // }
@@ -33,6 +54,7 @@
 // }
 
 .mobile-container {
+  display: none;
   position: absolute;
   right: 0;
   top: 0;
@@ -40,18 +62,23 @@
   height: 500px;
   background-color: $bg-mobile-menu;
   padding: 60px 20px;
-  opacity: 0;
-  visibility: hidden;
   overflow: auto;
-  z-index: 5;
+  
+
+  &.is-open {
+    z-index: 15;
+    display: block;
+  }
 
   @include for-size(tablet) {
     height: 1000px;
   }
-  @include for-size(desktop) {
-    display: none;
-  }
+  // @include for-size(desktop) {
+  //   display: none;
+  // }
 }
+
+
 // .mobile-container.is-open {
 //   opacity: 1;
 //   visibility: visible;
@@ -63,6 +90,7 @@
 //   top: 23px;
 //   right: 20px;
 // }
+
 .btn-burger {
   @extend %button;
   width: 100%;
