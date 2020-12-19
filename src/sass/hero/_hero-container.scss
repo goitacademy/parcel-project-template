@@ -1,16 +1,45 @@
 .hero-container {
   background-color: getColor('heroBgrd');
+  padding-top: 137px;
+  padding-left: 20px;
+  padding-bottom: 160px;
+  position: relative;
+  overflow: hidden;
+
+  @include for-size(tablet) {
+    padding-top: 15px;
+    padding-left: 34px;
+    padding-right: 34px;
+    padding-bottom: 28px;
+    overflow: visible;
+  }
+
+  @include for-size(desktop) {
+    padding-top: 84px;
+    padding-left: 74px;
+    padding-bottom: 45px;
+    padding-right: 74px;
+  }
+}
+
+.hero-header {
+  display: flex;
 }
 
 .hero-about {
   width: 218px;
+  position: relative;
+  z-index: 2;
 
   @include for-size(tablet) {
     width: 162px;
+    margin-bottom: 19px;
   }
 
   @include for-size(desktop) {
     width: 277px;
+    margin-left: 38px;
+    margin-bottom: 56px;
   }
 }
 
@@ -47,18 +76,34 @@
 .btn-hero {
   font-family: $main-font;
   @include fonts(400, 8px, 1.25, 0em);
-  color: getColor('accent');
-  background-color: getColor('textLight');
+  color: getColor('textLight');
+  background-color: getColor('accent');
   border-radius: 20px;
   border-color: transparent;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 13px;
+  padding-right: 13px;
   height: 24px;
+  margin-top: 20px;
+
+  // &:first-child {
+  //   background-color: getColor('accent');
+  // }
+
+  &:last-child {
+    background-color: getColor('textLight');
+    color: getColor('accent');
+  }
 
   &:hover,
   &:focus {
-    background-color: getColor('accent');
+    background-color: getColor('btnActiv');
     color: getColor('textLight');
+  }
+
+  &:hover:last-child,
+  &:focus:last-child {
+    background-color: getColor('secondaryBtnActive');
+    color: getColor('accent');
   }
 
   @include for-size(desktop) {
@@ -66,5 +111,13 @@
     height: 40px;
     padding-left: 20px;
     padding-right: 20px;
+    margin-top: 25px;
+  }
+
+  &:not(:last-child) {
+    margin-right: 8px;
+    @include for-size(desktop) {
+      margin-right: 17px;
+    }
   }
 }
