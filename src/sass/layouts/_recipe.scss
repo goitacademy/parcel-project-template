@@ -1,6 +1,30 @@
 .recipe {
-  position: relative;
-
+  @media screen and (max-width: 739px) {
+    background-image: url('../images/bitmap/how-its-made/milk-splash/mob-bcg@1x.png');
+    background-size: 100%;
+    background-position: left 0px bottom 55px;
+    background-repeat: no-repeat;
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      & {
+        background-image: url('../images/bitmap/how-its-made/milk-splash/mob-bcg@2x.png');
+      }
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    background-size: 100%;
+    background-image: url('../images/bitmap/how-its-made/milk-splash/desk-bcg@1x.png');
+    background-position: 0 360px;
+    background-repeat: no-repeat;
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      & {
+        background-image: url('../images/bitmap/how-its-made/milk-splash/desk-bcg@2x.png');
+      }
+    }
+  }
   padding-top: 125px;
   background-color: $color-background-section;
   text-align: center;
@@ -45,22 +69,24 @@
   }
 }
 .recipe_cow {
-  width: 280px;
-  @media screen and (min-width: $tablet) {
-    width: 340px;
-    margin-right: 17px;
-  }
-  @media screen and (min-width: $desktop) {
-    width: 516px;
-    margin-right: 74px;
+  margin-bottom: 46px;
+
+  @media screen and (min-width: $tablet) and (max-width: 1279px) {
+    position: relative;
+    top: -80px;
+    margin: 0;
+
   }
 }
 .recipe_all-text {
-  margin-bottom: 17px;
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: $tablet) {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
+    @media screen and (min-width: $desktop) {
+      max-width: 463px;
+    }
   }
 }
 .recipe_bold-text {
@@ -77,9 +103,11 @@
     font-size: 14px;
     padding: 0;
     margin-bottom: 35px;
+    line-height: 1.76;
   }
   @media screen and (min-width: $desktop) {
     font-size: 16px;
+    letter-spacing: 0.04em;
   }
 }
 .recipe_text {
@@ -95,14 +123,20 @@
     font-size: 14px;
     padding: 0;
     margin: 0;
+    line-height: 1.76;
+    letter-spacing: 0.04em;
+  }
+  @media screen and (min-width: $desktop) {
+    line-height: 1.94;
   }
 }
 .recipe-button {
   display: inline-block;
   padding-left: 37px;
   padding-right: 37px;
-  padding-top: 19px;
-  padding-bottom: 17px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-top: 20px;
   border-radius: 20px;
   text-decoration: none;
 
@@ -120,36 +154,44 @@
     background-color: $color-accent-button-2;
   }
   @media screen and (min-width: $tablet) {
+    font-size: 16px;
     margin-top: 62px;
+    margin-right: auto;
   }
   @media screen and (min-width: $desktop) {
     margin-right: auto;
     margin-top: 45px;
   }
 }
-.recipe_splash {
-  position: absolute;
-  top: 766px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  @media screen and (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
-    display: none;
-  }
-  @media screen and (min-width: $desktop) {
-    top: 342px;
-  }
+.recipe_button-all {
+  display: flex;
 }
+.recipe_arrow {
+  margin-left: 10px;
+}
+
 .recipe_card {
   @media screen and (min-width: $tablet) {
     display: flex;
+    justify-content: space-evenly;
     align-items: flex-end;
-    padding-left: 20px;
-    padding-right: 20px;
   }
   @media screen and (min-width: $desktop) {
-    padding-left: 92px;
-    padding-right: 97px;
     align-items: center;
+    justify-content: center;
+  }
+}
+.recipe_card-item {
+  @media screen and (min-width: $tablet) {
+    flex-basis: calc(100% / 2 - 9px);
+    & + & {
+      margin-left: 17px;
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    flex-basis: calc(100% / 2 - 27px);
+    & + & {
+      margin-left: 0;
+    }
   }
 }
