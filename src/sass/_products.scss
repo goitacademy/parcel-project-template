@@ -43,7 +43,7 @@
   margin-bottom: 144px;
   font-family: Titan One;
   font-size: 34px;
-  line-height: 1.15;
+  line-height: 1.1;
   text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -52,10 +52,10 @@
   @media screen and (min-width: 768px) {
     margin-bottom: 150px;
     font-size: 48px;
-    line-height: 1.14;
+    line-height: 1.15;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1200px) {
     margin-bottom: 259px;
     font-size: 58px;
     line-height: 1.14;
@@ -81,12 +81,17 @@
   background-color: $header-bg-color;
   color: $white;
   border-radius: 24px;
-  margin-bottom: 130px;
+  
   padding-left: 41px;
   padding-right: 39px;
 
+  &:not(:last-child) {
+    margin-bottom: 129px;
+  }
+
   @media screen and (min-width: 768px) {
     width: calc((100% - 20px) / 3);
+    
     margin-bottom: 0;
     padding-top: 152px;
     padding-bottom: 40px;
@@ -94,6 +99,7 @@
     padding-right: 11px;
     &:not(:last-child) {
       margin-right: 20px;
+      margin-bottom: 0;
     }
   }
 
@@ -132,10 +138,16 @@
 
   @media screen and (min-width: 768px) {
     width: auto;
-
     right: 0px;
 
-    .products-foto-first {
+    
+  }
+
+  
+}
+
+@media screen and (min-width: 768px) {
+  .products-foto-first {
       height: 226px;
       top: -104px;
     }
@@ -149,10 +161,10 @@
       height: 224px;
       top: -102px;
     }
-  }
 
-  
 }
+
+
 
 @media screen and (min-width: 1200px) {
   .products-foto-first {
@@ -188,12 +200,21 @@
   line-height: 1.15;
   text-align: center;
   text-transform: uppercase;
+  letter-spacing: 0.04em;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 768px) {
+  margin-bottom: 30px;
+  line-height: 1.16;
+  
+  }
+
+  @media screen and (min-width: 1200px) {
     font-size: 30px;
   line-height: 1.13;
   margin-bottom: 32px;
   }
+
+
 }
 
 .products-gallery-text {
@@ -207,30 +228,13 @@
   @media screen and (min-width: 767px) {
     display: none;
   }
-
-  &::after {
-    display: block;
-    content: '';
-    width: 40px;
-    height: 40px;
-    background-color: $white;
-    border-radius: 50%;
-    background-size: 40px 40px;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-
-    @media screen and (min-width: 768px) {
-      margin-top: 40px;
-    }
-  }
+  
 }
 
 @media screen and (max-width: 767px) {
   .products-gallery-text-short {
     display: none;
+    margin: 0;
   }
 }
 
@@ -246,20 +250,7 @@
     text-align: center;
 
 
-    // &::after {
-    //   display: block;
-    //   content: '';
-    //   width: 40px;
-    //   height: 40px;
-    //   background-color: $white;
-    //   border-radius: 50%;
-    //   background-size: 40px 40px;
-    //   background-repeat: no-repeat;
-    //   background-position: center;
-    //   margin-top: 40px;
-    //   margin-left: auto;
-    //   margin-right: auto;
-    // }
+    
   }
 }
 
@@ -271,32 +262,45 @@
       line-height: 1.69;
       letter-spacing: 0.04em;
 
-    //    &::after {
-    //   display: block;
-    //   content: '';
-    //   width: 40px;
-    //   height: 40px;
-    //   background-color: $white;
-    //   border-radius: 50%;
-    //   background-size: 40px 40px;
-    //   background-repeat: no-repeat;
-    //   background-position: center;
-    //   margin-top: 62px;
-     
-    //   margin-left: auto;
-    //   margin-right: auto;
-    // }
+    
 
     }
 }
 
 .products-link {
   background-image: url(../images/products/arrow-right.jpg);
+    width: 40px;
+      height: 40px;
+      background-color: $white;
+      border-radius: 50%;
+      background-size: 40px 40px;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-top: 30px;
+      margin-left: auto;
+      margin-right: auto;
+
+      &:hover,
+      &:focus {
+        
+        border: 1px solid $primary-title-color;
+        outline: 1px $primary-title-color;
+        cursor: pointer;
+        
+      }
+
+      @media screen and (min-width: 768px) {
+       margin-top: 40px; 
+      }
+
+      @media screen and (min-width: 1200px) {
+        margin-top: 62px;
+      }
+
 }
 
-// .arrow-right::after {
-//   background-image: url(../images/products/arrow-right.jpg);
-// }
+
+
 
 .products-ellipsis {
   display: flex;
