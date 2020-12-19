@@ -75,12 +75,11 @@
        padding-right: 0px;
         
     }
-
-
-    
+  
 }
 
 .logo_icon {
+    display: block;
     fill: $title-text-color; 
     
     width: 199px;
@@ -182,6 +181,7 @@
 }
 
 .mobile-menu {
+    display: none;
      
     position: absolute;
     z-index: 999;
@@ -191,6 +191,8 @@
     opacity: 0;
     transform: translateX(100%);
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 450ms;
+    
     
 
     padding-bottom: 185px;
@@ -201,9 +203,17 @@
     background-color: #E17992;
 
     &.is-open {
+        display: block;
         opacity: 1;
         transform: translateX(0%);
-        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);               
+        
+        transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition-delay: 450ms;
+
+        @media screen  and (min-width:1200px){
+            display: none;
+        }
+                   
     }     
     
     @media screen  and (min-width:768px){
@@ -211,9 +221,7 @@
         height: 1020px;
 
     }
-    @media screen  and (min-width:1200px){
-        display: none;
-    }
+   
 
 }
 
