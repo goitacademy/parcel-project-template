@@ -14,7 +14,7 @@
   overflow: hidden;
 }
 
-.main-nav .nav-link:hover, .main-nav .nav-link:focus, .nav-link:hover, .nav-link:focus, .cow-link:hover, .cow-link:focus, .slider-block .swiper-pagination-bullet {
+.main-nav .nav-link:hover, .main-nav .nav-link:focus, .nav-link:hover, .nav-link:focus, .cow-link:hover, .cow-link:focus, .slider-block .swiper-pagination-bullet, .social-icons-link:hover, .social-icons-link:focus {
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -271,7 +271,6 @@ address {
   border: none;
   background-color: transparent;
   fill: #d41443;
-  z-index: 55;
 }
 
 @media (min-width: 768px) {
@@ -285,6 +284,29 @@ address {
 @media (min-width: 1050px) {
   .menu-button {
     display: none;
+  }
+}
+
+.menu-button.is-open {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 60;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+  overflow: scroll;
+}
+
+@media (min-width: 768px) {
+  .menu-button.is-open {
+    position: absolute;
+    top: 10px;
+    right: 255px;
+    z-index: 100;
+    background-color: #e18298;
+    transform: translateY(25%);
+    transition: transform 500ms linear;
   }
 }
 
@@ -303,16 +325,18 @@ address {
 
 .mobile-container {
   position: absolute;
+  top: 0;
   right: 0;
   width: 250px;
   height: 500px;
-  z-index: 50;
-  background-color: rgba(94, 27, 27, 0.3);
+  background-color: #e17992;
+  padding: 60px 20px;
+  z-index: 55;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   overflow: auto;
-  transition: opacity 250ms linear, visibility 250ms liner;
+  transform: translateX(100%);
 }
 
 @media (min-width: 768px) {
@@ -332,36 +356,8 @@ address {
   visibility: visible;
   pointer-events: initial;
   overflow: scroll;
-}
-
-.mobile-content {
-  position: absolute;
-  right: 0;
-  width: 250px;
-  height: 500px;
-  background-color: #e17992;
-  padding: 60px 20px;
-  transform: translateX(100%);
-  transition: transform 250ms linear;
-}
-
-@media (min-width: 768px) {
-  .mobile-content {
-    height: 1000px;
-  }
-}
-
-.mobile-container.is-open .mobile-content {
-  width: 250px;
-  height: 500px;
-  background-color: #e17992;
   transform: translateX(0);
-}
-
-@media (min-width: 768px) {
-  .mobile-container.is-open .mobile-content {
-    height: 1000px;
-  }
+  transition: transform 250ms linear;
 }
 
 .btn-burger {
@@ -442,7 +438,7 @@ address {
 @media (min-width: 1050px) {
   .hero-container {
     padding-top: 41px;
-    padding-left: 40px;
+    padding-left: 0px;
   }
 }
 
@@ -510,6 +506,7 @@ address {
 }
 
 .hero-amount-wrap {
+  position: relative;
   margin-left: auto;
   margin-right: 0px;
 }
@@ -750,7 +747,7 @@ address {
     width: 188px;
     height: 191px;
     top: -75px;
-    left: -20px;
+    left: 2px;
   }
 }
 
@@ -770,7 +767,7 @@ address {
     width: 168px;
     height: 133px;
     top: 184px;
-    left: 75%;
+    left: -120px;
   }
 }
 
@@ -779,7 +776,8 @@ address {
     width: 293px;
     height: 232px;
     top: 299px;
-    left: 72%;
+    top: 258px;
+    left: -195px;
   }
 }
 
@@ -1165,7 +1163,7 @@ address {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1050px) {
   .cow-image {
     width: 516px;
   }
@@ -1998,25 +1996,15 @@ address {
   font-weight: 400;
   font-size: 18px;
   line-height: 1.15;
+  text-transform: uppercase;
   color: #ffa5ba;
   max-width: 234px;
   margin-bottom: 43px;
 }
 
-@media (min-width: 768px) {
-  .footer-text {
-    font-size: 26px;
-  }
-}
-
 @media (min-width: 1050px) {
   .footer-text {
     font-size: 30px;
-  }
-}
-
-@media (min-width: 1050px) {
-  .footer-text {
     max-width: 474px;
   }
 }
@@ -2024,6 +2012,7 @@ address {
 .text-accent {
   font-size: 34px;
   line-height: 1.15;
+  text-transform: uppercase;
   color: #d41443;
   margin-top: 17px;
   display: inline-block;
@@ -2048,7 +2037,7 @@ address {
 }
 
 .cosial-list .social-icons-svg {
-  fill: #fea5bb;
+  fill: #ffffff;
 }
 
 .cosial-list .social-icons-item:not(:last-child) {
@@ -2059,13 +2048,14 @@ address {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #fea5bb;
 }
 
-.social-icons-link:hover .social-icons-svg,
-.social-icons-link:focus .social-icons-svg {
-  fill: #d41443;
+.social-icons-link:hover, .social-icons-link:focus {
+  background-color: #d41443;
 }
 
 .contact-us {
