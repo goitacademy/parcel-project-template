@@ -7,8 +7,23 @@
 
   refs.openMenuBtn.addEventListener("click", toggleMenu);
   refs.closeMenuBtn.addEventListener("click", toggleMenu);
+  document.addEventListener("click", checkOpenMenu);
 
+  function checkOpenMenu(e) {
+  if (refs.menu.classList.contains("is-open")) {
+     if (e.target != refs.menu && e.target != refs.openMenuBtn) {
+      toggleMenu();
+    }
+    }
+  }
   function toggleMenu() {
     refs.menu.classList.toggle("is-open");
   }
 })();
+
+
+
+  
+  
+  
+  
