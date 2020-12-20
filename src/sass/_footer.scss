@@ -1,11 +1,35 @@
 footer {
   background-color: $footer-bg;
 }
+
 .footer {
   margin: 0;
   padding: 0;
-  //
+
+  position: relative;
 }
+
+.footer::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  border-radius: 3px;
+  background-color: #e1e1e1;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  bottom: 89px;
+
+  @media screen and (min-width: 768px) {
+    bottom: 73px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    bottom: 45px;
+  }
+}
+
 .footer-container {
   @media screen and (min-width: 768px) {
     display: flex;
@@ -141,19 +165,27 @@ footer {
 }
 .footer-in-footer {
   display: flex;
+  align-items: center;
   justify-content: center;
-  border-top: 1px solid #e1e1e1;
+
+  height: 89px;
+
+  @media screen and (min-width: 768px) {
+    height: 73px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    height: 45px;
+  }
 }
 .footer-text {
-  margin-top: 22px;
-  margin-bottom: 25px;
   width: 150px;
   font-family: DM Sans;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
   line-height: 152%;
-  text-align: center;
+
   color: #907e82;
   @media screen and (min-width: 768px) {
     width: 100%;
