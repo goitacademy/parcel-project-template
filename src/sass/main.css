@@ -302,17 +302,17 @@ address {
 }
 
 .mobile-container {
-  position: fixed;
+  position: absolute;
   right: 0;
-  top: 0;
   width: 250px;
   height: 500px;
-  background-color: #e17992;
-  padding: 60px 20px;
+  z-index: 50;
+  background-color: rgba(94, 27, 27, 0.3);
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   overflow: auto;
-  z-index: 50;
+  transition: opacity 250ms linear, visibility 250ms liner;
 }
 
 @media (min-width: 768px) {
@@ -328,9 +328,40 @@ address {
 }
 
 .mobile-container.is-open {
-  opacity: 0.5;
+  opacity: 1;
   visibility: visible;
+  pointer-events: initial;
   overflow: scroll;
+}
+
+.mobile-content {
+  position: absolute;
+  right: 0;
+  width: 250px;
+  height: 500px;
+  background-color: #e17992;
+  padding: 60px 20px;
+  transform: translateX(100%);
+  transition: transform 250ms linear;
+}
+
+@media (min-width: 768px) {
+  .mobile-content {
+    height: 1000px;
+  }
+}
+
+.mobile-container.is-open .mobile-content {
+  width: 250px;
+  height: 500px;
+  background-color: #e17992;
+  transform: translateX(0);
+}
+
+@media (min-width: 768px) {
+  .mobile-container.is-open .mobile-content {
+    height: 1000px;
+  }
 }
 
 .btn-burger {
