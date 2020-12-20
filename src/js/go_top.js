@@ -5,14 +5,14 @@ $(document).ready(function(){
 $(function() {
  $.fn.scrollToTop = function() {
   $(this).hide().removeAttr("href");
-  if ($(window).scrollTop() >= "250") $(this).fadeIn("slow")
+  if ($(window).scrollTop() >= "250") $(this).fadeIn("fast")
   var scrollDiv = $(this);
   $(window).scroll(function() {
-   if ($(window).scrollTop() <= "250") $(scrollDiv).fadeOut("slow")
+   if ($(window).scrollTop() <= "250") $(scrollDiv).fadeOut("fast")
    else $(scrollDiv).fadeIn("slow")
   });
   $(this).click(function() {
-   $("html, body").animate({scrollTop: 0}, "slow")
+   $("html, body").animate({scrollTop: 0}, "fast")
   })
  }
 });
