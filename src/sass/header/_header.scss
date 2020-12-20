@@ -2,21 +2,28 @@
   background-color: getColor(heroBgrd);
 }
 
-.header__button {
-  margin-left: auto;
-}
-
-.button-icon {
-  width: 4px;
-  height: 8px;
-  fill: getColor(accent);
+.header a {
+  text-decoration: none;
 }
 
 .header .container {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   padding-top: 38px;
-  padding-bottom: 38px;
+  // padding-bottom: 38px;
+  padding-bottom: -33px;
+  z-index: 9;
+
+  @media screen and (max-width: 767px) {
+    padding-top: 6px;
+  }
+}
+
+.logo-image {
+  display: block;
+  width: 199px;
+  height: 100%;
+  margin-right: 40px;
 }
 
 .main-nav {
@@ -25,8 +32,11 @@
 }
 
 .site-nav {
+  position: relative;
+  z-index: 9;
   padding: 0;
   margin: 0;
+
 }
 
 .site-nav.list {
@@ -44,9 +54,14 @@
   color: getColor(btncolor);
 
   &:hover,
-  &:focus {
+  &:focus,
+  &.current {
     color: getColor(accent);
   }
+}
+
+.mobile-nav .site-nav__link {
+  font-size: 14px;    
 }
 
 .header__button {
@@ -60,30 +75,42 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 1.31;
+  margin-left: auto;
 }
 
-// .logo-image {
-//     width: 199px;
-//     height: 50px;
-//     display: block;
-//     margin-right: 40px;
-// }
-.logo-image {
-  display: block;
-  width: 199px;
-  height: 100%;
-  margin-right: 140px;
+.main-nav + .header__button {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 }
 
-// * {
-//   outline: 1px solid blue;
-// }
+.header__button.side {
+  display: inline;
+  margin-left: 30px;
+}
+
+
+.button-icon {
+  width: 4px;
+  height: 8px;
+  fill: getColor(accent);
+  margin-left: 12px;
+}
+
+* {
+  outline: 1px solid blue;
+}
 
 .mobile-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
   padding: 15px 20px;
   width: 250px;
   height: 100vh;
   background-color: getColor(bgcmobile);
+  // transform: translateX(200%);
 }
 
 .mobile-nav .site-nav {
@@ -93,4 +120,13 @@
 .mobile-nav .site-nav__item {
   margin-right: 0;
   margin-bottom: 22px;
+}
+
+
+.main-nav .site-nav {
+  display: none;
+
+  @media screen and (min-width: 1199px) {
+  display: flex;
+  }
 }
