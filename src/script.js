@@ -1,5 +1,5 @@
-$(document).ready(function(){
-  $('.slider').slick({
+$(document).ready(function () {
+  $slideshow=$('.slider').slick({
     arrows: false,
     dots:true,
     autoplay: true,
@@ -9,5 +9,5 @@ $(document).ready(function(){
     pauseOnDotsHover: true,
     speed: 1000,
     easing: 'ease',
-      });
+      }), $('.slider').click(function () { $slideshow.slick("slickNext") })
 });
