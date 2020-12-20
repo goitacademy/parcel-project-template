@@ -75,7 +75,9 @@
     position: relative;
     top: -80px;
     margin: 0;
-
+  }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 0;
   }
 }
 .recipe_all-text {
@@ -131,7 +133,8 @@
   }
 }
 .recipe-button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding-left: 37px;
   padding-right: 37px;
   padding-top: 12px;
@@ -139,22 +142,28 @@
   margin-top: 20px;
   border-radius: 20px;
   text-decoration: none;
-
-  font-family: 'DM Sans', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.25;
+  width: 176px;
 
   background-color: $color-main;
   color: $color-accent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 9px;
+    margin-left: 12px;
+    background-image: url(./../images/bitmap/common/btn-arrow.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 
   &:hover,
   &:focus {
     background-color: $color-accent-button-2;
   }
   @media screen and (min-width: $tablet) {
-    font-size: 16px;
     margin-top: 62px;
     margin-right: auto;
   }
@@ -163,13 +172,17 @@
     margin-top: 45px;
   }
 }
-.recipe_button-all {
-  display: flex;
+.recipe_button-text {
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  text-align: start;
+  @media screen and (min-width: $tablet) {
+    font-size: 16px;
+  }
 }
-.recipe_arrow {
-  margin-left: 10px;
-}
-
 .recipe_card {
   @media screen and (min-width: $tablet) {
     display: flex;
