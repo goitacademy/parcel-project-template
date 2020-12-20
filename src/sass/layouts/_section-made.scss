@@ -52,6 +52,11 @@
 }
 
 .made-item {
+  @include for-size(mobile-only) {
+    display: flex;
+    flex-direction: column;
+  }
+
   @include for-size(tablet) {
     margin-left: 17px;
     flex-basis: calc(100% / 2 - 17px);
@@ -148,6 +153,8 @@
   text-align: center;
   justify-content: center;
 
+  margin-right: auto;
+
   min-width: 176px;
   padding: 10px 37px;
 
@@ -166,6 +173,10 @@
   &:hover,
   &:focus {
     background: #ecebeb;
+  }
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    margin-right: auto;
+    margin-left: auto;
   }
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     margin-top: 62px;
@@ -191,6 +202,17 @@
 
   // .made-button:hover &,
   // .made-button:focus & {
-  //   fill: $accent-color;;
+  //   fill: $accent-color;
   // }
+}
+
+.anim-show {
+  transform: translate(120%);
+  opacity: 0;
+  transition: all 0.8s $bezier-page 0s;
+}
+
+.anim-show.active {
+  transform: translate(0);
+  opacity: 1;
 }
