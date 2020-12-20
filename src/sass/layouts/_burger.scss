@@ -1,89 +1,61 @@
 .menu-button {
+  position: relative;
   display: inline-block;
   border: none;
   background-color: transparent;
   fill: $main-text-color;
-
-  &.is-open {
-    z-index: 20;
-    position: absolute;
-    right: 20px;
-    fill: $bg-white;
-  }
-
-  &.is-open .icon-menu-open {
-    display: none;
-  }
-
-  .icon-menu-close {
-    display: none;
-  }
-
-  &.is-open .icon-menu-close {
-    display: block;
-  }
+  z-index: 55;
 
   @include for-size(tablet) {
-    margin-right: 30px;
+    // margin-right: 20px;
+    position: absolute;
+    top: 20px;
+    right: 210px;
   }
-
   @include for-size(desktop) {
     display: none;
   }
 }
-
-
-// .menu-button-close {
-//   display: inline-block;
-//   position: absolute;
-//   background-color: transparent;
-// }
-
-// .icon-close {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   fill: $bg-white;
-// }
-// .menu-button.is-open .icon-menu {
-//   display: none;
-// }
-// .menu-button .icon-close {
-//   display: none;
-// }
+.menu-button .icon-menu-close {
+  display: none;
+}
+.menu-button.is-open .icon-menu-close {
+  // position: absolute;
+  display: block;
+  fill: $bg-white;
+}
+.menu-button.is-open .icon-menu-open {
+  display: none;
+}
 
 .mobile-container {
-  display: none;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   width: 250px;
   height: 500px;
   background-color: $bg-mobile-menu;
   padding: 60px 20px;
-  overflow: auto;
-  
 
-  &.is-open {
-    z-index: 15;
-    display: block;
-  }
+  opacity: 0;
+  visibility: hidden;
+  overflow: auto;
+  z-index: 50;
 
   @include for-size(tablet) {
     height: 1000px;
   }
-  // @include for-size(desktop) {
-  //   display: none;
-  // }
+  @include for-size(desktop) {
+    display: none;
+  }
 }
 
+.mobile-container.is-open {
+  opacity: 0.5;
+  visibility: visible;
+  overflow: scroll;
+}
 
-// .mobile-container.is-open {
-//   opacity: 1;
-//   visibility: visible;
-//   overflow: scroll;
-// }
 // .mobile-container.is-open .menu-button {
 //   position: absolute;
 //   display: block;
@@ -93,6 +65,7 @@
 
 .btn-burger {
   @extend %button;
+  position: relative;
   width: 100%;
   margin-top: 20px;
   background-color: $bg-white;
