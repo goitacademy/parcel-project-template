@@ -1,21 +1,48 @@
 .slider {
-  display: block;
-  justify-content: center;
-  padding: 80px 20px 170px 20px;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
 
-  @media screen and (min-width: $mobile) {
-    width: $mobile;
+  .container {
+    @media screen and (max-width: 739px) {
+      min-height: 791px;
+    }
+
+    @media screen and (min-width: $tablet) {
+      min-height: 700px;
+    }
+    @media screen and (min-width: $desktop) {
+      min-height: 707px;
+    }
   }
 
-  @media screen and (min-width: $tablet) {
-    width: $tablet;
-    padding: 121px 60px 197px 60px;
+  .main-slider {
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @media screen and (max-width: 739px) {
+      width: 280px;
+    }
+
+    @media screen and (min-width: $tablet) {
+      width: 620px;
+    }
+    @media screen and (min-width: $desktop) {
+      width: 926px;
+    }
   }
-  @media screen and (min-width: $desktop) {
-    width: $desktop;
-    padding: 123px 176px 234px 178px;
+
+  .sliders {
+    width: 300%;
+    height: 100%;
+    display: flex;
+  }
+
+  &-article {
+    width: 33.333%;
+    transition: all 2s ease;
+    padding-bottom: 35px;
   }
 
   &-text {
@@ -78,7 +105,7 @@
   &-subtitle {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 35px;
+
     margin-top: 30px;
     padding: 0;
     font-family: 'DM Sans';
@@ -119,22 +146,23 @@
         margin-bottom: 15px;
       }
     }
-
-     }
+  }
 }
 
 .radio-buttons {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
   display: flex;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .rad-btn {
   display: none;
 }
 
-.rad-btn + label {
+label {
   display: block;
   width: 12px;
   height: 12px;
@@ -156,4 +184,16 @@
   background-image: url('./../images/vector/house.svg');
   background-position: center;
   background-repeat: no-repeat;
+}
+
+#r1:checked ~ .s1 {
+  margin-left: 0;
+}
+
+#r2:checked ~ .s1 {
+  margin-left: -33.333%;
+}
+
+#r3:checked ~ .s1 {
+  margin-left: -66.666%;
 }
