@@ -4,7 +4,12 @@
   border: none;
   background-color: transparent;
   fill: $main-text-color;
-  // z-index: 55;
+  @extend %animation;
+  z-index: 55;
+  &:hover,
+  &:focus {
+    outline: none;
+  }
 
   @include for-size(tablet) {
     // margin-right: 20px;
@@ -25,18 +30,6 @@
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
-  overflow: scroll;
-
-  @include for-size(tablet) {
-    // margin-right: 20px;
-    position: absolute;
-    top: 10px;
-    right: 255px;
-    z-index: 100;
-    background-color: $mobile-lines;
-    transform: translateY(25%);
-    transition: transform 500ms linear;
-  }
 }
 .menu-button .icon-menu-close {
   display: none;
@@ -55,15 +48,17 @@
   top: 0;
   right: 0;
   width: 250px;
-  height: 500px;
+  height: 502px;
   background-color: $bg-mobile-menu;
   padding: 60px 20px;
   z-index: 55;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  overflow: auto;
+
+  // opacity: 0;
+  // visibility: hidden;
+  // pointer-events: none;
+  // overflow: auto;
   transform: translateX(100%);
+  transition: transform 250ms linear;
 
   @include for-size(tablet) {
     height: 1000px;
@@ -73,13 +68,13 @@
   }
 }
 .mobile-container.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: initial;
-  overflow: scroll;
+  //   opacity: 1;
+  //   visibility: visible;
+  //   pointer-events: initial;
+  //   overflow: scroll;
+  box-shadow: -1px 1px 17px 0px rgba(0, 0, 0, 0.75);
 
   transform: translateX(0);
-  transition: transform 250ms linear;
 }
 
 .btn-burger {
@@ -89,6 +84,19 @@
   margin-top: 20px;
   background-color: $bg-white;
   color: $main-text-color;
+  @extend %animation;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    background-color: $main-text-color;
+    color: $bg-white;
+  }
+
+  &:hover .btn-icon,
+  &:focus .btn-icon {
+    fill: $bg-white;
+  }
 }
 .mobile-menu {
   margin-top: 20px;
@@ -107,11 +115,10 @@
   font-weight: 700;
   font-size: 14px;
   font-family: 'DM Sans', sans-serif;
-
+  @extend %animation;
   &:hover,
   &:focus {
     color: $main-text-color;
     transition-property: color;
-    @extend %animation;
   }
 }
