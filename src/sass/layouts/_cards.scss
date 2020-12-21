@@ -3,31 +3,33 @@
   background-image: linear-gradient($bg-white 20px, $bg-pink 20px);
   background-repeat: no-repeat;
 
-  @media screen and (min-width: 768px) {
-    background-image: linear-gradient($bg-white 37px, $bg-pink 37px);
-  }
+  //   @include for-size(desktop) {
+  //     background-image: url(../image/desktop/cards/sectionbgcards.png);
+  //   }
 
-  @include for-size(desktop) {
-    background-image: url(../images/desktop/cards/sectionbgcards.png),
-      linear-gradient($bg-white 234px, $bg-pink 234px);
-    //   @media screen and (min-device-pixel-ratio: 2),
-    //     screen and (-webkit-min-device-pixel-ratio: 2),
-    //     screen and (-o-min-device-pixel-ratio: 2/1),
-    //     screen and (min-resolution: 192dpi),
-    //     screen and (min-resolution: 2dppx) {
-    //     background-image: url(../images/desktop/cards/sectionbgcards@2x.png);
-    //   }
-  }
+  //   @media screen and (min-device-pixel-ratio: 2),
+  //     screen and (-webkit-min-device-pixel-ratio: 2),
+  //     screen and (-o-min-device-pixel-ratio: 2/1),
+  //     screen and (min-resolution: 192dpi),
+  //     screen and (min-resolution: 2dppx) {
+  //     background-image: url(../image/desktop/cards/sectionbgcards@2x.png);
+  //   }
 
   background-position: 0 234px, 0 0;
   background-size: contain, auto;
 }
 
 .cards {
-  max-width: 320px;
+  // max-width: 320px;
+  min-width: 320px;
   margin-left: auto;
   margin-right: auto;
   padding: 86px 50px 113px 50px;
+  width: 100%;
+
+  @include for-size(mobile) {
+    max-width: 520px;
+  }
 
   @include for-size(tablet) {
     max-width: 768px;
@@ -299,6 +301,7 @@
 
 .button-dark {
   width: 161px;
+  margin-right: 10px;
 
   @include for-size(tablet) {
     width: 191px;
