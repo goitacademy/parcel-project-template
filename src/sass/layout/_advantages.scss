@@ -13,35 +13,32 @@
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .advantages .container {
+.advantages .container {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 216px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    width: 1344px;
   }
 }
 
-@media screen and (min-width: 768px) {
-  .advantages-list {
-    display: flex;
-    justify-content: space-between;
+.advantages-list {
+  @media screen and (min-width: 768px) {
+    @include flex(space-between, center);
   }
 }
 
 .advantages-list__item {
-  display: flex;
-
-  @include font(700, 14px, 1.43);
+  @include flex(center, center);
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     &:not(:last-child) {
       margin-bottom: 30px;
     }
-
-    @media screen and (min-width: 1400px) {
-      @include font(700, 20px, 1.65);
-    }
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1399px) {
+  @media screen and (min-width: 768px) {
     width: 216px;
   }
 
@@ -57,7 +54,6 @@
 .advantages-list__icon {
   width: 59px;
   height: 60px;
-  fill: var(--accent-color);
 
   @media screen and (min-width: 1400px) {
     width: 100px;
@@ -65,9 +61,12 @@
   }
 }
 
-@media screen and (min-width: 1400px) {
-  .advantages-list {
-    display: flex;
-    justify-content: flex-start;
+.advantages-list__text {
+  @include font(700, 14px, 1.43);
+  letter-spacing: 0.08em;
+
+  @media screen and (min-width: 1400px) {
+    // position: absolute;
+    @include font(700, 20px, 1.65);
   }
 }
