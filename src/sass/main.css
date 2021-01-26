@@ -3,25 +3,6 @@
  * Главный файл стилей.
  * Все паршалы подключаются сюда.
  */
-.example {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
- Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
-  color: #212121;
-  max-width: 960px;
-  padding: 15px;
-}
-
-.example code {
-  font-family: monospace;
-  font-size: 16px;
-  font-weight: 700;
-  background-color: teal;
-  color: white;
-  padding: 2px 6px;
-  border-radius: 2px;
-}
-
 :root {
   --primaty-text-color: #3D3D3D;
   --secondary-text-color: #B9B9B9 ;
@@ -29,7 +10,17 @@
   --accent-color: #FF6B09;
   --primary-white-color: #ffffff;
   --primary-background-color: #ffffff;
+}
 
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 img {
@@ -43,15 +34,33 @@ img {
   margin: 0;
   list-style: none;
 }
-.visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
   padding: 0;
-  position: absolute;
-  width: 1px;
+}
+
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
 }
 
 .section {
@@ -73,23 +82,19 @@ img {
 .container {
   margin-left: auto;
   margin-right: auto;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
 }
 
 @media screen and (max-width: 319px) {
   .container {
     width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
 @media screen and (min-width: 320px) {
   .container {
     width: 320px;
-    padding-left: 20px;
-    padding-right: 20px;
   }
 }
 
@@ -135,29 +140,56 @@ img {
   margin-right: 10px;
 }
 
+@media screen and (min-width: 768px) {
+  .container-icon .list .item {
+    margin-right: 30px;
+  }
+}
+
 .container-icon .list .item:last-child {
   margin-right: 0;
 }
 
 .container-reviews {
-  margin-bottom: 20px;
-  padding: 20px;
   -webkit-box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
           box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
   margin-left: auto;
   margin-right: auto;
 }
 
-.container-reviews .link {
-  color: var(--accent-color);
-  position: relative;
-  text-decoration-skip-ink: none;
-}
-
 @media screen and (min-width: 320px) {
   .container-reviews {
     width: 280px;
+    padding: 20px;
+    margin-bottom: 20px;
   }
+}
+
+@media screen and (min-width: 768px) {
+  .container-reviews {
+    width: 688px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 1344px) {
+  .container-reviews {
+    width: 1090px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 40px;
+  }
+}
+
+.container-reviews .link-reviews {
+  color: var(--accent-color);
+  position: relative;
+  text-decoration-skip-ink: none;
 }
 
 .container-reviews .logo-vk {
@@ -169,17 +201,52 @@ img {
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
-  line-height: 15px;
-  text-align: center;
+  line-height: 1.2;
   letter-spacing: 0.08em;
   color: var(--secondary-text-color);
   margin: 0;
   margin-bottom: 10px;
 }
 
+@media screen and (max-width: 767px) {
+  .container-reviews .text {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container-reviews .text {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1344px) {
+  .container-reviews .text {
+    font-size: 14px;
+  }
+}
+
 .container-reviews .title {
   color: var(--accent-color);
   margin-bottom: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+}
+
+@media screen and (min-width: 767px) {
+  .container-reviews .title {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1344px) {
+  .container-reviews .title {
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
 }
 
 .container-reviews .description-text {
@@ -190,18 +257,68 @@ img {
   line-height: 1.6;
 }
 
+@media screen and (min-width: 1344px) {
+  .container-reviews .description-text {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
 .title {
   font-style: normal;
   font-weight: 800;
   font-size: 20px;
   line-height: 1.3;
-  text-align: center;
   letter-spacing: 0.03em;
   margin: 0;
   margin-bottom: 20px;
 }
 
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 1344px) {
+  .title {
+    font-size: 46px;
+  }
+}
+
 .photo {
   margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .photo {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .reviews-picture {
+    padding-right: 46px;
+  }
+}
+
+.reviews-description {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .reviews-description {
+    width: 412px;
+    text-align: start;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 1344px) {
+  .reviews-description {
+    margin: 0;
+    width: 706px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
