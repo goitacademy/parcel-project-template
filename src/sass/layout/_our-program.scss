@@ -7,13 +7,7 @@
 dl,
 dt,
 dd,
-li,
-p,
-img,
-a,
-button,
-input,
-textarea {
+li {
   margin: 0;
   padding: 0;
 }
@@ -25,8 +19,7 @@ textarea {
 // }
 
 .section.our-program {
-  padding-top: 53px;
-  padding-bottom: 50px;
+  padding: 50px 0;
 
   @media screen and (min-width: 768px) {
     padding-top: 60px;
@@ -38,7 +31,11 @@ textarea {
 }
 
 .our-program {
-  background-color: rgb(17, 21, 24);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(17, 21, 24) 87%,
+    rgb(250, 250, 250) 87%
+  );
 
   &__section-title {
     margin-bottom: 40px;
@@ -56,9 +53,10 @@ textarea {
 
   &__list {
     position: relative;
+    margin-left: 100px;
     margin-bottom: 50px;
-    counter-reset: section;
     list-style: none;
+    counter-reset: section;
 
     z-index: 1;
 
@@ -66,11 +64,9 @@ textarea {
       position: absolute;
       content: '';
       top: 14px;
-      left: -26px;
+      left: -27px;
       width: 1px;
-      // height: 1282px;
-      // height: 100%;
-      height: 94%;
+      height: 92%;
       background-color: rgb(255, 255, 255);
     }
   }
@@ -112,11 +108,15 @@ textarea {
     color: var(--accent-color);
     font-size: 12px;
     font-weight: bold;
-    line-height: 19.8px;
+    line-height: 20px;
     text-transform: initial;
 
     &:nth-child(n + 2) {
       margin-top: 8px;
+    }
+
+    &:last-of-type {
+      height: 20px;
     }
 
     &::before {
@@ -126,7 +126,7 @@ textarea {
       left: -18px;
       width: 12px;
       height: 1px;
-      background-color: rgb(255, 107, 9);
+      background-color: var(--accent-color);
     }
   }
 
@@ -140,12 +140,9 @@ textarea {
   }
 }
 
-// .our-program__section-title + .our-program__item {
-//   text-transform: uppercase;
-// }
-
 .choice {
   &__section-title {
+    width: 180px;
     margin-bottom: 30px;
     color: rgb(255, 255, 255);
     font-size: 20px;
@@ -157,19 +154,45 @@ textarea {
     padding: 20px 14px 20px 30px;
     background-color: rgb(255, 255, 255);
     box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+    letter-spacing: 0.08em;
+    counter-reset: section;
   }
 
   &__item {
-    color: rgb(255, 107, 9);
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    color: var(--accent-color);
     font-size: 14px;
     font-weight: bold;
     line-height: 23.1px;
+
+    &::before {
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 0;
+      width: 14px;
+      height: 1px;
+      background-color: var(--accent-color);
+    }
+
+    &::after {
+      counter-increment: section;
+      content: '0' counters(section, '.');
+      line-height: 23.1px;
+    }
   }
 
   &__descr {
+    width: 216px;
     color: rgb(17, 21, 24);
     font-size: 14px;
     font-weight: bold;
     line-height: 20px;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
   }
 }
