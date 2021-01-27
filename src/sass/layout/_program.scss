@@ -2,6 +2,7 @@
   padding: 50px 20px;
   background-color: var(--primary-text-color);
   color: var(--white-text-color);
+  overflow: hidden;
 
   &__title {
     text-align: center;
@@ -28,17 +29,39 @@
     min-width: 176px;
 
     margin-left: 100px;
+    margin-bottom: 537px;
 
     &::before {
       content: '';
       display: block;
       width: 1px;
-      height: 1148px;
+      height: 1320px;
       position: absolute;
       top: 15px;
       left: 74px;
 
       background-color: var(--white-text-color);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 180px;
+      bottom: 440px;
+      width: 176px;
+      height: 137px;
+
+      background-image: url('../images/program/program-mobile-1.jpg');
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url('../images/program/program-mobile-1@2x.jpg');
+      }
+      background-size: contain;
+      background-position: top left;
+      background-repeat: no-repeat;
+      opacity: 0.5;
     }
   }
 
@@ -75,6 +98,8 @@
 
   &__description {
     display: flex;
+    height: 32px;
+
     align-items: center;
     font-family: var(--primary-font-family);
     font-weight: 800;
@@ -82,7 +107,7 @@
     line-height: 1.667;
     letter-spacing: 0.08em;
     color: var(--accent-color);
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 
     &::before {
       content: '';
@@ -104,15 +129,17 @@
     color: var(--secondary-text-color);
 
     opacity: 0.5;
-
-    &:not(:last-child) {
-      margin-bottom: 8px;
-    }
   }
 
   &__item {
     &:not(:last-child) {
       margin-bottom: 40px;
+    }
+  }
+
+  &__section {
+    &:not(:last-child) {
+      margin-bottom: 8px;
     }
   }
 }
