@@ -1,0 +1,100 @@
+.header {
+  padding: 30px 0 50px 0;
+  position: relative;
+}
+
+.header-logo {
+  @include font($font, normal, 700, 15px, 2);
+  color: rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+.header-logo.white {
+  color: white;
+  z-index: 2;
+}
+
+.header-logo.white .header-logo-describe {
+  color: white;
+}
+.header-fire {
+  transform: translateY(4px);
+}
+
+.header-logo-describe {
+  @include font($font, normal, 600, 6px, 2);
+  color: rgba(17, 21, 24, 1);
+  text-transform: uppercase;
+  transform: translateY(-4px);
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  z-index: 1;
+}
+
+.header-icon-cross {
+  display: none;
+}
+
+.header-btn.is-open .header-icon-cross {
+  display: block;
+}
+
+.header-btn.is-open .header-icon-burger {
+  display: none;
+}
+
+.header-list-link {
+  @include font($font, normal, 800, 20px, 1.8);
+  color: rgba(255, 255, 255, 1);
+  transition: color $transSet;
+
+  &:hover,
+  &:focus {
+    color: $orange;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header-list-item:last-child {
+    margin-bottom: 50px;
+  }
+}
+
+.header-consultation-btn {
+  padding: 14px;
+  @extend %orange-btn;
+
+  color: $orange;
+  background-color: transparent;
+
+  width: 100%;
+
+  @include font($font, normal, 700, 12px, 1.25);
+  text-transform: uppercase;
+}
+
+.header-menu-container {
+  display: none;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 568px;
+  padding: 108px 40px 0 20px;
+
+  background-color: rgba(17, 21, 24, 0.9);
+
+  &.is-open {
+    display: block;
+  }
+}
