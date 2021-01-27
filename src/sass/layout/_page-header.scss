@@ -21,8 +21,13 @@
   display: block;
   padding-top: 30px;
 }
+
 .logo-dark {
   z-index: 100;
+
+  @media screen and (min-width: 1344px) {
+    display: none;
+  }
 }
 
 .logo-text {
@@ -87,6 +92,10 @@
   &.is-open .menu-icon {
     display: none;
   }
+
+  @media screen and (min-width: 1344px) {
+    display: none;
+  }
 }
 
 .nav-link {
@@ -124,29 +133,12 @@
   text-align: center;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  cursor: pointer;
 
   color: var(--accent-color);
 
   &.header-btn {
     display: none;
-  }
-}
-
-.menu {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding-left: 20px;
-  padding-right: 20px;
-  overflow-y: scroll;
-  width: 100vw;
-  height: 100vh;
-  z-index: 99;
-  background: rgba(17, 21, 24, 0.9);
-
-  &.is-open {
-    display: block;
   }
 }
 
@@ -156,12 +148,60 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1343px) {
+  .menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-y: scroll;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+    background: rgba(17, 21, 24, 0.9);
+
+    &.is-open {
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1343px) {
   .logo,
   .logo-dark {
     padding-top: 40px;
   }
 
+  .nav-btn {
+    display: none;
+  }
+
+  .nav-btn.header-btn {
+    display: block;
+    margin-top: 40px;
+    margin-left: 235px;
+    margin-right: 40px;
+  }
+
+  .menu {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .nav-link {
+    font-size: 26px;
+  }
+
+  .nav-list {
+    display: block;
+    margin: 0 178px;
+    margin-top: 72px;
+  }
+}
+
+@media screen and (min-width: 768px) {
   .logo-text {
     font-size: 26px;
   }
@@ -182,29 +222,54 @@
     height: 30px;
     margin-bottom: 5px;
   }
+}
 
-  .nav-btn.header-btn {
-    display: block;
-    margin-top: 40px;
-    margin-left: 235px;
-    margin-right: 40px;
+@media screen and (min-width: 1344px) {
+  .page-header.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 33px;
   }
 
-  .nav-btn {
-    display: none;
-  }
   .menu {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  .nav-link {
-    font-size: 26px;
+    padding: 0;
+    display: flex;
+    align-items: center;
   }
 
   .nav-list {
-    display: block;
-    margin: 0 178px;
-    margin-top: 72px;
+    display: flex;
+    margin: 0;
+  }
+
+  .logo {
+    padding: 0;
+    // padding-top: 45px;
+  }
+
+  .nav-btn {
+    padding: 25px 23px;
+    font-size: 14px;
+    line-height: 1.214;
+    letter-spacing: 0.14em;
+  }
+
+  .nav-link {
+    padding: 28px 0;
+    margin: 0;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.214;
+    text-transform: uppercase;
+    color: var(--secondary-text-color);
+  }
+
+  .nav-item {
+    padding-right: 40px;
+
+    &:last-child {
+      padding-right: 60px;
+    }
   }
 }
