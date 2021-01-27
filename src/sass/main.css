@@ -1,24 +1,108 @@
-@charset "UTF-8";
-/*
- * Главный файл стилей.
- * Все паршалы подключаются сюда.
- */
-.example {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
-  color: #212121;
-  max-width: 960px;
-  padding: 15px;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
-.example code {
-  font-family: monospace;
-  font-size: 16px;
-  font-weight: 700;
-  background-color: teal;
-  color: white;
-  padding: 2px 6px;
-  border-radius: 2px;
+:root {
+  --accent-color: #FF6B09;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.56;
+}
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: inline-block;
+}
+
+.button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  padding: 0 20px;
+}
+
+@media screen and (min-width: 320px) {
+  .container {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+.logo {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: 0.04em;
+  color: #111518;
+  text-decoration: none;
+}
+
+.logo__first-desc,
+.logo__second-desc {
+  text-transform: uppercase;
+  font-size: 8px;
+}
+
+.logo__first-desc {
+  color: #ff6b09;
+}
+
+.logo__desc {
+  margin: 0;
+  padding: 0;
 }
 
 .burger-menu {
@@ -30,5 +114,261 @@
   border: none;
   background-color: transparent;
   margin-left: auto;
+  width: 40px;
+  height: 40px;
+}
+
+.icon-cross {
+  fill: currentColor;
+}
+
+.icon-burger {
+  fill: currentColor;
+}
+
+.page-nav {
+  padding: 0;
+  margin: 0;
+}
+
+.page-nav__item {
+  list-style: none;
+  color: white;
+}
+
+.page-nav__link {
+  text-decoration: none;
+}
+
+.menu-container {
+  background-color: rgba(17, 21, 24, 0.9);
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  width: 260px;
+  height: 48px;
+  margin: 0 auto;
+  text-align: center;
+  border: 2px solid #ff6b09;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ff6b09;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+dl,
+dt,
+dd,
+li,
+p,
+img,
+a,
+button,
+input,
+textarea {
+  margin: 0;
+  padding: 0;
+}
+
+.section.our-program {
+  padding: 50px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .section.our-program {
+    padding-top: 60px;
+  }
+}
+
+@media screen and (min-width: 1314px) {
+  .section.our-program {
+    padding-top: 120px;
+  }
+}
+
+.our-program {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(87%, #111518), color-stop(87%, #fafafa));
+  background-image: linear-gradient(to bottom, #111518 87%, #fafafa 87%);
+}
+
+.our-program__section-title {
+  margin-bottom: 40px;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 26px;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .our-program__section-title {
+    text-align: left;
+  }
+}
+
+.our-program__list {
+  position: relative;
+  margin-left: 100px;
+  margin-bottom: 50px;
+  list-style: none;
+  counter-reset: section;
+  z-index: 1;
+}
+
+.our-program__list::before {
+  position: absolute;
+  content: '';
+  top: 14px;
+  left: -27px;
+  width: 1px;
+  height: 92%;
+  background-color: white;
+}
+
+.our-program__item {
+  position: relative;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 28px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.our-program__item:not(:first-child) {
+  margin-top: 40px;
+}
+
+.our-program__item::before {
+  counter-increment: section;
+  content: counters(section, ".") " ";
+}
+
+.our-program__item::after {
+  position: absolute;
+  content: '';
+  top: 8px;
+  left: -32px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+
+.our-program__item-title {
+  position: relative;
+  margin-top: 5px;
+  margin-left: 18px;
+  color: var(--accent-color);
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20px;
+  text-transform: initial;
+}
+
+.our-program__item-title:nth-child(n + 2) {
+  margin-top: 8px;
+}
+
+.our-program__item-title:last-of-type {
+  height: 20px;
+}
+
+.our-program__item-title::before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: -18px;
+  width: 12px;
+  height: 1px;
+  background-color: var(--accent-color);
+}
+
+.our-program__item-subtitle {
+  margin-top: 5px;
+  color: #b9b9b9;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  text-transform: initial;
+}
+
+.choice__section-title {
+  width: 180px;
+  margin-bottom: 30px;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 27.2px;
+}
+
+.choice__list {
+  padding: 20px 14px 20px 30px;
+  background-color: white;
+  -webkit-box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+          box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+  letter-spacing: 0.08em;
+  counter-reset: section;
+}
+
+.choice__item {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  color: var(--accent-color);
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 23.1px;
+}
+
+.choice__item::before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 1px;
+  background-color: var(--accent-color);
+}
+
+.choice__item::after {
+  counter-increment: section;
+  content: "0" counters(section, ".");
+  line-height: 23.1px;
+}
+
+.choice__descr {
+  width: 216px;
+  color: #111518;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+.choice__descr:not(:last-child) {
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=main.css.map */
