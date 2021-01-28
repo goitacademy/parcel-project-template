@@ -7,6 +7,11 @@
   @include font($font, normal, 700, 15px, 2);
   color: rgba(0, 0, 0, 1);
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    @include font($font, normal, 800, 26px, 1.23);
+    margin-right: 238px;
+  }
 }
 
 .header-logo.white {
@@ -18,19 +23,43 @@
   color: white;
 }
 .header-fire {
+  width: 14px;
+  height: 19px;
+
   transform: translateY(4px);
+
+  @media screen and (min-width: 768px) {
+    width: 22px;
+    height: 30px;
+  }
 }
 
 .header-logo-describe {
   @include font($font, normal, 600, 6px, 2);
   color: rgba(17, 21, 24, 1);
   text-transform: uppercase;
+
   transform: translateY(-4px);
+
+  @media screen and (min-width: 768px) {
+    @include font($font, normal, 700, 8px, 1.25);
+    letter-spacing: 0.21em;
+    transform: translateY(1px);
+  }
+  &-accent {
+    @media screen and (min-width: 768px) {
+      color: $orange;
+    }
+  }
 }
 
 .header-nav {
   display: flex;
   justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    justify-content: center;
+  }
 }
 
 .header-btn {
@@ -61,6 +90,10 @@
   &:focus {
     color: $orange;
   }
+
+  @media screen and (min-width: 768px) {
+    @include font($font, normal, 800, 26px, 1.807);
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -70,7 +103,6 @@
 }
 
 .header-consultation-btn {
-  padding: 14px;
   @extend %orange-btn;
 
   color: $orange;
@@ -80,6 +112,25 @@
 
   @include font($font, normal, 700, 12px, 1.25);
   text-transform: uppercase;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  &-tablet {
+    @extend %light-btn;
+
+    background-color: transparent;
+
+    min-width: 260px;
+    margin-right: 40px;
+
+    @include font($font, normal, 700, 12px, 1.25);
+    text-transform: uppercase;
+
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
 }
 
 .header-menu-container {
@@ -96,5 +147,9 @@
 
   &.is-open {
     display: block;
+  }
+  @media screen and (min-width: 768px) {
+    min-height: 1024px;
+    padding: 159px 218px 0 218px;
   }
 }
