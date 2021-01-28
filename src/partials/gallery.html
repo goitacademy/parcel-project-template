@@ -1,0 +1,1 @@
+<section class="gallery"></section>
