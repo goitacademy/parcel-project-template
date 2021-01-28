@@ -13,9 +13,10 @@ ul, ol {
 }
 
 
-// .doit {
+.doit {
+    display: flex;
 
-// }
+}
 
 .doit-title {
     margin-bottom: 30px;
@@ -34,11 +35,13 @@ ul, ol {
 }
 
 // .doit-list {
+    
 
 // }
 
 .doit-item {
-    padding: 0 11px;
+    display: block;
+    padding: 0 5px 20px;
     width: 280px;
     height: 280px;
     background: #FFFFFF;
@@ -48,17 +51,33 @@ ul, ol {
         margin-bottom: 15px;
     }
 
+    &:hover, 
+    &:focus {
+        background: #FF6B09;
+    }
+
 }
 
-// .doit-svg {
 
-// }
+.doit-svg-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding-top: 30px;
+    margin-bottom: 20px;
+    color: #FF6B09;
 
-// .doit-svg-item {
-
-// }
+    .doit-item:hover &,
+    .doit-item:focus & {
+        color: #FFFFFF;
+    }
+}
 
 .doit-svg-title {
+    position: relative;
+    margin-bottom: 42px;
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
@@ -69,10 +88,43 @@ ul, ol {
     letter-spacing: 0.08em;
     
     color: #111518;
-    
+
+    .doit-item:hover &,
+    .doit-item:focus & {
+        color: #FFFFFF;
+    }
+
+    &::after {
+        content:  "—";
+        position: absolute;
+        display: inline-block;
+        align-items: center;
+
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        bottom: -35px;
+
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 1.65;
+        letter-spacing: 0.08em;
+        
+        color: #FF6B09;
+        
+        .doit-item:hover &,
+        .doit-item:focus & {
+            color: #FFFFFF;
+        }
+
+    }
+
 }
 
 .doit-svg-explain {
+    display: block;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 500;
@@ -83,6 +135,32 @@ ul, ol {
     letter-spacing: 0.08em;
     
     color: #B9B9B9;
+
+    .doit-item:hover &,
+    .doit-item:focus & {
+        color: #FFFFFF;
+    }   
     
+}
+
+@media screen and (min-width: 768px) {
+    .doit-item {
+        display: block;
+        padding: 40px 15px 0;
+        width: 334px;
+        height: 334px;
+        background: #FFFFFF;
+        box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.1);
+        // calc ()
     
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    
+        &:hover, 
+        &:focus {
+            background: #FF6B09;
+        }
+    
+    }
 }

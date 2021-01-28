@@ -14,8 +14,7 @@ ul, ol {
 }
 
 .problem {
-    position: relative;
-    margin-bottom: 198px;
+    margin-bottom: 175px;
     min-width: 320px;
     height: 545px;
     background-color: #111518;
@@ -23,6 +22,7 @@ ul, ol {
 }
 
 .problem-title {
+    position: relative;
     margin-bottom: 27px;
     font-family: Montserrat;
     font-style: normal;
@@ -43,23 +43,46 @@ ul, ol {
     position: absolute;
     padding: 20px 14px 20px 30px;
     min-width: 280px;
-    height: 488px;
     left: 50%;
-    top: 79%;
+    top: 97%;
     transform: translate(-50%, -50%) scale(1); 
     background-color: #FFFFFF;
     box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 
 }
 
-// .problem-list {
+.problem-list {
+    display: flex;
+    flex-direction: column;
 
-// }
+}
+.problem-item-number {
+    display: flex;
+    margin-bottom: 5px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.08em;
+    
+    color: #FF6B09;
+
+    &::before {
+        content:  "—";
+        position: relative;
+        left: 0;
+        margin-right: 4px;
+        
+    }
+    
+    
+}
 
 .problem-item {
     display: flex;
-    align-items: center;
-
+    flex-direction: column;
+    align-items: flex-start;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 700;
@@ -68,7 +91,46 @@ ul, ol {
 
     letter-spacing: 0.08em;
     
-    color: #111518;    
+    color: #111518;  
+    
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
 }
 
+@media screen and (min-width: 768px) {
+    .container {
+        padding: 50px 40px;
+    
+    }
+    .problem-list-container {
+        position: absolute;
+        padding: 20px 14px 20px 30px;
+        min-width: 688px;
+        left: 50%;
+        top: 97%;
+        transform: translate(-50%, -50%) scale(1); 
+        background-color: #FFFFFF;
+        box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+    
+    }
+    // .problem-item {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     align-items: flex-start;
+    //     font-family: Montserrat;
+    //     font-style: normal;
+    //     font-weight: 700;
+    //     font-size: 14px;
+    //     line-height: 1.714;
+    
+    //     letter-spacing: 0.08em;
+        
+    //     color: #111518;  
+        
+    //     // &:not(:last-child) {
+    //     //     margin-bottom: 10px;
+    //     // }
+    // }
 
+}
