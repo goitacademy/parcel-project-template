@@ -1,0 +1,34 @@
+.backdrop {
+  perspective: 600px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+
+  opacity: 1;
+  transition: opacity 250ms var(--timing-function);
+
+  @include mobile-only {
+    padding: 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 60px;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 250ms var(--timing-function) 500ms;
+  }
+}
