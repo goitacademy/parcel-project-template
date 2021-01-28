@@ -8,7 +8,7 @@
   text-align: center;
 }
 
-.approach-card {
+.approach-item {
   width: 280px;
   height: 280px;
   margin: 0 auto;
@@ -20,32 +20,36 @@
   transition: background-color var(--transition-function);
 }
 
-.approach-card:hover,
-.approach-card:focus {
+.approach-item:hover,
+.approach-item:focus {
   background-color: var(--accent-color);
 }
 
-.approach-card:hover .approach-icon,
-.approach-card:focus .approach-icon {
+.approach-item:hover .approach-icon,
+.approach-item:focus .approach-icon {
   fill: var(--white-color);
 }
 
-.approach-card:hover .approach-subtitle,
-.approach-card:focus .approach-subtitle {
+.approach-item:hover .approach-subtitle,
+.approach-item:focus .approach-subtitle {
   color: var(--white-color);
 }
 
-.approach-card:hover .approach-text,
-.approach-card:focus .approach-text {
+.approach-item:hover .approach-text,
+.approach-item:focus .approach-text {
   color: var(--white-color);
 }
 
-.approach-card:hover .approach-subtitle::after,
-.approach-card:focus .approach-subtitle::after {
+.approach-item:hover .approach-subtitle::after,
+.approach-item:focus .approach-subtitle::after {
   background-color: var(--white-color);
 }
 
-.approach-card:not(:last-child) {
+.approach-list {
+  margin-bottom: -15px;
+}
+
+.approach-item {
   margin-bottom: 15px;
 }
 
@@ -75,7 +79,7 @@
   width: 20px;
   height: 2px;
   background-color: var(--accent-color);
-  bottom: -50%;
+  bottom: -20px;
   right: 46%;
   transition: background-color var(--transition-function);
 }
@@ -88,4 +92,70 @@
   color: var(--secondary-text-color);
   text-align: center;
   transition: color var(--transition-function);
+}
+
+@media screen and (min-width: 768px) {
+  .approach-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -20px;
+    margin-bottom: -27px;
+  }
+
+  .approach-item {
+    width: 334px;
+    height: 334px;
+    padding-top: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 20px;
+    margin-bottom: 27px;
+  }
+  .approach-icon {
+    margin-bottom: 30px;
+  }
+
+  .approach-subtitle {
+    margin-bottom: 52px;
+  }
+  .approach-subtitle::after {
+    bottom: -25px;
+  }
+}
+
+@media screen and (min-width: 1344px) {
+  .approach {
+    padding-top: 130px;
+    padding-bottom: 130px;
+  }
+  .approach-title {
+    text-align: left;
+    margin-bottom: 50px;
+  }
+  .approach-list {
+    margin: -10px;
+  }
+  .approach-item {
+    width: 425px;
+    height: 396px;
+    display: block;
+    max-width: calc((100% - 3 * 20px) / 3);
+    margin: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .approach-subtitle {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 32px;
+  }
+
+  .approach-text {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+  .approach-subtitle::after {
+    bottom: -15px;
+    right: 46%;
+  }
 }
