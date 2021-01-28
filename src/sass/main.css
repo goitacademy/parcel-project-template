@@ -48,7 +48,6 @@ img {
 
 .problems-wrapper {
   position: relative;
-  border: 1px solid tomato;
 }
 
 .problems-wrapper .problems-title {
@@ -68,14 +67,9 @@ img {
 .features-overlay {
   position: absolute;
   margin-top: 27px;
-  width: 280px;
-  height: 488px;
+  max-width: 280px;
   padding: 20px 30px;
   background-color: #ffffff;
-}
-
-.features-overlay .features-item {
-  margin-bottom: 20px;
 }
 
 .features-overlay .features-number {
@@ -96,9 +90,15 @@ img {
   color: #111518;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (max-width: 767px) {
+  .features-overlay .features-item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
   .problems {
-    padding: 60px 158px 177px 42px;
+    padding: 60px 0 177px;
   }
   .problems .problems-title {
     font-family: "Montserrat", sans-serif;
@@ -110,17 +110,74 @@ img {
     color: #ffffff;
   }
   .features-overlay {
+    max-width: 688px;
+    padding: 30px 46px 26px 96px;
+  }
+  .features-overlay .features-list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 688px;
-    height: 330px;
-    padding: 30px 47px 26px 96px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding: 0;
   }
   .features-overlay .features-item {
-    display: block;
-    /*flex-wrap: wrap;*/
+    width: calc((100% / 2) - 25px);
+  }
+  .features-overlay .features-text {
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 8px;
+  }
+}
+
+@media screen and (max-width: 1313px) {
+  .features-overlay .features-item:nth-child(-n + 4) {
     margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1314px) {
+  .problems {
+    padding: 100px 0 282px;
+  }
+  .problems .problems-title {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 46px;
+    line-height: 130%;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+  }
+  .features-overlay {
+    max-width: 1314px;
+    padding: 70px 112px 62px 114px;
+  }
+  .features-overlay .features-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding: 0;
+  }
+  .features-overlay .features-item {
+    max-width: 335px;
+    width: calc((1120px / 3) - 40px);
+  }
+  .features-overlay .features-item:nth-child(-n + 3) {
+    margin-bottom: 30px;
+  }
+  .features-overlay .features-text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .features-overlay .features-number {
+    font-size: 20px;
+    line-height: 1.65;
   }
 }
 
