@@ -1,3 +1,8 @@
+.page-header {
+  position: relative;
+  padding-top: 30px;
+}
+
 .header-nav {
   display: flex;
   align-items: center;
@@ -14,15 +19,41 @@
   color: var(--txt-dark);
 }
 
+.header-nav-list {
+  padding-bottom: 50px;
+}
 .header-nav-link {
   @include font(800, 20px, 1.18, 0.03em);
-  color: gray;
-  //   color: var(--txt-light);
+  color: var(--txt-light);
+
+  @media screen and (min-width: 1200px) {
+    color: var(--txt-dark);
+  }
+}
+
+.header-nav-list-item:not(:last-child) {
+  padding-bottom: 15px;
 }
 
 .header-nav-link:hover,
 .header-nav-link:focus {
   color: var(--txt-orange);
+}
+
+.header-consult-link {
+  display: block;
+  width: 260px;
+  height: 48px;
+
+  color: var(--txt-orange);
+  @include font(700, 12px, 1.25, 0.08em);
+  text-transform: uppercase;
+  text-align: center;
+
+  border: 2px solid #ff6b09;
+  box-sizing: border-box;
+
+  padding: 14px 0;
 }
 
 .menu-button {
@@ -32,7 +63,10 @@
   padding: 0;
   margin: 0;
 
-  @media screen and (min-width: 768px) {
+  position: relative;
+  z-index: 100;
+
+  @media screen and (min-width: 1200px) {
     display: none;
   }
 }
@@ -49,28 +83,27 @@
   display: none;
 }
 
-// .header-menu-container {
-//   background-color: rgba(17, 21, 24, 0.9);
-//   height: 100px;
-//   padding: 60px 0;
-//   text-align: center;
+.header-menu-container {
+  padding-top: 110px;
+  padding-bottom: 225px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
 
-//   //   &.is-open {
-//   //     display: block;
-//   //   }
+  &.is-open {
+    display: block;
+  }
 
-//   @media screen and (max-width: 767px) {
-//     display: none;
-//     position: absolute;
-//     top: 100%;
-//     left: 0;
-//     width: 100%;
-//   }
-//   @media screen and (min-width: 768px) {
-//     display: flex;
-//   }
-// }
+  @media screen and (max-width: 1200px) {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(17, 21, 24, 0.9);
+  }
 
-.icon-menu {
-  stroke: black;
+  @media screen and (min-width: 1200px) {
+    display: flex;
+  }
 }
