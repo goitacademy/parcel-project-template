@@ -1,0 +1,231 @@
+// ========== MODAL ==========
+
+.modal {
+  z-index: 999;
+  position: relative;
+
+  padding: 40px;
+  margin: auto;
+  border-radius: 4px;
+
+  @include mobile-only {
+    // width: 280px;
+    padding: 20px;
+    // max-height: 609px;
+  }
+
+  @include desktop-only {
+    width: 560px;
+    height: 581px;
+  }
+
+  background-color: var(--primary-bg-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  transition: transform 500ms var(--timing-function) 250ms;
+
+  .backdrop.is-hidden & {
+    transform: scale(0) rotateX(-90deg);
+    transition: transform 500ms var(--timing-function);
+  }
+}
+
+.modal-title {
+  display: block;
+  margin-bottom: 12px;
+
+  text-align: center;
+  color: var(--title-text-color);
+
+  @include mobile-only {
+  }
+
+  @media screen and (max-width: 1343px) {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  @media screen and (min-width: 1344px) {
+    font-size: 20px;
+    line-height: 1.15;
+  }
+}
+
+// ========== MODAL FORM ==========
+
+.modal-form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.modal-form-label {
+  padding-bottom: 4px;
+
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+
+  color: var(--primary-text-color);
+}
+
+.modal__form-textarea {
+  margin-bottom: 20px;
+}
+
+.modal-form-input,
+.modal-form-textarea {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 42px;
+  outline: none;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  font-size: 14px;
+  //   line-height: 1.14;
+  //   letter-spacing: 0.01em;
+
+  //   color: var(--primary-text-color);
+
+  transition: border-color 250ms var(--timing-function);
+
+  @include mobile-only {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &:focus {
+    border-color: var(--accent-color);
+  }
+}
+
+.modal-form-textarea {
+  height: 120px;
+  padding-right: 16px;
+  padding-left: 16px;
+
+  @include mobile-only {
+    height: 80px;
+  }
+
+  &::placeholder {
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+
+    color: rgba(117, 117, 117, 0.5);
+  }
+}
+
+.modal-input-icon {
+  position: absolute;
+  left: 12px;
+  bottom: 11px;
+  fill: currentColor;
+
+  transition: color 250ms var(--timing-function);
+
+  .modal-form-input:hover + &,
+  .modal-form-input:focus + & {
+    color: var(--accent-color);
+  }
+}
+
+.modal-form-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.modal-form-checkbox-label {
+  display: flex;
+  align-items: center;
+
+  letter-spacing: 0.03em;
+
+  color: var(--primary-text-color);
+
+  @include mobile-only {
+    font-size: 11px;
+  }
+
+  @include tablet-only {
+    font-size: 12px;
+    line-height: 1.16;
+  }
+  @include desktop-only {
+    font-size: 14px;
+    line-height: 1.71;
+  }
+}
+
+.modal-check-icon {
+  min-width: 16px;
+  min-height: 15px;
+  margin-right: 8px;
+  border: 2px solid #000;
+  border-radius: 2px;
+  color: #fff;
+  fill: currentColor;
+
+  transition: background-color 250ms var(--timing-function),
+    border-color 250ms var(--timing-function);
+
+  .modal-form-checkbox-input:checked + & {
+    border: none;
+    background-color: var(--accent-color);
+  }
+}
+
+.modal-agreement-link {
+  display: contents;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--accent-color);
+}
+
+// ========== MODAL BUTTONS ==========
+
+.button-modal {
+  display: block;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1343px) {
+    width: 200px;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+
+  background-color: var(--primary-bg-color);
+  fill: currentColor;
+
+  transition: color 250ms var(--timing-function),
+    border-color 250ms var(--timing-function),
+    transform 250ms var(--timing-function);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+
+    transform: scale(1.1);
+  }
+}
