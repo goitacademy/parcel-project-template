@@ -1,0 +1,234 @@
+.hero {
+  position: relative;
+  background-color: var(--primary-white-color);
+  margin: 0 auto;
+
+  &-title {
+    margin-bottom: 30px;
+
+    @include font(20px, 800, 26px);
+    letter-spacing: 0.03em;
+  }
+
+  &-text {
+    margin-bottom: 30px;
+
+    @include font(14px, 700, 22px);
+    letter-spacing: 0.08em;
+
+    &-grey {
+      font-weight: 500;
+      color: var(--secondary-text-color);
+    }
+
+    &-accent {
+      color: var(--accent-color);
+    }
+  }
+}
+
+.advantages {
+  &-item {
+    display: flex;
+    width: 216px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 767px) {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    &-person {
+      width: 33px;
+      height: 40px;
+    }
+
+    &-cap {
+      width: 42px;
+      height: 41px;
+    }
+
+    &-umbrella {
+      width: 42px;
+      height: 41px;
+    }
+
+    &-wrap {
+      position: relative;
+      height: 60px;
+      margin-right: 10px;
+    }
+
+    &-rectangle {
+      width: 58px;
+      height: 60px;
+    }
+  }
+
+  &-text {
+    display: block;
+    width: 146px;
+
+    @include font(14px, 700, 20px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hero {
+    padding-top: 110px;
+    padding-bottom: 50px;
+
+    background-image: url(../images/hero/mobile_hero-img.png),
+      url(../images/hero/mobile_hero-bg.png);
+
+    background-repeat: no-repeat;
+    background-size: 208px 178px, 320px 665px;
+    background-position: top 394px center, top center;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/hero/mobile_hero-img@2x.png),
+        url(../images/hero/mobile_hero-bg@2x.png);
+    }
+
+    .modal-btn {
+      margin: 0 auto;
+      margin-bottom: 284px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 158px;
+    padding-bottom: 50px;
+
+    background-image: url(../images/hero/tablet_hero-img.png),
+      url(../images/hero/tablet_hero-bg.png);
+
+    background-repeat: no-repeat;
+    background-size: 376px 322px, 768px 605px;
+    background-position: left calc(50% + 188px) top 172px, top center;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/hero/tablet_hero-img@2x.png),
+        url(../images/hero/tablet_hero-bg@2x.png);
+    }
+
+    .modal-btn {
+      margin-bottom: 142px;
+    }
+
+    &-text {
+      width: 309px;
+    }
+
+    &-title {
+      width: 272px;
+      @include font(26px, 800, 34px);
+    }
+  }
+
+  .advantages {
+    &-list {
+      display: flex;
+    }
+
+    &-item {
+      width: calc(100% / 3);
+    }
+  }
+}
+
+@media screen and (min-width: 1344px) {
+  .hero {
+    padding-top: 228px;
+    padding-bottom: 130px;
+
+    background-image: url(../images/hero/desctop_hero-img.png),
+      url(../images/hero/desctop_hero-bg.png);
+
+    background-size: 843px 720px, 1668px 912px;
+    background-position: top 150px left calc(50% + 376px), top center;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/hero/desctop_hero-img@2x.png),
+        url(../images/hero/desctop_hero-bg@2x.png);
+    }
+
+    .modal-btn {
+      margin-bottom: 241px;
+    }
+
+    &-title {
+      width: 606px;
+      @include font(58px, 800, 75px);
+    }
+
+    &-text {
+      width: 537px;
+      @include font(20px, 700, 33px);
+
+      &-grey {
+        font-weight: 500;
+      }
+    }
+  }
+
+  .advantages {
+    &-icon {
+      &-person {
+        width: 40px;
+        height: 48px;
+      }
+
+      &-cap {
+        width: 48px;
+        height: 47px;
+      }
+
+      &-umbrella {
+        width: 41px;
+        height: 48px;
+      }
+
+      &-wrap {
+        height: 102px;
+      }
+
+      &-rectangle {
+        width: 100px;
+        height: 102px;
+      }
+    }
+
+    &-item {
+      position: relative;
+    }
+
+    &-text {
+      position: absolute;
+      top: 50%;
+      left: 82px;
+      width: 366px;
+
+      transform: translateY(-50%);
+
+      @include font(20px, 700, 33px);
+    }
+  }
+}
