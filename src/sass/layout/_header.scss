@@ -9,18 +9,21 @@
       display: block;
       margin-bottom: 50px;
     }
-    &-item {
-      text-transform: uppercase;
-    }
 
     &-page {
       font-style: normal;
       font-weight: 800;
-      font-size: 20px;
+      font-size: 19px;
       line-height: 1.8;
       letter-spacing: 0.03em;
       color: $white-text-color;
       text-transform: uppercase;
+
+      &:hover,
+      &:focus {
+        color: $accent-text-color;
+        transition: $animation;
+      }
     }
   }
 
@@ -76,11 +79,13 @@
     &-fire {
       width: 14px;
       height: 20px;
-      margin: 0px 4px;
+      margin: 0 4px;
     }
   }
 
   &-menu-button {
+    align-items: right;
+
     padding: 0px;
     width: 20px;
     height: 12px;
@@ -112,11 +117,16 @@
     &.is-open {
       display: block;
 
-      &.header-logo-name,
-      &.header-logo-description {
+      & .header-logo-name,
+      & .header-logo-description {
         color: $white-text-color;
       }
     }
+  }
+
+  &-menu-wrapper {
+    margin: 0 auto;
+    max-width: 280px;
   }
 
   &-button {
@@ -137,5 +147,75 @@
     text-align: center;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+
+    &.is-hidden {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding-top: 40px;
+
+    &-logo {
+      &-main {
+        margin-bottom: 5px;
+      }
+
+      &-name {
+        font-size: 26px;
+        line-height: 1.23;
+        letter-spacing: 0.04em;
+      }
+
+      &-fire {
+        width: 22px;
+        height: 30px;
+      }
+
+      &-first {
+        width: auto;
+      }
+
+      &-second {
+        width: auto;
+      }
+
+      &-description {
+        display: block;
+        height: auto;
+        width: auto;
+
+        font-size: 8px;
+        line-height: 1.25;
+        letter-spacing: 0.18em;
+
+        &-first {
+          color: $accent-text-color;
+        }
+      }
+    }
+
+    &-navigation-page {
+      font-size: 26px;
+    }
+
+    &-menu {
+      &-container {
+        padding-top: 159px;
+      }
+      &-wrapper {
+        max-width: 378px;
+      }
+    }
+
+    &-button {
+      display: none;
+    }
+
+    &-button.is-hidden {
+      display: block;
+    }
   }
 }
