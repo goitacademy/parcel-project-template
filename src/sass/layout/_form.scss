@@ -2,7 +2,7 @@
   screen and (min-resolution: 192dpi) and (min-width: 320px),
   screen and (min-resolution: 2dppx) and (min-width: 320px) {
   .section-form {
-    background: url('../images/bg_img_tablet@2x-min.png') $text-dark;
+    background: url('../images/form_img/bg_img_tablet@2x-min.png') $text-dark;
   }
 }
 .section-form {
@@ -14,7 +14,7 @@
   font-style: normal;
   text-align: center;
   color: $white;
-  background: url('../images/bg_img_tablet-min.png') $text-dark;
+  background: url('../images/form_img/bg_img_tablet-min.png') $text-dark;
   background-repeat: no-repeat;
   background-position: 82% 50%;
   padding: 50px 0;
@@ -48,29 +48,39 @@
   margin-top: 50px;
   border: none;
   @include font(700, 12px, 1.25, 0.08em);
+  color: $white;
   text-transform: uppercase;
   text-align: center;
   background-color: $accent-color;
+
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: $accent-color;
+    border: 2px solid $accent-color;
+    transform: scale(1.15);
+  }
 }
 
 .registration-form__input {
   width: 280px;
   height: 48px;
+  padding-left: 28px;
+  color: $white;
+  background-color: transparent;
+  border: 1px solid $white;
+  @include font(600, 14px, 1.214, 0.08em);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .registration-form__field + .registration-form__field {
   margin-top: 20px;
 }
 
-.registration-form__input {
-  padding-left: 28px;
-  background-color: transparent;
-  border: 1px solid $white;
-  @include font(600, 14px, 1.214, 0.08em);
-}
-
 .registration-form__input::placeholder {
   @include font(600, 14px, 1.214, 0.08em);
+  color: $white;
 }
 
 @media screen and (min-width: $tablet) {
@@ -102,14 +112,14 @@
   screen and (min-resolution: 192dpi) and (min-width: 1344px),
   screen and (min-resolution: 2dppx) and (min-width: 1344px) {
   .section-form {
-    background: url('../images/bg_img_desktop@2x-min.png') $text-dark;
+    background: url('../images/form_img/bg_img_desktop@2x-min.png') $text-dark;
   }
 }
 
 @media screen and (min-width: $desktop) {
   .section-form {
-    background: url('../images/bg_img_desktop-min.png') $text-dark no-repeat
-      center;
+    background: url('../images/form_img/bg_img_desktop-min.png') $text-dark
+      no-repeat center;
   }
 
   .registration-form__header {
