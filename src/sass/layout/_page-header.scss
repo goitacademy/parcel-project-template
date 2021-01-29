@@ -1,60 +1,178 @@
-.logo {
-  font-weight: 800;
-  font-size: 26px;
-  line-height: 32px;
-  letter-spacing: 0.04em;
-  color: #111518;
-}
-.logo__icon {
-  width: 14px;
-  height: 19px;
-  fill: #ff6b09;
-}
-.logo--undertitle {
-  font-weight: 700;
-  font-size: 8px;
-  line-height: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+.header {
+  position: absolute;
+  width: 100%;
+  padding-top: 30px;
 }
 
-.header {
-  padding-top: 36px;
+.header__logo {
+  display: block;
+  width: 80px;
+  height: 29px;
+  background-image: url('/icons/logo-mob.svg');
+  background-repeat: no-repeat;
+}
+.header__logo--white {
+  display: block;
+  width: 80px;
+  height: 29px;
+  background-image: url('/icons/logo-mob-white.svg');
+  background-repeat: no-repeat;
+  margin-bottom: 50px;
+}
+.menu-btn {
+  display: inline-flex;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  z-index: 10;
 }
 .navigation {
   display: flex;
   justify-content: space-between;
 }
-.menu-container {
-  display: flex;
+.icon-menu {
+  width: 21px;
+  height: 12px;
 }
-.site-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 60px;
+.menu-btn .icon-cross {
+  display: none;
+}
+.menu-btn.is-open .icon-cross {
+  display: block;
+  fill: #ffffff;
+}
+.button--header.tablet {
+  display: none;
+}
+
+.menu-container {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @media screen and (max-width: 1343px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 767px) {
+    height: 568px;
+  }
+  background-color: rgba(17, 21, 24, 0.9);
+  background-size: 100vw 100vh;
+  padding: 30px 20px;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  z-index: 1;
+  &.is-open {
+    display: block;
+  }
 }
 .site-nav a {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.214;
-  text-transform: uppercase;
-  color: #b9b9b9;
+  color: currentColor;
 }
 .site-nav .link.current {
   color: #ff6b09;
 }
+.site-nav {
+  margin-bottom: 50px;
+}
 .button--header {
-  padding: 24px 27px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px 12px;
   background-color: transparent;
   font-weight: 700;
-  font-size: 14px;
-  line-height: 1.214;
-  letter-spacing: 0.14em;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #ff6b09;
   border: 2px solid #ff6b09;
 }
-.site-nav .item + .item {
-  margin-left: 40px;
+@media screen and (min-width: 768px) {
+  .header {
+    padding-top: 40px;
+  }
+  .menu-container {
+    @media screen and (max-width: 1343px) {
+      height: 1024px;
+    }
+    padding: 40px 40px;
+    font-size: 26px;
+  }
+  .header__logo--white {
+    width: 128px;
+    height: 45px;
+    margin-bottom: 72px;
+    background-image: url('/icons/logo-big-white.svg');
+    background-repeat: no-repeat;
+  }
+  .site-nav {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and (max-width: 1343px) {
+      width: 332px;
+    }
+  }
+  .menu-container.is-open .button--header {
+    display: none;
+  }
+  .header__logo {
+    width: 128px;
+    height: 45px;
+    background-image: url('/icons/logo-big.svg');
+    background-repeat: no-repeat;
+  }
+  .button--header.tablet {
+    display: block;
+    margin-right: 40px;
+  }
+  .navigation {
+    align-items: center;
+  }
+}
+@media screen and (min-width: 1344px) {
+  .button--header.tablet {
+    display: none;
+  }
+  .menu-btn {
+    display: none;
+  }
+  .header {
+    padding-top: 30px;
+  }
+  .menu-container {
+    position: static;
+    display: flex;
+    padding: 0;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.214;
+    text-transform: uppercase;
+    color: #b9b9b9;
+  }
+  .header__logo--white {
+    display: none;
+  }
+  .site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 60px 0 0;
+    & .item + .item {
+      margin-left: 40px;
+    }
+  }
+  .button--header {
+    font-size: 14px;
+    line-height: 1.214;
+    letter-spacing: 0.14em;
+    padding: 26px 24px;
+  }
 }
