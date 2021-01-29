@@ -88,7 +88,10 @@
     background-color: var(--b-dark);
     display: flex;
     align-items: center;
-    justify-content: center;
+    & .container {
+      display: flex;
+      justify-content: center;
+    }
   }
   &-text {
     @include font(500, 14px, 2, 0.05em);
@@ -96,6 +99,9 @@
   }
   &-line {
     display: none;
+  }
+  &-callme {
+    margin-bottom: 30px;
   }
 }
 .phone {
@@ -109,25 +115,58 @@
   &-groupe {
     align-items: center;
     display: flex;
-    margin-bottom: 30px;
+    flex-direction: column;
   }
 }
 @media screen and (min-width: 768px) {
-  .footer {
-    &-white {
+  .request {
+    &-form {
+      padding: 50px 40px 70px 40px;
+      width: 768px;
+      min-height: 520px;
+      &-input {
+        width: 390px;
+        &:nth-child(2) {
+          margin-bottom: 30px;
+        }
+      }
     }
+    &-invite {
+      @include font(600, 14px, 1.214, 0.08em);
+      margin-bottom: 40px;
+    }
+    &-title {
+      @include font(800, 26px, 1.3, 0.03em);
+    }
+  }
+  .footer {
     &-line {
-      flex-grow: 1;
+      display: block;
       border-bottom: 1px solid var(--txt-grey);
       transform: rotate(90deg);
-      width: 70px;
-      // position: absolute;
+      width: 48px;
       top: 60px;
       left: -28px;
     }
+    &-white {
+      height: 125px;
+      & .container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    &-black .container {
+      justify-content: flex-start;
+    }
+    &-callme {
+      margin-bottom: 0;
+    }
   }
   .phone-groupe {
-    width: 698;
-    border: 1 solid red;
+    flex-direction: row;
+    align-items: center;
   }
+}
+@media screen and (min-width: 1200px) {
 }
