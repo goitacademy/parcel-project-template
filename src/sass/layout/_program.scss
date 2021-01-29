@@ -1,6 +1,7 @@
 .program-section {
   background-color: $dark-background;
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .section-title {
@@ -12,16 +13,45 @@
   letter-spacing: 0.03em;
 
   margin-bottom: 43px;
+
+  @media screen and (min-width: 768px) {
+    text-align: left;
+    margin-bottom: 52px;
+  }
 }
 
 .program-list {
   position: relative;
-  padding-left: 20px;
-  width: 176px;
-  margin-left: auto;
+  padding-left: 26px;
+
+  @media screen and (max-width: 767px) {
+    width: 194px;
+    margin-left: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-left: 63px;
+    padding-left: 55px;
+  }
+}
+
+.program-list::before {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 1177px;
+  width: 2px;
+  left: 0;
+  top: 12px;
+  background-color: $white-text-color;
+
+  @media screen and (min-width: 768px) {
+    height: 683px;
+  }
 }
 
 .program-title {
+  position: relative;
   color: $white-text-color;
   font-weight: 700;
   font-size: 14px;
@@ -29,21 +59,43 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 5px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -31px;
+
+    height: 12px;
+    width: 12px;
+    background-color: $accent-text-color;
+    border-radius: 50%;
+
+    @media screen and (min-width: 768px) {
+      left: -60px;
+    }
+  }
 }
 
 .objects-title {
+  position: relative;
   color: $accent-text-color;
   font-weight: 700;
   font-size: 12px;
   line-height: 1.66;
   letter-spacing: 0.08em;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  padding-left: 18px;
 }
 
 .objects-title::before {
+  position: absolute;
   content: '';
-  display: inline-flex;
-  align-items: center;
+  display: block;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   background-color: $accent-text-color;
   margin-right: 5px;
   height: 1px;
@@ -58,17 +110,6 @@
   margin-bottom: 8px;
 }
 
-.program-list > .item::before {
-  content: '';
-  position: absolute;
-  display: block;
-  height: 100%;
-  width: 2px;
-  left: 0;
-  top: 12px;
-  background-color: $white-text-color;
-}
-
 .objects-item {
   color: $secondary-text-color;
   opacity: 0.5;
@@ -76,4 +117,19 @@
   font-size: 12px;
   line-height: 1.66;
   letter-spacing: 0.08em;
+}
+
+// tablet
+
+@media screen and (min-width: 768px) {
+  .sub-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -25px;
+  }
+
+  .sub-item {
+    margin: 25px;
+    width: calc((100% - 6 * 25px) / 3);
+  }
 }
