@@ -17,22 +17,86 @@
 }
 
 .legal__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   @include button(161px, 44px, 10px 17px 10px 17px);
   border-radius: 22px;
   border: none;
-  text-align: center;
   color: $color-white;
   cursor: pointer;
   &:not(:last-child) {
     margin-bottom: 10px;
   }
+  &:hover, &:focus {
+    background-color: $active-color;
+  }
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.legal__item.light {
+  color: $color-red;
+  background-color: $color-white;
+  &:hover, &:focus {
+    background-color: $active-color-bg;
+  }
 }
 
 .legal__link {
+  display: flex;
+  align-items: center;
   color: inherit;
   @extend %link;
+  // vertical-align: middle;
 }
 
 .legal__icon {
-  fill: inherit;
+  margin-left: 11px;
+  fill: currentColor;
+}
+
+.footer__accent {
+  font-family: Titan One;
+  color: $color-pink;
+  font-size: 18px;
+  line-height: 1.17;
+}
+
+.footer__title {
+  max-width: 234px;
+  text-transform: uppercase;
+  margin-bottom: 43px;
+}
+
+.footer__name {
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+}
+
+.nets__list {
+  @extend %list;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 46px;
+}
+
+.nets__item {
+  &:not(:last-child) {
+    margin-right: 28px;
+  }
+}
+
+.nets__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: $color-pink;
+  border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    background-color: $color-red;
+  }
 }
