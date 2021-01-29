@@ -6,11 +6,50 @@ p, h1, h2, h3{
 .made{
     background-color: #FFF5F6;
     
+    @media screen and (max-width: 767px) {
+        & {
+            background-image: url("../images/howItsMade/bg320.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 0 52%;
+        }
+
+        @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+            & {
+                background-image: url("../images/howItsMade/bg320@2.png");
+            }
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+
+        & {
+            background-image: url("../images/howItsMade/bg1200.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 0 48%;
+        }
+
+        @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+            & {
+                background-image: url("../images/howItsMade/bg1200@2.png");
+            }
+        }
+  }
 }
 .made-container {
     @include container();
     padding-top: 125px;
     padding-bottom: 95px;
+
+    @media screen and(min-width:768px){
+        padding-top: 138px;
+        padding-bottom: 140px;
+    }
 
 }
 .made-titan{
@@ -23,8 +62,12 @@ p, h1, h2, h3{
     color: rgba(255, 165, 186, 1);
     font-size: 18px;
     line-height: 1.17;
+    letter-spacing: 0.04em;
     @media screen and (min-width: 768px){
         font-size: 26px;
+    }
+    @media screen and (min-width: 1200px) {
+        font-size: 30px;
     }
 }
 .made-header{
@@ -33,41 +76,35 @@ p, h1, h2, h3{
     text-transform: uppercase;
     font-size: 34px;
     line-height: 1.17;
+    letter-spacing: 0.06em;
     color: rgba(212, 20, 67, 1);
      @media screen and (min-width: 768px) {
          font-size: 48px;
+     }
+     @media screen and (min-width: 1200px) {
+         font-size: 58px;
      }
 
 }
 .made-box-wrapper{
    margin-left: auto;
    margin-right: auto;
-    max-width: 500px;
-
-
-    .made768{
-        display: none;
-
-    }
-    @media screen and (min-width: 768px) {
-        .made320{
-            display: none;
-        }
-        .made768{
-            display: inline;
-        }
-    }
 }
 .made-description{
     margin-top: 25px;
     @media screen and (min-width: 768px){
+        margin-top: 50px;
         margin-left: -15px;
         margin-right: -15px;
         display: flex;
+        justify-content: center;
             &>div{
-                flex-basis: calc((100% - 45px) / 2);
+                flex-basis: calc((100% - 90px) / 2);
             }
         }
+    @media screen and (min-width: 1200px){
+          margin-top: 55px;
+    }    
 }
 
 
@@ -76,12 +113,16 @@ p, h1, h2, h3{
  margin-top: 45px;
     p{
         padding: 0 30px;
+        font-size: 12px;
         color:rgba(144, 126, 130, 1);
         font-weight: 500;
-        line-height: 1.62;
+        line-height: 1.72;
+        letter-spacing: 0.04em;
         margin-bottom: 45px;
-    @media screen and (min-width: 768px) {
+    
 
+
+    @media screen and (min-width: 768px) {
         padding: 0;
     }
     
@@ -91,6 +132,19 @@ p, h1, h2, h3{
     .made-discription-first{
         color: rgba(0, 0, 0, 1);
     }
+    @media screen and (min-width: 768px) {
+        .made-discription-first {
+            margin-bottom: 25px;
+        }
+    }
+    @media screen and (min-width: 1200px) {
+        .made-discription-first {
+            margin-bottom: 35px;
+        }
+    }
+
+
+    
     .discription-btn{
         display: flex;
         justify-content: center;
@@ -105,9 +159,9 @@ p, h1, h2, h3{
         line-height: 1,28;
         color: rgba(212, 20, 67, 1);
         padding: 10px 0;
-        border: 1px solid #FFF;
+        border: 1px solid tradition;
         border-radius: 22px;
-        background-color: #FFFFFF;
+        
         .made-arrow-btn{
             font-size: 20px;
             margin-left: 15px;
@@ -115,8 +169,8 @@ p, h1, h2, h3{
         &:hover,
         &:active
         {
-            background-color:#D41342;
-            color:  #FFFFFF;
+            background-color:#ECEBEB;
+           
         }
 
          @media screen and (min-width: 768px) {
@@ -127,22 +181,72 @@ p, h1, h2, h3{
 
     }
 }
+
+p.made-discription-second {
+    margin-bottom: 20px;
+    @media screen and (min-width: 768px){
+        margin-bottom: 10px;
+    }
+    @media screen and (min-width: 1200px) {
+        margin-bottom: 50px;
+    }
+}
+p.made-last-text{
+     @media screen and (min-width: 768px) {
+         margin-bottom: 60px;
+     }
+
+}
+
 .made-list{
-    list-style: none;
+       list-style: none;
+       padding-left: 0;
+    @media screen and (min-width: 768px){
+        display: flex;
+        justify-content: center;
+        
+    }
     li{
         margin-top: 40px;
 
+        @media screen and (min-width: 768px){
+            &:not(:last-child){
+                 margin-right: 60px;
+            }
+           
+        }
+        
         h3{
             margin-top: 15px;
             margin-bottom: 20px;
             color: rgba(212, 20, 67, 1);
             font-size: 36px;
             line-height: 1.2;
+            letter-spacing: 0.04em;
+            @media screen and (min-width: 768px) {
+                margin-top: 35px;
+                font-size: 48px;
+            }
+            @media screen and (min-width: 1200px) {
+                margin-top: 40px;
+                font-size: 58px;
+            }
         }
         p{
+            width: 230px;
             font-size: 12px;
             font-weight: 700;
             line-height: 1.7;
+            letter-spacing: 0.02em;
+            
+            @media screen and (min-width: 768px) {
+                font-size: 14px;
+                width: 180px;
+            }
+             @media screen and (min-width: 1200px) {
+                 font-size: 16px;
+                 width: 330px;
+             }
         }
     }
 
