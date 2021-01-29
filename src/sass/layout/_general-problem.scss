@@ -1,24 +1,85 @@
 .general-problem {
-  &-content {
-    & > h2 {
-      // color: $white;
-      @include font(800, 20px, 1.36, left, 0.03em);
+  background-color: $black; //TODO
+
+  $columns: 1;
+  $item-gap-horizontal: 0;
+  $item-gap-vertical: 10px;
+  $padding-left: 96px;
+  @extend .container;
+  padding-top: 50px;
+  & > h2 {
+    width: 280px;
+    color: $white;
+    @include font(800, 20px, 1.36, left, 0.03em);
+    span {
+      color: $orange;
+    }
+  }
+  & > ul {
+    background-color: $white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 27px;
+    padding: 10px 14px 20px 30px;
+
+    & > li {
+      margin-top: 10px;
+      flex-basis: 100%;
+      & > h3 {
+        @include font(bold, 20px, 0.833, left, 0.06em);
+        color: $orange;
+      }
+      & > p {
+        @include font(bold, 14px, 1.428, left, 0.08em);
+        margin-top: 5px;
+      }
     }
   }
   &-background {
+    display: none; //TODO
     background-color: $black;
-    // z-index: -1;
   }
-  @media screen and(min-width: 768px) {
+  @media screen and (min-width: $width-tablet) {
+    padding: 60px 40px 0;
     & > h2 {
-      color: $white;
+      width: 568px;
       @include font(800, 26px, 1.3, left, 0.03em);
     }
+    & > ul {
+      justify-content: start;
+      $columns: 2;
+      $item-gap-vertical: 8px;
+      $item-gap-horizontal: 22px;
+      padding-top: 30px - $item-gap-vertical;
+      padding-left: 96px - $item-gap-horizontal;
+      padding-bottom: 26px;
+      & > li {
+        margin-top: $item-gap-vertical;
+        margin-left: $item-gap-horizontal;
+        flex-basis: calc(100% / #{$columns} - #{$item-gap-horizontal});
+      }
+    }
   }
-  @media screen and(min-width: 1680px) {
+
+  @media screen and (min-width: $width-desktop) {
+    padding-top: 100px;
     & > h2 {
-      color: $white;
+      width: 866px;
       @include font(800, 46px, 1.3, left, 0.03em);
+    }
+    & > ul {
+      $columns: 3;
+      $item-gap-vertical: 32px;
+      $item-gap-horizontal: 40px;
+      padding-top: 70px - $item-gap-vertical;
+      padding-left: 114px - $item-gap-horizontal;
+      padding-bottom: 62px;
+      & > li {
+        margin-top: $item-gap-vertical;
+        margin-left: $item-gap-horizontal;
+        flex-basis: calc(100% / #{$columns} - #{$item-gap-horizontal});
+      }
     }
   }
 }
