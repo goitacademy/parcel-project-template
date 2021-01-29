@@ -12,5 +12,6 @@
 
     mobileMenuRef.classList.toggle("is-open");
     logoRef.classList.toggle("logo-dark-theme");
+    document.body.classList.toggle("menu-open");
   });
 })();
