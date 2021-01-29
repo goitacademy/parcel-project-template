@@ -1,9 +1,23 @@
 .teacher-title {
   font-weight: 800;
-  font-size: 26px;
-  line-height: 1.308;
+  font-size: 20px;
+  line-height: 1.3;
   letter-spacing: 0.03em;
   margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .teacher-title {
+    font-size: 26px;
+    line-height: 1.308;
+  }
+}
+
+@media screen and (min-width: 1344px) {
+  .teacher-title {
+    font-size: 46px;
+    line-height: 1.304;
+  }
 }
 
 .teacher-name {
@@ -11,8 +25,9 @@
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.08em;
-  border: 1px solid #b9b9b9;
-  margin-bottom: 30px;
+  border-bottom: 1px solid $grey;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .teacher-skill {
@@ -20,23 +35,59 @@
   font-size: 14px;
   line-height: 1.214;
   letter-spacing: 0.06em;
-  margin-bottom: 5px;
+  margin-bottom: 21px;
+
+  & li:not(:last-child) {
+    margin-bottom: 23px;
+  }
+
+  & li:last-child {
+    ::after {
+      content: '';
+      display: block;
+      width: 25px;
+      height: 1px;
+      background-color: $orange;
+      margin-top: 21px;
+      transform: translateX(-20px);
+    }
+  }
+}
+
+.teacher-skill-item {
+  display: flex;
 }
 
 .teacher-education {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.667;
-  color: #b9b9b9;
+  color: $grey;
   margin-bottom: 10px;
+
+  & li:not(:last-child) {
+    margin-bottom: 23px;
+  }
 }
 
 .teacher-link {
+  //font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.667;
   text-decoration-line: underline;
-  color: #ff6b09;
+  color: $orange;
+}
+
+.teacher-img {
+  display: block;
+  width: 243px;
+}
+
+.teacher__svg {
+  width: 17px;
+  height: 14px;
+  margin-right: 9px;
 }
 
 @media screen and (max-width: 767px) {
@@ -52,5 +103,59 @@
 
   .teacher__right-side {
     margin-left: 41px;
+  }
+
+  .teacher-skill {
+    margin-bottom: 19px;
+
+    & li:last-child {
+      ::after {
+        content: '';
+        margin-top: 19px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1344px) {
+  .teacher__right-side {
+    width: 641px;
+    margin-left: 31px;
+  }
+
+  .teacher-name {
+    font-size: 30px;
+    line-height: 1.233;
+  }
+
+  .teaher__svg {
+    width: 24px;
+    height: 20px;
+    margin-right: 35px;
+  }
+
+  .teacher-skill {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    margin-right: 51px;
+    margin-bottom: 31px;
+
+    & li:last-child {
+      ::after {
+        content: '';
+        margin-top: 31px;
+      }
+    }
+  }
+
+  .teacher-link,
+  .teacher-education {
+    font-size: 18px;
+    line-height: 1.556;
+  }
+
+  .teacher-img {
+    width: 530px;
   }
 }
