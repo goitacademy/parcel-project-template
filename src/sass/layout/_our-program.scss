@@ -44,7 +44,7 @@
     position: relative;
     margin-left: 100px;
     margin-bottom: 50px;
-    counter-reset: section;
+    counter-reset: our-program;
 
     @media screen and (min-width: 768px) {
       margin-left: 119px;
@@ -54,6 +54,7 @@
     @media screen and (min-width: 1314px) {
       display: flex;
       margin-left: 0px;
+      margin-bottom: 164px;
     }
   }
 
@@ -64,7 +65,7 @@
       position: absolute;
       content: '';
       top: 14px;
-      left: -27px;
+      left: -26px;
       width: 1px;
       height: 100%;
       background-color: rgb(255, 255, 255);
@@ -107,6 +108,11 @@
       @media screen and (min-width: 768px) {
         padding-bottom: 30px;
       }
+
+      @media screen and (min-width: 1314px) {
+        padding-bottom: 0;
+        margin-right: 30px;
+      }
     }
 
     @media screen and (min-width: 1314px) {
@@ -125,8 +131,8 @@
     text-transform: uppercase;
 
     &::before {
-      counter-increment: section;
-      content: counters(section, '.') ' ';
+      counter-increment: our-program;
+      content: counters(our-program, '.') ' ';
     }
 
     @media screen and (min-width: 1314px) {
@@ -136,7 +142,39 @@
     }
   }
 
-  &__item-title {
+  &__sublist {
+    @media screen and (min-width: 768px) and (max-width: 1313px) {
+      display: flex;
+    }
+  }
+
+  &__subitem {
+    @media screen and (max-width: 767px) {
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1313px) {
+      margin-right: 50px;
+
+      &:nth-child(1) {
+        width: 176px;
+      }
+
+      &:nth-child(2) {
+        width: 155px;
+      }
+    }
+
+    @media screen and (min-width: 1314px) {
+      &:not(:last-child) {
+        margin-bottom: 25px;
+      }
+    }
+  }
+
+  &__subitem-title {
     position: relative;
     margin-bottom: 5px;
     margin-left: 18px;
@@ -174,32 +212,16 @@
       margin-bottom: 10px;
       margin-left: 28px;
       font-size: 20px;
-      line-height: 32px;
     }
   }
 
-  &__sublist {
-    @media screen and (min-width: 768px) and (max-width: 1313px) {
-      display: flex;
-    }
-  }
-
-  &__item-subtitle {
-    width: 176px;
+  &__subitem-subtitle {
     color: rgba(185, 185, 185, 0.5);
     font-size: 12px;
     font-weight: 500;
     line-height: 20px;
     letter-spacing: 0.08em;
     text-transform: initial;
-
-    &:not(:last-child) {
-      margin-bottom: 8px;
-    }
-
-    @media screen and (min-width: 768px) {
-      margin-right: 50px;
-    }
 
     @media screen and (min-width: 1314px) {
       font-size: 18px;
@@ -225,18 +247,16 @@
     }
 
     @media screen and (min-width: 1314px) {
-      font-size: 46px;
-      line-height: 59.8px;
-      text-align: left;
+      display: none;
     }
   }
 
   &__list {
-    padding: 28px 34px 20px 30px;
+    padding: 28px 15px 20px 30px;
     background-color: rgb(255, 255, 255);
     box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
     letter-spacing: 0.08em;
-    counter-reset: section;
+    counter-reset: choice;
 
     @media screen and (min-width: 768px) {
       padding: 35px 118px 25px 98px;
@@ -271,37 +291,46 @@
     }
 
     &::after {
-      counter-increment: section;
-      content: '0' counters(section, '.');
+      counter-increment: choice;
+      content: '0' counters(choice, '.');
       position: absolute;
       top: -10px;
       left: 23px;
+
+      @media screen and (min-width: 1314px) {
+        top: -15px;
+      }
     }
 
     &:not(:last-child) {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
 
       @media screen and (min-width: 768px) {
-        margin-bottom: 35px;
+        margin-bottom: 30px;
+      }
+
+      @media screen and (min-width: 1314px) {
+        margin-bottom: 50px;
       }
     }
 
     @media screen and (min-width: 768px) {
       flex-basis: calc((100% - 1 * 20px) / 2);
 
-      &:nth-child(2n + 1) {
-        margin-right: 20px;
-      }
+      // &:nth-child(2n + 1) {
+      //   margin-right: 20px;
+      // }
       &:nth-last-child(-n + 2) {
         margin-bottom: 0;
       }
     }
 
     @media screen and (min-width: 1314px) {
+      flex-basis: calc((100% - 2 * 40px) / 3);
+      margin-bottom: 50px;
+      margin-right: 40px;
       font-size: 20px;
       line-height: 33px;
-
-      flex-basis: calc((100% - 2 * 40px) / 3);
 
       &:nth-child(3n + 3) {
         margin-right: 0;
@@ -317,10 +346,6 @@
     font-size: 14px;
     font-weight: bold;
     line-height: 20px;
-
-    &:not(:last-child) {
-      margin-bottom: 20px;
-    }
 
     @media screen and (min-width: 1314px) {
       font-size: 20px;
