@@ -71,16 +71,26 @@
   background-color: transparent;
   border: 1px solid $white;
   @include font(600, 14px, 1.214, 0.08em);
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::placeholder {
+    @include font(600, 14px, 1.214, 0.08em);
+    color: $white;
+  }
+
+  &:hover::placeholder,
+  &:focus::placeholder {
+    color: $accent-color;
+  }
+
+  &:hover,
+  &:focus {
+    border: 2px solid $accent-color;
+  }
 }
 
 .registration-form__field + .registration-form__field {
   margin-top: 20px;
-}
-
-.registration-form__input::placeholder {
-  @include font(600, 14px, 1.214, 0.08em);
-  color: $white;
 }
 
 @media screen and (min-width: $tablet) {
