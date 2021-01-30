@@ -1,19 +1,67 @@
 .teacher-main-title {
-    @include font(800, 20px, 1.3, 0.03em);
     color: var(--txt-dark);
     margin-bottom: 20px;
-    padding: 5px 0;
 }
+
+@media screen and (min-width: 767px) {
+    .teacher-main-title {
+      @include font (800, 26px, 1.3, 0.03em)
+    }
+}
+  
+@media screen and (min-width: 1200px) {
+    .teacher-main-title {
+      @include font (800, 46px, 1.3, 0.03em)
+    }
+  }
 
 .teacher-picture {
     margin-bottom: 20px;
 }
 
+@media screen and (min-width: 768px) {
+  .teacher-picture {
+    display: inline-flex;
+    align-items: flex-start;
+  }
+  .teacher {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .teacher-card {
+    display: inline-block;
+    width: 402px;
+    height: 516px;
+    margin-left: 40px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .teacher-card {
+    display: inline-block;
+    width: 642px;
+    margin-left: 30px;
+  }
+}
+
 .teacher-title {
-    @include font(800, 20px, 1.2, 0.08em);
     color: var(--txt-dark);
     margin-bottom: 10px;
-    padding: 5px 0;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .teacher-title {
+      @include font(800, 20px, 1.2, 0.08em);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .teacher-title {
+      @include font(800, 30px, 1.233, 0.08em);
+    }
 }
 
 .check-box {
@@ -21,35 +69,105 @@
     flex-wrap: wrap;
 }
 
-.list::before {
+.teacher-list {
+    display: inline-flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.teacher-list_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.teacher-list::before {
     position: absolute;
     content: "";
     width: 280px;
     height: 0;
     border: 1px solid var(--txt-grey);
+}
+
+@media screen and (min-width: 768px) {
+  .teacher-list::before {
+    width: 401px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .teacher-list::before {
+    width: 640px;
+  }
+}
+
+.teacher-list-item {
     margin-bottom: 20px;
+    margin-left: 9px;
+}
+
+.teacher-list-text {
+  margin-top: 30px;
 }
 
 .teacher-subtitle {
-    @include font(600, 14px, 1.214, 0.06em);
     color: var(--txt-dark);
+}
+
+@media screen and (min-width: 320px) and (max-width: 1199px) {
+    .teacher-subtitle {
+      @include font(600, 14px, 1.214, 0.06em);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .teacher-subtitle {
+      @include font(600, 16px, 1.25, 0.06em);
+    }
 }
 
 .teacher-undertitle {
     display: flex;
     align-items: center;
     @include font(700, 20px, 1.65, 0.08em);
+    width: 82px;
+    height: 33px;
     color: var(--txt-orange);
+    position: relative;
+    margin: 5px 0;
 }
 
 .teacher-text {
-    @include font(500, 12px, 1.167, 00.06em);
     color: var(--txt-grey);
     margin-bottom: 10px;
 }
 
+.teacher-undertitle::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 1px;
+    bottom: 50%;
+    transform: translate(25%);
+    border: 1px solid var(--txt-orange);
+}
+
 .teacher-link {
-    @include font(500, 12px, 1.167, 00.06em);
     color: var(--txt-orange);
     text-decoration-line: underline;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1199px) {
+    .teacher-text,
+    .teacher-link {
+      @include font(500, 12px, 1.167, 0.1em);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .teacher-text,
+    .teacher-link {
+      @include font(500, 18px, 1.156, 0.1em);
+      width: 640px;
+    }
 }
