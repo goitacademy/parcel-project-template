@@ -2,7 +2,11 @@
   padding-top: 50px;
   padding-bottom: 50px;
 
-  background-color: var(--primary-white-color);
+  background-color: var(--white-color);
+
+  & .container {
+    position: relative;
+  }
 }
 
 .reviews-title {
@@ -13,10 +17,15 @@
   font-weight: 800;
   line-height: 1.3;
   letter-spacing: 0.03em;
+
+  @media screen and (min-width: 768px) and (max-width: 1343px) {
+    margin-bottom: 30px;
+
+    font-size: 26px;
+  }
 }
 
 .reviews-card {
-  min-height: 564px;
   margin-bottom: 20px;
 
   padding-top: 20px;
@@ -25,33 +34,55 @@
   padding-bottom: 30px;
 
   box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
-}
 
-.reviews-card-img {
-  margin: 0 auto;
+  @media screen and (min-width: 768px) and (max-width: 1343px) {
+    display: flex;
+    max-width: 688px;
+    margin-bottom: 30px;
+
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 40px;
+  }
 }
 
 .reviews-card-img-wrapper {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1343px) {
+    margin-right: 46px;
+  }
+}
+
+.reviews-card-img {
   margin-bottom: 20px;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin: 0 auto;
+  }
 }
 
 .reviews-card-link {
   display: block;
   width: 30px;
   height: 30px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 20px;
+  margin: 0 auto;
 
   color: var(--primary-text-color);
 
-  transition-property: color;
-  transition-duration: 250ms;
+  transition-property: transform color;
+  transition-duration: 500ms;
   transition-timing-function: var(--transition-function);
 
   &:hover,
   &:focus {
     color: #436eab;
+    transform: scale(1.2);
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
   }
 }
 
@@ -61,6 +92,11 @@
 
 .reviews-text-wrapper {
   text-align: center;
+
+  @media screen and (min-width: 768px) and (max-width: 1343px) {
+    max-width: 412px;
+    text-align: left;
+  }
 }
 
 .reviews-card-title {
@@ -68,10 +104,16 @@
 
   font-size: 14px;
   font-weight: 800;
-  line-height: 1.214;
+  line-height: 1.219;
   letter-spacing: 0.08em;
 
   color: var(--accent-color);
+
+  @media screen and (max-width: 768px) and (min-width: 1343px) {
+    margin-bottom: 20px;
+
+    font-size: 20px;
+  }
 }
 
 .reviews-card-subtitle {
@@ -82,21 +124,24 @@
   line-height: 1.219;
   letter-spacing: 0.08em;
 
-  color: var(--second-text-color);
+  color: var(--secondary-text-color);
+
+  @media screen and (max-width: 768px) and (min-width: 1343px) {
+    margin-bottom: 20px;
+  }
 }
 
 .reviews-card-text {
-  text-align: center;
-
   font-size: 12px;
   font-weight: 500;
   line-height: 1.666;
   letter-spacing: 0.08em;
 
-  color: #3d3d3d;
+  color: var(--additional-text-color);
 }
 
 .reviews-text-link {
+  text-decoration: underline;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.666;
@@ -109,31 +154,75 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (min-width: 768px) and (max-width: 1343px) {
+    justify-content: space-around;
+  }
 }
 
 .slider-img-set {
   display: flex;
   justify-content: space-between;
   width: 182px;
+
+  @media screen and (min-width: 768px) and (max-width: 1343px) {
+    width: 558px;
+  }
+}
+
+.slider-item-link {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+
+  &:hover .slider-img,
+  &:focus .slider-img {
+    transform: scale(1.2);
+  }
+}
+
+.slider-img {
+  transition-property: transform;
+  transition-duration: 500ms;
+  transition-timing-function: var(--transition-function);
 }
 
 .reviews-slider-btn {
   display: flex;
   align-items: center;
   justify-content: center;
+
   height: 54px;
+  padding: 0;
 
   background-color: transparent;
   border: none;
   cursor: pointer;
 
-  transition-property: color;
-  transition-duration: 250ms;
+  transition-property: transform color;
+  transition-duration: 500ms;
   transition-timing-function: var(--transition-function);
 
   &:hover,
   &:focus {
     color: var(--accent-color);
+    transform: scale(1.2);
+  }
+}
+
+.btn-left {
+  @media screen and (min-width: 768px) and (max-width: 1343px) {
+    position: absolute;
+    top: 40%;
+    left: 28px;
+  }
+}
+
+.btn-right {
+  @media screen and (min-width: 768px) and (max-width: 1343px) {
+    position: absolute;
+    top: 40%;
+    right: 28px;
   }
 }
 
@@ -142,5 +231,7 @@
 }
 
 .slider-item:nth-last-child(-n + 4) {
-  display: none;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: none;
+  }
 }
