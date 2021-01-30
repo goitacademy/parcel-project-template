@@ -2,6 +2,10 @@ header {
   position: relative;
   // background-color: $light-pink-color;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 .container.header {
   position: absolute;
   display: flex;
@@ -60,10 +64,9 @@ header {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  height: 502px;
+  height: 492px;
   width: inherit;
   padding-top: 60px;
-  filter: drop-shadow(-8px 0px 20px rgba(0, 0, 0, 0.25));
   @media (max-width: 1199px) {
     position: fixed;
     z-index: 20;
@@ -74,7 +77,11 @@ header {
     display: none;
     &.is-open {
       display: block;
+      overflow-y: auto;
     }
+  }
+  @media (min-width: 768px) {
+    height: 399px;
   }
   @media (min-width: 1200px) {
     display: flex;
@@ -124,6 +131,11 @@ header {
     font-size: 16px;
     border: none;
     padding: 0%;
+    transition: 250ms;
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+    }
   }
 }
 
@@ -169,6 +181,18 @@ header {
 
   .menu-button.is-open & {
     display: none;
+  }
+}
+.menu-container-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 18;
+  width: 100vw;
+  height: 100vh;
+  .menu-container.is-open + & {
+    display: block;
   }
 }
 
