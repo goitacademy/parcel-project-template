@@ -1,6 +1,11 @@
 .page-header {
   position: relative;
   padding-top: 30px;
+  padding-bottom: 50px;
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 70px;
+  }
 }
 
 .header-nav {
@@ -10,8 +15,37 @@
 }
 
 .logo {
-  @include font(800, 17px, 1.235, 0.04em);
+  display: inline-block;
+  width: 83px;
+  height: 31px;
+
+  @include font(800, 16px, 1.235, 0.04em);
   color: var(--txt-dark);
+
+  outline: 1px solid orange;
+
+  @media screen and (min-width: 768px) {
+    width: 128px;
+    height: 45px;
+    @include font(800, 26px, 1.23, 0.04em);
+  }
+}
+
+.logo-img {
+  display: inline-block;
+  margin: 0 -3px;
+  width: 15px;
+  height: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 22px;
+    height: 30px;
+    margin: 0 -6px;
+  }
+}
+
+.test {
+  vertical-align: middle;
 }
 
 .logo-description {
@@ -21,18 +55,34 @@
 
 .header-nav-list {
   padding-bottom: 50px;
+
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    padding: 0;
+  }
 }
+
 .header-nav-link {
   @include font(800, 20px, 1.18, 0.03em);
   color: var(--txt-light);
 
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    @include font(800, 26px, 1.808, 0.03em);
+  }
+
   @media screen and (min-width: 1200px) {
-    color: var(--txt-dark);
+    color: var(--txt-grey);
+    @include font(700, 14px, 1.214, 0.03em);
+    text-transform: uppercase;
   }
 }
 
 .header-nav-list-item:not(:last-child) {
   padding-bottom: 15px;
+  @media screen and (min-width: 1200px) {
+    padding: 0;
+    margin-right: 40px;
+  }
 }
 
 .header-nav-link:hover,
@@ -55,18 +105,27 @@
   box-sizing: border-box;
 
   padding: 14px 0;
+
+  @media screen and (min-width: 1200px) {
+    width: 336px;
+    height: 70px;
+  }
 }
 
 .header-menu-container .header-consult-link {
-  @media screen and (min-width:320px) and (max-width: 767px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     display: block;
   }
-
- 
 }
 
-.header-nav > .header-consult-link {
-  @media screen and(min-width: 768px) and (max-width:1200px) {
+.header-menu-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-menu-button-wrapper .header-consult-link {
+  @media screen and(min-width: 768px) {
     display: block;
   }
 }
@@ -76,7 +135,7 @@
   border: none;
   background-color: transparent;
   padding: 0;
-  margin: 0;
+  margin-left: 40px;
 
   position: relative;
   z-index: 100;
@@ -109,7 +168,7 @@
     display: block;
   }
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1199px) {
     display: none;
     position: absolute;
     top: 0;
@@ -118,7 +177,12 @@
     background-color: rgba(17, 21, 24, 0.9);
   }
 
+  @media screen and (min-width: 768px) and (max-width: 1200px) {
+    text-align: center;
+  }
+
   @media screen and (min-width: 1200px) {
     display: flex;
+    padding: 0 0;
   }
 }
