@@ -1,9 +1,11 @@
 header {
-  background-color: $light-pink-color;
+  position: relative;
+  // background-color: $light-pink-color;
 }
 .container.header {
-  position: relative;
+  position: absolute;
   display: flex;
+  z-index: 10;
   justify-content: space-between;
   align-items: center;
   padding-top: 6px;
@@ -11,7 +13,7 @@ header {
   padding-left: 20px;
   padding-right: 20px;
   width: 100%;
-  background-color: $light-pink-color;
+  // background-color: $light-pink-color;
 
   @media (min-width: 768px) {
     padding-top: 37px;
@@ -64,6 +66,7 @@ header {
   filter: drop-shadow(-8px 0px 20px rgba(0, 0, 0, 0.25));
   @media (max-width: 1199px) {
     position: fixed;
+    z-index: 20;
     top: 0;
     right: 0;
     width: 250px;
@@ -154,7 +157,7 @@ header {
   position: fixed;
   top: 23px;
   right: 34px;
-  z-index: 5;
+  z-index: 21;
   & .menu-button-icon.close {
     display: block;
     fill: currentColor;
@@ -215,6 +218,35 @@ header {
   margin-left: 26px;
 }
 
+.scrollUp-btn {
+  display: none;
+  &.show {
+    position: fixed;
+    z-index: 10;
+    right: 20px;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: $light-pink-color;
+    border-radius: 50%;
+    @media (min-width: $tablet) {
+      width: 50px;
+      height: 50px;
+      right: 30px;
+      bottom: 30px;
+    }
+  }
+}
+
+.scrollUp-btn-img {
+  width: 80%;
+  height: 80%;
+  fill: $main-white-color;
+}
 // модальное окно
 // .backdrop {
 //   position: fixed;
