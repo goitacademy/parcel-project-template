@@ -1,18 +1,7 @@
-.container {
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
 .advantages__title {
   padding-bottom: 30px;
-
-  font-style: normal;
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 1.3;
-  text-align: center;
-  letter-spacing: 0.03em;
-  color: var(--title-text-color);
+  @include font(800, 20px, 1.3, center, 0.03em);
+  color: $black;
 }
 
 .advantages-list {
@@ -25,44 +14,163 @@
   width: 280px;
   height: 280px;
   padding-top: 30px;
-  padding-bottom: 22px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 15px;
-  background: var(--white-text-color);
+  padding-bottom: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: $white;
   box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.1);
+
+  transition-property: background-color;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus,
+  &:hover {
+    background-color: $orange;
+
+    .advantages-list__icon {
+      fill: $white;
+    }
+
+    .advantages-list__title,
+    .advantage-list__text {
+      color: $white;
+    }
+
+    .advantages-list__title::after {
+      background-color: $white;
+    }
+  }
 }
 
 .advantages-list__icon {
   display: block;
   margin: 0 auto 20px;
-  width: 40px;
-  height: 40px;
-  fill: orange;
+  fill: $orange;
+  transition-property: fill;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .advantages-list__title {
-  // !!!!!!!
-  margin-bottom: 0;
-  margin-top: 0;
+  @include font(700, 14px, 1.429, center, 0.08em);
+  color: $black;
 
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 1.429;
-  text-align: center;
-  letter-spacing: 0.08em;
-  color: var(--title-text-color);
+  &::after {
+    content: '';
+    display: block;
+    margin-top: 22px;
+    margin-bottom: 19px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20px;
+    height: 2px;
+    background-color: $orange;
+
+    transition-property: background-color;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  transition-property: color;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .advantage-list__text {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.666;
-  text-align: center;
-  letter-spacing: 0.08em;
-  color: var(--primary-text-color);
+  @include font(500, 12px, 1.666, center, 0.08em);
+  color: $grey;
+  transition-property: color;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media screen and (max-width: 767px) {
+  .advantages-list__item {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .advantages__title {
+    padding-bottom: 20px;
+    @include font(800, 26px, 1.3, center, 0.03em);
+  }
+
+  .advantages-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .advantages-list__item {
+    width: 334px;
+    height: 334px;
+    padding-top: 40px;
+    padding-bottom: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .advantages-list__icon {
+    margin-bottom: 30px;
+  }
+
+  .advantages-list__title {
+    &::after {
+      margin-top: 24px;
+      margin-bottom: 22px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1344px) {
+  .advantages-list__item {
+    &:nth-child(2n + 1) {
+      margin-right: 20px;
+    }
+
+    &:not(:nth-child(n + 5)) {
+      margin-bottom: 27px;
+    }
+  }
+}
+
+@media screen and (min-width: 1344px) {
+  .advantages__title {
+    padding-bottom: 50px;
+    @include font(800, 46px, 1.3, left, 0.03em);
+  }
+
+  .advantages-list__item {
+    width: 424px;
+    height: 396px;
+    padding-bottom: 55px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    &:not(:nth-child(3n)) {
+      margin-right: 20px;
+    }
+
+    &:not(:nth-child(n + 4)) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .advantages-list__title {
+    @include font(700, 20px, 1.4, center, 0.08em);
+
+    &::after {
+      margin-top: 16px;
+      margin-bottom: 14px;
+    }
+  }
+
+  .advantage-list__text {
+
+    @include font(500, 18px, 1.555, center, 0.08em);
+
+  }
 }
