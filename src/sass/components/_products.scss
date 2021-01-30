@@ -9,36 +9,57 @@ p {
 }
 
 .products {
-  padding-top: 121px;
-  padding-bottom: 98px;
+  padding-top: 120px;
+  padding-bottom: 100px;
   width: 100%;
 
-  &-wrap {
-    padding-right: 20px;
-    padding-left: 20px;
+  @media screen and (min-width: 768px) {
+    padding-bottom: 110px;
   }
 
   &-title {
     text-align: center;
-    margin-bottom: 31px;
     text-transform: uppercase;
 
-    &-part-1 {
-      margin-bottom: 15px;
+    &.subtitle {
+      margin-top: 30px;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 145px;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 150px;
     }
   }
 }
 
 .product {
   position: relative;
-  margin-top: 130px;
   border-radius: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  &:not(:last-child) {
-    margin-bottom: 16px;
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 40px) / 3);
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 130px;
+    }
   }
 
   &:nth-child(1) {
@@ -59,7 +80,10 @@ p {
     flex-direction: column;
     align-items: center;
     padding: 160px 40px 40px;
-    // border-radius: 24px;
+
+    @media screen and (min-width: 768px) {
+      padding: 152px 11px 40px;
+    }
 
     &-description {
       font-weight: 700;
@@ -68,6 +92,15 @@ p {
       text-align: center;
       letter-spacing: 0.04em;
       color: $primary-text-color;
+
+      @media screen and (min-width: 768px) {
+        line-height: 1.76;
+        height: 124px;
+      }
+
+      @media screen and (min-width: 1200px) {
+        font-size: 16px;
+      }
     }
 
     &-title {
@@ -90,6 +123,10 @@ p {
       width: 40px;
       height: 40px;
 
+      @media screen and (min-width: 768px) {
+        margin-top: 10px;
+      }
+
       .arrow {
         fill: $accent-color;
       }
@@ -104,5 +141,9 @@ p {
     z-index: 2;
     position: absolute;
     top: -114px;
+
+    @media screen and (min-width: 768px) {
+      top: -104px;
+    }
   }
 }
