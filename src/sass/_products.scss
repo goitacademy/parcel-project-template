@@ -91,13 +91,25 @@
     letter-spacing: 4px;
     color: $color-text-white;
     margin-bottom: 30px;
-    padding-left: 11px;
-    padding-right: 11px;
+    margin-left: 40px;
+    margin-right: 40px;
+
+    width: 200px;
+    height: 124px;
+    overflow: hidden;
     
+    @media screen and (min-width: 768px) {
+        width: 198px;
+        height: 124px;
+        margin-left: 11px;
+        margin-right: 11px;
+    }
     @media screen and (min-width: 1280px) {
-        padding-left: 44px;
-        padding-right: 44px;
+        margin-left: 44px;
+        margin-right: 44px;
         margin-bottom: 62px;
+        width: 241px;
+        height: 106px;
     }
 }
 
@@ -115,13 +127,13 @@
     }
 
     @media screen and (min-width: 1280px) {
-        width: 335px;
+        width: 329px;
     }
 }
 
 
 .card-description {
-    width: 280px;   
+    width: 100%;
     border-radius: 24px;
     padding-top: 161px;
     padding-bottom: 41px;
@@ -129,14 +141,11 @@
 
     
     @media screen and (min-width:768px) {
-    width: 220px;
     padding-top: 152px;
     padding-bottom: 40px;
     }
 
     @media screen and (min-width: 1280px) {
-        width: 335px;
-        
         padding-bottom: 60px;
         padding-top: 163px;
     }
@@ -161,10 +170,8 @@
     }
 }
 .card-img {
-    display: block;
     margin: 0px;
     object-fit: cover;
-
 }
 
 .ice_cream {
@@ -181,25 +188,44 @@
 
 }
 
-
-.more { 
-    position: relative;
-
+.more-link {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 40px;
+    height: 40px;
     margin-left: auto;
     margin-right: auto;
-    width: 40px;    
-    height: 40px;
-    background-color: $color-text-white;
     border-radius: 50%;
-   
-}
+    background: $color-text-white;
+
+    // transition-property: background;
+    // transition-duration: 250ms;
+    // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    // transition-delay: 0; 
+    @include transition (background);
+    
+    &:focus,
+    &:hover,
+    &:focus .to-right-2,
+    &:hover .to-right-2 {
+        background: $color-accent-hover;
+        fill:$color-text-white;
+    }
+}    
+
+
 
 .to-right-2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: block;
+    align-items:center;
+    height: 20px;
+    width: 20px;
+
+    background-position: center;
     fill: $color-accent;
+
+    transition-property: background;
 }
 
 
