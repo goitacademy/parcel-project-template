@@ -7,15 +7,68 @@
   margin-right: auto;
   padding-top: 50px;
   // background-color: #7a7a7a;
-  background-image: url('../images/hero/vector-mobile.png');
+  // background-image: url('../images/hero/vector-mobile.png');
   //   background: #ffffff;
-  //   /* shsw */
-
 
   background-size: cover;
   // box-shadow: -5px 21px 26px rgba(0, 0, 0, 0.04);
   background-repeat: no-repeat;
   background-position: center bottom;
+
+  @media screen and (min-width: 768px) {
+    max-width: 1280px;
+    min-height: 496px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .hero {
+    background-image: url('../images/hero/vector-mobile.png');
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .hero {
+      background-image: url('../images/hero/vector-mobile@2x.png');
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    background-image: url('../images/hero/vector-tablet.png');
+    padding-top: 70px;
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .hero {
+      background-image: url('../images/hero/vector-tablet@2x.png');
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero {
+    background-image: url('../images/hero/vector-desktop.png');
+    padding-top: 125px;
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .hero {
+      background-image: url('../images/hero/vector-desktop@2x.png');
+    }
+  }
+}
+
+.hero .container {
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 }
 
 .hero-offer {
@@ -25,43 +78,49 @@
   }
 
   @media screen and (min-width: 768px) {
-    width: 332px;
+    width: 309px;
   }
 }
 
 .hero-title {
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 136%;
-  /* or 27px */
-
+  @include fontOptions(800, 20px, 27px);
   letter-spacing: 0.03em;
-
   color: #111518;
   margin-bottom: 30px;
+
+  @media screen and (min-width: 768px) {
+    @include fontOptions(800, 26px, 34px);
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 24px;
+    @include fontOptions(800, 58px, 75px);
+  }
 }
 
 .hero-subtitle {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 22px;
-  /* or 157% */
-
+  @include fontOptions(500, 14px, 22px);
   display: flex;
   align-items: center;
   letter-spacing: 0.08em;
-
   color: #b9b9b9;
+
+  @media screen and (min-width: 1280px) {
+    @include fontOptions(500, 20px, 33px);
+  }
 }
 
 .hero-gift {
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 22px;
+  @include fontOptions(700, 14px, 22px);
   align-items: center;
   letter-spacing: 0.08em;
   color: #111518;
   margin-bottom: 30px;
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 40px;
+    @include fontOptions(700, 20px, 33px);
+  }
 }
 
 .hero-points {
@@ -77,12 +136,28 @@
   margin: 0 auto;
 }
 
+.hero-bg-picture {
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    top: 14px;
+    left: 21px;
+  }
+}
+
 .hero-img-picture {
   position: absolute;
   top: 56%;
   left: 52%;
   display: block;
-  transform: translate(-50%, -50%);
+
+  @media screen and (max-width: 767px) {
+    transform: translate(-50%, -50%);
+  }
+
+  @media screen and (min-width: 768px) {
+    top: -3px;
+    left: 57px;
+  }
 }
 
 .btn-orange {
@@ -91,10 +166,7 @@
   height: 48px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  //   @include fontOptions(700, 16px, 30px);
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
+  @include fontOptions(700, 12px, 15px);
   align-items: center;
   text-align: center;
   letter-spacing: 0.08em;
