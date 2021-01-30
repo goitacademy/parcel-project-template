@@ -1,0 +1,1 @@
+$('.slick-reviews').slick();
