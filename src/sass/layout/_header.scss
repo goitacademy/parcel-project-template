@@ -13,3 +13,145 @@
     padding-top: 30px;
     padding-bottom: 50px;
 }
+
+// BURGER-MENU
+.burger-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: none;
+    z-index: 999;
+    text-align: center;
+    
+    width: 100%;
+    min-height: 790px;
+   
+    padding-top: 30px;
+    padding-bottom: 222px;
+
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: 0.03;
+   
+    background-color: rgba(17,21,24,0.9);
+    
+    &.is-open  {
+        display: block;
+        z-index: 1;
+    }
+}
+
+.menu-btn {
+    display: inline-flex;
+    border: none;
+    background-color: transparent;
+    z-index: 2;
+  
+    outline: 1px solid red; 
+}
+.menu-btn-icon {
+    display: block;
+    height: 30px;
+    width: 30px;
+    transition: var(--transition-function); 
+    &:hover,
+    &:focus {
+        fill: var(--accent-color);
+    }
+}
+
+.menu-btn .icon-cross {
+    display: none;
+}
+.menu-btn.is-open .icon-cross {
+    display: block;
+    fill: var(--white-color);
+}
+.burger-menu.is-open .icon-menu {
+    display: none;
+}
+// Навигация
+.nav-list {
+    text-align: start;
+    padding-top: 50px;
+    padding-bottom: 50px;
+ outline: 1px solid salmon;   
+}
+
+.nav-link {
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+    
+    color: var(--white-color);
+    transition: var(--transition-function);
+
+     &:visited {
+    color: var(--white-color);
+    }
+
+    &:hover,
+    &:focus,
+    &.current {
+        color: var(--accent-color);
+    }
+}
+.nav-list-desktop {
+    display: none;
+}
+.nav-item-desktop {
+    margin-right: 40px; 
+}
+.nav-item-desktop:last-of-type {
+    margin-right: 0;
+}
+// TABLET
+@media screen and (min-width: 768px) {
+    .burger-menu {
+        font-size: 26px; 
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .nav-list {
+        text-align: center;
+    }
+    }
+
+// DESKTOP
+@media screen and (min-width: 1344px) {
+    .menu-btn {
+        display: none;
+    } 
+}
+
+@media screen and (min-width: 1344px) {
+    .nav-list-desktop{
+        display: flex;
+        margin-left: auto;
+        text-decoration: none;
+    }
+    .nav-link-desktop {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 1.214;
+        
+        align-items: center;
+        text-align: center;
+        text-transform: uppercase;
+        color: var(--secondary-text-color);
+        transition: var(--transition-function);
+    
+         &:visited {
+        color: var(--secondary-text-color);
+        }
+    
+        &:hover,
+        &:focus,
+        &.current {
+            color: var(--accent-color);    
+        }
+    }
+}
