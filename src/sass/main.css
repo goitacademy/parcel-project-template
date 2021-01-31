@@ -42,7 +42,7 @@
   list-style: none;
 }
 
-.btn, .logo, .hero-button {
+.btn, .logo, .hero-button, .location-button {
   padding: 0;
   margin: 0;
   text-decoration: none;
@@ -979,6 +979,7 @@ html {
 .hero-main-info {
   display: block;
   z-index: 5;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 767px) {
@@ -1683,9 +1684,68 @@ html {
 }
 
 .traditions {
+  position: relative;
+}
+
+.trad-container {
   padding-top: 125px;
-  padding-bottom: 310px;
-  background-color: #FFF5F6;
+  padding-bottom: 139px;
+}
+
+.background-milk.left {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  display: block;
+  width: 50%;
+  min-height: 133px;
+  background-image: url("../images//traditions/bg1-mobile_left.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  z-index: -1;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .background-milk.left {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .background-milk.left {
+    top: 20%;
+    min-height: 534px;
+    background-image: url("../images//traditions/bg1-desktop_left.png");
+  }
+}
+
+.background-milk.right {
+  position: absolute;
+  top: 40%;
+  right: 0;
+  display: block;
+  width: 50%;
+  min-height: 133px;
+  background-image: url("../images//traditions/bg1-mobile_right.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  z-index: -1;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .background-milk.right {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .background-milk.right {
+    top: 20%;
+    min-height: 534px;
+    background-image: url("../images//traditions/bg1-desktop_right.png");
+  }
 }
 
 .trad-title {
@@ -1810,14 +1870,19 @@ html {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.28;
+  transition: 250ms;
 }
 
 .read-more .read-more-img {
-  width: 4px;
+  width: 6px;
   height: 8px;
+  margin-left: 13px;
 }
 
-.read-more:hover, .read-more:focus {
+.read-more:hover, .read-more:focus,
+.read-more:hover .read-more-img,
+.read-more:focus .read-more-img {
+  transform: scale(1.1);
   background-color: #ECEBEB;
 }
 
@@ -1937,6 +2002,7 @@ html {
 .reviews {
   padding-top: 80px;
   padding-bottom: 80px;
+  background-color: #ffffff;
 }
 
 @media screen and (min-width: 768px) {
@@ -1970,26 +2036,54 @@ html {
 .reviews .text-wrap {
   padding: 30px;
   margin-bottom: 30px;
+  background-color: #fafafa;
 }
 
 .reviews .text {
+  position: relative;
+  z-index: 2;
   font-weight: 500;
   font-size: 12px;
   line-height: 2.55;
   text-align: center;
   color: #000000;
+  text-decoration: underline;
+  text-underline-position: auto;
 }
 
-.reviews .name::before {
-  display: block;
+.reviews .text::before {
+  position: absolute;
   content: '';
-  width: 32px;
-  height: 4px;
-  margin-bottom: 18px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #ffffff;
-  background-image: url("../images/icons/slider-dots.svg");
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 54px;
+  height: 40px;
+  background-image: url("../images/reviews/quotes.svg");
+  transform: translate(-15px, -15px);
+}
+
+.reviews-dots {
+  display: flex;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+  margin-bottom: 15px;
+  --color2: #c7133e;
+}
+
+.dots-item {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 5px;
+  height: 5px;
+}
+
+.reviews-name {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.86;
+  text-align: center;
 }
 
 .location {
@@ -2060,7 +2154,7 @@ html {
 }
 
 .location-cards:hover, .location-cards:focus {
-  box-shadow: 0px 8px 40px #ffa5ba;
+  box-shadow: 0px 8px 50px rgba(212, 20, 67, 0.6);
   transition: 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -2261,11 +2355,66 @@ html {
   color: #d41443;
 }
 
+.location-list {
+  margin-bottom: 54px;
+}
+
 @media screen and (min-width: 768px) {
-  .location-contacts {
+  .location-list {
     display: flex;
     flex-wrap: wrap;
   }
+}
+
+.location-buttons-list {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .location-buttons-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+}
+
+.location-buttons-list li:first-child .location-button {
+  background-color: #d41443;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .location-buttons-list li:first-child .location-button {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+}
+
+.location-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  min-width: 176px;
+  min-height: 44px;
+  font-size: 16px;
+  line-height: 1.31;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: #d41443;
+  background-color: #ffffff;
+  border-radius: 22px;
+  border: 0 solid transparent;
+  cursor: pointer;
+  text-transform: none;
+}
+
+.location-button:hover, .location-button:focus {
+  transform: scale(1.1);
+  outline: 0;
+  background-color: #ecebeb;
 }
 
 @media screen and (min-width: 1200px) {
@@ -2282,7 +2431,7 @@ html {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background-color: #fea5bb;
+    background-color: #ffb8ca;
   }
   .social {
     width: 20px;
@@ -2361,11 +2510,11 @@ html {
     letter-spacing: 0.02em;
     color: #907e82;
   }
-  .line {
-    width: 99%;
-    size: 4px;
-    color: #907e82;
+  .hr_line {
+    border-top: solid 1px grey;
     position: absolute;
+    width: 1280px;
+    margin-left: 0px;
     top: 5135px;
   }
 }
@@ -2456,7 +2605,7 @@ html {
   .footer__copyright {
     position: absolute;
     height: 26px;
-    padding-left: 246px;
+    margin-left: 248px;
     top: 4539px;
     text-align: center;
     font-family: DM Sans;
@@ -2467,11 +2616,11 @@ html {
     letter-spacing: 0.02em;
     color: #907e82;
   }
-  .line {
-    width: 90%;
-    size: 4px;
-    color: #907e82;
+  .hr_line {
+    border-top: solid 1px grey;
     position: absolute;
+    width: 768px;
+    margin-left: 0px;
     top: 4510px;
   }
 }
@@ -2563,7 +2712,7 @@ html {
     width: 150px;
     height: 42px;
     padding-left: 0;
-    margin-left: 25%;
+    margin-left: 79px;
     top: 7049px;
     font-family: DM Sans;
     font-style: normal;
@@ -2573,11 +2722,11 @@ html {
     text-align: center;
     color: #907e82;
   }
-  .line {
-    width: 90%;
-    size: 4px;
-    color: #907e82;
+  .hr_line {
+    border-top: solid 1px grey;
     position: absolute;
+    width: 320px;
+    margin-left: 0px;
     top: 7027px;
   }
 }
