@@ -1,7 +1,59 @@
 .traditions {
+    position: relative;
+}
+
+.trad-container {
+    
     padding-top: 125px;
-    padding-bottom: 310px;
-    background-color: #FFF5F6;
+    padding-bottom: 139px;
+}
+
+.background-milk.left {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    display: block;
+    width: 50%;
+    min-height: 133px;
+    background-image: url('../images//traditions/bg1-mobile_left.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    z-index: -1;
+
+    @media screen and (min-width:$tablet) and (max-width:$tablet-max) {
+        display: none;
+    }
+
+    @media screen and (min-width: $desktop) {
+        top: 20%;
+        min-height: 534px;
+        background-image: url('../images//traditions/bg1-desktop_left.png');
+    }
+}
+
+.background-milk.right {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    display: block;
+    width: 50%;
+    min-height: 133px;
+    background-image: url('../images//traditions/bg1-mobile_right.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+    z-index: -1;
+
+    @media screen and (min-width:$tablet) and (max-width:$tablet-max) {
+        display: none;
+    }
+
+    @media screen and (min-width: $desktop) {
+        top: 20%;
+        min-height: 534px;
+        background-image: url('../images//traditions/bg1-desktop_right.png');
+    }
 }
 
 .trad-title {
@@ -108,14 +160,21 @@
     font-weight: 700;
     font-size: 14px;
     line-height: 1.28;
+
+    transition: 250ms;
     
     & .read-more-img {
-        width: 4px;
+        width: 6px;
         height: 8px;
+        margin-left: 13px;
     }
 
-    &:hover, &:focus {
-        background-color: #ECEBEB;
+    &:hover,
+    &:focus,
+    &:hover .read-more-img,
+    &:focus .read-more-img {
+        transform: scale(1.1);
+        background-color:  #ECEBEB;
     }
 
     @media screen and (min-width:$tablet) {
