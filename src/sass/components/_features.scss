@@ -3,102 +3,125 @@
   position: absolute;
   z-index: 3;
   top: 4121px;
-}
-.features-title {
-  @media screen and (max-width: 767px) {
-    white-space: pre-line;
+
+  &__title {
+    @media screen and (max-width: 767px) {
+      white-space: pre-line;
+    }
+    @include font(800, 20px, 1.3);
+    letter-spacing: 0.03em;
+    color: var(--white-color);
+    margin-bottom: 30px;
   }
-  @include font(800, 20px, 1.3);
-  letter-spacing: 0.03em;
-  color: var(--white-color);
-  margin-bottom: 30px;
+
+  &__title {
+    @media screen and (max-width: 767px) {
+      white-space: pre-line;
+    }
+    @include font(800, 20px, 1.3);
+    letter-spacing: 0.03em;
+    color: var(--white-color);
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    margin: auto;
+    max-width: 280px;
+    display: block;
+    padding-right: 24px;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    counter-reset: section;
+    background: var(--white-color);
+    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+  }
+
+  &__item::before {
+    counter-increment: section;
+    content: '—  0' counter(section);
+    @include font(700, 14px, 1.2);
+    letter-spacing: 0.08em;
+    color: var(--accent-color);
+  }
+
+  &__description {
+    @include font(700, 14px, 1.71);
+    letter-spacing: 0.08em;
+    color: #111518;
+    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
 }
-.features-list {
-  margin: auto;
-  max-width: 280px;
-  display: block;
-  padding-right: 24px;
-  padding-left: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  counter-reset: section;
-  background: var(--white-color);
-  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
-}
-.features-item::before {
-  counter-increment: section;
-  content: '—  0' counter(section);
-  @include font(700, 14px, 1.2);
-  letter-spacing: 0.08em;
-  color: var(--accent-color);
-}
-.features-description {
-  @include font(700, 14px, 1.71);
-  letter-spacing: 0.08em;
-  color: #111518;
-  margin: 0;
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
+
+// Tablet
 
 @media screen and (min-width: 768px) {
   .features {
     position: absolute;
     top: 2860px;
-  }
-  .features-title {
-    @include font(800, 26px, 1.3);
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  .features-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 688px;
-    height: 394px;
-    padding-top: 30px;
-    padding-bottom: 25px;
-    padding-left: 98px;
-    padding-right: 118px;
-  }
-  .features-description {
-    margin-bottom: 0;
+
+    &__title {
+      @include font(800, 26px, 1.3);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 688px;
+      height: 394px;
+      padding-top: 30px;
+      padding-bottom: 25px;
+      padding-left: 98px;
+      padding-right: 118px;
+    }
+    &__description {
+      margin-bottom: 0;
+    }
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1343px) {
-  .features-item:nth-child(2n) {
+  .features__item:nth-child(2n) {
     width: 216px;
   }
-  .features-item:nth-child(2n + 1) {
+  .features__item:nth-child(2n + 1) {
     width: 236px;
   }
-  .features-item:first-child {
+  .features__item:first-child {
     margin-bottom: 24px;
   }
 }
+
+
+// Desktop
+
 @media screen and (min-width: 1344px) {
   .features {
     top: 2960px;
-  }
-  .features-title {
-    display: none;
-  }
-  .features-list {
-    padding: 70px 84px;
 
-    max-width: 1314px;
-    height: 398px;
-  }
-  .features-item {
-    width: 356px;
-  }
-  .features-item::before {
-    @include font(700, 20px, 1.2);
-  }
-  .features-description {
-    padding-top: 10px;
-    margin-bottom: 32px;
-    @include font(700, 20px, 1.71);
+    &__title {
+      display: none;
+    }
+    &__list {
+      padding: 70px 84px;
+      max-width: 1314px;
+      height: 398px;
+    }
+
+    &__item {
+      width: 356px;
+    }
+    &__item::before {
+      @include font(700, 20px, 1.2);
+    }
+
+    &__description {
+      padding-top: 10px;
+      margin-bottom: 32px;
+      @include font(700, 20px, 1.71);
+    }
   }
 }
