@@ -1,0 +1,62 @@
+// для применения стилей навесить на свою кнопку класс .btn
+// Пример:
+// <button type="button" class="btn">Это Кнопка</button>
+
+.btn {
+  // стили кнопки
+  display: block;
+  cursor: pointer;
+  width: 260px;
+  height: 48px;
+  background-color: var(--orange-color);
+  border: 2px solid transparent;
+  padding: 0;
+
+  // центрирование текста
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // стили текста
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white-color);
+
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 1344px) {
+    width: 354px;
+    height: 70px;
+    font-size: 14px;
+    line-height: 1.214;
+    letter-spacing: 0.14em;
+  }
+  // эффекты для ховера и фокуса
+  &:hover,
+  &:focus {
+    color: var(--orange-color);
+    border: 2px solid var(--orange-color);
+    background-color: transparent;
+    transform: scale(1.02);
+  }
+  // стили для кнопки в хедере
+  .header & {
+    color: var(--orange-color);
+    border: 2px solid var(--orange-color);
+    background-color: transparent;
+    @media screen and (min-width: 1344px) {
+      width: 336px;
+    }
+    &:hover,
+    &:focus {
+      color: var(--white-color);
+      border: 2px solid transparent;
+      background-color: var(--orange-color);
+      transform: scale(1.02);
+    }
+  }
+}
