@@ -1,4 +1,6 @@
 .hero {
+  position: relative;
+
   padding-bottom: 77px;
 
   background-image: url(../images/hero-mobile-tablet.svg);
@@ -6,19 +8,15 @@
 
   background-position: -64px -60px;
 
-  box-shadow: -5px 21px 26px rgba(0, 0, 0, 0.04);
-
   @media screen and(min-width:768px) and (max-width: 1199px) {
     background-position: 0 -178px;
   }
 
   @media screen and (min-width: 1200px) {
-    background-position-y: 250px;
+    min-height: 815px;
+    background-image: url(../images/hero-desktop.svg);
     padding-bottom: 110px;
-  }
-
-  & .container {
-    padding: 0 20px;
+    background-position: 0 -150px;
   }
 
   &-title {
@@ -43,11 +41,13 @@
   &-title-wrapper {
     @media screen and (min-width: 768px) {
       text-align: left;
-      padding-right: 55px;
+      width: 475px;
     }
     @media screen and (min-width: 1200px) {
       text-align: left;
-      padding-right: 100px;
+      padding-top: 55px;
+      padding-right: 0;
+      width: 622px;
     }
   }
 
@@ -63,6 +63,7 @@
   &-description-dark {
     color: var(--txt-dark);
     @include font(700, 14px, 1.57, 0.08em);
+    margin-bottom: 30px;
 
     @media screen and (min-width: 1200px) {
       @include font(700, 20px, 1.649, 0.08em);
@@ -88,6 +89,12 @@
     }
   }
 
+  @media screen and (min-width: 768px) and (max-width: 1679px) {
+    &-img-wrapper {
+      width: 100%;
+    }
+  }
+
   &-img {
     margin: auto;
     width: 208px;
@@ -96,13 +103,13 @@
     @media screen and (min-width: 768px) {
       width: 375px;
       height: 320px;
-      margin-right: -10px;
+      margin-right: -15px;
     }
 
     @media screen and (min-width: 1200px) {
       width: 840px;
       height: 720px;
-      margin-right: -90px;
+      position: absolute;
     }
   }
 }
