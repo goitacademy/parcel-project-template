@@ -1,0 +1,231 @@
+.section {
+  padding-top: 50px;
+  padding-bottom: 537px;
+  margin-bottom: 270px;
+}
+@media screen and (min-width: $tablet) {
+  .section {
+    padding-top: 60px;
+    padding-bottom: 370px;
+  }
+}
+@media screen and (min-width: $desktop) {
+  .section {
+    padding-top: 120px;
+    padding-bottom: 363px;
+  }
+}
+
+.programme {
+  background-color: $text-dark;
+  position: relative;
+  overflow: hidden;
+  &__heading {
+    @include font(800, 20px, 1.3, 0.03em, $white);
+    margin-bottom: 43px;
+    text-align: center;
+    @media screen and (min-width: $tablet) {
+      text-align: initial;
+      margin-bottom: 52px;
+      @include font(800, 26px, 1.3, 0.03em, $white);
+    }
+    @media screen and (min-width: $desktop) {
+      margin-bottom: 100px;
+      @include font(800, 46px, 1.3, 0.03em, $white);
+    }
+  }
+  > .container:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 176px;
+    height: 137px;
+    transform: translate(100%, -30%);
+    background-image: url('../images/programme/programme-mobile.png');
+    @media screen and (min-device-pixel-ratio: 2) and (max-width: $tablet - 1),
+      screen and (min-resolution: 192dpi) and (max-width: $tablet - 1),
+      screen and (min-resolution: 2dppx) and (max-width: $tablet - 1) {
+      background-image: url('../images/programme/programme-mobile@2x.png');
+    }
+    @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+      background-image: url('../images/programme/programme-tablet.png');
+      width: 384px;
+      height: 280px;
+      transform: translate(100%, -50%);
+    }
+
+    @media screen and (min-device-pixel-ratio: 2) and (min-width: $tablet) and (max-width: $desktop - 1),
+      screen and (min-resolution: 192dpi) and (min-width: $tablet) and (max-width: $desktop - 1),
+      screen and (min-resolution: 2dppx) and (min-width: $tablet) and (max-width: $desktop - 1) {
+      background-image: url('../images/programme/programme-tablet@2x.png');
+    }
+    @media screen and (min-width: $desktop) {
+      background-image: url('../images/programme/programme-desktop.png');
+      width: 674px;
+      height: 502px;
+      transform: translate(-28%, -50%);
+    }
+
+    @media screen and (min-device-pixel-ratio: 2) and (min-width: $desktop),
+      screen and (min-resolution: 192dpi) and (min-width: $desktop),
+      screen and (min-resolution: 2dppx) and (min-width: $desktop) {
+      background-image: url('../images/programme/programme-desktop@2x.png');
+    }
+  }
+}
+
+.semester-list {
+  margin-left: 70px;
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    background-color: $white;
+    width: 1px;
+    height: 1200px;
+    position: absolute;
+    top: 18px;
+    left: 6px;
+    @media screen and (min-width: $tablet) {
+      height: 740px;
+    }
+    @media screen and (min-width: $desktop) {
+      height: 1px;
+      width: 100vw;
+      top: 287px;
+      left: 0;
+    }
+  }
+  @media screen and (min-width: $tablet) {
+    margin-left: 57px;
+  }
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    margin-left: 0px;
+    position: initial;
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+      @media screen and (min-width: $desktop) {
+        margin-bottom: 0;
+        margin-right: 30px;
+      }
+    }
+    @media screen and (min-width: $desktop) {
+      width: 240px;
+    }
+  }
+  &__number {
+    @include font(700, 14px, 2, 0.08em, $white);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    @media screen and (min-width: $desktop) {
+      @include font(700, 30px, 0.93, 0.08em, $white);
+      text-transform: lowercase;
+    }
+    &:before {
+      content: '';
+      display: block;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background-color: $accent-color;
+      margin-right: 20px;
+      z-index: 1;
+      @media screen and (min-width: $tablet) {
+        margin-right: 50px;
+      }
+      @media screen and (min-width: $desktop) {
+        margin-bottom: 140px;
+        margin-right: -17px;
+        width: 17px;
+        height: 17px;
+      }
+    }
+  }
+}
+
+.skills-list {
+  padding-left: 32px;
+  &__name {
+    @include font(700, 12px, 1.67, 0.08em, $accent-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    @media screen and (min-width: $desktop) {
+      @include font(700, 20px, 1.65, 0.08em, $accent-color);
+    }
+    &::before {
+      content: '';
+      display: block;
+      height: 1.2px;
+      width: 12px;
+      background-color: $accent-color;
+      margin-right: 5px;
+      @media screen and (min-width: $desktop) {
+        height: 2px;
+        width: 20px;
+      }
+    }
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 8px;
+      @media screen and (min-width: $tablet) {
+        margin-right: 50px;
+        width: 176px;
+      }
+      @media screen and (min-width: $desktop) {
+        margin-bottom: 25px;
+        margin-right: 0;
+        width: initial;
+      }
+    }
+  }
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 63px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding-left: 0px;
+    display: block;
+    margin-right: 30px;
+    margin-top: -35px;
+  }
+}
+
+.content-list__item {
+  @include font(500, 12px, 1.67, 0.08em, $text-grey);
+  opacity: 0.5;
+  @media screen and (min-width: $desktop) {
+    @include font(500, 18px, 1.56, 0.08em, $text-grey);
+  }
+}
+
+.skills-list__name--final,
+.content-list--final {
+  margin-left: 32px;
+  @media screen and (min-width: $tablet) {
+    margin-left: 63px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-left: 0;
+  }
+}
+
+.skills-list__name--final {
+  display: block;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  @media screen and (min-width: $desktop) {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: -35px;
+  }
+}
