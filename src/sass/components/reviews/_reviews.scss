@@ -1,6 +1,7 @@
 .reviews {
   padding-top: 80px;
   padding-bottom: 80px;
+  background-color: $main-white-color;
 
   @media screen and (min-width: $tablet) {
     padding-top: 120px;
@@ -31,9 +32,12 @@
 .reviews .text-wrap {
   padding: 30px;
   margin-bottom: 30px;
+  background-color: #fafafa;
 }
 
 .reviews .text {
+  position: relative;
+  z-index: 2;
   font-weight: 500;
   font-size: 12px;
   line-height: 2.55;
@@ -41,16 +45,43 @@
   text-align: center;
 
   color: $main-black-color;
+  text-decoration: underline;
+  text-underline-position: auto;
+}
+.reviews .text::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  width: 54px;
+  height: 40px;
+  background-image: url('../images/reviews/quotes.svg');
+
+  transform: translate(-15px, -15px);
 }
 
-.reviews .name::before {
-  display: block;
-  content: '';
-  width: 32px;
-  height: 4px;
-  margin-bottom: 18px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: $main-white-color;
-  background-image: url('../images/icons/slider-dots.svg');
+.reviews-dots {
+  display: flex;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: -10px;
+  margin-bottom: 15px;
+  --color2: #c7133e;
+}
+
+.dots-item {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 5px;
+  height: 5px;
+}
+
+.reviews-name {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.86;
+
+  text-align: center;
 }
