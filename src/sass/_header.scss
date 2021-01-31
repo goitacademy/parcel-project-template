@@ -1,5 +1,164 @@
 @import './styleDefoult/mixin';
 .header-container{
      @include container();
-     // background-color: red;
+     padding-top: 6px;
+     padding-bottom: 27px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     @media screen and (min-width: 768px) {
+     padding-top: 37px;
+     padding-bottom: 15px; 
+     position: relative;
+        }
+     @media screen and (min-width: 1200px) {  
+     padding-bottom: 90px;
+     padding-left: 47px;}
+}
+.header{
+     background-color: #FFB8CA;
+     &-ul{
+          list-style: none;
+          font-family: DM Sans;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 1.28;
+          color: white;
+          margin: unset;
+          padding: unset;
+          @media screen and (min-width: 1200px) {
+               display: flex;
+               font-size: 16px;
+               line-height: 1.31;
+               width: 542px;
+               margin-right: 110px;
+           }
+     }
+     &-buy{
+     margin-left: 20px;
+     top: 12px;
+     bottom: 12px;
+     }
+     &-li:nth-child(2n -1) {
+          border: 1px solid #E18298;
+          padding-top: 13px;
+          padding-bottom: 13px;
+          margin-bottom: 13px;
+          margin-top: 13px;
+          @media screen and (min-width: 1200px) {
+               border: unset;
+               padding: unset;
+               margin: unset;
+           }
+        }
+     &-li{
+     padding-left: 21px;
+     @media screen and (min-width: 1200px) {
+          margin: unset;
+          padding: unset;
+          border: unset;
+          &:not(:last-child){
+               margin-right: 35px;
+       }
+
+      }
+     }
+    &-menu-container{
+          z-index: 2;
+          display: none;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 250px;
+          height: 502px;
+          background: #E17992;
+          @media screen and (min-width: 768px) {
+               right: 165px;
+               width: 254px;
+               height: 358px;
+                  }
+          &.is-open{
+              display: block;
+              @media screen and (min-width: 1200px) {
+               display: none;
+                  }
+               }
+               @media screen and (min-width: 1200px) {
+                    display: contents;
+                    background: unset;
+
+                       }
+    }
+     &-burger{
+          z-index: 3;
+          padding: unset;
+          border: unset;
+          background-color: unset;
+          width: 20px;
+          height: 12px;
+          @media screen and (min-width: 768px) {
+               margin-right: 30px; 
+             }
+          & .header-close {
+               display: none;
+           }
+           &.is-open .header-close{
+               display: block;
+               margin-top: 15px;
+           }
+           &.is-open .header-menu{
+               display: none;
+           }
+           @media screen and (min-width: 1200px) {
+               display: none;
+           }
+     }
+     &-but{
+          position: relative;
+          border: unset;
+          font-family: DM Sans;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 1.31;
+          color: #D41443;
+          padding: 10px 55px 10px 55px;
+          border-radius: 22px;
+          background-color: #fff;  
+          margin-left: 21px;
+          margin-top: 60px; 
+          margin-bottom: 19px;
+          @media screen and (min-width: 1200px) {
+               display: none;
+
+                  }
+     }
+     &-button{
+      position: relative;
+     display: none;
+     border: unset;
+     font-family: DM Sans;
+     font-weight: 700;
+     font-size: 16px;
+     line-height: 1.31;
+     color: #D41443;
+     padding: 10px 55px 10px 37px;
+     border-radius: 22px;
+     background-color: #fff;
+     & svg{
+          position: absolute;
+          top: 16px;
+          right: 37px;
+     }
+     @media screen and (min-width: 768px) {
+          display: block; 
+        }
+     }
+     &-buttons{
+          display: flex;
+          align-items: center;
+          @media screen and (min-width: 768px) {
+          position: relative;
+          z-index: 1;
+             }
+     }
 }
