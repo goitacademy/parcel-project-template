@@ -1,5 +1,6 @@
 .feature {
   padding-top: 30px;
+  padding-left: 40px;
 }
 
 .features__list {
@@ -16,24 +17,25 @@
 
 .features__item {
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-bottom: 30px;
-  margin-right: 52px;
-  margin-left: 52px;
 }
 
 .features__svg {
   display: block;
   max-width: 59px;
-  height: 60px;
-  fill: #ff6b09;
+  width: 100%;
   margin-right: 10px;
+}
+
+.features__svg_desc {
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
   .feature {
     padding-top: 50px;
+    padding-left: 0px;
   }
 
   .features__wrapper {
@@ -41,9 +43,18 @@
   }
 
   .features__item {
-    margin-right: 21px;
-    margin-left: 0;
     margin-bottom: 50px;
+    margin-left: 0;
+
+    &:not(:last-child) {
+      margin-right: 21px;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .features__svg_desc {
+    display: none;
   }
 }
 
@@ -52,8 +63,16 @@
     padding-top: 96px;
   }
 
+  .features__svg_desc {
+    display: block;
+    max-width: 100px;
+    width: 100%;
+    fill: #ff6b09;
+    margin-right: -18px;
+  }
+
   .features__svg {
-    margin-right: -20px;
+    display: none;
   }
 
   .features__item_text {
