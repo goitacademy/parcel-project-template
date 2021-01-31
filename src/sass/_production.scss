@@ -1,39 +1,18 @@
-$hover-bg-color: #C7133E;
-$main-bg-color: #FFFFFF;
-$secondary-bg-color: #ECEBEB;
-
-@mixin button($bgcolor, $color, $height) {
-    padding-left: 35px;
-    padding-right: 55px;
-    border-radius: 20px;
-    background-color: $bgcolor;
-    color: $color;
-    border-style: none;
-    height: $height;
-   
-}
-
-.button {
-    @include button($hover-bg-color, $secondary-bg-color, 40px);
-}
-
-
-.container {
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-////////////////////////////
-
-
-
 .production {
     padding-top: 125px;
     padding-bottom: 145px;
     background-color: $color-footer;
-    ;
+    
+    @media screen and (min-width: 768px) {
+        padding-top: 130px;
+        padding-bottom: 240px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        
+        padding-bottom: 310px;
+    }       
+    
 }
 
 .production-title {
@@ -51,6 +30,14 @@ $secondary-bg-color: #ECEBEB;
         color: $color-ellipse;
         margin-bottom: 15px;
 
+        @media screen and (min-width: 768px) {
+            font-size: 26px;
+        }
+
+        @media screen and (min-width: 1200px) {
+            font-size: 30px;
+        }
+
     }
 
     & .accent {
@@ -60,58 +47,128 @@ $secondary-bg-color: #ECEBEB;
         letter-spacing: 0.04em;
         margin-bottom: 25px;
         
+        @media screen and (min-width: 768px) {
+            font-size: 48px;
+        }
+
+        @media screen and (min-width: 1200px) {
+            font-size: 58px;
+        }
 
     }
 }
 
+
+
+.cow-container {
+    @media screen and (min-width:768px) {
+        display: flex;
+        
+        
+    }
+
+    @media screen and (min-width: 1280px) {
+        align-items: flex-start;
+    }
+}
+
 .cow {
+  
 max-width: 480px;
 
+@media screen and (min-width: 768px) {
+    width: 340px;
+ 
+}
 
-
+@media screen and (min-width: 1280px) {
+        width: 516px;
+}
 }
 
 .cow-image {
+    
+    @media screen and (max-width: 767px) {
+        margin-bottom: 45px;
+    }
     display: block;
     width: 100%;
-    height: auto;
-   
 
-    margin-bottom: 45px;
+    
     
     
 }
 
+.description-container {
+    @media screen and (min-width:768px) {
+        display: flex;
+        flex-wrap: wrap;
+        width: 340px;
+    }
+
+    @media screen and (min-width:1280px) {
+width: 463px;
+    }
+}
+
 .production-description {
-padding-left: 30px;
-padding-right: 30px;
+  
+
+    @media screen and (max-width:767px) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
 font-family: DM Sans;
 font-size: 12px;
-line-height: 1.16;
+line-height: 1.62;
 color: $color-text-grey;
 margin-bottom: 15px;
 
 &.black {
     color: $color-text-black;
     margin-bottom: 30px;
+    font-weight: bold;
+   
+        }
+
+        @media screen and (min-width:768px) {
+            margin-left: 17px;
+            line-height: 1.4;
+
+            &.black{
+                padding-top: 50px;
+            }
+            
+            font-size: 14px;
+        }
+
+        @media screen and (min-width:1280px) {
+            margin-left: 74px;
+            margin-bottom: 60px;
+
+            &.black {
+                margin-bottom: 35px;
+            }
         }
 }
 
 .button {
+    @include button ($color-text-white, $color-accent, 44px);
+    text-decoration: none;
+
+    display: flex;
+    justify-content: space-between;
+    align-items:center ;
+
     position: relative;
     width: 176px;
-    
+
+    padding-right: 35px;
     margin-left: 30px;
     margin-bottom: 40px;
 
-    @include button ($color-text-white, $color-accent, 44px);
-    text-decoration: none;
-    
-
-
     & .button-text {
-        
-
         font-family: DM Sans;
         font-weight: 700;
         font-size: 14px;
@@ -119,21 +176,27 @@ margin-bottom: 15px;
         text-transform: capitalize;
     }
 
-    &::after {
-        position: absolute;
-
-        top: 50%;
-        right: 20%;
-        transform: translateY(-50%);
-        content: '';
-        width: 5px;
-        height: 8px;
+    & svg {
+        fill: currentColor ;
         
-        background-image: url(../images/symbol-defs.svg#icon-arrow-right2);
-        background-size: cover;        
     }
 
-    
+    &:hover, &:focus {
+        background-color: $color-btn-footer;
+        color: $color-text-white;
+        @include transition(background-color);
+    }
+
+    @media  screen and (min-width: 768px) {
+       margin-left: 340px;
+
+    }
+
+    @media  screen and (min-width: 1280px) {
+        margin-left: 550px;
+        margin-top: -150px;
+ 
+     }
 }
 
 .production-features {
@@ -145,15 +208,31 @@ margin-bottom: 15px;
 
     
     & > li:not(:last-child) {
+        @media screen and (max-width: 767px){
         margin-bottom: 38px;
+        }
     }
 
- 
+    @media screen and (min-width: 768px) {
+        display: flex;
+        align-items: baseline;
+    }
+       
 }
 
 .production-features-list {
     position: relative;
     list-style: none;
+
+    @media screen and (min-width:768px) {
+       
+        width: calc(100% - 6 * 30px / 3);
+    }
+
+    @media screen and (min-width:1280px) {
+       
+        width: calc(100% - 6 * 15px / 3);
+    }
 
 }
 
@@ -161,6 +240,11 @@ margin-bottom: 15px;
 
     &1, &2, &3 svg {
         fill: $color-ellipse;
+    }
+
+    &1  {
+        margin-left: -5px;
+       margin-bottom: -10px;
     }
 
    }
@@ -180,6 +264,14 @@ text-transform: uppercase;
 
 color: $color-accent;
 
+@media screen and (min-width:768px) {
+    margin-top: 36px;
+}
+
+@media screen and (min-width:1280px) {
+    margin-top: 40px;
+}
+
     
 }
 
@@ -192,4 +284,8 @@ color: $color-accent;
     color: $color-text-black;
 
     
+}
+
+.milk {
+  
 }
