@@ -1,14 +1,22 @@
 /*===========Manufacture styles============*/
 .section-manufacture {
   padding-top: 125px;
-  padding-bottom: 97px;
+  padding-bottom: 145px;
   background-color: $secondaryBgColor;
+  @include for-size(tablet) {
+    padding-top: 120px;
+    padding-bottom: 246px;
+  }
+  @include for-size(desktop) {
+    padding-top: 125px;
+    padding-bottom: 310px;
+  }
   .subtitle {
     margin-bottom: 15px;
   }
   .title {
     margin-bottom: 26px;
-    margin-left: (59px-20px);
+    margin-left: (59px -20px);
   }
 }
 .primary-text-manufacture {
@@ -18,8 +26,8 @@
   line-height: 1.62;
   /* or 19px */
   color: $primaryTextColor;
-  padding-left: (51px-15px);
-  padding-right: (51px-15px);
+  padding-left: (51px -20px);
+  padding-right: (51px -20px);
   margin-bottom: 47px;
 }
 .secondary-text-manufacture {
@@ -34,7 +42,7 @@
   padding-right: 51px;
 
   margin-bottom: 47px;
-  @media screen and (max-width: 767px) {
+  @include for-size(mobile-only) {
     background-image: url('../images/manufacture/sectionbg1-mobile.png');
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
@@ -42,7 +50,7 @@
       background-image: url('../images/manufacture/sectionbg1-mobile@2x.png');
     }
   }
-  @media screen and (min-width: 1200px) {
+  @include for-size(desktop) {
     background-image: url('../images/manufacture/sectionbg1-desktop.png');
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
@@ -57,10 +65,20 @@
 .button-manufacture {
   margin-top: 0;
   margin-bottom: 37px;
-  margin-left: (50px-15px);
+  margin-left: (50px -20px);
+  font-weight: 700;
+  &::after {
+    content: '';
+    width: 5px;
+    height: 8px;
+    display: inline-block;
+    margin-left: 14px;
+    background-image: url(../images/icons/half-arrow-right.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
 .list-manufacture {
-  padding-left: (20px-15px);
   padding-right: 70px;
 }
 .number-manufacture {
@@ -84,12 +102,29 @@
   color: $primaryTextColor;
   margin-bottom: 38px;
 }
-// .item-milk::before {
-//   background-image: url('./images/icons/milk.png');
-// }
-// .item-apple::before {
-//   background-image: url('./src/images/icons/apple.svg');
-// }
-// .item-lollipop::before {
-//   background-image: url('./src/images/icons/lollipop.svg');
-// }
+.list-manufacture {
+  .item::before {
+    content: '';
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-bottom: 16px;
+  }
+}
+
+.item-milk::before {
+  background-image: url('../images/icons/milk.svg');
+  width: 33px;
+  height: 50px;
+}
+.item-apple::before {
+  background-image: url('../images/icons/apple.svg');
+  width: 50px;
+  height: 50px;
+}
+.item-lollipop::before {
+  background-image: url('../images/icons/lollipop.svg');
+  width: 44px;
+  height: 50px;
+}
