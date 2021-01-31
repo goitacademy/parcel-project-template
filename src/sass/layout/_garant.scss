@@ -187,9 +187,7 @@
     padding-right: 0;
     background-color: var(--grey-bcg-color);
   }
-  .feature-list__item:not(:last-child) {
-    margin-bottom: 23px;
-  }
+
   .feature-list__item {
     position: relative;
     font-style: normal;
@@ -198,29 +196,33 @@
     line-height: 1.666;
     padding-right: 100px;
     padding-left: 40px;
+    &:not(:last-child) {
+      margin-bottom: 23px;
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      width: 15px;
+      height: 20px;
+      background-image: url('../images/campfire.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    &:nth-child(-n + 3):before {
+      position: absolute;
+      content: '';
+      left: 6px;
+      top: 28px;
+      width: 3px;
+      height: 30px;
+      background-image: url('../images/dash_dot_tablet.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
-  .feature-list__item::after {
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 0;
-    width: 15px;
-    height: 20px;
-    background-image: url('../images/campfire.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-  .feature-list__item:nth-child(-n + 3):before {
-    position: absolute;
-    content: '';
-    left: 6px;
-    top: 28px;
-    width: 3px;
-    height: 30px;
-    background-image: url('../images/dash_dot_tablet.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
+
   .feature-list__description span {
     color: var(--orange-color);
   }
@@ -230,32 +232,31 @@
     position: relative;
     box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.1);
     padding: 40px;
+    &::before {
+      position: absolute;
+      content: '';
+      width: 27px;
+      height: 16px;
+      top: 50%;
+      left: -13px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url('../images/arrow_left.svg');
+    }
+    &::after {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      width: 27px;
+      height: 16px;
+      top: 50%;
+      right: -13px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url('../images/arrow_right.svg');
+    }
   }
 
-  .mobile-comment-container::before {
-    position: absolute;
-    content: '';
-    width: 27px;
-    height: 16px;
-    top: 50%;
-    left: -13px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url('../images/arrow_left.svg');
-  }
-
-  .mobile-comment-container::after {
-    position: absolute;
-    display: inline-block;
-    content: '';
-    width: 27px;
-    height: 16px;
-    top: 50%;
-    right: -13px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url('../images/arrow_right.svg');
-  }
   .container_main_comment {
     padding-right: 46px;
   }
@@ -311,13 +312,12 @@
     font-size: 12px;
     line-height: 20px;
     color: var(--mob-grey-color);
+    & span {
+      color: var(--orange-color);
+      text-decoration: underline;
+    }
   }
 
-  .comments-list__description span {
-    // display: inline-block;
-    color: var(--orange-color);
-    text-decoration: underline;
-  }
   // ==================нижние фото описания отзыва
 
   .comments-under__list {
@@ -361,9 +361,7 @@
     margin-left: 112px;
     background-color: var(--grey-bcg-color);
   }
-  .feature-list__item:not(:last-child) {
-    margin-bottom: 23px;
-  }
+
   .feature-list__item {
     font-style: normal;
     font-weight: 500;
@@ -371,32 +369,31 @@
     line-height: 20px;
     padding-right: 50px;
     padding-left: 52px;
-  }
-  .feature-list__item::after {
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 0;
-    width: 22px;
-    height: 30px;
-    background-image: url('../images/campfire.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-  .feature-list__item:nth-child(-n + 3):before {
-    position: absolute;
-    content: '';
-    left: 10px;
-    top: 34px;
-    width: 3px;
-    height: 40px;
-    background-image: url('../images/dash_dot_desk.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  .feature-list__description span {
-    color: var(--orange-color);
+    &:not(:last-child) {
+      margin-bottom: 23px;
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 30px;
+      background-image: url('../images/campfire.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    &:nth-child(-n + 3):before {
+      position: absolute;
+      content: '';
+      left: 10px;
+      top: 34px;
+      width: 3px;
+      height: 40px;
+      background-image: url('../images/dash_dot_desk.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
   .feature-list__description {
     display: inline-block;
@@ -404,6 +401,9 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 1.4;
+    & span {
+      color: var(--orange-color);
+    }
   }
   // ===========================отзывы выпускников
   .comments__title {
@@ -428,6 +428,7 @@
     justify-content: center;
     box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.1);
   }
+
   .mobile-comment-container {
     position: relative;
     display: flex;
@@ -436,31 +437,29 @@
     padding-right: 0;
     padding-left: 0;
     box-shadow: none;
-  }
-
-  .mobile-comment-container::before {
-    position: absolute;
-    content: '';
-    width: 27px;
-    height: 16px;
-    top: 50%;
-    left: -13px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url('../images/arrow_left.svg');
-  }
-
-  .mobile-comment-container::after {
-    position: absolute;
-    display: inline-block;
-    content: '';
-    width: 27px;
-    height: 16px;
-    top: 50%;
-    right: -13px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url('../images/arrow_right.svg');
+    &::before {
+      position: absolute;
+      content: '';
+      width: 27px;
+      height: 16px;
+      top: 50%;
+      left: -13px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url('../images/arrow_left.svg');
+    }
+    &::after {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      width: 27px;
+      height: 16px;
+      top: 50%;
+      right: -13px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url('../images/arrow_right.svg');
+    }
   }
   .container_main_comment {
     padding-right: 40px;
