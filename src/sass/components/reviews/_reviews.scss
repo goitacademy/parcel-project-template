@@ -19,7 +19,6 @@
 }
 
 .reviews .list {
-  @extend %list;
   text-align: center;
 }
 
@@ -88,6 +87,10 @@
 
 .slider {
   position: relative;
+  
+  @media screen and (min-width: $tablet) {
+    padding: 0px 50px;
+  }
 }
 
 .slider .slick-arrow {
@@ -98,10 +101,10 @@
 }
 
 .slider .slick-arrow.slick-prev {
-  left: -35px;
+  left: 0px;
   @media screen and (min-width: $tablet) {
     width: 50px;
-    height: 50px;
+    height: 60px;
     background-image: url('../images/reviews/prev.svg');
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -115,10 +118,10 @@
 }
 
 .slider .slick-arrow.slick-next {
-  right: -35px;
+  right: 0px;
   @media screen and (min-width: $tablet) {
     width: 50px;
-    height: 50px;
+    height: 60px;
     background-image: url('../images/reviews/next.svg');
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -128,5 +131,26 @@
 }
 
 .slider .slick-arrow.slick-next::before {
+  content: '';
+}
+
+.slider .slick-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider .slick-dots li {
+}
+
+.slider .slick-dots button {
+  font-size: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+}
+
+.slider .slick-dots button::before {
   content: '';
 }
