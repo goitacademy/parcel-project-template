@@ -2,18 +2,12 @@
   background-color: $light-pink-color;
 }
 .hero-container {
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: auto;
-  margin-right: auto;
-
-  padding-top: 193px;
-  padding-bottom: 160px;
-
   position: relative;
+  width: 100%;
+  overflow: hidden;
 
-  @media screen and (min-width: $mobile) {
-    width: $mobile;
+  @media screen and (max-width: $mobile-max) {
+    height: 502px;
   }
 
   @media screen and (min-width: $tablet) {
@@ -22,6 +16,8 @@
     padding-right: 34px;
     padding-top: 102px;
     padding-bottom: 34px;
+    margin-left: auto;
+    margin-right: auto;
   }
   @media screen and (min-width: $desktop) {
     width: $desktop;
@@ -31,9 +27,23 @@
     padding-bottom: 56px;
   }
 }
+.hero-main-info {
+  display: block;
+  z-index: 5;
 
+  @media screen and (max-width: $mobile-max) {
+    position: absolute;
+    top: 55%;
+    left: 41%;
+    transform: translate(-50%, -50%);
+  }
+  @media screen and (min-width: $tablet) {
+    position: relative;
+  }
+}
 .hero-title {
   font-family: Titan One;
+  text-transform: uppercase;
   font-weight: 400;
   font-size: 26px;
   line-height: 1.14;
@@ -69,9 +79,6 @@
 .hero-buttons-list {
   display: inline-flex;
 
-  position: relative;
-  z-index: 5;
-
   @media screen and (min-width: $tablet) {
     margin-bottom: 19px;
   }
@@ -87,6 +94,12 @@
     & .hero-button {
       background-color: $main-red-color;
       color: $main-white-color;
+
+      &:hover,
+      &:focus {
+        transform: scale(1.1);
+        background-color: #c7133e;
+      }
     }
   }
 }
@@ -107,6 +120,7 @@
   &:hover,
   &:focus {
     transform: scale(1.1);
+    background-color: #ecebeb;
   }
 
   @media screen and (min-width: $desktop) {
@@ -117,10 +131,9 @@
 
 .hero-img {
   width: 171px;
+  height: auto;
 
   position: absolute;
-  bottom: 0;
-  left: 117px;
 
   z-index: 4;
 
@@ -133,7 +146,14 @@
   animation-direction: alternate-reverse;
   animation-delay: -1s;
 
+  @media screen and (max-width: $mobile-max) {
+    bottom: -40%;
+    left: 63%;
+    transform: translate(-50%, -50%);
+  }
+
   @media screen and (min-width: $tablet) {
+    bottom: 0;
     left: 378px;
     width: 143px;
   }
@@ -216,19 +236,14 @@
   height: 18px;
   color: $main-red-color;
   background-color: $main-white-color;
-  background-position: center;
-  background-repeat: no-repeat;
   padding: 0;
-
-  transition: 250ms;
 
   &:hover,
   &:focus,
   &:hover .hero-icon-arrow,
   &:focus .hero-icon-arrow {
     transform: scale(1.1);
-    color: $main-white-color;
-    background-color: $main-red-color;
+    background-color: #ecebeb;
   }
 
   @media screen and (min-width: $desktop) {
@@ -238,8 +253,8 @@
 }
 .hero-icon-arrow {
   fill: currentColor;
-  width: 5px;
-  height: 5px;
+  width: 7px;
+  height: 7px;
 
   @media screen and (min-width: $desktop) {
     width: 10px;
@@ -363,15 +378,12 @@
 }
 .hero-circle {
   display: block;
-  content: '';
   height: 345px;
   width: 345px;
   background-color: $dark-pink-color;
   border-radius: 50%;
 
   position: absolute;
-  bottom: 75px;
-  left: 36px;
 
   z-index: 3;
 
@@ -381,6 +393,12 @@
   animation-iteration-count: 2;
   animation-direction: alternate-reverse;
   animation-delay: -2s;
+
+  @media screen and (max-width: $mobile-max) {
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+  }
 
   @media screen and (min-width: $tablet) {
     height: 323px;
