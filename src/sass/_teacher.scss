@@ -1,22 +1,62 @@
 .teacher-main-title {
-    color: var(--txt-dark);
-    margin-bottom: 20px;
+  color: var(--txt-dark);
+  margin-bottom: 20px;
+  @include font(800, 20px, 1.3, 0.03em);
 }
 
-@media screen and (min-width: 767px) {
-    .teacher-main-title {
-      @include font (800, 26px, 1.3, 0.03em)
-    }
+.teacher-list-check {
+  display: flex;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
 }
-  
+
 @media screen and (min-width: 1200px) {
-    .teacher-main-title {
-      @include font (800, 46px, 1.3, 0.03em)
-    }
+  .teacher-list-check:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+.icon-check {
+  margin-right: 9px;
+
+  @media screen and(min-width:1200px) {
+    margin-right: 35px;
+  }
+}
+
+.teacher-subtitle {
+  width: 253px;
+}
+
+@media screen and (min-width: 768px) {
+  .teacher-main-title {
+    @include font(800, 26px, 1.3, 0.03em);
+  }
+  .teacher-subtitle {
+    width: 375px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .teacher-main-title {
+    @include font(800, 46px, 1.3, 0.03em);
   }
 
+  .teacher-subtitle {
+    width: 530px;
+  }
+}
+
 .teacher-picture {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1200px) {
+  .teacher-picture {
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -26,15 +66,13 @@
   }
   .teacher {
     display: flex;
-    flex-direction: row;
   }
 }
 
 @media screen and (min-width: 768px) {
   .teacher-card {
     display: inline-block;
-    width: 402px;
-    height: 516px;
+    width: 410px;
     margin-left: 40px;
   }
 }
@@ -48,45 +86,39 @@
 }
 
 .teacher-title {
-    color: var(--txt-dark);
-    margin-bottom: 10px;
+  color: var(--txt-dark);
+  margin-bottom: 10px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
-    .teacher-title {
-      @include font(800, 20px, 1.2, 0.08em);
-    }
+.teacher-title {
+  @include font(800, 20px, 1.2, 0.08em);
 }
 
 @media screen and (min-width: 1200px) {
-    .teacher-title {
-      @include font(800, 30px, 1.233, 0.08em);
-    }
+  .teacher-title {
+    @include font(800, 30px, 1.233, 0.08em);
+  }
 }
 
 .check-box {
-    display: inline-block;
-    flex-wrap: wrap;
-}
-
-.teacher-list {
-    display: inline-flex;
-    justify-content: space-between;
-    position: relative;
+  display: inline-block;
+  flex-wrap: wrap;
 }
 
 .teacher-list_list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  padding-top: 20px;
+
+  @media screen and(min-width:1200px) {
+    padding-top: 30px;
+  }
 }
 
 .teacher-list::before {
-    position: absolute;
-    content: "";
-    width: 280px;
-    height: 0;
-    border: 1px solid var(--txt-grey);
+  position: absolute;
+  content: '';
+  width: 280px;
+  height: 0;
+  border: 1px solid var(--txt-grey);
 }
 
 @media screen and (min-width: 768px) {
@@ -101,73 +133,82 @@
   }
 }
 
-.teacher-list-item {
-    margin-bottom: 20px;
-    margin-left: 9px;
-}
-
-.teacher-list-text {
-  margin-top: 30px;
+.teacher-subtitle {
+  color: var(--txt-dark);
 }
 
 .teacher-subtitle {
-    color: var(--txt-dark);
-}
-
-@media screen and (min-width: 320px) and (max-width: 1199px) {
-    .teacher-subtitle {
-      @include font(600, 14px, 1.214, 0.06em);
-    }
+  @include font(600, 14px, 1.214, 0.06em);
 }
 
 @media screen and (min-width: 1200px) {
-    .teacher-subtitle {
-      @include font(600, 16px, 1.25, 0.06em);
-    }
+  .teacher-subtitle {
+    @include font(600, 16px, 1.25, 0.06em);
+  }
 }
 
 .teacher-undertitle {
-    display: flex;
-    align-items: center;
-    @include font(700, 20px, 1.65, 0.08em);
-    width: 82px;
-    height: 33px;
-    color: var(--txt-orange);
-    position: relative;
-    margin: 5px 0;
-}
-
-.teacher-text {
-    color: var(--txt-grey);
-    margin-bottom: 10px;
-}
-
-.teacher-undertitle::before {
-    content: "";
-    position: absolute;
-    width: 12px;
-    height: 1px;
-    bottom: 50%;
-    transform: translate(25%);
-    border: 1px solid var(--txt-orange);
-}
-
-.teacher-link {
-    color: var(--txt-orange);
-    text-decoration-line: underline;
-}
-
-@media screen and (min-width: 320px) and (max-width: 1199px) {
-    .teacher-text,
-    .teacher-link {
-      @include font(500, 12px, 1.167, 0.1em);
-    }
+  display: flex;
+  align-items: center;
+  @include font(700, 20px, 1.65, 0.08em);
+  width: 82px;
+  height: 33px;
+  color: var(--txt-orange);
+  position: relative;
+  margin: 5px 0;
 }
 
 @media screen and (min-width: 1200px) {
-    .teacher-text,
-    .teacher-link {
-      @include font(500, 18px, 1.156, 0.1em);
-      width: 640px;
+  .teacher-undertitle {
+    margin: 10px 0;
+  }
+}
+
+.teacher-text {
+  color: var(--txt-grey);
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .teacher-text {
+    margin-bottom: 25px;
+
+    &:last-child {
+      margin-bottom: 20px;
     }
+  }
+}
+
+.teacher-undertitle::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 1px;
+  bottom: 50%;
+  transform: translate(25%);
+  border: 1px solid var(--txt-orange);
+}
+
+.teacher-link {
+  color: var(--txt-orange);
+  text-decoration-line: underline;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1199px) {
+  .teacher-text,
+  .teacher-link {
+    @include font(500, 12px, 1.67, 0.03em);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .teacher-text,
+  .teacher-link {
+    @include font(500, 18px, 1.56, 0.03em);
+    width: 640px;
+  }
 }
