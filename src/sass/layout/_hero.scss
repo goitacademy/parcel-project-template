@@ -32,8 +32,23 @@
 }
 
 .hero__title {
+  animation: blur 0.75s ease-out infinite;
   color: $black;
   @include font(800, 20px, 27px, inherit, 0.03em);
+  &:hover {
+    cursor: pointer;
+    animation-play-state: paused;
+  }
+}
+@keyframes blur {
+  from {
+    text-shadow: 0px 0px 10px #fff, 0px 0px 10px #fff, 0px 0px 25px #fff,
+      0px 0px 25px #fff, 0px 0px 25px #fff, 0px 0px 25px #fff, 0px 0px 25px #fff,
+      0px 0px 25px #fff, 0px 0px 50px #fff, 0px 0px 50px #fff,
+      0px 0px 50px #7b96b8, 0px 0px 150px #7b96b8, 0px 10px 100px #7b96b8,
+      0px 10px 100px #7b96b8, 0px 10px 100px #7b96b8, 0px 10px 100px #7b96b8,
+      0px -10px 100px #7b96b8, 0px -10px 100px #7b96b8;
+  }
 }
 .hero__undertitle {
   color: $grey;
@@ -48,16 +63,7 @@
   color: $orange;
   @include font(700, 14px, 22px, inherit, 0.08em);
 }
-.button {
-  background-color: $orange;
-  padding: 16px 10px;
-  color: $white;
-  @include font(700, 12px, 15px, center, 0.08em);
-  text-transform: uppercase;
-  border: none;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.button--hero {
   margin-top: 30px;
 }
 .hero__img {
@@ -80,7 +86,6 @@
       url('/images/hero/img-01-hero-320@2x.png');
   }
 }
-
 .hero > .container {
   padding-top: 110px;
 }
@@ -92,7 +97,7 @@
   .hero__text {
     width: 302px;
   }
-  .button {
+  .button--hero {
     margin-left: 0;
   }
   .hero > .container {
@@ -154,10 +159,7 @@
     line-height: 1.65;
     width: 540px;
   }
-  .button {
-    font-size: 14px;
-    line-height: 1.214;
-    letter-spacing: 0.14em;
+  .button--hero {
     margin-top: 40px;
     padding: 27px 25px;
   }
