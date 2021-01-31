@@ -40,7 +40,7 @@
 }
 .menu-btn.is-open .icon-cross {
   display: block;
-  fill: #ffffff;
+  fill: $white;
 }
 .button--header.tablet {
   display: none;
@@ -51,30 +51,41 @@
   position: absolute;
   top: 0;
   left: 0;
-  @media screen and (max-width: 1343px) {
-    width: 100%;
-  }
   @media screen and (max-width: 767px) {
     height: 568px;
   }
+  @media screen and (max-width: 1343px) {
+    width: 100%;
+  }
   background-color: rgba(17, 21, 24, 0.9);
-  background-size: 100vw 100vh;
-  padding: 30px 20px;
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 1.8;
-  letter-spacing: 0.03em;
-  color: #ffffff;
+  padding-top: 30px;
+  @include font(800, 20px, 36px, inherit, 0.03em);
+  color: $white;
   z-index: 1;
   &.is-open {
-    display: block;
+    @media screen and (max-width: 1343px) {
+      display: block;
+    }
+  }
+}
+.menu-nav {
+  @media screen and (max-width: 1343px) {
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  @media screen and (max-width: 767px) {
+    width: 320px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1343px) {
+    width: 768px;
+    padding: 0 40px;
   }
 }
 .site-nav a {
   color: currentColor;
 }
 .site-nav .link.current {
-  color: #ff6b09;
+  color: $orange;
 }
 .site-nav {
   margin-bottom: 50px;
@@ -85,13 +96,10 @@
   margin-right: auto;
   padding: 15px 12px;
   background-color: transparent;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.25;
-  letter-spacing: 0.08em;
+  @include font(700, 12px, 15px, inherit, 0.08em);
   text-transform: uppercase;
-  color: #ff6b09;
-  border: 2px solid #ff6b09;
+  color: $orange;
+  border: 2px solid $orange;
 }
 @media screen and (min-width: 768px) {
   .header {
@@ -101,7 +109,7 @@
     @media screen and (max-width: 1343px) {
       height: 1024px;
     }
-    padding: 40px 40px;
+    padding-top: 40px;
     font-size: 26px;
   }
   .header__logo--white {
@@ -120,7 +128,9 @@
     }
   }
   .menu-container.is-open .button--header {
-    display: none;
+    @media screen and (max-width: 1343px) {
+      display: none;
+    }
   }
   .header__logo {
     width: 128px;
@@ -155,10 +165,13 @@
     font-size: 14px;
     line-height: 1.214;
     text-transform: uppercase;
-    color: #b9b9b9;
+    color: $grey;
   }
   .header__logo--white {
     display: none;
+  }
+  .menu-nav {
+    display: flex;
   }
   .site-nav {
     display: flex;
@@ -170,9 +183,7 @@
     }
   }
   .button--header {
-    font-size: 14px;
-    line-height: 1.214;
-    letter-spacing: 0.14em;
+    @include font(700, 14px, 17px, inherit, 0.14em);
     padding: 26px 24px;
   }
 }
