@@ -62,6 +62,7 @@
     margin-bottom: 25px;
   }
 }
+
 .hero-passion {
   font-family: Titan One;
   font-weight: 400;
@@ -69,13 +70,41 @@
   line-height: 0.96;
   color: $main-red-color;
 
+  transition: 250ms;
+
   @media screen and (min-width: $tablet) {
     font-size: 34px;
   }
   @media screen and (min-width: $desktop) {
     font-size: 58px;
   }
+
+  // для анимации PASSION
+
+  @mixin name-animation($delay) {
+    animation: title 0.5s linear 1 $delay alternate-reverse;
+  }
+
+  @keyframes title {
+    0% {
+      scale: (1);
+    }
+    50% {
+      scale: (1.5);
+    }
+  }
+  $footer-icons: 0s, 100ms, 200ms, 300ms, 400ms, 500ms, 600ms, 700ms;
+
+  &:hover {
+    @each $iconName in $footer-icons {
+      .hero-#{$iconName} {
+        @include name-animation($iconName);
+        display: inline-block;
+      }
+    }
+  }
 }
+
 .hero-buttons-list {
   display: inline-flex;
 
@@ -99,6 +128,7 @@
       &:focus {
         transform: scale(1.1);
         background-color: #c7133e;
+        box-shadow: 0px 8px 50px rgba(210, 20, 67, 0.6);
       }
     }
   }
@@ -121,7 +151,7 @@
   &:hover,
   &:focus {
     transform: scale(1.1);
-    background-color: #ecebeb;
+    box-shadow: 0px 8px 50px rgba(210, 20, 67, 0.6);
   }
 
   @media screen and (min-width: $desktop) {
@@ -245,7 +275,7 @@
   &:hover .hero-icon-arrow,
   &:focus .hero-icon-arrow {
     transform: scale(1.1);
-    background-color: #ecebeb;
+    box-shadow: 0px 8px 50px rgba(210, 20, 67, 0.6);
   }
 
   @media screen and (min-width: $desktop) {
