@@ -18,9 +18,9 @@
   --slider-active-button-color: #d31342;
   --slider-nonactive-button-color: #d9d9d9;
   --slider-background-color: #fafafa;
-  --location-text-color: #907e82;
   --location-cafe-color: #f0d1a5;
   --button-hover-color: #ecebeb;
+  --menu-mob-bg-color: #e17992;
 }
 
 .visually-hidden {
@@ -246,13 +246,188 @@ header .btn {
   background: #ecebeb;
 }
 
-.hero {
+.header {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  color: white;
+  position: absolute;
+  z-index: 1;
+  background-color: transparent;
+  top: 0;
+  width: 100%;
+  max-width: 1280px;
+  padding: 6px 20px 0 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 37px 34px 0 34px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header {
+    padding: 37px 115px 0 115px;
+  }
+}
+
+a {
+  color: inherit;
+}
+
+.header .header-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-button {
+  z-index: 2;
+  top: 15px;
+  right: 20px;
+  background-size: cover;
+  position: absolute;
+  background-color: transparent;
+  stroke: var(--text-red-color);
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+@media screen and (min-width: 767px) {
+  .menu-button {
+    top: 50px;
+    right: 225px;
+  }
+}
+
+.menu-container {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 250px;
+  width: 100%;
+  height: 100vh;
+  padding-top: 60px;
+  background-color: var(--menu-mob-bg-color);
+}
+
+.menu-container.is-open {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .menu-container {
+    max-width: 254px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .menu-container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .menu-button,
+  .menu-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .header-nav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header-btn {
+    display: none;
+  }
+}
+
+.icon-cross {
+  stroke: white;
+}
+
+.menu-button .icon-cross {
+  display: none;
+}
+
+.menu-button.is-open .icon-cross {
   display: block;
   height: 502px;
   background-image: url(../images/hero/mob-icecream.png), radial-gradient(circle farthest-side at 61% 51%, #ffa5ba 172px, #ffb8ca 172px);
   background-size: 171px, cover;
+}
+
+.menu-button.is-open .icon-menu {
+  display: none;
+}
+
+.header-descktop {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  margin: 0 50px;
+}
+
+.nav-item {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.nav-item:not(:first-child) {
+  margin-left: 35px;
+}
+
+.nav-item:hover {
+  color: var(--text-red-color);
+}
+
+.mob-menu-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.mob-menu-item {
+  display: inline-block;
+  padding-top: 13px;
+  padding-bottom: 11px;
+  padding-left: 21px;
+  border-top: 1px solid #e18298;
+  border-bottom: 1px solid #e18298;
+}
+
+.mob-menu-link {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  color: white;
+}
+
+.mob-menu-link:hover {
+  color: var(--text-red-color);
+}
+
+.mob-menu-btn {
+  margin-bottom: 19px;
+}
+
+.how-its-made {
+  padding: 125px 20px 97px 20px;
+  background-color: #fff5f6;
   background-repeat: no-repeat;
-  background-position: left 63% bottom 0, left 0 top 0;
+  background-position: center;
+  background-image: url("../images/how-its-made/mob-milk-background.png");
 }
 
 @media screen and (min-width: 768px) {
@@ -875,6 +1050,212 @@ section {
 
 .review-name {
   text-align: center;
+}
+
+/*********LOCATIONS***********/
+.text-title-style {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.86;
+}
+
+.text-description-style {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-grey-color);
+  font-style: normal;
+}
+
+.locations {
+  height: 765px;
+  position: relative;
+  background-color: var(--description-background-color);
+}
+
+.locations .container {
+  position: absolute;
+  top: -102px;
+}
+
+.locations-list {
+  margin-bottom: -20px;
+}
+
+.locations-list-item {
+  min-width: 220px;
+  min-height: 427px;
+  padding: 43px 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--primary-white-color);
+  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+  border-radius: 24px;
+}
+
+.locations-item-title {
+  width: 80px;
+  height: 16px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.41;
+  text-align: center;
+  color: var(--primary-white-color);
+  background-color: var(--location-cafe-color);
+  border-radius: 4px;
+}
+
+.foodtruck {
+  width: 130px;
+  background-color: var(--products-green-color);
+}
+
+.city-description {
+  margin-top: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #E1E1E1;
+}
+
+.city-name {
+  margin-bottom: 10px;
+}
+
+.working-days-sublist {
+  margin-top: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #E1E1E1;
+}
+
+.sublist-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.working-hours {
+  color: var(--text-pink-color);
+}
+
+.location-address {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+.location-buttons {
+  margin-top: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .btn {
+    min-width: 161px;
+  }
+  .btn:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .locations-item-title {
+    width: 73px;
+    height: 28px;
+    font-size: 16px;
+    line-height: 1.86;
+  }
+  .foodtruck {
+    width: 138px;
+  }
+  .locations-list {
+    margin-bottom: 81px;
+    margin-top: 0;
+    margin-left: -20px;
+    display: flex;
+  }
+  .locations-list-item {
+    min-height: 544px;
+    padding: 50px 31px;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 20px;
+  }
+  .text-title-style {
+    font-size: 14px;
+  }
+  .text-description-style {
+    font-size: 14px;
+    line-height: 1.66;
+  }
+  .city-description {
+    margin-top: 30px;
+    padding-bottom: 30px;
+  }
+  .city-name {
+    margin-bottom: 14px;
+  }
+  .working-days-sublist {
+    margin-top: 30px;
+    padding-bottom: 30px;
+  }
+  .sublist-item:not(:last-child) {
+    margin-bottom: 16px;
+  }
+  .location-tel {
+    line-height: 1.83;
+  }
+  .location-mail {
+    line-height: 1.83;
+  }
+  .location-buttons {
+    margin-top: 81px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .btn:not(:last-child) {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .locations-list {
+    margin-bottom: 86px;
+  }
+  .locations-list-item {
+    min-height: 572px;
+    width: 330px;
+    padding: 52px 43px;
+    margin-left: 31px;
+  }
+  .text-title-style {
+    font-size: 16px;
+  }
+  .text-description-style {
+    font-size: 16px;
+    line-height: 1.83;
+  }
+  .city-description {
+    margin-top: 32px;
+    padding-bottom: 32px;
+  }
+  .city-name {
+    margin-bottom: 10px;
+  }
+  .working-days-sublist {
+    margin-top: 32px;
+    padding-bottom: 32px;
+  }
+  .sublist-item:not(:last-child) {
+    margin-bottom: 15px;
+  }
+  .location-buttons {
+    margin-top: 86px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 .footer {
