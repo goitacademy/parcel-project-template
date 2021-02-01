@@ -1,25 +1,23 @@
 .reviews {
-  padding-top: 80px;
+  padding-top: 140px;
   padding-bottom: 80px;
   background-color: $main-white-color;
 
   @media screen and (min-width: $tablet) {
-    padding-top: 120px;
+    padding-top: 210px;
     padding-bottom: 120px;
   }
 
   @media screen and (min-width: $desktop) {
-    padding-top: 125px;
+    padding-top: 280px;
     padding-bottom: 125px;
   }
 }
 
 .reviews .container {
-  outline: 1px solid black;
 }
 
 .reviews .list {
-  @extend %list;
   text-align: center;
 }
 
@@ -70,12 +68,15 @@
   margin-bottom: 15px;
   --color2: #c7133e;
 }
+.reviews-icon {
+  width: 5px;
+  height: 5px;
+}
 
 .dots-item {
   margin-left: 10px;
   margin-right: 10px;
-  width: 5px;
-  height: 5px;
+  font-size: 0;
 }
 
 .reviews-name {
@@ -84,4 +85,87 @@
   line-height: 1.86;
 
   text-align: center;
+}
+
+.slider {
+  position: relative;
+
+  @media screen and (min-width: $tablet) {
+    padding: 0px 50px;
+  }
+}
+
+.slider .slick-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  font-size: 0;
+}
+
+.slider .slick-arrow.slick-prev {
+  left: 0px;
+  @media screen and (min-width: $tablet) {
+    width: 50px;
+    height: 60px;
+    background-image: url('../images/reviews/prev.svg');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 100%;
+    background-color: transparent;
+  }
+}
+
+.slider .slick-arrow.slick-prev::before {
+  content: '';
+}
+
+.slider .slick-arrow.slick-next {
+  right: 0px;
+  @media screen and (min-width: $tablet) {
+    width: 50px;
+    height: 60px;
+    background-image: url('../images/reviews/next.svg');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 100%;
+    background-color: transparent;
+  }
+}
+
+.slider .slick-arrow.slick-next::before {
+  content: '';
+}
+
+.slider .slick-dots {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider .slick-dots li {
+  width: 12px;
+}
+
+.slider .slick-dots button {
+  font-size: 12px;
+  width: 12px;
+  height: 12px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+}
+
+.slider .slick-dots button::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+}
+
+.slider .slick-dots li.slick-active button {
+  border-radius: 0;
+  background-image: url('../images/reviews/house.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
 }
