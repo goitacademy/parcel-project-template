@@ -28,13 +28,6 @@
     background-size: 143px 336px, 168px 133px, 324px 322px;
     background-position: top 63px right 247px, bottom 0 right 34px,
       top 31px right 137px;
-    // background-image: url('../images/hero/slider-pic7-tablet.png'),
-    //   url('../images/hero/slider-pic5-tablet.png'),
-    //   url('../images/hero/slider-pic4-tablet.png'),
-    //   url('../images/hero/ellipse-tablet.png');
-    // background-size: 143px 336px, 124px 126px, 168px 133px, 324px 322px;
-    // background-position: top 63px right 247px, bottom 28px left 34px,
-    //   bottom 0 right 34px, top 31px right 137px;
     background-repeat: no-repeat;
   }
 
@@ -45,38 +38,32 @@
       background-image: url('../images/hero/slider-pic7-tablet@2x.png'),
         url('../images/hero/slider-pic4-tablet@2x.png'),
         url('../images/hero/ellipse-tablet@2x.png');
-      // background-image: url('../images/hero/slider-pic7-tablet@2x.png'),
-      //   url('../images/hero/slider-pic5-tablet@2x.png'),
-      //   url('../images/hero/slider-pic4-tablet@2x.png'),
-      //   url('../images/hero/ellipse-tablet@2x.png');
     }
   }
 }
 
-// @include for-size(desktop) {
-//   .hero {
-//     max-width: 1280px;
-//     background-image: url('../images/hero/slider-pic7-desktop.png'),
-//       url('../images/hero/slider-pic5-desktop.png'),
-//       url('../images/hero/slider-pic4-desktop.png'),
-//       url('../images/hero/ellipse-desktop.png');
-//     background-size: 236px 557px, 188px 191px, 293px 232px, 538px 538px;
-//     background-position: top 108px right 450px, bottom 45px left 77px,
-//       bottom 0 right 109px, top 52px right 267px;
-//     background-repeat: no-repeat;
-//   }
+@include for-size(desktop) {
+  .hero {
+    max-width: 1280px;
+    background-image: url('../images/hero/slider-pic7-desktop.png'),
+      url('../images/hero/slider-pic4-desktop.png'),
+      url('../images/hero/ellipse-desktop.png');
+    background-size: 236px 557px, 293px 232px, 538px 538px;
+    background-position: top 108px right 450px, bottom 0 right 77px,
+      top 52px right 267px;
+    background-repeat: no-repeat;
+  }
 
-//   @media screen and (min-device-pixel-ratio: 2),
-//     screen and (min-resolution: 192dpi),
-//     screen and (min-resolution: 2dppx) {
-//     .hero {
-//       background-image: url('../images/hero/slider-pic7-desktop@2x.png'),
-//         url('../images/hero/slider-pic5-desktop@2x.png'),
-//         url('../images/hero/slider-pic4-desktop@2x.png'),
-//         url('../images/hero/ellipse-desktop@2x.png');
-//     }
-//   }
-// }
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .hero {
+      background-image: url('../images/hero/slider-pic7-desktop@2x.png'),
+        url('../images/hero/slider-pic4-desktop@2x.png'),
+        url('../images/hero/ellipse-desktop@2x.png');
+    }
+  }
+}
 
 .hero-inner {
   position: relative;
@@ -100,16 +87,23 @@
     top: 102px;
     left: 0;
   }
+
+  @include for-size(desktop) {
+    position: absolute;
+    top: 171px;
+    left: 0;
+  }
 }
 
 .hero-title {
   width: 218px;
-  margin-bottom: 19px;
+  margin-bottom: 20px;
 
   font-family: 'Titan one', cursive;
   font-size: 26px;
   font-weight: 400;
   line-height: 1.153;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 
   color: $primaryWhiteColor;
@@ -135,6 +129,7 @@
     width: 277px;
     font-size: 38px;
     line-height: 1.158;
+    margin-bottom: 25px;
 
     & span {
       font-size: 58px;
@@ -151,6 +146,12 @@
   &:not(:last-child) {
     margin-right: 8px;
   }
+
+  @include for-size(desktop) {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
 }
 
 .hero-btn-left {
@@ -161,10 +162,19 @@
   margin: 0;
   padding: 0;
   background-color: $titleTextColor;
+  color: $primaryWhiteColor;
 
   font-weight: 400;
   font-size: 8px;
   line-height: 1.25;
+
+  @include for-size(desktop) {
+    width: 102px;
+    height: 40px;
+
+    font-size: 14px;
+    line-height: 1.2857;
+  }
 }
 
 .hero-btn-right {
@@ -180,6 +190,14 @@
   font-size: 8px;
   line-height: 1.25;
   color: $titleTextColor;
+
+  @include for-size(desktop) {
+    width: 138px;
+    height: 40px;
+
+    font-size: 14px;
+    line-height: 1.2857;
+  }
 }
 
 .hero-counter-box {
@@ -190,11 +208,22 @@
   position: absolute;
   top: 96px;
   right: 0;
+
+  @include for-size(desktop) {
+    top: 160px;
+    right: 0;
+  }
 }
 
 .hero-counter-item {
   &:not(:last-child) {
     margin-bottom: 14px;
+  }
+
+  @include for-size(desktop) {
+    &:not(:last-child) {
+      margin-bottom: 18px;
+    }
   }
 }
 
@@ -222,6 +251,20 @@
     transform: matrix(-1, 0, 0, 1, 0, 0);
     z-index: 7;
   }
+
+  @include for-size(desktop) {
+    font-size: 46px;
+    line-height: 1.152;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 4px;
+      content: '';
+      width: 30px;
+      height: 30px;
+    }
+  }
 }
 
 .quantity-description {
@@ -231,6 +274,11 @@
   letter-spacing: 0.04em;
 
   color: $primaryWhiteColor;
+
+  @include for-size(desktop) {
+    font-size: 14px;
+    line-height: 1.2857;
+  }
 }
 
 .hero-text-box {
@@ -255,6 +303,26 @@
     background-size: cover;
     background-position: center;
   }
+
+  @include for-size(desktop) {
+    bottom: 56px;
+    left: 180px;
+    margin-left: 30px;
+
+    &::before {
+      position: absolute;
+      bottom: -6px;
+      left: -100%;
+      content: '';
+      width: 188px;
+      height: 191px;
+
+      background-image: url('../images/hero/slider-pic5-desktop.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  }
 }
 
 .hero-text {
@@ -267,6 +335,14 @@
   letter-spacing: 0.04em;
 
   color: $primaryWhiteColor;
+
+  @include for-size(desktop) {
+    width: 200px;
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    line-height: 1.4;
+  }
 }
 
 .next-btn {
@@ -281,4 +357,9 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+
+  @include for-size(desktop) {
+    width: 26px;
+    height: 26px;
+  }
 }
