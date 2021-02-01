@@ -67,17 +67,17 @@ html {
   right: 10px;
   z-index: 30;
   width: 20px;
-  height: 20px;
+  height: 22px;
   outline: none;
   background-color: transparent;
   @media (min-width: $tablet) {
     right: -170px;
+    height: 20px;
   }
 
   @media (min-width: $desktop) {
     display: none;
   }
-  // transition: 0.4s;
 }
 
 .menu__lines,
@@ -181,7 +181,7 @@ html {
   height: 42px;
   font-weight: 700;
   font-size: 14px;
-  border: 1px solid #e18298;
+  border: 1px solid $modal-input-color;
   &:focus,
   &:hover {
     color: $main-red-color;
@@ -289,6 +289,12 @@ html {
     background-color: $light-pink-color;
     border-radius: 50%;
     opacity: 0.5;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+
     @media (min-width: $tablet) {
       width: 50px;
       height: 50px;
@@ -313,7 +319,7 @@ html {
   padding-left: 15px;
   padding-right: 15px;
   background: rgba(0, 0, 0, 0.2);
-  z-index: 25;
+  z-index: 35;
   opacity: 1;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: scroll;
@@ -328,7 +334,7 @@ html {
   top: 30px;
   transform: translate(-50%) scale(1);
   opacity: 1;
-  z-index: 6;
+  z-index: 40;
   width: calc(100% - 2 * 15px);
   // height: 609px;
   background-color: $main-white-color;
@@ -389,6 +395,13 @@ html {
   font-family: Titan One;
   font-size: 25px;
 }
+input {
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 50px #fff !important;
+}
+
 .contacts-input {
   margin-bottom: 20px;
   font-family: DM Sans;
@@ -411,7 +424,7 @@ html {
 .input-title input {
   padding-left: 42px;
   height: 40px;
-  border: 1px solid #e18298;
+  border: 1px solid $modal-input-color;
   border-radius: 4px;
   margin-top: 4px;
   padding-top: 0;
@@ -428,7 +441,7 @@ html {
   position: absolute;
   left: 12px;
   top: 32px;
-  fill: #e18298;
+  fill: $modal-input-color;
   height: 12px;
   width: 12px;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -446,7 +459,7 @@ textarea {
   padding-right: 16px;
   margin-top: 4px;
   font-size: 14px;
-  border: 1px solid #e18298;
+  border: 1px solid $modal-input-color;
   border-radius: 4px;
   &:hover,
   &:focus {
@@ -454,13 +467,7 @@ textarea {
     border-color: $main-red-color;
   }
   &::placeholder {
-    color: #e18298;
-  }
-}
-.order-form {
-  color: #e18298;
-  &:checked {
-    color: $main-red-color;
+    color: $modal-input-color;
   }
 }
 
@@ -471,53 +478,52 @@ textarea {
   display: block;
   align-items: center;
   padding: 10px;
-}
-.order-product:not(:disabled):active + span::before {
-  background-color: $main-red-color;
-  border-color: #b3d7ff;
+  color: $modal-input-color;
+  font-family: Titan One;
+  font-size: 20px;
 }
 
 .order-number {
   margin-left: 10px;
-  border-color: #e18298;
-  color: $main-red-color;
+  border-color: $modal-input-color;
+  border-image: none;
+  color: $modal-input-color;
+  text-align: center;
+  font-size: 15px;
+  width: 40px;
+  height: 30px;
+  border-radius: 10px;
+  .order-product:checked + .order-form-item & {
+    color: $main-red-color;
+  }
 }
-.order-confirm {
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 10px;
+.order-form-item {
   &::before {
     content: ' ';
     display: inline-block;
     margin-right: 8px;
     width: 15px;
     height: 15px;
-    border: 2px solid #e18298;
+    border: 2px solid $modal-input-color;
     border-radius: 2px;
-    .checkbox:focus + &,
-    .checkbox:hover + & {
+    .order-product:focus + &,
+    .order-product:hover + & {
       border: 2px solid $main-red-color;
     }
-    .checkbox:checked + & {
+    .order-product:checked + & {
       background-color: $main-red-color;
-      background-image: url(../images/header/sprite-hero.svg#icon_check);
+      background-image: url(../images/header/icon_check.svg);
       background-size: contain;
       background-origin: border-box;
       border-color: transparent;
     }
   }
-  @media (min-width: 480px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-  }
-  @media (min-width: $desktop) {
-    font-size: 14px;
+  .order-product:checked + & {
+    color: $main-red-color;
   }
 }
 
-.checkbox {
+.order-product {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -541,9 +547,18 @@ textarea {
   margin-right: auto;
   margin-left: auto;
   margin-top: 15px;
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0.5;
+
   &:hover,
   &:focus {
     transform: scale(1.1);
     box-shadow: 0px 8px 50px rgba(210, 20, 67, 0.4);
   }
+}
+.order-product:checked ~ .order-button {
+  pointer-events: auto;
+  cursor: pointer;
+  opacity: 1;
 }
