@@ -2,7 +2,7 @@
 
 function burgerMenu(selector) {
     let menu = $(selector);
-    let button = menu.find('.menu__button', '.buy-now');
+    let button = menu.find('.menu__button,.buy-now');
     let links = menu.find('.menu__link');
     let overlay = menu.find('.menu__overlay');
     
