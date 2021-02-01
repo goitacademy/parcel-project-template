@@ -4,7 +4,7 @@
 (() => {
   const menuBtnOpen = document.querySelector("[data-menu-button-open]");
   const menuBtnClose = document.querySelector("[data-menu-button-close]");
-  const itemClose = document.querySelector("[close-menu]");
+  const itemClose = document.querySelectorAll("[close-menu]");
   const mobileMenuRef = document.querySelector("[data-menu-mobile]");
   const tabletMenuRef = document.querySelector("[data-menu-tablet]");
 
@@ -21,11 +21,14 @@
     tabletMenuRef.classList.remove("is-open");
   });
   // close on click menu item
-  itemClose.addEventListener("click", () => {
+  for (i = 0; i < 4; i++) {
+    itemClose[i].addEventListener("click", () => {
  
-    mobileMenuRef.classList.remove("is-open");
-    tabletMenuRef.classList.remove("is-open");
-  });
+      mobileMenuRef.classList.remove("is-open");
+      tabletMenuRef.classList.remove("is-open");
+    });
+  }
+
 })();
 
 
