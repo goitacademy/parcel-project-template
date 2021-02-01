@@ -1,4 +1,3 @@
-
 (() => {
   const menuBtnRef = document.querySelector("[data-menu-button]");
   const mobileMenuRef = document.querySelector("[data-menu]");
@@ -16,3 +15,4 @@
     document.body.classList.toggle("menu-open");
   });
 })();
+
