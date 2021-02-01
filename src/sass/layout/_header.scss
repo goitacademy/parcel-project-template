@@ -1,0 +1,155 @@
+.header {
+  padding-top: 30px;
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 40px;
+  }
+
+  & .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__btn {
+    max-width: 260px;
+    display: none;
+    padding: 14px 7px;
+
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: $accent-color;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid $accent-color;
+    transition: all 250ms $transition-timing-function;
+
+    @media screen and (min-width: $tablet) {
+      display: flex;
+      margin: 0 40px 0 auto;
+    }
+  }
+
+  &__btn:hover,
+  &__btn:focus {
+    color: $white;
+    background-color: $accent-color;
+    outline: none;
+  }
+}
+
+.menu-btn {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 20px;
+  height: 12px;
+
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 250ms $transition-timing-function;
+  z-index: 900;
+
+  @media screen and (min-width: $tablet) {
+    width: 21px;
+    height: 14px;
+  }
+
+  &__icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__icon_open {
+    fill: #000000;
+  }
+
+  &__icon_close {
+    display: none;
+    fill: $white;
+  }
+
+  &.is-open &__icon_close {
+    display: block;
+  }
+  &.is-open &__icon_open {
+    display: none;
+  }
+
+  &:focus &__icon_open,
+  &:hover &__icon_open,
+  &:focus &__icon_close,
+  &:hover &__icon_close {
+    fill: $accent-color;
+  }
+}
+
+.nav {
+  @media screen and (max-width: $desktop - 1) {
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 110px 20px 0 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(17, 21, 24, 0.9);
+    z-index: 900;
+
+    @media screen and (min-width: $tablet) {
+      padding-top: 160px;
+    }
+  }
+
+  &__list {
+    @media screen and (max-width: $tablet - 1) {
+      width: 280px;
+    }
+
+    @media screen and (min-width: $tablet) {
+      width: 340px;
+    }
+  }
+
+  &__link {
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+
+    color: $white;
+
+    @media screen and (min-width: $tablet) {
+      font-size: 26px;
+    }
+  }
+
+  &__link:hover,
+  &__link:focus {
+    color: $accent-color;
+  }
+
+  &.is-open {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.nav.is-open {
+  & + .logo__link {
+    color: $white;
+    z-index: 900;
+  }
+
+  & ~ .header__btn {
+    @media screen and (max-width: $tablet - 1) {
+    }
+  }
+}
