@@ -2,6 +2,11 @@ $(document).ready(function () {
   $('.menu-button').click(function (event) {
     $('.menu-button-icon,.burger-menu').toggleClass('menu-open');
     $('body').toggleClass('lock');
+    $('.logo').toggleClass('inverse');
+  });
+
+  $('.header-btn').click(function (event) {
+    $('body').toggleClass('lock');
   });
 
   $('.header-btn').click(function (event) {
@@ -14,5 +19,6 @@ $(document).ready(function () {
     $('.backdrop').toggleClass('is-hidden');
     $('.modal-window').removeClass('animate__bounceInRight');
     $('.modal-window').toggleClass('animate__bounceOutRight');
+    $('body').removeClass('lock');
   });
 });
