@@ -3,6 +3,19 @@
   padding-top: 125px;
   padding-bottom: 145px;
   background-color: $secondaryBgColor;
+
+  @include for-size(mobile-only) {
+    background-image: url('../images/manufacture/sectionbg1-mobile.png');
+    background-repeat: no-repeat;
+    background-size: 100% 10%;
+    background-position: 0 42%;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/manufacture/sectionbg1-mobile@2x.png');
+    }
+  }
   @include for-size(tablet) {
     padding-top: 120px;
     padding-bottom: 246px;
@@ -10,13 +23,44 @@
   @include for-size(desktop) {
     padding-top: 125px;
     padding-bottom: 310px;
+    background-image: url('../images/manufacture/sectionbg1-desktop.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: 0 30%;
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/manufacture/sectionbg1-desktop@2x.png');
+    }
   }
   .subtitle {
     margin-bottom: 15px;
   }
+
   .title {
     margin-bottom: 26px;
     margin-left: (59px -20px);
+  }
+}
+.content-manufacture {
+  @include for-size(tablet) {
+    display: flex;
+    margin-top: 55px;
+  }
+}
+.picture {
+  @include for-size(tablet) {
+    min-width: 340px;
+    margin-right: 17px;
+  }
+  @include for-size(desktop) {
+    min-width: 516px;
+    margin-right: 74px;
+  }
+}
+.text-content {
+  @include for-size(desktop) {
+    margin-top: 50px;
   }
 }
 .primary-text-manufacture {
@@ -32,10 +76,12 @@
   @include for-size(tablet) {
     font-size: 14px;
     line-height: 1.76;
+    margin-bottom: 35px;
   }
   @include for-size(desktop) {
     font-size: 16px;
     line-height: 1.76;
+    margin-bottom: 35px;
   }
 }
 .secondary-text-manufacture {
@@ -43,7 +89,6 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.62;
-  /* or 19px */
 
   color: $secondaryTextColor;
   padding-left: (51px -20px);
@@ -59,26 +104,7 @@
     line-height: 1.94;
   }
 }
-//   @include for-size(mobile-only) {
-//     background-image: url('../images/manufacture/sectionbg1-mobile.png');
-//     @media screen and (min-device-pixel-ratio: 2),
-//       screen and (min-resolution: 192dpi),
-//       screen and (min-resolution: 2dppx) {
-//       background-image: url('../images/manufacture/sectionbg1-mobile@2x.png');
-//     }
-//   }
 
-//     background-image: url('../images/manufacture/sectionbg1-desktop.png');
-//     @media screen and (min-device-pixel-ratio: 2),
-//       screen and (min-resolution: 192dpi),
-//       screen and (min-resolution: 2dppx) {
-//       background-image: url('../images/manufacture/sectionbg1-desktop@2x.png');
-//     }
-//   }
-//   background-repeat: no-repeat;
-//   background-position: right 0 left 0 bottom 0;
-//   background-size: cover;
-// }
 .button-manufacture {
   margin-top: 0;
   margin-bottom: 37px;
@@ -87,10 +113,13 @@
   @include for-size(tablet) {
     font-size: 16px;
     line-height: 1.312;
+    margin-right: 25%;
+    margin-bottom: 146px;
   }
   @include for-size(desktop) {
     font-size: 16px;
     line-height: 1.312;
+    margin-bottom: 146px;
   }
   &::after {
     content: '';
@@ -105,6 +134,20 @@
 }
 .list-manufacture {
   padding-right: 70px;
+  @include for-size(tablet) {
+    display: flex;
+    justify-content: center;
+  }
+  .item + .item {
+    margin-left: 60px;
+  }
+  @include for-size(desktop) {
+    display: flex;
+    justify-content: center;
+  }
+  .item + .item {
+    margin-left: 30px;
+  }
 }
 .number-manufacture {
   font-family: 'Titan One', sans-serif;
