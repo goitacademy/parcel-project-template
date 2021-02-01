@@ -1,0 +1,84 @@
+.form {
+  &-title {
+    @include font(14px, 700, 22px);
+    letter-spacing: 0.03em;
+    text-align: center;
+  }
+
+  &-field {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  &-label {
+    @include font(12px, 500, 20px);
+    letter-spacing: 0.08em;
+    color: var(--secondary-text-color);
+
+    .form-field:hover & {
+      color: var(--accent-color);
+    }
+  }
+
+  &-input,
+  &-comment {
+    width: 100%;
+    padding: 7px;
+    background-color: transparent;
+    border: 1px solid var(--secondary-text-color);
+
+    @include font(14px, 500, 22px);
+    letter-spacing: 0.08em;
+
+    &:focus {
+      outline: none;
+      border-color: var(--accent-color);
+    }
+  }
+
+  &-comment {
+    height: 100px;
+  }
+
+  &-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    margin-bottom: 10px;
+
+    border: none;
+    background-color: transparent;
+
+    &-icon {
+      stroke: var(--title-text-color);
+
+      &:hover,
+      &:focus {
+        stroke: var(--accent-color);
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 15px;
+
+    &-title {
+      @include font(16px, 700, 20px);
+    }
+
+    .modal-btn {
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (min-width: 1344px) {
+    &-title {
+      @include font(20px, 700, 27px);
+    }
+  }
+}
