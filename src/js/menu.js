@@ -28,3 +28,10 @@
   });
 })();
 
+
+
+// var highlightedItems = userList.querySelectorAll(".highlighted");
+
+// highlightedItems.forEach(function(userItem) {
+//   deleteUser(userItem);
+// });
