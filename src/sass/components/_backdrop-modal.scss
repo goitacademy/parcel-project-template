@@ -24,6 +24,7 @@
   margin: auto;
   top: 10%;
   right: -60px;
+  z-index: 50;
   background-image: url('../images/backdrop-modal/backdrop-modal.png');
   background-repeat: no-repeat;
   background-position: left;
@@ -70,7 +71,8 @@
   pointer-events: none;
 }
 
-.close-btn {
+.close-btn,
+.close-btn-mobile {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,6 +92,18 @@
   &:focus {
     color: var(--white-color);
     background-color: var(--accent-color);
+  }
+}
+
+@media screen and(max-width: 767px) {
+  .close-btn {
+    display: none;
+  }
+}
+
+@media screen and(min-width: 768px) {
+  .close-btn-mobile {
+    display: none;
   }
 }
 
