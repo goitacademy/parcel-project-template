@@ -26,7 +26,7 @@
     background-image: url('../images/manufacture/sectionbg1-desktop.png');
     background-repeat: no-repeat;
     background-size: 100% auto;
-    background-position: 0 42%;
+    background-position: 0 30%;
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
@@ -49,10 +49,20 @@
   }
 }
 .picture {
-  min-width: 340px;
-  margin-right: 17px;
+  @include for-size(tablet) {
+    min-width: 340px;
+    margin-right: 17px;
+  }
+  @include for-size(desktop) {
+    min-width: 516px;
+    margin-right: 74px;
+  }
 }
-
+.text-content {
+  @include for-size(desktop) {
+    margin-top: 50px;
+  }
+}
 .primary-text-manufacture {
   font-family: 'DM Sans' sans-serif;
   font-weight: 500;
@@ -109,6 +119,7 @@
   @include for-size(desktop) {
     font-size: 16px;
     line-height: 1.312;
+    margin-bottom: 146px;
   }
   &::after {
     content: '';
