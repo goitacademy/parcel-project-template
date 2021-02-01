@@ -21,6 +21,7 @@
     margin-right: auto;
     margin-top: 20px;
     padding-top: 43px;
+    padding-right: 10px;
     padding-bottom: 43px;
     padding-left: 20px;
 
@@ -35,7 +36,7 @@
     @include for-size(tablet) {
       margin-left: 20px;
       padding-left: 30px;
-      min-width: 220px;
+      padding-right: 30px;
       max-width: calc((100% / 3) - 20px);
 
       line-height: 1.66;
@@ -44,7 +45,7 @@
     @include for-size(desktop) {
       margin-left: 30px;
       padding-left: 40px;
-      max-width: 330px;
+      padding-right: 40px;
       max-width: calc((100% / 3) - 30px);
 
       line-height: 1.83;
@@ -54,9 +55,43 @@
     & .description {
       color: $secondaryTextColor;
     }
+
+    & .label-box {
+      margin-bottom: 25px;
+
+      @include for-size(tablet) {
+        margin-bottom: 30px;
+      }
+      @include for-size(desktop) {
+        margin-bottom: 32px;
+      }
+
+      .label {
+        padding-right: 30px;
+        padding-left: 30px;
+
+        text-transform: uppercase;
+        color: $primaryWhiteColor;
+        border-radius: 4px;
+
+        @include for-size(tablet) {
+          display: inline-block;
+          padding-right: 23px;
+          padding-left: 23px;
+        }
+      }
+      .label-cafe {
+        background-color: #f0d1a5;
+      }
+      .label-food-truck {
+        background-color: #c2e297;
+      }
+    }
   }
 }
 .card-box {
+  position: relative;
+
   &:not(:last-child) {
     margin-bottom: 50px;
 
@@ -66,18 +101,41 @@
     @include for-size(desktop) {
       margin-bottom: 64px;
     }
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: -25px;
+      display: block;
+      width: 100%;
+      height: 1px;
+
+      width: 100%;
+      border-bottom: 1px solid #e1e1e1;
+
+      @include for-size(tablet) {
+        bottom: -30px;
+      }
+      @include for-size(tablet) {
+        bottom: -32px;
+      }
+    }
   }
 
   & .title-card-location {
     margin-bottom: 10px;
 
+    font-size: 12px;
     line-height: 1.86;
 
     @include for-size(tablet) {
       margin-bottom: 14px;
+
+      font-size: 14px;
     }
     @include for-size(desktop) {
       margin-bottom: 10px;
+
+      font-size: 16px;
     }
   }
 
