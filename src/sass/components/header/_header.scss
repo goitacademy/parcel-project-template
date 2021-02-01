@@ -1,7 +1,6 @@
 .header-position {
   position: relative;
   padding: 0;
-  // background-color: $light-pink-color;
 }
 html {
   scroll-behavior: smooth;
@@ -18,9 +17,8 @@ html {
   padding-left: 20px;
   padding-right: 20px;
   width: 100%;
-  // background-color: $light-pink-color;
 
-  @media (min-width: 768px) {
+  @media (min-width: $tablet) {
     padding-top: 37px;
   }
   @media (min-width: $desktop) {
@@ -55,7 +53,7 @@ html {
   height: 50px;
   margin-right: 5px;
   fill: currentColor;
-  background-color: #fff;
+  background-color: $main-white-color;
   border-radius: 100%;
 }
 
@@ -69,17 +67,17 @@ html {
   right: 10px;
   z-index: 30;
   width: 20px;
-  height: 20px;
+  height: 22px;
   outline: none;
   background-color: transparent;
   @media (min-width: $tablet) {
     right: -170px;
+    height: 20px;
   }
 
   @media (min-width: $desktop) {
     display: none;
   }
-  // transition: 0.4s;
 }
 
 .menu__lines,
@@ -88,7 +86,7 @@ html {
   position: absolute;
   width: 20px;
   height: 2px;
-  background-color: #d41443;
+  background-color: $main-red-color;
 }
 
 .menu__lines {
@@ -114,16 +112,16 @@ html {
 .menu_active .menu__lines::before {
   top: 0;
   transform: rotate(45deg);
-  background-color: #fff;
+  background-color: $main-white-color;
 }
 
 .menu_active .menu__lines::after {
   top: 0;
   transform: rotate(-45deg);
-  background-color: #fff;
+  background-color: $main-white-color;
 }
 
-@media (min-width: 768px) {
+@media (min-width: $tablet) {
   .menu_active .menu__button {
     position: fixed;
     top: 25px;
@@ -141,13 +139,14 @@ html {
   display: flex;
   flex-flow: column;
   padding-top: 60px;
-  height: 507px;
-  background-color: #e17992;
+  height: 502px;
+  background-color: $menu-background-color;
   overflow-y: auto;
   width: 250px;
+  border-bottom-left-radius: 5%;
   transition: 0.5s;
   @media (min-width: $tablet) {
-    height: 416px;
+    height: 408px;
   }
   @media (min-width: $desktop) {
     position: relative;
@@ -182,7 +181,7 @@ html {
   height: 42px;
   font-weight: 700;
   font-size: 14px;
-  border: 1px solid #e18298;
+  border: 1px solid $modal-input-color;
   &:focus,
   &:hover {
     color: $main-red-color;
@@ -195,7 +194,7 @@ html {
 .menu__link {
   text-decoration: none;
   font-weight: bold;
-  color: #fff;
+  color: $main-white-color;
   @media (min-width: $desktop) {
     font-size: 16px;
     border: none;
@@ -210,7 +209,7 @@ html {
 }
 
 .menu__link:hover {
-  color: #d41443;
+  color: $main-red-color;
 }
 
 .menu__overlay {
@@ -238,14 +237,14 @@ html {
   &:hover,
   &:focus {
     outline: 0;
-    background-color: #ecebeb;
     transform: scale(1.1);
+    box-shadow: 0px 8px 50px rgba(210, 20, 67, 0.6);
   }
   @media (min-width: $tablet) {
     width: 185px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: $desktop) {
     width: 160px;
     margin-left: 110px;
     margin-bottom: 0;
@@ -260,10 +259,10 @@ html {
     display: none;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: $mobile-max) {
     display: none;
   }
-  @media (min-width: 1200px) {
+  @media (min-width: $desktop) {
     display: none;
   }
 }
@@ -290,6 +289,12 @@ html {
     background-color: $light-pink-color;
     border-radius: 50%;
     opacity: 0.5;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+
     @media (min-width: $tablet) {
       width: 50px;
       height: 50px;
@@ -305,205 +310,257 @@ html {
   fill: $main-white-color;
 }
 // модальное окно
-// .backdrop {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   padding-left: 15px;
-//   padding-right: 15px;
-//   background: rgba(0, 0, 0, 0.2);
-//   z-index: 4;
-//   opacity: 1;
-//   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-//   overflow-y: scroll;
-// }
-// .backdrop.is-hidden {
-//   opacity: 0;
-//   pointer-events: none;
-// }
-// .modal {
-//   position: absolute;
-//   left: 50%;
-//   top: 89px;
-//   transform: translate(-50%) scale(1);
-//   opacity: 1;
-//   z-index: 6;
-//   width: calc(100% - 2 * 15px);
-//   max-height: 609px;
-//   background-color: $main-white-color;
-//   border-radius: 4px;
-//   padding-top: 40px;
-//   padding-left: 15px;
-//   padding-right: 15px;
-//   padding-bottom: 60px;
-//   line-height: 1.17;
-//   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-//     0px 2px 1px rgba(0, 0, 0, 0.2);
-//   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-//     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-//   @media (min-width: 480px) {
-//     width: 450px;
-//     padding-left: 40px;
-//     padding-right: 40px;
-//   }
-//   @media (min-width: 768px) {
-//     top: 50%;
-//     transform: translate(-50%, -50%) scale(1);
-//   }
-//   @media (min-width: 1200px) {
-//     width: 528px;
-//   }
-// }
-// .backdrop.is-hidden .modal {
-//   transform: translate(-50%, -50%) scale(1.3);
-//   opacity: 0;
-// }
-// .close-button {
-//   position: absolute;
-//   top: 8px;
-//   right: 8px;
-//   display: flex;
-//   align-items: center;
-//   width: 30px;
-//   height: 30px;
-//   padding: 0;
-//   color: $main-grey-color;
-//   background-color: $main-white-color;
-//   border: 1px solid rgba(0, 0, 0, 0.1);
-//   border-radius: 50%;
-//   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-//   &:hover,
-//   &:focus {
-//     color: $main-red-color;
-//   }
-// }
-// .close-button-img {
-//   width: 30px;
-//   height: 30px;
-//   fill: currentColor;
-// }
-// .modal-title {
-//   width: 100%;
-//   margin-bottom: 12px;
-//   text-align: center;
-//   color: $main-grey-color;
-//   font-weight: 700;
-//   font-size: 20px;
-// }
-// .contacts-input {
-//   margin-bottom: 20px;
-// }
-// .contacts-input-item {
-//   position: relative;
-//   &:not(:last-child) {
-//     margin-bottom: 10px;
-//   }
-// }
-// .input-title {
-//   font-size: 12px;
-//   display: flex;
-//   flex-direction: column;
-// }
-// .input-title input {
-//   padding-left: 42px;
-//   height: 40px;
-//   border: 1px solid rgba(33, 33, 33, 0.2);
-//   border-radius: 4px;
-//   margin-top: 4px;
-//   padding-top: 0;
-//   padding-bottom: 0;
-//   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-//   &:hover,
-//   &:focus {
-//     fill: $main-red-color;
-//     border-color: $main-red-color;
-//   }
-// }
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 35;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: scroll;
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  transform: translate(-50%) scale(1);
+  opacity: 1;
+  z-index: 40;
+  width: calc(100% - 2 * 15px);
+  height: 580px;
+  background-color: $main-white-color;
+  border-radius: 24px;
+  padding-top: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+  line-height: 1.17;
+  box-shadow: 0px 8px 50px rgba(210, 20, 67, 0.4);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media (min-width: 480px) {
+    width: 450px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (min-width: $tablet) {
+    top: 55%;
+    height: auto;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  @media (min-width: $desktop) {
+    width: 528px;
+    top: 50%;
+  }
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.3);
+  opacity: 0;
+}
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background-color: $main-white-color;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border: transparent;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+}
+.close-button-img {
+  width: 30px;
+  height: 30px;
+}
+.modal-title {
+  width: 100%;
+  margin-bottom: 12px;
+  text-align: center;
+  color: $main-red-color;
+  font-family: Titan One;
+  font-size: 25px;
+}
+input {
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 50px #fff !important;
+}
 
-// .contacts-input-img {
-//   position: absolute;
-//   left: 12px;
-//   top: 32px;
-//   fill: $main-grey-color;
-//   height: 12px;
-//   width: 12px;
-//   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-//   .input-title input:hover ~ &,
-//   .input-title input:focus ~ & {
-//     fill: $main-red-color;
-//     border-color: $main-red-color;
-//   }
-// }
-// textarea {
-//   height: 120px;
-//   padding-top: 12px;
-//   padding-bottom: 12px;
-//   padding-left: 16px;
-//   padding-right: 16px;
-//   margin-top: 4px;
-//   font-size: 14px;
-//   border: 1px solid rgba(33, 33, 33, 0.2);
-//   border-radius: 4px;
-//   &:hover,
-//   &:focus {
-//     fill: $main-red-color;
-//     border-color: $main-red-color;
-//   }
-//   &::placeholder {
-//     color: rgba(117, 117, 117, 0.5);
-//   }
-// }
+.contacts-input {
+  margin-bottom: 20px;
+  font-family: DM Sans;
+}
+.contacts-input-item {
+  position: relative;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+.input-title,
+.order-form-title {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  color: $menu-background-color;
+}
+.input-title input {
+  padding-left: 42px;
+  height: 40px;
+  border: 1px solid $modal-input-color;
+  border-radius: 4px;
+  margin-top: 4px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    fill: $main-red-color;
+    border-color: $main-red-color;
+  }
+}
 
-// .subscription.policy {
-//   margin-left: auto;
-//   margin-right: auto;
-//   font-size: 10px;
-//   &::before {
-//     content: ' ';
-//     display: inline-block;
-//     margin-right: 8px;
-//     width: 15px;
-//     height: 15px;
-//     border: 2px solid $main-grey-color;
-//     border-radius: 2px;
-//     .checkbox:focus + &,
-//     .checkbox:hover + & {
-//       border: 2px solid $main-red-color;
-//     }
-//     .checkbox:checked + & {
-//       background-color: $main-red-color;
-//       background-image: url(../images/header/sprite-hero.svg#icon_check);
-//       background-size: contain;
-//       background-origin: border-box;
-//       border-color: transparent;
-//     }
-//   }
-//   @media (min-width: 480px) {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     font-size: 12px;
-//   }
-//   @media (min-width: 1200px) {
-//     font-size: 14px;
-//   }
-// }
-// .subscription.policy a {
-//   text-decoration-line: underline;
-//   color: $main-red-color;
-//   line-height: 1.71;
-//   margin-left: 4px;
-// }
+.contacts-input-img {
+  position: absolute;
+  left: 12px;
+  top: 32px;
+  fill: $modal-input-color;
+  height: 12px;
+  width: 12px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  .input-title input:hover ~ &,
+  .input-title input:focus ~ & {
+    fill: $main-red-color;
+    border-color: $main-red-color;
+  }
+}
+textarea {
+  height: 60px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-top: 4px;
+  font-size: 14px;
+  border: 1px solid $modal-input-color;
+  border-radius: 4px;
+  &:hover,
+  &:focus {
+    fill: $main-red-color;
+    border-color: $main-red-color;
+  }
+  &::placeholder {
+    color: $modal-input-color;
+  }
+}
 
-// .checkbox {
-//   position: absolute;
-//   width: 1px;
-//   height: 1px;
-//   margin: -1px;
-//   border: 0;
-//   padding: 0;
-//   clip: rect(0 0 0 0);
-//   overflow: hidden;
-// }
+.order-form-title {
+  margin-bottom: 10px;
+}
+.order-form-item {
+  display: block;
+  align-items: center;
+  padding: 5px;
+  color: $modal-input-color;
+  font-family: Titan One;
+  font-size: 20px;
+}
+
+.order-number {
+  margin-left: 10px;
+  border-color: $modal-input-color;
+  border-image: none;
+  color: $modal-input-color;
+  text-align: center;
+  font-size: 15px;
+  width: 40px;
+  height: 30px;
+  border-radius: 10px;
+  .order-product:checked + .order-form-item & {
+    color: $main-red-color;
+  }
+}
+.order-form-item {
+  &::before {
+    content: ' ';
+    display: inline-block;
+    margin-right: 8px;
+    width: 15px;
+    height: 15px;
+    border: 2px solid $modal-input-color;
+    border-radius: 2px;
+    .order-product:focus + &,
+    .order-product:hover + & {
+      border: 2px solid $main-red-color;
+    }
+    .order-product:checked + & {
+      background-color: $main-red-color;
+      background-image: url(../images/header/icon_check.svg);
+      background-size: contain;
+      background-origin: border-box;
+      border-color: transparent;
+    }
+  }
+  .order-product:checked + & {
+    color: $main-red-color;
+  }
+}
+
+.order-product {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.order-button {
+  background-color: #d41443;
+  color: #ffffff;
+  display: block;
+  border-radius: 20px;
+  padding: 10px 15px;
+  transition: 250ms;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 15px;
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0.5;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+    box-shadow: 0px 8px 50px rgba(210, 20, 67, 0.4);
+  }
+}
+.order-product:checked ~ .order-button {
+  pointer-events: auto;
+  cursor: pointer;
+  opacity: 1;
+}
