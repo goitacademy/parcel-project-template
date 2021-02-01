@@ -1,0 +1,149 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+.products {
+  padding-top: 120px;
+  padding-bottom: 100px;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 110px;
+  }
+
+  &-title {
+    text-align: center;
+    text-transform: uppercase;
+
+    &.subtitle {
+      margin-top: 30px;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 145px;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 150px;
+    }
+  }
+}
+
+.product {
+  position: relative;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 40px) / 3);
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 130px;
+    }
+  }
+
+  &:nth-child(1) {
+    background-color: $background-color;
+  }
+
+  &:nth-child(2) {
+    background-color: $coffee-color;
+  }
+
+  &:nth-child(3) {
+    background-color: $milkshakes-color;
+  }
+
+  &-info {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 160px 40px 40px;
+
+    @media screen and (min-width: 768px) {
+      padding: 152px 11px 40px;
+    }
+
+    &-description {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.52;
+      text-align: center;
+      letter-spacing: 0.04em;
+      color: $primary-text-color;
+
+      @media screen and (min-width: 768px) {
+        line-height: 1.76;
+        height: 124px;
+      }
+
+      @media screen and (min-width: 1200px) {
+        font-size: 16px;
+      }
+    }
+
+    &-title {
+      font-family: $title-font;
+      color: $primary-text-color;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 1.15;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $primary-text-color;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+
+      @media screen and (min-width: 768px) {
+        margin-top: 10px;
+      }
+
+      .arrow {
+        fill: $accent-color;
+      }
+    }
+
+    &-item:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &-image {
+    z-index: 2;
+    position: absolute;
+    top: -114px;
+
+    @media screen and (min-width: 768px) {
+      top: -104px;
+    }
+  }
+}
