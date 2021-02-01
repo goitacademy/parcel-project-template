@@ -78,29 +78,30 @@
   @media screen and (min-width: $desktop) {
     font-size: 58px;
   }
+}
+// для анимации PASSION
 
-  // для анимации PASSION
+@mixin name-animation($delay) {
+  animation: title 0.7s linear 1 $delay alternate-reverse;
+}
 
-  @mixin name-animation($delay) {
-    animation: title 0.5s linear 1 $delay alternate-reverse;
+@keyframes title {
+  0% {
+    scale: (1);
   }
-
-  @keyframes title {
-    0% {
-      scale: (1);
-    }
-    50% {
-      scale: (1.5);
-    }
+  50% {
+    scale: (1.5);
   }
-  $footer-icons: 0s, 100ms, 200ms, 300ms, 400ms, 500ms, 600ms, 700ms;
+}
+$time-delay: 0s, 100ms, 200ms, 300ms, 400ms, 500ms, 600ms, 700ms;
 
-  &:hover {
-    @each $iconName in $footer-icons {
-      .hero-#{$iconName} {
-        @include name-animation($iconName);
-        display: inline-block;
-      }
+@each $iconName in $time-delay {
+  .hero-#{$iconName} {
+    display: inline-block;
+    transition: 250ms;
+
+    .hero-passion:hover & {
+      @include name-animation($iconName);
     }
   }
 }
