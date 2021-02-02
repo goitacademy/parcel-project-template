@@ -1,1 +1,1 @@
-https://yuriidolzhenko.github.io/parcel-project-template/.
+https://yuriidolzhenko.github.io/ice__cream/
