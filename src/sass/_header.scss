@@ -1,0 +1,274 @@
+.header-position {
+  position: relative;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.container.header {
+  position: absolute;
+  display: flex;
+  z-index: 11;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    padding-top: 37px;
+  }
+  @media (min-width: 1200px) {
+    justify-content: center;
+  }
+}
+
+.logo {
+  @extend %link;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $color-accent;
+  font-family: Titan One;
+  font-size: 26px;
+  width: 200px;
+  height: 100%;
+  transition: 250ms;
+  &:hover,
+  &:focus {
+    color: $color-accent;
+    text-decoration: none;
+    transform: scale(1.1);
+  }
+  @media (min-width: 1200px) {
+    margin-right: 110px;
+  }
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+  fill: currentColor;
+  background-color: $color-text-white;
+  border-radius: 100%;
+}
+
+.menu {
+  position: relative;
+  display: flex;
+}
+.menu-button {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  z-index: 20;
+  width: 20px;
+  height: 22px;
+  outline: none;
+  background-color: transparent;
+  @media (min-width: 768px) {
+    right: -170px;
+    height: 20px;
+  }
+
+  @media (min-width: 1200px) {
+    display: none;
+  }
+}
+
+.menu-lines,
+.menu-lines::after,
+.menu-lines::before {
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color:$color-accent;
+}
+
+.menu-lines {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.menu-lines::before {
+  content: '';
+  top: -6px;
+}
+
+.menu-lines::after {
+  content: '';
+  top: 6px;
+}
+.menu-active .menu-button,
+.menu-active .menu-lines {
+  background-color: transparent;
+}
+
+.menu-active .menu-lines::before {
+  top: 0;
+  transform: rotate(45deg);
+  background-color: $color-text-white;
+}
+
+.menu-active .menu-lines::after {
+  top: 0;
+  transform: rotate(-45deg);
+  background-color: $color-text-white;
+}
+
+@media (min-width: 768px) {
+  .menu-active .menu-button {
+    position: fixed;
+    top: 25px;
+    right: 34px;
+    z-index: 15;
+    transition: 0.4s;
+  }
+}
+
+.menu-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  z-index: 12;
+  display: flex;
+  flex-flow: column;
+  padding-top: 60px;
+  height: 502px;
+  background-color: $color-bgr-modal;
+  overflow-y: auto;
+  width: 250px;
+  border-bottom-left-radius: 5%;
+  transition: 0.5s;
+  @media (min-width: 768px) {
+    height: 408px;
+  }
+  @media (min-width: 1200px) {
+    position: relative;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    padding-top: 0;
+    overflow-y: visible;
+    flex-flow: row-reverse;
+    & .menu-link:not(:last-child) {
+      margin-left: 35px;
+    }
+  }
+}
+
+.menu-active .menu-nav {
+  right: 0;
+}
+
+.menu-list {
+  @media (min-width: 1200px) {
+    display: flex;
+  }
+}
+
+.menu-list-item {
+  display: flex;
+  align-items: center;
+  padding-left: 21px;
+  height: 42px;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid $color-line-modal;
+  &:focus,
+  &:hover {
+    color: $color-accent;
+  }
+  @media (min-width: 1200px) {
+    border: none;
+  }
+}
+
+.menu-link {
+  text-decoration: none;
+  font-weight: bold;
+  color: $color-text-white;
+  @media (min-width: 1200px) {
+    font-size: 16px;
+    border: none;
+    padding-left: 0px;
+    border-radius: 22px;
+    transition: 250ms;
+    &:focus,
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.menu-link:hover {
+  color: $color-accent;
+}
+
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 11;
+}
+.menu-active .menu-overlay {
+  display: block;
+}
+
+.buy-now {
+  width: 209px;
+  height: 44px;
+  margin-bottom: 32px;
+  margin-left: 21px;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: none;
+  transition: 250ms;
+  &:hover,
+  &:focus {
+    outline: 0;
+    transform: scale(1.1);
+    box-shadow: 0px 8px 50px rgba(210, 20, 67, 0.6);
+  }
+  @media (min-width: 768px ) {
+    width: 185px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 160px;
+    margin-left: 110px;
+    margin-bottom: 0;
+  }
+}
+
+.buy-now.tablet {
+  margin-bottom: 0;
+  margin-left: 30px;
+  width: 160px;
+  .menu.menu-active + & {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+  @media (min-width: 1200px) {
+    display: none;
+  }
+}
+
+.buy-now-img {
+  width: 6px;
+  height: 8px;
+  margin-left: 26px;
+}
