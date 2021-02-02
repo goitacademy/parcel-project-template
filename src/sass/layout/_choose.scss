@@ -1,71 +1,129 @@
-.choose{
-    width: 280px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background: #FFFFFF;
-    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+.choose {
+  width: 100%;
+  position: absolute;
+  bottom: -11%;
 }
-.choose-item-title{
-font-family: Montserrat;
-font-style: normal;
-font-weight: bold;
-font-size: 14px;
-line-height: 1.428;
-letter-spacing: 0.08em;
-color: #111518;
-position: relative;
+.choose-title {
+  padding-right: 100px;
+  margin-bottom: 30px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 136%;
+  letter-spacing: 0.03em;
+  color: #ffffff;
 }
-.choose-list-item:not(:last-child){
-    margin-bottom: 20px;
+.choose-conteiner {
+  counter-reset: section;
+  width: 280px;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+  padding-right: 14px;
+  background: #ffffff;
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 }
-.choose-list-item .accent-line::before{
-    content: "";
-    display: block;
-    background-color:#FF6B09;
-    width: 20px;
-    height: 2px;
-    color:#FF6B09;
-    margin-bottom: 20px;
+.choose-item-title {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.428;
+  letter-spacing: 0.08em;
+  color: #111518;
+  position: relative;
 }
-.choose-list-item .accent-line::after{
-    content: counter(section,decimal-leading-zero);
-    counter-increment: section;
-    position: absolute;
-    display: block;
-    top: -9px;
-    color: #ff6b09;
-    width: 20px;
-    -webkit-transform: translateX(130%);
-    transform: translateX(130%);
+
+.choose-list-item .accent-line-choose::before {
+  content: '';
+  display: block;
+  background-color: #ff6b09;
+  width: 20px;
+  height: 2px;
+  color: #ff6b09;
+  margin-bottom: 20px;
 }
-@media screen and (min-width:768px) and (max-width:1243px){
-    .choose{
-        width: 688px;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        padding-left: 98px;
-    }
-    .choose-list{
-        display:flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-    }
-    .choose-list-item:not(:last-child){
-        margin-bottom: 30px;
-    }
-    .choose-list-item{
-        flex-basis: calc(100%/2 - 20px);
-    }
+
+.choose-list-item .accent-line-choose::after {
+  content: counter(section, decimal-leading-zero);
+  counter-increment: section;
+  position: absolute;
+  display: block;
+  top: -9px;
+  color: #ff6b09;
+  width: 20px;
+  -webkit-transform: translateX(130%);
+  transform: translateX(130%);
 }
-@media screen and (min-width: 1344px){
-    .choose{
+
+@media screen and (max-width: 767px) {
+  .choose-list-item:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1343px) {
+  .choose {
+    bottom: -20%;
+    width: 100%;
+  }
+  .choose-title {
+    text-align: center;
+    font-size: 26px;
+    line-height: 130%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1343px) {
+  .choose-conteiner {
+    width: 688px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    padding-left: 98px;
+    padding-right: 118px;
+  }
+  .choose-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .choose-list-item:nth-child(-n + 4) {
+    margin-bottom: 30px;
+  }
+  // .choose-list-item:not(:last-child) {
+  //   margin-bottom: 40px;
+  // }
+  .choose-list-item {
+    flex-basis: calc(100% / 2 - 20px);
+  }
+}
+@media screen and (min-width: 1344px) {
+  .choose {
+    bottom: -14%;
+    width: 100%;
+  }
+  .choose-title {
+    display: none;
+  }
+  .choose-item-title {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  .choose-conteiner {
+    padding: 70px 84px;
     width: 1314px;
-    padding: 70px 80px;
-    }
-    .choose-list{
-        display:flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+  }
+  .choose-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .choose-list-item {
+    flex-basis: calc(100% / 3 - 20px);
+  }
+  .choose-list-item:nth-child(-n + 3) {
+    margin-bottom: 40px;
+  }
 }

@@ -1,19 +1,25 @@
 .footer {
   margin: 0 auto;
-
+  text-align: center;
   background-color: var(--white-text-color);
 }
 
 .footer-wrapper {
-  text-align: center;
   margin: 0 auto;
+  background-color: var(--title-text-color);
+}
+
+.footer-wrapper .container {
   padding-top: 50px;
   padding-bottom: 50px;
+  padding-left: 0;
+  padding-right: 0;
   width: 320px;
 
   background-color: var(--title-text-color);
   background-image: url('../images/footer/bg-mobile.png');
-  background-size: 320px 507px;
+  background-position: center;
+  background-size: 320px auto;
   background-repeat: no-repeat;
 
   @media screen and (min-device-pixel-ratio: 2),
@@ -44,7 +50,6 @@
 
     background-image: url('../images/footer/bg-desktop.png');
     background-size: cover;
-    background-position: center;
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
@@ -83,7 +88,6 @@
   @media screen and (min-width: 768px) {
     max-width: 660px;
     margin-bottom: 30px;
-
     font-size: 26px;
     line-height: 1.308;
   }
@@ -222,6 +226,7 @@
 .footer-button {
   display: block;
   margin: 0 auto;
+  min-width: 260px;
   padding-top: 14px;
   padding-right: 9px;
   padding-bottom: 14px;
@@ -234,14 +239,28 @@
   text-transform: uppercase;
 
   border: none;
+  cursor: pointer;
   color: var(--white-text-color);
   background-color: var(--accent-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 1344px) {
+    min-width: 354px;
     padding-top: 27px;
     padding-right: 25px;
     padding-bottom: 26px;
     padding-left: 26px;
+
+    font-size: 14px;
+    line-height: 1.214;
+    letter-spacing: 0.14em;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+    background-color: var(--white-text-color);
   }
 }
 
@@ -354,13 +373,10 @@
 .copyright {
   padding-top: 21px;
   padding-bottom: 21px;
-  margin: 0 auto;
   text-align: center;
-  width: 320px;
   font-weight: 500;
   font-size: 14px;
   line-height: 2;
-  align-items: center;
 
   color: var(--secondary-text-color);
 
@@ -377,15 +393,5 @@
 }
 
 .copyright-wrapper {
-  width: 320px;
-  margin: 0 auto;
   background-color: var(--title-text-color);
-
-  @media screen and (min-width: 768px) {
-    width: 768px;
-  }
-
-  @media screen and (min-width: 1344px) {
-    width: auto;
-  }
 }
