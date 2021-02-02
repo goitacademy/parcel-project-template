@@ -1,0 +1,298 @@
+.header {
+  position: relative;
+
+  max-width: 1680px;
+  margin: 0 auto;
+  padding-top: 30px;
+
+  background-color: transparent;
+
+  &-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-list {
+      display: block;
+      margin-bottom: 50px;
+    }
+
+    &-page {
+      font-style: normal;
+      font-weight: 800;
+      font-size: 19px;
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+      color: $white-text-color;
+      text-transform: uppercase;
+
+      &:hover,
+      &:focus {
+        color: $accent-text-color;
+        transition: $animation;
+      }
+    }
+  }
+
+  &-logo {
+    display: block;
+    z-index: 20;
+
+    &-main {
+      display: flex;
+      margin-bottom: 4px;
+    }
+
+    &-name {
+      display: block;
+
+      font-style: normal;
+      font-weight: 800;
+      line-height: 1.333;
+      color: $primary-text-color;
+
+      &:visited {
+        color: $primary-text-color;
+      }
+    }
+
+    &-first {
+      width: 35px;
+    }
+
+    &-second {
+      width: 24px;
+    }
+
+    &-description {
+      display: block;
+      height: 6px;
+      width: 80px;
+
+      color: $primary-text-color;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 6px;
+      line-height: 1.333;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: center;
+
+      &:visited {
+        color: $primary-text-color;
+      }
+    }
+
+    &-fire {
+      width: 14px;
+      height: 20px;
+      margin: 0 4px;
+    }
+  }
+
+  &-menu-button {
+    display: inline-flex;
+    padding: 0px;
+    margin: 0px;
+    z-index: 20;
+
+    width: 20px;
+    height: 12px;
+
+    border: none;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      fill: $accent-background;
+
+      transition: $animation;
+    }
+
+    .header-icon-close {
+      display: none;
+    }
+
+    &.is-open .header-icon-close {
+      display: block;
+    }
+
+    &.is-open .header-icon-menu {
+      display: none;
+    }
+  }
+
+  &-icon {
+    display: block;
+    height: 15px;
+
+    fill: black;
+  }
+
+  &-menu-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    padding: 108px 20px 0px 20px;
+
+    overflow-y: scroll;
+    z-index: 1;
+
+    background-color: rgba(17, 21, 24, 0.9);
+
+    &.is-open {
+      display: block;
+
+      // & .header-logo-name,
+      // & .header-logo-description {
+      //   color: $white-text-color;
+      // }
+    }
+  }
+
+  &-menu-wrapper {
+    margin: 0 auto;
+    max-width: 280px;
+  }
+
+  &-button {
+    max-width: 260px;
+    height: 48px;
+    padding: 0 14px;
+    margin: 0 10px;
+
+    color: $accent-background;
+    background-color: transparent;
+    border: 2px solid $accent-background;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 1.25;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    &.is-hidden {
+      display: none;
+    }
+  }
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding-top: 40px;
+
+    &-logo {
+      &-main {
+        margin-bottom: 5px;
+      }
+
+      &-name {
+        font-size: 26px;
+        line-height: 1.23;
+        letter-spacing: 0.04em;
+      }
+
+      &-fire {
+        width: 22px;
+        height: 30px;
+      }
+
+      &-first {
+        width: auto;
+      }
+
+      &-second {
+        width: auto;
+      }
+
+      &-description {
+        display: block;
+        height: auto;
+        width: auto;
+
+        font-size: 8px;
+        line-height: 1.25;
+        letter-spacing: 0.18em;
+
+        &-first {
+          color: $accent-text-color;
+        }
+      }
+    }
+
+    &-navigation-page {
+      font-size: 26px;
+    }
+
+    &-menu {
+      &-container {
+        position: static;
+        padding-top: 159px;
+      }
+      &-wrapper {
+        max-width: 378px;
+      }
+    }
+
+    &-button {
+      display: none;
+    }
+
+    &-button.is-hidden {
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 1344px) {
+  .header {
+    padding-top: 34px;
+
+    &-logo {
+      margin-right: 144px;
+    }
+
+    &-menu-button {
+      display: none;
+    }
+
+    &-button {
+      display: block;
+    }
+
+    &-button.is-hidden {
+      display: none;
+    }
+
+    &-menu-conatainer {
+      position: static;
+      display: block;
+
+      width: 100%;
+      height: 70px;
+      padding: 0;
+
+      background-color: tomato;
+    }
+
+    &-navigation-page {
+      font-weight: bold;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 1.214;
+      letter-spacing: 0.03em;
+      color: $secondary-text-color;
+    }
+  }
+}
