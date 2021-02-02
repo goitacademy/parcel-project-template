@@ -1,4 +1,8 @@
 .header {
+  position: relative;
+
+  max-width: 1680px;
+  margin: 0 auto;
   padding-top: 30px;
 
   background-color: transparent;
@@ -90,6 +94,7 @@
     display: inline-flex;
     padding: 0px;
     margin: 0px;
+    z-index: 20;
 
     width: 20px;
     height: 12px;
@@ -103,39 +108,49 @@
 
       transition: $animation;
     }
+
+    .header-icon-close {
+      display: none;
+    }
+
+    &.is-open .header-icon-close {
+      display: block;
+    }
+
+    &.is-open .header-icon-menu {
+      display: none;
+    }
   }
 
   &-icon {
     display: block;
-    width: 20px;
-    height: 12px;
+    height: 15px;
 
-    fill: black;
-  }
-
-  &-icon-menu {
     fill: black;
   }
 
   &-menu-container {
     display: none;
-
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
+
     width: 100vw;
     height: 100vh;
     padding: 108px 20px 0px 20px;
+
+    overflow-y: scroll;
+    z-index: 1;
 
     background-color: rgba(17, 21, 24, 0.9);
 
     &.is-open {
       display: block;
 
-      & .header-logo-name,
-      & .header-logo-description {
-        color: $white-text-color;
-      }
+      // & .header-logo-name,
+      // & .header-logo-description {
+      //   color: $white-text-color;
+      // }
     }
   }
 
@@ -167,6 +182,10 @@
       display: none;
     }
   }
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {
