@@ -21,7 +21,7 @@
     tabletMenuRef.classList.remove("is-open");
   });
   // close on click menu item
-  for (i = 0; i < 4; i++) {
+  for (i = 0; i < 20; i++) {
     itemClose[i].addEventListener("click", () => {
  
       mobileMenuRef.classList.remove("is-open");
