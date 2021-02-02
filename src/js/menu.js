@@ -19,3 +19,4 @@ function burgerMenu(selector) {
         }
     }
 }
+burgerMenu ('.menu');
