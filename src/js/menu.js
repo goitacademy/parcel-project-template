@@ -1,3 +1,4 @@
+
 function burgerMenu(selector) {
     let menu = $(selector);
     let button = menu.find('.menu-button,.buy-now');
