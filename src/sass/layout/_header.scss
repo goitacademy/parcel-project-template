@@ -36,7 +36,6 @@
 
   &-logo {
     display: block;
-    z-index: 20;
 
     &-main {
       display: flex;
@@ -90,6 +89,12 @@
     }
   }
 
+  // &-logo.menu-logo {
+  //   position: fixed;
+  //   top: 30px;
+  //   left: 20px;
+  // }
+
   &-menu-button {
     display: inline-flex;
     padding: 0px;
@@ -125,38 +130,55 @@
   &-icon {
     display: block;
     height: 15px;
+    z-index: 10;
 
     fill: black;
   }
 
-  &-menu-container {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
+  @media screen and (max-width: 1343px) {
+    &-menu-container {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
 
-    width: 100vw;
-    height: 100vh;
-    padding: 108px 20px 0px 20px;
+      width: 100vw;
+      height: 100vh;
+      padding: 108px 20px 0px 20px;
 
-    overflow-y: scroll;
-    z-index: 1;
+      overflow-y: scroll;
+      z-index: 1;
 
-    background-color: rgba(17, 21, 24, 0.9);
+      background-color: rgba(17, 21, 24, 0.9);
 
-    &.is-open {
-      display: block;
-
-      // & .header-logo-name,
-      // & .header-logo-description {
-      //   color: $white-text-color;
-      // }
+      &.is-open {
+        display: block;
+      }
     }
   }
 
+  // &-menu-container {
+  //   display: none;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+
+  //   width: 100vw;
+  //   height: 100vh;
+  //   padding: 108px 20px 0px 20px;
+
+  //   overflow-y: scroll;
+  //   z-index: 1;
+
+  //   background-color: rgba(17, 21, 24, 0.9);
+
+  //   &.is-open {
+  //     display: block;
+  //   }
+  // }
+
   &-menu-wrapper {
     margin: 0 auto;
-    max-width: 280px;
   }
 
   &-button {
@@ -184,50 +206,46 @@
   }
 }
 
-body.modal-open {
-  overflow: hidden;
-}
-
 @media screen and (min-width: 768px) {
   .header {
     padding-top: 40px;
 
-    &-logo {
-      &-main {
-        margin-bottom: 5px;
-      }
+    &-main {
+      margin-bottom: 5px;
+    }
 
-      &-name {
-        font-size: 26px;
-        line-height: 1.23;
-        letter-spacing: 0.04em;
-      }
+    &-name {
+      font-size: 26px;
+      line-height: 1.23;
+      letter-spacing: 0.04em;
+    }
 
-      &-fire {
-        width: 22px;
-        height: 30px;
-      }
+    &-fire {
+      width: 22px;
+      height: 30px;
+    }
+
+    &-first {
+      width: auto;
+      color: $white-text-color;
+    }
+
+    &-second {
+      width: auto;
+      color: $white-text-color;
+    }
+
+    &-description {
+      display: block;
+      height: auto;
+      width: auto;
+
+      font-size: 8px;
+      line-height: 1.25;
+      letter-spacing: 0.18em;
 
       &-first {
-        width: auto;
-      }
-
-      &-second {
-        width: auto;
-      }
-
-      &-description {
-        display: block;
-        height: auto;
-        width: auto;
-
-        font-size: 8px;
-        line-height: 1.25;
-        letter-spacing: 0.18em;
-
-        &-first {
-          color: $accent-text-color;
-        }
+        color: $accent-text-color;
       }
     }
 
@@ -237,11 +255,11 @@ body.modal-open {
 
     &-menu {
       &-container {
-        position: static;
         padding-top: 159px;
       }
+
       &-wrapper {
-        max-width: 378px;
+        max-width: 688px;
       }
     }
 
@@ -251,6 +269,19 @@ body.modal-open {
 
     &-button.is-hidden {
       display: block;
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1343px) {
+  .header {
+    &-buttons {
+      display: flex;
+      align-items: center;
+    }
+    &-menu-button {
+      margin-left: 40px;
     }
   }
 }
@@ -261,6 +292,18 @@ body.modal-open {
 
     &-logo {
       margin-right: 144px;
+    }
+
+    &-menu {
+      &-container {
+        display: block;
+        padding-top: 0px;
+      }
+
+      &-wrapper {
+        display: flex;
+        max-width: 100%;
+      }
     }
 
     &-menu-button {
@@ -275,17 +318,23 @@ body.modal-open {
       display: none;
     }
 
-    &-menu-conatainer {
-      position: static;
-      display: block;
+    &-navigation {
+      &-list {
+        display: flex;
+        align-items: center;
 
-      width: 100%;
-      height: 70px;
-      padding: 0;
+        margin-right: 60px;
+        margin-bottom: 0px;
+      }
 
-      background-color: tomato;
+      &-item {
+        display: block;
+
+        &:not(:last-child) {
+          margin-right: 40px;
+        }
+      }
     }
-
     &-navigation-page {
       font-weight: bold;
       font-style: normal;
