@@ -15,33 +15,32 @@
 }
 
 .locations {
-    height: 1375px;
-    margin-top: 212px;
-    position: relative;
+    width: 100vw;
+    height: 1390px;
     background-color: var(--description-background-color);
 
     & .container {
-        position: absolute;
-        top: -84px;
-        left: 50%;
-        
-        transform: translateX(-50%);
+        position: relative;
     }
 
     &-list {
-        margin-bottom: -20px;
+        width: 220px;
 
         &-item {
             width: 220px;
             height: 427px;
             padding: 43px 20px;
-            margin-bottom: 20px;
+            
             margin-left: auto;
             margin-right: auto;
                    
             background-color: var(--primary-white-color);
             box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
             border-radius: 24px;
+
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
         }
     }
 
@@ -58,6 +57,12 @@
         background-color: var(--location-cafe-color);
         border-radius: 4px;
     }
+}
+
+.location-positioning {
+    position: absolute;
+    top: -84px;
+    left: calc(50% - 110px)
 }
 
 .foodtruck {
@@ -103,6 +108,7 @@
 }
 
 @media screen and (max-width: 767px) {
+
     .btn {
         min-width: 161px;
     }
@@ -116,11 +122,13 @@
     
     .locations {
         height: 595px;
+        width: 100vw;
         margin-top: 197px;
+    }
 
-        & .container {
-            top: -78px;
-        }
+    .location-positioning {
+        top: -78px;
+        left: calc(50% - 350px)
     }
 
     .locations-item-title {
@@ -136,17 +144,23 @@
     }
 
     .locations-list {
+        width: 700px;
         margin-bottom: 81px;
         margin-top: 0;
-        margin-left: -20px;
         display: flex;
 
         &-item {
             min-height: 544px;
             padding: 50px 31px;
-            margin-bottom: 0;
             margin-right: 0;
-            margin-left: 20px;
+           
+            &:not(:first-child) {
+                margin-left: 20px;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 0;
+            }
         }
     }
 
@@ -198,28 +212,35 @@
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
     
     .locations {
+        width: 100vw;
         background-image: url(../images/locations/desktop-locations-backgroung.png);
         background-repeat: no-repeat;
-        background-size: 1280px;
+        background-position: center; 
+        background-size: contain;
         height: 620px;
         margin-top: 234px;
+    }
     
-        & .container {
-            top: -102px;
-        }
+    .location-positioning {
+        top: -102px;
+        left: calc(50% - 525px);
     }
     
     .locations-list {
+        width: 1050px;
         margin-bottom: 86px;
 
         &-item {
             min-height: 572px;
             width: 330px;
             padding: 52px 43px;
-            margin-left: 31px;
+            
+            &:not(:first-child) {
+                margin-left: 31px;
+            }
         }
     }
 
