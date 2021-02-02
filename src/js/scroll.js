@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('.header a').click(function(e){
+	$('.header a, .footer__contact a').click(function(e){
     	if($(this).attr('href').indexOf('#') != -1){ // Проверяем, является и ссылка действительно якорной ссылкой.
 			e.preventDefault(); // Отменяем событие перехода.
             var href = $(this).attr('href').replace('#', ''); // Получаем из якорной ссылки нужный ID элемента, к которому будет происходить переход.
