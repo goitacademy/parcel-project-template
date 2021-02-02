@@ -1,38 +1,66 @@
 .products {
   padding-top: 121px;
   padding-bottom: 98px;
+
+  @include for-size(tablet) {
+    padding-top: 122px;
+    padding-bottom: 112px;
+  }
+
+  @include for-size(desktop) {
+    padding-top: 127px;
+    padding-bottom: 119px;
+  }
+}
+
+.products-subtitle {
+  margin-bottom: 15px;
 }
 
 .products-list {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
+
+  @include for-size(tablet) {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .products-list-item {
   position: relative;
   height: 485px;
   max-width: 280px;
-  margin-top: 144px;
-  padding-top: 43px;
+  margin-top: 150px;
+  // padding-top: 43px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 24px;
+
+  @include for-size(mobile-only) {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+  }
 
   @include for-size(tablet) {
     margin-left: 20px;
     // min-width: 220px;
     max-width: calc((100% / 3) - 20px);
     font-size: 14px;
+    margin-top: 150px;
   }
 
   @include for-size(desktop) {
+    &:not(:last-last) {
+      margin-right: 30px;
+    }
     height: 525px;
-    margin-left: 30px;
+    // margin-left: 30px;
     max-width: 330px;
     max-width: calc((100% / 3) - 30px);
     font-size: 16px;
+    margin-top: 259px;
   }
 
   &::before {
@@ -46,7 +74,7 @@
     background-position: center;
     margin-bottom: 30px;
     position: absolute;
-    bottom: 40%;
+    bottom: 42%;
 
     @include for-size(tablet) {
       background-image: url('../images/products/home-pic1-tablet.png');
@@ -55,6 +83,7 @@
     }
 
     @include for-size(desktop) {
+      bottom: 53%;
       background-image: url('../images/products/home-pic1-desktop.png');
     }
   }
@@ -125,9 +154,26 @@
   color: #ffffff;
   margin-top: 161px;
 
+  @include for-size(tablet) {
+    margin-top: 152px;
+  }
+
   @include for-size(desktop) {
     font-size: 30px;
     line-height: 1.133;
+    margin-top: 163px;
+  }
+}
+
+.products-list-img {
+  padding: 30px 127px;
+
+  @include for-size(tablet) {
+    padding: 30px 97px;
+  }
+
+  @include for-size(desktop) {
+    padding: 32px 152px;
   }
 }
 
@@ -140,7 +186,6 @@
   text-align: center;
   letter-spacing: 0.04em;
   color: #ffffff;
-  margin-top: 30px;
   margin-bottom: 30px;
   margin-left: 41px;
   margin-right: 39px;
@@ -153,7 +198,6 @@
 
   @include for-size(desktop) {
     font-size: 16px;
-    margin-top: 32px;
     margin-left: 44px;
     margin-right: 44px;
   }
