@@ -1,66 +1,149 @@
 .hero {
-  max-width: 767px;
+  margin: 0 auto;
   z-index: 5;
-
   background-color: $heroBgColor;
-  background-image: url('../images/hero/slider-pic7-mobile.png'),
-    url('../images/hero/ellipse-mobile.png');
-  background-size: 171px 410px, 284px 344px;
-  background-position: top 92px right 32px, top 83px right 0;
-  background-repeat: no-repeat;
-}
 
-@media screen and (min-device-pixel-ratio: 2),
-  screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx) {
-  .hero {
-    background-image: url('../images/hero/slider-pic7-mobile@2x.png'),
-      url('../images/hero/ellipse-mobile@2x.png');
-  }
-}
-
-@include for-size(tablet) {
-  .hero {
-    max-width: 1199px;
-    background-image: url('../images/hero/slider-pic7-tablet.png'),
-      url('../images/hero/slider-pic4-tablet.png'),
-      url('../images/hero/ellipse-tablet.png');
-    background-size: 143px 336px, 168px 133px, 324px 322px;
-    background-position: top 63px right 247px, bottom 0 right 34px,
-      top 31px right 137px;
+  @include for-size(mobile-only) {
+    background-image: url('../images/hero/slider-pic7-mobile.png'),
+      url('../images/hero/ellipse-mobile.png');
+    background-size: 171px 410px, 284px 344px;
+    background-position: top 92px right 32px, top 83px right 0;
     background-repeat: no-repeat;
-  }
 
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    .hero {
-      background-image: url('../images/hero/slider-pic7-tablet@2x.png'),
-        url('../images/hero/slider-pic4-tablet@2x.png'),
-        url('../images/hero/ellipse-tablet@2x.png');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      .hero {
+        background-image: url('../images/hero/slider-pic7-mobile@2x.png'),
+          url('../images/hero/ellipse-mobile@2x.png');
+      }
     }
   }
 }
 
-@include for-size(desktop) {
-  .hero {
-    max-width: 1280px;
-    background-image: url('../images/hero/slider-pic7-desktop.png'),
-      url('../images/hero/slider-pic4-desktop.png'),
-      url('../images/hero/ellipse-desktop.png');
-    background-size: 236px 557px, 293px 232px, 538px 538px;
-    background-position: top 108px right 450px, bottom 0 right 77px,
-      top 52px right 267px;
+.hero .container {
+  position: relative;
+  @include for-size(tablet) {
+    max-width: 768px;
+    background-image: url('../images/hero/slider-pic7-tablet.png'),
+      url('../images/hero/ellipse-tablet.png');
+    background-size: 143px 336px, 324px 322px;
+    background-position: top 63px right 247px, top 31px right 137px;
     background-repeat: no-repeat;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      .hero .container {
+        background-image: url('../images/hero/slider-pic7-tablet@2x.png'),
+          url('../images/hero/ellipse-tablet@2x.png');
+      }
+    }
+
+    &::before {
+      position: absolute;
+      bottom: 28px;
+      left: 34px;
+      content: '';
+      width: 124px;
+      height: 126px;
+
+      background-image: url('../images/hero/slider-pic5-tablet.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        .hero .container {
+          background-image: url('../images/hero/slider-pic5-tablet@2x.png');
+        }
+      }
+    }
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      right: 34px;
+      content: '';
+      width: 168px;
+      height: 133px;
+
+      background-image: url('../images/hero/slider-pic4-tablet.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        .hero .container {
+          background-image: url('../images/hero/slider-pic4-tablet@2x.png');
+        }
+      }
+    }
   }
 
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    .hero {
-      background-image: url('../images/hero/slider-pic7-desktop@2x.png'),
-        url('../images/hero/slider-pic4-desktop@2x.png'),
-        url('../images/hero/ellipse-desktop@2x.png');
+  @include for-size(desktop) {
+    max-width: 1200px;
+    background-image: url('../images/hero/slider-pic7-desktop.png'),
+      url('../images/hero/ellipse-desktop.png');
+    background-size: 236px 557px, 538px 538px;
+    background-position: top 108px right 350px, top 52px right 167px;
+    background-repeat: no-repeat;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      .hero .container {
+        background-image: url('../images/hero/slider-pic7-desktop@2x.png'),
+          url('../images/hero/ellipse-desktop@2x.png');
+      }
+    }
+
+    &::before {
+      position: absolute;
+      bottom: 45px;
+      left: 13px;
+      content: '';
+      width: 188px;
+      height: 191px;
+
+      background-image: url('../images/hero/slider-pic5-desktop.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        .hero .container {
+          background-image: url('../images/hero/slider-pic5-desktop@2x.png');
+        }
+      }
+    }
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      right: 40px;
+      content: '';
+      width: 293px;
+      height: 232px;
+
+      background-image: url('../images/hero/slider-pic4-desktop.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        .hero .container {
+          background-image: url('../images/hero/slider-pic4-desktop@2x.png');
+        }
+      }
     }
   }
 }
@@ -174,6 +257,10 @@
 
     font-size: 14px;
     line-height: 1.2857;
+
+    &:hover {
+      background-color: #c7133e;
+    }
   }
 }
 
@@ -197,6 +284,10 @@
 
     font-size: 14px;
     line-height: 1.2857;
+
+    &:hover {
+      background-color: #ecebeb;
+    }
   }
 }
 
@@ -205,9 +296,13 @@
     display: none;
   }
 
+  text-align: right;
   position: absolute;
-  top: 96px;
-  right: 0;
+
+  @include for-size(tablet) {
+    top: 96px;
+    right: 10px;
+  }
 
   @include for-size(desktop) {
     top: 160px;
@@ -216,6 +311,42 @@
 }
 
 .hero-counter-item {
+  position: relative;
+  z-index: 1;
+
+  @include for-size(tablet) {
+    &::after {
+      position: absolute;
+      top: 0;
+      right: -10px;
+      content: '';
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+
+      background-color: $primaryWhiteColor;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+      z-index: -1;
+    }
+  }
+
+  @include for-size(desktop) {
+    &::after {
+      position: absolute;
+      top: 0;
+      right: -20px;
+      content: '';
+      width: 30px;
+      height: 30px;
+
+      border-radius: 50%;
+
+      background-color: $primaryWhiteColor;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+      z-index: -1;
+    }
+  }
+
   &:not(:last-child) {
     margin-bottom: 14px;
   }
@@ -228,7 +359,7 @@
 }
 
 .quantity {
-  position: relative;
+  // position: relative;
   font-family: 'Titan One', cursive;
   font-size: 28px;
   font-weight: 400;
@@ -236,34 +367,10 @@
   letter-spacing: 0.04em;
 
   color: $titleTextColor;
-  z-index: 8;
-
-  &::after {
-    position: absolute;
-    top: 0;
-    right: 4px;
-    content: '';
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-
-    background-color: $primaryWhiteColor;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
-    z-index: 7;
-  }
 
   @include for-size(desktop) {
     font-size: 46px;
     line-height: 1.152;
-
-    &::after {
-      position: absolute;
-      top: 0;
-      right: 4px;
-      content: '';
-      width: 30px;
-      height: 30px;
-    }
   }
 }
 
@@ -272,6 +379,7 @@
   font-weight: 400;
   line-height: 1.25;
   letter-spacing: 0.04em;
+  text-align: right;
 
   color: $primaryWhiteColor;
 
@@ -290,38 +398,10 @@
   bottom: 34px;
   left: 120px;
 
-  &::before {
-    position: absolute;
-    bottom: -6px;
-    left: -100%;
-    content: '';
-    width: 124px;
-    height: 126px;
-
-    background-image: url('../images/hero/slider-pic5-tablet.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-
   @include for-size(desktop) {
     bottom: 56px;
-    left: 180px;
+    left: 150px;
     margin-left: 30px;
-
-    &::before {
-      position: absolute;
-      bottom: -6px;
-      left: -100%;
-      content: '';
-      width: 188px;
-      height: 191px;
-
-      background-image: url('../images/hero/slider-pic5-desktop.png');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-    }
   }
 }
 
