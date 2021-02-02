@@ -3,6 +3,7 @@
 }
 .home a {
   text-decoration: none;
+  color: inherit;
 }
 .home-container {
   position: relative;
@@ -94,6 +95,7 @@
   }
   li:first-child {
     margin-right: 8px;
+    
   }
 }
 .btn {
@@ -101,11 +103,13 @@
   color: $color-accent;
   background-color: $color-text-white;
   border: none;
+  @extend %scale_to_div;
 }
 .btn:hover,
 .btn:focus {
   background-color: $color-accent-hover-btn;
   color: $color-accent;
+  @extend %scale_function;
 }
 .btn.light {
   color: $color-text-white;
@@ -113,20 +117,22 @@
 }
 .btn.light:hover,
 .btn.light:focus {
-  background-color: $color-accent;
+  background-color: $color-accent-hover;
+  color: $color-text-white;
+  @include transition(background-color)
+
 }
 
 .home-button {
   border-radius: 20px;
   background-color: $color-accent;
   color: $color-text-white;
-
+  color: currentColor;
   &:hover,
   &:focus {
     background-color: #c7133e;
     box-shadow: 0px 8px 50px rgba(210, 20, 67, 0.6);
-  }
-}
+  }}
 
 .home-button {
   @extend %link;
@@ -155,30 +161,7 @@
   }
 }
 
-.home-icecream {
-  width: 171px;
-  height: auto;
 
-  position: absolute;
-
-  z-index: 4;
-
-  @media screen and (max-width: 767px) {
-    bottom: -41%;
-    left: 63%;
-    transform: translate(-50%, -50%);
-  }
-
-  @media screen and (min-width: 768px) {
-    bottom: 0;
-    left: 378px;
-    width: 143px;
-  }
-  @media screen and (min-width: 1200px) {
-    left: 594px;
-    width: 236px;
-  }
-}
 
 .home-milk {
   display: none;
@@ -207,6 +190,7 @@
   }
 }
 .home-milk-text {
+  @extend %scale_to_div;
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
@@ -251,8 +235,9 @@
   &:focus,
   &:hover .home-arrow-icon,
   &:focus .home-arrow-icon {
-    background-color: rgba(210, 20, 67, 0.6);
+    background-color:$color-accent-hover;
     color: $color-text-white;
+    @extend %scale_function;
   }
 
   @media screen and (min-width: 1200px) {
@@ -373,6 +358,8 @@
 
   z-index: 3;
 
+  @extend %scale_to_div;
+
   @media screen and (max-width: 767px) {
     top: 50%;
     left: 65%;
@@ -390,5 +377,32 @@
     width: 538px;
     bottom: 75px;
     left: 475px;
+  }
+}
+.home-icecream {
+  width: 171px;
+  height: auto;
+
+  position: absolute;
+
+  z-index: 4;
+  &:hover {
+    @extend %scale_function;
+  }
+
+  @media screen and (max-width: 767px) {
+    bottom: -41%;
+    left: 63%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media screen and (min-width: 768px) {
+    bottom: 0;
+    left: 378px;
+    width: 143px;
+  }
+  @media screen and (min-width: 1200px) {
+    left: 594px;
+    width: 236px;
   }
 }
