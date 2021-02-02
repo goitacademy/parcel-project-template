@@ -1,27 +1,14 @@
-.section {
-  padding-top: 50px;
-  padding-bottom: 537px;
-  &.programme {
-    margin-bottom: 302px;
-  }
-}
-@media screen and (min-width: $tablet) {
-  .section {
-    padding-top: 60px;
-    padding-bottom: 392px;
-  }
-}
-@media screen and (min-width: $desktop) {
-  .section {
-    padding-top: 120px;
-    padding-bottom: 363px;
-  }
-}
-
 .programme {
-  background-color: $text-dark;
   position: relative;
-  overflow: hidden;
+  margin-bottom: 270px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 300px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 330px;
+  }
   &__heading {
     @include font(800, 20px, 1.3, 0.03em, $white);
     margin-bottom: 43px;
@@ -32,11 +19,34 @@
       @include font(800, 26px, 1.3, 0.03em, $white);
     }
     @media screen and (min-width: $desktop) {
-      margin-bottom: 100px;
+      margin-bottom: 92px;
       @include font(800, 46px, 1.3, 0.03em, $white);
     }
   }
-  > .container:after {
+
+  &__wrapper {
+    width: 100vw;
+    padding-top: 50px;
+    padding-bottom: 537px;
+
+    background-color: $text-dark;
+    overflow: hidden;
+
+    @media screen and (min-width: $tablet) {
+      padding-top: 60px;
+      padding-bottom: 392px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      padding-top: 120px;
+      padding-bottom: 363px;
+    }
+    & .container {
+      position: relative;
+    }
+  }
+
+  &__wrapper > .container:after {
     content: '';
     display: block;
     position: absolute;
@@ -44,18 +54,20 @@
     background-repeat: no-repeat;
     width: 176px;
     height: 137px;
-    transform: translate(100%, -30%);
+    right: -56px;
+    bottom: -97px;
     background-image: url('../images/programme/programme-mobile.png');
     @media screen and (min-device-pixel-ratio: 2) and (max-width: $tablet - 1),
       screen and (min-resolution: 192dpi) and (max-width: $tablet - 1),
       screen and (min-resolution: 2dppx) and (max-width: $tablet - 1) {
       background-image: url('../images/programme/programme-mobile@2x.png');
     }
-    @media screen and (min-width: $tablet) and (max-width: $desktop - 1) {
+    @media screen and (min-width: $tablet) and (min-width: $tablet) {
       background-image: url('../images/programme/programme-tablet.png');
       width: 384px;
       height: 280px;
-      transform: translate(100%, -50%);
+      right: 0;
+      bottom: -139px;
     }
 
     @media screen and (min-device-pixel-ratio: 2) and (min-width: $tablet) and (max-width: $desktop - 1),
@@ -65,9 +77,10 @@
     }
     @media screen and (min-width: $desktop) {
       background-image: url('../images/programme/programme-desktop.png');
-      width: 674px;
+      width: 760px;
       height: 502px;
-      transform: translate(-28%, -50%);
+      left: -170px;
+      bottom: -305px;
     }
 
     @media screen and (min-device-pixel-ratio: 2) and (min-width: $desktop),
@@ -79,35 +92,40 @@
 }
 
 .semester-list {
-  margin-left: 70px;
+  margin-left: 68px;
   position: relative;
+
   &:before {
     content: '';
     display: block;
     background-color: $white;
     width: 1px;
-    height: 1200px;
+    height: calc(100% - 100px);
     position: absolute;
-    top: 18px;
+    top: 8px;
     left: 6px;
     @media screen and (min-width: $tablet) {
-      height: 740px;
+      height: calc(100% - 100px);
     }
+
     @media screen and (min-width: $desktop) {
       height: 1px;
       width: 100vw;
-      top: 287px;
-      left: 0;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
+
   @media screen and (min-width: $tablet) {
     margin-left: 57px;
   }
+
   @media screen and (min-width: $desktop) {
     display: flex;
     margin-left: 0px;
-    position: initial;
   }
+
   &__item {
     &:not(:last-child) {
       margin-bottom: 40px;
@@ -116,34 +134,58 @@
         margin-right: 30px;
       }
     }
+
     @media screen and (min-width: $desktop) {
       width: 240px;
     }
   }
+
   &__number {
-    @include font(700, 14px, 2, 0.08em, $white);
-    margin-bottom: 5px;
+    padding-left: 32px;
     display: flex;
-    align-items: center;
+    position: relative;
+    @include font(700, 14px, 2, 0.08em, $white);
     text-transform: uppercase;
-    @media screen and (min-width: $desktop) {
-      @include font(700, 30px, 0.93, 0.08em, $white);
-      text-transform: lowercase;
+
+    @media screen and (min-width: $tablet) {
+      padding-left: 52px;
     }
+
+    @media screen and (min-width: $desktop) {
+      display: block;
+      padding-left: 0px;
+
+      @include font(700, 20px, 1.4, 0.08em, $white);
+      text-transform: uppercase;
+    }
+
+    &_upper {
+      @media screen and (min-width: $desktop) {
+        @include font(700, 30px, 0.93, 0.08em, $white);
+        text-transform: uppercase;
+      }
+    }
+
     &:before {
       content: '';
       display: block;
+      position: absolute;
       width: 13px;
       height: 13px;
       border-radius: 50%;
       background-color: $accent-color;
-      margin-right: 20px;
-      z-index: 1;
+
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+
       @media screen and (min-width: $tablet) {
         margin-right: 50px;
       }
       @media screen and (min-width: $desktop) {
-        margin-bottom: 140px;
+        position: static;
+        transform: translateY(0);
+        margin-bottom: 52px;
         margin-right: -17px;
         width: 17px;
         height: 17px;
@@ -192,13 +234,12 @@
   @media screen and (min-width: $tablet) {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 63px;
+    padding-left: 52px;
   }
   @media screen and (min-width: $desktop) {
     padding-left: 0px;
     display: block;
-    margin-right: 30px;
-    margin-top: -35px;
+    margin-top: 25px;
   }
 }
 
@@ -223,11 +264,11 @@
 
 .skills-list__name--final {
   display: block;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   @media screen and (min-width: $desktop) {
     padding-top: 15px;
     padding-bottom: 15px;
-    margin-top: -35px;
+    margin-top: 25px;
   }
 }

@@ -1,15 +1,17 @@
 .reasons {
   position: absolute;
-  width: 100%;
+  width: 280px;
   padding-top: 0;
   padding-bottom: 0;
+  bottom: -230px;
   counter-reset: number;
-  transform: translateY(-760px);
   @media screen and (min-width: $tablet) {
-    transform: translateY(-455px);
+    width: 688px;
+    bottom: -252px;
   }
   @media screen and (min-width: $desktop) {
-    transform: translateY(-520px);
+    width: 1314px;
+    bottom: -200px;
   }
 
   &__heading {
@@ -56,6 +58,10 @@
     }
     &__item:not(:last-child) {
       margin-bottom: 20px;
+
+      @media screen and (min-width: $desktop) {
+        margin-bottom: 32px;
+      }
     }
     &__item:before {
       counter-increment: number;
@@ -94,7 +100,7 @@
   }
   @media screen and (min-width: $desktop) {
     .reasons-list__item {
-      width: calc(100% / 3 - 40px);
+      width: calc((100% - 40px) / 3);
       &:nth-last-child(-n + 3) {
         margin-bottom: 0;
       }
