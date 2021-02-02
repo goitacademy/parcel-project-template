@@ -5,27 +5,21 @@
   color: var(--primary-white-color);
 
   position: absolute;
-  z-index: 2;
+  // z-index: 1000;
   background-color: transparent;
 
   justify-content: space-between;
   top: 0;
   width: 100%;
-  // max-width: 480px;
-  padding: 6px 20px 0 20px;
+  padding-top: 6px;
 
   @media screen and (min-width: 768px) {
-    width: 100%;
-    max-width: 768px;
-    padding: 37px 34px 0 34px;
+    padding-top: 37px;
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: 1280px;
-    padding: 37px 115px 0 115px;
     font-size: 16px;
   }
-
   a {
     color: inherit; //стили временно заданы через тег
   }
@@ -38,30 +32,37 @@
 }
 
 .menu-button {
-  z-index: 5;
+  z-index: 2000;
   top: 15px;
   right: 20px;
 
   background-size: cover;
-  position: absolute;
   background-color: transparent;
   stroke: var(--text-red-color);
   margin: 0;
   padding: 0;
   border: none;
 
-  @media screen and (min-width: 768px) {
-    top: 50px;
-    right: 225px;
+  &.is-open {
+    top: 15px;
+    right: 20px;
+    position: absolute;
+  }
 
+  @media screen and (min-width: 768px) {
     &.is-open {
-      transform: translate(1000%, -100%); //нормально дать позицию
+      position: absolute;
+      top: 15px;
+      right: 20px;
     }
   }
 }
+.logo {
+  flex-grow: 1;
+}
 
 .menu-container {
-  z-index: 1;
+  z-index: 1500;
   position: absolute;
   top: 0;
   right: 0;
@@ -77,7 +78,7 @@
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 254px;
+    min-width: 40%;
   }
 
   @media screen and (max-width: 1279px) {
@@ -98,6 +99,9 @@
   }
 }
 
+.header-btn {
+  margin-left: 30px;
+}
 @media screen and (max-width: 767px) {
   .header-btn {
     display: none;
@@ -173,8 +177,17 @@
 }
 
 .mob-menu-btn {
-  margin: 0 auto;
+  margin-left: 21px;
   margin-bottom: 19px;
   max-width: 200px;
   justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .mob-menu-item {
+    padding-left: 24px;
+  }
+  .mob-menu-btn {
+    margin-left: 24px;
+  }
 }
