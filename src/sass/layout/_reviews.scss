@@ -1,177 +1,151 @@
 .reviews {
-  margin-bottom: 50px;
-}
-.rev-title {
+  padding-top: 50px;
+  padding-bottom: 50px;
   text-align: center;
-  padding-bottom: 40px;
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 1.3;
-  letter-spacing: 0.03em;
-  color: #111518;
-  justify-content: center;
-}
-.rev-list__item {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-.rev-list__photo {
-  width: 90px;
-  height: 90px;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.rev-list__soc-icon {
-  width: 30px;
-  height: 17px;
-}
-.rev-list__title {
-  font-weight: 800;
-  font-size: 14px;
-  line-height: 1.21;
-  letter-spacing: 0.08em;
-  color: #ff6b09;
-  margin-bottom: 10px;
-}
-.rev-list__student-info {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.25;
-  letter-spacing: 0.08em;
-  color: #b9b9b9;
-  margin-bottom: 10px;
-}
-.rev-list__student-feedback {
-  max-width: 240px;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.67;
-  color: #3d3d3d;
-  margin-left: auto;
-  margin-right: auto;
-}
-.rev-list__left-side {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-}
-.rev-list__right-side {
-  margin-bottom: 29px;
-}
-.feedback-readmore {
-  text-decoration-line: underline;
-  color: #ff6b09;
-}
-.student-list {
-  display: flex;
-  position: relative;
-  justify-content: center;
-}
-.student-list_item:not(:last-child) {
-  margin-right: 10px;
-}
-.student-list_item:nth-child(n + 4) {
-  display: none;
-}
-@media screen and (min-width: $tablet) {
-  .rev-title {
-    font-size: 26px;
-  }
-  br {
-    display: none;
-  }
-  .rev-list__left-side {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  .rev-list__right-side {
-    display: block;
-    text-align: left;
-    margin-bottom: 29px;
-  }
-  .rev-list__item {
-    display: flex;
-    flex-direction: row;
-  }
-  .rev-list__photo {
-    width: 150px;
-    height: 150px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    margin-left: 40px;
-    margin-right: 46px;
-  }
-  .rev-list__title {
-    font-size: 20px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-  .student-list_item:nth-child(n + 4) {
-    display: block;
-  }
-  .student-list_item:not(:last-child) {
-    margin-right: 30px;
-  }
 }
 
-@media screen and (min-width: $desktop) {
-  .rev-title {
-    font-size: 46px;
-  }
-  br {
-    display: none;
-  }
-  .rev-list__left-side {
+.rev-title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.slick-slide {
+  img {
+    display: inline-block;
     margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
   }
-  .rev-list__right-side {
+}
+.slide__image {
+  margin-bottom: 20px;
+}
+.slide__name {
+  @include font(800, 14px, 1.21, 0.08em, $accent-color);
+  margin-bottom: 10px;
+}
+.slide__disc {
+  @include font(500, 12px, 1.25, 0.08em, $text-grey);
+  margin-bottom: 10px;
+}
+.slide__rev {
+  @include font(500, 12px, 1.67, 0.08em, $text-semi-dark);
+}
+.slide__link_more {
+  @include font(500, 12px, 1.67, 0.08em, $accent-color);
+}
+.slider-wrapper {
+  padding: 20px 20px 30px 20px;
+}
+.one-item {
+  margin-bottom: 20px;
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+}
+.multiple-items {
+  margin: 0 auto;
+  width: 182px;
+  .slick-list {
+    height: 54px;
+  }
+}
+.slick-prev {
+  left: -49px;
+  &:before {
+    content: url(..//images/reviews/prev-arrow.png);
     display: block;
-    text-align: left;
-    margin-bottom: 91px;
-    max-width: 769px;
   }
-  .rev-list__item {
+}
+.slick-next {
+  right: -42px;
+  &:before {
+    content: url(..//images/reviews/next-arrow.png);
+    display: block;
+  }
+}
+@media screen and (max-width: $tablet - 1px) {
+  .one-item {
+    .slick-prev,
+    .slick-next {
+      display: none;
+    }
+  }
+}
+@media screen and (min-width: $tablet) {
+  .slider-wrapper {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    padding: 40px;
   }
-  .rev-list__photo {
+  .slider-right {
+    max-width: 412px;
+    text-align: left;
+    margin-left: 46px;
+  }
+  .rev-title {
+    @include font(800, 26px, 1.3, 0.03em, $text-dark);
+    margin-bottom: 30px;
+  }
+  .slide__name {
+    @include font(800, 20px, 1.2, 0.08em, $accent-color);
+    margin-bottom: 20px;
+  }
+  // временно до подключения picture
+  .slide__photo {
     width: 150px;
     height: 150px;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    margin-left: 82px;
-    margin-right: 40px;
   }
-  .rev-list__title {
-    font-size: 30px;
-    line-height: 1.23;
+  .slide__disc {
+    @include font(500, 12px, 1.25, 0.08em, $text-grey);
+    margin-bottom: 20px;
+  }
+  .slide__rev {
+    @include font(500, 12px, 1.67, 0.03em, $text-semi-dark);
+  }
+  .one-item {
+    margin-bottom: 30px;
+    .slick-prev {
+      left: -13px;
+    }
+    .slick-next {
+      right: -6px;
+    }
+  }
+  .multiple-items {
+    width: 558px;
+    .slick-prev,
+    .slick-next {
+      display: none;
+    }
+  }
+}
+@media screen and (min-width: $desktop) {
+  .slider-wrapper {
+    padding: 50px 112px 51px 82px;
+  }
+  .rev-title {
+    @include font(800, 46px, 1.3, 0.03em, $text-dark);
+    margin-bottom: 50px;
+  }
+  .slider-right {
+    margin-left: 40px;
+    max-width: 706px;
+  }
+  .slide__name {
+    @include font(800, 30px, 1.23, 0.08em, $accent-color);
     margin-bottom: 10px;
   }
-  .rev-list__student-info {
-    font-size: 14px;
-    line-height: 1.21;
-    margin-bottom: 20px;
-    width: 438px;
+  .slide__disc {
+    @include font(500, 14px, 1.21, 0.08em, $text-grey);
   }
-  .rev-list__student-feedback {
-    font-size: 18px;
-    line-height: 1.56;
+  .slide__rev {
+    @include font(500, 18px, 1.56, 0.03em, $text-semi-dark);
   }
-  .student-list_item:nth-child(n + 4) {
-    display: block;
-  }
-  .student-list_item:not(:last-child) {
-    margin-right: 30px;
-  }
-  .reviews {
-    margin-bottom: 130px;
-  }
-  .rev-list__soc-icon {
-    margin-left: 40px;
+  .one-item {
+    width: 1090px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    .slick-prev {
+      left: -65px;
+    }
+    .slick-next {
+      right: -50px;
+    }
   }
 }
