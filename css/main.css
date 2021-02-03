@@ -25,13 +25,13 @@
 }
 
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
   clip: rect(0 0 0 0);
 }
 
@@ -82,6 +82,7 @@ button {
   padding: 0;
   border: 0;
   font-family: "DM Sans", sans-serif;
+  cursor: pointer;
 }
 
 .container {
@@ -268,16 +269,16 @@ header .btn {
 }
 
 .header {
+  position: absolute;
+  z-index: 12;
+  top: 0;
+  width: 100%;
+  padding-top: 6px;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.3;
   color: var(--primary-white-color);
-  position: absolute;
   background-color: transparent;
-  justify-content: space-between;
-  top: 0;
-  width: 100%;
-  padding-top: 6px;
 }
 
 @media screen and (min-width: 768px) {
@@ -286,26 +287,25 @@ header .btn {
   }
 }
 
+.header-block {
+  display: flex;
+  align-items: center;
+}
+
+.header-block a {
+  color: inherit;
+}
+
 @media screen and (min-width: 1280px) {
-  .header {
+  .header-block {
+    padding-left: 95px;
+    padding-right: 95px;
     font-size: 16px;
   }
 }
 
-.header a {
-  color: inherit;
-}
-
-.header-block {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .menu-button {
-  z-index: 2000;
-  top: 15px;
-  right: 20px;
+  z-index: 12;
   background-size: cover;
   background-color: transparent;
   stroke: var(--text-red-color);
@@ -320,44 +320,33 @@ header .btn {
   position: absolute;
 }
 
-@media screen and (min-width: 768px) {
-  .menu-button.is-open {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-  }
-}
-
 .logo {
   flex-grow: 1;
 }
 
 .menu-container {
-  z-index: 1500;
+  z-index: 11;
   position: absolute;
   top: 0;
-  right: 0;
+  right: -80%;
   max-width: 250px;
   width: 100%;
   height: 100vh;
   padding-top: 60px;
   background-color: var(--menu-mob-bg-color);
+  transition: all 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-container.is-open {
   display: flex;
   flex-direction: column;
+  right: 0;
+  transition: all 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media screen and (min-width: 768px) {
   .menu-container {
     min-width: 40%;
-  }
-}
-
-@media screen and (max-width: 1279px) {
-  .menu-container {
-    display: none;
   }
 }
 
@@ -374,13 +363,15 @@ header .btn {
   }
 }
 
-.header-btn {
-  margin-left: 30px;
-}
-
 @media screen and (max-width: 767px) {
   .header-btn {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .header-btn {
+    margin-left: 30px;
   }
 }
 
@@ -389,25 +380,25 @@ header .btn {
 }
 
 .menu-button .icon-cross {
-  display: none;
+  opacity: 0;
 }
 
 .menu-button.is-open .icon-cross {
-  display: block;
+  opacity: 1;
+  transition: all 1250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-button.is-open .icon-menu {
-  display: none;
+  opacity: 0;
 }
 
-.header-descktop {
-  display: flex;
-  align-items: center;
+.animate__fadeIn {
+  transition: all 1250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-list {
   display: flex;
-  margin: 0 50px;
+  margin: 0 70px;
 }
 
 .nav-item {
@@ -437,17 +428,6 @@ header .btn {
   border-bottom: 1px solid var(--menu-mob-border);
 }
 
-.mob-menu-link {
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 18px;
-  color: var(--primary-white-color);
-}
-
-.mob-menu-link:hover {
-  color: var(--text-red-color);
-}
-
 .mob-menu-btn {
   margin-left: 21px;
   margin-bottom: 19px;
@@ -462,6 +442,17 @@ header .btn {
   .mob-menu-btn {
     margin-left: 24px;
   }
+}
+
+.mob-menu-link {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--primary-white-color);
+}
+
+.mob-menu-link:hover {
+  color: var(--text-red-color);
 }
 
 .hero {
@@ -852,6 +843,10 @@ header .btn {
   fill: #D41443;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .description {
   background-color: #fff5f6;
 }
@@ -1178,39 +1173,102 @@ header .btn {
   transform: translate(0, -40%);
 }
 
+.back-top {
+  position: fixed;
+  bottom: 60px;
+  right: 30px;
+  z-index: 2;
+}
+
+.back-top-arrow {
+  width: 50px;
+  height: 50px;
+  display: block;
+  padding-top: 15px;
+  fill: white;
+  text-align: center;
+  border-radius: 50px;
+  background-color: #ffa5ba;
+  transform: rotate(0.75turn);
+  opacity: 0.25;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back-top-arrow:hover {
+  opacity: 1;
+}
+
 .review {
-  padding-top: 80px;
+  width: 480px;
+  padding-top: 154px;
   padding-bottom: 83px;
 }
 
 .review-wrapper {
+  width: 280px;
+  padding: 43px 50px 57px;
   background-color: var(--slider-background-color);
   margin-top: 29px;
   margin-bottom: 52px;
 }
 
 .review-text {
-  padding: 43px 66px 26px 57px;
   font-weight: 500;
   font-size: 12px;
   line-height: 2.58;
   text-align: center;
   color: #000000;
-}
-
-.review-text-line::after {
-  content: '';
-  display: block;
-  width: 180px;
-  border-bottom: 1px solid #000;
-}
-
-.review-text-line {
-  display: block;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-image: repeating-linear-gradient(to top, #e1e1e1 0px 1px, transparent 1px 35px);
 }
 
 .review-name {
   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .review .container {
+    width: 768px;
+  }
+  .review {
+    padding-top: 238px;
+  }
+  .review-wrapper {
+    width: 620px;
+    margin: 19px auto 42px;
+  }
+  .review-wrapper-text {
+    padding: 47px 60px 27px;
+  }
+  .review-text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 216%;
+    text-align: center;
+    letter-spacing: 0.04em;
+    padding: 0 24px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .review .container {
+    width: 1200px;
+  }
+  .review {
+    padding-top: 339px;
+  }
+  .review-wrapper {
+    width: 926px;
+  }
+  .review-text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 186%;
+    text-align: center;
+    letter-spacing: 0.04em;
+    padding: 0 4px;
+  }
 }
 
 /*********LOCATIONS***********/
@@ -1319,7 +1377,7 @@ header .btn {
 
 @media screen and (max-width: 767px) {
   .btn {
-    min-width: 161px;
+    justify-content: center;
   }
   .btn:not(:last-child) {
     margin-bottom: 10px;
@@ -1457,6 +1515,7 @@ header .btn {
 }
 
 .footer {
+  padding-top: 113px;
   position: relative;
   padding-bottom: 25px;
   background-color: var(--description-background-color);
@@ -1464,6 +1523,7 @@ header .btn {
 
 @media screen and (min-width: 768px) {
   .footer {
+    padding-top: 165px;
     padding-bottom: 18px;
   }
 }
