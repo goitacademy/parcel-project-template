@@ -41,10 +41,29 @@
     
     <script type="text/javascript">
       $(document).ready(function () {
-        $('.regular').slick({
-          dots: true,
+        $('.one-item').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          fade: true,
+          asNavFor: '.multiple-items',
+        });
+        $('.multiple-items').slick({
+          slidesToShow: 7,
+          slidesToScroll: 1,
+          asNavFor: '.one-item',
+          dots: false,
+          focusOnSelect: true,
           autoplay: true,
-          autoplaySpeed: 2500,
+          arrows:true,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1
+              }
+            }
+          ]
         });
       });
     </script>

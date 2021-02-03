@@ -1,15 +1,9 @@
 .reviews {
   padding-top: 50px;
   padding-bottom: 50px;
-}
-.slider {
   text-align: center;
-  &__item {
-    width: 280px;
-    height: 682px;
-    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
-  }
 }
+
 .rev-title {
   margin-bottom: 20px;
   text-align: center;
@@ -40,10 +34,118 @@
 .slider-wrapper {
   padding: 20px 20px 30px 20px;
 }
-.slider-dots__list {
-  display: flex;
-  align-items: center;
+.one-item {
+  margin-bottom: 20px;
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 }
-.slick-dots {
-  width: 280px;
+.multiple-items {
+  margin: 0 auto;
+  width: 182px;
+  .slick-list {
+    height: 54px;
+  }
+}
+.slick-prev {
+  left: -49px;
+  &:before {
+    content: url(..//images/reviews/prev-arrow.png);
+    display: block;
+  }
+}
+.slick-next {
+  right: -42px;
+  &:before {
+    content: url(..//images/reviews/next-arrow.png);
+    display: block;
+  }
+}
+@media screen and (max-width: $tablet - 1px) {
+  .one-item {
+    .slick-prev,
+    .slick-next {
+      display: none;
+    }
+  }
+}
+@media screen and (min-width: $tablet) {
+  .slider-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+  }
+  .slider-right {
+    max-width: 412px;
+    text-align: left;
+    margin-left: 46px;
+  }
+  .rev-title {
+    @include font(800, 26px, 1.3, 0.03em, $text-dark);
+    margin-bottom: 30px;
+  }
+  .slide__name {
+    @include font(800, 20px, 1.2, 0.08em, $accent-color);
+    margin-bottom: 20px;
+  }
+  // временно до подключения picture
+  .slide__photo {
+    width: 150px;
+    height: 150px;
+  }
+  .slide__disc {
+    @include font(500, 12px, 1.25, 0.08em, $text-grey);
+    margin-bottom: 20px;
+  }
+  .slide__rev {
+    @include font(500, 12px, 1.67, 0.03em, $text-semi-dark);
+  }
+  .one-item {
+    margin-bottom: 30px;
+    .slick-prev {
+      left: -13px;
+    }
+    .slick-next {
+      right: -6px;
+    }
+  }
+  .multiple-items {
+    width: 558px;
+    .slick-prev,
+    .slick-next {
+      display: none;
+    }
+  }
+}
+@media screen and (min-width: $desktop) {
+  .slider-wrapper {
+    padding: 50px 112px 51px 82px;
+  }
+  .rev-title {
+    @include font(800, 46px, 1.3, 0.03em, $text-dark);
+    margin-bottom: 50px;
+  }
+  .slider-right {
+    margin-left: 40px;
+    max-width: 706px;
+  }
+  .slide__name {
+    @include font(800, 30px, 1.23, 0.08em, $accent-color);
+    margin-bottom: 10px;
+  }
+  .slide__disc {
+    @include font(500, 14px, 1.21, 0.08em, $text-grey);
+  }
+  .slide__rev {
+    @include font(500, 18px, 1.56, 0.03em, $text-semi-dark);
+  }
+  .one-item {
+    width: 1090px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    .slick-prev {
+      left: -65px;
+    }
+    .slick-next {
+      right: -50px;
+    }
+  }
 }
