@@ -1,19 +1,35 @@
 .hero {
   &-section {
     margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    background-image: url('../images/hero/png/header-mobile.png'),
+      url('../images/hero/png/wave-mobile.png');
+
+    background-repeat: no-repeat;
+    box-shadow: -5px 21px 26px rgba(0, 0, 0, 0.04);
+    background-size: 208px 178px, 320px 665px;
+    background-position: top 334px center, top -60px center;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/hero/png/header-mobile@2x.png'),
+        url('../images/hero/png/wave-mobile.png');
+    }
   }
 
   &-container {
     position: relative;
-    padding-top: 50px;
-    padding-bottom: 50px;
 
-    background: #ffffff;
-    background-image: url('../images/hero/png/wave-mobile.png');
-    box-shadow: -5px 21px 26px rgba(0, 0, 0, 0.04);
-    background-repeat: no-repeat;
-    background-position: left top;
-    background-size: 320px 665px;
+    background: transparent;
+    background-color: transparent;
+    // background-image: url('../images/hero/png/wave-mobile.png');
+    // box-shadow: -5px 21px 26px rgba(0, 0, 0, 0.04);
+    // background-repeat: no-repeat;
+    // background-position: left top;
+    // background-size: 320px 665px;
   }
 
   &-title {
@@ -56,7 +72,10 @@
     max-width: 260px;
     height: 48px;
     padding: 0 14px;
-    margin: 0 10px 30px 10px;
+
+    @media screen and (max-width: 767px) {
+      margin: 0 10px 284px 10px;
+    }
 
     color: $white-text-color;
     background-color: $accent-background;
@@ -107,15 +126,32 @@
 @media screen and (min-width: 768px) {
   .hero {
     &-section {
-      overflow: hidden;
-    }
-    &-container {
       padding-top: 70px;
-      padding-bottom: 50px;
 
-      background-image: url('../images/hero/png/wave-tablet.png');
-      background-size: 768px 605px;
+      background-image: url('../images/hero/png/header-tablet.png'),
+        url('../images/hero/png/wave-tablet.png');
+
+      background-size: 376px 322px, 768px 605px;
+      background-position: left calc(50% + 188px) top 84px, top -82px center;
+
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url('../images/hero/png/header-tablet@2x.png'),
+          url('../images/hero/png/wave-tablet.png');
+      }
     }
+
+    // &-section {
+
+    //   padding-bottom: 50px;
+    // }
+
+    // &-container {
+    //   padding: 0;
+    //   // background-image: url('../images/hero/png/wave-tablet.png');
+    //   // background-size: 768px 605px;
+    // }
 
     &-title {
       width: 316px;
@@ -133,6 +169,7 @@
     }
 
     &-picture {
+      display: none;
       position: absolute;
       top: 84px;
       left: 332px;
@@ -161,13 +198,31 @@
 
 @media screen and (min-width: 1344px) {
   .hero {
-    &-container {
+    &-section {
       padding-top: 125px;
       padding-bottom: 130px;
 
-      background-image: url('../images/hero/png/wave-desktop.png');
-      background-size: 1680px 992px;
+      background-image: url('../images/hero/png/header-desktop.png'),
+        url('../images/hero/png/wave-desktop.png');
+
+      background-size: 843px 720px, 1688px 912px;
+      background-position: top 46px left calc(50% + 376px), top -85px center;
+
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url('../images/hero/png/header-desktop@2x.png'),
+          url('../images/hero/png/wave-desktop.png');
+      }
     }
+
+    // &-container {
+    //   padding-top: 125px;
+    //   padding-bottom: 130px;
+
+    //   // background-image: url('../images/hero/png/wave-desktop.png');
+    //   // background-size: 1680px 992px;
+    // }
 
     &-title {
       margin-bottom: 24px;
@@ -210,11 +265,11 @@
       letter-spacing: 0.14em;
     }
 
-    &-picture {
-      position: absolute;
-      top: 46px;
-      left: 609px;
-    }
+    // &-picture {
+    //   position: absolute;
+    //   top: 46px;
+    //   left: 609px;
+    // }
 
     &-advantage-list {
       display: flex;
