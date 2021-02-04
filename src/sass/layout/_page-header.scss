@@ -1,13 +1,15 @@
-// .page-header {
-//   position: relative;
-// }
-
 .nav-container {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 30px;
+  &:hover,
+  &:focus{
+    .logo{
+      animation-name: HeartBeat;
+      animation-duration: 1000ms;
+  }}
 }
 
 .logo-main-container {
@@ -17,9 +19,14 @@
   margin: 0;
 }
 
+.heartBeat{
+  animation-name: heartBeat;}
+
 .logo,
 .logo-dark {
   display: block;
+  animation-duration: 1.5s;
+  transition: transform .25s var(--timing-function);
 }
 
 .logo-dark {
@@ -66,9 +73,21 @@
   height: 19px;
   margin-left: 4px;
   margin-right: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 4px; 
+// .shake-opacity {
+//     animation-duration: 0s;
+//     animation-timing-function: ease-in;
+//  }
 }
-
+// .shake-opacity{    
+//   display: inherit;
+//   transform-origin: center center;
+//   &:hover {.shake-constant {
+//     animation-name: shake-opacity;
+//     animation-duration: .5s;
+//     animation-timing-function: ease-in-out;
+//     animation-iteration-count: infinite;}
+// }}
 .menu-btn {
   position: absolute;
   right: 0;
@@ -97,20 +116,6 @@
   &.is-open:focus {
     stroke: var(--accent-color);
   }
-
-  // @media screen and(max-width: 767px) {
-  //   &.is-open {
-  //     position: fixed;
-  //     right: 20px;
-  //   }
-  // }
-
-  // @media screen and(min-width: 768px) and (max-width: 1343px) {
-  //   &.is-open {
-  //     position: fixed;
-  //     right: 40px;
-  //   }
-  // }
 
   @media screen and(max-width: 1343px) {
     & .menu-close-icon {
@@ -177,6 +182,11 @@
     background-color: var(--accent-color);
     color: var(--primary-white-color);
     border-radius: 5px;
+    animation-name: pulse;
+    animation-duration: 1000ms;
+    box-shadow: 0px -5px 26px 5px rgba(224, 135, 17, 0.6);
+    border-radius: 5px;
+  
   }
 
   &.header-btn {
