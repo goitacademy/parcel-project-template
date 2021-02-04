@@ -1,8 +1,11 @@
 .form {
   &-title {
-    @include font(14px, 700, 22px);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
     letter-spacing: 0.03em;
     text-align: center;
+    color: var(--primary-white-color);
   }
 
   &-field {
@@ -26,6 +29,7 @@
     padding: 7px;
     background-color: transparent;
     border: 1px solid var(--secondary-text-color);
+    color: var(--primary-white-color);
 
     @include font(14px, 500, 22px);
     letter-spacing: 0.08em;
@@ -47,8 +51,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
+    // width: 20px;
+    // height: 20px;
     margin: 0;
     padding: 0;
     margin-left: auto;
@@ -57,17 +61,30 @@
     border:none;
     background-color: transparent;
 
+
     &-icon {
-      stroke: var(--title-text-color);
+      stroke: var(--primary-white-color);
+      background: transparent;
+      border: 2px solid  rgba(255, 255, 255, 0.90);
+      background-color: rgba(0, 0, 0, 0.356); 
+      border-radius: 50%;
+      padding: 3px;
       &:hover,
       &:focus {
         stroke: var(--accent-color);
+        background-color:  rgba(255, 255, 255, 0.90);
       }
+    }
+  }
+  @media screen and(max-width:767px){
+    .form-close-btn-icon{
+      width: 25px;
+      height: 25px;
     }
   }
 
   @media screen and (min-width: 768px) {
-    padding: 15px;
+    padding: 15px;    
 
     &-title {
       @include font(16px, 700, 20px);
@@ -76,11 +93,24 @@
     .modal-btn {
       margin: 0 auto;
     }
+    .form-close-btn-icon{
+      width: 30px;
+      height: 30px;
+    }
   }
 
   @media screen and (min-width: 1344px) {
     &-title {
-      @include font(20px, 700, 27px);
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1.4;
+      letter-spacing: 0.03em;
+      text-align: center;
+      color: var(--primary-white-color);
+    }
+    .form-close-btn-icon{
+      width: 35px;
+      height: 35px;
     }
   }
 }
