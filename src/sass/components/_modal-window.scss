@@ -1,39 +1,49 @@
 .modal-window {
   position: absolute;
   z-index: 1000;
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   width: 280px;
   padding: 10px;
- background-image: url("../images/hero/fire.jpg");
- background-position: center;
- background-repeat: no-repeat;
- background-size: cover;
+
+  background-color: var(--primary-white-color);
+  background-image: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.9) 70%
+    ),
+    url(../images/problems/campfire.png);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.9) 70%
+      ),
+      url(../images/problems/campfire@2x.png);
+  }
+
+  background-repeat: no-repeat;
+  background-position: bottom -1px right;
+  background-size: 83%;
+  // box-shadow: 0px -5px 26px 5px rgb(224 135 17 / 60%);
 
   transition: opacity 250ms var(--cubic) 250ms;
-  box-shadow: 0px -5px 96px 9px rgba(252, 122, 0, 0.6);
-  border-radius: 10px;
-
   .backdrop.is-hidden & {
     opacity: 0;
     transform: translate(-50%, -50%);
-
     transition: opacity 250ms var(--cubic);
   }
 
-  @media screen and (max-height: 502px) {
+  @media screen and (max-height: 572px) {
     top: 10px;
     transform: translate(-50%, 0);
   }
 
   @media screen and (min-width: 768px) {
     width: 450px;
-  }
-
-  @media screen and (min-width: 1344px) {
-    width: 500px;
   }
 }

@@ -1,24 +1,27 @@
 .form {
   &-title {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.4;
+    @include font(14px, 700, 22px);
     letter-spacing: 0.03em;
     text-align: center;
-    color: var(--primary-white-color);
+
+    // text-shadow: 0 0 20px var(--accent-color);
   }
 
   &-field {
-    display: block;
+    display: flex;
+    flex-direction: column-reverse;
     margin-bottom: 8px;
   }
 
   &-label {
     @include font(12px, 500, 20px);
     letter-spacing: 0.08em;
-    color: var(--secondary-text-color);
+    color: var(--title-text-color);
 
-    .form-field:hover & {
+    .form-input:hover + &,
+    .form-input:focus + &,
+    .form-comment:hover + &,
+    .form-comment:focus + & {
       color: var(--accent-color);
     }
   }
@@ -27,64 +30,50 @@
   &-comment {
     width: 100%;
     padding: 7px;
-    background-color: transparent;
+    background-color: rgba($color: #ffffff, $alpha: 0.4);
     border: 1px solid var(--secondary-text-color);
-    color: var(--primary-white-color);
 
-    @include font(14px, 500, 22px);
+    @include font(14px, 700, 22px);
     letter-spacing: 0.08em;
+    color: var(--primaty-text-color);
 
-    &:focus,
-    &:hover{
+    &:focus {
       outline: none;
       border-color: var(--accent-color);
-      box-shadow: 0px -5px 96px -14px  rgba(252, 122, 0, 0.6);
-      border-radius: 5px;
     }
   }
 
   &-comment {
-    height: 100px;
+    height: 150px;
+    resize: none;
   }
 
   &-close-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    // width: 20px;
-    // height: 20px;
+    width: 20px;
+    height: 20px;
     margin: 0;
     padding: 0;
     margin-left: auto;
     margin-bottom: 10px;
 
-    border:none;
+    border: none;
     background-color: transparent;
 
-
     &-icon {
-      stroke: var(--primary-white-color);
-      background: transparent;
-      border: 2px solid  rgba(255, 255, 255, 0.90);
-      background-color: rgba(0, 0, 0, 0.356); 
-      border-radius: 50%;
-      padding: 3px;
+      stroke: var(--title-text-color);
+
       &:hover,
       &:focus {
         stroke: var(--accent-color);
-        background-color:  rgba(255, 255, 255, 0.90);
       }
-    }
-  }
-  @media screen and(max-width:767px){
-    .form-close-btn-icon{
-      width: 25px;
-      height: 25px;
     }
   }
 
   @media screen and (min-width: 768px) {
-    padding: 15px;    
+    padding: 15px;
 
     &-title {
       @include font(16px, 700, 20px);
@@ -93,24 +82,11 @@
     .modal-btn {
       margin: 0 auto;
     }
-    .form-close-btn-icon{
-      width: 30px;
-      height: 30px;
-    }
   }
 
   @media screen and (min-width: 1344px) {
     &-title {
-      font-size: 30px;
-      font-weight: 900;
-      line-height: 1.4;
-      letter-spacing: 0.03em;
-      text-align: center;
-      color: var(--primary-white-color);
-    }
-    .form-close-btn-icon{
-      width: 35px;
-      height: 35px;
+      @include font(20px, 700, 27px);
     }
   }
 }
