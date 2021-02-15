@@ -85,8 +85,8 @@ body {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 @media screen and (min-width: 320px) {
@@ -98,12 +98,16 @@ body {
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .container {
     max-width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
@@ -152,18 +156,30 @@ body {
 }
 
 .title {
-  margin-bottom: 20px;
   font-weight: 700;
-  font-size: 28px;
-  line-height: 1.178;
+  font-size: 42px;
+  line-height: 1.166;
   letter-spacing: 0.05em;
+}
+
+.title.dark-theme-title {
+  color: var(--white-color);
+  margin-bottom: 44px;
+}
+
+.title.light-theme-title {
+  margin-bottom: 20px;
   color: var(--secondary-text-color);
 }
 
-@media screen and (min-width: 1200px) {
-  .title {
-    font-size: 42px;
-    line-height: 1.166;
+.title.contacts-title {
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 1199px) {
+  .title.about-title {
+    font-size: 28px;
+    line-height: 1.178;
   }
 }
 
@@ -175,6 +191,40 @@ body {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--secondary-text-color);
+}
+
+.suptitle::before {
+  content: '';
+  display: inline-block;
+  height: 1px;
+  width: 60px;
+  margin-right: 20px;
+  vertical-align: middle;
+  background: var(--secondary-text-color);
+}
+
+.suptitle.dark-line::before {
+  content: '';
+  display: inline-block;
+  height: 1px;
+  width: 60px;
+  margin-right: 20px;
+  vertical-align: middle;
+  background: var(--additional-text-color);
+}
+
+.suptitle.gallery-suptitle {
+  margin-bottom: 44px;
+}
+
+.suptitle.suptitle-footer {
+  color: var(--white-color);
+}
+
+@media screen and (max-width: 767px) {
+  .suptitle.gallery-suptitle {
+    line-height: 1.909;
+  }
 }
 
 .btn {
@@ -257,9 +307,7 @@ body {
     justify-content: flex-end;
   }
   .header-top .contact-list-header .contact-item-header:not(:first-child) {
-    margin-left: 10px;
-    border-left: 1px solid var(--primary-text-color);
-    padding-left: 10px;
+    margin-left: 20px;
   }
   .header-top .contact-list-header .contact-item-header .contact-link-header {
     font-size: 12px;
@@ -267,9 +315,15 @@ body {
     line-height: 1.333;
     letter-spacing: 0.01em;
     color: var(--primary-text-color);
+    display: flex;
+    align-items: center;
   }
   .header-top .contact-list-header .contact-item-header .contact-link-header:focus, .header-top .contact-list-header .contact-item-header .contact-link-header:hover {
     color: var(--accent-color);
+  }
+  .header-top .contact-list-header .contact-item-header .contact-link-header .icon-mail {
+    fill: silver;
+    margin-right: 10px;
   }
   .header-bottom {
     display: flex;
