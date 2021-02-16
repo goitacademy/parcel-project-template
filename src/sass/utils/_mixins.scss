@@ -1,0 +1,57 @@
+@mixin for-size($size) {
+  @if $size == responsive {
+    @media (max-width: 319px) { @content; }
+  } @else if $size == phone {
+    @media (min-width: 320px) { @content; }
+  } @else if $size == max-phone{
+    @media (max-width: 767px) { @content; }
+  } @else if $size == tablet {
+    @media (min-width: 768px) { @content; }
+  } @else if $size == max-tablet{
+    @media (max-width: 1199px) { @content; }
+  } @else if $size == desktop {
+    @media (min-width: 1200px) { @content; }
+  }
+}
+
+@mixin to-size($phone:phone,$max-phone:max-phone) {
+    @include for-size($phone) {
+        @include for-size($max-phone) {
+            @content; 
+        }
+    }  
+}
+
+// // Пример использования миксина медиазапросов
+// .my-box {
+//   width: 100%;
+// // от 319рх и меньше
+//   @include for-size(responsive) {
+//     width: 319px;
+//   }
+
+// // от 320рх и больше
+//   @include for-size(phone) {
+//     width: 320px;
+//   }
+
+// // для диапазона 320-767рх
+//   @include to-size() {
+//     padding: calc(320px - 767px);
+//   }
+
+// // от 768рх и больше
+//   @include for-size(tablet) {
+//     width: 768px;
+//   }
+  
+
+// // для диапазона 768-1199рх
+// @include to-size(tablet, max-tablet) {
+//       width: calc(768px - 1199px);
+// }
+// // от 1200рх и больше
+//   @include for-size(desktop) {
+//     width: 1200px;
+//   }
+// }
