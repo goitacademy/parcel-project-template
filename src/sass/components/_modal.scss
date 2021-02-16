@@ -36,6 +36,11 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  @media screen and (min-width: 1200px) {
+    max-width: 528px;
+    min-height: 581px;
+  }
 }
 
 .modal-window-title {
@@ -44,6 +49,12 @@
   line-height: 1.5;
   text-align: center;
   letter-spacing: 0.03em;
+  margin-bottom: 12px;
+
+  @media screen and (min-width: 1200px) {
+    font-size: 18px;
+    line-height: 1.15;
+  }
 }
 
 .modal-window-close-btn {
@@ -56,6 +67,11 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
+
+  &:hover .modal-window-close-icon,
+  &:focus .modal-window-close-icon {
+    fill: var(--accent-color);
+  }
 }
 
 .modal-window-close-icon {
@@ -67,11 +83,6 @@
   transform: translate(-50%, -50%);
   fill: #000000;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    fill: var(--accent-color);
-  }
 }
 
 .label {
@@ -91,6 +102,7 @@
   border-radius: 4px;
   margin-bottom: 10px;
   padding-left: 30px;
+  outline: none;
 
   &:hover,
   &:focus {
@@ -107,6 +119,7 @@
   margin-bottom: 20px;
   resize: none;
   font-size: 14px;
+  outline: none;
 
   &:hover,
   &:focus {
@@ -122,6 +135,11 @@
   font-size: 11px;
   line-height: 1.17;
   letter-spacing: 0.03em;
+
+  @media screen and (min-width: 1200px) {
+    font-size: 14px;
+    line-height: 1.71;
+  }
 }
 
 .policy-label::before {
@@ -134,10 +152,16 @@
   margin-right: 6px;
   vertical-align: text-top;
 
-  background-image: url(./img/sprite.svg#check);
+  background-image: url(../img/icons/check.svg);
   background-repeat: no-repeat;
   background-position: center;
+
+  .policy-input:checked + & {
+    background-color: var(--accent-color);
+    border: var(--accent-color);
+  }
 }
+
 .policy-link {
   color: var(--accent-color);
 }
