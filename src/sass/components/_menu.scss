@@ -2,18 +2,15 @@
 .mobile-menu {
     position: absolute;
     min-width: 337px;
-    min-height: 796px;
+    min-height: 100vh;
     top: 0%;
     right: 0%;
     background-color: var(--dark-title-color);
     box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.04), -2px 0px 4px rgba(0, 0, 0, 0.08), -1px 0px 3px rgba(0, 0, 0, 0.16);
-    transform: translate(0);
+    transform: translate(0%);
+    transition: opacity 250ms linear, transform 250ms linear; 
     
 
-
-.link-currant {
-        color: var(--accent-color);
-}
 .modal-button.modal-button-white {
     border: 1px solid #FF6C00;
     background-color:#FFFFFF;
@@ -21,6 +18,12 @@
     cursor: pointer;
     margin-top:0;
     color: #303030;
+
+    &:hover,
+    &:focus {
+      background-color: var(--accent-color);
+    }
+    transition: background-color 250ms linear;
 }
 
 @media screen and (min-width:768px) {
@@ -42,18 +45,15 @@
     width: 60px;
     height: 1px;
     background-color: #303030;
-    
-}
-}
-.mobile-menu {
-    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 }
 
 .is-menu-hidden {
-    transform: translateY(-100%) translateX(-50%);
+    transform:  translateX(100%);
 }
 .mobile-menu.is-menu-hidden {
   opacity: 0;
+
 }
 
 .burger-icon {
@@ -84,6 +84,11 @@
     margin-right: 41px;
     border: none;
     background-color:transparent;
+
+    &:hover .icon-close,
+    &:focus .icon-close {
+        fill: var(--accent-color);
+    }
 }
 
 .btn-close:focus {
@@ -109,7 +114,15 @@
     letter-spacing: 0.1em;
     color: var(--white-title-color);
     text-decoration: none;
+
+    transition: color 250ms linear;
+
 }
+
+.mobile-nav-link:focus {
+    color: var(--accent-color);
+}
+
 .mobile-contact {
     margin-bottom: 24px;
     margin-left: 40px;
@@ -121,7 +134,14 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color:var(--white-title-color);
+
+    transition: color 250ms linear;
 }
+.mobile-contact-link:hover,
+.mobile-contact-link:focus {
+    color: var(--accent-color);
+}
+
 .mobile-social-item:last-child {
     padding-left: 140px;
 }
@@ -136,6 +156,13 @@
     line-height: 1.35;
     letter-spacing: 0.2em;
     color: var(--white-title-color);
+
+    transition: color 250ms linear;
+}
+
+.mobile-social-link:hover,
+.mobile-social-link:focus {
+    color: var(--accent-color);
 }
 
 .mobile-button {
