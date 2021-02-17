@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $slideshow = $('.slider-one').slick({
+  $slideshow = $('.slider-first').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -12,12 +12,12 @@ $(document).ready(function () {
   $('.slider-two').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
-    asNavFor: '.slider-one',
+    asNavFor: '.slider-first',
     arrows: false,
     dots: true,
   });
 
-  $('.slider-one__card').click(function () {
+  $('.slider-box__card').click(function () {
     $slideshow.slick('slickNext');
   });
 });
