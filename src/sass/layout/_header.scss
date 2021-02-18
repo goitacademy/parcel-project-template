@@ -14,8 +14,37 @@
   align-items: center;
 }
 
+.main-menu {
+  width: 100%;
+}
+
 .menu {
-  display: none;
+  display: block;
+
+  .link {
+    font-family: 700;
+    font-size: 14px;
+    line-height: 1.29;
+    color: $primary-text-color;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+  }
+}
+
+.menu-item {
+  display: block;
+
+  align-items: left;
+  padding: 11px 21px;
+
+  border-top: 1px solid #e18298;
+
+  &:last-child {
+    border-bottom: 1px solid #e18298;
+  }
 }
 
 .buy {
@@ -49,7 +78,7 @@
 }
 
 .menu-container {
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1199px) {
     display: none;
 
     position: absolute;
@@ -64,8 +93,13 @@
 
     &.is-open {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      flex-direction: column-reverse;
+      justify-content: flex-end;
+    }
+
+    &.is-open .buy_now {
+      margin-top: 60px;
+      margin-bottom: 20px;
     }
   }
 
@@ -74,4 +108,28 @@
     justify-content: space-between;
     width: 100%;
   }
+}
+
+.button {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+  color: $accent-color;
+  fill: $accent-color;
+
+  background-color: $primary-text-color;
+
+  border-radius: 22px;
+  min-width: 160px;
+  height: 50px;
+
+  padding: 8px;
+  border: 2px solid transparent;
+
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+
+  cursor: pointer;
 }
