@@ -6,16 +6,19 @@
   height: 100%;
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.8);
-
-  background-repeat: no-repeat;
-  background-size: cover;
   visibility: visible;
   opacity: 1;
-  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &.is-hidden {
     opacity: 0;
     visibility: hidden;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
     pointer-events: none;
   }
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
