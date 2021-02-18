@@ -1,8 +1,10 @@
 .hero {
   &-section {
+    position: relative;
     background-color: $main-color;
     margin: 0;
     padding: 20px;
+    z-index: -5;
 
     @media screen and (min-width: 768px) {
       padding: 25px 34px;
@@ -14,6 +16,10 @@
   }
 
   &-container {
+    margin-top: 137px;
+    margin-bottom: 160px;
+    // position: absolute;
+    z-index: 10;
     @media screen and (max-width: 768px) {
       width: 222px;
     }
@@ -80,49 +86,211 @@
   //   align-items: center;
   //   justify-content: center;
   border-radius: 20px;
-  //   border-color: transparent;
+  //
   font-weight: 400;
   font-size: 8px;
   line-height: 1.25;
-
-  @media screen and (max-width: 1280px) {
-    // padding: 9px 15px;
-    width: 63px;
-    height: 24px;
-  }
 
   @media screen and (min-width: 1280px) {
     font-size: 14px;
     line-height: 1.29;
     // padding: 14px 21px;
-    width: 104px;
-    height: 40px;
   }
 }
 
 .hero-button {
   &__primary {
     background-color: transparent;
-    border: 2px solid $accent-color;
+    border: 1px solid $accent-color;
     color: $primary-text-color;
     box-shadow: 0 0 40px 40px $accent-color inset, 0 0 0 0 $accent-color;
-    transition: all 150ms ease-in-out;
+    transition: all 200ms ease-in-out;
 
+    @media screen and (max-width: 1280px) {
+      // padding: 9px 15px;
+      width: 63px;
+      height: 24px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      width: 104px;
+      height: 40px;
+    }
     &:hover,
     &:focus {
+      color: $accent-color;
       outline: 0;
-      box-shadow: 0 0 10px 0 $accent-color inset, 0 0 10px 4px $accent-color;
+      box-shadow: 0 0 10px 0 $accent-color inset,
+        0 0 10px 4px $primary-text-color;
     }
   }
+
   &__secondary {
-    width: 82px;
-    height: 24px;
     background-color: $primary-text-color;
     color: $accent-color;
+    border-color: transparent;
+
+    @media screen and (max-width: 1280px) {
+      width: 82px;
+      height: 24px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      width: 138px;
+      height: 40px;
+    }
 
     &:focus,
     &:hover {
-      border-color: #ecebeb;
+      background-color: #ecebeb;
+      color: $accent-color;
+      box-shadow: 0 0 10px 0 $accent-color;
     }
+  }
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 117px;
+  background-image: url('../images/img-hero/ice-cream-hero-mob/ice-cream-hero-mob@1x-171.png');
+  z-index: -3;
+
+  @media screen and (min-width: 480px) {
+    left: 45%;
+  }
+  @media screen and (min-width: 768px) {
+    left: 55%;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 25%;
+    left: 50%;
+  }
+}
+
+.overlay::after {
+  content: '';
+
+  position: absolute;
+  top: -9px;
+  left: -50%;
+
+  display: block;
+  width: 346px;
+  height: 344px;
+  border-radius: 50%;
+  background-color: $pink-text-color;
+  overflow: hidden;
+  z-index: -4;
+
+  @media screen and (min-width: 768px) {
+    width: 324px;
+    height: 322px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 538px;
+    height: 538px;
+  }
+}
+
+.hero-advantages {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 34px;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 74px;
+    right: 97px;
+  }
+
+  &__number {
+    @media screen and (min-width: 768px) {
+      margin-top: 0;
+      margin-bottom: 2px;
+      font-family: Titan One;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 1.15;
+
+      text-align: right;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+
+      color: $accent-color;
+    }
+
+    @media screen and (min-width: 1280px) {
+      font-size: 46px;
+    }
+  }
+  &__name {
+    @media screen and (min-width: 768px) {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-family: DM Sans;
+      font-size: 8px;
+      line-height: 1.1;
+      text-align: right;
+
+      color: $primary-text-color;
+    }
+
+    @media screen and (min-width: 1280px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.hero-advantages__name:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.hero-advantages__number.cafes::after {
+  @media screen and (min-width: 768px) {
+    content: '';
+    position: absolute;
+    top: -1px;
+    right: -8px;
+
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: $primary-text-color;
+    z-index: -1;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: -8px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.hero-advantages__number.trucks::after {
+  @media screen and (min-width: 768px) {
+    content: '';
+    position: absolute;
+    top: 57px;
+    right: -8px;
+
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: $primary-text-color;
+    z-index: -1;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 80px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
   }
 }
