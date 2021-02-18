@@ -1,0 +1,162 @@
+/* стили основного контейнера слайдера */
+.slider {
+  position: relative;
+  overflow: hidden;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* стили для обёртки, в которой заключены слайды */
+  &__wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* стили для контейнера слайдов */
+  &__items {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    transition: transform 0.6s ease;
+  }
+
+  /* стили для слайдов */
+  &__item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* стили для индикаторов */
+  &__indicators {
+    position: absolute;
+    right: 0;
+    bottom: 80px;
+    left: 0;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__indicators li {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #d9d9d9;
+  }
+
+  &__indicators li.active {
+    background-color: #fff;
+    background-image: url(../images/home.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+/* для стилизации текущего слайдера */
+.img-fluid {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+}
+
+.reviews {
+  @media screen and (min-width: 1200px) {
+    background-color: #fff5f6;
+  }
+
+  &__photo {
+    margin-bottom: 30px;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+  }
+
+  &__text--container {
+    background: #fafafa;
+    padding: 40px 50px 20px 50px;
+    margin-bottom: 52px;
+  }
+
+  &__text {
+    position: relative;
+    z-index: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-image: -webkit-repeating-linear-gradient(
+      top,
+      transparent 0px,
+      transparent 28px,
+      #e1e1e1 28px,
+      transparent 30px
+    );
+    background-image: -moz-repeating-linear-gradient(
+      top,
+      transparent 0px,
+      transparent 28px,
+      #e1e1e1 28px,
+      transparent 30px
+    );
+    background-image: -ms-repeating-linear-gradient(
+      top,
+      transparent 0px,
+      transparent 28px,
+      #e1e1e1 28px,
+      transparent 30px
+    );
+    background-image: -o-repeating-linear-gradient(
+      top,
+      transparent 0px,
+      transparent 28px,
+      #e1e1e1 28px,
+      transparent 30px
+    );
+    background-image: repeating-linear-gradient(
+      top,
+      transparent 0px,
+      transparent 28px,
+      #e1e1e1 28px,
+      transparent 30px
+    );
+  }
+
+  &__text::before {
+    display: block;
+    position: absolute;
+    top: -14px;
+    left: -5px;
+    z-index: -1;
+    content: '';
+    width: 54px;
+    height: 40px;
+    background-image: url(../images/quotes.svg);
+  }
+
+  &__city {
+    position: relative;
+    margin-bottom: 128px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  &__city::before {
+    position: absolute;
+    top: -25px;
+    left: 47%;
+    transform: translateY(-47%);
+    content: '. . .';
+    font-size: 30px;
+    color: #c7133e;
+  }
+}
