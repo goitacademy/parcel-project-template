@@ -19,7 +19,7 @@
 }
 
 .buy {
-  display: none;
+  display: block;
 }
 
 .burger-menu {
@@ -31,7 +31,7 @@
   display: block;
   z-index: 1;
 
-  .icon-cross {
+  .icon-close {
     display: none;
   }
 
@@ -39,11 +39,39 @@
     display: block;
   }
 
-  &.is-open .icon-menu {
+  &.is-open .icon-burger {
     display: none;
   }
 
   @media screen and (min-width: 1200px) {
     display: none;
+  }
+}
+
+.menu-container {
+  @media screen and (max-width: 767px) {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+
+    width: 250px;
+    height: 100%;
+    padding: 20px 0px;
+    background-color: $modal-color;
+
+    &.is-open {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 }
