@@ -11,7 +11,7 @@
   background-image: url(../images/bg1mobile-320.png), url(../images/cow-280.png);
   background-size: contain, 280px;
   background-repeat: no-repeat;
-  background-position: 0px 330px, 100px 265px;
+  background-position: 0px 766px, 20px 263px;
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     padding-top: 130px;
@@ -24,7 +24,7 @@
       url(../images/home-pic1-1desktop.png);
     background-size: contain, 516px;
     background-repeat: no-repeat;
-    background-position: 0px 330px, 100px 265px;
+    background-position: 0px 342px, 112px 295px;
   }
 }
 
@@ -35,6 +35,7 @@
   justify-content: center;
   text-transform: uppercase;
   color: #ffa5ba;
+  margin-bottom: 15px;
 
   // @media screen and (min-width: 768px) {
 
@@ -46,14 +47,25 @@
 }
 
 .about-container {
-  max-width: 463px;
+  max-width: 220px;
   width: 100%;
-  height: 534px;
-  text-align: left;
   margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 463px;
+    height: 494px;
+  }
 }
 
 .about-title {
+  @include font-shs(34px, 1.15, 0.04em);
   font-family: Titan One;
   text-align: center;
   text-transform: uppercase;
@@ -68,28 +80,54 @@
 }
 
 .about-article {
-  @include font(500, 14px, 1.9, 0.04em);
+  @include font(500, 12px, 1.6, 0.04em);
   color: #907e82;
 
-  .accent-text {
+  // @media screen and (max-width: 767px) {
+
+  // }
+
+  @media screen and (min-width: 1280px) {
+    @include font(500, 14px, 1.9, 0.04em);
+  }
+}
+
+.accent-text {
+  @include font(500, 12px, 1.6, 0.04em);
+  color: #000000;
+
+  @media screen and (min-width: 1280px) {
     @include font(500, 16px, 1.7, 0.04em);
-    color: #000000;
   }
 }
 
 .about-text {
-  /* or 28px */
-
   &:nth-child(1) {
     font-weight: bold;
   }
 
-  &:not(:last-child) {
-    margin-bottom: 35px;
+  @media screen and (min-width: 1280px) {
+    &:not(:last-child) {
+      margin-bottom: 35px;
+    }
+
+    &:last-child {
+      margin-bottom: 45px;
+    }
   }
 
-  &:last-child {
-    margin-bottom: 45px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+    &:nth-child(1) {
+      margin-bottom: 45px;
+    }
+    // &:not(:last-child) {
+    //   margin-bottom: 20px;
+    // }
+
+    // &:last-child {
+    //   margin-bottom: 45px;
+    // }
   }
 }
 
