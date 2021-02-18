@@ -1,2 +1,2 @@
 import './sass/main.scss';
-import './sass/utils/hamburgers/burger';
+import './js/burger'
