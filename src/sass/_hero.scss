@@ -1,29 +1,25 @@
-p {
-    margin: 0;
-}
-
 .header-section {
     background-color: #FFB8CA;
 }
 
-.container-my {
-    margin-top: 84px;
+.container {
     z-index: 1;
-    margin-left: auto;
-    margin-right: auto;
     position: relative;
     overflow: hidden;
-    justify-content: center;
     @media screen and(min-width: 768px) {
-        width: 756px;
         display: flex;
         justify-content: space-between;
-        padding-left: 40px;
-        padding-right: 40px;
     }
-    @media screen and(min-width: 1200px) {
-        width: 1200px;
+    @media screen and(min-width: 1280px) {
+        // DELETE
+        height: 666px;
     }
+}
+
+// DELETE
+.navi {
+    width: 100%;
+    height: 94px;
 }
 
 .hero-title {
@@ -34,7 +30,7 @@ p {
         width: 165px;
         padding: 15px 0 20px;
     }
-    @media screen and(min-width: 1200px) {
+    @media screen and(min-width: 1280px) {
         width: 280px;
     }
     &__mini {
@@ -50,7 +46,7 @@ p {
             font-size: 22px;
             line-height: 25px;
         }
-        @media screen and(min-width: 1200px) {
+        @media screen and(min-width: 1280px) {
             font-size: 38px;
             line-height: 44px;
         }
@@ -66,7 +62,7 @@ p {
             font-size: 34px;
             line-height: 90.5%;
         }
-        @media screen and(min-width: 1200px) {
+        @media screen and(min-width: 1280px) {
             font-size: 58px;
             line-height: 90.5%;
         }
@@ -77,6 +73,7 @@ p {
     width: 62px;
     height: 24px;
     border-radius: 20px;
+    border: transparent;
     color: #FFFFFF;
     background-color: #D41443;
     font-family: DM Sans;
@@ -84,7 +81,7 @@ p {
     font-size: 8px;
     line-height: 10px;
     text-align: center;
-    @media screen and(min-width: 1200px) {
+    @media screen and(min-width: 1280px) {
         width: 105px;
         height: 40px;
         font-size: 14px;
@@ -96,6 +93,7 @@ p {
     width: 82px;
     height: 24px;
     border-radius: 20px;
+    border: transparent;
     color: #D41443;
     background-color: #FFFFFF;
     font-family: DM Sans;
@@ -103,7 +101,7 @@ p {
     font-size: 8px;
     line-height: 10px;
     text-align: center;
-    @media screen and(min-width: 1200px) {
+    @media screen and(min-width: 1280px) {
         width: 140px;
         height: 40px;
         font-size: 14px;
@@ -120,66 +118,76 @@ p {
     @media screen and (min-width: 768px) {
         width: 115px;
     }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1280px) {
         width: 200px;
         font-size: 14px;
         line-height: 140%;
     }
 }
 
+// 333333
 .hero-want-mo-text {
     width: 26px;
     height: 26px;
+    background-color: $text-color-white;
     border-radius: 50%;
-    background-color: teal;
+    margin-top: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (min-width: 1280px) {
+        margin-top: 20px;
+    }
+    &__arrow {
+        fill: $text-color-chery;
+    }
 }
 
+// .hero-want-mo-text {
+//     width: 26px;
+//     height: 26px;
+//     border-radius: 50%;
+//     background-color: teal;
+// }
 .header-info-left-box {
     display: none;
     @media screen and(min-width: 768px) {
         display: flex;
         align-items: flex-end;
     }
-    &__text {}
 }
 
 // .ice-cream-box
 .hero-png-box {
     // position: absolute;
-    @media screen and(min-width: 768px) {
-        width: 325px;
-        height: 325px;
-    }
-    @media screen and(min-width: 1200px) {
-        width: 540px;
-        height: 540px;
-    }
     &__img {
         position: absolute;
-        left: 50%;
+        left: 40%;
         bottom: 0;
-        // &::after {
-        //     position: absolute;
-        //     top: 50%;
-        //     left: 50%;
-        //     width: 345px;
-        //     height: 345px;
-        //     border-radius: 50%;
-        //     background-color: #000000;
-        // }
+        z-index: -2;
+    }
+    &__circle {
+        top: 50%;
+        left: 50%;
+        transform: translate(-25%, -50%);
+        position: absolute;
+        z-index: -3;
+        background-color: #FFA5BA;
+        width: 345px;
+        height: 345px;
+        border-radius: 50%;
+        // position: absolute;
+        @media screen and(min-width: 768px) {
+            width: 325px;
+            height: 325px;
+        }
+        @media screen and(min-width: 1280px) {
+            width: 540px;
+            height: 540px;
+        }
     }
 }
 
-// .text-btn-head {
-//     font-family: DM Sans;
-//     font-weight: normal;
-//     font-size: 8px;
-//     line-height: 10px;
-//     display: flex;
-//     align-items: center;
-//     text-align: center;
-//     color: #FFFFFF;
-// }
 // правый вверх
 .header-info-right-box {
     display: none;
@@ -189,6 +197,7 @@ p {
 }
 
 .amount-of-points {
+    position: relative;
     @media screen and(min-width: 768px) {
         // text-align: right;
         font-family: Titan One;
@@ -198,8 +207,23 @@ p {
         letter-spacing: 0.04em;
         text-transform: uppercase;
         color: #D41443;
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            @media screen and (min-width: 1280px) {
+                width: 30px;
+                height: 30px;
+            }
+        }
     }
-    @media screen and (min-width:1200px) {
+    @media screen and (min-width:1280px) {
         font-size: 46px;
         line-height: 53px;
     }
@@ -210,7 +234,7 @@ p {
         font-size: 8px;
         line-height: 10px;
         text-align: center;
-        @media screen and(min-width: 1200px) {
+        @media screen and(min-width: 1280px) {
             font-size: 14px;
             line-height: 18px;
         }
