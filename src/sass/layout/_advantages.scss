@@ -1,7 +1,14 @@
 .advantages {
   &-container {
     & .title {
-      width: 430px;
+      letter-spacing: 0;
+      @media screen and(min-width:768px) {
+        max-width: 430px;
+        letter-spacing: 0.05em;
+      }
+    }
+    @media screen and(min-width:768px) {
+      // max-width: ;
     }
     @media screen and(min-width:1200px) {
       display: flex;
@@ -10,38 +17,48 @@
   }
   &-description {
     margin-bottom: 44px;
-    max-width: 550px;
+    // max-width: 550px;
     margin-right: auto;
+
     @media screen and (min-width: 1200px) {
-      padding-left: 65px;
+      width: calc((100% - 30px) / 2);
+      margin-bottom: 0;
+      padding-left: 30px;
+      margin-right: 0;
     }
   }
   &-text {
-    max-width: 390px;
+    max-width: 400px;
     line-height: 30px;
+
     @media screen and(min-width:768px) {
-      max-width: 500px;
+      max-width: 470px;
     }
   }
   &-decoration {
-    max-width: 460px;
-    margin-left: auto;
     @media screen and (min-width: 1200px) {
-      margin-right: 65px;
+      width: calc((100% - 30px) / 2);
+      margin-left: 0;
     }
+    // max-width: 480px;
   }
   &-list {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
+    @media screen and(min-width:768px) {
+      width: calc((100% - 15px) / 6 * 4);
+      margin-left: auto;
+    }
+    @media screen and(min-width:1200px) {
+      margin: 0 auto;
+    }
   }
   &-item {
     width: calc(50% - 15px);
-    max-width: 193px;
-    height: 133px;
     padding: 20px 20px;
-    @media screen and(min-width:768px) {
-      max-width: 210px;
-    }
+    min-height: 133px;
+
 
     background-color: #f7f7f7;
 
@@ -73,23 +90,23 @@
 }
 .plus-icon {
   position: absolute;
-  fill: #ff6c00;
+  fill: var(--accent-color);
   width: 13px;
   height: 22px;
+}
+@media screen and (max-width: 1199px) {
 }
 @media screen and (max-width: 479px) {
   .advantages {
     &-number {
-      font-size: 30px;
-      line-height: 45px;
+      font-size: 35px;
+      line-height: 50px;
     }
     &-item-text {
-      font-size: 8px;
+      font-size: 10px;
       line-height: 12px;
     }
     &-container .title {
-      width: 100%;
-      max-width: 430px;
     }
   }
   .plus-icon {
