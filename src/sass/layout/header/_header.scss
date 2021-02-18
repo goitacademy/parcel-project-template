@@ -1,4 +1,4 @@
-// Пример использования миксина медиазапросов
+/*// Пример использования миксина медиазапросов
 .my-box {
   width: 100%;
 // от 319рх и меньше
@@ -30,4 +30,155 @@
   @include for-size(desktop) {
     width: 1200px;
   }
+}
+@at-root*/
+
+header {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: getColor('mainPink');
+    padding-top: 6px;
+  }
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-family: $main-font;
+  color: getColor('accent');
+  font-size: 26px;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.menu__container {
+  @media screen and (max-width: 1279px) {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    min-height: 100vh;
+    height: auto;
+    background-color: #e17992;
+    padding: 60px 0;
+    flex-direction: column;
+  }
+
+  &.is-open {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+.menu__navigation {
+}
+
+.menu__item {
+  padding: 11px 0 13px 24px;
+  border: 1px solid #e18298;
+}
+
+.menu__item:not(:first-child) {
+  @media screen and (min-width: 1280px) {
+    margin-right: 35px;
+  }
+}
+.menu__button-mob {
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+  display: flex;
+  align-items: center;
+  padding: 12px 48px;
+  border: none;
+  border-radius: 22px;
+  margin: 0 34px 19px;
+}
+
+.menu__button-mob-text {
+  display: block;
+  color: getColor('accent');
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+}
+
+.menu__button {
+  display: inline-flex;
+  z-index: 3;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  fill: getColor('accent');
+  /*@include transit(fill);*/
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+
+  & .icon-cross {
+    display: none;
+  }
+
+  &.is-open {
+    position: absolute;
+    top: 23px;
+    right: 28px;
+    .icon-cross {
+      display: block;
+    }
+
+    .icon-menu {
+      display: none;
+    }
+  }
+  &:hover {
+    /*fill: $accent-color;*/
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .menu__navigation {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28;
+    letter-spacing: 0.02em;
+  }
+
+  .menu__link {
+    display: block;
+    color: getColor('whiteText');
+    /*@include transit;*/
+
+    &:hover,
+    &:focus {
+      color: getColor('accent');
+    }
+
+    &--active {
+      color: getColor('accent');
+    }
+  }
+}
+.menu__button-tablet {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  display: flex;
+  align-items: center;
+  padding: 12px 42px;
+  border: none;
+  border-radius: 22px;
+  margin: 0;
 }
