@@ -5,6 +5,7 @@
     margin: 0;
     padding: 20px;
     // z-index: -5;
+    overflow: hidden;
 
     @media screen and (min-width: 768px) {
       padding: 25px 34px;
@@ -94,7 +95,6 @@
   @media screen and (min-width: 1280px) {
     font-size: 14px;
     line-height: 1.29;
-    // padding: 14px 21px;
   }
 }
 
@@ -105,9 +105,9 @@
     color: $primary-text-color;
     box-shadow: 0 0 40px 40px $accent-color inset, 0 0 0 0 $accent-color;
     transition: all 200ms ease-in-out;
+    z-index: 5;
 
     @media screen and (max-width: 1280px) {
-      // padding: 9px 15px;
       width: 63px;
       height: 24px;
     }
@@ -129,6 +129,7 @@
     background-color: $primary-text-color;
     color: $accent-color;
     border-color: transparent;
+    z-index: 10;
 
     @media screen and (max-width: 1280px) {
       width: 82px;
@@ -149,12 +150,15 @@
   }
 }
 
-.overlay {
+.hero-overlay {
   position: absolute;
-  bottom: 0;
-  left: 117px;
+  bottom: 0px;
+  left: 100px;
   background-image: url('../images/img-hero/ice-cream-hero-mob/ice-cream-hero-mob@2x-171.jpg');
+  background-size: 50%;
+  background-repeat: no-repeat;
   z-index: 1;
+  transition: transform 0.3s ease;
 
   @media screen and (min-width: 480px) {
     left: 45%;
@@ -163,33 +167,60 @@
     left: 55%;
   }
   @media screen and (min-width: 1280px) {
-    top: 25%;
+    bottom: 0;
     left: 50%;
+  }
+
+  &-background {
+    position: absolute;
+    top: -10px;
+    left: -40%;
+    width: 346px;
+    height: 344px;
+    border-radius: 50%;
+    background-color: $pink-text-color;
+    z-index: -1;
+    overflow: hidden;
   }
 }
 
-.overlay::after {
-  content: '';
+// .overlay::after {
+//   content: '';
 
-  position: absolute;
-  top: -9px;
-  left: -50%;
+//   position: absolute;
+//   top: -9px;
+//   left: -50%;
 
-  display: block;
-  width: 346px;
-  height: 344px;
-  border-radius: 50%;
-  background-color: $pink-text-color;
-  overflow: hidden;
-  z-index: -1;
+//   display: block;
+//   width: 346px;
+//   height: 344px;
+//   border-radius: 50%;
+//   background-color: $pink-text-color;
+//   overflow: hidden;
+//   z-index: -1;
 
+//   @media screen and (min-width: 768px) {
+//     width: 324px;
+//     height: 322px;
+//   }
+//   @media screen and (min-width: 1280px) {
+//     width: 538px;
+//     height: 538px;
+//   }
+// }
+
+.hero-overlay:hover {
+  @media screen and (max-width: 480px) {
+    transform: scale(1.1);
+  }
+  @media screen and (min-width: 480px) {
+    transform: scale(1.2);
+  }
   @media screen and (min-width: 768px) {
-    width: 324px;
-    height: 322px;
+    transform: scale(1.3);
   }
   @media screen and (min-width: 1280px) {
-    width: 538px;
-    height: 538px;
+    transform: scale(1.5);
   }
 }
 
