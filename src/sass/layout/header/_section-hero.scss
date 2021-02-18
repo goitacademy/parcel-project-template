@@ -1,33 +1,101 @@
-// // Пример использования миксина медиазапросов
-// .my-box {
-//   width: 100%;
-// // от 319рх и меньше
-//   @include for-size(responsive) {
-//     width: 319px;
-//   }
+.hero {
+  .container {
+    position: relative;
 
-// // от 320рх и больше
-//   @include for-size(phone) {
-//     width: 320px;
-//   }
+    background-color: getColor('mainPink');
+    overflow: hidden;
+    padding-top: 27px;
+    padding-right: 0;
+    height: 502px;
+    @media screen and (min-width: 768px) {
+      height: 399px;
+    }
+  }
+}
+.hero__circle {
+  @media screen and (max-width: 767px) {
+    background-image: url('/images/header/ellipse3.png');
+    width: 284px;
+    height: 344px;
+    position: absolute;
+    right: 0;
+    top: 27px;
+  }
+  @media screen and (min-width: 768px) {
+    background-color: getColor('secondaryPink');
+    width: 322px;
+    height: 322px;
+    border-radius: 50%;
+    position: absolute;
+    right: 137px;
+    top: 31px;
+  }
+}
 
-// // для диапазона 320-767рх
-//   @include to-size() {
-//     padding: calc(320px - 767px);
-//   }
+.hero__icecream {
+  position: absolute;
+  right: 30px;
+  top: 9px;
+  z-index: 3;
+  @media screen and (min-width: 768px) {
+    right: 110px;
+    top: 32px;
+  }
+}
 
-// // от 768рх и больше
-//   @include for-size(tablet) {
-//     width: 768px;
-//   }
-  
+.hero__title {
+  position: absolute;
+  top: 137px;
+  z-index: 8;
+  @media screen and (min-width: 320px) and (max-width: 479px) {
+    right: calc(112px + (100vw - 320px) / 3);
+  }
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    right: 165px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    top: 15px;
+    left: 34px;
+  }
 
-// // для диапазона 768-1199рх
-// @include to-size(tablet, max-tablet) {
-//       width: calc(768px - 1199px);
-// }
-// // от 1200рх и больше
-//   @include for-size(desktop) {
-//     width: 1200px;
-//   }
-// }
+
+  &-up {
+    display: block;
+    font-family: $main-font;
+    color: getColor('whiteText');
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  &-main {
+    display: block;
+    font-family: $main-font;
+    color: getColor('accent');
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 19px;
+  }
+}
+.hero__button-products {
+  background-color: getColor('accent');
+  color: getColor('whiteText');
+  border: none;
+  border-radius: 12px;
+  padding: 7px 15px;
+  font-size: 8px;
+  line-height: 1.25;
+}
+
+.hero__button-made {
+  background-color: getColor('whiteText');
+  color: getColor('accent');
+  border: none;
+  border-radius: 12px;
+  padding: 7px 15px;
+  font-size: 8px;
+  line-height: 1.25;
+  margin-left: 8px;
+}
