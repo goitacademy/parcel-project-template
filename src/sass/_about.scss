@@ -34,8 +34,6 @@ img {
     min-width: 320px;
     margin: 0 auto;
     padding: 0 20px;
-    
-    outline: 1px solid red;
 }
 .about-lable-title {
     display: block;
@@ -48,14 +46,10 @@ img {
     font-size: 18px;
     line-height: 1.17;
     text-transform: uppercase;
-
-    outline: 1px solid green;
 }
 .about-item-position {
     display: block;
     padding: 0 30px 0 30px;
-
-    outline: 1px solid blue;
 }
 .about-item {
     max-width: 440px;
@@ -75,13 +69,10 @@ img {
     text-transform: uppercase;
     
     color: #D41443;
-    outline: 1px solid green;
 }
 .about-image-link {
     display: flex;
     justify-content: center;
-
-    outline: 1px solid red;
 }
 .about-item-title {
     margin: 0;
@@ -91,8 +82,6 @@ img {
     font-weight: 500;
     font-size: 12px;
     line-height: 162%;
-
-    outline: 1px solid blue;
 }
 .about-item-text {
     color: #907E82;
@@ -102,16 +91,14 @@ img {
     font-weight: 500;
     font-size: 12px;
     line-height: 162%;
-
-    outline: 1px solid green;
 }
 .about-button {
-    display: block;
+    display: flex;
+    align-items: end;
     margin-top: 30px;
 
     min-width: 176px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 13px 37px;
 
     color: #D41443;
     background-color: white;
@@ -131,11 +118,8 @@ img {
     }
 }
 .about-button-arrow {
-    position: relative;
-    top: 4px;
     width: 10px;
     height: 15px;
-    left: 5px;
     margin-left: 13.62px;
     fill: #D41443;
 }
@@ -239,7 +223,6 @@ img {
 }
 
 // модальное окно
-
 .backdrop {
     position: fixed;
     top: 0;
@@ -250,7 +233,7 @@ img {
     padding: 30px;
     overflow-y: scroll;
     opacity: 1;
-    transition: opacity $function-time $function-cubic;  
+    transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 250ms;  
     z-index: 4;
       
       &.is-hidden {
@@ -259,49 +242,46 @@ img {
         }
       &.is-hidden .modal {
         transform: translate(-50%, -50%) scale(0.9);
-        transition: transform $function-time $function-cubic;
+        transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
       }
   }
-
 .modal {
     display: flex;
     position: relative;
     left: 50%;
+    top: 50%;
     flex-direction: column;
-    padding: 0;
+    padding: 30px;
     margin: 0;
-    min-width: 200px;
-    min-height: 200px;
-    width: 100%;
-    background-color: $color-bg-secondary;
-    transform: translate(-50%) scale(1);
+    max-width: 440px;
+    background-color: #ffffff;
+    transform: translate(-50%, -50%) scale(1);
 }
-
 .close-button {
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    margin: 10px 10px 0 auto;
+    height: 20px;
+    width: 20px;
+    margin: 0 0 10px auto;
    
     cursor: pointer;
+    border: 1px solid #D41342;
+
     background-color: transparent;
-    border: 1px solid $color-button-dark;
-    transition: transform $function-time $function-cubic;
+    transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
     z-index: 5;
 
     &:hover,
     &:focus {
-      background-color: $color-button-dark;
+      background-color: #D41342;
     }
     &:hover .icon-cross,
     &:focus .icon-cross {
-    fill: $color-button-light;
+    fill: #ffffff;
     }
 }
-
 .icon-cross {
-    fill: $color-button-dark;
+    fill: #D41342;
 }
