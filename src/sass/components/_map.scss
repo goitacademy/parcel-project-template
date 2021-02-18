@@ -1,0 +1,195 @@
+.backdrop {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+  
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.2);
+
+    overflow-y: scroll;
+  
+    opacity: 1;
+  }
+  
+.backdrop.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    & .locations {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+.locations {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    padding: 40px 15px;
+    background: #FFB8CA;
+
+    overflow-y: auto;
+
+    @media screen and (max-width: $max-responsive-mobile) {
+        width: 100%;
+      }
+    
+      @media screen and (min-width: $mobile) {
+        width: 480px;
+        left: 50%;
+        transform: translate(-50%, 0) scale(1);
+      }
+
+      @media screen and (min-width: $tablet) {
+        width: 600px;
+      }
+
+      @media screen and (min-width: $desktop) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+
+        width: 950px;
+        min-height: 600px;
+      }
+
+
+    &-button {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        border: none;
+        // щоб бачити кнопку. Коли появится свг, bgc потрібно забрати
+        background-color: teal;
+
+        @media screen and (min-width: $tablet) {
+            top: 19px;
+            right: 27px;
+          }
+
+        @media screen and (min-width: $desktop) {
+            top: 23px;
+            right: 34px;
+          }
+    }
+
+    &-icon {
+        width: 14px;
+        height: 14px;
+        fill: #fff;
+    }
+
+    &-tittle {
+        margin: 0;
+        margin-bottom: 30px;
+
+        font-family: Titan One;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 1.14;
+        text-align: center;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+
+        color: #D41443;
+
+        @media screen and (min-width: $tablet) {
+            font-size: 48px;
+          }
+    
+        @media screen and (min-width: $desktop) {
+            font-size: 58px;
+          }
+    }
+
+    &-list {
+        
+        @media screen and (min-width: $desktop) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+    }
+
+    &-item {
+
+        text-align: center;
+
+        @media screen and (min-width: $tablet) {
+            width: 100%px;
+          }
+
+        @media screen and (min-width: $desktop) {
+            width: calc((100% - 45px) / 3);
+            margin-right: 15px;
+
+            &-item:last-child {
+                margin-right: 0;
+          }
+        }
+    }
+
+    &-item:not(:last-child) {
+        margin-bottom: 20px;
+
+        @media screen and (min-width: $tablet) {
+            margin-bottom: 30px;
+          }
+    }
+
+    // &-item:nth-child(2n) {
+    //     margin-left: auto;
+    // }
+
+    &-list-tittle {
+        margin-top: 0;
+        margin-bottom: 10px;
+
+        font-family: Titan One;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 1.13;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        text-align: center;
+
+        color: #D41443;
+
+        @media screen and (min-width: $tablet) {
+            font-size: 26px;
+          }
+    
+        @media screen and (min-width: $desktop) {
+            font-size: 30px;
+          }
+    }
+
+    &-list-address {
+        margin-bottom: 5px;
+        margin-right: auto;
+        margin-left: auto;
+
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 1.13;
+        letter-spacing: 0.02em;
+        text-align: center;
+
+        color: #000000;
+
+        @media screen and (min-width: $tablet) {
+            font-size: 14px;
+          }
+    
+        @media screen and (min-width: $desktop) {
+            font-size: 16px;
+          }
+    }
+}
