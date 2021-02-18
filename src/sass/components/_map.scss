@@ -25,24 +25,55 @@
 
 .locations {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    top: 0;
+    left: 0;
 
-    padding: 30px 15px;
-    width: 900px;
-    min-height: 100vh;
-    height: 100%;
+    padding: 40px 15px;
     background: #FFB8CA;
+
+    overflow-y: auto;
+
+    @media screen and (max-width: $max-responsive-mobile) {
+        width: 100%;
+      }
+    
+      @media screen and (min-width: $mobile) {
+        width: 480px;
+        left: 50%;
+        transform: translate(-50%, 0) scale(1);
+      }
+
+      @media screen and (min-width: $tablet) {
+        width: 600px;
+      }
+
+      @media screen and (min-width: $desktop) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+
+        width: 950px;
+        min-height: 600px;
+      }
 
 
     &-button {
         position: absolute;
-        top: 23px;
-        right: 34px;
+        top: 15px;
+        right: 20px;
         border: none;
         // щоб бачити кнопку. Коли появится свг, bgc потрібно забрати
         background-color: teal;
+
+        @media screen and (min-width: $tablet) {
+            top: 19px;
+            right: 27px;
+          }
+
+        @media screen and (min-width: $desktop) {
+            top: 23px;
+            right: 34px;
+          }
     }
 
     &-icon {
@@ -58,47 +89,84 @@
         font-family: Titan One;
         font-style: normal;
         font-weight: normal;
-        font-size: 58px;
+        font-size: 30px;
         line-height: 1.14;
         text-align: center;
         letter-spacing: 0.06em;
         text-transform: uppercase;
 
         color: #D41443;
+
+        @media screen and (min-width: $tablet) {
+            font-size: 48px;
+          }
+    
+        @media screen and (min-width: $desktop) {
+            font-size: 58px;
+          }
+    }
+
+    &-list {
+        
+        @media screen and (min-width: $desktop) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
     }
 
     &-item {
-        // width: calc((100% - 30px) / 3);
-        // margin-right: 10px;
-        margin-bottom: 20px;
-        width: 430px;
+
         text-align: center;
-      }
 
-    &-item:last-child {
-        margin-bottom: 0;
+        @media screen and (min-width: $tablet) {
+            width: 100%px;
+          }
+
+        @media screen and (min-width: $desktop) {
+            width: calc((100% - 45px) / 3);
+            margin-right: 15px;
+
+            &-item:last-child {
+                margin-right: 0;
+          }
+        }
     }
 
-    &-item:nth-child(2n) {
-        margin-left: auto;
+    &-item:not(:last-child) {
+        margin-bottom: 20px;
+
+        @media screen and (min-width: $tablet) {
+            margin-bottom: 30px;
+          }
     }
+
+    // &-item:nth-child(2n) {
+    //     margin-left: auto;
+    // }
 
     &-list-tittle {
         margin-top: 0;
         margin-bottom: 10px;
-        margin-right: auto;
-        margin-left: auto;
 
         font-family: Titan One;
         font-style: normal;
         font-weight: normal;
-        font-size: 30px;
+        font-size: 18px;
         line-height: 1.13;
         letter-spacing: 0.04em;
         text-transform: uppercase;
         text-align: center;
 
         color: #D41443;
+
+        @media screen and (min-width: $tablet) {
+            font-size: 26px;
+          }
+    
+        @media screen and (min-width: $desktop) {
+            font-size: 30px;
+          }
     }
 
     &-list-address {
@@ -109,11 +177,19 @@
         font-family: DM Sans;
         font-style: normal;
         font-weight: bold;
-        font-size: 16px;
-        line-height: 1.86;
+        font-size: 12px;
+        line-height: 1.13;
         letter-spacing: 0.02em;
         text-align: center;
 
         color: #000000;
+
+        @media screen and (min-width: $tablet) {
+            font-size: 14px;
+          }
+    
+        @media screen and (min-width: $desktop) {
+            font-size: 16px;
+          }
     }
 }
