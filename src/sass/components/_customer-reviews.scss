@@ -1,37 +1,25 @@
 .reviews {
   @include font(500, 12px, 2.59, 0.02em);
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 80px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 128px;
-  width: 100%;
+
+  padding: 80px 20px 130px 20px;
 
   @include flex();
   flex-direction: column;
 
-  @media screen and (min-width: 480px) {
-    width: 480px;
-  }
   @media screen and (min-width: 768px) {
-    width: 768px;
-
     @include font(500, 14px, 2.14, 0.04em);
-    padding: 121px 74px 166px 74px;
+    padding: 120px 74px 166px 74px;
   }
   @media screen and (min-width: 1280px) {
-    width: 1280px;
-
     @include font(500, 16px, 1.88, 0.04em);
-    padding: 121px 176px 179px 176px;
+    padding: 120px 45px 45px 175px;
   }
 
   &-img {
     margin-bottom: 30px;
 
     @media screen and (min-width: 768px) {
-      margin-bottom: 19px;
+      margin-bottom: 20px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -40,27 +28,106 @@
   }
 
   &-text {
-    padding: 43px 60px 26px 60px;
-    margin-bottom: 52px;
+    position: relative;
+    padding: 45px 50px 20px 50px;
+    margin-bottom: 50px;
 
     text-align: center;
 
     background-color: #fafafa;
 
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 33px;
+      left: 57px;
+
+      width: 54px;
+      height: 40px;
+      background-image: url('/images/reviews/quotes.png');
+
+      @media screen and (min-width: 480px) {
+        left: 35px;
+      }
+
+      @media screen and (min-width: 768px) {
+        left: 40px;
+      }
+
+      @media screen and (min-width: 768px) {
+        left: 48px;
+      }
+    }
+
     @media screen and (min-width: 768px) {
-      padding: 47px 80px 34px 80px;
-      margin-bottom: 42px;
+      padding: 47px 36px 28px 60px;
+      margin-bottom: 40px;
     }
 
     @media screen and (min-width: 1280px) {
-      padding: 47px 88px 39px 88px;
-      margin-bottom: 34px;
+      padding: 47px 54px 32px 59px;
+      margin-bottom: 35px;
+    }
+  }
+  &-text-line {
+    display: flex;
+    position: relative;
+    padding-right: 16px;
+    padding-left: 7px;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 30px,
+      #e1e1e1,
+      #e1e1e1 30px,
+      #e1e1e1 31px
+    );
+
+    @media screen and (min-width: 768px) {
+      padding: 3px 44px 6px 20px;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 29px,
+        #e1e1e1,
+        #e1e1e1 29px,
+        #e1e1e1 30px
+      );
+    }
+
+    @media screen and (min-width: 1280px) {
+      padding: 0 35px 7px 28px;
     }
   }
 
   &-name {
+    position: relative;
     font-size: 14px;
     line-height: 1.86;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: -18px;
+      left: 45px;
+
+      width: 32px;
+      height: 4px;
+
+      background-image: url('/images/reviews/dots.png');
+
+      @media screen and (min-width: 768px) {
+        top: -15px;
+        left: 55px;
+
+        @media screen and (min-width: 1280px) {
+          top: -18px;
+          left: 75px;
+        }
+      }
+    }
 
     @media screen and (min-width: 768px) {
       font-size: 16px;
