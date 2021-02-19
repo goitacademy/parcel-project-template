@@ -2,7 +2,7 @@
 .slider {
   position: relative;
   overflow: hidden;
-  max-width: 600px;
+  max-width: 926px;
   margin-left: auto;
   margin-right: auto;
 
@@ -17,8 +17,16 @@
     display: flex;
     width: 100%;
     text-align: center;
-    padding: 0;
+    padding-top: 80px;
     transition: transform 0.6s ease;
+
+    @media screen and (min-width: $min-tablet-width) {
+      padding-top: 120px;
+    }
+
+    @media screen and (min-width: $min-desktop-width) {
+      padding-top: 125px;
+    }
   }
 
   /* стили для слайдов */
@@ -55,11 +63,11 @@
     margin-left: 10px;
     text-indent: -999px;
     cursor: pointer;
-    background-color: #d9d9d9;
+    background-color: $marker-bcg-color;
   }
 
   &__indicators li.active {
-    background-color: #fff;
+    background-color: $white-color;
     background-image: url(../images/customer-reviews/home.svg);
     background-repeat: no-repeat;
     background-size: contain;
@@ -67,8 +75,8 @@
 }
 
 .reviews {
-  @media screen and (min-width: 1200px) {
-    background-color: #fff5f6;
+  @media screen and (min-width: $min-desktop-width) {
+    background-color: $secondary-bcg-color;
   }
 
   &__photo {
@@ -79,12 +87,34 @@
     width: 85px;
     height: 85px;
     border-radius: 50%;
+
+    @media screen and (min-width: $min-tablet-width) {
+      margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: $min-desktop-width) {
+      margin-bottom: 15px;
+    }
   }
 
   &__text--container {
     background: #fafafa;
     padding: 40px 50px 20px 50px;
+    margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 52px;
+
+    @media screen and (min-width: $min-tablet-width) {
+      padding: 47px 80px 34px 80px;
+      margin-left: 74px;
+      margin-right: 74px;
+    }
+
+    @media screen and (min-width: $min-desktop-width) {
+      padding: 47px 69px 39px 67px;
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 
   &__text {
@@ -92,6 +122,8 @@
     z-index: 1;
     padding-left: 20px;
     padding-right: 20px;
+    font-weight: 500;
+    line-height: 2.5;
     background-image: -webkit-repeating-linear-gradient(
       top,
       transparent 0px,
@@ -127,6 +159,21 @@
       #e1e1e1 28px,
       transparent 30px
     );
+
+    @media screen and (min-width: $min-tablet-width) {
+      line-height: 2.16;
+    }
+
+    @media screen and (min-width: $min-desktop-width) {
+      line-height: 1.86;
+      background-image: -webkit-repeating-linear-gradient(
+        bottom,
+        transparent 3px,
+        transparent 30px,
+        #e1e1e1 30px,
+        transparent 32px
+      );
+    }
   }
 
   &__text::before {
@@ -146,6 +193,14 @@
     margin-bottom: 128px;
     font-size: 14px;
     line-height: 1.8;
+
+    @media screen and (min-width: $min-tablet-width) {
+      font-size: 16px;
+    }
+
+    @media screen and (min-width: $min-desktop-width) {
+      font-size: 20px;
+    }
   }
 
   &__city::before {
