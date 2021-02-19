@@ -1,0 +1,267 @@
+.about {
+  background-color: $secondary-bcg-color;
+  background-image: url(..//images/about/mobilebg.png);
+  background-repeat: no-repeat;
+  background-position-y: 90%;
+  background-size: contain;
+
+  padding-top: 125px;
+  padding-bottom: 50px;
+  @media screen and(min-width:$min-tablet-width) {
+    padding-top: 130px;
+  }
+  @media screen and(min-width:$min-desktop-width) {
+    padding-top: 244px;
+  }
+  @media (min-resolution: 2dppx) {
+    background-image: url(..//images/about/mobilebg2x.png);
+  }
+
+  @media screen and (min-width: $min-tablet-width) and (max-width: $max-tablet-width) {
+    background-image: none;
+  }
+  @media screen and (min-width: $min-desktop-width) {
+    background-color: $white-color;
+    background-image: url(..//images/about/desktopbg.png);
+    background-position-y: 100%;
+    background-position-x: center;
+    background-size: 1280px;
+
+    @media (min-resolution: 2dppx) {
+      background-image: url(..//images/about/desktopbg2x.png);
+    }
+  }
+  &__label {
+    font-family: Titan One, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.16;
+    color: $subtitle-color;
+    text-align: center;
+    text-transform: uppercase;
+
+    margin-bottom: 15px;
+    @media screen and(min-width:$min-tablet-width) {
+      font-size: 26px;
+    }
+    @media screen and(min-width:$min-desktop-width) {
+      font-size: 30px;
+    }
+  }
+  &__title {
+    font-family: Titan One;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 1.14;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $accent-color;
+    margin-bottom: 26px;
+    @media screen and(min-width:$min-tablet-width) {
+      font-size: 48px;
+
+      margin-bottom: 50px;
+    }
+    @media screen and(min-width:$min-desktop-width) {
+      font-size: 58px;
+    }
+  }
+  &__img {
+    max-width: fit-content;
+  }
+}
+.article {
+  @media screen and( min-width:$min-tablet-width) {
+    display: flex;
+  }
+}
+.description {
+  @media screen and( min-width:$min-tablet-width) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__content {
+    font-style: normal;
+    font-weight: 500;
+
+    line-height: 1.62;
+    text-align: start;
+
+    color: $primary-text-color;
+    padding: 0 30px;
+    margin-bottom: 40px;
+
+    @media screen and(min-width:$min-tablet-width) and (max-width: $max-tablet-width) {
+      line-height: 1.76;
+      padding: 0;
+      margin-top: 50px;
+      margin-left: 17px;
+    }
+    @media screen and(min-width:$min-desktop-width) {
+      padding: 0;
+      margin-top: 56px;
+      margin-bottom: 35px;
+      margin-left: 74px;
+    }
+  }
+  &__text {
+    font-style: normal;
+    font-weight: 500;
+
+    line-height: 1.62;
+
+    padding: 0 30px;
+
+    color: $additional-color;
+    margin-bottom: 30px;
+
+    @media screen and(min-width:$min-tablet-width) {
+      line-height: 1.76;
+      padding: 0;
+      margin-left: 17px;
+      margin-bottom: 62px;
+    }
+    @media screen and(min-width:$min-desktop-width) {
+      font-size: 14px;
+      line-height: 1.94;
+      padding: 0;
+      margin-bottom: 45px;
+      margin-left: 74px;
+    }
+  }
+}
+.about__button {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28;
+  outline: none;
+  cursor: pointer;
+
+  color: $accent-color;
+  background-color: $white-color;
+  border-radius: 22px;
+  border-color: transparent;
+  width: 160px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30px;
+  fill: $accent-color;
+  @media screen and(min-width:$min-tablet-width) {
+    font-size: 16px;
+    line-height: 1.31;
+
+    margin-left: 0;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus {
+      background-color: $hero-button-color;
+    }
+  }
+  @media screen and(min-width:$min-desktop-width) {
+    margin-bottom: 146px;
+  }
+
+  &--icon {
+    margin-left: 13px;
+  }
+}
+
+/*Modal*/
+.backdrop {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px 20px 0 20px;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal {
+  max-width: 320px;
+
+  margin: 0 auto;
+  transform: scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: #fff5f6;
+
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    max-width: 100%;
+    height: auto;
+  }
+  &__form {
+    padding: 40px;
+  }
+  &__title {
+    font-family: Titan One;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.13;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: center;
+
+    color: #d41443;
+    margin-bottom: 16px;
+  }
+  &__text {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.62;
+    text-align: center;
+    color: #000000;
+  }
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+  transform: scale(0.9);
+
+  @media screen and (min-width: 1280px) {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+.modal__button {
+  position: absolute;
+  right: 0;
+
+  width: 30px;
+  height: 30px;
+  margin: 8px 8px;
+
+  border-radius: 50%;
+  border: 2px solid #d41443;
+
+  background-color: white;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+    color: #d41443;
+  }
+}
