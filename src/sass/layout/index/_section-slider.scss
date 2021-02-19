@@ -35,39 +35,26 @@
   padding-top: 80px;
   padding-bottom: 70px;
 
- @include for-size(tablet) {
+  @include for-size(tablet) {
     padding-top: 121px;
     padding-bottom: 197px;
   }
- @include for-size(desktop) {
+  @include for-size(desktop) {
     padding-top: 123px;
     padding-bottom: 234px;
+  }
+}
+.container--slider {
+  @include for-size(tablet) {
+    padding: 0 74px;
+  }
+  @include for-size(desktop) {
+    padding: 0 178px;
   }
 }
 
 .slider-box {
   z-index: -1;
-  &._active {
-    animation: crescendo 1s alternate ease 0.5s;
-  }
-}
-@keyframes crescendo {
-  0% {
-    transform: scale(1);
-  }
-  40% {
-    transform: scale(1.3);
-  }
-
-  60% {
-    transform: scale(0.8);
-  }
-  80% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 .slider-box__card:focus {
   outline-color: transparent;
@@ -81,6 +68,10 @@
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 29px;
+  
+  @include for-size(tablet) {
+  margin-bottom: 19px;
+ }
 }
 .slider-box__thumb {
   position: relative;
@@ -90,7 +81,22 @@
   text-align: center;
   z-index: -1;
 
-  @include for-size(tablet)
+  @include for-size(tablet) {
+    margin-bottom: 24px;
+    padding: 47px 80px 34px 80px;
+  }
+  @include to-size() {
+    max-width: 620px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @include for-size(desktop) {
+    max-width: 926px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 15px;
+    padding: 48px 88px 40px 88px;
+  }
 }
 .slider-box__text {
   margin: 0;
@@ -102,6 +108,15 @@
   line-height: 2.58;
   letter-spacing: 0.04em;
   color: getColor('mainText');
+
+  @include for-size(tablet) {
+    font-size: 14px;
+    line-height: 2.16;
+  }
+  @include for-size(desktop) {
+    font-size: 16px;
+    line-height: 1.86;
+  }
 }
 
 .slider-box__text::before {
@@ -126,7 +141,13 @@
   width: 100%;
   height: 100%;
   padding: 71px 50px 20px;
-  
+
+  @include for-size(tablet) {
+    padding: 76px 36px 28px 60px;
+  }
+  @include for-size(desktop) {
+    padding: 76px 36px 28px 60px;
+  }
 }
 
 .slider-box__gradient {
@@ -176,16 +197,32 @@
   line-height: 1.86;
   letter-spacing: 0.04em;
   color: getColor('mainText');
+
+  @include for-size(tablet) {
+    font-size: 16px;
+  }
+  @include for-size(desktop) {
+  font-size: 20px;
+  }
+}
+
+.slider-two__dots-list {
+  @include for-size(tablet) {
+    margin-bottom: 14px;
+  }
+  @include for-size(desktop) {
+    margin-bottom: 15px;
+  }
 }
 
 .slider-two {
-   .slick-dots {
+  .slick-dots {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
     padding: 0;
-   }
+  }
 
   .slick-dots li {
     list-style: none;
@@ -194,7 +231,7 @@
 
   .slick-dots li:not(:last-child) {
     margin-right: 18px;
-    }
+  }
 
   .slick-dots li button {
     font-size: 0;
@@ -204,16 +241,17 @@
     border: none;
     border-radius: 50%;
   }
+ 
 }
 
-  .slick-dots li.slick-active button {
-    border-radius: 0;
-    outline: none;
-    background-image: url('/images/slider/Vector.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: transparent;
-  }
+.slick-dots li.slick-active button {
+  border-radius: 0;
+  outline: none;
+  background-image: url('/images/slider/Vector.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+}
 
 .slick-list {
   overflow: hidden;
@@ -221,4 +259,67 @@
 
 .slick-track {
   display: flex;
+}
+
+//////////Buttons//////////
+// .button {
+//   transition: $tt $tf;
+// }
+
+.button {
+  &::after {
+    position: relative;
+    top: 2px;
+
+    &:hover,
+    &:focus {
+      background-color: #ECEBEB;
+    }
+  }
+}
+
+.button__location {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 176px;
+  min-height: 44px;
+  margin: auto;
+
+  font-size: 16px;
+  line-height: 1.31;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+
+  color: getColor('accent');
+  background-color: getColor('main-bg');
+  border-radius: 22px;
+  border: 0 solid transparent;
+  cursor: pointer;
+}
+.button__location--franchise {
+  &:hover,
+  &:focus {
+    background-color: #ECEBEB;
+  }
+}
+
+.button:after {
+  content: '>';
+  position: relative;
+  top: 2px;
+  color: getColor('accent');
+  margin-left: 14px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
