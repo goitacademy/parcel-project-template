@@ -1,0 +1,141 @@
+.mform label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: $main-color;
+}
+
+.mform #comment {
+  padding: 12px 16px;
+  height: 120px;
+}
+
+.mform textarea::placeholder {
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.mform-field {
+  display: flex;
+  flex-direction: column;
+
+  .mform &:not(:nth-child(4)) {
+    margin-bottom: 10px;
+  }
+
+  input,
+  textarea {
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  input {
+    padding-left: 42px;
+
+    @include transit(border-color);
+    @include transit(fill);
+  }
+
+  label {
+    margin-bottom: 4px;
+  }
+}
+
+.input-field {
+  position: relative;
+}
+
+.mform-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: inline-block;
+
+  width: 18px;
+  height: 18px;
+}
+
+.mform-field input:hover ~ .mform-icon,
+.mform-field input:focus ~ .mform-icon {
+  fill: $accent-color;
+}
+
+.mform-field input:hover,
+.mform-field textarea:hover,
+.mform-field input:focus,
+.mform-field textarea:focus {
+  border-color: $accent-color;
+  outline: none;
+}
+
+.policy {
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.policy-text,
+.policy-treaty {
+  font-size: 12px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 14px;
+  }
+}
+
+.policy-treaty {
+  color: $accent-color;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  margin-left: 0, 03em;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.policy-text {
+  position: relative;
+  padding-left: 23px;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 15px;
+    border: 2px solid #212121;
+    border-radius: 3px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    @include transit(background-color);
+    @include transit(border-color);
+  }
+}
+
+.checkbox:checked + .policy-text::before {
+  background-color: $accent-color;
+  background-size: contain;
+  background-origin: border-box;
+  border-color: $accent-color;
+}
+
+.checkbox:focus + .policy-text::before {
+  border-color: $accent-color;
+}
