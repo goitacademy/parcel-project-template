@@ -39,7 +39,7 @@
         background-image: url(../images/about-bg-320.png);
         background-color: #FFF5F6;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: cover;
         background-position: bottom;
 
         @media screen and (min-device-pixel-ratio: 2),
@@ -72,14 +72,25 @@
 // левая секция с картинкой
 .about {
     &-image-link {
-        display: flex;
-        justify-content: center;
-    }
-    & img {
         display: block;
-        max-width: 100%;
+        // justify-content: center;
+        margin: 0 auto;
+        min-height: 280px;
+        min-width: 280px;
         height: auto;
-    }
+
+        background-image: url(../images/about-cow-280.png);
+        background-color: #FFF5F6;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        @media screen and (min-device-pixel-ratio: 2),
+            screen and (min-resolution: 192dpi),
+            screen and (min-resolution: 2dppx) {
+                background-image: url('../images/about-cow-560-@2x.png');
+            }        
+    }    
 }
 // правая секция с текстом
 .about {
@@ -106,15 +117,16 @@
 .about {
     &-button {
         display: flex;
-        align-items: end;
+        align-items: center;
         margin-top: 30px;
 
         min-width: 176px;
-        padding: 13px 37px;
+        padding: 0 37px;
+        height: 44px;
 
         color: $color-button-text;
         background-color: $color-button-bg-light;
-        border: 1px solid transparent;
+        border: 1px solid $color-button-bg-dark;
         border-radius: 22px;
 
         font-family: $font-family-basic;
@@ -139,102 +151,148 @@
 
 // медиа правила
 @media screen and (min-width: 480px) {
-    .about-container {
-        width: $width-mobile;
+    .about {
+        &-container {
+            width: $width-mobile;
+        }
+        &-image-link {
+            min-width: 340px;
+            min-height: 340px;
+
+            background-image: url(../images/about-cow-280.png);
+            background-color: #FFF5F6;
+            background-size: contain;
+
+            @media screen and (min-device-pixel-ratio: 2),
+            screen and (min-resolution: 192dpi),
+            screen and (min-resolution: 2dppx) {
+                background-image: url('../images/about-cow-560-@2x.png');
+            }
+        }
     }
 }
 @media screen and (min-width: 768px) {
-    .about-container {
-        width: $width-tablet;
-    }
-    .about-section {
-        padding-top: 130px;
-        background-image: none;
-    }
-    .about-lable-title {
-        font-size: $lable-size-secondary;
-        line-height: 1.15;
-    }
-    .about-title {
-        font-size: $title-size-secondary;
-        line-height: 1.25;
-        margin-bottom: 50px;
-    }
-    .about-list {
-        display: flex;
-        justify-content: center;
-    }
-    .about-item {
-        max-width: 340px;
-    }
-    .about-item + .about-item {
-        margin-left: 17px;
-    }
-    .about-item-position {
-        padding: 0;
-    }
-    .about-item-title {
-        font-size: $text-size-secondary;
-        line-height: 1.78;
-    }
-    .about-item-text {
-        font-size: 14px;
-        line-height: 1.785;
-        letter-spacing: 0.04em;
-    }
-    .about-button {
-        margin-top: 62px;
-        font-size: $text-size-tertiary;
-        line-height: 1.3;
-    }
+    .about {
+        &-container {
+            width: $width-tablet;
+        }
+        &-section {
+            padding-top: 130px;
+            background-image: none;
+        }
+        &-lable-title {
+            font-size: $lable-size-secondary;
+            line-height: 1.15;
+        }
+        &-title {
+            font-size: $title-size-secondary;
+            line-height: 1.25;
+            margin-bottom: 50px;
+        }
+        &-list {
+            display: flex;
+            justify-content: center;
+        }
+        &-item {
+            max-width: 340px;
+        }
+        &-item + .about-item {
+            margin-left: 17px;
+        }
+        &-image-link {
+            min-width: 340px;
+            min-height: 340px;
+
+            background-image: url(../images/about-cow-340.png);
+            background-color: #FFF5F6;
+            background-size: contain;
+
+            @media screen and (min-device-pixel-ratio: 2),
+            screen and (min-resolution: 192dpi),
+            screen and (min-resolution: 2dppx) {
+                background-image: url('../images/about-cow-680-@2x.png');
+            }
+        }
+        &-item-position {
+            padding: 0;
+        }
+        &-item-title {
+            font-size: $text-size-secondary;
+            line-height: 1.78;
+        }
+        &-item-text {
+            font-size: 14px;
+            line-height: 1.785;
+            letter-spacing: 0.04em;
+        }
+        &-button {
+            margin-top: 62px;
+            font-size: $text-size-tertiary;
+            line-height: 1.3;
+        }
+    }    
 }
 @media screen and (min-width: 1280px) {
-    .about-container {
-        width: $width-desktop;
-    }
-    .about-section {
-        padding-top: 125px;
-        background-image: url(../images/about-bg-1280.png);
+    .about {
+        &-container {
+            width: $width-desktop;
+        }
+        &-section {
+            padding-top: 125px;
+            background-image: url(../images/about-bg-1280.png);
 
             @media screen and (min-device-pixel-ratio: 2),
                 screen and (min-resolution: 192dpi),
                 screen and (min-resolution: 2dppx) {
                 background-image: url(../images/about-bg-2560-@2x.png);
             }
-    }
-    .about-lable-title {
-        margin-bottom: 15px;
-        font-size: $lable-size-tertiary;
-        line-height: 1.13;
-    }
-    .about-title {
-        margin-bottom: 55px;
-        font-size: $title-size-tertiary;
-        line-height: 1.137;
-        letter-spacing: $font-spacing-basic;
-    }
-    .about-item {
-        max-width: 516px;
-    }
-    .about-item + .about-item {
-        margin-left: 74px;
-    }
-    .about-item-title {
-        font-size: $text-size-tertiary;
-        line-height: 1.75;
-        letter-spacing: $font-spacing-basic;
-    }
-    .about-item-text {
-        line-height: 1.92;
-        letter-spacing: $font-spacing-basic;
-    }
-    .about-button {
-        margin-top: 45px;
-        font-size: $text-size-tertiary;
-        align-items: center;
+        }
+        &-lable-title {
+            margin-bottom: 15px;
+            font-size: $lable-size-tertiary;
+            line-height: 1.13;
+        }
+        &-title {
+            margin-bottom: 55px;
+            font-size: $title-size-tertiary;
+            line-height: 1.137;
+            letter-spacing: $font-spacing-basic;
+        }
+        &-item {
+            max-width: 516px;
+        }
+        &-image-link {
+            min-width: 516px;
+            min-height: 516px;
+
+            background-image: url(../images/about-cow-516.png);
+            background-color: #FFF5F6;
+            background-size: contain;
+
+            @media screen and (min-device-pixel-ratio: 2),
+            screen and (min-resolution: 192dpi),
+            screen and (min-resolution: 2dppx) {
+                background-image: url('../images/about-cow-1032-@2x.png');
+            }
+        }
+        &-item + .about-item {
+            margin-left: 74px;
+        }
+        &-item-title {
+            font-size: $text-size-tertiary;
+            line-height: 1.75;
+            letter-spacing: $font-spacing-basic;
+        }
+        &-item-text {
+            line-height: 1.92;
+            letter-spacing: $font-spacing-basic;
+        }
+        &-button {
+            margin-top: 45px;
+            font-size: $text-size-tertiary;
+        }
     }
 }
-
 // модальное окно
 .backdrop {
     position: fixed;
