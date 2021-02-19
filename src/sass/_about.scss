@@ -1,5 +1,5 @@
 // база
-.list {
+.about-list {
     margin: 0px;
     padding: 0px;
     list-style: none;
@@ -11,7 +11,7 @@ img {
 }
 
 // база по секции about
-.about.section {
+.about-section {
     padding-top: 125px;
     padding-bottom: 39px;
     // max-width: 1280px;
@@ -30,14 +30,12 @@ img {
               background-image: url('../images/about-bg-640-@2x.png');
     }
 }
-.about .container {
+.about-container {
     min-width: 320px;
     margin: 0 auto;
     padding: 0 20px;
-    
-    outline: 1px solid red;
 }
-.about .lable-title {
+.about-lable-title {
     display: block;
     margin-bottom: 26px;
     text-align: center;
@@ -48,22 +46,18 @@ img {
     font-size: 18px;
     line-height: 1.17;
     text-transform: uppercase;
-
-    outline: 1px solid green;
 }
-.item-position {
+.about-item-position {
     display: block;
     padding: 0 30px 0 30px;
-
-    outline: 1px solid blue;
 }
-.about .item {
+.about-item {
     max-width: 440px;
 }
-.about .item + .item {
+.about-item + .about-item {
     margin-top: 47px;
 }
-.about .title {
+.about-title {
     text-align: center;
     margin: 0 0 26px 0;
     
@@ -75,15 +69,12 @@ img {
     text-transform: uppercase;
     
     color: #D41443;
-    outline: 1px solid green;
 }
 .about-image-link {
     display: flex;
     justify-content: center;
-
-    outline: 1px solid red;
 }
-.item .item-title {
+.about-item-title {
     margin: 0;
     color: #000000;
 
@@ -91,10 +82,8 @@ img {
     font-weight: 500;
     font-size: 12px;
     line-height: 162%;
-
-    outline: 1px solid blue;
 }
-.item .item-text {
+.about-item-text {
     color: #907E82;
     margin: 35px 0 0 0;
 
@@ -102,16 +91,14 @@ img {
     font-weight: 500;
     font-size: 12px;
     line-height: 162%;
-
-    outline: 1px solid green;
 }
 .about-button {
-    display: block;
+    display: flex;
+    align-items: end;
     margin-top: 30px;
 
     min-width: 176px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 13px 37px;
 
     color: #D41443;
     background-color: white;
@@ -130,48 +117,55 @@ img {
         transition: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
     }
 }
+.about-button-arrow {
+    width: 10px;
+    height: 15px;
+    margin-left: 13.62px;
+    fill: #D41443;
+}
+
 // медиа правила
 @media screen and (min-width: 480px) {
-    .about .container {
+    .about-container {
         width: 480px;
     }
 }
 @media screen and (min-width: 768px) {
-    .about .container {
+    .about-container {
         width: 768px;
     }
-    .about.section {
+    .about-section {
         padding-top: 130px;
         background-image: none;
     }
-    .about .lable-title {
+    .about-lable-title {
         font-family: Titan One;
         font-size: 26px;
         line-height: 1.15;
     }
-    .about .title {
+    .about-title {
         font-size: 48px;
         line-height: 1.25;
         margin-bottom: 50px;
     }
-    .about .list {
+    .about-list {
         display: flex;
         justify-content: center;
     }
-    .about .item {
+    .about-item {
         max-width: 340px;
     }
-    .about .item + .item {
+    .about-item + .about-item {
         margin-left: 17px;
     }
-    .item-position {
+    .about-item-position {
         padding: 0;
     }
-    .item .item-title {
+    .about-item-title {
         font-size: 14px;
         line-height: 1.78;
     }
-    .item .item-text {
+    .about-item-text {
         font-size: 14px;
         line-height: 1.785;
         letter-spacing: 0.04em;
@@ -183,11 +177,10 @@ img {
     }
 }
 @media screen and (min-width: 1280px) {
-    .about .container {
+    .about-container {
         width: 1280px;
-        // padding: 0 112px;
     }
-    .about.section {
+    .about-section {
         padding-top: 125px;
         background-image: url(../images/about-bg-1280.png);
 
@@ -197,29 +190,29 @@ img {
                 background-image: url(../images/about-bg-2560-@2x.png);
             }
     }
-    .about .lable-title {
+    .about-lable-title {
         margin-bottom: 15px;
         font-size: 30px;
         line-height: 1.13;
     }
-    .about .title {
+    .about-title {
         margin-bottom: 55px;
         font-size: 58px;
         line-height: 1.137;
         letter-spacing: 00.04em;
     }
-    .about .item {
+    .about-item {
         max-width: 516px;
     }
-    .about .item + .item {
+    .about-item + .about-item {
         margin-left: 74px;
     }
-    .about .item-title {
+    .about-item-title {
         font-size: 16px;
         line-height: 1.75;
         letter-spacing: 00.04em;
     }
-    .about .item-text {
+    .about-item-text {
         line-height: 1.92;
         letter-spacing: 00.04em;
     }
@@ -229,4 +222,66 @@ img {
     }
 }
 
+// модальное окно
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    overflow-y: scroll;
+    opacity: 1;
+    transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 250ms;  
+    z-index: 4;
+      
+      &.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+        }
+      &.is-hidden .modal {
+        transform: translate(-50%, -50%) scale(0.9);
+        transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+      }
+  }
+.modal {
+    display: flex;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    flex-direction: column;
+    padding: 30px;
+    margin: 0;
+    max-width: 440px;
+    background-color: #ffffff;
+    transform: translate(-50%, -50%) scale(1);
+}
+.close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    margin: 0 0 10px auto;
+   
+    cursor: pointer;
+    border: 1px solid #D41342;
 
+    background-color: transparent;
+    transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+    z-index: 5;
+
+    &:hover,
+    &:focus {
+      background-color: #D41342;
+    }
+    &:hover .icon-cross,
+    &:focus .icon-cross {
+    fill: #ffffff;
+    }
+}
+.icon-cross {
+    fill: #D41342;
+}
