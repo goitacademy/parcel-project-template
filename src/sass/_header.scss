@@ -47,10 +47,6 @@
   }
 }
 
-.header-nav-link.curent {
-  color: $text-color-chery;
-}
-
 .header-nav-title {
   @media screen and (max-width: 1199px) {
     &:nth-child(1) {
@@ -83,6 +79,17 @@
     padding-top: 21px;
     padding-bottom: 21px;
   }
+
+  &.curent {
+    color: $text-color-chery;
+  }
+
+  &:hover,
+  &:focus {
+    color: $text-color-chery;
+  }
+
+  transition: color $animation-time $animation-type;
 }
 
 .page-header-btn-tablet {
@@ -102,6 +109,13 @@
   border-radius: 22px;
   border: transparent;
   background-color: $text-color-white;
+
+  &:hover,
+  &:focus {
+    background-color: #ecebeb;
+  }
+
+  transition: background-color $animation-time $animation-type;
 
   @media screen and (min-width: $tablet) and (max-width: 1199px) {
     display: block;
@@ -140,6 +154,13 @@
   &-icon {
     margin-left: 14px;
   }
+
+  &:hover,
+  &:focus {
+    background-color: #ecebeb;
+  }
+
+  transition: background-color $animation-time $animation-type;
 }
 
 // Меню мобильное
@@ -166,6 +187,7 @@
 
 .menu-mobile-btn {
   display: none;
+
   @media screen and (max-width: 1199px) {
     @media screen and (max-width: 767.98px) {
       position: absolute;
@@ -195,15 +217,22 @@
     }
 
     &.is-open .menu-mobile-icon-burger {
-      display: none;
+      opacity: 0;
     }
 
     & .menu-mobile-icon-close {
-      display: none;
+      opacity: 0;
     }
 
     &.is-open .menu-mobile-icon-close {
-      display: block;
+      opacity: 1;
+      transition: opacity $animation-time $animation-type $animation-time;
+    }
+
+    &:hover,
+    &:focus {
+      outline: 0;
+      outline-offset: 0;
     }
   }
 }
@@ -226,6 +255,8 @@
     overflow: hidden;
 
     background-color: #e17992;
+
+    transform: translateX(100%);
   }
 
   &.is-open {
@@ -233,9 +264,12 @@
       display: block;
       opacity: 1;
       pointer-events: all;
+
+      transform: translateX(0);
     }
     overflow: hidden;
   }
 
-  transition: opacity 250ms linear;
+  transition: opacity $animation-time $animation-type,
+    transform $animation-time $animation-type;
 }
