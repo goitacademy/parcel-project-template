@@ -1,0 +1,237 @@
+.page-header {
+  background-color: $background-products-rose;
+  @media screen and (min-width: 1200px) {
+    padding-top: 30px;
+  }
+}
+
+.header-nav-logo {
+  padding-top: 6px;
+
+  display: flex;
+  align-items: center;
+}
+
+.container-desktop {
+  @media screen and (min-width: 1200px) {
+    position: absolute;
+    top: 0;
+    left: 45px;
+  }
+}
+
+.header-logo-text {
+  font-family: Titan One;
+  font-size: 22px;
+  line-height: 1.13;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  margin-left: 20px;
+
+  color: #f6093e;
+}
+
+.header-nav-list {
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 1199px) {
+    margin-top: 19px;
+  }
+}
+
+.header-nav-link.curent {
+  color: $text-color-chery;
+}
+
+.header-nav-title {
+  @media screen and (max-width: 1199px) {
+    &:nth-child(1) {
+      border-top: 1px solid #e18298;
+    }
+    border-bottom: 1px solid #e18298;
+  }
+
+  @media screen and (min-width: 1200px) {
+    & + & {
+      margin-left: 35px;
+    }
+  }
+}
+
+.header-nav-link {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+
+  color: $text-color-white;
+  display: block;
+  @media screen and (max-width: 1199px) {
+    padding: 11px 20px 13px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
+}
+
+.page-header-btn-tablet {
+  display: none;
+  padding: 0 36px;
+  min-width: 160px;
+  height: 44px;
+
+  font-family: DM Sans;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+  cursor: pointer;
+
+  color: $text-button-chery;
+
+  border-radius: 22px;
+  border: transparent;
+  background-color: $text-color-white;
+
+  @media screen and (min-width: $tablet) and (max-width: 1199px) {
+    display: block;
+    margin-left: 30px;
+  }
+}
+
+.page-header-btn {
+  @media screen and (max-width: 1199px) {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    padding: 0 49px;
+    min-width: 209px;
+  }
+
+  margin-left: 50px;
+
+  width: 160px;
+  height: 44px;
+
+  font-family: DM Sans;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+
+  cursor: pointer;
+  color: $text-button-chery;
+
+  border-radius: 22px;
+  border: transparent;
+  background-color: $text-color-white;
+
+  display: block;
+
+  &-icon {
+    margin-left: 14px;
+  }
+}
+
+// Меню мобильное
+
+.container.mobile {
+  position: relative;
+}
+
+.menu-mobile {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.menu-mobile-nav {
+  @media screen and (min-width: $tablet) and (max-width: 1199px) {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+}
+
+.menu-mobile-btn {
+  display: none;
+  @media screen and (max-width: 1199px) {
+    @media screen and (max-width: 767.98px) {
+      position: absolute;
+      z-index: 3;
+      top: 9px;
+      right: 9px;
+    }
+
+    padding: 0;
+    border: transparent;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    &.is-open {
+      position: absolute;
+      z-index: 3;
+      top: 9px;
+      right: 9px;
+    }
+
+    &.is-open .menu-mobile-icon-burger {
+      display: none;
+    }
+
+    & .menu-mobile-icon-close {
+      display: none;
+    }
+
+    &.is-open .menu-mobile-icon-close {
+      display: block;
+    }
+  }
+}
+
+.menu-mobile-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  pointer-events: none;
+  @media screen and (max-width: 1199px) {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 250px;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background-color: #e17992;
+  }
+
+  &.is-open {
+    @media screen and (max-width: 1199px) {
+      display: block;
+      opacity: 1;
+      pointer-events: all;
+    }
+    overflow: hidden;
+  }
+
+  transition: opacity 250ms linear;
+}
