@@ -1,5 +1,6 @@
-$(document).ready(function(){
+$(document).ready(function () {
   $('.slider').slick({
-    setting-name: setting-value
+    arrows: false,
+    dots: true,
   });
 });
