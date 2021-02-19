@@ -1,0 +1,378 @@
+.cards-background {
+  background-color: #ffffff;
+  background-image: linear-gradient(#ffffff 170px,  #fff5f6 170px);
+  background-repeat: no-repeat;
+  // Градиент на tablet
+  @include for-size(tablet) {
+    background-image: linear-gradient(#ffffff 197px,  #fff5f6 197px);
+  }
+  //Градиент и бэкграунд на десктоп
+  @include for-size(desktop) {  
+    background-image: url(../images/desktop/cards/sectionbgcards.png),
+      linear-gradient(#ffffff 234px,  #fff5f6 234px);
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/desktop/cards/sectionbgcards@2x.png),
+        linear-gradient(#ffffff 234px,  #fff5f6 234px);
+    }
+    background-position: 0 234px, 0 0;
+    background-size: contain, auto;
+  }
+}
+
+.cards {
+  // max-width: 320px;
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 86px 50px 113px 50px;
+  width: 100%;
+
+  @include for-size(mobile) {
+    max-width: 520px;
+  }
+
+  @include for-size(tablet) {
+    max-width: 768px;
+    padding: 119px 36px 158px 36px;
+  }
+
+  @include for-size(desktop) {
+    max-width: 1200px;
+    padding: 132px 75px 165px 75px;
+  }
+}
+
+.cards-list {
+  @include for-size(tablet) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.cards-item {
+  width: 100%;
+  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+  border-radius: 24px;
+  background-color:  #ffffff;
+
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  @include for-size(tablet) {
+    flex-basis: calc((100% - 20px * 2) / 3);
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  @include for-size(desktop) {
+    flex-basis: calc((100% - 30px * 2) / 3);
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+}
+
+.contacts-cards {
+  height: 100%;
+  padding: 43px 20px;
+
+  @include for-size(tablet) {
+    padding: 50px 31px;
+  }
+
+  @include for-size(desktop) {
+    padding: 51px 43px 62px 43px;
+  }
+}
+
+.contacts-title {
+  width: 80px;
+  background-color:#f0d1a5;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 4px;
+  margin: 0 0 25px;
+  padding: 0;
+  text-align: center;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+
+  @include for-size(tablet) {
+    width: 73px;
+    line-height: 28px;
+    margin-bottom: 30px;
+  }
+
+  @include for-size(desktop) {
+    margin-bottom: 32px;
+  }
+}
+
+.cards-item:nth-child(2) .contacts-title {
+  width: 160px;
+  background-color: #c2e297;
+
+  @include for-size(tablet) {
+    width: 138px;
+    line-height: 28px;
+  }
+}
+
+.cards-main {
+  margin: 0;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+
+  background-image: linear-gradient(
+    0deg,
+    transparent 62px,
+    #e1e1e1 62px,
+    #e1e1e1 63px,
+    transparent 63px,
+    transparent 204px,
+    #e1e1e1 204px,
+    #e1e1e1 205px,
+    transparent 205px,
+    transparent 100%
+  );
+
+  @include for-size(tablet) {
+    background-image: linear-gradient(
+      0deg,
+      transparent 78px,
+      #e1e1e1 78px,
+      #e1e1e1 79px,
+      transparent 79px,
+      transparent 248px,
+      #e1e1e1 248px,
+      #e1e1e1 249px,
+      transparent 249px,
+      transparent 100%
+    );
+  }
+
+  @include for-size(desktop) {
+    background-image: linear-gradient(
+      0deg,
+      transparent 82px,
+      #e1e1e1 82px,
+      #e1e1e1 83px,
+      transparent 83px,
+      transparent 274px,
+      #e1e1e1 274px,
+      #e1e1e1 275px,
+      transparent 275px,
+      transparent 100%
+    );
+  }
+  background-repeat: no-repeat;
+}
+
+.cards-label {
+  font-size: 12px;
+  line-height: 1.86;
+  letter-spacing: 0.04em;
+
+  @include for-size(tablet) {
+    font-size: 14px;
+  }
+  @include for-size(desktop) {
+    font-size: 16px;
+  }
+}
+
+.contacts-text {
+  margin: 10px 0 50px;
+  color: #907e82;
+  text-align: left;
+
+  @include for-size(tablet) {
+    margin: 14px 0 60px;
+    font-size: 14px;
+    line-height: 1.64;
+  }
+
+  @include for-size(desktop) {
+    margin: 10px 0 64px;
+    font-size: 16px;
+  }
+}
+
+.cards-time {
+  margin: 0;
+  color: #ffa5ba;
+  @include for-size(tablet) {
+    font-size: 14px;
+    line-height: 1.64;
+  }
+  @include for-size(desktop) {
+    font-size: 16px;
+  }
+}
+
+.timetable-item:first-child {
+  margin-bottom: 10px;
+  @include for-size(tablet) {
+    margin-bottom: 16px;
+  }
+  @include for-size(desktop) {
+    margin-bottom: 15px;
+  }
+}
+
+.timetable-item:last-child {
+  margin-bottom: 55px;
+  @include for-size(tablet) {
+    margin-bottom: 64px;
+  }
+  @include for-size(desktop) {
+    margin-bottom: 67px;
+  }
+}
+
+.cards-mail {
+  display: inline-block;
+  margin: 0;
+  color: #907e82;
+  text-decoration: none;
+
+  @include for-size(tablet) {
+    font-size: 14px;
+    line-height: 1.64;
+  }
+  @include for-size(desktop) {
+    font-size: 16px;
+  }
+}
+
+.cards-button-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 54px;
+  @include for-size(tablet) {
+    margin-top: 81px;
+  }
+  @include for-size(desktop) {
+    margin-top: 86px;
+  }
+}
+
+.cards-button-item {
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  @include for-size(tablet) {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+}
+
+.cards-button {
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 22px;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-dark {
+  width: 161px;
+  margin-right: 10px;
+
+  @include for-size(tablet) {
+    width: 191px;
+  }
+  @include for-size(desktop) {
+    width: 198px;
+  }
+
+  background-color: #d41443;
+  color: #fff;
+  fill: #fff;
+  @extend %animation;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: #ffffff;
+    color:  #ffffff;
+    outline: none;
+  }
+
+  &:hover .cards-icon,
+  &:focus .cards-icon {
+    fill:  #ffffff;
+  }
+}
+
+.button-light {
+  width: 161px;
+
+  @include for-size(tablet) {
+    width: 174px;
+  }
+
+  @include for-size(desktop) {
+    width: 180px;
+  }
+
+  color: #d41443;
+  background-color: #ffffff;
+  @extend %animation;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color:#d41443;
+    color: #ffffff;
+    outline: none;
+  }
+
+  &:hover .cards-icon,
+  &:focus .cards-icon {
+    fill: #ffffff;
+  }
+}
+
+.cards-icon {
+  @extend %animation;
+  display: inline-block;
+  margin-left: 4px;
+  width: 19px;
+  height: 12px;
+
+  @include for-size(tablet) {
+    margin-left: 8px;
+  }
+}
+
+.button-dark .cards-icon,
+.button-light .cards-icon {
+  fill: #d41443;
+}
