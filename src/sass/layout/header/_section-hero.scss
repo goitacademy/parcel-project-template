@@ -1,14 +1,18 @@
 .hero {
-  .container {
+    .container {
     position: relative;
-
+    top: -1px;
     background-color: getColor('mainPink');
-    overflow: hidden;
-    padding-top: 27px;
+    /*overflow: hidden;*/
     padding-right: 0;
     height: 502px;
     @media screen and (min-width: 768px) {
-      height: 399px;
+      height: 312px;
+      
+    }
+    @media screen and (min-width: 1280px) {
+      height: 576px;
+      
     }
   }
 }
@@ -27,8 +31,17 @@
     height: 322px;
     border-radius: 50%;
     position: absolute;
-    right: 137px;
-    top: 31px;
+    right: 147px;
+    top: -56px;
+  }
+  @media screen and (min-width: 1280px) {
+    background-color: getColor('secondaryPink');
+    width: 538px;
+    height: 538px;
+    border-radius: 50%;
+    position: absolute;
+    right: 267px;
+    top: -37px;
   }
 }
 
@@ -41,12 +54,17 @@
     right: 110px;
     top: 32px;
   }
+
+@media screen and (min-width: 1280px) {
+  right: 183px;
+  top: 56px;
+}
 }
 
 .hero__title {
   position: absolute;
   top: 137px;
-  z-index: 8;
+  z-index: 7;
   @media screen and (min-width: 320px) and (max-width: 479px) {
     right: calc(112px + (100vw - 320px) / 3);
   }
@@ -62,7 +80,6 @@
   &-up {
     display: block;
     font-family: $main-font;
-    color: getColor('whiteText');
     font-size: 26px;
     line-height: 1.15;
     letter-spacing: 0.04em;
@@ -98,4 +115,31 @@
   font-size: 8px;
   line-height: 1.25;
   margin-left: 8px;
+}
+.hero__milk{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 28px;
+  left: 34px;
+
+&-text {
+  width: 114px;
+  position: relative;
+  left: -5px;
+  font-size: 8px;
+  line-height: 1.5;
+  font-weight: 400;
+
+   &::after {
+     display: block;
+     width: 18px;
+     height: 18px;
+     border-radius: 50%;
+     color: getColor('accent');
+     content: '';
+     background-color: getColor('whiteText');
+     
+   }
+}
 }
