@@ -1,3 +1,7 @@
+.reviews {
+  padding-top: 123px;
+}
+
 .container-reviews {
   @extend %containerMobile;
 
@@ -18,36 +22,109 @@
   }
 }
 
-.reviews-text {
-  width: 100%;
+.revies-thumb {
+  position: relative;
   background-color: $commentary-bgc-color;
-  color: $title-color;
+  margin-left: auto;
+  margin-right: auto;
+  width: 280px;
+  padding: 43px 66px 26px 57px;
+  margin-bottom: 30px;
 
-  font-family: $primary-font-family;
+  @media screen and (min-width: $tablet) {
+    padding: 30px 36px 28px 40px;
+    width: 620px;
+    height: 164px;
+    margin-bottom: 42px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 32px 54px 32px 50px;
+    width: 926px;
+    height: 138px;
+    margin-bottom: 15px;
+  }
+}
+
+.revies-commas {
+  position: absolute;
+  fill: $comma-color;
+  width: 54px;
+  height: 40px;
+  top: 28px;
+  left: 61px;
+
+  @media screen and (min-width: $tablet) {
+    top: 30px;
+    left: 40px;
+    z-index: 1;
+  }
+
+  @media screen and (min-width: $desktop) {
+    top: 32px;
+    left: 50px;
+  }
+}
+
+.reviews-text {
+  position: relative;
+}
+
+.reviews-possition {
+  position: relative;
+  z-index: 1;
+
+  letter-spacing: 0;
+
+  margin-top: 0;
+  margin-bottom: 0;
+
   font-weight: 500;
   font-size: 12px;
   line-height: 2.6;
+
   text-align: center;
+  color: $title-color;
 
-  padding-left: 50px;
-  padding-right: 50px;
+  @media screen and (min-width: $tablet) {
+    margin-left: auto;
+    margin-right: auto;
 
-  background-image: linear-gradient(black, black);
-  background-size: 100% 1px;
-  background-position: left bottom;
-  background-repeat: repeat-x;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 2.14;
+    width: 460px;
+
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 750px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.87;
+  }
 }
 
-// .reviews-gradient {
-//   background-image: linear-gradient($comma-color, $comma-color);
-//   background-size: 100% 2px;
-//   background-position: left bottom;
-//   background-repeat: no-repeat;
-//   //   width: 180px;
-// }
+.reviews-bands {
+  position: absolute;
+  top: 29px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    $comma-color,
+    $comma-color 1px,
+    $commentary-bgc-color,
+    $commentary-bgc-color 1px
+  );
+  background-size: 100% 31px;
 
-.reviews-possition {
-  margin: 0;
+  @media screen and (min-width: $tablet) {
+    background-size: 100% 28px;
+  }
 }
 
 .reviews-photo {
@@ -56,7 +133,34 @@
   margin-right: auto;
 }
 
+.reviews-ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 14px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 15px;
+  }
+}
+
+.reviews-ellipsis-icon {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: $button-products-hover-color;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
 .reviews-name {
+  margin: 0 0 30px 0;
   font-family: $primary-font-family;
 
   font-weight: 500;
@@ -65,18 +169,43 @@
   color: $title-color;
 
   text-align: center;
+
+  @media screen and(min-width:$tablet) {
+    margin: 0 0 35px 0;
+    font-size: 16px;
+    line-height: 1.87;
+  }
+
+  @media screen and(min-width:$desktop) {
+    font-size: 20px;
+    line-height: 1.85;
+  }
 }
 
 .reviews-elements {
   margin-left: auto;
   margin-right: auto;
-
-  width: 172px;
-  height: 89px;
 }
 
-// .reviews-text {
-//   background-color: $comma-color;
-//   padding-bottom: 8rem;
-//   max-width: 111.6rem;
-// }
+.reviews-slick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.revies-slick-home {
+  width: 12px;
+  height: 12px;
+  fill: $home-color;
+}
+
+.reviews-slick-icon.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: $slider-point-color;
+}
+
+.reviews-slick-icon:not(:last-child) {
+  margin-right: 18px;
+}
