@@ -9,12 +9,8 @@
 
 // advantages list elements
 .advantage {
-  margin-right: 55px;
-  width: 230px;
-
-  &:not(:last-child) {
-    margin-bottom: 38px;
-  }
+  $text-color: #000000;
+  // outline: 1px solid #000000;
 
   &::before {
     content: '';
@@ -56,8 +52,31 @@
     font-weight: 700;
     font-size: 12px;
     line-height: 1.7;
-    /* or 20px */
-    // color: #000000;
+    color: $text-color;
+  }
+
+  @include for-size(mobile-only) {
+    margin-right: 55px;
+    width: 230px;
+  }
+
+  @include for-size(tablet) {
+    margin-right: 60px;
+    width: 180px;
+  }
+
+  @include for-size(desktop) {
+    margin-right: 30px;
+    width: 330px;
+  }
+}
+
+// adaptive items
+.advantage:not(:last-child) {
+  @include for-size(mobile-only) {
+    // margin-right: 55px;
+    margin-bottom: 38px;
+    // width: 230px;
   }
 }
 
