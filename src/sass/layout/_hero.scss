@@ -4,8 +4,8 @@
     background-color: $main-color;
     margin: 0;
     padding: 20px;
-    // z-index: -5;
     overflow: hidden;
+    z-index: 1;
 
     @media screen and (min-width: 768px) {
       padding: 25px 34px;
@@ -20,7 +20,7 @@
     margin-top: 137px;
     margin-bottom: 160px;
     // position: absolute;
-    z-index: 10;
+    // z-index: 10;
     @media screen and (max-width: 768px) {
       width: 222px;
     }
@@ -34,6 +34,7 @@
     }
   }
 }
+
 .hero-title {
   padding: 0;
   margin-top: 0;
@@ -78,20 +79,14 @@
   }
 }
 
-// .hero-button {
-//   display: flex;
-// }
 .hero-button-primary,
 .hero-button-secondary {
   display: inline-block;
-  //   align-items: center;
-  //   justify-content: center;
   border-radius: 20px;
-  //
   font-weight: 400;
   font-size: 8px;
   line-height: 1.25;
-
+  z-index: 20;
   @media screen and (min-width: 1280px) {
     font-size: 14px;
     line-height: 1.29;
@@ -100,12 +95,13 @@
 
 .hero-button {
   &-primary {
+    margin-right: 6px;
     background-color: transparent;
     border: 1px solid $accent-color;
     color: $primary-text-color;
     box-shadow: 0 0 40px 40px $accent-color inset, 0 0 0 0 $accent-color;
     transition: all 200ms ease-in-out;
-    z-index: 5;
+    // z-index: 5;
 
     @media screen and (max-width: 1280px) {
       width: 63px;
@@ -113,9 +109,11 @@
     }
 
     @media screen and (min-width: 1280px) {
+      margin-right: 15px;
       width: 104px;
       height: 40px;
     }
+
     &:hover,
     &:focus {
       color: $accent-color;
@@ -129,7 +127,7 @@
     background-color: $primary-text-color;
     color: $accent-color;
     border-color: transparent;
-    z-index: 10;
+    // z-index: 10;
 
     @media screen and (max-width: 1280px) {
       width: 82px;
@@ -145,6 +143,7 @@
     &:hover {
       background-color: #ecebeb;
       color: $accent-color;
+      outline: 0;
       box-shadow: 0 0 10px 0 $accent-color;
     }
   }
@@ -152,35 +151,30 @@
 
 .hero-overlay {
   position: absolute;
-  bottom: 0px;
-  left: 100px;
-  background-image: url('../images/img-hero/ice-cream-hero-mob/ice-cream-hero-mob@2x-171.jpg');
-  background-size: 50%;
-  background-repeat: no-repeat;
-  z-index: 1;
+  bottom: 0;
+  left: 110px;
+  z-index: 3;
+ 
   transition: transform 0.3s ease;
+}
 
-  @media screen and (min-width: 480px) {
-    left: 45%;
-  }
+.hero-overlay-background {
+  position: absolute;
+  top: 36px;
+  left: 34px;
+  width: 346px;
+  height: 344px;
+  border-radius: 50%;
+  background-color: $pink-text-color;
+  z-index: 2;
+
   @media screen and (min-width: 768px) {
-    left: 55%;
+    width: 324px;
+    height: 322px;
   }
   @media screen and (min-width: 1280px) {
-    bottom: 0;
-    left: 50%;
-  }
-
-  &-background {
-    position: absolute;
-    top: -10px;
-    left: -40%;
-    width: 346px;
-    height: 344px;
-    border-radius: 50%;
-    background-color: $pink-text-color;
-    z-index: -1;
-    overflow: hidden;
+    width: 538px;
+    height: 538px;
   }
 }
 
@@ -220,7 +214,7 @@
     transform: scale(1.3);
   }
   @media screen and (min-width: 1280px) {
-    transform: scale(1.5);
+    transform: scale(1.3);
   }
 }
 
@@ -230,12 +224,6 @@
   @media screen and (min-width: 768px) {
     display: block;
     position: absolute;
-    top: 25px;
-    right: 34px;
-  }
-  @media screen and (min-width: 1280px) {
-    top: 74px;
-    right: 97px;
   }
 
   &-number {
@@ -258,6 +246,7 @@
       font-size: 46px;
     }
   }
+
   &-name {
     @media screen and (min-width: 768px) {
       margin-top: 0;
@@ -276,11 +265,31 @@
   }
 }
 
+.hero-advantages.cafe {
+  top: 25px;
+  right: 34px;
+
+  @media screen and (min-width: 1280px) {
+    top: 74px;
+    right: 97px;
+  }
+}
+
+.hero-advantages.trucks {
+  top: 69px;
+  right: 34px;
+
+  @media screen and (min-width: 1280px) {
+    top: 166px;
+    right: 97px;
+  }
+}
+
 .hero-advantages-name:not(:last-child) {
   margin-bottom: 15px;
 }
 
-.hero-advantages-number.cafes::after {
+.hero-advantages-number::after {
   @media screen and (min-width: 768px) {
     content: '';
     position: absolute;
@@ -297,29 +306,6 @@
 
   @media screen and (min-width: 1280px) {
     top: -8px;
-    right: -15px;
-    width: 30px;
-    height: 30px;
-  }
-}
-
-.hero-advantages-number.trucks::after {
-  @media screen and (min-width: 768px) {
-    content: '';
-    position: absolute;
-    top: 57px;
-    right: -8px;
-
-    display: block;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: $primary-text-color;
-    z-index: -1;
-  }
-
-  @media screen and (min-width: 1280px) {
-    top: 80px;
     right: -15px;
     width: 30px;
     height: 30px;
