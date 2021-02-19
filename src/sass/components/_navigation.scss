@@ -1,0 +1,108 @@
+@media screen and (max-width: 1279px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    padding: 93px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    overflow-y: scroll;
+    opacity: 1;
+    @include transition(opacity);
+
+    &--is-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .mobile {
+    @include flex($align-items: flex-start, $justify-content: flex-start);
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 250px;
+    height: 100%;
+    min-height: 100vh;
+    padding: 60px 20px;
+    background-color: #e17992;
+    overflow: hidden;
+    @include transition(transform);
+
+    @media screen and (max-width: 479px) {
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    @media screen and (min-width: 480px) {
+      right: 0;
+      transform: translateY(0);
+    }
+
+    .menu--is-hidden & {
+      @media screen and (max-width: 479px) {
+        transform: translate(-50%, -100%);
+      }
+      @media screen and (min-width: 480px) {
+        transform: translateY(-100%);
+      }
+    }
+  }
+}
+
+.burger-menu {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.button-close {
+  position: absolute;
+  top: 23px;
+  right: 28px;
+}
+
+.menu-nav {
+  @media screen and (min-width: 1280px) {
+    @include flex;
+  }
+}
+
+.menu-item:not(:last-child) {
+  @media screen and (max-width: 1279px) {
+    margin-bottom: 23px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: 35px;
+  }
+}
+
+.menu-link {
+  position: relative;
+  @include font(700, 14px, 1.28, unset);
+  color: #ffffff;
+  @include transition(color);
+  @media screen and (min-width: 1280px) {
+    padding: 30px 0;
+    font-size: 16px;
+    line-height: 1.31;
+  }
+
+  &:hover,
+  &:focus {
+    color: #d41443;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    opacity: 1;
+  }
+}
