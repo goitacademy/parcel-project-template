@@ -1,13 +1,25 @@
 .reviews {
   &__slide {
     position: relative;
-    border: 1px solid blue;
-    margin-top: 29px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 29px auto 51px;
     width: 280px;
     height: 308px;
+    border:1px solid #fafafa;
     background-color: #fafafa;
+  }
+  &__slide::before {
+    content: '';
+
+    position: absolute;
+    z-index: 1;
+    top: 25px;
+    left: 61px;
+    height: 40px;
+    width: 54px;
+    border: 1px solid tomato;
+    background-image: url('/images/sprite.svg#untitled');
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   &__name {
@@ -16,11 +28,43 @@
     margin-bottom: 30px;
     text-align: center;
   }
-  &__content {
-    height: 239px;
-    width: 157px;
-    margin: 43px auto 26px;
 
+  &__punkt {
+    position: absolute;
+    left: 35%;
+    bottom: -29px;
+  }
+  &__pic {
+    float: left;
+    margin: 0 10px;
+    background-color: red;
+    border-radius: 50%;
+  }
+}
+
+.testimonials {
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-top: 80px;
+}
+.btn {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 86px;
+  text-align: center;
+}
+
+
+
+.sliderbox {
+  height: 239px;
+  width: 157px;
+  position: relative;
+
+  margin: 43px auto 26px;
+
+  &__content {
     text-align: center;
     font-family: DM Sans;
     font-size: 12px;
@@ -28,7 +72,6 @@
     font-weight: 500;
     line-height: 31px;
     letter-spacing: 0em;
-    z-index: 2;
   }
 
   &__content:nth-child(1) {
@@ -40,40 +83,16 @@
       #fafafa 31px
     );
   }
-  &__content::before {
-    content: '';
 
+  &__item {
     position: absolute;
-    z-index: 0;
-    top: 25px;
-    left: 61px;
-    height: 40px;
-    width: 54px;
-    border: 1px solid tomato;
-    background-image: url('/images/sprite.svg#untitled');
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-}
 
-.testimonials {
-  margin-left: auto;
-  margin-right: auto;
- 
-  padding-top: 80px;
-}
-.btn{
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 86px;
-    text-align: center;
-}
-.slider{
-    position: relative;
-}
-.slide2{
-    position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
+    transition: all 500ms linear;
+  }
+  &__item:target {
+    opacity: 1;
+  }
 }
