@@ -1,25 +1,41 @@
 @mixin for-size($size) {
   @if $size == responsive {
-    @media (max-width: 479px) { @content; }
+    @media (max-width: $responsive) { @content; }
   } @else if $size == phone {
-    @media (min-width: 480px) { @content; }
+    @media (min-width: $phone) { @content; }
   } @else if $size == max-phone{
-    @media (max-width: 767px) { @content; }
+    @media (max-width: $max-phone) { @content; }
   } @else if $size == tablet {
-    @media (min-width: 768px) { @content; }
+    @media (min-width: $tablet) { @content; }
   } @else if $size == max-tablet{
-    @media (max-width: 1279px) { @content; }
+    @media (max-width: $max-tablet) { @content; }
   } @else if $size == desktop {
-    @media (min-width: 1280px) { @content; }
+    @media (min-width: $desktop) { @content; }
   }
 }
 
-@mixin to-size($phone:phone,$max-phone:max-phone) {
-    @include for-size($phone) {
-        @include for-size($max-phone) {
+@mixin to-size($mobile:phone,$max-mobile:max-phone) {
+    @include for-size($mobile) {
+        @include for-size($max-mobile) {
             @content; 
         }
     }  
+}
+
+@mixin flexbox($d: flex, $jc: center, $ai: center, $w: nowrap) {
+  display: $d;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-wrap: $w;
+}
+@mixin font($fs, $lh, $fw: 500) {
+  font-size: $fs;
+  line-height: $lh;
+  font-weight: $fw;
+}
+
+@mixin transit($type: color) {
+  transition: $type $animation-duration $animation-type;
 }
 
 // // Пример использования миксина медиазапросов
