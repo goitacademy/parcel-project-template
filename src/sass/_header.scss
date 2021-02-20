@@ -1,18 +1,19 @@
 .page-header {
   position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
   z-index: 11;
   width: 100%;
 
+  overflow: hidden;
   @media screen and (min-width: 1200px) {
     padding-top: 30px;
   }
 }
 
-.header-nav-logo {
-  padding-top: 6px;
-
-  display: flex;
-  align-items: center;
+header.is-hidden {
+  height: 100vh;
 }
 
 .container-desktop {
@@ -21,19 +22,6 @@
     top: 0;
     left: 45px;
   }
-}
-
-.header-logo-text {
-  font-family: Titan One;
-  font-size: 22px;
-  line-height: 1.13;
-  text-align: center;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-
-  margin-left: 20px;
-
-  color: #f6093e;
 }
 
 .header-nav-list {
@@ -45,6 +33,10 @@
   @media screen and (max-width: 1199px) {
     margin-top: 19px;
   }
+}
+
+.header-nav-link.curent {
+  color: $text-color-chery;
 }
 
 .header-nav-title {
@@ -80,10 +72,6 @@
     padding-bottom: 21px;
   }
 
-  &.curent {
-    color: $text-color-chery;
-  }
-
   &:hover,
   &:focus {
     color: $text-color-chery;
@@ -102,7 +90,6 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 1.31;
-  cursor: pointer;
 
   color: $text-button-chery;
 
@@ -112,7 +99,7 @@
 
   &:hover,
   &:focus {
-    background-color: #ecebeb;
+    background-color: $background-hero-hover2;
   }
 
   transition: background-color $animation-time $animation-type;
@@ -131,9 +118,9 @@
     padding: 0 49px;
     min-width: 209px;
   }
+  display: block;
 
   margin-left: 50px;
-
   width: 160px;
   height: 44px;
 
@@ -142,14 +129,13 @@
   font-size: 16px;
   line-height: 1.31;
 
-  cursor: pointer;
   color: $text-button-chery;
 
   border-radius: 22px;
   border: transparent;
   background-color: $text-color-white;
 
-  display: block;
+  cursor: pointer;
 
   &-icon {
     margin-left: 14px;
@@ -157,7 +143,7 @@
 
   &:hover,
   &:focus {
-    background-color: #ecebeb;
+    background-color: $background-hero-hover2;
   }
 
   transition: background-color $animation-time $animation-type;
@@ -170,10 +156,12 @@
 }
 
 .menu-mobile {
-  @media screen and (min-width: $tablet) {
+  pointer-events: all;
+  @media screen and (min-width: $tablet) and (max-width: 1199px) {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-top: 38px;
   }
 }
 
@@ -187,33 +175,34 @@
 
 .menu-mobile-btn {
   display: none;
-
   @media screen and (max-width: 1199px) {
     @media screen and (max-width: 767.98px) {
       position: absolute;
       z-index: 3;
-      top: 9px;
-      right: 9px;
+      top: 15px;
+      right: 20px;
     }
-
-    padding: 0;
-    border: transparent;
-    background-color: transparent;
-    width: 40px;
-    height: 40px;
-
     display: flex;
     justify-content: center;
     align-items: center;
 
-    cursor: pointer;
+    padding: 0;
+    border: transparent;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+
+    &:hover,
+    &:focus {
+      outline: 0;
+      outline-offset: 0;
+    }
 
     &.is-open {
       position: absolute;
       z-index: 3;
-      top: 9px;
-      right: 9px;
-      pointer-events: all;
+      top: 15px;
+      right: 20px;
     }
 
     &.is-open .menu-mobile-icon-burger {
@@ -227,12 +216,6 @@
     &.is-open .menu-mobile-icon-close {
       opacity: 1;
       transition: opacity $animation-time $animation-type $animation-time;
-    }
-
-    &:hover,
-    &:focus {
-      outline: 0;
-      outline-offset: 0;
     }
   }
 }
@@ -267,7 +250,6 @@
 
       transform: translateX(0);
     }
-    overflow: hidden;
   }
 
   transition: opacity $animation-time $animation-type,
