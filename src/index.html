@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./images/favicon.png" />
     <title>Заголовок страницы</title>
   </head>
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-    <!-- <include src="./partials/hero-header.html"></include> -->
+</include> -->
 	 <include src="./partials/hero.html"></include>
     <!-- Секция №3 -->
     <!-- <include src="./partials/products.html"></include>
+    <include src="./partials/products.html"></include>
     <include src="./partials/about.html"></include>
     <include src="./partials/advantages.html"></include>
     <include src="./partials/gallery.html"></include>
@@ -21,5 +23,20 @@
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
+    <script>
+      const setup = name => {
+        const backdrop = document.querySelector(`[data-backdrop-${name}]`);
+        const buttons = document.querySelectorAll(
+          `[data-toggle-backdrop-${name}]`,
+        );
+        const toggleBackdrop = () =>
+          backdrop.classList.toggle('backdrop--hidden');
+        buttons.forEach(button =>
+          button.addEventListener('click', toggleBackdrop),
+        );
+      };
+      setup('schedule');
+      setup('menu');
+    </script>
   </body>
 </html>
