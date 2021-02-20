@@ -14,8 +14,6 @@
   }
 }
 
-
-
 .location-card {
   padding: 43px 21px 43px 20px;
 
@@ -25,14 +23,29 @@
   &:nth-child(-n + 2) {
     margin-bottom: 20px;
   }
+  @media (min-width: $tablet) {
+    position: relative;
+    bottom: 102px;
+    padding: 50px 32px 50px 31px;
+    &:nth-child(-n + 2) {
+      margin-bottom: 0px;
+    }
+    &:nth-child(-n + 2) {
+      margin-right: 20px;
+    }
+  }
 }
 
 .location-wrapper {
-  position: absolut;
+  position: absolute;
+  display: block;
+  @media (min-width: $tablet) {
+    display: inline-flex;
+  }
 }
 .location-title {
   font-family: $secondary-font;
-  font-style: normal;
+  font-style: 500;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.86;
@@ -41,22 +54,44 @@
 
   color: getColor(main-bg);
 
-  display: flex;
-  align-items: center;
-  text-align: center;
+  @include flexBox();
 
   margin-bottom: 25px;
   border-radius: 4px;
+  @media (min-width: $tablet) {
+    margin-bottom: 30px;
+
+    font-size: 16px;
+  }
+
   &__brown {
+    width: 80px;
     background: getColor(brown-bg);
+    @media (min-width: $tablet) {
+      width: 73px;
+    }
   }
   &__green {
+    width: 130px;
     background: getColor(green-bg);
+    @media (min-width: $tablet) {
+      width: 138px;
+    }
   }
 }
 
 .location-city {
   margin-bottom: 10px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.86;
+  letter-spacing: 0.04em;
+  @media (min-width: $tablet) {
+    margin-bottom: 14px;
+    font-size: 14px;
+  }
 }
 
 .location-description {
@@ -67,21 +102,32 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.5;
-  color: getColor(secodaryText);
+
+  color: getColor(secondaryText);
+  @media (min-width: $tablet) {
+    padding-bottom: 30px;
+    font-size: 14px;
+    line-height: 1.66;
+  }
 }
 
 .location-schedule {
   padding: 25px 0;
   border-top: 1px solid getColor(border);
   border-bottom: 1px solid getColor(border);
+  @media (min-width: $tablet) {
+    padding: 30px 0;
+    font-size: 14px;
+  }
   &__item {
-    &:first-child {
-      font-family: $secondary-font;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 1.86;
-      margin-bottom: 10px;
+    font-family: $secondary-font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.86;
+    margin-bottom: 10px;
+    @media (min-width: $tablet) {
+      font-size: 14px;
     }
   }
   &__day {
@@ -94,6 +140,9 @@
 
 .location-list {
   padding-top: 25px;
+  @media (min-width: $tablet) {
+    padding-top: 30px;
+  }
 }
 
 .location-contacts {
@@ -102,16 +151,24 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.5;
-  color: #907e82;
+  color: getColor(secondaryText);
+  @media (min-width: $tablet) {
+    font-size: 14px;
+    line-height: 1.83;
+  }
   &__link {
   }
 }
 
 .btn-wrapper {
-  
+  display: block;
 }
 
 .btn {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
   width: 161px;
   height: 44px;
 
@@ -126,21 +183,44 @@
   line-height: 1.31;
 
   display: flex;
+  justify-content: center;
   align-items: center;
   text-align: center;
-
+  @media (min-width: $tablet) {
+    display: inline-flex;
+    transform: translateX(-100%);
+    bottom: 86px;
+  }
   &-location__our {
-    // &:hover,
-    // &:focus {
-    // }
+    margin-top: 54px;
     color: getColor(main-bg);
     background: getColor(accent);
+    &:hover,
+    &:focus {
+      color: getColor(main-bg);
+      background: getColor(accent);
+    }
+    @media (min-width: $tablet) {
+      width: 191px;
+    }
   }
   &-location__franchise {
-    // &:hover,
-    // &:focus {
-    // }
+    margin-top: 10px;
     color: getColor(accent);
     background: getColor(main-bg);
+    &:hover,
+    &:focus {
+      color: getColor(accent);
+      background: getColor(main-bg);
+    }
+    @media (min-width: $tablet) {
+      width: 174px;
+    }
+  }
+}
+.button-vector {
+  margin-left: 8px;
+  @media (min-width: $tablet) {
+    margin-left: 13px;
   }
 }
