@@ -2,17 +2,17 @@
   @include font(500, 12px, 2.59, 0.02em);
 
   padding-top: 80px;
-  padding-bottom: 86px;
+  padding-bottom: 170px;
 
   @media screen and (min-width: 768px) {
     @include font(500, 14px, 2.14, 0.04em);
     padding-top: 120px;
-    padding-bottom: 120px;
+    padding-bottom: 200px;
   }
   @media screen and (min-width: 1280px) {
     @include font(500, 16px, 1.88, 0.04em);
     padding-top: 120px;
-    padding-bottom: 132px;
+    padding-bottom: 234px;
   }
 
   &-img {
@@ -140,6 +140,14 @@
 .slick-slide img {
   display: block;
   margin: auto;
+  margin-bottom: 30px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 15px;
+  }
 }
 
 .slick-dots li {
@@ -152,37 +160,7 @@
   margin-right: 18px;
 }
 
-.slick-dots li button {
-  width: 12px;
-  height: 12px;
-}
-
 .slick-dots li button:before {
-  font-family: 'slick';
-  font-size: 6px;
-  line-height: 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  content: '';
-  text-align: center;
-  opacity: 1;
-  color: black;
-}
-
-[aria-controls='slick-slide00']::before {
-  content: '';
-  background-image: url(../images/home.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 12px;
-  height: 12px;
-  opacity: 1;
-}
-
-[aria-controls='slick-slide01']::before {
   content: '';
   width: 12px;
   height: 12px;
@@ -191,23 +169,16 @@
   opacity: 1;
 }
 
-[aria-controls='slick-slide02']::before {
-  content: '';
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #d9d9d9;
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
   opacity: 1;
-}
-
-[aria-controls='slick-slide01']:hover::before,
-[aria-controls='slick-slide01']:focus::before,
-[aria-controls='slick-slide02']:hover::before,
-[aria-controls='slick-slide02']:focus::before {
   background-color: #d31342;
-  opacity: 1;
 }
 
 .slick-dots li.slick-active button:before {
   opacity: 1;
+  background-color: transparent;
+  background-image: url(../images/home.svg);
+  border-radius: unset;
+  width: 13px;
 }
