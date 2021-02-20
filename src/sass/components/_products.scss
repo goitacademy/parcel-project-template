@@ -53,31 +53,39 @@
 }
 
 .products-list {
-    display: block;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
 
     @media screen and (min-width: 768px) {
         display: flex;
         justify-content: center;
+        flex-direction: row;
     }
 }
 
 .products-list .list-element {
-    max-width: 280px;
+    width: 280px;
     height: 485px;
 
-    &:not(:last-child) {
-        margin-bottom: 130px;
+    @media screen and (max-width: 767px) {
+        margin-top: 140px;
+        margin-right: auto;
+        margin-left: auto;
+    }
 
-        @media screen and (min-width: 768px) {
-            margin-bottom: 0px;
-            margin-right: 20px;
-        }
+    @media screen and (min-width: 768px) {
+        margin-bottom: 0px;
+        margin-right: 20px;
+        margin-top: 150px;
+        width: 220px;
+    }
 
-        @media screen and (min-width: 1280px) {
-            margin-bottom: 0px;
-            margin-right: 30px;
-        }
+    @media screen and (min-width: 1280px) {
+        margin-bottom: 0px;
+        margin-right: 30px;
+        margin-top: 260px;
+        width: 329px;
+        height: 525px;
     }
     
     &.ice-cream {
@@ -94,23 +102,6 @@
     border-radius: 24px;
     background-color: $products-container-green-color;
     }
-
-    @media screen and (max-width: 767px) {
-        margin-top: 140px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-        
-    @media screen and (min-width: 768px) {
-        margin-top: 150px;
-        width: 220px;
-    }
-
-    @media screen and (min-width: 1200px) {
-        margin-top: 260px;
-        width: 329px;
-        height: 525px;
-    }
 }
 
 .picture {
@@ -118,11 +109,10 @@
 
     width: 249px;
 
-    margin-bottom: 161px;
-
     @media screen and (max-width: 767px) {
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 161px;
     }
 
     @media screen and (min-width: 768px) {
@@ -143,6 +133,8 @@
     height: 252px;
 
     margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
 
     @media screen and (max-width: 767px) {
         transform: translateY(-45%);
@@ -171,7 +163,7 @@
     text-align: center;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-
+    
     margin-bottom: 30px;
 
     color: $white-color;
@@ -203,23 +195,25 @@
     text-align: center;
     letter-spacing: 0.04em;
 
-    margin-bottom: 30px;
-    width: 200px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 40px;
+    margin-left: 40px;
 
     color: $white-color;
 
     @media screen and (min-width: 768px) {
         font-size: 14px;
         line-height: 176%;
-        width: 198px;
+
+        margin-right: 11px;
+        margin-left: 11px;
     }
 
     @media screen and (min-width: 1200px) {
         font-size: 16px;
         line-height: 176%;
-        width: 241px;
+
+        margin-right: 44px;
+        margin-left: 44px;
     }
 }
 
@@ -232,5 +226,15 @@
     background-color: $white-color;
     height: 40px;
     width: 40px;
+
+    margin-top: 30px;
     border-radius: 50%;
+
+    @media screen and (min-width: 768px) {
+        margin-top: 40px;
+    }
+    
+    @media screen and (min-width: 1280px) {
+        margin-top: 62px;
+    }
 }
