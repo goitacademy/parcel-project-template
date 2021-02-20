@@ -16,10 +16,20 @@ font-family: 'Titan One', cursive;
   padding-top: 121px;
   padding-bottom: 98px;
 
-  font-family: 'DM Sans', sans-serif;
-  letter-spacing: 0.04em;
+  font-family: $font-family-basic;
+  letter-spacing: $font-spacing-basic;
 
-  background-color: #ffffff;
+  background-color: $color-bg-secondary;
+
+  @media screen and(min-width: 768px) {
+    padding-top: 122px;
+    padding-bottom: 112px;
+  }
+
+  @media screen and(min-width: 1280px) {
+    padding-top: 127px;
+    padding-bottom: 119px;
+  }
 }
 
 .products-headings {
@@ -27,15 +37,25 @@ font-family: 'Titan One', cursive;
 }
 
 .products-label {
-  font-family: 'Titan One', cursive;
-  font-weight: 400;
-  font-size: 18px;
+  font-family: $font-family-title;
+  font-weight: $font-weight-normal;
+  font-size: $lable-size-basic;
   line-height: 1.17;
 
   text-align: center;
   text-transform: uppercase;
 
-  color: #ffa5ba;
+  color: $color-text-tertiary;
+
+  @media screen and(min-width: 768px) {
+    font-size: $lable-size-secondary;
+    line-height: 1.15;
+  }
+
+  @media screen and(min-width: 1280px) {
+    font-size: $lable-size-tertiary;
+    line-height: 1.13;
+  }
 }
 
 .products-tittle {
@@ -45,41 +65,91 @@ font-family: 'Titan One', cursive;
   margin-top: 15px;
   margin-bottom: 31px;
 
-  font-family: 'Titan One', cursive;
-  font-weight: 400;
-  font-size: 34px;
+  font-family: $font-family-title;
+  font-weight: $font-weight-normal;
+  font-size: $title-size-basic;
   line-height: 1.15;
-  letter-spacing: 0.04em;
+  letter-spacing: $font-spacing-basic;
 
   text-align: center;
   text-transform: uppercase;
 
-  color: #d41443;
+  color: $color-title-basic;
+
+  @media screen and(min-width: 768px) {
+    margin-bottom: 39px;
+
+    font-size: $title-size-secondary;
+  }
+
+  @media screen and(min-width: 1280px) {
+    margin-bottom: 49px;
+
+    font-size: $title-size-tertiary;
+    line-height: 1.14;
+  }
 }
 
-.container {
+.products-container {
   min-width: 320px;
 
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
+
+  @media screen and(min-width: 768px) {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  @media screen and(min-width: 1280px) {
+    padding-left: 113px;
+    padding-right: 113px;
+  }
 }
 
 .products-list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.products-list-item:not(:last-child) {
-  margin-bottom: 17px;
+.products-list-item {
+  @media screen and(max-width: 767px) {
+    min-width: 280px;
+    width: 100%;
+    max-width: 440px;
+
+    &:not(:last-child) {
+      margin-bottom: 17px;
+    }
+  }
+
+  @media screen and(min-width: 768px) {
+    margin-right: 20px;
+
+    max-width: 220px;
+
+    flex-basis: calc((100% - 2 * 20px) / 3);
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media screen and(min-width: 1280px) {
+    margin-right: 23px;
+
+    max-width: 337px;
+
+    flex-basis: calc((100% - 2 * 23px) / 3);
+  }
 }
 
 .products-card {
   position: relative;
 
-  width: 280px;
   height: 598px;
 
   display: flex;
@@ -89,18 +159,22 @@ font-family: 'Titan One', cursive;
   text-align: center;
 
   background-color: transparent;
+
+  @media screen and(min-width: 1280px) {
+    height: 735px;
+  }
 }
 
 .ice-cream {
-  background-color: #ffb8ca;
+  background-color: $ice-cream-card;
 }
 
 .ice-coffee {
-  background-color: #f0d1a5;
+  background-color: $ice-coffee-card;
 }
 
 .milkshakes {
-  background-color: #c2e297;
+  background-color: $milkshakes-card;
 }
 
 .product-card-picture-ice-cream::before {
@@ -117,6 +191,20 @@ font-family: 'Titan One', cursive;
   height: 252px;
 
   background-image: url(../images/products/products-pic1.png);
+
+  @media screen and(min-width: 768px) {
+    width: 220px;
+    height: 226px;
+
+    background-image: url(../images/products/products-pic1-tablet.png);
+  }
+
+  @media screen and(min-width: 1280px) {
+    width: 335px;
+    height: 335px;
+
+    background-image: url(../images/products/products-pic1-desktop.png);
+  }
 }
 
 .product-card-picture-ice-coffee::before {
@@ -133,6 +221,20 @@ font-family: 'Titan One', cursive;
   height: 252px;
 
   background-image: url(../images/products/products-pic2.png);
+
+  @media screen and(min-width: 768px) {
+    width: 220px;
+    height: 233px;
+
+    background-image: url(../images/products/products-pic2-tablet.png);
+  }
+
+  @media screen and(min-width: 1280px) {
+    width: 337px;
+    height: 335px;
+
+    background-image: url(../images/products/products-pic2-desktop.png);
+  }
 }
 
 .product-card-picture-milkshakes::before {
@@ -149,10 +251,23 @@ font-family: 'Titan One', cursive;
   height: 252px;
 
   background-image: url(../images/products/products-pic3.png);
+
+  @media screen and(min-width: 768px) {
+    width: 220px;
+    height: 226px;
+
+    background-image: url(../images/products/products-pic3-tablet.png);
+  }
+
+  @media screen and(min-width: 1280px) {
+    width: 335px;
+    height: 335px;
+
+    background-image: url(../images/products/products-pic3-desktop.png);
+  }
 }
 
 .products-card-content {
-  width: 280px;
   height: 485px;
 
   padding-bottom: 41px;
@@ -162,6 +277,17 @@ font-family: 'Titan One', cursive;
   justify-content: flex-end;
 
   border-radius: 24px;
+
+  @media screen and (max-width: 767px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 525px;
+
+    padding-bottom: 50px;
+  }
 }
 
 .products-card-tittle {
@@ -169,51 +295,138 @@ font-family: 'Titan One', cursive;
   padding: 0;
   margin-bottom: 30px;
 
-  font-family: 'Titan One', cursive;
-  font-weight: 400;
-  font-size: 20px;
+  font-family: $font-family-title;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-products-card-tittle;
   line-height: 1.15;
-  letter-spacing: 0.04em;
+  letter-spacing: $font-spacing-basic;
 
   text-align: center;
   text-transform: uppercase;
 
-  color: #ffffff;
+  color: $products-card-text-white;
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 32px;
+
+    font-size: $font-size-products-card-tittle-desktop;
+    line-height: 1.13;
+  }
+}
+
+.products-card-dots {
+  content: '';
+  position: relative;
+  display: inline-block;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+
+  width: 6px;
+  height: 6px;
+
+  background-color: $card-dots-white;
+  border: 1px solid $card-dots-white;
+  border-radius: 50%;
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 32px;
+  }
 }
 
 .products-card-dots::before {
   content: '';
+  position: absolute;
+  right: 10px;
+  top: -1px;
+  display: inline-block;
+
+  width: 6px;
+  height: 6px;
+
+  background-color: $card-dots-white;
+  border: 1px solid $card-dots-white;
+  border-radius: 50%;
+}
+
+.products-card-dots::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: -1px;
 
   display: inline-block;
 
-  margin-bottom: 30px;
-
-  width: 26px;
+  width: 6px;
   height: 6px;
 
-  background-image: url(../images/products/dots.svg);
+  background-color: $card-dots-white;
+  border: 1px solid $card-dots-white;
+  border-radius: 50%;
 }
 
 .products-card-text {
   margin-left: auto;
   margin-right: auto;
 
-  width: 200px;
+  min-width: 200px;
+  max-width: 300px;
 }
 
-.products-card-description {
+.products-card-description-mobile {
   padding: 0;
   margin: 0;
   margin-bottom: 30px;
 
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: $font-weight-bold;
+  font-size: $text-size-secondary;
   line-height: 1.5;
-  letter-spacing: 0.04em;
+  letter-spacing: $font-spacing-basic;
 
   text-align: center;
 
-  color: #ffffff;
+  color: $products-card-text-white;
+
+  @media screen and(min-width: 768px) {
+    display: none;
+  }
+}
+
+.products-card-description {
+  display: none;
+
+  padding: 0;
+  margin: 0;
+  margin-bottom: 30px;
+
+  font-weight: $font-weight-bold;
+  font-size: $text-size-secondary;
+  line-height: 1.5;
+  letter-spacing: $font-spacing-basic;
+
+  text-align: center;
+
+  color: $products-card-text-white;
+
+  @media screen and(min-width: 768px) {
+    display: block;
+
+    margin-bottom: 40px;
+
+    width: 198px;
+
+    line-height: 1.78;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 62px;
+
+    font-size: $text-size-tertiary;
+    line-height: 1.75;
+
+    width: 240px;
+  }
 }
 
 .products-button {
@@ -231,8 +444,8 @@ font-family: 'Titan One', cursive;
   border-color: transparent;
   border-radius: 50%;
 
-  background-color: #c7133e;
-  fill: #ffffff;
+  background-color: $card-button-primary;
+  fill: $color-button-light;
   cursor: pointer;
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -240,7 +453,7 @@ font-family: 'Titan One', cursive;
 
   &:hover,
   &:focus {
-    fill: #c7133e;
-    background-color: #ffffff;
+    fill: $color-button-light;
+    background-color: #c7133e;
   }
 }
