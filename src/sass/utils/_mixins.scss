@@ -1,0 +1,73 @@
+@mixin for-size($size) {
+  @if $size == responsive {
+    @media (max-width: $responsive) { @content; }
+  } @else if $size == phone {
+    @media (min-width: $phone) { @content; }
+  } @else if $size == max-phone{
+    @media (max-width: $max-phone) { @content; }
+  } @else if $size == tablet {
+    @media (min-width: $tablet) { @content; }
+  } @else if $size == max-tablet{
+    @media (max-width: $max-tablet) { @content; }
+  } @else if $size == desktop {
+    @media (min-width: $desktop) { @content; }
+  }
+}
+
+@mixin to-size($mobile:phone,$max-mobile:max-phone) {
+    @include for-size($mobile) {
+        @include for-size($max-mobile) {
+            @content; 
+        }
+    }  
+}
+
+@mixin flexbox($d: flex, $jc: center, $ai: center, $w: nowrap) {
+  display: $d;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-wrap: $w;
+}
+@mixin font($fs, $lh, $fw: 500) {
+  font-size: $fs;
+  line-height: $lh;
+  font-weight: $fw;
+}
+
+@mixin transit($type: color) {
+  transition: $type $animation-duration $animation-type;
+}
+
+// // Пример использования миксина медиазапросов
+// .my-box {
+//   width: 100%;
+// // от 319рх и меньше
+//   @include for-size(responsive) {
+//     width: 319px;
+//   }
+
+// // от 320рх и больше
+//   @include for-size(phone) {
+//     width: 320px;
+//   }
+
+// // для диапазона 320-767рх
+//   @include to-size() {
+//     padding: calc(320px - 767px);
+//   }
+
+// // от 768рх и больше
+//   @include for-size(tablet) {
+//     width: 768px;
+//   }
+  
+
+// // для диапазона 768-1199рх
+// @include to-size(tablet, max-tablet) {
+//       width: calc(768px - 1199px);
+// }
+// // от 1200рх и больше
+//   @include for-size(desktop) {
+//     width: 1200px;
+//   }
+// }
