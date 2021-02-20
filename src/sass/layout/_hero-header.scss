@@ -5,37 +5,42 @@
   }
   &-container {
     position: relative;
+    height: 100%; // Krokodil
+    overflow: hidden; // Krokodil
+
+    &::after {
+      // Krokodil
+      //
+      position: absolute;
+      content: ''; // Krokodil
+      top: 83px; // Krokodil
+      left: calc(50% - 124px);
+      width: 346px;
+      height: 346px;
+      border-radius: 50%;
+      background-color: $title-text-color;
+      z-index: 1;
+
+      @media screen and (min-width: 768px) {
+        width: 324px;
+        height: 324px;
+      }
+      @media screen and (min-width: 1280px) {
+        width: 538px;
+        height: 538px;
+      }
+    }
   }
 }
-.hero-main {
-  &-bg {
-    position: absolute;
-    top: 83px;
-    left: calc(50% - 124px);
-    width: 346px;
-    height: 346px;
-    border-radius: 50%;
-    background-color: $title-text-color;
-    z-index: 1;
-    @media screen and (min-width: 768px) {
-      width: 324px;
-      height: 324px;
-    }
-    @media screen and (min-width: 1280px) {
-      width: 538px;
-      height: 538px;
-    }
-  }
-  &-im {
-    position: absolute;
-    top: 92px;
-    left: calc(50% - 42px);
-    width: 171px;
-    height: 410px;
-    background-image: url(../images/hero-header/img-mob-icecream@1x.png);
-    background-repeat: no-repeat;
-    z-index: 2;
-  }
+.hero-main-im {
+  position: absolute;
+  top: 92px;
+  left: calc(50% - 42px);
+  width: 171px;
+  height: 410px;
+  background-image: url(../images/hero-header/img-mob-icecream@1x.png);
+  background-repeat: no-repeat;
+  z-index: 2;
 }
 .header-mob {
   position: relative;
@@ -47,6 +52,7 @@
   position: absolute;
   top: 6px;
   left: 0;
+  z-index: 2;
 }
 .menu-button {
   position: absolute;
@@ -81,10 +87,12 @@
   z-index: 8;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
+  // opacity: 0;  //Krokodil
+  display: none; //Krokodil
   &.is-open {
     transform: translateX(-100%);
-    opacity: 1;
+    // opacity: 1;  //Krokodil
+    display: block; //Krokodil
   }
 }
 .header-order {
