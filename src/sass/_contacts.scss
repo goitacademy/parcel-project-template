@@ -1,3 +1,20 @@
+.contacts {
+  background: linear-gradient(to bottom, #ffffff 11%, #fff5f6 6% 100%);
+  padding-top: 86px;
+  padding-bottom: 7px;
+
+  @media screen and (min-width: $tablet) {
+    background: linear-gradient(to bottom, #ffffff 22%, #fff5f6 6% 100%);
+  }
+
+  @media screen and (min-width: $desktop) {
+    background: url(../images/sectionbg.png),
+      linear-gradient(to bottom, #ffffff 0%, #fff5f6 6% 100%);
+    background-repeat: no-repeat;
+    background-position-y: center;
+  }
+}
+
 .contacts__title {
   position: absolute;
   clip: rect(0 0 0 0);
@@ -10,24 +27,37 @@
   margin: 0;
   padding: 0;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     display: flex;
   }
 }
 .contacts__item {
   padding: 43px 20px;
-  background: #ffffff;
+  background: $text-color-white;
   box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
   border-radius: 24px;
   width: 220px;
   height: 427px;
+  margin: 0;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
   list-style: none;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     height: 544px;
+    padding: 50px 31px;
+    margin: 0;
+
+    &:nth-child(3) {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 330px;
+    height: 572px;
   }
 }
 
@@ -35,7 +65,7 @@
   display: flex;
   width: 80px;
   height: 16px;
-  background: #f0d1a5;
+  background: $background-products-cofe;
   border-radius: 4px;
   font-family: DM Sans;
   font-style: normal;
@@ -45,15 +75,23 @@
   align-items: center;
   text-align: center;
   letter-spacing: 0.04em;
-  color: #ffffff;
+  color: $text-color-white;
   margin-bottom: 25px;
+
+  @media screen and (min-width: $tablet) {
+    width: 73px;
+    height: 28px;
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 30px;
+  }
 }
 
 .contacts-foodtrack {
   display: flex;
   width: 130px;
   height: 16px;
-  background: #c2e297;
+  background: $background-products-green;
   border-radius: 4px;
   font-family: DM Sans;
   font-style: normal;
@@ -63,8 +101,16 @@
   align-items: center;
   text-align: center;
   letter-spacing: 0.04em;
-  color: #ffffff;
+  color: $text-color-white;
   margin-bottom: 25px;
+
+  @media screen and (min-width: $tablet) {
+    width: 138px;
+    height: 28px;
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 30px;
+  }
 }
 
 .contacts__name {
@@ -80,9 +126,21 @@
   font-size: 12px;
   line-height: 22px;
   letter-spacing: 0.04em;
-  color: #000000;
+  color: $text-black;
   margin-top: 0;
   margin-bottom: 10px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 14px;
+    font-size: 16px;
+    line-height: 30px;
+  }
 }
 
 .contacts__text {
@@ -95,6 +153,17 @@
   color: #907e82;
   margin: 0;
 
+  @media screen and (min-width: $tablet) {
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 14px;
+    font-size: 16px;
+    line-height: 29px;
+  }
+
   &::after {
     display: block;
     content: '';
@@ -103,6 +172,18 @@
     height: 0px;
     margin-top: 25px;
     margin-bottom: 25px;
+
+    @media screen and (min-width: $tablet) {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      width: 157px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      margin-top: 32px;
+      margin-bottom: 32px;
+      width: 234px;
+    }
   }
 }
 
@@ -113,8 +194,13 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 22px;
-  color: #000000;
+  color: $text-black;
   margin: 0;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 14px;
+    line-height: 26px;
+  }
 }
 
 .workhours {
@@ -123,15 +209,24 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 22px;
-  color: #ffa5ba;
+  color: $background-hero-rose;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 14px;
+    line-height: 26px;
+  }
 
   &:nth-child(4) {
     margin-bottom: 10px;
-  }
-}
 
-.contacts__list {
-  padding: 0;
+    @media screen and (min-width: $tablet) {
+      margin-bottom: 16px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      margin-bottom: 15px;
+    }
+  }
 }
 
 .contacts-nav__mail {
@@ -141,6 +236,24 @@
   font-size: 12px;
   line-height: 18px;
   color: #907e82;
+  transition: all 250ms ease-in-out;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 10px 0 $text-color-rose inset, 0 0 10px 4px $text-color-rose;
+    background-color: $background-hero-hover2;
+    color: $text-color-chery;
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 16px;
+    line-height: 29px;
+  }
 }
 
 .contacts-nav__phone {
@@ -150,6 +263,24 @@
   font-size: 12px;
   line-height: 18px;
   color: #907e82;
+  transition: all 250ms ease-in-out;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 10px 0 $text-color-rose inset, 0 0 10px 4px $text-color-rose;
+    background-color: $background-hero-hover2;
+    color: $text-color-chery;
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 16px;
+    line-height: 29px;
+  }
 
   &:before {
     display: block;
@@ -159,12 +290,23 @@
     height: 0px;
     margin-top: 25px;
     margin-bottom: 25px;
+
+    @media screen and (min-width: $tablet) {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      width: 157px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      margin-top: 32px;
+      margin-bottom: 32px;
+      width: 234px;
+    }
   }
 }
 
 .button-locations {
-  display: block;
-  width: 161.45px;
+  width: 161px;
   height: 44px;
   background: #d41342;
   border-radius: 22px;
@@ -174,61 +316,95 @@
   font-weight: bold;
   font-size: 16px;
   line-height: 21px;
-  // display: flex;
+  display: flex;
   align-items: center;
   text-align: center;
-  color: #ffffff;
+  color: $text-color-white;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
   cursor: pointer;
-  margin: 0;
   padding: 0;
+  padding-left: 17px;
+  transition: all 250ms ease-in-out;
 
-  @media screen and (min-width: 768px) {
-    width: 191.45px;
-    margin-right: 14px;
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 10px 0 $text-color-rose inset, 0 0 10px 4px $text-color-rose;
+    outline: none;
   }
+
+  @media screen and (min-width: $tablet) {
+    width: 191px;
+    margin-right: 14px;
+    margin: 0;
+    padding-left: 30px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 198px;
+  }
+}
+.vector-right-white {
+  margin-left: 8px;
+}
+
+.vector-right-red {
+  margin-left: 14px;
 }
 
 .button-franchise {
   display: block;
   width: 161px;
   height: 44px;
-  background: #ffffff;
+  background: $text-color-white;
   border-radius: 22px;
   font-family: DM Sans;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 21px;
-  // display: flex;
   align-items: center;
   text-align: center;
-  color: #d41443;
+  color: $text-button-chery;
   margin-left: auto;
   margin-right: auto;
   border: transparent;
   cursor: pointer;
-  margin: 0;
   padding: 0;
+  transition: all 250ms ease-in-out;
 
-  @media screen and (min-width: 768px) {
-    width: 174.05px;
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 10px 0 $text-color-rose inset, 0 0 10px 4px $text-color-rose;
+    background-color: $background-hero-hover2;
+    outline: none;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 174px;
+    margin-left: 15px;
+    margin-right: 0;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 180px;
   }
 }
 
 .contacts-button {
-  justify-content: center;
   margin-top: 54px;
   margin-left: auto;
   margin-right: auto;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     display: flex;
     margin-top: 81px;
     align-items: baseline;
     justify-content: center;
-    margin-bottom: 165px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 86px;
   }
 }

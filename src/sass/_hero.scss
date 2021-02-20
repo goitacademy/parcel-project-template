@@ -1,58 +1,68 @@
-p {
-    margin: 0;
+.hero-section {
+    background-color: $background-products-rose;
 }
 
-.header-section {
-    background-color: #FFB8CA;
-}
-
-.container-my {
-    margin-top: 84px;
+// 19.02.2021
+.container-hero {
     z-index: 1;
-    margin-left: auto;
-    margin-right: auto;
     position: relative;
     overflow: hidden;
-    justify-content: center;
-    @media screen and(min-width: 768px) {
-        width: 756px;
+    @media screen and(min-width: $tablet) {
         display: flex;
         justify-content: space-between;
-        padding-left: 40px;
-        padding-right: 40px;
     }
-    @media screen and(min-width: 1200px) {
-        width: 1200px;
+}
+
+.hero-section {
+    background-color: $background-products-rose;
+}
+
+.hero-left-part {
+    @media screen and (min-width: $tablet) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 100px;
+        padding-bottom: 28px;
+    }
+    @media screen and (min-width:$desktop) {
+        padding-top: 170px;
+        padding-bottom: 44px;
     }
 }
 
 .hero-title {
     z-index: 5;
-    padding: 140px 0 160px;
+    padding: 140px 0 210px;
     width: 220px;
-    @media screen and(min-width: 768px) {
+    @media screen and(min-width: $tablet) {
         width: 165px;
-        padding: 15px 0 20px;
+        padding: 15px 0 50px;
     }
-    @media screen and(min-width: 1200px) {
+    @media screen and(min-width: $desktop) {
         width: 280px;
+        padding: 15px 0 110px;
     }
     &__mini {
-        z-index: 3;
+        // z-index: 3;
+        margin: 0;
         font-family: Titan One;
         font-weight: normal;
         font-size: 26px;
         line-height: 30px;
         letter-spacing: 0.04em;
         text-transform: uppercase;
-        color: #FFFFFF;
-        @media screen and(min-width: 768px) {
+        color: $text-color-white;
+        margin-bottom: 20px;
+        @media screen and(min-width: $tablet) {
             font-size: 22px;
             line-height: 25px;
         }
-        @media screen and(min-width: 1200px) {
+        @media screen and(min-width: $desktop) {
             font-size: 38px;
             line-height: 44px;
+            // temporarily
+            margin-bottom: 25px;
         }
     }
     &__larger {
@@ -61,53 +71,88 @@ p {
         font-size: 48px;
         line-height: 96.5%;
         text-transform: uppercase;
-        color: #D41443;
-        @media screen and(min-width: 768px) {
+        color: $text-color-chery;
+        @media screen and(min-width: $tablet) {
             font-size: 34px;
             line-height: 90.5%;
         }
-        @media screen and(min-width: 1200px) {
+        @media screen and(min-width: $desktop) {
             font-size: 58px;
             line-height: 90.5%;
         }
     }
 }
 
-.products-btn {
-    width: 62px;
-    height: 24px;
-    border-radius: 20px;
-    color: #FFFFFF;
-    background-color: #D41443;
-    font-family: DM Sans;
-    font-weight: normal;
-    font-size: 8px;
-    line-height: 10px;
-    text-align: center;
-    @media screen and(min-width: 1200px) {
-        width: 105px;
-        height: 40px;
-        font-size: 14px;
-        line-height: 18px;
+.hero-btn {
+    display: flex;
+    &__first-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 8px;
+        @media screen and(min-width: $desktop) {
+            margin-right: 15px;
+        }
+    }
+    &__second-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media screen and(min-width: $desktop) {}
+    }
+    &__products {
+        padding: 7px 14px;
+        color: $text-color-white;
+        border-radius: 20px;
+        border: transparent;
+        background-color: $text-color-chery;
+        font-family: DM Sans;
+        font-weight: normal;
+        font-size: 8px;
+        line-height: 10px;
+        @include transit (background-color);
+        @media screen and(min-width: $desktop) {
+            font-size: 14px;
+            line-height: 18px;
+            padding: 10px 20px;
+        }
+        &:hover,
+        &:focus {
+            background: $background-hero-hover;
+        }
+    }
+    &__howMade {
+        padding: 7px 14px;
+        border-radius: 20px;
+        border: transparent;
+        color: $text-color-chery;
+        background-color: $text-color-white;
+        font-family: DM Sans;
+        font-weight: normal;
+        font-size: 8px;
+        line-height: 10px;
+        text-align: center;
+        @include transit (background-color);
+        @media screen and(min-width: $desktop) {
+            font-size: 14px;
+            line-height: 18px;
+            padding: 10px 20px;
+        }
+        &:hover,
+        &:focus {
+            background-color: $background-hero-hover2;
+            ;
+        }
     }
 }
 
-.about-btn {
-    width: 82px;
-    height: 24px;
-    border-radius: 20px;
-    color: #D41443;
-    background-color: #FFFFFF;
-    font-family: DM Sans;
-    font-weight: normal;
-    font-size: 8px;
-    line-height: 10px;
-    text-align: center;
-    @media screen and(min-width: 1200px) {
-        width: 140px;
-        height: 40px;
-        font-size: 14px;
-        line-height: 18px;
+.hero-info-left-box {
+    position: relative;
+    @media screen and (min-width: $tablet) {
+        margin-left: 120px;
+    }
+    @media screen and (min-width: $desktop) {
+        margin-left: 180px;
     }
 }
 
@@ -116,11 +161,11 @@ p {
     font-weight: normal;
     font-size: 8px;
     line-height: 150%;
-    color: #FFFFFF;
-    @media screen and (min-width: 768px) {
+    color: $text-color-white;
+    @media screen and (min-width: $tablet) {
         width: 115px;
     }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: $desktop) {
         width: 200px;
         font-size: 14px;
         line-height: 140%;
@@ -128,97 +173,156 @@ p {
 }
 
 .hero-want-mo-text {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background-color: teal;
+    display: flex;
+    margin-top: 8px;
+    @media screen and (min-width: $desktop) {
+        margin-top: 20px;
+    }
+    &__link {
+        padding: 4px 8px;
+        border-radius: 50%;
+        background-color: $text-color-white;
+        &:hover,
+        &:focus {
+            animation-name: arrowRotate;
+            animation-duration: 1000ms;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+    }
+    &__arrow {
+        fill: $text-color-chery;
+    }
 }
 
-.header-info-left-box {
+// animation arrow
+@keyframes arrowRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+.hero-info-left-box {
     display: none;
-    @media screen and(min-width: 768px) {
+    @media screen and(min-width: $tablet) {
         display: flex;
         align-items: flex-end;
     }
-    &__text {}
+}
+
+.hero-pics-left {
+    display: none;
+    @media screen and(min-width: $tablet) {
+        display: block;
+        position: absolute;
+        bottom: 20px;
+        left: 34px;
+    }
+    @media screen and(min-width: $desktop) {
+        bottom: 30px;
+        left: 75px;
+    }
 }
 
 // .ice-cream-box
 .hero-png-box {
-    // position: absolute;
-    @media screen and(min-width: 768px) {
-        width: 325px;
-        height: 325px;
-    }
-    @media screen and(min-width: 1200px) {
-        width: 540px;
-        height: 540px;
-    }
     &__img {
         position: absolute;
-        left: 50%;
+        left: 47%;
         bottom: 0;
-        // &::after {
-        //     position: absolute;
-        //     top: 50%;
-        //     left: 50%;
-        //     width: 345px;
-        //     height: 345px;
-        //     border-radius: 50%;
-        //     background-color: #000000;
-        // }
+        z-index: -2;
+    }
+    &__circle {
+        top: 50%;
+        left: 50%;
+        transform: translate(-35%, -55%);
+        position: absolute;
+        z-index: -3;
+        background-color: $background-hero-rose;
+        width: 345px;
+        height: 345px;
+        border-radius: 50%;
+        @media screen and(min-width: $tablet) {
+            width: 325px;
+            height: 325px;
+            left: 54%;
+        }
+        @media screen and(min-width: $desktop) {
+            width: 540px;
+            height: 540px;
+            left: 50%;
+        }
     }
 }
 
-// .text-btn-head {
-//     font-family: DM Sans;
-//     font-weight: normal;
-//     font-size: 8px;
-//     line-height: 10px;
-//     display: flex;
-//     align-items: center;
-//     text-align: center;
-//     color: #FFFFFF;
-// }
 // правый вверх
-.header-info-right-box {
+.hero-info-right-box {
     display: none;
-    @media screen and(min-width: 768px) {
+    @media screen and(min-width: $tablet) {
         display: block;
+        padding-top: 95px;
+    }
+    @media screen and (min-width:$desktop) {
+        padding-top: 160px;
     }
 }
 
 .amount-of-points {
-    @media screen and(min-width: 768px) {
-        // text-align: right;
+    position: relative;
+    @media screen and(min-width: $tablet) {
         font-family: Titan One;
         font-weight: normal;
         font-size: 28px;
         line-height: 32px;
         letter-spacing: 0.04em;
         text-transform: uppercase;
-        color: #D41443;
+        color: $text-color-chery;
     }
-    @media screen and (min-width:1200px) {
+    @media screen and (min-width:$desktop) {
         font-size: 46px;
         line-height: 53px;
     }
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        background-color: $text-color-white;
+        @media screen and (min-width: $desktop) {
+            width: 30px;
+            height: 30px;
+        }
+    }
     &__text {
-        color: #FFFFFF;
+        color: $text-color-white;
         font-family: DM Sans;
         font-weight: normal;
         font-size: 8px;
         line-height: 10px;
         text-align: center;
-        @media screen and(min-width: 1200px) {
+        @media screen and(min-width: $desktop) {
             font-size: 14px;
             line-height: 18px;
         }
     }
 }
 
-.header-pics-right {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+.hero-pics-right {
+    display: none;
+    @media screen and(min-width: $tablet) {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 34px;
+    }
+    @media screen and(min-width: $desktop) {
+        right: 100px;
+    }
 }
