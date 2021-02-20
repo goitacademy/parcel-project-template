@@ -1,0 +1,212 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 9;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.ishidden .modal-area {
+  transform: translate(-50%, -50%) scale(1, 1);
+}
+
+.modal-area {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: scroll;
+
+  padding: 40px;
+  width: 320px;
+  max-height: 100vh;
+
+  background-color: $secondary-bcg-color;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  transform: translate(-50%, -50%) scale(1);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 540px) {
+    width: 540px;
+  }
+}
+
+.modal-area__button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+
+  fill: $white-color;
+  background-color: $accent-color;
+  cursor: pointer;
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+    background-color: $white-color;
+    outline: none;
+  }
+}
+
+.filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.filter-item:not(:last-child) {
+  margin-right: 8px;
+}
+
+@media screen and (max-width: 767px) {
+  .filter-item:nth-child(-n + 2) {
+    margin-bottom: 15px;
+  }
+}
+.filter-item__button {
+  border-radius: 22px;
+  padding: 6px 22px;
+  min-width: 73px;
+  border-style: none;
+  outline: none;
+  cursor: pointer;
+
+  color: $accent-color;
+  background-color: $white-color;
+
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.62;
+
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: $white-color;
+    background-color: $accent-color;
+
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+      0px 2px 2px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.card-set {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.products-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  border-radius: 50%;
+  margin-bottom: 15px;
+  width: 130px;
+  height: 130px;
+
+  background-color: $accent-color;
+
+  @media screen and (max-width: 539px) {
+    &:nth-child(odd) {
+      margin-right: 15px;
+    }
+
+    &:nth-child(3n + 2) {
+      background-color: $brand-brown-color;
+    }
+
+    &:nth-child(3n + 3) {
+      background-color: $brand-green-color;
+    }
+  }
+
+  @media screen and (min-width: 540px) {
+    &:nth-child(3n + 1) {
+      margin-right: 15px;
+    }
+
+    &:nth-child(3n + 2) {
+      margin-right: 15px;
+      background-color: $brand-brown-color;
+    }
+
+    &:nth-child(3n + 3) {
+      background-color: $brand-green-color;
+    }
+  }
+}
+
+.product-descr__title {
+  color: $white-color;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.add-btn {
+  border-radius: 50%;
+  border-style: none;
+  cursor: pointer;
+  background-color: $white-color;
+  width: 50px;
+  height: 50px;
+  fill: $accent-color;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translateY(5%);
+
+  transition-property: fill, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    fill: $white-color;
+  }
+}
