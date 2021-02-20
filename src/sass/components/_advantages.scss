@@ -10,7 +10,11 @@
 // advantages list elements
 .advantage {
   $text-color: #000000;
-  // outline: 1px solid #000000;
+  transition: transform $transition;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 
   &::before {
     content: '';
@@ -41,7 +45,6 @@
     margin-bottom: 15px;
     font-family: $creative-font;
     font-weight: 400;
-    font-size: 36px;
     line-height: 1.14;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -50,14 +53,12 @@
 
   &__description {
     font-weight: 700;
-    font-size: 12px;
-    line-height: 1.7;
     color: $text-color;
   }
 
   @include for-size(mobile-only) {
     margin-right: 55px;
-    width: 230px;
+    min-width: 230px;
   }
 
   @include for-size(tablet) {
@@ -74,9 +75,22 @@
 // adaptive items
 .advantage:not(:last-child) {
   @include for-size(mobile-only) {
-    // margin-right: 55px;
     margin-bottom: 38px;
-    // width: 230px;
+  }
+}
+
+// adaptive icons
+.advantage::before {
+  @include for-size(mobile-only) {
+    margin-bottom: 15px;
+  }
+
+  @include for-size(tablet) {
+    margin-bottom: 36px;
+  }
+
+  @include for-size(desktop) {
+    margin-bottom: 40px;
   }
 }
 
@@ -108,4 +122,35 @@
   }
 }
 
-//
+// adaptive decoy font size
+.advantage__decoy {
+  @include for-size(mobile-only) {
+    font-size: 36px;
+  }
+
+  @include for-size(tablet) {
+    font-size: 48px;
+  }
+
+  @include for-size(desktop) {
+    font-size: 58px;
+  }
+}
+
+// adaptive description font size
+.advantage__description {
+  @include for-size(mobile-only) {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  @include for-size(mobile-only) {
+    font-size: 14px;
+    line-height: 1.74;
+  }
+
+  @include for-size(mobile-only) {
+    font-size: 16px;
+    line-height: 1.76;
+  }
+}
