@@ -13,7 +13,7 @@ $(document).ready(function () {
     slidesToShow: 1,
     slidesToScroll: 1,
     asNavFor: '.slider-first',
-    arrows: false,
+    arrows: true,
     dots: true,
   });
 
