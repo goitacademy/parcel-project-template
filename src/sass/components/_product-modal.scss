@@ -4,7 +4,7 @@
   visibility: hidden;
 }
 .backdrop {
-  z-index: 3;
+  z-index: 6;
   position: fixed;
   top: 0;
   left: 0;
@@ -17,13 +17,13 @@
 
   .modal {
     position: absolute;
-    z-index: 3;
+    z-index: 6;
     max-width: 450px;
     width: 100%;
 
     left: 50%;
     top: 50%;
-    padding: 40px 40px;
+    padding: 40px 30px;
     transform: translate(-50%, -50%);
     background-color: #ffb8ca;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -91,10 +91,46 @@
     font-weight: 700;
     font-size: 14px;
     line-height: 1.5;
+    text-shadow: white 1px 1px 0, white -1px -1px 0, white -1px 1px 0,
+      white 1px -1px 0;
 
     text-align: center;
     letter-spacing: 0.04em;
 
     color: #000000;
+  }
+  .button-buy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: auto;
+    width: 160px;
+    height: 44px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.31;
+    letter-spacing: unset;
+    background-color: #ffffff;
+    border-color: transparent;
+    border-radius: 22px;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: background-color;
+    cursor: pointer;
+    color: #d41443;
+
+    &:hover,
+    &:focus {
+      background-color: #ecebeb;
+    }
+  }
+  .button-buy::after {
+    position: relative;
+    top: 2px;
+    content: '';
+    width: 6px;
+    height: 10px;
+    margin-left: 12px;
+    background-image: url(../images/arrow.svg);
   }
 }
