@@ -62,7 +62,7 @@ header {
 }
 
 .menu__navigation {
-  @media screen and (min-width: 1280px) {
+  @include for-size(desktop) {
     display: flex;
     justify-content: flex-start;
     font-weight: 700;
@@ -83,7 +83,7 @@ header {
 
 .menu__link {
   display: block;
-  @include transit;
+  @include transitionMain(color);
 
   &:hover,
   &:focus {
@@ -106,13 +106,13 @@ header {
 }
 
 .menu__item:not(:first-child) {
-  @media screen and (min-width: 1280px) {
+  @include for-size(desktop) {
     margin-left: 35px;
   }
 }
 
 .menu__button-mob {
-  @media screen and (min-width: 1280px) {
+  @include for-size(desktop) {
     display: none;
   }
   display: flex;
@@ -141,9 +141,9 @@ header {
   background-color: transparent;
   outline: none;
   fill: getColor('accent');
-  /*@include transit(fill);*/
+  /*@include transitionMain(fill);*/
 
-  @media screen and (min-width: 1280px) {
+  @include for-size(desktop) {
     display: none;
   }
 
@@ -184,7 +184,7 @@ header {
   @media screen and (max-width: 1279px) {
     margin-left: 250px;
   }
-  @include transit(background-color);
+  @include transitionMain(background-color);
 }
 
 .menu__button-tablet:hover, :focus {
@@ -201,7 +201,7 @@ header {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   opacity: 1;
-  /*@include transit(opacity);*/
+  /*@include transitionMain(opacity);*/
   overflow-y: scroll;
   padding-top: 93px;
   padding-left: 15px;
