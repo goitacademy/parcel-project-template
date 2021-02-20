@@ -1,0 +1,279 @@
+.hero {
+  .container {
+    position: relative;
+    top: 0;
+    background-color: getColor('mainPink');
+    overflow: hidden;
+    padding-right: 0;
+    height: 502px;
+    @include for-size(tablet) {
+      height: 399px;
+    }
+    @include for-size(desktop) {
+      height: 665px;
+    }
+  }
+
+  &__circle {
+    border-radius: 50%;
+    position: absolute;
+    background-color: getColor('secondaryPink');
+    @media screen and (max-width: 767px) {
+      width: 346px;
+      height: 344px;
+      right: -62px;
+      top: 83px;
+    }
+
+    @include for-size(tablet) {
+      width: 322px;
+      height: 322px;
+      right: 147px;
+      top: 31px;
+    }
+    @include for-size(desktop) {
+      width: 538px;
+      height: 538px;
+      right: 267px;
+      top: 50px;
+    }
+  }
+
+  &__icecream {
+    position: absolute;
+    right: 94px;
+    top: 9px;
+    z-index: 3;
+    @include for-size(tablet) {
+      right: 110px;
+      top: 32px;
+    }
+
+    @include for-size(desktop) {
+      right: 183px;
+      top: 56px;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    top: 193px;
+    z-index: 7;
+    @media screen and (min-width: 320px) and (max-width: 479px) {
+      right: calc(112px + (100vw - 320px) / 3);
+    }
+    @media screen and (min-width: 480px) {
+      right: 165px;
+    }
+    @include for-size(tablet) {
+      top: 102px;
+      left: 34px;
+    }
+    @include for-size(desktop) {
+      top: 171px;
+      left: 115px;
+    }
+
+    &-up {
+      display: block;
+      font-family: $main-font;
+      font-size: 26px;
+      line-height: 1.15;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      @include for-size(desktop) {
+        font-size: 38px;
+      }
+    }
+
+    &-main {
+      display: block;
+      font-family: $main-font;
+      color: getColor('accent');
+      font-size: 40px;
+      line-height: 1.15;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 19px;
+      @include for-size(desktop) {
+        font-size: 58px;
+      }
+    }
+  }
+
+  &__button-products,
+  &__button-made {
+    border: none;
+    border-radius: 12px;
+    padding: 7px 15px;
+    font-size: 8px;
+    line-height: 1.25;
+    @include for-size(desktop) {
+      @include font(14px, 1.28, 400);
+      padding: 11px 22px;
+      border-radius: 20px;
+    }
+  }
+
+  &__button-products {
+    background-color: getColor('accent');
+    color: getColor('whiteText');
+  }
+
+  &__button-made {
+    background-color: getColor('whiteText');
+    color: getColor('accent');
+    margin-left: 8px;
+  }
+
+  &__button-products:hover,
+  :focus {
+    background-color: #c7133e;
+  }
+
+  &__button-made:hover,
+  :focus {
+    background-color: #ecebeb;
+  }
+
+  &__milk {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 28px;
+    left: 34px;
+    @include for-size(desktop) {
+      bottom: 45px;
+      left: 77px;
+    }
+
+    &-about {
+      width: 110px;
+      position: relative;
+      left: -5px;
+      @include font(8px, 1.5, 400);
+      @include for-size(desktop) {
+        width: 200px;
+        @include font(14px, 1.4, 400);
+        left: 30px;
+      }
+    }
+
+    &-text {
+      margin-bottom: 7px;
+      @include for-size(desktop) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-text-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 18px;
+      width: 18px;
+      border-radius: 50%;
+      border-style: none;
+      background-color: getColor('main-bg');
+      @include for-size(desktop) {
+        height: 26px;
+        width: 26px;
+      }
+    }
+  }
+
+  &__girl {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+    position: absolute;
+    bottom: 0;
+    right: 34px;
+    @include for-size(desktop) {
+      right: 109px;
+      bottom: 0;
+    }
+  }
+
+  &__quantity {
+    position: relative;
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+
+    @include for-size(tablet) {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 96px;
+      right: 42px;
+    }
+    @include for-size(desktop) {
+      top: 160px;
+      right: 115px;
+    }
+
+    &-circle {
+      z-index: 0;
+      position: absolute;
+      right: -10px;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      border-style: none;
+      background-color: getColor('main-bg');
+      @include for-size(desktop) {
+        right: -18px;
+        /*top: -4px;*/
+        height: 30px;
+        width: 30px;
+      }
+    }
+  }
+
+    &__numbers {
+      z-index: 1;
+      font-family: $main-font;
+      color: getColor('accent');
+      font-size: 28px;
+      line-height: 1.14;
+      letter-spacing: 0.04em;
+
+      @include for-size(desktop) {
+        font-size: 46px;
+        line-height: 1.14;
+        letter-spacing: 0.04em;
+        margin-bottom: 2px;
+      }
+    }
+
+    &__quantity-item {
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+    }
+
+    &__quantity-item:first-child {
+      @include for-size(tablet) {
+        margin-bottom: 24px;
+      }
+      @include for-size(desktop) {
+        margin-bottom: 38px;
+      }
+    }
+  
+
+  &__food-point {
+    @include for-size(tablet) {
+      @include font(8px, 1.25, 400);
+    }
+    @include for-size(desktop) {
+      @include font(14px, 1.28, 400);
+    }
+  }
+}
