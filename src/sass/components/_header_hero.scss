@@ -1,4 +1,4 @@
-.header_hero {
+.header {
   width: 100%;
 
   background-color: #ffb8ca;
@@ -35,7 +35,7 @@
   }
 }
 
-.header {
+.header_container {
   display: flex;
 
   margin-bottom: 137px;
@@ -119,6 +119,7 @@
 }
 
 .header_next {
+  margin-left: 12px;
   width: 8px;
   height: 8px;
   fill: $accent-color;
@@ -129,31 +130,41 @@
   text-align: left;
 }
 
-.hero_title {
-  margin-bottom: 19px;
+.hero_title_container {
+  max-width: 218px;
+  margin-bottom: 20px;
 
-  font-family: Titan One;
+  @media screen and (min-width: 768px) {
+    max-width: 162px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: 64px;
+    max-width: 277px;
+    margin-bottom: 25px;
+  }
+}
+
+.text-title {
   font-weight: 400;
   font-size: 26px;
-  line-height: 1.15;
+  line-height: 1.13;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
-
   color: $white-text-color;
 
   @media screen and (min-width: 768px) {
     font-size: 22px;
-    line-height: 1.13;
-    margin-bottom: 20px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 0;
-    margin-left: 115px;
     font-size: 38px;
-    line-height: 1.14;
-    margin-bottom: 25px;
   }
+}
+
+.hero_title {
+  font-family: Titan One, cursive;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 .hero_subtitle {
@@ -193,7 +204,7 @@
 
     font-size: 14px;
     line-height: 1.28;
-    margin-left: 115px;
+    margin-left: 64px;
   }
 }
 
@@ -233,7 +244,7 @@
     width: 143px;
     height: 336px;
     right: 278px;
-    top: 63px;
+    top: 75px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -284,7 +295,7 @@
     width: 168px;
     height: 133px;
     right: 34px;
-    top: 266px;
+    top: 275px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -350,55 +361,89 @@
 .hero_next {
   justify-content: center;
   align-content: center;
-  height: 8px;
-  width: 8px;
+  height: 10px;
+  width: 10px;
   fill: $accent-color;
 }
 
-.hero_numbers {
-  position: absolute;
+.numbers_list {
   display: none;
+  position: absolute;
+  top: 94px;
+  right: 34px;
+  margin-left: auto;
+  text-align: right;
+  padding-right: 10px;
+  font-weight: 400;
 
   @media screen and (min-width: 768px) {
     display: block;
-    right: 44px;
-    top: 96px;
   }
   @media screen and (min-width: 1280px) {
-    display: block;
-    right: 115px;
-    top: 160px;
+    top: 156px;
+    right: 97px;
   }
 }
 
-.numbers {
-  @media screen and (min-width: 768px) {
-    font-family: Titan One;
-
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 1.14;
-    /* identical to box height */
-
-    text-align: right;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-
-    color: $accent-color;
-  }
+.numbers_item {
+  position: relative;
+  display: block;
 
   @media screen and (min-width: 1280px) {
-    font-family: Titan One;
+    .numbers_item:not(:last-child) {
+      margin-bottom: 18px;
+    }
+  }
+}
 
-    font-weight: 400;
+.numbers_item:not(:last-child) {
+  margin-bottom: 14px;
+}
+
+.circle {
+  position: absolute;
+  top: -4px;
+  right: -9px;
+  z-index: 0;
+  display: block;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  background-color: $main-background-color;
+
+  @media screen and (min-width: 1280px) {
+    width: 30px;
+    height: 30px;
+    right: -15px;
+    top: -7px;
+  }
+}
+
+.outlets_number {
+  position: relative;
+  transform-style: preserve-3d;
+  font-family: Titan One, cursive;
+  font-size: 28px;
+  line-height: 1.14;
+  letter-spacing: 0.04em;
+  color: $accent-color;
+
+  @media screen and (min-width: 1280px) {
     font-size: 46px;
-    line-height: 1.15;
+    line-height: 1.13;
+  }
+}
 
-    text-align: right;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+.numbers_type {
+  display: block;
+  font-size: 8px;
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: $white-text-color;
 
-    color: $accent-color;
+  @media screen and (min-width: 1280px) {
+    font-size: 14px;
+    line-height: 1.29;
   }
 }
 
@@ -417,16 +462,4 @@
   @media screen and (min-width: 1280px) {
     display: none;
   }
-}
-
-.menu-button .icon-menu {
-  display: none;
-}
-
-.menu-button.is-open .icon-menu {
-  display: block;
-}
-
-.menu-button.is-open .icon-close {
-  display: none;
 }
