@@ -2,7 +2,7 @@
     background-color: $background-products-rose;
 }
 
-// 19.02.2021
+// 21.02.2021 15:00
 .container-hero {
     z-index: 1;
     position: relative;
@@ -119,6 +119,7 @@
         &:hover,
         &:focus {
             background: $background-hero-hover;
+            box-shadow: 0 0 5px 0 $text-color-rose inset, 0 0 2px 5px $text-color-rose;
         }
     }
     &__howMade {
@@ -141,6 +142,7 @@
         &:hover,
         &:focus {
             background-color: $background-hero-hover2;
+            box-shadow: 0 0 5px 0 $text-color-rose inset, 0 0 2px 5px $text-color-rose;
             ;
         }
     }
@@ -182,13 +184,13 @@
         padding: 4px 8px;
         border-radius: 50%;
         background-color: $text-color-white;
-        &:hover,
-        &:focus {
-            animation-name: arrowRotate;
-            animation-duration: 1000ms;
-            animation-timing-function: linear;
-            animation-fill-mode: forwards;
-        }
+        // &:hover,
+        // &:focus {
+        //     animation-name: arrowRotate;
+        //     animation-duration: 1000ms;
+        //     animation-timing-function: linear;
+        //     animation-fill-mode: forwards;
+        // }
     }
     &__arrow {
         fill: $text-color-chery;
@@ -196,15 +198,14 @@
 }
 
 // animation arrow
-@keyframes arrowRotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(90deg);
-    }
-}
-
+// @keyframes arrowRotate {
+//     0% {
+//         transform: rotate(0deg);
+//     }
+//     100% {
+//         transform: rotate(90deg);
+//     }
+// }
 .hero-info-left-box {
     display: none;
     @media screen and(min-width: $tablet) {
@@ -215,6 +216,7 @@
 
 .hero-pics-left {
     display: none;
+    animation: milk-pulse 0.9s infinite ease-out;
     @media screen and(min-width: $tablet) {
         display: block;
         position: absolute;
@@ -227,6 +229,18 @@
     }
 }
 
+@keyframes milk-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 // .ice-cream-box
 .hero-png-box {
     &__img {
@@ -234,6 +248,9 @@
         left: 47%;
         bottom: 0;
         z-index: -2;
+        animation-name: slideInUpIce;
+        animation-duration: 1s;
+        animation-fill-mode: both;
     }
     &__circle {
         top: 50%;
@@ -255,6 +272,18 @@
             height: 540px;
             left: 50%;
         }
+    }
+}
+
+@keyframes slideInUpIce {
+    0% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        visibility: visible;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
     }
 }
 
@@ -316,6 +345,10 @@
 
 .hero-pics-right {
     display: none;
+    animation-name: slideInUpGirl;
+    animation-duration: 1100ms;
+    animation-fill-mode: both;
+    animation-delay: 600ms;
     @media screen and(min-width: $tablet) {
         display: block;
         position: absolute;
@@ -324,5 +357,14 @@
     }
     @media screen and(min-width: $desktop) {
         right: 100px;
+    }
+}
+
+@keyframes slideInUpGirl {
+    0% {
+        transform: perspective(500px) rotateY(90deg);
+    }
+    100% {
+        transform: perspective(500px) rotateY(0deg);
     }
 }
