@@ -162,11 +162,11 @@ li {
 
 .header__menu-container {
   @media screen and (max-width: $max-mobile-width) {
-    width: 320px;
+    width: 100%;
     padding: 60px 21px;
 
     top: 0;
-    left: 0;
+    left: 50%;
     right: 0;
     bottom: 0;
     transform: translateX(-50%);
@@ -174,9 +174,6 @@ li {
 
   @media screen and (max-width: $max-tablet-width) {
     position: fixed;
-    top: 0;
-    left: 50%;
-    bottom: 0;
 
     background-color: $mobile-menu-color;
 
@@ -184,12 +181,24 @@ li {
     opacity: 1;
 
     transition: opacity 150ms linear, transform 150ms linear;
+
+    @media (orientation: landscape) and (max-width: $max-tablet-width) {
+      padding: 20px 21px;
+    }
   }
 
   @media screen and (min-width: $min-tablet-width) and (max-width: $max-tablet-width) {
-    width: 254px;
+    // width: 254px;
+    width: 34vw;
     padding: 60px 24px;
-    transform: translateX(130px);
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    @media (orientation: landscape) {
+      padding: 45px 21px;
+    }
   }
 
   @media screen and (min-width: $min-desktop-width) {
@@ -202,22 +211,23 @@ li {
   @media screen and (max-width: $max-tablet-width) {
     position: fixed;
     top: 0;
-    left: 50%;
     bottom: 0;
-
+    width: 100%;
     transform: translate(-50%, -100%);
 
     opacity: 0;
     pointer-events: none;
 
-    width: 320px;
     background-color: $mobile-menu-color;
-    padding: 60px 21px;
 
     @media screen and (min-width: $min-tablet-width) and (max-width: $max-tablet-width) {
-      width: 254px;
-      padding: 60px 24px;
-      transform: translate(51%, -100%);
+      // width: 254px;
+      width: 34vw;
+
+      top: 0;
+      right: 0;
+      bottom: 0;
+      transform: translateY(-100%);
     }
   }
 
@@ -284,6 +294,16 @@ li {
 
   @media screen and (min-width: $min-desktop-width) {
     border: none;
+  }
+
+  @media (orientation: landscape) and (max-width: $max-mobile-width) {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  @media (orientation: landscape) and (min-width: $min-tablet-width) {
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 }
 
