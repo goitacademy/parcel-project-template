@@ -1,7 +1,20 @@
 .about-section {
+  position: relative;
   padding-top: 125px;
   padding-bottom: 39px;
   background-color: #fff5f6;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    background-image: url(/images/about/mobile/sectionbg1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 90%;
+    background-size: 100%;
+  }
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 320px) and (max-width: 767px),
+    screen and (min-resolution: 192dpi) and (min-width: 320px) and (max-width: 767px),
+    screen and (min-resolution: 2dppx) and (min-width: 320px) and (max-width: 767px) {
+    background-image: url(/images/about/mobile/sectionbg1@2x.png);
+  }
 }
 
 .about-heading {
@@ -60,16 +73,9 @@
   line-height: 1.62;
 
   color: #907e82;
+  margin-bottom: 20px;
 }
 
-.about-fon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  height: auto;
-  max-width: 100%;
-}
 .about-button {
   font-family: DM Sans;
   font-weight: 700;
@@ -78,7 +84,6 @@
   display: flex;
   align-items: center;
   text-align: center;
-  cursor: pointer;
 
   color: #d41443;
   background-color: #ffffff;
@@ -90,14 +95,84 @@
   padding-right: 37px;
   padding-bottom: 13px;
   padding-left: 37px;
-
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .about-svg {
   margin-left: 15px;
-  height: 8px;
-  width: 5px;
+  height: 10px;
+  width: 10px;
+  fill: #d41443;
+}
+.about-button:hover {
+  cursor: pointer;
+  background-color: #d41443;
+  color: #ffffff;
+  outline: none;
+  -webkit-animation: swing 1s ease;
+  animation: swing 1s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  box-shadow: 0 0 12px #d41443;
+  -moz-box-shadow: 0 0 12px #d41443;
+  -o-box-shadow: 0 0 12px #d41443;
+  -ms-box-shadow: 0 0 12px #d41443;
+  -webkit-box-shadow: 0 0 12px #d41443;
+  @-webkit-keyframes swing {
+    15% {
+      -webkit-transform: translateX(5px);
+      transform: translateX(5px);
+    }
+    30% {
+      -webkit-transform: translateX(-5px);
+      transform: translateX(-5px);
+    }
+    50% {
+      -webkit-transform: translateX(3px);
+      transform: translateX(3px);
+    }
+    65% {
+      -webkit-transform: translateX(-3px);
+      transform: translateX(-3px);
+    }
+    80% {
+      -webkit-transform: translateX(2px);
+      transform: translateX(2px);
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+  }
+}
+@keyframes swing {
+  15% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+  }
+  30% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+  }
+  50% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+  }
+  65% {
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+  }
+  80% {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.about-button:hover .about-svg,
+.about-button:focus .about-svg {
+  fill: #ffffff;
 }
 
 @media screen and (min-width: 768px) {
@@ -133,30 +208,23 @@
     font-size: 14px;
     line-height: 1.76;
     letter-spacing: 0.04em;
-    margin-bottom: 62px;
-
-    color: #907e82;
+    margin-bottom: 20px;
+  }
+  .about-text-second:last-child {
+    margin-bottom: 56px;
   }
   .about-button {
     margin-top: 0;
     margin-right: 0;
   }
-  .about-fon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    height: auto;
-    max-width: 100%;
-    background-size: cover;
-  }
+
   .about-block {
     display: flex;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .about-fon {
-    display: none;
+  .about-section {
+    background-image: none;
   }
 }
 
@@ -164,6 +232,16 @@
   .about-section {
     padding-top: 125px;
     padding-bottom: 39px;
+    background-image: url(/images/about/desktop/sectionbg1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: bottom;
+    background-size: 100%;
+    @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+      screen and (min-resolution: 192dpi) and (min-width: 1280px),
+      screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+      background-image: url(/images/about/desktop/sectionbg1@2x.png);
+    }
   }
   .about-block {
     position: relative;
@@ -202,13 +280,5 @@
   }
   .about-img {
     margin: 0;
-  }
-  .about-fon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    height: auto;
-    max-width: 100%;
   }
 }
