@@ -20,9 +20,9 @@ header {
     padding-top: 35px;
   }
 
-  @media screen and (min-width: 1280px) {
-    justify-content: flex-start;
-  }
+  // @media screen and (min-width: 1280px) {
+  //   justify-content: flex-start;
+  // }
 }
 
 .main-menu {
@@ -30,7 +30,7 @@ header {
 }
 
 .logo {
-  margin-right: 110px;
+  // margin-right: 110px;
   display: inline-flex;
   cursor: pointer;
 
@@ -112,19 +112,17 @@ header {
   }
 }
 
-.buy {
-  display: block;
-}
-
 // .burger-menu
 
-.hamburger {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: block;
-  z-index: 21;
+.hamburger--elastic {
+  @media screen and (max-width: 1279px) {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    // display: block;
+    z-index: 21;
+  }
 
   &.is-open {
     position: absolute;
@@ -149,18 +147,25 @@ header {
 .menu-container {
   @media screen and (max-width: 1279px) {
     // display: none;
-    position: fixed;
+    position: absolute;
     right: -250px;
 
-    top: 0;
-    bottom: 0;
-    margin: 0;
-    z-index: 20;
+    // clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
 
-    width: 250px;
-    height: 100vh;
-    padding: 20px 0px;
-    background-color: $modal-color;
+    // top: 0;
+    // bottom: 0;
+    // margin: 0;
+    // z-index: 20;
+
+    // width: 0px;
+    // height: 100vh;
+    // padding: 0px 0px;
+    // background-color: $modal-color;
 
     display: flex;
     flex-direction: column-reverse;
@@ -224,30 +229,58 @@ header {
     }
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    .main-menu {
-      display: none;
-    }
+  // @media screen and (min-width: 768px) and (max-width: 1279px) {
+  //   .main-menu {
+  //     display: none;
+  //   }
 
-    & {
-      margin-left: auto;
-    }
+  //   & {
+  //     margin-left: auto;
+  //   }
 
-    .buy_now {
-      position: fixed;
-      right: 50px;
-      top: 35px;
+  //   .buy_now {
+  //     position: fixed;
+  //     right: 180px;
+  //     top: 36px;
 
-      opacity: 0;
-      transform: translateX(50%);
-      transition: opacity 0.5s 0.1s, transform 0.5s 0.1s;
-    }
-  }
+  //     opacity: 1;
+  //     transform: translateX(50%);
+  //     transition: opacity 0.5s 0.1s, transform 0.5s 0.1s;
+  //   }
+  // }
 
   @media screen and (min-width: 1280px) {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    // width: 100%;
+  }
+}
+
+.buy_now1 {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 1279px) {
+    margin-right: -250px;
+  }
+}
+
+.buy_now {
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    right: -250px;
+
+    // clip: rect(0 0 0 0);
+    // width: 1px;
+    // height: 1px;
+    // margin: -1px;
+    // border: 0;
+    // padding: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
   }
 }
 
