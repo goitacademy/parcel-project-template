@@ -81,6 +81,7 @@ body {
 
   &-card {
     width: calc(100% - 100px);
+    max-width: 330px;
     min-height: 427px;
     margin-right: 50px;
     margin-left: 50px;
@@ -320,42 +321,6 @@ body {
     fill: $color-button-bg-light;
   }
 }
-
-// .modal-header-menu-btn {
-//   display: inline-flex;
-//   padding: 0;
-//   margin: 0;
-//   margin-left: auto;
-
-//   border: none;
-//   background-color: white;
-//   cursor: pointer;
-
-//   /* z-index: 1; */
-// }
-// .modal-header-menu-btn:hover,
-// .modal-header-menu-btn:focus {
-//   fill: blue;
-// }
-
-// /* .modal-header-menu-close {
-//   display: none;
-// } */
-
-// .modal-header-menu-btn .modal-header-menu-close {
-//   display: none;
-// }
-
-// .modal-header-menu-btn.is-open .modal-header-menu-close {
-//   display: block;
-// }
-// .modal-header-menu-btn.is-open .modal-header-menu-humburger {
-//   display: none;
-// }
-
-// .modal-header-menu-btn.is-open .modal-header-menu {
-//   display: none;
-// }
 
 .map {
   position: relative;
@@ -648,4 +613,262 @@ iframe {
   width: 1px;
   height: 1px;
   margin: -1px;
+}
+// ===================================
+.modal {
+  &-caption {
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #d41443;
+    margin-bottom: 12px;
+  }
+
+  &-input-caption {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+    color: #d41443;
+    margin-bottom: 10px;
+  }
+
+  &-input-name {
+    padding-left: 12px;
+    margin-bottom: 4px;
+  }
+
+  &-input-field,
+  &-feedback {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    padding: 12px 42px;
+    border-radius: 22px;
+
+    // transition-property: border;
+    // transition-duration: $animation-duration;
+    // transition-timing-function: $animation-type;
+  }
+
+  &-feedback {
+    margin-bottom: 0;
+  }
+
+  &-input-field-box {
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  &-img {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    fill: #e17992;
+    // transition-property: fill;
+    // transition-duration: $animation-duration;
+    // transition-timing-function: $animation-type;
+  }
+
+  &-feedback {
+    height: 120px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    resize: none;
+  }
+
+  &-input-field:hover,
+  &-input-field:focus,
+  &-feedback:hover,
+  &-feedback:focus {
+    outline: none;
+    border: 1px solid #d41443;
+  }
+
+  &-input-field:hover + &-img,
+  &-input-field:focus + &-img {
+    fill: #d41443;
+  }
+
+  &-close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+  }
+
+  &-close-icon {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: #d41443;
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: ease;
+  }
+
+  &-close-button:hover &-close-icon,
+  &-close-button:focus &-close-icon {
+    fill: #fff;
+  }
+
+  &-checkbox {
+    position: relative;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000;
+    padding-bottom: 30px;
+    text-align: right;
+  }
+
+  &-checkbox-text {
+    position: relative;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.7em;
+    letter-spacing: 0.03em;
+    color: #d41443;
+    text-align: left;
+    padding-left: 28px;
+  }
+
+  &-checkbox-icon {
+    position: absolute;
+    width: 16px;
+    height: 15px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid #d41443;
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+    // transition-property: color background-color box-shadow;
+    // transition-duration: $animation-duration;
+    // transition-timing-function: $animation-type;
+  }
+
+  &-checkbox-icon--unchecked {
+    background-color: none;
+    fill: #d41443;
+  }
+
+  &-checkbox-input:not(:checked) ~ * &-checkbox-icon--checked {
+    background-color: none;
+    fill: none;
+  }
+  &-checkbox-input:checked ~ * &-checkbox-icon--checked {
+    background-color: #d41443;
+    fill: #fff;
+    border: 1px solid #d41443;
+  }
+
+  &-link {
+    text-decoration: underline;
+    color: #d41443;
+    font-size: 12px;
+    line-height: 1.7em;
+    padding-bottom: 30px;
+  }
+
+  &-send-button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 200px;
+    max-height: 50px;
+    font-size: 16px;
+    line-height: 1.875em;
+    letter-spacing: 0.06em;
+    text-align: center;
+    cursor: pointer;
+    background-color: #d41443;
+    color: #fff;
+    border: 1px solid transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 22px;
+    padding: 10px 32px;
+    // transition-property: background-color;
+    // transition-duration: $animation-duration;
+    // transition-timing-function: $animation-type;
+  }
+
+  &-send-button:hover,
+  &-send-button:focus {
+    background-color: #e17992;
+  }
+
+  // @media (min-width: 1023px) {
+  //   &-input-field,
+  //   &-feedback {
+  //     width: 448px;
+  //   }
+  // }
+}
+
+/* Задается тёмный фон после открытия модального окна */
+.franchise-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  transition-property: all;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+
+  /* Стиль модального окна */
+  &-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 30px 20px;
+    min-width: 300px;
+    width: 100%;
+    max-width: 310px;
+
+    height: 595px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 22px;
+    background: #fff;
+
+    @media screen and (min-width: 768px) {
+      padding: 30px;
+      // min-width: 370px;
+      max-width: 400px;
+      height: 595px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      padding: 30px;
+      // min-width: 520px;
+      max-width: 520px;
+      height: 552px;
+    }
+  }
+}
+/* Скрывается модальное окно */
+.franchise-backdrop-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
