@@ -14,6 +14,14 @@
   }
 }
 
+.location-wrapper {
+  // position: absolute;
+  display: block;
+  @media (min-width: $tablet) {
+    display: inline-flex;
+  }
+}
+
 .location-card {
   padding: 43px 21px 43px 20px;
 
@@ -36,13 +44,7 @@
   }
 }
 
-.location-wrapper {
-  position: absolute;
-  display: block;
-  @media (min-width: $tablet) {
-    display: inline-flex;
-  }
-}
+
 .location-title {
   font-family: $secondary-font;
   font-style: 500;
@@ -195,10 +197,21 @@
     margin-top: 54px;
     color: getColor(main-bg);
     background: getColor(accent);
+
+    @include transitionMain(background-color, color, border);
+    
     &:hover,
     &:focus {
       color: getColor(main-bg);
       background: getColor(accent);
+
+      animation-name: animateMainButton;
+      animation-duration: 500ms;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 0s;
     }
     @media (min-width: $tablet) {
       width: 191px;
@@ -224,3 +237,4 @@
     margin-left: 13px;
   }
 }
+
