@@ -745,12 +745,49 @@ padding-bottom: 56px;
 
 .about_section {
   padding-top: 125px;
+  padding-bottom: 39px;
   background-color: #fff5f6;
+}
+
+@media screen and (max-width: 767px) {
+  .about_section {
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-position: bottom 100px right 0;
+    background-size: contain;
+    background-image: url(../images/baground-milk-mobile.png);
+  }
+}
+
+@media screen and (max-width: 767px) and (min-device-pixel-ratio: 2), screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2), screen and (max-width: 767px) and (min-resolution: 192dpi), screen and (max-width: 767px) and (min-resolution: 2dppx) {
+  .about_section {
+    background-image: url(../images/baground-milk-mobile@2x.png);
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .about_section {
     padding-top: 130px;
+    padding-bottom: 70px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .about_section {
+    padding-bottom: 39px;
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    background-image: url(../images/baground-milk-desktop.png);
+  }
+}
+
+@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (min-resolution: 192dpi), screen and (min-width: 1280px) and (min-resolution: 2dppx) {
+  .about_section {
+    background-image: url(../images/baground-milk-desktop@2x.png);
   }
 }
 
@@ -790,26 +827,13 @@ padding-bottom: 56px;
   }
 }
 
-@media screen and (min-width: 1280px) {
-  .about_baground-image-desktop {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1600px;
-    background-size: 1300px 534px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-image: url(../images/baground-milk-desktop.png);
-  }
-}
-
 @media screen and (max-width: 767px) {
-  .about_baground-image-mobile {
+  .about_section {
     margin-left: auto;
     margin-right: auto;
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-position: bottom 100px right 0;
+    background-size: contain;
     background-image: url(../images/baground-milk-mobile.png);
   }
 }
@@ -834,72 +858,87 @@ padding-bottom: 56px;
   }
 }
 
-.about_text {
+@media screen and (min-width: 1280px) {
+  .about_description .about_picture {
+    margin-right: 74px;
+  }
+}
+
+.about_description-conteiner {
   margin: 0px auto;
   text-align: start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 12px;
-  line-height: 176%;
+}
+
+@media screen and (max-width: 767px) {
+  .about_description-conteiner {
+    padding: 0 30px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-  .about_text {
+  .about_description-conteiner {
     width: 340px;
-    font-size: 14px;
+    padding-top: 50px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .about_text {
+  .about_description-conteiner {
     width: 463px;
+  }
+}
+
+.about_text-conteiner {
+  font-size: 12px;
+  line-height: 162%;
+}
+
+@media screen and (min-width: 768px) {
+  .about_text-conteiner {
     font-size: 14px;
-  }
-}
-
-.about_text .about_text-gray {
-  color: #907e82;
-}
-
-@media screen and (min-width: 780px) {
-  .about_text .about_text-margin {
-    margin-bottom: 25px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .about_text .about_text-margin {
-    margin-bottom: 35px;
-  }
-}
-
-@media screen and (min-width: 780px) {
-  .about_text .about_text-black {
-    margin-bottom: 25px;
+    line-height: 176%;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .about_text .about_text-black {
+  .about_text-conteiner {
     font-size: 16px;
+    line-height: 176%;
+  }
+}
+
+.about_text:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+@media screen and (min-width: 1280px) {
+  .about_text:not(:last-child) {
     margin-bottom: 35px;
   }
+}
+
+.about_text:not(:first-child) {
+  color: #907e82;
 }
 
 .about_button {
   width: 176px;
   height: 44px;
-  margin-top: 45px;
+  margin-top: 25px;
   padding: 0px 37px;
   font-weight: 700;
   font-size: 16px;
   color: #d41443;
   background-color: #fff;
   border-radius: 22px;
+  -webkit-transition: backgroung-color 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: backgroung-color 2500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 768px) {
   .about_button {
     margin-top: 62px;
   }
@@ -916,7 +955,9 @@ padding-bottom: 56px;
 }
 
 .about_button .about_button-icon {
-  margin-left: auto;
+  width: 10px;
+  height: 10px;
+  margin-left: 5px;
   fill: currentColor;
 }
 
@@ -1397,10 +1438,221 @@ padding-bottom: 56px;
   padding-bottom: 97px;
 }
 
-.advantages_list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+@media screen and (min-width: 768px) {
+  .advantages_section .advantages_conteiner {
+    padding-bottom: 136px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .advantages_section .advantages_conteiner {
+    padding-bottom: 139px;
+  }
+}
+
+.advantages_accent {
+  display: block;
+  text-align: start;
+  margin: 16px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .advantages_accent {
+    font-size: 36px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .advantages_accent {
+    margin-top: 36px;
+    margin-bottom: 13px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .advantages_accent {
+    margin-top: 40px;
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .advantages_list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.advantages_item {
+  width: 230px;
+}
+
+@media screen and (min-width: 768px) {
+  .advantages_item {
+    width: 180px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .advantages_item {
+    width: 330px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .advantages_item:not(:last-child) {
+    margin-bottom: 38px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .advantages_item:not(:last-child) {
+    margin-right: 60px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .advantages_item:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+.advantages_item::before {
+  content: "";
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.advantages_icon1::before {
+  width: 33px;
+  height: 50px;
+  background-image: url(../images/icon1-mobile.png);
+}
+
+@media screen and (min-device-pixel-ratio: 2), screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .advantages_icon1::before {
+    background-image: url(../images/icon1-mobile@2x.png);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .advantages_icon1::before {
+    background-image: url(../images/icon1-tablet.png);
+  }
+}
+
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
+  .advantages_icon1::before {
+    background-image: url(../images/icon1-tablet@2x.png);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .advantages_icon1::before {
+    background-image: url(../images/icon1-desktop.png);
+  }
+}
+
+@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (min-resolution: 192dpi), screen and (min-width: 1280px) and (min-resolution: 2dppx) {
+  .advantages_icon1::before {
+    background-image: url(../images/icon1-desktop@2x.png);
+  }
+}
+
+.advantages_icon2::before {
+  width: 50px;
+  height: 50px;
+  background-image: url(../images/icon2-mobile.png);
+}
+
+@media screen and (min-device-pixel-ratio: 2), screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .advantages_icon2::before {
+    background-image: url(../images/icon2-mobile@2x.png);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .advantages_icon2::before {
+    background-image: url(../images/icon2-tablet.png);
+  }
+}
+
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
+  .advantages_icon2::before {
+    background-image: url(../images/icon2-tablet@2x.png);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .advantages_icon2::before {
+    background-image: url(../images/icon2-desktop.png);
+  }
+}
+
+@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (min-resolution: 192dpi), screen and (min-width: 1280px) and (min-resolution: 2dppx) {
+  .advantages_icon2::before {
+    background-image: url(../images/icon2-desktop@2x.png);
+  }
+}
+
+.advantages_icon3::before {
+  width: 44px;
+  height: 50px;
+  background-image: url(../images/icon3-mobile.png);
+}
+
+@media screen and (min-device-pixel-ratio: 2), screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .advantages_icon3::before {
+    background-image: url(../images/icon3-mobile@2x.png);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .advantages_icon3::before {
+    background-image: url(../images/icon3-tablet.png);
+  }
+}
+
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
+  .advantages_icon3::before {
+    background-image: url(../images/icon3-tablet@2x.png);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .advantages_icon3::before {
+    background-image: url(../images/icon3-desktop.png);
+  }
+}
+
+@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1280px) and (min-resolution: 192dpi), screen and (min-width: 1280px) and (min-resolution: 2dppx) {
+  .advantages_icon3::before {
+    background-image: url(../images/icon3-desktop@2x.png);
+  }
+}
+
+.advantages_text {
+  font-weight: 700;
+  text-align: start;
+  font-size: 12px;
+  line-height: 170%;
+}
+
+@media screen and (min-width: 768px) {
+  .advantages_text {
+    font-size: 14px;
+    line-height: 174%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .advantages_text {
+    font-size: 16px;
+    line-height: 176%;
+  }
 }
 
 /*.container {
