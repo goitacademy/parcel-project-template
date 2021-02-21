@@ -3,53 +3,43 @@
   padding-bottom: 56px;
   background-image: linear-gradient(
     to top,
-    $bg-color 90%,
-    $primary-text-color 10%
+    $bg-color 92%,
+    $primary-text-color 8%
   );
 
   @media screen and (min-width: 768px) {
     padding-top: 60px;
     padding-bottom: 80px;
+    background-image: linear-gradient(
+      to top,
+      $bg-color 83%,
+      $primary-text-color 17%
+    );
   }
 
   @media screen and (min-width: 1280px) {
     padding-top: 66px;
     padding-bottom: 82px;
     background-image: linear-gradient(
-      to top,
-      $bg-color 80%,
-      $primary-text-color 5%
-    );
+        to bottom,
+        $primary-text-color 6%,
+        $bg-color 6%
+      ),
+      url('../images/location/bg-location@1x.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 120px;
   }
 }
 
-.contacts-container {
-  padding-left: 50px;
-  padding-right: 50px;
-  // margin-top: -84px;
-  // display: inline-block;
-  // margin-left: auto;
-  // margin-right: auto;
-  // padding-top: 66px;
-  //  background-image: linear-gradient(
-  //  to top,
-  //   $bg-color 90%,
-  //    $primary-text-color 10%
-  //);
-
-  @media screen and (min-width: 768px) {
-    padding-left: 36px;
-    padding-right: 36px;
-    // padding-top: 0;
-  }
-
+.overlay {
   @media screen and (min-width: 1280px) {
-    max-width: 100%;
-    padding-left: 115px;
-    padding-right: 115px;
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
     background-image: url('../images/location/bg-location@1x.png');
     background-repeat: no-repeat;
-    background-position-y: 140px;
+    background-position: center 120px;
   }
 }
 
@@ -57,37 +47,46 @@
   margin-bottom: 54px;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 80px;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    margin: -10px;
+    margin-bottom: -10px + 80px;
   }
 
   @media screen and (min-width: 1280px) {
-    margin-bottom: 86px;
+    // margin-bottom: 86px;
+    margin: -15px;
+    margin-bottom: -10px + 86px;
   }
 }
 
 .contacts-item {
-  // display: block;
+  margin-left: auto;
+  margin-right: auto;
   background: $primary-text-color;
   box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
   border-radius: 24px;
   padding: 43px 20px;
-  text-align: left;
+
+  @media screen and (min-width: 768px) {
+    // margin-right: 20px;
+    padding: 50px 30px;
+    flex-basis: calc((100% - 60px) / 3);
+    margin: 10px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    // margin-right: 30px;
+    padding: 56px 42px;
+    min-width: 330px;
+    flex-basis: calc((100% - 90px) / 3);
+    margin: 15px;
+  }
 
   &:not(:last-child) {
     @media screen and (max-width: 767px) {
       margin-bottom: 20px;
-    }
-
-    @media screen and (min-width: 768px) {
-      margin-right: 20px;
-      padding: 50px 31px;
-    }
-
-    @media screen and (min-width: 1280px) {
-      margin-right: 30px;
-      padding: 50px 44px 62px;
+      width: 280px;
     }
   }
 }
@@ -98,13 +97,12 @@
   margin-top: 0;
   padding: 0 15px;
   display: inline-block;
-  align-items: center;
   text-align: center;
   color: $primary-text-color;
   border-radius: 4px;
   font-size: 12px;
   font-weight: 500;
-  line-height: 1.83;
+  line-height: 1.82;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 30px;
@@ -135,8 +133,6 @@
   @media screen and (min-width: 768px) {
     // margin-bottom: 30px;
     padding: 30px 0;
-    // border-top: 1px solid #e1e1e1;
-    // border-bottom: 1px solid #e1e1e1;
   }
 
   @media screen and (min-width: 1280px) {
@@ -151,7 +147,6 @@
   color: $dark-text-color;
   font-size: 12px;
   line-height: 1.83;
-  // letter-spacing: 0.04em;
 }
 
 .contacts-city {
@@ -199,9 +194,6 @@
   padding-bottom: 25px;
   font-size: 12px;
   line-height: 1.5;
-  // font-weight: 500;
-  // color: $text-color;
-  // letter-spacing: 0em;
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -217,7 +209,6 @@
 .contacts-datetime {
   margin: 0;
   display: flex;
-  // align-items: baseline;
   align-items: center;
 }
 
@@ -240,8 +231,22 @@
 }
 
 .contacts-line {
-  display: block;
+  display: inline-block;
+  padding-left: 3px;
+  padding-right: 3px;
   color: $pink-text-color;
+}
+
+.contacts-link-list {
+  padding-top: 25px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 30px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-top: 32px;
+  }
 }
 
 .contacts-link {
