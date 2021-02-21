@@ -37,25 +37,38 @@
       right: 267px;
       top: 50px;
     }
+      animation-name: rotate-scale-up-diag-1;
+      animation-duration: 2000ms;
+   
 
-    /*&:hover {
-      animation-name: changeBgColor;
-      animation-duration: 3000ms;
-    }
-    
-    @keyframes changeBgColor {
+    @-webkit-keyframes rotate-scale-up-diag-1 {
       0% {
-        background-color: #FFA5BA;
+        -webkit-transform: scale(1) rotate3d(1, 1, 0, 0deg);
+        transform: scale(1) rotate3d(1, 1, 0, 0deg);
       }
-    
       50% {
-        background-color: #D41443;
+        -webkit-transform: scale(2) rotate3d(1, 1, 0, -180deg);
+        transform: scale(2) rotate3d(1, 1, 0, -180deg);
       }
-    
       100% {
-        background-color: #FFA5BA;
+        -webkit-transform: scale(1) rotate3d(1, 1, 0, -360deg);
+        transform: scale(1) rotate3d(1, 1, 0, -360deg);
       }
-    }*/
+    }
+    @keyframes rotate-scale-up-diag-1 {
+      0% {
+        -webkit-transform: scale(1) rotate3d(1, 1, 0, 0deg);
+        transform: scale(1) rotate3d(1, 1, 0, 0deg);
+      }
+      50% {
+        -webkit-transform: scale(2) rotate3d(1, 1, 0, -180deg);
+        transform: scale(2) rotate3d(1, 1, 0, -180deg);
+      }
+      100% {
+        -webkit-transform: scale(1) rotate3d(1, 1, 0, -360deg);
+        transform: scale(1) rotate3d(1, 1, 0, -360deg);
+      }
+    }
   }
 
   &__icecream {
@@ -133,13 +146,36 @@
       @include font(14px, 1.28, 400);
       padding: 11px 22px;
       border-radius: 20px;
-      
-    }@include transit(background-color);
+    }
+    @include transitionMain(background-color);
   }
 
   &__button-products {
+    border: none;
+    border-radius: 12px;
+    padding: 7px 15px;
+    font-size: 8px;
+    line-height: 1.25;
+    @include for-size(desktop) {
+      @include font(14px, 1.28, 400);
+      padding: 11px 22px;
+      border-radius: 20px;
+    }
+    @include transitionMain(background-color);
     background-color: getColor('accent');
     color: getColor('whiteText');
+    @include transitionMain(background-color, color, border);
+
+    &:hover,
+    &:focus {
+      animation-name: animateMainButton;
+      animation-duration: 500ms;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 0s;
+    }
   }
 
   &__button-made {
@@ -147,14 +183,7 @@
     color: getColor('accent');
     margin-left: 8px;
   }
-
-  &__button-products:hover,
-  :focus {
-    background-color: #c7133e;
-  }
-
-  &__button-made:hover,
-  :focus {
+  &__button-made:hover {
     background-color: #ecebeb;
   }
 
@@ -205,16 +234,14 @@
         height: 26px;
         width: 26px;
       }
-      @include transit(background-color);
+      @include transitionMain(background-color);
 
-      &:hover, :focus {
-        background-color:  #ecebeb;
-
+      &:hover,
+      :focus {
+        background-color: #ecebeb;
       }
     }
   }
-
-
 
   &__girl {
     @media screen and (max-width: 767px) {
@@ -265,38 +292,37 @@
     }
   }
 
-    &__numbers {
-      z-index: 1;
-      font-family: $main-font;
-      color: getColor('accent');
-      font-size: 28px;
+  &__numbers {
+    z-index: 1;
+    font-family: $main-font;
+    color: getColor('accent');
+    font-size: 28px;
+    line-height: 1.14;
+    letter-spacing: 0.04em;
+
+    @include for-size(desktop) {
+      font-size: 46px;
       line-height: 1.14;
       letter-spacing: 0.04em;
-
-      @include for-size(desktop) {
-        font-size: 46px;
-        line-height: 1.14;
-        letter-spacing: 0.04em;
-        margin-bottom: 2px;
-      }
+      margin-bottom: 2px;
     }
+  }
 
-    &__quantity-item {
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      text-align: right;
-    }
+  &__quantity-item {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
 
-    &__quantity-item:first-child {
-      @include for-size(tablet) {
-        margin-bottom: 24px;
-      }
-      @include for-size(desktop) {
-        margin-bottom: 38px;
-      }
+  &__quantity-item:first-child {
+    @include for-size(tablet) {
+      margin-bottom: 24px;
     }
-  
+    @include for-size(desktop) {
+      margin-bottom: 38px;
+    }
+  }
 
   &__food-point {
     @include for-size(tablet) {
@@ -307,3 +333,4 @@
     }
   }
 }
+

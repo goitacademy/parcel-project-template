@@ -1,41 +1,24 @@
-// // Пример использования миксина медиазапросов
-// .my-box {
-//   width: 100%;
-// // от 319рх и меньше
-//   @include for-size(responsive) {
-//     width: 319px;
-//   }
-
-// // от 320рх и больше
-//   @include for-size(phone) {
-//     width: 320px;
-//   }
-
-// // для диапазона 320-767рх
-//   @include to-size() {
-//     padding: calc(320px - 767px);
-//   }
-
-// // от 768рх и больше
-//   @include for-size(tablet) {
-//     width: 768px;
-//   }
-
-// // для диапазона 768-1199рх
-// @include to-size(tablet, max-tablet) {
-//       width: calc(768px - 1199px);
-// }
-// от 1200рх и больше
-
-// @include for-size(desktop) {
-//  width: 1200px;
-// }
-
 .section-location {
+  position: relative;
+  background-repeat: no-repeat;
   background-color: getColor('lightPink');
-  @include for-size(desktop) {
-    // background-image: url(/src/images/section_location/sectionbg2.png);
-    background-repeat: no-repeat;
+    @include for-size(desktop) {
+    
+       background-image: url('../images/location/location-bg.png');
+
+  @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+       background-image: url('../images/location/location-bg@2x.png');
+    }
+  }
+}
+
+.location-wrapper {
+  // position: absolute;
+  display: block;
+  @media (min-width: $tablet) {
+    display: inline-flex;
   }
 }
 
@@ -48,54 +31,212 @@
   &:nth-child(-n + 2) {
     margin-bottom: 20px;
   }
+  @media (min-width: $tablet) {
+    position: relative;
+    bottom: 102px;
+    padding: 50px 32px 50px 31px;
+    &:nth-child(-n + 2) {
+      margin-bottom: 0px;
+    }
+    &:nth-child(-n + 2) {
+      margin-right: 20px;
+    }
+  }
 }
 
+
 .location-title {
+  font-family: $secondary-font;
+  font-style: 500;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.86;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: getColor(main-bg);
+
+  @include flexBox();
+
+  margin-bottom: 25px;
   border-radius: 4px;
+  @media (min-width: $tablet) {
+    margin-bottom: 30px;
+
+    font-size: 16px;
+  }
+
   &__brown {
+    width: 80px;
     background: getColor(brown-bg);
+    @media (min-width: $tablet) {
+      width: 73px;
+    }
   }
   &__green {
+    width: 130px;
     background: getColor(green-bg);
+    @media (min-width: $tablet) {
+      width: 138px;
+    }
   }
 }
 
 .location-city {
+  margin-bottom: 10px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.86;
+  letter-spacing: 0.04em;
+  @media (min-width: $tablet) {
+    margin-bottom: 14px;
+    font-size: 14px;
+  }
 }
 
 .location-description {
+  padding-bottom: 25px;
+
+  font-family: $secondary-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: getColor(secondaryText);
+  @media (min-width: $tablet) {
+    padding-bottom: 30px;
+    font-size: 14px;
+    line-height: 1.66;
+  }
 }
 
 .location-schedule {
+  padding: 25px 0;
   border-top: 1px solid getColor(border);
   border-bottom: 1px solid getColor(border);
+  @media (min-width: $tablet) {
+    padding: 30px 0;
+    font-size: 14px;
+  }
   &__item {
+    font-family: $secondary-font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.86;
+    margin-bottom: 10px;
+    @media (min-width: $tablet) {
+      font-size: 14px;
+    }
   }
   &__day {
+    color: getColor(mainText);
   }
   &__time {
+    color: getColor(secondaryPink);
   }
 }
 
 .location-list {
+  padding-top: 25px;
+  @media (min-width: $tablet) {
+    padding-top: 30px;
+  }
 }
 
 .location-contacts {
-  &__link {
+  font-family: $secondary-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  color: getColor(secondaryText);
+  @media (min-width: $tablet) {
+    font-size: 14px;
+    line-height: 1.83;
   }
+  // &__link {
+  // }
 }
 
 .btn-wrapper {
+  display: block;
 }
 
 .btn {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 161px;
+  height: 44px;
+
   border-radius: 22px;
   border-color: transparent;
   outline: none;
-  &-location__our {
-    background: getColor(accent);
+
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  @media (min-width: $tablet) {
+    display: inline-flex;
+    transform: translateX(-100%);
+    bottom: 86px;
   }
+  &-location__our {
+    margin-top: 54px;
+    color: getColor(main-bg);
+    background: getColor(accent);
+
+    @include transitionMain(background-color, color, border);
+
+    &:hover,
+    &:focus {
+      color: getColor(main-bg);
+      background: getColor(accent);
+
+      animation-name: animateMainButton;
+      animation-duration: 500ms;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 0s;
+    }
+    @media (min-width: $tablet) {
+      width: 191px;
+    }
+  }
+
   &-location__franchise {
+    margin-top: 10px;
+    color: getColor(accent);
     background: getColor(main-bg);
+    &:hover,
+    &:focus {
+      color: getColor(accent);
+      background: getColor(main-bg);
+    }
+
+    @media (min-width: $tablet) {
+      width: 174px;
+    }
   }
 }
+.button-vector {
+  margin-left: 8px;
+  @media (min-width: $tablet) {
+    margin-left: 13px;
+  }
+}
+
