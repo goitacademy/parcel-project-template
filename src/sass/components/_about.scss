@@ -5,7 +5,7 @@
   // padding-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #fff5f6;
+  background-color: $sec-background-color;
 
   @media screen and (max-width: 767px) {
     .background-container {
@@ -189,5 +189,58 @@
     height: 10px;
     margin-left: 14px;
     background-image: url(../images/arrow.svg);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .backdrop-about {
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.2);
+    @include transition(opacity);
+  }
+
+  .backdrop-about.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .modal-about {
+    position: relative;
+    max-width: 290px;
+    width: 100%;
+
+    padding: 20px 10px;
+    margin: auto;
+
+    background-color: $main-wight-color;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
+      0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+
+    background-image: url(../images/about/cow-280.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(../images/about/cow-280@2x.png);
+    }
+  }
+
+  .modal-button-about {
+    background-color: $sec-background-color;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
