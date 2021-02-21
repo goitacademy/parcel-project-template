@@ -1,9 +1,18 @@
 // Хедер
 .page-header {
-  background-color: #ffb8ca;
+  position: relative;
+  background-color: #e18298;
 }
 
 .header-conteiner {
+  position: relative;
+  margin: 0 auto;
+}
+
+.conteiner-relative {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -12,6 +21,11 @@
   padding-top: 6px;
   padding-left: 20px;
   padding-right: 20px;
+
+  z-index: 5;
+  @media screen and (min-width: $mobile-width) {
+    width: $mobile-width;
+  }
 
   @media screen and (min-width: $tablet-width) {
     width: $tablet-width;
@@ -54,8 +68,17 @@
     transform: translateX(0);
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet-width) {
     width: 254px;
+  }
+
+  @media screen and (min-width: $desktop-width) {
+    position: absolute;
+    top: 51px;
+    left: 0;
+    padding: 0;
+    margin-left: 110px;
+    background-color: transparent;
   }
 }
 
@@ -76,6 +99,10 @@
   right: 25px;
   color: #fff;
   background-color: transparent;
+
+  @media screen and (min-width: $desktop-width) {
+    display: none;
+  }
 }
 
 .button-buy {
@@ -103,8 +130,14 @@
   margin-left: 30px;
   margin-bottom: 0;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet-width) {
     display: block;
+  }
+}
+
+.navigation-button {
+  @media screen and (min-width: $desktop-width) {
+    display: none;
   }
 }
 
@@ -117,16 +150,35 @@
   fill: currentColor;
 }
 
-.button-header.open-menu {
+.open-menu {
   fill: currentColor;
   margin-left: auto;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet-width) {
     top: 52px;
+  }
+
+  @media screen and (min-width: $desktop-width) {
+    display: none;
   }
 }
 
 // Наваигация
+.navigation {
+  @media screen and (min-width: $desktop-width) {
+    display: flex;
+    min-width: 541px;
+  }
+}
+
+.navigation-list {
+  @media screen and (min-width: $desktop-width) {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+  }
+}
+
 .navigation-item {
   position: relative;
   font-family: DM Sans;
@@ -141,6 +193,18 @@
 
   &:not(:last-child) {
     margin-bottom: 22px;
+
+    @media screen and (min-width: $desktop-width) {
+      margin-bottom: 0;
+      margin-right: 35px;
+    }
+  }
+
+  @media screen and (min-width: $desktop-width) {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.31;
   }
 
   &:hover,
@@ -157,6 +221,10 @@
     height: 1px;
     border-radius: 2px;
     background-color: #e18298;
+
+    @media screen and (min-width: $desktop-width) {
+      display: none;
+    }
   }
 
   &::after {
@@ -168,5 +236,9 @@
     height: 1px;
     border-radius: 2px;
     background-color: #e18298;
+
+    @media screen and (min-width: $desktop-width) {
+      display: none;
+    }
   }
 }
