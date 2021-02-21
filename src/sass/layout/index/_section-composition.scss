@@ -1,33 +1,170 @@
-// // Пример использования миксина медиазапросов
-// .my-box {
-//   width: 100%;
-// // от 319рх и меньше
-//   @include for-size(responsive) {
-//     width: 319px;
-//   }
+img {
+  width: 100%;
+  border-radius: 20px;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 
-// // от 320рх и больше
-//   @include for-size(phone) {
-//     width: 320px;
-//   }
+  @include to-size() {
+    border-radius: 5px;
+  }
+}
 
-// // для диапазона 320-767рх
-//   @include to-size() {
-//     padding: calc(320px - 767px);
-//   }
+.section-composition {
+    padding: 1px;
+    height: 100%;
+    background: linear-gradient( getColor('lightPink-bg') 50%, getColor('whiteText') 50%);
+}
 
-// // от 768рх и больше
-//   @include for-size(tablet) {
-//     width: 768px;
-//   }
+.gallery {
+  position: relative;
+  padding: 0 20px;
   
+  display: flex;
+  align-items: center;
 
-// // для диапазона 768-1199рх
-// @include to-size(tablet, max-tablet) {
-//       width: calc(768px - 1199px);
-// }
-// // от 1200рх и больше
-//   @include for-size(desktop) {
-//     width: 1200px;
-//   }
-// }
+  width: 100%;
+  height: 0px;
+  margin-top: 20%;
+  margin-bottom: 19%;
+  z-index: 0;
+
+  @include for-size(tablet) {
+      padding: 0 74px;
+  }
+  @include for-size(desktop) {
+      padding: 0 74px;
+  }
+}
+
+.gallery-item {
+  position: relative;
+  width: calc((100% - 2px * 2) / 7);
+
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+
+  &:hover {
+    position: relative;
+    z-index: 2;
+  }
+}
+.gallery-item-up {
+  position: relative;
+  top: -3vw;
+  z-index: 0;
+}
+.gallery-item:not(:last-child) {
+  margin-right: 2px;
+  @include for-size(tablet) {
+    margin-right: 4px;
+  }
+}
+
+.gallery-item:nth-child(1) .item-thumb,
+  .gallery-item:nth-child(2) .item-thumb {
+  @include for-size(desktop) {
+    max-height: 162px;
+    max-width: 162px;
+  }
+}
+
+.image-up {
+  margin-bottom: 2px;
+  @include for-size(tablet) {
+    margin-bottom: 4px;  
+  }
+  @include for-size(desktop) {
+      margin-bottom: 4px;
+  }
+}
+.gallery-item {
+  position: relative;
+  width: calc((100% - 2px * 2) / 7);
+  z-index: 0;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    position: relative;
+    z-index: 2;
+  }
+  @include for-size(tablet) {
+    width: calc((100% - 4px * 2) / 7);
+  }
+  @include for-size(desktop) {
+      width: calc((100% - 7px * 2) / 7);
+  }
+}
+
+.gallery-item-big {
+  width: calc((100% - 2px * 2) / 7 * 2);
+   @include for-size(tablet) {
+    width: calc((100% - 4px * 2) / 7 * 2);
+   }
+   @include for-size(desktop) {
+    width: calc((100% - 7px * 2) / 7 * 2);  
+   }
+}
+
+.gallery-item-big .image-down {
+  width: 50%;
+}
+
+.gallery-item-big .item-thumb:nth-child(1) {
+   @include for-size(desktop) {
+    max-height: 325px;
+    max-width: 325px;
+  }
+}
+.gallery-item-up .item-thumb {
+    @include for-size(desktop) {
+    max-height: 162px;
+    max-width: 162px;
+  }
+}
+
+.gallery-item:not(:last-child) {
+   @include for-size(desktop) {
+    margin-right: 7px;
+  }
+}
+
+.item-thumb {
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  opacity: 1;
+
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    position: relative;
+    opacity: 1;
+    z-index: 2;
+    transform: scale(1.2);
+  }
+  @include for-size(tablet) {
+  border-radius: 10px;
+  }
+  @include for-size(desktop) {
+     border-radius: 20px; 
+  }
+}
+
+.item-content {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  padding-bottom: 100%;
+  opacity: 1;
+}
+.gallery-image {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 0;
+}
