@@ -1,7 +1,7 @@
 .section-location {
   position: relative;
   background-repeat: no-repeat;
-  background-color: getColor(lightPink);
+  background-color: getColor('lightPink');
     @include for-size(desktop) {
     
        background-image: url('../images/location/location-bg.png');
@@ -11,6 +11,14 @@
       screen and (min-resolution: 2dppx) {
        background-image: url('../images/location/location-bg@2x.png');
     }
+  }
+}
+
+.location-wrapper {
+  // position: absolute;
+  display: block;
+  @media (min-width: $tablet) {
+    display: inline-flex;
   }
 }
 
@@ -36,13 +44,7 @@
   }
 }
 
-.location-wrapper {
-  position: absolute;
-  display: block;
-  @media (min-width: $tablet) {
-    display: inline-flex;
-  }
-}
+
 .location-title {
   font-family: $secondary-font;
   font-style: 500;
@@ -156,8 +158,8 @@
     font-size: 14px;
     line-height: 1.83;
   }
-  &__link {
-  }
+  // &__link {
+  // }
 }
 
 .btn-wrapper {
@@ -195,15 +197,27 @@
     margin-top: 54px;
     color: getColor(main-bg);
     background: getColor(accent);
+
+    @include transitionMain(background-color, color, border);
+
     &:hover,
     &:focus {
       color: getColor(main-bg);
       background: getColor(accent);
+
+      animation-name: animateMainButton;
+      animation-duration: 500ms;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 0s;
     }
     @media (min-width: $tablet) {
       width: 191px;
     }
   }
+
   &-location__franchise {
     margin-top: 10px;
     color: getColor(accent);
@@ -213,6 +227,7 @@
       color: getColor(accent);
       background: getColor(main-bg);
     }
+
     @media (min-width: $tablet) {
       width: 174px;
     }
@@ -224,3 +239,4 @@
     margin-left: 13px;
   }
 }
+
