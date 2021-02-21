@@ -19,10 +19,6 @@ header {
   @media screen and (min-width: 768px) {
     padding-top: 35px;
   }
-
-  // @media screen and (min-width: 1280px) {
-  //   justify-content: flex-start;
-  // }
 }
 
 .main-menu {
@@ -30,7 +26,6 @@ header {
 }
 
 .logo {
-  // margin-right: 110px;
   display: inline-flex;
   cursor: pointer;
 
@@ -56,6 +51,13 @@ header {
 .logo-picture {
   display: inline-flex;
   align-items: center;
+
+  transition: transform 0.3s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
 }
 
 .menu {
@@ -66,11 +68,14 @@ header {
     font-size: 14px;
     line-height: 1.29;
     color: $primary-text-color;
+    transform: scale(1);
     @include transit(color);
+    @include transit(font-size);
 
     &:hover,
     &:focus {
       color: $accent-color;
+      font-size: 18px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -112,15 +117,12 @@ header {
   }
 }
 
-// .burger-menu
-
 .hamburger--elastic {
   @media screen and (max-width: 1279px) {
     background-color: transparent;
     border: none;
     padding: 0;
     cursor: pointer;
-    // display: block;
     z-index: 21;
   }
 
@@ -132,7 +134,7 @@ header {
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     & {
-      transform: translateX(-210px);
+      transform: translateX(-200px);
     }
     &.is-open {
       transform: translateX(0px);
@@ -146,26 +148,14 @@ header {
 
 .menu-container {
   @media screen and (max-width: 1279px) {
-    // display: none;
     position: absolute;
     right: -250px;
 
-    // clip: rect(0 0 0 0);
     width: 1px;
     height: 1px;
     margin: -1px;
     border: 0;
     padding: 0;
-
-    // top: 0;
-    // bottom: 0;
-    // margin: 0;
-    // z-index: 20;
-
-    // width: 0px;
-    // height: 100vh;
-    // padding: 0px 0px;
-    // background-color: $modal-color;
 
     display: flex;
     flex-direction: column-reverse;
@@ -200,6 +190,7 @@ header {
 
       opacity: 1;
       transform: translateX(0);
+      transform: scale(1, 1);
       transition: opacity 0.5s 0.6s, transform 0.5s 0.6s;
     }
 
@@ -225,6 +216,11 @@ header {
 
       &:nth-child(5) {
         transition: opacity 0.5s 0.5s, transform 0.5s 0.5s;
+      }
+
+      &:hover,
+      &:focus {
+        padding-left: 35px;
       }
     }
   }
@@ -262,21 +258,19 @@ header {
   }
 
   @media screen and (max-width: 1279px) {
-    margin-right: -250px;
+    margin-right: -350px;
   }
 }
 
 .buy_now {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1279px) {
     position: absolute;
     right: -250px;
 
-    // clip: rect(0 0 0 0);
-    // width: 1px;
-    // height: 1px;
-    // margin: -1px;
-    // border: 0;
-    // padding: 0;
+    opacity: 0;
+    transform: scale(0.1, 0.1);
+    transform-origin: 0% 0%;
+    transition: opacity 0.8s, transform 0.8s;
   }
 
   @media screen and (min-width: 1280px) {
