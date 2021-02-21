@@ -1,4 +1,4 @@
-const setup = name => {
+        const setup = name => {
         const backdrop = document.querySelector(`[data-backdrop-${name}]`);
         const buttons = document.querySelectorAll(
           `[data-toggle-backdrop-${name}]`,
@@ -11,3 +11,5 @@ const setup = name => {
       };
       setup('schedule');
       setup('menu');
+      setup('franshize');
+      setup('location');
