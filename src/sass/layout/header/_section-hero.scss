@@ -1,4 +1,5 @@
 .hero {
+  background-color: getColor('mainPink');
   .container {
     position: relative;
     top: 0;
@@ -21,7 +22,7 @@
     @media screen and (max-width: 767px) {
       width: 346px;
       height: 344px;
-      right: -62px;
+      right: calc((100vw - 480px) * 0.2);
       top: 83px;
     }
 
@@ -36,38 +37,6 @@
       height: 538px;
       right: 267px;
       top: 50px;
-    }
-      animation-name: rotate-scale-up-diag-1;
-      animation-duration: 2000ms;
-   
-
-    @-webkit-keyframes rotate-scale-up-diag-1 {
-      0% {
-        -webkit-transform: scale(1) rotate3d(1, 1, 0, 0deg);
-        transform: scale(1) rotate3d(1, 1, 0, 0deg);
-      }
-      50% {
-        -webkit-transform: scale(2) rotate3d(1, 1, 0, -180deg);
-        transform: scale(2) rotate3d(1, 1, 0, -180deg);
-      }
-      100% {
-        -webkit-transform: scale(1) rotate3d(1, 1, 0, -360deg);
-        transform: scale(1) rotate3d(1, 1, 0, -360deg);
-      }
-    }
-    @keyframes rotate-scale-up-diag-1 {
-      0% {
-        -webkit-transform: scale(1) rotate3d(1, 1, 0, 0deg);
-        transform: scale(1) rotate3d(1, 1, 0, 0deg);
-      }
-      50% {
-        -webkit-transform: scale(2) rotate3d(1, 1, 0, -180deg);
-        transform: scale(2) rotate3d(1, 1, 0, -180deg);
-      }
-      100% {
-        -webkit-transform: scale(1) rotate3d(1, 1, 0, -360deg);
-        transform: scale(1) rotate3d(1, 1, 0, -360deg);
-      }
     }
   }
 
@@ -182,6 +151,17 @@
     background-color: getColor('whiteText');
     color: getColor('accent');
     margin-left: 8px;
+
+    &:hover,
+    &:focus {
+      animation-name: animateMainButtonRed;
+      animation-duration: 500ms;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 0s;
+    }
   }
   &__button-made:hover {
     background-color: #ecebeb;
