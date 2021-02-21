@@ -3,9 +3,7 @@
   padding-bottom: 125px;
   background-color: $primary-text-color;
 }
-.container-products {
-  width: 100%;
-}
+
 .products-label {
   margin-bottom: 15px;
   margin-top: 0;
@@ -16,15 +14,15 @@
   text-transform: uppercase;
   color: $pink-text-color;
 
-  @media screen and (min-width: 320px) and (max-width: 479px) {
+  @media screen and (min-width: 479px) {
     font-size: 18px;
     line-height: 1.17;
   }
-  @media screen and (min-width: 480px) and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     font-size: 26px;
     line-height: 1.15;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1200px) {
     font-size: 30px;
     line-height: 1.13;
     letter-spacing: 0.04em;
@@ -41,17 +39,17 @@
   letter-spacing: 0.04em;
   color: $accent-color;
 
-  @media screen and (min-width: 320px) and (max-width: 479px) {
-    margin-bottom: 100px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-bottom: 150px;
     font-size: 34px;
     line-height: 1.15;
   }
-  @media screen and (min-width: 480px) and (max-width: 767px) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 150px;
     font-size: 48px;
-    line-height: 55px;
+    line-height: 1.15;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1200px) {
     margin-bottom: 200px;
     font-size: 58px;
     line-height: 1.14;
@@ -62,29 +60,22 @@
 .products-list {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 
-  @media screen and (min-width: 320px) and (max-width: 479px) {
-    flex-wrap: wrap;
-  }
-}
-.products-item:not(:last-child) {
-  margin-right: 20px;
-
-  @media screen and (min-width: 320px) and (max-width: 479px) {
-    margin-right: 0;
-    margin-bottom: 190px;
-    margin-top: 60px;
-  }
-  @media screen and (min-width: 480px) and (max-width: 767px) {
-    margin-right: 20px;
-  }
   @media screen and (min-width: 768px) {
-    margin-right: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: nowrap;
   }
 }
+
 .products-item {
+  justify-content: center;
   text-align: center;
   border-radius: 24px;
+  padding-bottom: 41px;
 
   &--pink {
     background: $main-color;
@@ -95,30 +86,49 @@
   &--olive {
     background: $bg-third-color;
   }
-  @media screen and (min-width: 320px) and (max-width: 479px) {
-    min-width: 280px;
-    min-height: 485px;
-  }
-  @media screen and (min-width: 480px) and (max-width: 767px) {
-    min-width: 220px;
-    min-height: 485px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    max-width: 280px;
+    /*height: 485px;*/
   }
   @media screen and (min-width: 768px) {
-    min-width: 330px;
-    min-height: 525px;
+    max-width: 285px;
+    /* height: 485px;*/
+  }
+  @media screen and (min-width: 1200px) {
+    max-width: 335px;
+    /*max-height: 525px;*/
+  }
+}
+.products-item:not(:last-child) {
+  margin-bottom: 130px;
+  @media screen and (min-width: 768px) {
+    margin-right: 20px;
+    margin-bottom: 0;
   }
 }
 
 .products-image {
   position: relative;
-  transform: translate(0, -50%);
+  transform: translate(0, -5%);
   display: inline-block;
-  margin-top: 30px;
+  margin-top: -114px;
+  margin-bottom: 22px;
   padding: 0;
+  @media screen and (max-width: 768px) {
+    transform: translate(0, -50%);
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
+  @media screen and (max-width: 1200px) {
+    transform: translate(0, 35%);
+    margin-top: -212px;
+    margin-bottom: 38px;
+  }
 }
 
 .products-item-title {
   padding: 0;
+  margin-top: 80px;
   font-family: $secondary-font;
   font-style: normal;
   font-weight: normal;
@@ -128,12 +138,15 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: $primary-text-color;
-  margin-top: calc(-100% / 2 + 25px);
-  margin-bottom: 0;
 
   @media screen and (min-width: 768px) {
     font-size: 30px;
     line-height: 1.13;
+    margin-top: 70px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-top: 0px;
   }
 }
 
@@ -190,15 +203,12 @@
   }
 
   @media screen and (min-width: 320px) and (max-width: 479px) {
-    margin-top: 30px;
-    margin-bottom: 40px;
+    margin-top: 40px;
   }
   @media screen and (min-width: 480px) and (max-width: 767px) {
     margin-top: 40px;
-    margin-bottom: 40px;
   }
   @media screen and (min-width: 768px) {
     margin-top: 50px;
-    margin-bottom: 50px;
   }
 }
