@@ -68,6 +68,10 @@
   border-radius: 24px;
   padding: 43px 20px;
 
+  @media screen and (max-width: 767px) {
+    width: 280px;
+  }
+
   @media screen and (min-width: 768px) {
     // margin-right: 20px;
     padding: 50px 30px;
@@ -86,7 +90,6 @@
   &:not(:last-child) {
     @media screen and (max-width: 767px) {
       margin-bottom: 20px;
-      width: 280px;
     }
   }
 }
@@ -308,6 +311,13 @@
   cursor: pointer;
   color: $primary-text-color;
   background-color: $color;
+  @include transition(box-shadow);
+
+  &:hover,
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 10px 0 $accent-color;
+  }
 }
 
 .contacts-button-btn {
@@ -315,18 +325,16 @@
   padding-left: 32px;
   background-color: $primary-text-color;
   color: $color;
-  @include transition(background-color);
+  @include transition(background-color, box-shadow);
 
   &:hover,
   &:focus {
     background-color: $hover-btn-bg-color;
+    box-shadow: 0 0 10px 0 $accent-color;
   }
 }
 
-.button-icon {
-  margin-left: 13px;
-}
-
+.button-icon,
 .icon-btn {
   margin-left: 13px;
 }
