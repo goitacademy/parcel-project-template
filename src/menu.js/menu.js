@@ -13,21 +13,3 @@
     document.body.classList.toggle("modal-open");
   });
 })();
-
-(() => {
-  const refs = {
-    openModalBtn: document.querySelector('[data-modal-open]'),
-    modal: document.querySelector('[data-modal]'),
-  };
-
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  
-  function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
-  }
-
-   function toggleModal() {
-    refs.modal.classList.toggle("is-hidden");
-  }
-})();
-
