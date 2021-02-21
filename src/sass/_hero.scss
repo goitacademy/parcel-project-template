@@ -1,5 +1,4 @@
 .hero-container {
-  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -138,7 +137,7 @@ h1 > span {
   }
 }
 
-.hero-arrow {
+.hero-icon {
   position: absolute;
   left: 154px;
   top: 347px;
@@ -146,47 +145,113 @@ h1 > span {
   height: 18px;
 }
 
-.cafes {
-  position: absolute;
-  display: flex;
-  flex-direction: row-reverse;
-  left: 691px;
-  top: 94px;
+.tasty {
+  display: none;
+
+  @media (min-width: $tablet-width) {
+    display: block;
+    position: absolute;
+    left: 691px;
+    top: 94px;
+  }
 }
 
-.cafes-number {
-  font-family: Titan One;
+.tasty-girl {
+  display: none;
+
+  @media (min-width: $tablet-width) {
+    display: block;
+    position: absolute;
+    width: 168px;
+    left: 566px;
+    top: 266px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 293px;
+  }
+}
+
+.tasty-list {
+  display: none;
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+
+    text-align: right;
+  }
+
+  @media (min-width: $desktop-width) {
+    top: 35px;
+  }
+}
+
+.tasty-item {
+  position: relative;
+
+  &:first-child {
+    margin-bottom: 20px;
+  }
+}
+
+.tasty-item::after {
+  display: none;
+
+  @media (min-width: $tablet-width) {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    transform: translate(50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: $main-text-color;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.tasty-number {
+  display: inline-block;
+  font-family:  $title-fonte-family;
   font-style: normal;
   font-weight: normal;
   font-size: 28px;
   line-height: 32px;
+  letter-spacing: 0.91;
+  color: rgba(212, 20, 67, 1);
+  margin: 0;
+  padding: 0;
 
-  text-align: right;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-
-  color: $accent-color;
+  @media (min-width: $tablet-width) {
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: 1.15;
+  }
 }
 
-.cafes-number > span {
-  display: block;
-  font-family: $main-fonte-family;
+.tasty-text {
+  font-family:  $main-fonte-family;
   font-style: normal;
   font-weight: normal;
   font-size: 8px;
-  line-height: 10px;
-  text-align: right;
+  letter-spacing: 1.5;
+  color: $main-text-color;
+  margin: 0;
+  padding: 0;
 
-  color: #ffffff;
+  @media (min-width: $desktop-width) {
+    font-size: 8px;
+    letter-spacing: 1.28;
+  }
 }
 
-.cafes-box {
-  width: 16px;
-  height: 16px;
-  left: 734px;
-  top: 94px;
-
-  background: #ffffff;
-  border-radius: 50%;
-  transform: matrix(-1, 0, 0, 1, 0, 0);
-}
