@@ -37,7 +37,7 @@
         width: 100%;
     
         background-image: url(../images/about-bg-320.png);
-        background-color: #FFF5F6;
+        background-color: $color-bg-primary;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: bottom;
@@ -71,25 +71,30 @@
 }
 // левая секция с картинкой
 .about {
+    &-image {
+        display: block;
+        height: auto;
+        max-width: 100%;
+        margin: 0 auto;
+    }
     &-image-link {
         display: block;
-        // justify-content: center;
         margin: 0 auto;
         min-height: 280px;
         min-width: 280px;
         height: auto;
 
-        background-image: url(../images/about-cow-280.png);
-        background-color: #FFF5F6;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+        // background-image: url(../images/about-cow-280.png);
+        // background-color: $color-bg-primary;
+        // background-repeat: no-repeat;
+        // background-size: cover;
+        // background-position: center;
 
-        @media screen and (min-device-pixel-ratio: 2),
-            screen and (min-resolution: 192dpi),
-            screen and (min-resolution: 2dppx) {
-                background-image: url('../images/about-cow-560-@2x.png');
-            }        
+        // @media screen and (min-device-pixel-ratio: 2),
+        //     screen and (min-resolution: 192dpi),
+        //     screen and (min-resolution: 2dppx) {
+        //         background-image: url('../images/about-cow-560-@2x.png');
+        //     }        
     }    
 }
 // правая секция с текстом
@@ -156,18 +161,20 @@
             width: $width-mobile;
         }
         &-image-link {
-            min-width: 340px;
-            min-height: 340px;
+            display: block;
+            min-width: 280px;
+            width: 100%;
+            height: auto;
 
-            background-image: url(../images/about-cow-280.png);
-            background-color: #FFF5F6;
-            background-size: contain;
+            // background-image: url(../images/about-cow-280.png);
+            // background-color: $color-bg-primary;
+            // background-size: contain;
 
-            @media screen and (min-device-pixel-ratio: 2),
-            screen and (min-resolution: 192dpi),
-            screen and (min-resolution: 2dppx) {
-                background-image: url('../images/about-cow-560-@2x.png');
-            }
+            // @media screen and (min-device-pixel-ratio: 2),
+            // screen and (min-resolution: 192dpi),
+            // screen and (min-resolution: 2dppx) {
+            //     background-image: url('../images/about-cow-560-@2x.png');
+            // }
         }
     }
 }
@@ -203,15 +210,15 @@
             min-width: 340px;
             min-height: 340px;
 
-            background-image: url(../images/about-cow-340.png);
-            background-color: #FFF5F6;
-            background-size: contain;
+            // background-image: url(../images/about-cow-340.png);
+            // background-color: $color-bg-primary;
+            // background-size: contain;
 
-            @media screen and (min-device-pixel-ratio: 2),
-            screen and (min-resolution: 192dpi),
-            screen and (min-resolution: 2dppx) {
-                background-image: url('../images/about-cow-680-@2x.png');
-            }
+            // @media screen and (min-device-pixel-ratio: 2),
+            // screen and (min-resolution: 192dpi),
+            // screen and (min-resolution: 2dppx) {
+            //     background-image: url('../images/about-cow-680-@2x.png');
+            // }
         }
         &-item-position {
             padding: 0;
@@ -265,15 +272,15 @@
             min-width: 516px;
             min-height: 516px;
 
-            background-image: url(../images/about-cow-516.png);
-            background-color: #FFF5F6;
-            background-size: contain;
+            // background-image: url(../images/about-cow-516.png);
+            // background-color: $color-bg-primary;
+            // background-size: contain;
 
-            @media screen and (min-device-pixel-ratio: 2),
-            screen and (min-resolution: 192dpi),
-            screen and (min-resolution: 2dppx) {
-                background-image: url('../images/about-cow-1032-@2x.png');
-            }
+            // @media screen and (min-device-pixel-ratio: 2),
+            // screen and (min-resolution: 192dpi),
+            // screen and (min-resolution: 2dppx) {
+            //     background-image: url('../images/about-cow-1032-@2x.png');
+            // }
         }
         &-item + .about-item {
             margin-left: 74px;
@@ -300,7 +307,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 30px;
     overflow-y: scroll;
     opacity: 1;
@@ -323,10 +330,23 @@
     top: 50%;
     flex-direction: column;
     padding: 30px;
+    border-radius: 24px;
     margin: 0;
     max-width: 440px;
-    background-color: $color-bg-secondary;
+    background-color: $color-bg-primary;
     transform: translate(-50%, -50%) scale(1);
+}
+.modal::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -100px;
+    transform: translateX(-50%);
+    width: 149px;
+    height: 152px;
+    background-size: cover;
+    background-position: top;
+    background-image: url(../images/products/products-pic1.png);
 }
 .close-button {
     display: flex;
