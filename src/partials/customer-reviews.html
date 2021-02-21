@@ -1,0 +1,85 @@
+
+<section class="reviews">
+    <div class="container">
+        
+        <div class="slider">
+            <div class="sliderbox ">
+                <img class="sliderbox__photo" src="./images/customers/customer.png" alt="testimonials one" width="85px" />
+                <div class="sliderbox__content">
+                    <p class="content__reviews">
+                        Nullam viverra consectetuer.
+                        Quisque cursus et, porttitor risus.
+                        Aliquam sem. In hendrerit nulla quam nunc, accumsan congue.
+                        Lorem ipsum primis in nibh vel risus.
+                    </p>
+                </div>    
+                <p class="sliderbox__name">Emily, Los Angeles</p>
+            </div>
+            <div class="sliderbox ">
+                <img class="sliderbox__photo" src="./images/customers/customer2.png" alt="testimonials one" width="85px" />
+                <div class="sliderbox__content">
+                    <p class="content__reviews">
+                        Nullam viverra consectetuer.
+                        Quisque cursus et, porttitor risus.
+                        Aliquam sem. In hendrerit nulla quam nunc, accumsan congue.
+                        Lorem ipsum primis in nibh vel risus.
+                    </p>
+                </div>    
+                <p class="sliderbox__name">Emily, NY</p>
+            </div>
+            <div class="sliderbox ">
+                <img class="sliderbox__photo" src="./images/customers/customer3.png" alt="testimonials one" width="85px" />
+                <div class="sliderbox__content">
+                    <p class="content__reviews">
+                        Nullam viverra consectetuer.
+                        Quisque cursus et, porttitor risus.
+                        Aliquam sem. In hendrerit nulla quam nunc, accumsan congue.
+                        Lorem ipsum primis in nibh vel risus.
+                    </p>
+                </div>    
+                <p class="sliderbox__name">Emily, CA</p>
+            </div>
+
+        </div>
+
+
+        <div class="pagination">
+            <span class="slider-dots_item" onclick="currentSlide(1)"><svg class="dots-svg" width="12px" height="12px"><use href="./images/sprite.svg#home"></use></svg></span>
+            <span class="slider-dots_item" onclick="currentSlide(2)"><svg class="dots-svg" width="12px" height="12px"><use href="./images/sprite.svg#ellipse"></use></svg></span>
+            <span class="slider-dots_item" onclick="currentSlide(3)"><svg class="dots-svg" width="12px" height="12px"><use href="./images/sprite.svg#ellipse"></use></svg></span>
+        </div>
+
+    </div>
+    
+    
+</section>
+<script type="text/javascript">
+ 
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("sliderbox");
+      var dots = document.getElementsByClassName("slider-dots_item");
+      if (n > slides.length) {slideIndex = 1} 
+      if (n < 1) {slideIndex = slides.length} ;
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none"; 
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block"; 
+      dots[slideIndex-1].className += " active";
+    }
+</script>
+
