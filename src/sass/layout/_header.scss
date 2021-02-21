@@ -6,6 +6,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  overflow-x: hidden;
 }
 
 .main-nav {
@@ -19,10 +20,6 @@ header {
   @media screen and (min-width: 768px) {
     padding-top: 35px;
   }
-
-  @media screen and (min-width: 1280px) {
-    justify-content: flex-start;
-  }
 }
 
 .main-menu {
@@ -30,7 +27,38 @@ header {
 }
 
 .logo {
-  margin-right: 110px;
+  display: inline-flex;
+  cursor: pointer;
+
+  span {
+    font-family: Titan One;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $accent-color;
+    margin-left: 20px;
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+.logo-picture {
+  display: inline-flex;
+  align-items: center;
+
+  transition: transform 0.3s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
 }
 
 .menu {
@@ -41,11 +69,14 @@ header {
     font-size: 14px;
     line-height: 1.29;
     color: $primary-text-color;
+    transform: scale(1);
     @include transit(color);
+    @include transit(font-size);
 
     &:hover,
     &:focus {
       color: $accent-color;
+      font-size: 18px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -66,6 +97,10 @@ header {
   @media screen and (max-width: 1279px) {
     border-top: 1px solid #e18298;
 
+    opacity: 0;
+    transform: translateX(50%);
+    transition: opacity 0.5s 0.1s, transform 0.5s 0.1s;
+
     &:last-child {
       border-bottom: 1px solid #e18298;
     }
@@ -83,24 +118,13 @@ header {
   }
 }
 
-.buy {
-  display: block;
-}
-
-.burger-menu {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: block;
-  z-index: 21;
-
-  .icon-close {
-    display: none;
-  }
-
-  &.is-open .icon-close {
-    display: block;
+.hamburger--elastic {
+  @media screen and (max-width: 1279px) {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 21;
   }
 
   &.is-open {
@@ -109,13 +133,9 @@ header {
     top: 23px;
   }
 
-  &.is-open .icon-burger {
-    display: none;
-  }
-
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     & {
-      transform: translateX(-210px);
+      transform: translateX(-200px);
     }
     &.is-open {
       transform: translateX(0px);
@@ -128,12 +148,25 @@ header {
 }
 
 .menu-container {
-  @media screen and (max-width: 767px) {
-    display: none;
+  @media screen and (max-width: 1279px) {
+    position: absolute;
+    right: -250px;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+
+    transition: right 0.3s;
   }
   @media screen and (max-width: 1279px) {
     &.is-open {
-      position: absolute;
+      position: fixed;
       top: 0;
       bottom: 0;
       right: 0;
@@ -147,32 +180,102 @@ header {
       display: flex;
       flex-direction: column-reverse;
       justify-content: flex-end;
+
+      transition: right 0.3s;
     }
 
     &.is-open .buy_now {
       display: block;
       margin: 60px 34px 25px;
+      position: static;
+
+      opacity: 1;
+      transform: translateX(0);
+      transform: scale(1, 1);
+      transition: opacity 0.5s 0.6s, transform 0.5s 0.6s;
     }
 
     &.is-open .main-menu {
       display: block;
     }
+
+    &.is-open .menu-item {
+      opacity: 1;
+      transform: translateX(0);
+
+      &:nth-child(2) {
+        transition: opacity 0.5s 0.2s, transform 0.5s 0.2s;
+      }
+
+      &:nth-child(3) {
+        transition: opacity 0.5s 0.3s, transform 0.5s 0.3s;
+      }
+
+      &:nth-child(4) {
+        transition: opacity 0.5s 0.4s, transform 0.5s 0.4s;
+      }
+
+      &:nth-child(5) {
+        transition: opacity 0.5s 0.5s, transform 0.5s 0.5s;
+      }
+
+      &:hover,
+      &:focus {
+        padding-left: 35px;
+      }
+    }
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    .main-menu {
-      display: none;
-    }
+  // @media screen and (min-width: 768px) and (max-width: 1279px) {
+  //   .main-menu {
+  //     display: none;
+  //   }
 
-    & {
-      margin-left: auto;
-    }
-  }
+  //   & {
+  //     margin-left: auto;
+  //   }
+
+  //   .buy_now {
+  //     position: fixed;
+  //     right: 180px;
+  //     top: 36px;
+
+  //     opacity: 1;
+  //     transform: translateX(50%);
+  //     transition: opacity 0.5s 0.1s, transform 0.5s 0.1s;
+  //   }
+  // }
 
   @media screen and (min-width: 1280px) {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    // width: 100%;
+  }
+}
+
+.buy_now1 {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 1279px) {
+    margin-right: -350px;
+  }
+}
+
+.buy_now {
+  @media screen and (max-width: 1279px) {
+    position: absolute;
+    right: -250px;
+
+    opacity: 0;
+    transform: scale(0.1, 0.1);
+    transform-origin: 0% 0%;
+    transition: opacity 0.8s, transform 0.8s;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
   }
 }
 
@@ -210,3 +313,22 @@ header {
 .icon-arrow {
   margin-left: 12px;
 }
+
+// .mask-content {
+//   display: block;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   z-index: 1;
+//   width: 100%;
+//   height: 100%;
+//   background-color: rgba(0, 0, 0, 0.4);
+//   visibility: hidden;
+//   opacity: 0;
+// }
+
+// html,
+// body {
+//   margin: 0;
+//   overflow-x: hidden;
+// }
