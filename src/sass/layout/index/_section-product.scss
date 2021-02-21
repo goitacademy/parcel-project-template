@@ -1,36 +1,3 @@
-// // Пример использования миксина медиазапросов
-// .my-box {
-//   width: 100%;
-// // от 319рх и меньше
-//   @include for-size(responsive) {
-//     width: 319px;
-//   }
-
-// // от 320рх и больше
-//   @include for-size(phone) {
-//     width: 320px;
-//   }
-
-// // для диапазона 320-767рх
-//   @include to-size() {
-//     padding: calc(320px - 767px);
-//   }
-
-// // от 768рх и больше
-//   @include for-size(tablet) {
-//     width: 768px;
-//   }
-  
-
-// // для диапазона 768-1199рх
-// @include to-size(tablet, max-tablet) {
-//       width: calc(768px - 1199px);
-// }
-// // от 1200рх и больше
-//   @include for-size(desktop) {
-//     width: 1200px;
-//   }
-// }
 .product-section {
   padding-top: 120px;
   padding-bottom: 100px;
@@ -112,6 +79,7 @@
   }
 }
 .product-pink-card {
+  animation: animateX50 3000ms infinite 1000ms;
   background-color: getColor('mainPink');
 }
 .product-pink-card::before {
@@ -283,10 +251,12 @@
 .product-name::after {
   content: '';
   display: block;
+  margin-right: auto;
+  margin-left: auto;
   width: 26px;
   height: 6px;
   margin-top: 30px;
-  background-image: url('../images/product/sprite.svg#icon-ellipsis');
+  background-image: url('../images/product/ellipsis.svg');
 }
 .product-description {
   font-family: DM Sans;
@@ -308,11 +278,46 @@
   border-radius: 50%;
   border-style: none;
   background-color: getColor('main-bg');
+  cursor: pointer;
+  @include transitionMain(background-color);
   @include for-size(desktop) {
     margin-top: 62px;
   }
+  &:focus,
+  &:hover {
+    background-color: getColor('accent');
+  }
 }
 .product-button-icon {
-  display: flex;
   fill: getColor('accent');
+}
+.product-button:hover > .product-button-icon {
+  fill: getColor('main-bg');
+}
+.product-button:focus > .product-button-icon {
+  fill: getColor('main-bg');
+}
+.back_to_top {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 9999;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-weight: 900;
+  background: getColor('accent');
+  color: getColor('whiteText');
+  cursor: pointer;
+  display: none;
+}
+
+.back_to_top:focus {
+  background: getColor('brown-bg');
+}
+
+.back_to_top-show {
+  display: block;
 }
