@@ -1,5 +1,11 @@
 .customer {
-    padding: 80px 0;
+    @media screen and (min-width:$tablet) {
+        padding: 121px 0 166px;
+    }
+    @media screen and (min-width:$desktop) {
+        padding: 123px 0 179px;
+    }
+    padding: 80px 0 128px;
 }
 .customer__list--item {
     margin: 0 auto;
@@ -8,15 +14,22 @@
     }
 }
 .customer-image {
-    display: block;
-    margin: 0 auto 29px;
     @media screen and (min-width:$tablet) {
         margin: 0 auto 19px;
     }
+    @media screen and (min-width:$desktop) {
+        margin: 0 auto 15px;
+    }
+    display: block;
+    margin: 0 auto 29px;
 }
 .customer__container {
     @media screen and (min-width:$tablet) {
         margin: 0 40px 42px;
+        padding: 47px 80px 34px;
+    }
+    @media screen and (min-width:$desktop) {
+        margin: 0 63px 34px;
         padding: 47px 80px 34px;
     }
     position: relative;
@@ -29,6 +42,10 @@
             top: 30px;
             left: 40px;
         }
+        @media screen and (min-width:$desktop) {
+            top: 32px;
+            left: 50px;
+        }
         position: absolute;
         top: 28px;
         left: 61px;
@@ -38,26 +55,16 @@
         width: 54px;
         height: 40px;
     }
-    &::after {
-        content: "";
-        position: absolute;
-        display: inline-block;
-        background-image: 
-        url(../images/customer-reviews/ellipse.svg),
-        url(../images/customer-reviews/ellipse.svg),
-        url(../images/customer-reviews/ellipse.svg);
-        background-position: 
-        top 50px left 65px,
-        top 50px left 75px,
-        top 50px left 85px;
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 100%;
-        
-    }
 }
 .customer__thumb {
- 
+    @media screen and (min-width:$tablet) {
+        background-image: repeating-linear-gradient(to bottom,
+        $quote-bg-color,
+        $quote-bg-color 28px,
+        $footer-border-line-color 28px,
+        $footer-border-line-color 29px
+        );
+    }
     background-image: repeating-linear-gradient(to bottom,
     $quote-bg-color,
     $quote-bg-color 29px,
@@ -74,6 +81,10 @@
         line-height: 216%;
         letter-spacing: 0.04em;
     }
+    @media screen and (min-width:$desktop) {
+        font-size: 16px;
+        line-height: 186%;
+    }
     position: relative;
     margin: 0 auto;
     padding: 0;
@@ -84,6 +95,12 @@
     text-align: center;
 }
 .customer__title {
+    @media screen and (min-width:$tablet) {
+       font-size: 16px;
+    }
+    @media screen and (min-width:$desktop) {
+        font-size: 20px;
+     }
     position: relative;
     display: block;
     margin: 0;
@@ -93,4 +110,47 @@
     font-size: 14px;
     line-height: 186%;
     text-align: center;
+    &::before {
+        content: "";
+        @media screen and (min-width:$tablet) {
+            transform: translateY(-14px);
+        }
+        @media screen and (min-width:$desktop) {
+            transform: translateY(-15px);
+        }
+        position: absolute;
+        display: block;
+        background-image: 
+        url(../images/customer-reviews/ellipse.svg),
+        url(../images/customer-reviews/ellipse.svg),
+        url(../images/customer-reviews/ellipse.svg);
+        background-position: 
+        top 0 left calc(50% - 10px),
+        top 0 left 50%,
+        top 0 left calc(50% + 10px);
+        transform: translateY(-18px);
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+    }
+    &::after {
+        content: "";
+        @media screen and (min-width:$tablet) {
+        transform: translateY(35px);
+        }
+        position: absolute;
+        display: block;
+        background-image: 
+        url(../images/customer-reviews/home.svg),
+        url(../images/customer-reviews/ellipse9.svg),
+        url(../images/customer-reviews/ellipse9.svg);
+        background-position: 
+        top 0 left calc(50% - 18px),
+        top 0 left 50%,
+        top 0 left calc(50% + 18px);
+        transform: translateY(30px);
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+    }
 }
