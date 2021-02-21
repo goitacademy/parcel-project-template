@@ -1,18 +1,18 @@
 .reviews {
   @include font(500, 12px, 2.59, 0.02em);
 
-  padding: 80px 20px 130px 20px;
-
-  @include flex();
-  flex-direction: column;
+  padding-top: 80px;
+  padding-bottom: 170px;
 
   @media screen and (min-width: 768px) {
     @include font(500, 14px, 2.14, 0.04em);
-    padding: 120px 74px 166px 74px;
+    padding-top: 120px;
+    padding-bottom: 200px;
   }
   @media screen and (min-width: 1280px) {
     @include font(500, 16px, 1.88, 0.04em);
-    padding: 120px 45px 45px 175px;
+    padding-top: 120px;
+    padding-bottom: 234px;
   }
 
   &-img {
@@ -30,7 +30,7 @@
   &-text {
     position: relative;
     padding: 45px 50px 20px 50px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 
     text-align: center;
 
@@ -62,12 +62,12 @@
 
     @media screen and (min-width: 768px) {
       padding: 47px 36px 28px 60px;
-      margin-bottom: 40px;
+      margin-bottom: 24px;
     }
 
     @media screen and (min-width: 1280px) {
       padding: 47px 54px 32px 59px;
-      margin-bottom: 35px;
+      margin-bottom: 15px;
     }
   }
   &-text-line {
@@ -101,33 +101,69 @@
     }
   }
 
-  &-name {
+  &-dots {
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 18px;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 14px;
+    }
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 15px;
+    }
+  }
+ 
+
+  &-dots, &-dots::before, &-dots::after {
+    display: block;
+    width: 4px;
+    height: 4px;
+    
+    background-color: #C7133E;
+      border-radius: 50%;
+  } 
+
+  &-dots::before, &-dots::after {
+    content: "";
+    position: absolute;
+
+  }
+
+  &-dots::before {
+    left: 10px;
+  }
+
+  &-dots::after {
+    right: 10px;
+  }
+
+  &-name {
+    
     font-size: 14px;
     line-height: 1.86;
-
-    &::before {
-      content: '';
-      display: inline-block;
-      position: absolute;
-      top: -18px;
-      left: 45px;
-
-      width: 32px;
-      height: 4px;
-
-      background-image: url('/images/reviews/dots.png');
-
-      @media screen and (min-width: 768px) {
-        top: -15px;
-        left: 55px;
-
-        @media screen and (min-width: 1280px) {
-          top: -18px;
-          left: 75px;
-        }
-      }
+    margin-bottom: 30px;
+    text-align: center;
+    @media screen and (min-width: 768px) {
+      margin-bottom: 35px;
     }
+
+    
+
+    // &::before {
+    //   content: '';
+    //   display: inline-block;
+    //   position: absolute;
+    //   top: -15px;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+
+    //   width: 32px;
+    //   height: 4px;
+
+    //   background-image: url('/images/reviews/dots.png');
+    // }
 
     @media screen and (min-width: 768px) {
       font-size: 16px;
@@ -139,4 +175,50 @@
       line-height: 1.85;
     }
   }
+}
+
+.slick-slide img {
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 15px;
+  }
+}
+
+.slick-dots li {
+  width: 12px;
+  height: 12px;
+  margin: 0;
+}
+
+.slick-dots li:not(:last-child) {
+  margin-right: 18px;
+}
+
+.slick-dots li button:before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  opacity: 1;
+}
+
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+  opacity: 1;
+  background-color: #d31342;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+  background-color: transparent;
+  background-image: url(../images/home.svg);
+  border-radius: unset;
+  width: 13px;
 }
