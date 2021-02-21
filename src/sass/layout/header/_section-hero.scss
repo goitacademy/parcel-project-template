@@ -39,80 +39,38 @@
     }
 
     &:hover {
-      animation-name: hvr-wobble-vertical;
+      animation-name: rotate-scale-up-diag-1;
       animation-duration: 2000ms;
     }
-    
-    @-webkit-keyframes hvr-wobble-vertical {
-      16.65% {
-        -webkit-transform: translateY(18px);
-        transform: translateY(18px);
+
+    @-webkit-keyframes rotate-scale-up-diag-1 {
+      0% {
+        -webkit-transform: scale(1) rotate3d(1, 1, 0, 0deg);
+        transform: scale(1) rotate3d(1, 1, 0, 0deg);
       }
-      33.3% {
-        -webkit-transform: translateY(-12px);
-        transform: translateY(-12px);
-      }
-      49.95% {
-        -webkit-transform: translateY(8px);
-        transform: translateY(8px);
-      }
-      66.6% {
-        -webkit-transform: translateY(-4px);
-        transform: translateY(-4px);
-      }
-      83.25% {
-        -webkit-transform: translateY(2px);
-        transform: translateY(2x);
+      50% {
+        -webkit-transform: scale(2) rotate3d(1, 1, 0, -180deg);
+        transform: scale(2) rotate3d(1, 1, 0, -180deg);
       }
       100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
+        -webkit-transform: scale(1) rotate3d(1, 1, 0, -360deg);
+        transform: scale(1) rotate3d(1, 1, 0, -360deg);
       }
     }
-    @keyframes hvr-wobble-vertical {
-      16.65% {
-        -webkit-transform: translateY(8px);
-        transform: translateY(8px);
+    @keyframes rotate-scale-up-diag-1 {
+      0% {
+        -webkit-transform: scale(1) rotate3d(1, 1, 0, 0deg);
+        transform: scale(1) rotate3d(1, 1, 0, 0deg);
       }
-      33.3% {
-        -webkit-transform: translateY(-6px);
-        transform: translateY(-6px);
-      }
-      49.95% {
-        -webkit-transform: translateY(4px);
-        transform: translateY(4px);
-      }
-      66.6% {
-        -webkit-transform: translateY(-2px);
-        transform: translateY(-2px);
-      }
-      83.25% {
-        -webkit-transform: translateY(1px);
-        transform: translateY(1px);
+      50% {
+        -webkit-transform: scale(2) rotate3d(1, 1, 0, -180deg);
+        transform: scale(2) rotate3d(1, 1, 0, -180deg);
       }
       100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
+        -webkit-transform: scale(1) rotate3d(1, 1, 0, -360deg);
+        transform: scale(1) rotate3d(1, 1, 0, -360deg);
       }
     }
-    .hvr-wobble-vertical {
-      display: inline-block;
-      vertical-align: middle;
-      -webkit-transform: perspective(1px) translateZ(0);
-      transform: perspective(1px) translateZ(0);
-      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    }
-    .hvr-wobble-vertical:hover, .hvr-wobble-vertical:focus, .hvr-wobble-vertical:active {
-      -webkit-animation-name: hvr-wobble-vertical;
-      animation-name: hvr-wobble-vertical;
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-timing-function: ease-in-out;
-      animation-timing-function: ease-in-out;
-      -webkit-animation-iteration-count: 1;
-      animation-iteration-count: 1;
-    }
-    
   }
 
   &__icecream {
@@ -190,13 +148,40 @@
       @include font(14px, 1.28, 400);
       padding: 11px 22px;
       border-radius: 20px;
-      
-    }@include transitionMain(background-color);
+    }
+    @include transitionMain(background-color);
   }
 
+<<<<<<< Updated upstream
+  &__button-products {border: none;
+=======
   &__button-products {
+    border: none;
+>>>>>>> Stashed changes
+    border-radius: 12px;
+    padding: 7px 15px;
+    font-size: 8px;
+    line-height: 1.25;
+    @include for-size(desktop) {
+      @include font(14px, 1.28, 400);
+      padding: 11px 22px;
+      border-radius: 20px;
+    }
+    @include transitionMain(background-color);
     background-color: getColor('accent');
     color: getColor('whiteText');
+    @include transitionMain(background-color, color, border);
+
+    &:hover,
+    &:focus {
+      animation-name: animateMainButton;
+      animation-duration: 500ms;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 0s;
+    }
   }
 
   &__button-made {
@@ -204,14 +189,16 @@
     color: getColor('accent');
     margin-left: 8px;
   }
-
-  &__button-products:hover,
-  :focus {
+<<<<<<< Updated upstream
+/*
+=======
+  /*
+>>>>>>> Stashed changes
+  &__button-products:hover {
     background-color: #c7133e;
   }
-
-  &__button-made:hover,
-  :focus {
+*/
+  &__button-made:hover {
     background-color: #ecebeb;
   }
 
@@ -264,14 +251,12 @@
       }
       @include transitionMain(background-color);
 
-      &:hover, :focus {
-        background-color:  #ecebeb;
-
+      &:hover,
+      :focus {
+        background-color: #ecebeb;
       }
     }
   }
-
-
 
   &__girl {
     @media screen and (max-width: 767px) {
@@ -322,38 +307,37 @@
     }
   }
 
-    &__numbers {
-      z-index: 1;
-      font-family: $main-font;
-      color: getColor('accent');
-      font-size: 28px;
+  &__numbers {
+    z-index: 1;
+    font-family: $main-font;
+    color: getColor('accent');
+    font-size: 28px;
+    line-height: 1.14;
+    letter-spacing: 0.04em;
+
+    @include for-size(desktop) {
+      font-size: 46px;
       line-height: 1.14;
       letter-spacing: 0.04em;
-
-      @include for-size(desktop) {
-        font-size: 46px;
-        line-height: 1.14;
-        letter-spacing: 0.04em;
-        margin-bottom: 2px;
-      }
+      margin-bottom: 2px;
     }
+  }
 
-    &__quantity-item {
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      text-align: right;
-    }
+  &__quantity-item {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
 
-    &__quantity-item:first-child {
-      @include for-size(tablet) {
-        margin-bottom: 24px;
-      }
-      @include for-size(desktop) {
-        margin-bottom: 38px;
-      }
+  &__quantity-item:first-child {
+    @include for-size(tablet) {
+      margin-bottom: 24px;
     }
-  
+    @include for-size(desktop) {
+      margin-bottom: 38px;
+    }
+  }
 
   &__food-point {
     @include for-size(tablet) {
@@ -364,6 +348,7 @@
     }
   }
 }
+<<<<<<< Updated upstream
 
 .hvr-grow {
   display: inline-block;
@@ -380,7 +365,6 @@
 .hvr-grow:focus,
 .hvr-grow:active {
   transform: scale(1.1);
-
 }
 
 .hvr-wobble-vertical {
@@ -390,7 +374,9 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
-.hvr-wobble-vertical:hover, .hvr-wobble-vertical:focus, .hvr-wobble-vertical:active {
+.hvr-wobble-vertical:hover,
+.hvr-wobble-vertical:focus,
+.hvr-wobble-vertical:active {
   -webkit-animation-name: hvr-wobble-vertical;
   animation-name: hvr-wobble-vertical;
   -webkit-animation-duration: 1s;
@@ -400,4 +386,5 @@
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
-
+=======
+>>>>>>> Stashed changes
