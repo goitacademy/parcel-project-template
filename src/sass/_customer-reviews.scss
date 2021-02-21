@@ -12,6 +12,7 @@
   font-size: $text-size-secondary;
   line-height: 1.86;
   color: $color-text-secondary;
+
 }
 .customer-img {
   margin-left: auto;
@@ -27,12 +28,17 @@
 .customer-dots {
   width: 4px;
   height: 4px;
+
   background-color: $color-title-basic;
   border-radius: 50%;
 }
 .customer-dots:not(:last-child) {
   margin-right: 10px;
+}
 
+
+
+  margin-right: 10px;
 }
 
 body {
@@ -45,10 +51,22 @@ ul {
   margin: 0;
   padding: 0;
 }
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .slider-text-wrapper {
   background-color: $slider-text-color;
   padding: 44px 50px 16px;
+  margin-bottom: 31px;
+}
+
+  margin-bottom: 31px;
+
 }
 
 .slider-text {
@@ -66,21 +84,33 @@ ul {
     transparent 1px 31px
   );
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .slider-text::before {
-  background-image: url(../icons/symbol-defs.svg);
-  width: 64px;
+  background-image: url('../icons/icon-quotes.svg');
+  width: 54px;
   height: 40px;
-  background-color: #e1e1e1;
   display: inline-block;
   content: '';
+
+  position: absolute;
+  left: 14px;
+  top: -7%;
+
+  z-index: -1;
 }
 
 @media screen and (min-width: $width-mobile) {
   .customer-reviews {
     width: $width-mobile;
     margin: 0 auto;
+  }
+  .slider-text::before {
+    position: absolute;
+    top: -17px;
+    left: -22px;
   }
 }
 
@@ -105,6 +135,11 @@ ul {
     letter-spacing: 0.04em;
     padding: 0 24px;
   }
+  .slider-text::before {
+    position: absolute;
+    top: -15px;
+    left: -22px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -125,28 +160,9 @@ ul {
     padding: 0 4px;
   }
 
-  //   font-size: 14px;
-  //   line-height: 1.86;
-  //   color: #000;
-  // }
-  .customer-img {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 29px;
-    display: block;
-  }
-  .customer-item-dots {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 18px;
-  }
-  .customer-dots {
-    width: 4px;
-    height: 4px;
-    background-color: #c7133e;
-    border-radius: 50%;
-  }
-  .customer-dots:not(:last-child) {
-    margin-right: 10px;
+  .slider-text::before {
+    position: absolute;
+    top: -15px;
+    left: -31px;
   }
 }
