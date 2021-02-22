@@ -1,18 +1,19 @@
 .section-tradition {
-    padding-top: 125px;
-  
-    background-color: getColor('lightPink');
-    background-image: url('../images/tradition/sectionbg1.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: 0px 705px;
-  
-    @include for-size(tablet) {
-      padding-top: 130px;
-  
-      background-position: 0px 350px;
-    }
-    @include for-size(desktop) {
+  padding-top: 125px;
+
+  background-color: getColor('lightPink');
+  background-image: url('../images/tradition/sectionbg1.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0px 705px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 130px;
+
+    background-position: 0px 350px;
+  }
+
+  @media screen and (min-width: 1280px) {
     padding-top: 125px;
   }
 }
@@ -66,9 +67,8 @@
     line-height: 1.15;
   }
 
-  @include for-size(desktop) {
-    margin-bottom: 102px;
-
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 55px;
     font-size: 58px;
     line-height: 1.14;
   }
@@ -77,16 +77,17 @@
 .tradition-first-box {
   @include for-size(tablet) {
     display: flex;
+    align-items: center;
   }
-  
-  .tradition-img {
-    display: block;
-    width: 100%;
-  
-    @include for-size(tablet) {
-      width: 50%;
-      height: 339px;
-    }
+}
+
+.tradition-img {
+  display: block;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 50%;
+    height: 339px;
   }
   @include for-size(desktop) {
     width: 516px;
@@ -138,15 +139,8 @@
       margin-bottom: 35px;
     }
   }
-  
-  .tradition-btn {
-    margin-top: 17px;
-    padding: 9px 37px;
-  
-    border: none;
-    border-radius: 22px;
-  
-    font-weight: 700;
+
+  @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 1.76;
   }
@@ -158,6 +152,9 @@
 }
 
 .tradition-btn {
+  display: flex;
+  align-items: center;
+
   margin-top: 17px;
   padding: 9px 37px;
 
@@ -191,7 +188,7 @@
 }
 
 .tradition-btn__icon {
-  margin-left: 13.62px;
+  margin-left: 14px;
 }
 
 .tradition-list {
@@ -233,25 +230,13 @@
   @media screen and (max-width: 767px) {
     margin-bottom: 38px;
   }
-  
-  .tradition-list__number {
-    margin-top: 0;
-    margin-bottom: 19px;
-  
-    font-family: 'Titan One', sans-serif;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 1.14;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  
-    color: getColor('accent');
-  
-    @include for-size(tablet) {
-      font-size: 48px;
-      line-height: 1.15;
-      text-transform: lowercase;
-    }
+
+  @media screen and (min-width: 768px) {
+    margin-right: 60px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 30px;
   }
 }
 
@@ -301,16 +286,3 @@
     line-height: 1.76;
   }
 }
-
-// // Пример использования миксина медиазапросов
-// .my-box {
-//   width: 100%;
-// // от 319рх и меньше
-//   @include for-size(responsive) {
-//     width: 319px;
-//   }
-
-// // от 320рх и больше
-//   @include for-size(phone) {
-//     width: 320px;
-//   }
