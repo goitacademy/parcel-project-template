@@ -10,7 +10,7 @@ function backToTop() {
 
     button.on('click', (e) => {
         e.preventDefault();
-        $('html').animate({scrollTop: 0}, 3000);
+        $('html').animate({scrollTop: 0}, 1000);
     })
 }
 
