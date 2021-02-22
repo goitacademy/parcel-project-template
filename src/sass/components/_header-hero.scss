@@ -160,6 +160,13 @@ li {
   background-color: $hero-button-color;
 }
 
+.header__inside-button:focus,
+.header__outside-button:focus {
+  outline: none;
+  border: $accent-color 2px solid;
+  border-radius: 22px;
+}
+
 .header__menu-container {
   @media screen and (max-width: $max-mobile-width) {
     width: 100%;
@@ -202,7 +209,7 @@ li {
 
   @media screen and (min-width: $min-desktop-width) {
     width: auto;
-    margin-right: 120px;
+    margin-right: 100px;
   }
 }
 
@@ -344,11 +351,14 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 1;
+  transition: 400ms;
 }
 
 .is-hidden {
   @media screen and (max-width: $max-tablet-width) {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
   }
 }
 
@@ -493,14 +503,14 @@ li {
   color: $white-color;
   width: 114px;
 
-  margin-bottom: 7px;
+  // margin-bottom: 7px;
 
   @media screen and (max-width: $max-mobile-width) {
     display: none;
   }
 
   @media screen and (min-width: $min-desktop-width) {
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     font-size: 14px;
     width: 200px;
 
@@ -518,6 +528,7 @@ li {
   height: 18px;
   border: none;
   padding: 0;
+  margin-top: 7px;
 
   display: flex;
   align-items: center;
@@ -528,6 +539,8 @@ li {
   @media screen and (min-width: $min-desktop-width) {
     width: 26px;
     height: 26px;
+
+    margin-top: 20px;
   }
 }
 
@@ -536,6 +549,12 @@ li {
   background-color: $hero-button-color;
 
   fill: $dots-color;
+}
+
+.hero__arrow:focus {
+  outline: none;
+  border: $accent-color 2px solid;
+  border-radius: 50%;
 }
 
 .hero__arrow svg {
@@ -556,18 +575,18 @@ li {
   font-size: 8px;
   line-height: 1.5;
   color: $white-color;
-  width: 220px;
+  width: 114px;
 
-  margin-bottom: 7px;
+  // margin-bottom: 7px;
 
   @media screen and (max-width: $max-mobile-width) {
     display: none;
   }
 
   @media screen and (min-width: $min-desktop-width) {
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     font-size: 14px;
-    width: 320px;
+    width: 200px;
 
     position: relative;
     z-index: 2;
@@ -737,7 +756,7 @@ li {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-125px, 105px);
+  transform: translate(-125px, 85px);
 
   animation-name: circleMotionMobile;
   animation-duration: 1500ms;
@@ -773,60 +792,72 @@ li {
 
 @keyframes iceCreamMotion {
   0% {
-    transform: translateY(100%);
+    transform: scale(0.5) translateY(100%);
+    opacity: 0;
   }
 
   100% {
-    transform: translateY(0);
+    transform: scale(1) translateY(0);
+    opacity: 1;
   }
 }
 
 @keyframes milkJarMotion {
   0% {
     transform: translateX(-100%);
+    opacity: 0;
   }
 
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
 @keyframes womanMotion {
   0% {
     transform: translateX(100%);
+    opacity: 0;
   }
 
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
 @keyframes circleMotionMobile {
   0% {
     transform: scale(0) translate(0, -100%);
+    opacity: 0;
   }
 
   100% {
-    transform: scale(1) translate(-125px, 105px);
+    transform: scale(1) translate(-125px, 85px);
+    opacity: 1;
   }
 }
 
 @keyframes circleMotionTablet {
   0% {
     transform: scale(0) translate(100%, -100%);
+    opacity: 0;
   }
 
   100% {
     transform: scale(1) translate(-70px, 40px);
+    opacity: 1;
   }
 }
 
 @keyframes circleMotionDesktop {
   0% {
     transform: scale(0) translate(0, -100%);
+    opacity: 0;
   }
 
   100% {
     transform: scale(1) translate(-160px, 50px);
+    opacity: 1;
   }
 }
