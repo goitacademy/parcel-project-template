@@ -125,10 +125,11 @@ header {
     padding: 0;
     cursor: pointer;
     z-index: 21;
+    outline-color: $main-color;
   }
 
   &.is-open {
-    position: absolute;
+    position: fixed;
     right: 30px;
     top: 23px;
   }
@@ -164,6 +165,13 @@ header {
 
     transition: right 0.3s;
   }
+
+  @media screen and (max-width: 479px) {
+    &.is-open {
+      width: 100vh;
+    }
+  }
+
   @media screen and (max-width: 1279px) {
     &.is-open {
       position: fixed;
@@ -254,7 +262,7 @@ header {
 }
 
 .buy_now1 {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 
@@ -307,6 +315,9 @@ header {
   &:hover,
   &:focus {
     background-color: rgba(236, 235, 235, 1);
+    color: $accent-color;
+    outline: 0;
+    box-shadow: 0 0 10px 0 $accent-color;
   }
 }
 
