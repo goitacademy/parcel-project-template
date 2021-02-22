@@ -55,7 +55,6 @@ header {
     background-color: #e17992;
     padding: 60px 0;
     flex-direction: column;
-
     
     animation-name: openMobileMenu;
       animation-duration: 500ms;
@@ -126,6 +125,7 @@ header {
 }
 
 .menu__button-mob {
+  outline-color: #ffa5ba;
   @include for-size(desktop) {
     display: none;
   }
@@ -142,19 +142,14 @@ header {
   margin: 0 34px 19px;
   &:hover,
     &:focus {
-      animation-name: animateMainButtonRed;
-      animation-duration: 500ms;
-      animation-iteration-count: 1;
-      animation-direction: normal;
-      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      animation-fill-mode: forwards;
-      animation-delay: 0s;
+      @include animateMainButtonRed;
     }
 }
 
 .menu__button-tablet {
   z-index: 3;
   background-color: getColor('main-bg');
+  outline-color: #ffa5ba;
 
   @media screen and (max-width: 767px) {
     display: none;
