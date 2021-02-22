@@ -1,0 +1,259 @@
+// Точечные стили
+.container-header {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (min-width: $width-mobile) {
+    width: $width-mobile;
+  }
+
+  @media screen and (min-width: $width-tablet) {
+    width: $width-tablet;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  @media screen and (min-width: $width-desktop) {
+    width: $width-desktop;
+    padding-left: 115px;
+    padding-right: 115px;
+  }
+}
+.no-underline {
+  text-decoration: none;
+}
+.no-list {
+  list-style: none;
+}
+// Хедер
+.page-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  background-color: transparent;
+
+  z-index: 1;
+
+  @media screen and (min-width: $width-tablet) {
+    padding-top: 37px;
+    padding-bottom: 37px;
+  }
+}
+nav {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 1279px) {
+    justify-content: space-between;
+  }
+}
+// Лого
+.logo {
+  display: block;
+}
+.menu {
+  display: flex;
+  align-items: center;
+
+  @media screen and (min-width: $width-desktop) {
+    width: 100%;
+    flex-direction: row-reverse;
+  }
+}
+// Кнопки открытия/закрытия меню
+.menu-open,
+.menu-close {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  background-color: transparent;
+
+  cursor: pointer;
+
+  //   z-index: 1;
+}
+.menu-open {
+  opacity: 1;
+
+  transition: opacity 250ms $function-cubic;
+
+  @media screen and (min-width: $width-desktop) {
+    display: none;
+  }
+}
+.menu-open.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.menu-close {
+  position: absolute;
+  top: 23px;
+  right: 28px;
+
+  @media screen and (min-width: $width-desktop) {
+    display: none;
+  }
+}
+// Блок меню
+.backdrop-menu {
+  width: 100%;
+
+  @media screen and (max-width: 1279px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 250ms $function-cubic;
+
+    &.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+@media screen and (max-width: 1279px) {
+  .menu-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    min-height: 100vh;
+    height: 100%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    background-color: #e17992;
+
+    transform: translateX(100%);
+
+    transition: transform 250ms $function-cubic;
+
+    .backdrop-menu.is-open & {
+      transform: translateX(0);
+    }
+  }
+}
+// Кнопка Купить сейчас
+.buy-button,
+.menu-container__buy-button {
+  position: relative;
+  min-width: 161px;
+  max-height: 44px;
+  padding: 10px 22px;
+  border-radius: 22px;
+  border: 1px solid transparent;
+  text-align: center;
+
+  background-color: #ffffff;
+  color: #d41443;
+
+  font-weight: bold;
+  line-height: 1.32em;
+
+  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+
+  cursor: pointer;
+
+  transition: background-color 250ms $function-cubic;
+
+  &:hover,
+  &:focus {
+    background-color: #ecebeb;
+  }
+}
+.buy-button {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (max-width: 1279px) {
+    margin-right: 30px;
+  }
+}
+.menu-container__buy-button {
+  width: calc(100% - 40px);
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  @media screen and (min-width: $width-desktop) {
+    display: none;
+  }
+}
+
+.buy-button__icon {
+  position: relative;
+  top: 4px;
+  width: 10px;
+  height: 15px;
+  left: 5px;
+
+  fill: #d41443;
+}
+// Меню навигации - ссылки
+.site-nav {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+
+  @media screen and (min-width: $width-desktop) {
+    display: flex;
+    justify-content: center;
+  }
+}
+.site-nav__item {
+  @media screen and (max-width: 1279px) {
+    border-top: 1px solid #e18298;
+    border-bottom: 1px solid #e18298;
+  }
+
+  &:not(:last-child) {
+    @media screen and (min-width: $width-desktop) {
+      margin-right: 35px;
+    }
+  }
+}
+
+.site-nav__link {
+  display: block;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  color: #ffffff;
+
+  font-family: DM Sans;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+
+  transition: color 250ms $function-cubic;
+
+  @media screen and (max-width: 1279px) {
+    padding-left: 20px;
+  }
+
+  @media screen and (min-width: $width-desktop) {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  &:hover,
+  &:focus {
+    color: #d41443;
+  }
+}
