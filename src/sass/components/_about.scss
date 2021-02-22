@@ -1,50 +1,55 @@
 .about-section {
   padding-top: 125px;
   padding-bottom: 105px;
-  background-color: #fff5f6;
-
-  @media screen and(min-width:768px) and(max-width:1199px) {
-    padding-bottom: 66px;
+  background-color: $primary-section-background;
+  background-image: url('/images/mobile/about/section-about-bg.png');
+  background-size: 100%;
+  background-position-y: 80%;
+  background-repeat: no-repeat;
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url('/images/mobile/about/section-about-bg@2x.png');
   }
-  @media screen and(min-width:1200px) {
+  @media screen and(min-width:768px) and(max-width:1279px) {
+    background-image: none;
+  }
+  @media screen and (min-width: 1280px) {
+    background-position-y: 75%;
+    background-image: url('/images/desktop/about/section-about-bg.png');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('/images/desktop/about/section-about-bg@2x.png');
+    }
+  }
+  @media screen and(min-width:768px) and(max-width:1279px) {
+    padding-bottom: 152px;
+  }
+  @media screen and(min-width:1280px) {
+    padding-bottom: 129px;
+
     background-color: #ffffff;
   }
 
-  .conteiner {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    z-index: 1;
-    transform: translateX(-50%);
+  .container {
     @media screen and(min-width:768px) {
       display: flex;
-      position: static;
-      transform: translateX(0%);
-    }
-    @media screen and(min-width:1200px) {
-      position: absolute;
-      transform: translateX(-50%);
     }
   }
 }
-.content-reserved-conteiner {
-  position: relative;
-  width: 100%;
-  height: 723px;
-  @media screen and(min-width:768px) {
-    height: auto;
-  }
-  @media screen and(min-width:1200px) {
-    height: 610px;
-  }
-}
-.about-title-conteiner {
+.about-title-container {
   max-width: 200px;
+  margin-bottom: 26px;
   margin-right: auto;
   margin-left: auto;
 
   @media screen and(min-width:768px) {
     max-width: 100%;
+    margin-bottom: 50px;
+  }
+  @media screen and(min-width:1280px) {
+    margin-bottom: 55px;
   }
   .section-label {
     margin-bottom: 15px;
@@ -54,54 +59,12 @@
   @media screen and(min-width:768px) {
     margin-right: 17px;
   }
-  @media screen and(min-width:1200px) {
+  @media screen and(min-width:1280px) {
     margin-right: 74px;
   }
 }
-.conteiner-milk {
-  position: absolute;
-  left: 0;
-  bottom: -20px;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('/images/mobile/about/section-about-bg.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  @media screen and(min-width:768px) and(max-width:1199px) {
-    background-image: none;
-  }
 
-  @media screen and (min-width: 1200px) {
-    bottom: 80px;
-    min-width: 1200px;
-    min-height: 534px;
-
-    background-image: url('/images/desktop/about/section-about-bg.png');
-    background-size: cover;
-  }
-}
-@media screen and (max-width: 767px) {
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    .conteiner-milk {
-      background-image: url('/images/mobile/about/section-about-bg@2x.png');
-      background-size: contain;
-    }
-  }
-}
-@media screen and (min-width: 1200px) {
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    .conteiner-milk {
-      background-image: url('/images/desktop/about/section-about-bg@2x.png');
-      background-size: cover;
-    }
-  }
-}
-.conteiner-about-description {
+.container-about-description {
   width: 220px;
   margin-left: auto;
   margin-right: auto;
@@ -111,7 +74,7 @@
     margin-top: 0;
     width: 340px;
   }
-  @media screen and(min-width: 1200px) {
+  @media screen and(min-width: 1280px) {
     width: 463px;
   }
 }
@@ -132,7 +95,7 @@
     font-size: 14px;
     line-height: 176%;
   }
-  @media screen and(min-width: 1200px) {
+  @media screen and(min-width: 1280px) {
     margin-bottom: 35px;
 
     font-size: 16px;
@@ -155,7 +118,7 @@
     line-height: 176%;
     letter-spacing: 0.04em;
   }
-  @media screen and(min-width: 1200px) {
+  @media screen and(min-width: 1280px) {
     line-height: 194%;
   }
 }
@@ -173,6 +136,8 @@
   border-radius: 22px;
   border: none;
 
+  transition: background-color $transition-time $cubic;
+
   &:hover,
   &:focus {
     background: #ecebeb;
@@ -180,7 +145,7 @@
   @media screen and(min-width: 768px) {
     margin-top: 62px;
   }
-  @media screen and(min-width: 1200px) {
+  @media screen and(min-width: 1280px) {
     margin-top: 45px;
   }
 }
