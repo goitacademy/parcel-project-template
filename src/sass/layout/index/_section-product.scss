@@ -1,7 +1,14 @@
 .product-section {
   padding-top: 120px;
   padding-bottom: 100px;
+  @include for-size(tablet) {
+    &:hover {
+      animation-name: animate125;
+      animation: animate125 3000ms 1 900ms;
+    }
+  }
 }
+
 .product-header-label {
   font-family: Titan One;
   display: block;
@@ -54,6 +61,7 @@
   padding-left: 40px;
   padding-bottom: 40px;
   border-radius: 24px;
+
   @include to-size(phone, max-phone) {
     min-width: 280px;
     width: 100%;
@@ -82,8 +90,27 @@
   }
 }
 .product-pink-card {
-  animation: animateX50 3000ms infinite 1000ms;
   background-color: getColor('mainPink');
+  animation: animate125 3000ms 1 900ms;
+  @include to-size(phone, max-phone) {
+    &:hover {
+      animation-name: animate125;
+      animation: animate125 3000ms 1 900ms;
+    }
+  }
+}
+@keyframes animate125 {
+  0% {
+    transform: scale(0.7);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 .product-pink-card::before {
   position: absolute;
@@ -107,6 +134,14 @@
 
 .product-brown-card {
   background-color: getColor('brown-bg');
+  animation: animate125 3000ms 1 1000ms;
+  animation-delay: 1000ms;
+  @include to-size(phone, max-phone) {
+    &:hover {
+      animation-name: animate125;
+      animation: animate125 3000ms 1 900ms;
+    }
+  }
 }
 .product-brown-card::before {
   position: absolute;
@@ -129,6 +164,14 @@
 }
 .product-green-card {
   background-color: getColor('green-bg');
+  animation: animate125 3000ms 1 1100ms;
+  animation-delay: 1100ms;
+  @include to-size(phone, max-phone) {
+    &:hover {
+      animation-name: animate125;
+      animation: animate125 3000ms 1 900ms;
+    }
+  }
 }
 .product-green-card::before {
   position: absolute;
@@ -281,8 +324,8 @@
   border-radius: 50%;
   border-style: none;
   background-color: getColor('main-bg');
-  cursor: pointer;
   @include transitionMain(background-color);
+  cursor: pointer;
   @include for-size(desktop) {
     margin-top: 62px;
   }
