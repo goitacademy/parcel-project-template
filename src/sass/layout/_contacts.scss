@@ -1,11 +1,44 @@
 .contacts {
-  background-color: $secondary-background-color;
+  background-image: linear-gradient(
+    to top,
+    $secondary-background-color 90%,
+    $main-background-color 90%
+  );
+  padding-top: 43px;
   padding-bottom: 56px;
   @media screen and (min-width: $width-tablet) {
+    background-image: linear-gradient(
+      to top,
+      $secondary-background-color 80%,
+      $main-background-color 80%
+    );
     padding-bottom: 79px;
+    padding-top: 60px;
   }
   @media screen and (min-width: $width-desktop) {
+    background-image: linear-gradient(
+      to top,
+      $secondary-background-color 80%,
+      $main-background-color 80%
+    );
     padding-bottom: 84px;
+    padding-top: 86px;
+  }
+  @media screen and (max-width: 767px) {
+    &-button {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &-button + &-button {
+    margin-top: 10px;
+
+    @media screen and (min-width: $width-tablet) {
+      margin-top: 0;
+      margin-left: 15px;
+    }
   }
 
   .container {
@@ -14,19 +47,53 @@
 
   &-list {
     padding-bottom: 54px;
+
+    @media screen and (min-width: $width-tablet) {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &-item {
+    text-align: start;
     background-color: $main-background-color;
-    box-shadow: 0 8px 30px rgba(212 20 67 / 10%);
+    box-shadow: 0 8px 30px rgba(212, 20, 67, 0.1);
     border-radius: 24px;
-    padding: 43px 20px;
+    padding-top: 43px;
+    padding-right: 20px;
+    padding-bottom: 43px;
+    padding-left: 20px;
+
+    @media screen and (min-width: $width-tablet) {
+      padding-top: 50px;
+      padding-bottom: 50px;
+      padding-left: 31px;
+      width: 220px;
+    }
+    @media screen and (min-width: $width-desktop) {
+      padding-top: 52px;
+      padding-bottom: 60px;
+      padding-left: 44px;
+      width: 330px;
+    }
 
     &:nth-child(odd) .contacts-type {
       background-color: $ice-coffee-background-color;
     }
     &:nth-child(even) .contacts-type {
       background-color: $milkshakes-background-color;
+    }
+  }
+
+  &-item + &-item {
+    margin-top: 20px;
+
+    @media screen and (min-width: $width-tablet) {
+      margin-top: 0;
+      margin-left: 20px;
+    }
+    @media screen and (min-width: $width-desktop) {
+      margin-left: 30px;
     }
   }
 
@@ -43,12 +110,24 @@
     padding-right: 23px;
     text-transform: uppercase;
     margin-bottom: 25px;
+    @media screen and (min-width: $width-tablet) {
+      font-size: 16px;
+    }
+    @media screen and (min-width: $width-desktop) {
+      font-size: 16px;
+    }
   }
 
   &-location {
     line-height: 1.86;
     color: $black-text-color;
     margin-bottom: 10px;
+    @media screen and (min-width: $width-tablet) {
+      font-size: 14px;
+    }
+    @media screen and (min-width: $width-desktop) {
+      font-size: 16px;
+    }
   }
 
   &-descrip {
@@ -57,6 +136,12 @@
     padding-bottom: 25px;
     border-bottom: 1px solid #e1e1e1;
     margin-bottom: 25px;
+    @media screen and (min-width: $width-tablet) {
+      font-size: 14px;
+    }
+    @media screen and (min-width: $width-desktop) {
+      font-size: 16px;
+    }
   }
 }
 .work-list {
@@ -70,10 +155,22 @@
 
   &__date {
     color: $black-text-color;
+    @media screen and (min-width: $width-tablet) {
+      font-size: 14px;
+    }
+    @media screen and (min-width: $width-desktop) {
+      font-size: 16px;
+    }
   }
 
   &__time {
     color: $light-accent-text-color;
+    @media screen and (min-width: $width-tablet) {
+      font-size: 14px;
+    }
+    @media screen and (min-width: $width-desktop) {
+      font-size: 16px;
+    }
   }
 }
 .address {
@@ -84,7 +181,20 @@
     line-height: 1.5;
     font-weight: 500;
     color: $gray-text-color;
+
+    @media screen and (min-width: $width-tablet) {
+      font-size: 14px;
+    }
+    @media screen and (min-width: $width-desktop) {
+      font-size: 16px;
+    }
+
+    transition: color $primari-transition-duration $cubic-bezier;
   }
+}
+.address-item:hover,
+.address-item:focus {
+  color: $accent-color;
 }
 .contacts-button {
   width: 161.45px;
@@ -98,12 +208,22 @@
   font-weight: bold;
   font-size: 16px;
   line-height: 21px;
-  display: flex;
-  align-items: center;
-  text-align: center;
 
   color: $white-text-color;
 }
 .contacts-button__item {
+  background-color: $main-background-color;
+  color: $accent-color;
+  transition: background-color $primari-transition-duration $cubic-bezier;
+}
+
+.contacts-button__item:hover,
+.contacts-button__item:focus {
+  background-color: $button-hover-color;
+}
+.contacts-button__text {
   fill: currentColor;
+}
+.contacts-button__mode {
+  fill: $accent-color;
 }
