@@ -1,41 +1,37 @@
+.container-hero {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  // height: 100%;
+}
+
 .hero {
   &-section {
-    position: relative;
+    // position: relative;
     background-color: $main-color;
     margin: 0;
-    padding: 20px;
     overflow: hidden;
-    z-index: 1;
-
-    @media screen and (min-width: 768px) {
-      padding: 0 34px;
-    }
-    @media screen and (min-width: 1000px) {
-      padding: 0 97px;
-    }
-
-    @media screen and (min-width: 1100px) {
-      padding: 0 100px;
-    }
+    // z-index: 1;
   }
 
-  &-container {
-    margin-top: 137px;
-    margin-bottom: 160px;
-    // position: absolute;
-    // z-index: 10;
-    @media screen and (max-width: 768px) {
-      width: 222px;
+  &-title-container {
+    @media screen and (max-width: 767px) {
+      margin-top: 193px;
+      margin-bottom: 160px;
+      width: 218px;
+      z-index: 1;
     }
 
     @media screen and (min-width: 768px) {
-      margin-bottom: 19px;
+      margin-top: 102px;
+      margin-bottom: 28px;
       width: 162px;
     }
 
     @media screen and (min-width: 1280px) {
-      margin-bottom: 56px;
-      width: 277px;
+      margin-top: 171px;
+      margin-bottom: 45px;
+      width: 315px;
     }
   }
 }
@@ -62,6 +58,7 @@
   }
 
   @media screen and (min-width: 1280px) {
+    margin-left: 38px;
     margin-bottom: 25px;
     font-size: 38px;
     line-height: 1.16;
@@ -114,6 +111,8 @@
     }
 
     @media screen and (min-width: 1280px) {
+      margin-left: 38px;
+
       margin-right: 15px;
       width: 104px;
       height: 40px;
@@ -154,22 +153,72 @@
   }
 }
 
-.hero-overlay {
-  position: absolute;
-  bottom: 0;
-  right: 10%;
-  z-index: -1;
+.hero-background-milk {
+  display: none;
 
-  transition: transform 0.3s ease;
-
-  @media screen and (min-width: 480px) {
-    left: 50%;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    margin-top: 19px;
+    width: 238px;
+    line-height: 12px;
+    align-items: flex-end;
   }
+
   @media screen and (min-width: 1280px) {
-    left: 46%;
-    bottom: 0;
+    margin-top: 56px;
+    width: 418px;
+    font-size: 14px;
+    line-height: 20px;
   }
 }
+
+.hero-description-text {
+  @media screen and (min-width: 1280px) {
+    font-size: 14px;
+  }
+}
+
+.hero-button-more {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 7px;
+    width: 18px;
+    height: 18px;
+    background-size: 11px 8px;
+
+    &:focus,
+    &:hover {
+      background-color: $accent-color;
+      background-image: url('https://img.icons8.com/metro/26/ffffff/long-arrow-right.png');
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 26px;
+    height: 26px;
+    margin-top: 20px;
+    background-size: 16px 12px;
+  }
+}
+// .hero-overlay-background {
+//   position: absolute;
+//   bottom: 0;
+//   right: 10%;
+//   // z-index: -1;
+
+//   transition: transform 0.3s ease;
+
+//   @media screen and (min-width: 480px) {
+//     left: 50%;
+//   }
+//   @media screen and (min-width: 1280px) {
+//     left: 46%;
+//     bottom: 0;
+//   }
+// }
 
 .hero-overlay-background {
   position: absolute;
@@ -179,15 +228,12 @@
   height: 344px;
   border-radius: 50%;
   background-color: $pink-text-color;
-  z-index: -2;
+  transition: transform 250ms ease;
+  // z-index: 22;
 
-  @media screen and (min-width: 380px) {
-    left: 35%;
-  }
-
-  @media screen and (min-width: 480px) {
-    left: 38%;
-  }
+  // @media screen and (min-width: 480px) {
+  //   left: 38%;
+  // }
 
   @media screen and (min-width: 768px) {
     top: 31px;
@@ -203,7 +249,19 @@
   }
 }
 
-.hero-overlay:hover {
+.hero-overlay-icecream {
+  position: absolute;
+  bottom: -25%;
+  left: 25%;
+  transition: transform 250ms ease;
+
+  @media screen and (min-width: 768px) {
+    bottom: -18%;
+    left: 20%;
+  }
+}
+
+.hero-overlay-icecream:hover {
   @media screen and (max-width: 480px) {
     transform: scale(1.1);
   }
@@ -215,97 +273,38 @@
   }
 }
 
-.hero-overlay-description {
-  display: none;
-
-  @media screen and (min-width: 768px) {
-    outline: 1px solid tomato;
-    display: flex;
-    margin-bottom: 28px;
-    width: 238px;
-    line-height: 12px;
-    align-items: center;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 418px;
-    margin-bottom: 45px;
-    font-size: 14px;
-    line-height: 20px;
-  }
-}
-
-.hero-overlay-text {
-  @media screen and (min-width: 768px) {
-    // margin-bottom: 7px;
-  }
-  @media screen and (min-width: 1280px) {
-    font-size: 14px;
-    // margin-bottom: 20px;
-  }
-}
-
-.hero-products-button {
-  display: none;
-
-  @media screen and (min-width: 768px) {
-    display: block;
-    margin-bottom: 0;
-    margin-top: 7px;
-    justify-content: center;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    background-color: $primary-text-color;
-    background-position: center;
-    background-image: url('https://img.icons8.com/metro/26/fa314a/long-arrow-right.png');
-    background-repeat: no-repeat;
-
-    &:focus,
-    &:hover {
-      background-color: $accent-color;
-      background-image: url('https://img.icons8.com/metro/26/ffffff/long-arrow-right.png');
-    }
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 26px;
-    height: 26px;
-    margin-top: 20px;
-  }
-}
 .hero-advantages {
   display: none;
 
   @media screen and (min-width: 768px) {
     display: block;
-    position: absolute;
-
-    top: 94px;
-    right: 45px;
-
-    @media screen and (min-width: 1000px) {
-      right: 115px;
-    }
+    margin-top: 98px;
 
     @media screen and (min-width: 1280px) {
-      top: 156px;
+      margin-top: 171px;
     }
   }
 
   &-cafe {
     position: relative;
+    margin-right: 30px;
     margin-bottom: 13px;
+    z-index: 2;
 
-    @media screen and (min-width: 1100px) {
+    @media screen and (min-width: 1280px) {
       margin-bottom: 18px;
+      margin-right: 50px;
     }
   }
 
   &-trucks {
     position: relative;
+    margin-right: 30px;
+    z-index: 2;
+
+    @media screen and (min-width: 1280px) {
+      margin-right: 50px;
+    }
   }
 
   &-number {
@@ -324,7 +323,7 @@
       color: $accent-color;
     }
 
-    @media screen and (min-width: 1100px) {
+    @media screen and (min-width: 1280px) {
       font-size: 46px;
     }
   }
@@ -337,24 +336,11 @@
       text-align: right;
     }
 
-    @media screen and (min-width: 1100px) {
+    @media screen and (min-width: 1280px) {
       font-size: 14px;
     }
   }
 }
-
-// .hero-advantages.trucks {
-//   top: 151px;
-//   right: 34px;
-
-//   @media screen and (min-width: 1100px) {
-//     right: 97px;
-//   }
-
-//   @media screen and (min-width: 1100px) {
-//     top: 248px;
-//   }
-// }
 
 .hero-advantages-number::after {
   @media screen and (min-width: 768px) {
@@ -371,7 +357,7 @@
     z-index: -1;
   }
 
-  @media screen and (min-width: 1100px) {
+  @media screen and (min-width: 1200px) {
     top: -8px;
     right: -15px;
     width: 30px;
@@ -379,25 +365,16 @@
   }
 }
 
-// .hero-advantages-trucks::after {
-//   @media screen and (min-width: 768px) {
-//     content: '';
-//     position: absolute;
-//     top: 53px;
-//     right: -8px;
+.hero-overlay-woman {
+  display: none;
+  position: absolute;
+  right: 34px;
+  bottom: 0;
 
-//     display: block;
-//     width: 16px;
-//     height: 16px;
-//     border-radius: 50%;
-//     background-color: $primary-text-color;
-//     z-index: -1;
-//   }
-
-//   @media screen and (min-width: 1100px) {
-//     top: -8px;
-//     right: -15px;
-//     width: 30px;
-//     height: 30px;
-//   }
-// }
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+  @media screen and (min-width: 1280px) {
+    right: 109px;
+  }
+}
