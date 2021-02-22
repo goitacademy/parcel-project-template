@@ -500,34 +500,242 @@ font-family: 'Titan One', cursive;
 
   background-color: $card-button-primary;
 
-  fill: $color-button-bg-light;
-
-
-  // fill: $color-button-light;
-
   fill: $card-button-light;
+
+
 
   cursor: pointer;
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+
+  &:hover,
+  &:focus {
+    background-color: $card-button-accent;
+  }
 }
 
-//&:hover,
-//&:focus {
+/* Стили модальных окон */
+
+.products-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  padding: 30px;
+  overflow-y: scroll;
+  opacity: 1;
+
+  transition: opacity $function-cubic $function-time;
+  z-index: 4;
+
+  &.is-hidden {
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.is-hidden .products-ice-cream-modal {
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: transform $function-cubic $function-time;
+  }
+
+  &.is-hidden .products-ice-coffee-modal {
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: transform $function-cubic $function-time;
+  }
+
+  &.is-hidden .products-milkshakes-modal {
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: transform $function-cubic $function-time;
+  }
+}
+
+.products-ice-cream-modal {
+  display: flex;
+  position: relative;
+
+  left: 50%;
+  top: 50%;
+
+  min-width: 280px;
+
+  flex-direction: column;
+  padding: 30px;
+
+  border-radius: 24px;
+  margin: 0;
+  max-width: 440px;
+
+  background-color: $ice-cream-card;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.products-ice-cream-modal::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -100px;
+
+  transform: translateX(-50%);
+
+  width: 149px;
+  height: 152px;
+
+  background-size: cover;
+  background-position: top;
+  background-image: url(../images/products/products-pic1-mobile.png);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/products/products-pic1-mobile@2x.png);
+  }
+}
+
+.products-ice-coffee-modal {
+  display: flex;
+  position: relative;
+
+  left: 50%;
+  top: 50%;
+
+  min-width: 280px;
+
+  flex-direction: column;
+  padding: 30px;
+
+  border-radius: 24px;
+  margin: 0;
+  max-width: 440px;
+
+  background-color: $ice-coffee-card;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.products-ice-coffee-modal::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -100px;
 
 
-// background-color: $card-button-accent;
-//}/
 
+  transform: translateX(-50%);
+
+  width: 149px;
+  height: 152px;
+
+  background-size: cover;
+  background-position: top;
+  background-image: url(../images/products/products-pic2-mobile.png);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/products/products-pic2-mobile@2x.png);
+  }
+}
+
+.products-milkshakes-modal {
+  display: flex;
+  position: relative;
+
+  left: 50%;
+  top: 50%;
+
+  min-width: 280px;
+
+  flex-direction: column;
+  padding: 30px;
+
+  border-radius: 24px;
+  margin: 0;
+  max-width: 440px;
+
+  background-color: $milkshakes-card;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.products-milkshakes-modal::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -100px;
+
+  transform: translateX(-50%);
+
+  width: 149px;
+  height: 152px;
+
+  background-size: cover;
+  background-position: top;
+  background-image: url(../images/products/products-pic3-mobile.png);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../images/products/products-pic3-mobile@2x.png);
+  }
+}
+
+.products-modal-close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  margin: 0 0 10px auto;
+
+  cursor: pointer;
+  border: 1px solid $color-button-bg-dark;
+
+  background-color: transparent;
+  transition: transform $function-cubic $function-time;
+  z-index: 5;
+
+  &:hover,
+  &:focus {
+    background-color: $color-button-bg-dark;
+  }
+  &:hover .products-modal-icon-cross,
+  &:focus .products-modal-icon-cross {
     fill: $color-button-bg-light;
-    background-color: #c7133e;
 
+  }
+}
 
-  
-    background-color: $card-button-accent;
+.products-modal-icon-cross {
+  fill: #d41342;
+}
 
+.products-modal-text {
+  margin-top: 15px;
 
+  font-family: $font-family-basic;
+  font-weight: $font-weight-medium;
+  font-size: $text-size-basic;
+  line-height: 1.58;
+
+  color: $products-card-text-white;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.785;
+    letter-spacing: 0.04em;
+  }
+
+  @media screen and (min-width: 1280px) {
+    line-height: 1.92;
+    letter-spacing: $font-spacing-basic;
 
   }
 }
