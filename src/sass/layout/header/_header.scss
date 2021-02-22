@@ -1,7 +1,8 @@
 header {
   position: absolute;
   margin: auto;
-
+  width: 100%;
+  overflow: hidden;
   top: 0;
   left: 0;
   bottom: 0;
@@ -34,6 +35,16 @@ header {
   letter-spacing: 0.015em;
   text-decoration: none;
   margin-left: 20px;
+  &:hover,
+    &:focus {
+      animation-name: animateMainButton;
+      animation-duration: 500ms;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 0s;
+    }
 }
 
 .menu__container {
@@ -41,7 +52,7 @@ header {
   z-index: 9;
   @media screen and (max-width: 1279px) {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 250px;
@@ -126,11 +137,22 @@ header {
   border: none;
   border-radius: 22px;
   margin: 0 34px 19px;
+  &:hover,
+    &:focus {
+      animation-name: animateMainButtonRed;
+      animation-duration: 500ms;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 0s;
+    }
 }
 
 .menu__button-tablet {
   z-index: 3;
   background-color: getColor('main-bg');
+
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -149,6 +171,16 @@ header {
     margin-left: 250px;
   }
   @include transitionMain(background-color);
+  &:hover,
+    &:focus {
+      animation-name: animateMainButtonRed;
+      animation-duration: 500ms;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 0s;
+    }
 }
 
 .menu__button-tablet:hover {
@@ -163,6 +195,7 @@ header {
 }
 
 .menu__button {
+  
   display: inline-flex;
   z-index: 99;
   margin: 0;
