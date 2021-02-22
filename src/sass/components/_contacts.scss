@@ -1,20 +1,20 @@
 .contacts {
-  background-color: #ffffff;
-  background-image: linear-gradient(#ffffff 170px,  #fff5f6 170px);
+  background-color: $section-odd-color;
+  background-image: linear-gradient($section-odd-color 170px,  $section-odd-color 170px);
   background-repeat: no-repeat;
   // Градиент на tablet
   @include for-size(tablet) {
-    background-image: linear-gradient(#ffffff 197px,  #fff5f6 197px);
+    background-image: linear-gradient($section-odd-color 197px,  $section-odd-color 197px);
   }
   //Градиент и бэкграунд на десктоп
   @include for-size(desktop) {  
     background-image: url(../images/desktop/cards/sectionbgcards.png),
-      linear-gradient(#ffffff 234px,  #fff5f6 234px);
+      linear-gradient($section-odd-color 234px,  $section-odd-color 234px);
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
       background-image: url(../images/desktop/cards/sectionbgcards@2x.png),
-        linear-gradient(#ffffff 234px,  #fff5f6 234px);
+        linear-gradient($section-odd-color 234px,  $section-odd-color 234px);
     }
     background-position: 0 234px, 0 0;
     background-size: contain, auto;
@@ -55,7 +55,7 @@
   width: 100%;
   box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
   border-radius: 24px;
-  background-color:  #ffffff;
+  background-color:  $section-odd-color;
 
   @media screen and (max-width: 767px) {
     &:not(:last-child) {
@@ -181,7 +181,7 @@
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.04em;
-  color: #ffffff;
+  color: $section-odd-color;
 
   @include for-size(tablet) {
     width: 73px;
@@ -289,7 +289,7 @@
 
 .cards-time {
   margin: 0;
-  color: #ffa5ba;
+  color: $accent-pale-color;
   @include for-size(tablet) {
     font-size: 14px;
     line-height: 1.64;
@@ -401,26 +401,82 @@
     width: 198px;
   }
  
-  background-color: #d41443;
-  color: #fff;
-  fill: #fff;
+  background-color: $accent-color;
+  color: $secondary-color;
+  fill: $secondary-color;
   @extend %animation;
+  
+  /* .modalDialog {
+            position: fixed;
+            font-family: Arial, Helvetica, sans-serif;
+           top: 0;
+            right: 0;
+          bottom: 0;
+            left: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 99999;
+        -webkit-transition: opacity 400ms ease-in;
+         -moz-transition: opacity 400ms ease-in;
+            transition: opacity 400ms ease-in;
+            display: none;
+            pointer-events: none;
+  
+    }
+    .modalDialog:target {
+          display: block;
+          pointer-events: auto;
+      
+      }
+      
+      .modalDialog > div {
+              width: 400px;
+                position: relative;
+                margin: 10% auto;
+               padding: 5px 20px 13px 20px;
+               border-radius: 10px;
+           background: #fff;
+             background: -moz-linear-gradient(#fff, #999);
+               background: -webkit-linear-gradient(#fff, #999);
+             background: -o-linear-gradient(#fff, #999);
+     
+      }
+      .close {
+                   background: #606061;
+                   color: $section-odd-color;
+                   line-height: 25px;
+                 position: absolute;
+                    right: -12px;
+                   text-align: center;
+                    top: -10px;
+                    width: 24px;
+                   text-decoration: none;
+                  font-weight: bold;
+                 -webkit-border-radius: 12px;
+                  -moz-border-radius: 12px;
+                    border-radius: 12px;
+                    -moz-box-shadow: 1px 1px 3px #000;
+                   -webkit-box-shadow: 1px 1px 3px #000;
+                   box-shadow: 1px 1px 3px #000;
+                }
+               
+      .close:hover { background: #00d9ff; } */
+        
 
   &:hover {
     cursor: pointer;
-    background-color:#ffffff;
-    color:  #d41443;
-    border: #d41443;
+    background-color:$section-odd-color;
+    color:  $accent-color;
+    border: $accent-color;
     outline: none;
     -webkit-animation: swing 1s ease;
     animation: swing 1s ease;
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
-    box-shadow: 0 0 12px #d41443;
-    -moz-box-shadow: 0 0 12px #d41443;
-    -o-box-shadow: 0 0 12px #d41443;
-    -ms-box-shadow: 0 0 12px #d41443;
-    -webkit-box-shadow: 0 0 12px #d41443;
+    box-shadow: 0 0 12px $accent-color;
+    -moz-box-shadow: 0 0 12px $accent-color;
+    -o-box-shadow: 0 0 12px $accent-color;
+    -ms-box-shadow: 0 0 12px $accent-color;
+    -webkit-box-shadow: 0 0 12px $accent-color;
 
     @-webkit-keyframes swing
 {
@@ -493,13 +549,13 @@
   &:focus {
     cursor: pointer;
     background-color:#ff0c76;
-    color:  #ffffff;
+    color:  $section-odd-color;
     outline: none;
   }
 
-  &:hover .cards-icon,
-  &:focus .cards-icon {
-    fill:  #ffffff;
+  &:hover .cards-icon-contacts,
+  &:focus .cards-icon-contacts {
+    fill:  $section-odd-color;
   }
 }
 
@@ -514,24 +570,24 @@
     width: 180px;
   }
 
-  color: #d41443;
-  background-color: #ffffff;
+  color: $accent-color;
+  background-color: $section-odd-color;
   @extend %animation;
 
   &:hover{
     cursor: pointer;
-    background-color:#d41443;
-    color: #ffffff;
+    background-color:$accent-color;
+    color: $section-odd-color;
     outline: none;
     -webkit-animation: swing 1s ease;
     animation: swing 1s ease;
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
-    box-shadow: 0 0 12px #d41443;
-    -moz-box-shadow: 0 0 12px #d41443;
-    -o-box-shadow: 0 0 12px #d41443;
-    -ms-box-shadow: 0 0 12px #d41443;
-    -webkit-box-shadow: 0 0 12px #d41443;
+    box-shadow: 0 0 12px $accent-color;
+    -moz-box-shadow: 0 0 12px $accent-color;
+    -o-box-shadow: 0 0 12px $accent-color;
+    -ms-box-shadow: 0 0 12px $accent-color;
+    -webkit-box-shadow: 0 0 12px $accent-color;
     @-webkit-keyframes swing
 {
     15%
@@ -601,17 +657,17 @@
   }
   &:focus {
     cursor: pointer;
-    background-color:#d41443;
-    color: #ffffff;
+    background-color:$accent-color;
+    color: $section-odd-color;
     outline: none;
   }
-  &:hover .cards-icon,
-  &:focus .cards-icon {
-    fill: #ffffff;
+  &:hover .cards-icon-contacts,
+  &:focus .cards-icon-contacts {
+    fill: $section-odd-color;
   }
 }
 
-.cards-icon {
+.cards-icon-contacts {
   @extend %animation;
   display: inline-block;
   margin-left: 4px;
@@ -623,7 +679,10 @@
   }
 }
 
-/* .button-dark .cards-icon, */
-.button-light .cards-icon {
-  fill: #d41443;
+/* .button-dark .cards-icon-contacts, */
+.button-light .cards-icon-contacts {
+  fill: $accent-color;
+}
+.button-dark:hover .cards-icon-contacts {
+  fill: $accent-color;
 }
