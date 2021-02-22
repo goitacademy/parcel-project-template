@@ -1,25 +1,37 @@
 @mixin for-size($size) {
   @if $size == responsive {
-    @media (max-width: $responsive) { @content; }
+    @media (max-width: $responsive) {
+      @content;
+    }
   } @else if $size == phone {
-    @media (min-width: $phone) { @content; }
-  } @else if $size == max-phone{
-    @media (max-width: $max-phone) { @content; }
+    @media (min-width: $phone) {
+      @content;
+    }
+  } @else if $size == max-phone {
+    @media (max-width: $max-phone) {
+      @content;
+    }
   } @else if $size == tablet {
-    @media (min-width: $tablet) { @content; }
-  } @else if $size == max-tablet{
-    @media (max-width: $max-tablet) { @content; }
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if $size == max-tablet {
+    @media (max-width: $max-tablet) {
+      @content;
+    }
   } @else if $size == desktop {
-    @media (min-width: $desktop) { @content; }
+    @media (min-width: $desktop) {
+      @content;
+    }
   }
 }
 
-@mixin to-size($mobile:phone,$max-mobile:max-phone) {
-    @include for-size($mobile) {
-        @include for-size($max-mobile) {
-            @content; 
-        }
-    }  
+@mixin to-size($mobile: phone, $max-mobile: max-phone) {
+  @include for-size($mobile) {
+    @include for-size($max-mobile) {
+      @content;
+    }
+  }
 }
 
 @mixin flexBox($d: flex, $jc: center, $ai: center, $w: nowrap) {
@@ -47,4 +59,24 @@
   }
   $transition: str-slice($transition, 1, -2);
   transition: unquote($transition);
+}
+
+@mixin animateMainButtonWhite {
+  animation-name: animateMainButton;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+}
+
+@mixin animateMainButtonRed {
+  animation-name: animateMainButtonRed;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
 }
