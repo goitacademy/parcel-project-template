@@ -1,14 +1,119 @@
 .gallery {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
   background: linear-gradient(
     to bottom,
     $secondary-bcg-color 40%,
     $white-color 40%
   );
 
+  @media screen and (min-width: $min-tablet-width) {
+    margin-bottom: 120px;
+  }
+
+  @media screen and (min-width: $min-desktop-width) {
+    margin-bottom: 125px;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item--up {
+    align-self: flex-start;
+    margin-top: 30px;
+  }
+
+  &__item--down {
+    padding-top: 20px;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 2px;
+
+    @media screen and (min-width: $min-tablet-width) {
+      margin-right: 4px;
+    }
+
+    @media screen and (min-width: $min-desktop-width) {
+      margin-right: 8px;
+    }
+  }
+
   &__image {
     margin: 0 auto;
     display: block;
     max-width: 100%;
     height: auto;
+  }
+}
+
+.thumb {
+  border-radius: 10px;
+  min-width: 40px;
+  max-width: 60px;
+  min-height: 40px;
+  max-height: 60px;
+
+  overflow: hidden;
+
+  transition-property: transform;
+  transition-duration: 500ms;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.5);
+  }
+
+  @media screen and (min-width: $min-tablet-width) {
+    min-width: 85px;
+    max-width: 130px;
+    min-height: 85px;
+    max-height: 130px;
+    border-radius: 20px;
+  }
+
+  @media screen and (min-width: $min-desktop-width) {
+    min-width: 140px;
+    max-width: 150px;
+    min-height: 140px;
+    max-height: 150px;
+    border-radius: 25px;
+  }
+
+  &--first {
+    margin-bottom: 2px;
+
+    @media screen and (min-width: $min-tablet-width) {
+      margin-bottom: 4px;
+    }
+
+    @media screen and (min-width: $min-desktop-width) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &--big {
+    min-width: 80px;
+    max-width: 170px;
+    min-height: 80px;
+    max-height: 170px;
+    margin-bottom: 2px;
+
+    @media screen and (min-width: $min-tablet-width) {
+      min-width: 175px;
+      max-width: 280px;
+      min-height: 175px;
+      max-height: 280px;
+      margin-bottom: 4px;
+    }
+
+    @media screen and (min-width: $min-desktop-width) {
+      width: 285px;
+      height: 285px;
+      margin-bottom: 8px;
+    }
   }
 }
