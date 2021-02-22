@@ -27,12 +27,9 @@
   }
 
   @media screen and (min-width: $desktop) {
-    // justify-content: space-between;
     padding-bottom: 10px;
 
-  }
-
-  background-image: linear-gradient(
+    background-image: linear-gradient(
     0deg,
     transparent 45px,
     #e1e1e1 45px,
@@ -40,6 +37,7 @@
     transparent 46px,
     transparent 100%
     );
+  }
 }
 
 .footer-section {
@@ -56,17 +54,20 @@
 }
 
 .footer-lock {
-  display: block;
-}
-
-.footer-block:not(:last-child) {
-  margin-right: 66px;
-
+  display:flex;
+  flex-direction: column;
+  margin-bottom: 65px;
+ 
   @media screen and (min-width: $tablet) {
-    margin-right: 70px;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 120px; 
   }
+
   @media screen and (min-width: $desktop) {
-  margin-right: 256px;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 106px; 
   }
 }
 
@@ -82,7 +83,11 @@
   }
 }
 
+
+
 .footer-text {
+  display: inline-flex;
+  
   font-family: $creative-font;
   font-size: 18px;
   font-style: normal;
@@ -115,6 +120,8 @@
 }
 
 .footer-logo {
+  display: inline-flex;
+  
   font-family: $creative-font;
   font-size: 34px;
   font-style: normal;
@@ -144,7 +151,6 @@
   
     margin-bottom: 0px;
   }
-
 }
 
 .footer-contact {
@@ -211,6 +217,90 @@
   background-color:$icon-hover-color;
 }
 
+.footer-links:hover {
+  -webkit-animation: swing 1s ease;
+  animation: swing 1s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  box-shadow: 0 0 12px #d41443;
+  -moz-box-shadow: 0 0 12px #d41443;
+  -o-box-shadow: 0 0 12px #d41443;
+  -ms-box-shadow: 0 0 12px #d41443;
+  -webkit-box-shadow: 0 0 12px #d41443;
+  @-webkit-keyframes swing
+  {
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+  }
+  @keyframes swing
+ {
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+  }
+}
+.footer-links:focus {
+  cursor: pointer;
+  background-color:#d41443;
+  color: #ffffff;
+  outline: none;
+}
+
 .footer-socials {
   fill: $secondary-color;
 
@@ -224,6 +314,7 @@
 .footer-tel {
   display: flex;
   justify-content: flex-end;
+  align-items: baseline;
 
   font-family: $main-font;
   
@@ -234,8 +325,6 @@
   letter-spacing: 0.02em;
   text-align: left;
 
-  margin-bottom: 65px;
-
   color: #000000;
 
   @media screen and (min-width: $tablet) {
@@ -243,14 +332,11 @@
     line-height: 26px;
 
     text-align: right;
-
-    margin-bottom: 204px;
   }
 
   @media screen and (min-width: $desktop) {
     font-size: 16px;
     line-height: 30px;
-    margin-bottom: 107px;
   }
 }
 
@@ -262,7 +348,7 @@
   text-decoration: none;
   cursor: pointer;
 
-  margin-left: 1px;
+  margin-left: 8px;
 
   transition-property: background-color;
   transition-duration: 250ms;
@@ -287,7 +373,8 @@
 
 .footer-copyright {
   display: block;
-  //width: 150px;
+  width: 145px;
+  
   font-family: $main-font;
   font-style: normal;
   font-weight: 700;
@@ -298,7 +385,11 @@
 
   color: #907E82;
 
-  @media screen and (min-width: $tablet) and (min-width: $desktop) {
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: $tablet) {
+    width: 276px;
     line-height: 26px;
     
     letter-spacing: 0.02em;
