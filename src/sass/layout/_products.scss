@@ -40,7 +40,7 @@
   color: $accent-color;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
-    margin-bottom: 150px;
+    margin-bottom: 180px;
     font-size: 34px;
     line-height: 1.15;
   }
@@ -87,7 +87,10 @@
     background: $bg-third-color;
   }
   @media screen and (min-width: 320px) and (max-width: 767px) {
-    max-width: 280px;
+    width: 100%;
+    &:not(:first-child) {
+      margin-top: 40px;
+    }
   }
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     max-width: 280px;
@@ -100,6 +103,9 @@
 }
 .products-item:not(:last-child) {
   margin-bottom: 160px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-bottom: 180px;
+  }
   @media screen and (min-width: 768px) {
     margin-right: 20px;
     margin-bottom: 0;
@@ -126,17 +132,17 @@
 
 .products-image:hover,
 .products-image:focus {
-  animation: animateIM 2000ms infinite 500ms;
+  animation: animateIM 3000ms infinite 100ms;
 }
 @keyframes animateIM {
   0% {
-    transform: scale(1.25);
+    transform: scale(1);
   }
   50% {
     transform: scale(0.5);
   }
   100% {
-    transform: scale(1.25);
+    transform: scale(1);
   }
 }
 .products-item-title {
@@ -205,12 +211,13 @@
   background-position: center;
   background-image: url('https://img.icons8.com/metro/26/fa314a/long-arrow-right.png');
   background-repeat: no-repeat;
-  animation: animate 3000ms infinite 1000ms;
+  @include transit(transform);
+  @include transition(color);
+
   &:focus,
   &:hover {
     background-color: $accent-color;
     background-image: url('https://img.icons8.com/metro/26/ffffff/long-arrow-right.png');
-    animation: paused;
   }
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -219,19 +226,5 @@
 
   @media screen and (min-width: 768px) {
     margin-top: 50px;
-  }
-
-  @keyframes animate {
-    0% {
-      transform: translateX(0);
-    }
-
-    50% {
-      transform: translateX(50px);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
   }
 }
