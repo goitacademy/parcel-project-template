@@ -20,9 +20,9 @@ window.onload = function() {
     // Testim Script
     function playSlide(slide) {
         for (var k = 0; k < testimDots.length; k++) {
-            testimContent[k].classList.remove("active");
-            testimContent[k].classList.remove("inactive");
-            testimDots[k].classList.remove("active");
+            testimContent[k].classList.remove("slide-active");
+            testimContent[k].classList.remove("slide-inactive");
+            testimDots[k].classList.remove("slide-active");
         }
 
         if (slide < 0) {
@@ -34,10 +34,10 @@ window.onload = function() {
         }
 
         if (currentActive != currentSlide) {
-            testimContent[currentActive].classList.add("inactive");            
+            testimContent[currentActive].classList.add("slide-inactive");            
         }
-        testimContent[slide].classList.add("active");
-        testimDots[slide].classList.add("active");
+        testimContent[slide].classList.add("slide-active");
+        testimDots[slide].classList.add("slide-active");
 
         currentActive = currentSlide;
     
