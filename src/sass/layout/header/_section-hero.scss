@@ -59,7 +59,7 @@
   &__title {
     position: absolute;
     top: 193px;
-    z-index: 7;
+    z-index: 2;
     @media screen and (min-width: 320px) and (max-width: 479px) {
       right: calc(68px + (100vw - 320px) / 2);
     }
@@ -83,13 +83,16 @@
       line-height: 1.15;
       letter-spacing: 0.04em;
       text-transform: uppercase;
+      @include for-size(tablet) {
+        font-size: 22px;
+      }
       @include for-size(desktop) {
         font-size: 38px;
       }
     }
 
     &-main {
-      display: block;
+      display: inline-block;
       font-family: $main-font;
       color: getColor('accent');
       font-size: 48px;
@@ -98,14 +101,22 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       margin-bottom: 19px;
+      @include for-size(tablet) {
+        font-size: 34px;
+      }
       @include for-size(desktop) {
         font-size: 58px;
       }
+      &:hover,
+  &:focus {
+    @include animateMainButtonWhite;
+  }
     }
   }
 
   &__button-products,
   &__button-made {
+    outline-color: #ffa5ba;
     border: none;
     border-radius: 12px;
     padding: 7px 15px;
@@ -137,13 +148,7 @@
 
     &:hover,
     &:focus {
-      animation-name: animateMainButton;
-      animation-duration: 500ms;
-      animation-iteration-count: 1;
-      animation-direction: normal;
-      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      animation-fill-mode: forwards;
-      animation-delay: 0s;
+      @include animateMainButtonWhite;
     }
   }
 
@@ -154,13 +159,7 @@
 
     &:hover,
     &:focus {
-      animation-name: animateMainButtonRed;
-      animation-duration: 500ms;
-      animation-iteration-count: 1;
-      animation-direction: normal;
-      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      animation-fill-mode: forwards;
-      animation-delay: 0s;
+      @include animateMainButtonRed;
     }
   }
   &__button-made:hover {
@@ -187,6 +186,9 @@
       position: relative;
       left: -5px;
       @include font(8px, 1.5, 400);
+      @include for-size(tablet) {
+        bottom: -20px;
+      }
       @include for-size(desktop) {
         width: 200px;
         @include font(14px, 1.4, 400);
@@ -286,6 +288,11 @@
       letter-spacing: 0.04em;
       margin-bottom: 2px;
     }
+    &:hover,
+    &:focus {
+      @include animateMainButtonWhite;
+      cursor: pointer;
+    }
   }
 
   &__quantity-item {
@@ -313,4 +320,3 @@
     }
   }
 }
-

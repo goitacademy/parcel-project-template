@@ -21,6 +21,9 @@
   border-radius: 24px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12);
   text-align: center;
+  @media screen and (max-width: 767px) {
+    padding: 10px;
+  }
 }
 
 .modal-button__close {
@@ -35,9 +38,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  fill: getColor('accent');
-  @include transitionMain(transition);
-  transition-property: fill;
+  fill: getColor('grey');
+  @include transitionMain(fill);
+  &:focus,
+  &:hover {
+    fill: getColor('accent');
+  }
 }
 .contact-us-form__submit-btn {
   width: 138px;
@@ -49,6 +55,10 @@
   outline: transparent;
   border: 0;
   cursor: pointer;
+  &:hover,
+  &:focus {
+    @include animateMainButtonRed;
+  }
 }
 .submit-btn__text {
   font-weight: bold;
@@ -113,7 +123,7 @@
 .footer-subscribe__input:focus,
 .contact-us-form__input__textarea:focus {
   border: 1px solid getColor('accent');
-  border-radius: 4px;
+  border-radius: 24px;
   outline: none;
   @include transitionMain(transition);
   transition-property: border-color;
@@ -164,16 +174,19 @@
   top: -16px;
   left: 0;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 1.17;
   letter-spacing: 0.01em;
+  color: getColor('accent');
+}
+.contact-us-form__input__textarea::placeholder {
   color: getColor('accent');
 }
 
 .contact-us-form__input__textarea:placeholder-shown {
   font-size: 12px;
-  line-height: 14px;
+  line-height: 1.17;
   letter-spacing: 0.01em;
-  color: rgba(117, 117, 117, 0.5);
+  color: getColor('accent');
 }
 
 .checkbox-label {
@@ -240,5 +253,5 @@
 }
 
 .contact-us-form__input:focus-within ~ span > .contact-us-form__input-icon {
-  fill: getColor('grey');
+  fill: getColor('secondaryText');
 }

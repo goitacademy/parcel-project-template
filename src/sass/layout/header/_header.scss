@@ -37,13 +37,7 @@ header {
   margin-left: 20px;
   &:hover,
   &:focus {
-    animation-name: animateMainButton;
-    animation-duration: 500ms;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    animation-fill-mode: forwards;
-    animation-delay: 0s;
+    @include animateMainButtonWhite;
   }
 }
 
@@ -61,6 +55,15 @@ header {
     background-color: #e17992;
     padding: 60px 0;
     flex-direction: column;
+    
+    animation-name: openMobileMenu;
+      animation-duration: 500ms;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 0s;
+
   }
 
   &.is-open {
@@ -79,7 +82,6 @@ header {
     font-weight: 700;
     font-size: 16px;
     line-height: 1.31;
-    letter-spacing: 0.02em;
   }
 }
 
@@ -123,6 +125,7 @@ header {
 }
 
 .menu__button-mob {
+  outline-color: #ffa5ba;
   @include for-size(desktop) {
     display: none;
   }
@@ -139,19 +142,14 @@ header {
   margin: 0 34px 19px;
   &:hover,
   &:focus {
-    animation-name: animateMainButtonRed;
-    animation-duration: 500ms;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    animation-fill-mode: forwards;
-    animation-delay: 0s;
-  }
+      @include animateMainButtonRed;
+    }
 }
 
 .menu__button-tablet {
   z-index: 3;
   background-color: getColor('main-bg');
+  outline-color: #ffa5ba;
 
   @media screen and (max-width: 767px) {
     display: none;
@@ -172,15 +170,9 @@ header {
   }
   @include transitionMain(background-color);
   &:hover,
-  &:focus {
-    animation-name: animateMainButtonRed;
-    animation-duration: 500ms;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    animation-fill-mode: forwards;
-    animation-delay: 0s;
-  }
+    &:focus {
+      @include animateMainButtonRed;
+    }
 }
 .menu__button-tablet:hover {
   background-color: #ecebeb;
@@ -213,11 +205,12 @@ header {
   }
 
   &.is-open {
-    position: absolute;
+    position: fixed;
     top: 23px;
     right: 28px;
     .icon-cross {
       display: block;
+      position: fixed;
     }
 
     .icon-menu {
@@ -244,3 +237,4 @@ header {
   padding-left: 15px;
   padding-right: 15px;
 }
+

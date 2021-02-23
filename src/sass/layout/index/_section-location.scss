@@ -1,82 +1,106 @@
 .section-location {
   position: relative;
   background-repeat: no-repeat;
-  background-color: getColor('lightPink');
-    @include for-size(desktop) {
-    
-       background-image: url('../images/location/location-bg.png');
-
-  @media screen and (min-device-pixel-ratio: 2),
+  background-image: linear-gradient(
+    180deg,
+    getColor('main-bg') 0,
+    getColor('main-bg') 84px,
+    getColor('lightPink') 0,
+    getColor('lightPink')
+  );
+}
+.location-overlay {
+  @include for-size(desktop) {
+    position: absolute;
+    left: 50%;
+    top: 12%;
+    transform: translateX(-50%);
+    min-width: $desktop;
+    width: 100%;
+    height: 382px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-image: url('../images/location/location-bg.png');
+    // background-position: 0 84px;
+    background-color: getColor('lightPink');
+    @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-       background-image: url('../images/location/location-bg@2x.png');
+      background-image: url('../images/location/location-bg@2x.png');
     }
   }
 }
-
 .location-wrapper {
-  // position: absolute;
-  display: block;
-  @media (min-width: $tablet) {
-    display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 30px 44px 30px;
+
+  @include for-size(tablet) {
+    padding: 0 0 70px;
   }
+  @include for-size(desktop) {
+    padding-bottom: 75px;
+  }
+  margin-bottom: -20px;
 }
 
 .location-card {
-  padding: 43px 21px 43px 20px;
+  width: 100%;
+  padding: 43px 20px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+
+  @include for-size(tablet) {
+    width: 220px;
+    padding: 50px 32px;
+    padding-bottom: 0;
+  }
+  @include for-size(desktop) {
+    width: 330px;
+    padding: 50px 43px;
+    padding-bottom: 0;
+  }
 
   border-radius: 24px;
-  background: getColor(main-bg);
+  background: getColor('main-bg');
   box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
-  &:nth-child(-n + 2) {
-    margin-bottom: 20px;
-  }
-  @media (min-width: $tablet) {
-    position: relative;
-    bottom: 102px;
-    padding: 50px 32px 50px 31px;
-    &:nth-child(-n + 2) {
-      margin-bottom: 0px;
-    }
-    &:nth-child(-n + 2) {
-      margin-right: 20px;
-    }
+  @include transitionMain(transform);
+  &:focus,
+  &:hover {
+    transform: scale(1.14);
+    box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.5);
   }
 }
 
-
 .location-title {
-  font-family: $secondary-font;
-  font-style: 500;
-  font-weight: 500;
   font-size: 12px;
   line-height: 1.86;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  text-align: center;
 
   color: getColor(main-bg);
-
-  @include flexBox();
-
   margin-bottom: 25px;
   border-radius: 4px;
-  @media (min-width: $tablet) {
+  @include for-size(tablet) {
     margin-bottom: 30px;
-
     font-size: 16px;
   }
 
   &__brown {
     width: 80px;
     background: getColor(brown-bg);
-    @media (min-width: $tablet) {
+    @include for-size(tablet) {
       width: 73px;
     }
   }
+
   &__green {
     width: 130px;
     background: getColor(green-bg);
-    @media (min-width: $tablet) {
+    @include for-size(tablet) {
       width: 138px;
     }
   }
@@ -85,51 +109,53 @@
 .location-city {
   margin-bottom: 10px;
 
-  font-style: normal;
-  font-weight: 500;
   font-size: 12px;
   line-height: 1.86;
   letter-spacing: 0.04em;
-  @media (min-width: $tablet) {
+  color: getColor('mainText');
+  @include for-size(tablet) {
     margin-bottom: 14px;
     font-size: 14px;
+  }
+  @include for-size(desktop) {
+    margin-bottom: 10px;
+    font-size: 16px;
   }
 }
 
 .location-description {
   padding-bottom: 25px;
 
-  font-family: $secondary-font;
-  font-style: normal;
-  font-weight: 500;
   font-size: 12px;
   line-height: 1.5;
 
-  color: getColor(secondaryText);
-  @media (min-width: $tablet) {
+  @include for-size(tablet) {
     padding-bottom: 30px;
     font-size: 14px;
     line-height: 1.66;
   }
+
+  color: getColor(secondaryText);
 }
 
 .location-schedule {
   padding: 25px 0;
   border-top: 1px solid getColor(border);
   border-bottom: 1px solid getColor(border);
-  @media (min-width: $tablet) {
+  @include for-size(tablet) {
     padding: 30px 0;
     font-size: 14px;
   }
   &__item {
-    font-family: $secondary-font;
-    font-style: normal;
-    font-weight: 500;
     font-size: 12px;
     line-height: 1.86;
     margin-bottom: 10px;
-    @media (min-width: $tablet) {
+
+    @include for-size(tablet) {
       font-size: 14px;
+    }
+    @include for-size(desktop) {
+      font-size: 16px;
     }
   }
   &__day {
@@ -142,68 +168,70 @@
 
 .location-list {
   padding-top: 25px;
-  @media (min-width: $tablet) {
+  padding-bottom: 32px;
+
+  @include for-size(tablet) {
     padding-top: 30px;
+    padding-bottom: 50px;
+  }
+  @include for-size(desktop) {
+    padding-bottom: 62px;
   }
 }
 
 .location-contacts {
-  font-family: $secondary-font;
-  font-style: normal;
-  font-weight: 500;
   font-size: 12px;
   line-height: 1.5;
   color: getColor(secondaryText);
-  @media (min-width: $tablet) {
+  @include for-size(tablet) {
     font-size: 14px;
     line-height: 1.83;
   }
-  // &__link {
-  // }
+  &__link {
+    &:focus,
+    &:hover {
+      color: getColor('accent');
+    }
+  }
 }
 
 .btn-wrapper {
-  display: block;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .btn {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-
-  width: 161px;
+  display: inline-block;
+  width: 160px;
   height: 44px;
+
+  @include for-size(tablet) {
+    width: 190px;
+  }
 
   border-radius: 22px;
   border-color: transparent;
-  outline: none;
+  outline: transparent;
 
   font-family: DM Sans;
-  font-style: normal;
+
   font-weight: 700;
   font-size: 16px;
   line-height: 1.31;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  @media (min-width: $tablet) {
-    display: inline-flex;
-    transform: translateX(-100%);
-    bottom: 86px;
-  }
   &-location__our {
-    margin-top: 54px;
-    color: getColor(main-bg);
-    background: getColor(accent);
+    margin: 10px 7px 0;
+    color: getColor('main-bg');
+    background: getColor('accent');
 
     @include transitionMain(background-color, color, border);
 
     &:hover,
     &:focus {
-      color: getColor(main-bg);
-      background: getColor(accent);
+      color: getColor('main-bg');
+      background: getColor('accent');
 
       animation-name: animateMainButton;
       animation-duration: 500ms;
@@ -213,30 +241,44 @@
       animation-fill-mode: forwards;
       animation-delay: 0s;
     }
-    @media (min-width: $tablet) {
-      width: 191px;
-    }
   }
 
   &-location__franchise {
-    margin-top: 10px;
-    color: getColor(accent);
-    background: getColor(main-bg);
-    &:hover,
-    &:focus {
-      color: getColor(accent);
-      background: getColor(main-bg);
-    }
+    margin: 10px 7px 0;
+    color: getColor('accent');
+    background: getColor('main-bg');
 
-    @media (min-width: $tablet) {
-      width: 174px;
+    &:focus,
+    &:hover {
+      background-color: #ecebeb;
+      @include animateMainButtonRed;
     }
   }
 }
-.button-vector {
+
+.btn-icon {
   margin-left: 8px;
-  @media (min-width: $tablet) {
-    margin-left: 13px;
-  }
+  fill: currentColor;
 }
 
+.modal-window-map {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 300px;
+  max-width: 528px;
+  padding: 10px;
+  background-color: getColor('accent');
+  border-radius: 12px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  @include for-size(tablet) {
+    min-width: 480px;
+    max-width: 750px;
+  }
+  @include for-size(desktop) {
+    min-width: 800px;
+    max-width: 1200px;
+  }
+}
