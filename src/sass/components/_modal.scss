@@ -1,0 +1,70 @@
+.modal {
+    margin: 0 auto;
+    &__close {
+        border-radius: 50%;
+        border: 1px solid;
+        
+        width: 25px;
+        height: 25px;
+        color: red;
+    }
+}
+.modal-close__icon {
+    width: 25px;
+    height: 25px;
+    fill: currentColor;
+}
+
+.modal {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 250ms cubic-bezier($cubic-bezier),
+    scale 250ms cubic-bezier($cubic-bezier);
+    
+    &.is-hidden {
+        opacity: 0;
+        
+        pointer-events: none;
+        
+        
+    }
+    
+    &.is-hidden .modal {
+        transform: scale(0.3);
+        
+    }
+
+}
+
+.modal__container {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    padding: 40px;
+
+    background-color: $main-background-color;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier($cubic-bezier);
+
+}
+
+/*
+@media screen and (max-width: 767px) {
+    width: 100vw;
+    height: 100vh;
+    color: darkblue;
+}*/
