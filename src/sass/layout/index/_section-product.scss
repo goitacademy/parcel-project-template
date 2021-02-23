@@ -1,12 +1,6 @@
 .product-section {
   padding-top: 120px;
   padding-bottom: 100px;
-  @include for-size(tablet) {
-    &:hover {
-      animation-name: animate125;
-      animation: animate125 3000ms 1 900ms;
-    }
-  }
 }
 
 .product-header-label {
@@ -61,6 +55,10 @@
   padding-left: 40px;
   padding-bottom: 40px;
   border-radius: 24px;
+  &:hover {
+    transform: scale(1.15);
+    @include transitionMain(transform);
+  }
 
   @include to-size(phone, max-phone) {
     min-width: 280px;
@@ -89,29 +87,14 @@
     }
   }
 }
+.product-item:hover {
+  animation-name: animate125;
+  animation: animate125 3000ms 1 900ms;
+}
 .product-pink-card {
   background-color: getColor('mainPink');
-  animation: animate125 3000ms 1 900ms;
-  @include to-size(phone, max-phone) {
-    &:hover {
-      animation-name: animate125;
-      animation: animate125 3000ms 1 900ms;
-    }
-  }
 }
-@keyframes animate125 {
-  0% {
-    transform: scale(0.7);
-  }
 
-  50% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
 .product-pink-card::before {
   position: absolute;
   right: 50%;
@@ -134,14 +117,6 @@
 
 .product-brown-card {
   background-color: getColor('brown-bg');
-  animation: animate125 3000ms 1 1000ms;
-  animation-delay: 1000ms;
-  @include to-size(phone, max-phone) {
-    &:hover {
-      animation-name: animate125;
-      animation: animate125 3000ms 1 900ms;
-    }
-  }
 }
 .product-brown-card::before {
   position: absolute;
@@ -164,14 +139,6 @@
 }
 .product-green-card {
   background-color: getColor('green-bg');
-  animation: animate125 3000ms 1 1100ms;
-  animation-delay: 1100ms;
-  @include to-size(phone, max-phone) {
-    &:hover {
-      animation-name: animate125;
-      animation: animate125 3000ms 1 900ms;
-    }
-  }
 }
 .product-green-card::before {
   position: absolute;
@@ -305,7 +272,6 @@
   background-image: url('../images/product/ellipsis.svg');
 }
 .product-description {
-  font-family: DM Sans;
   @include font(14px, 1.5, 700);
   text-align: center;
   letter-spacing: 0.04em;
@@ -343,6 +309,70 @@
 .product-button:focus > .product-button-icon {
   fill: getColor('main-bg');
 }
+
+.product-card-overlay {
+  position: absolute;
+  top: 42%;
+  right: 0;
+  width: 100%;
+  padding: 10px 40px;
+  padding-bottom: 30px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  @include font(14px, 1.5, 700);
+  @include for-size(desktop) {
+    top: 80%;
+    @include font(16px, 1.5, 400);
+  }
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: getColor('whiteText');
+}
+
+.pink-overlay {
+  background-color: getColor('mainPink');
+}
+.brown-overlay {
+  background-color: getColor('brown-bg');
+}
+.green-overlay {
+  background-color: getColor('green-bg');
+}
+.product-overlay-header {
+  margin-bottom: 20px;
+  @include font(22px, 1.5, 700);
+}
+.product-overlay-list {
+  margin-bottom: 30px;
+}
+.product-overlay-close-btn {
+  height: 40px;
+  width: 120px;
+  text-align: center;
+  background-color: getColor('main-bg');
+  margin-left: auto;
+  margin-right: auto;
+  color: getColor('accent');
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+  background-color: getColor('main-bg');
+  border: none;
+  border-radius: 22px;
+  margin: 0;
+  @include transitionMain(background-color);
+  &:hover,
+  &:focus {
+    animation-name: animateMainButtonRed;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+  }
+}
+// ----------------------Scroll button-------------------------
 .back_to_top {
   position: fixed;
   bottom: 80px;
