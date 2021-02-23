@@ -1,40 +1,8 @@
-// // Пример использования миксина медиазапросов
-// .my-box {
-//   width: 100%;
-// // от 319рх и меньше
-//   @include for-size(responsive) {
-//     width: 319px;
-//   }
-
-// // от 320рх и больше
-//   @include for-size(phone) {
-//     width: 320px;
-//   }
-
-// // для диапазона 320-767рх
-//   @include to-size() {
-//     padding: calc(320px - 767px);
-//   }
-
-// // от 768рх и больше
-//   @include for-size(tablet) {
-//     width: 768px;
-//   }
-  
-
-// // для диапазона 768-1199рх
-// @include to-size(tablet, max-tablet) {
-//       width: calc(768px - 1199px);
-// }
-// // от 1200рх и больше
-//   @include for-size(desktop) {
-//     width: 1200px;
-//   }
-// }
 .product-section {
   padding-top: 120px;
   padding-bottom: 100px;
 }
+
 .product-header-label {
   font-family: Titan One;
   display: block;
@@ -79,7 +47,6 @@
 .product-item {
   position: relative;
   display: block;
-  width: 280px;
   margin-top: 130px;
   margin-left: auto;
   margin-right: auto;
@@ -88,6 +55,15 @@
   padding-left: 40px;
   padding-bottom: 40px;
   border-radius: 24px;
+  &:hover {
+    transform: scale(1.15);
+    @include transitionMain(transform);
+  }
+
+  @include to-size(phone, max-phone) {
+    min-width: 280px;
+    width: 100%;
+  }
 
   @include to-size(tablet, max-tablet) {
     width: calc((100%-40px) / 3);
@@ -111,9 +87,14 @@
     }
   }
 }
+.product-item:hover {
+  animation-name: animate125;
+  animation: animate125 3000ms 1 900ms;
+}
 .product-pink-card {
   background-color: getColor('mainPink');
 }
+
 .product-pink-card::before {
   position: absolute;
   right: 50%;
@@ -283,13 +264,14 @@
 .product-name::after {
   content: '';
   display: block;
+  margin-right: auto;
+  margin-left: auto;
   width: 26px;
   height: 6px;
   margin-top: 30px;
-  background-image: url('../images/product/sprite.svg#icon-ellipsis');
+  background-image: url('../images/product/ellipsis.svg');
 }
 .product-description {
-  font-family: DM Sans;
   @include font(14px, 1.5, 700);
   text-align: center;
   letter-spacing: 0.04em;
@@ -308,11 +290,110 @@
   border-radius: 50%;
   border-style: none;
   background-color: getColor('main-bg');
+  @include transitionMain(background-color);
+  cursor: pointer;
   @include for-size(desktop) {
     margin-top: 62px;
   }
+  &:focus,
+  &:hover {
+    background-color: getColor('accent');
+  }
 }
 .product-button-icon {
-  display: flex;
   fill: getColor('accent');
+}
+.product-button:hover > .product-button-icon {
+  fill: getColor('main-bg');
+}
+.product-button:focus > .product-button-icon {
+  fill: getColor('main-bg');
+}
+
+.product-card-overlay {
+  position: absolute;
+  top: 42%;
+  right: 0;
+  width: 100%;
+  padding: 10px 40px;
+  padding-bottom: 30px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  @include font(14px, 1.5, 700);
+  @include for-size(desktop) {
+    top: 80%;
+    @include font(16px, 1.5, 400);
+  }
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: getColor('whiteText');
+}
+
+.pink-overlay {
+  background-color: getColor('mainPink');
+}
+.brown-overlay {
+  background-color: getColor('brown-bg');
+}
+.green-overlay {
+  background-color: getColor('green-bg');
+}
+.product-overlay-header {
+  margin-bottom: 20px;
+  @include font(22px, 1.5, 700);
+}
+.product-overlay-list {
+  margin-bottom: 30px;
+}
+.product-overlay-close-btn {
+  height: 40px;
+  width: 120px;
+  text-align: center;
+  background-color: getColor('main-bg');
+  margin-left: auto;
+  margin-right: auto;
+  color: getColor('accent');
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+  background-color: getColor('main-bg');
+  border: none;
+  border-radius: 22px;
+  margin: 0;
+  @include transitionMain(background-color);
+  &:hover,
+  &:focus {
+    animation-name: animateMainButtonRed;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+  }
+}
+// ----------------------Scroll button-------------------------
+.back_to_top {
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  z-index: 9999;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-weight: 900;
+  background: rgb(255, 165, 186);
+  color: getColor('whiteText');
+  cursor: pointer;
+  display: none;
+}
+
+.back_to_top:focus {
+  background: getColor('brown-bg');
+}
+
+.back_to_top-show {
+  display: block;
 }

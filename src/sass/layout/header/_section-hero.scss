@@ -1,59 +1,56 @@
 .hero {
+  background-color: getColor('mainPink');
   .container {
     position: relative;
-    top: 0px;
+    top: 0;
     background-color: getColor('mainPink');
-    /*overflow: hidden;*/
+    overflow: hidden;
     padding-right: 0;
-    height: 446px;
-    @media screen and (min-width: 768px) {
-      height: 312px;
+    height: 502px;
+    @include for-size(tablet) {
+      height: 399px;
     }
-    @media screen and (min-width: 1280px) {
-      height: 576px;
+    @include for-size(desktop) {
+      height: 665px;
     }
   }
 
   &__circle {
+    border-radius: 50%;
+    position: absolute;
+    background-color: getColor('secondaryPink');
     @media screen and (max-width: 767px) {
-      background-image: url('/images/header/ellipse3.png');
-      width: 284px;
+      width: 346px;
       height: 344px;
-      position: absolute;
-      right: 0;
-      top: 27px;
+      right: calc((100vw - 480px) * 0.2);
+      top: 83px;
     }
-    @media screen and (min-width: 768px) {
-      background-color: getColor('secondaryPink');
+
+    @include for-size(tablet) {
       width: 322px;
       height: 322px;
-      border-radius: 50%;
-      position: absolute;
       right: 147px;
-      top: -56px;
+      top: 31px;
     }
-    @media screen and (min-width: 1280px) {
-      background-color: getColor('secondaryPink');
+    @include for-size(desktop) {
       width: 538px;
       height: 538px;
-      border-radius: 50%;
-      position: absolute;
       right: 267px;
-      top: -37px;
+      top: 50px;
     }
   }
 
   &__icecream {
     position: absolute;
-    right: 30px;
+    right: 94px;
     top: 9px;
     z-index: 3;
-    @media screen and (min-width: 768px) {
+    @include for-size(tablet) {
       right: 110px;
       top: 32px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @include for-size(desktop) {
       right: 183px;
       top: 56px;
     }
@@ -61,59 +58,114 @@
 
   &__title {
     position: absolute;
-    top: 137px;
-    z-index: 7;
+    top: 193px;
+    z-index: 2;
     @media screen and (min-width: 320px) and (max-width: 479px) {
-      right: calc(112px + (100vw - 320px) / 3);
+      right: calc(68px + (100vw - 320px) / 2);
     }
-    @media screen and (min-width: 480px) and (max-width: 767px) {
-      right: 165px;
+    @media screen and (min-width: 480px) {
+      right: 148px;
     }
-    @media screen and (min-width: 768px) and (max-width: 1279px) {
-      top: 15px;
+    @include for-size(tablet) {
+      top: 102px;
       left: 34px;
+    }
+    @include for-size(desktop) {
+      top: 171px;
+      left: 115px;
     }
 
     &-up {
       display: block;
       font-family: $main-font;
       font-size: 26px;
+      font-weight: 400;
       line-height: 1.15;
       letter-spacing: 0.04em;
       text-transform: uppercase;
+      @include for-size(tablet) {
+        font-size: 22px;
+      }
+      @include for-size(desktop) {
+        font-size: 38px;
+      }
     }
+
     &-main {
-      display: block;
+      display: inline-block;
       font-family: $main-font;
       color: getColor('accent');
-      font-size: 40px;
+      font-size: 48px;
+      font-weight: 400;
       line-height: 1.15;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       margin-bottom: 19px;
+      @include for-size(tablet) {
+        font-size: 34px;
+      }
+      @include for-size(desktop) {
+        font-size: 58px;
+      }
+      &:hover,
+  &:focus {
+    @include animateMainButtonWhite;
+  }
     }
   }
 
-  &__button-products {
-    background-color: getColor('accent');
-    color: getColor('whiteText');
+  &__button-products,
+  &__button-made {
+    outline-color: #ffa5ba;
     border: none;
     border-radius: 12px;
     padding: 7px 15px;
     font-size: 8px;
     line-height: 1.25;
+    @include for-size(desktop) {
+      @include font(14px, 1.28, 400);
+      padding: 11px 22px;
+      border-radius: 20px;
+    }
+    @include transitionMain(background-color);
+  }
+
+  &__button-products {
+    border: none;
+    border-radius: 12px;
+    padding: 7px 15px;
+    font-size: 8px;
+    line-height: 1.25;
+    @include for-size(desktop) {
+      @include font(14px, 1.28, 400);
+      padding: 11px 22px;
+      border-radius: 20px;
+    }
+    @include transitionMain(background-color);
+    background-color: getColor('accent');
+    color: getColor('whiteText');
+    @include transitionMain(background-color, color, border);
+
+    &:hover,
+    &:focus {
+      @include animateMainButtonWhite;
+    }
   }
 
   &__button-made {
     background-color: getColor('whiteText');
     color: getColor('accent');
-    border: none;
-    border-radius: 12px;
-    padding: 7px 15px;
-    font-size: 8px;
-    line-height: 1.25;
     margin-left: 8px;
+
+    &:hover,
+    &:focus {
+      @include animateMainButtonRed;
+    }
   }
+  &__button-made:hover {
+    background-color: #ecebeb;
+  }
+
   &__milk {
     @media screen and (max-width: 767px) {
       display: none;
@@ -124,26 +176,55 @@
     position: absolute;
     bottom: 28px;
     left: 34px;
+    @include for-size(desktop) {
+      bottom: 45px;
+      left: 77px;
+    }
 
-    &-text {
-      width: 114px;
+    &-about {
+      width: 110px;
       position: relative;
       left: -5px;
-      font-size: 8px;
-      line-height: 1.5;
-      font-weight: 400;
+      @include font(8px, 1.5, 400);
+      @include for-size(tablet) {
+        bottom: -20px;
+      }
+      @include for-size(desktop) {
+        width: 200px;
+        @include font(14px, 1.4, 400);
+        left: 30px;
+      }
+    }
 
-      &::after {
-        display: block;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        color: getColor('accent');
-        content: '';
-        background-color: getColor('whiteText');
+    &-text {
+      margin-bottom: 7px;
+      @include for-size(desktop) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-text-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 18px;
+      width: 18px;
+      border-radius: 50%;
+      border-style: none;
+      background-color: getColor('main-bg');
+      @include for-size(desktop) {
+        height: 26px;
+        width: 26px;
+      }
+      @include transitionMain(background-color);
+
+      &:hover,
+      :focus {
+        background-color: #ecebeb;
       }
     }
   }
+
   &__girl {
     @media screen and (max-width: 767px) {
       display: none;
@@ -151,48 +232,91 @@
     position: absolute;
     bottom: 0;
     right: 34px;
-    @media screen and (min-width: 1280px) {
+    @include for-size(desktop) {
       right: 109px;
       bottom: 0;
     }
   }
 
-  &__numbers {
+  &__quantity {
+    position: relative;
     @media screen and (max-width: 767px) {
       display: none;
     }
 
-    @media screen and (min-width: 768px) {
+    @include for-size(tablet) {
       display: flex;
       flex-direction: column;
       position: absolute;
-      top: 9px;
+      top: 96px;
       right: 42px;
     }
-    @media screen and (min-width: 1280px) {
-      top: 73px;
+    @include for-size(desktop) {
+      top: 160px;
       right: 115px;
     }
+
+    &-circle {
+      z-index: 0;
+      position: absolute;
+      right: -10px;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      border-style: none;
+      background-color: getColor('main-bg');
+      @include for-size(desktop) {
+        right: -18px;
+        /*top: -4px;*/
+        height: 30px;
+        width: 30px;
+      }
+    }
   }
-  &__cafes,
-  &__trucks {
+
+  &__numbers {
+    z-index: 1;
     font-family: $main-font;
     color: getColor('accent');
     font-size: 28px;
     line-height: 1.14;
     letter-spacing: 0.04em;
-    @media screen and (min-width: 1280px) {
+
+    @include for-size(desktop) {
       font-size: 46px;
       line-height: 1.14;
       letter-spacing: 0.04em;
+      margin-bottom: 2px;
+    }
+    &:hover,
+    &:focus {
+      @include animateMainButtonWhite;
+      cursor: pointer;
     }
   }
-  &__cafes {
-    @media screen and (min-width: 768px) {
+
+  &__quantity-item {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+  &__quantity-item:first-child {
+    @include for-size(tablet) {
       margin-bottom: 24px;
     }
-    @media screen and (min-width: 1280px) {
+    @include for-size(desktop) {
       margin-bottom: 38px;
+    }
+  }
+
+  &__food-point {
+    @include for-size(tablet) {
+      @include font(8px, 1.25, 400);
+    }
+    @include for-size(desktop) {
+      @include font(14px, 1.28, 400);
     }
   }
 }

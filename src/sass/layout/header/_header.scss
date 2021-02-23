@@ -1,16 +1,28 @@
 header {
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: getColor('mainPink');
     padding-top: 6px;
+    margin: auto;
     @media screen and (min-width: 768px) {
       padding-top: 37px;
+    }
+    @media screen and (min-width: 768px) {
+      padding-left: 46px;
     }
   }
 }
 .logo {
+  z-index: 1;
   display: flex;
   align-items: center;
 }
@@ -20,9 +32,13 @@ header {
   color: getColor('accent');
   font-size: 26px;
   line-height: 1.15;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.015em;
   text-decoration: none;
   margin-left: 20px;
+  &:hover,
+  &:focus {
+    @include animateMainButtonWhite;
+  }
 }
 
 .menu__container {
@@ -30,7 +46,7 @@ header {
   z-index: 9;
   @media screen and (max-width: 1279px) {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 250px;
@@ -39,6 +55,15 @@ header {
     background-color: #e17992;
     padding: 60px 0;
     flex-direction: column;
+    
+    animation-name: openMobileMenu;
+      animation-duration: 500ms;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 0s;
+
   }
 
   &.is-open {
@@ -51,13 +76,12 @@ header {
 }
 
 .menu__navigation {
-  @media screen and (min-width: 1280px) {
+  @include for-size(desktop) {
     display: flex;
     justify-content: flex-start;
     font-weight: 700;
     font-size: 16px;
     line-height: 1.31;
-    letter-spacing: 0.02em;
   }
 }
 
@@ -72,8 +96,7 @@ header {
 
 .menu__link {
   display: block;
-  
-  /*@include transit;*/
+  @include transitionMain(color);
 
   &:hover,
   &:focus {
@@ -96,29 +119,70 @@ header {
 }
 
 .menu__item:not(:first-child) {
-  @media screen and (min-width: 1280px) {
+  @include for-size(desktop) {
     margin-left: 35px;
   }
 }
 
 .menu__button-mob {
-  @media screen and (min-width: 1280px) {
+  outline-color: #ffa5ba;
+  @include for-size(desktop) {
     display: none;
   }
   display: flex;
-  align-items: center;
-  padding: 12px 48px;
-  border: none;
-  border-radius: 22px;
-  margin: 0 34px 19px;
-}
-
-.menu__button-mob-text {
-  display: block;
   color: getColor('accent');
   font-weight: 700;
   font-size: 16px;
   line-height: 1.31;
+  background-color: getColor('main-bg');
+  align-items: center;
+  padding: 12px 40px;
+  border: none;
+  border-radius: 22px;
+  margin: 0 34px 19px;
+  &:hover,
+  &:focus {
+      @include animateMainButtonRed;
+    }
+}
+
+.menu__button-tablet {
+  z-index: 3;
+  background-color: getColor('main-bg');
+  outline-color: #ffa5ba;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  display: flex;
+  color: getColor('accent');
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+  background-color: getColor('main-bg');
+  align-items: center;
+  padding: 12px 40px;
+  border: none;
+  border-radius: 22px;
+  margin: 0;
+  @media screen and (max-width: 1279px) {
+    margin-left: 250px;
+  }
+  @include transitionMain(background-color);
+  &:hover,
+    &:focus {
+      @include animateMainButtonRed;
+    }
+}
+.menu__button-tablet:hover {
+  background-color: #ecebeb;
+}
+
+.menu__button-vector {
+  margin-left: 15px; /*
+  @media (min-width: $tablet) {
+    margin-left: 13px;
+  }*/
 }
 
 .menu__button {
@@ -130,9 +194,9 @@ header {
   background-color: transparent;
   outline: none;
   fill: getColor('accent');
-  /*@include transit(fill);*/
+  /*@include transitionMain(fill);*/
 
-  @media screen and (min-width: 1280px) {
+  @include for-size(desktop) {
     display: none;
   }
 
@@ -141,11 +205,12 @@ header {
   }
 
   &.is-open {
-    position: absolute;
+    position: fixed;
     top: 23px;
     right: 28px;
     .icon-cross {
       display: block;
+      position: fixed;
     }
 
     .icon-menu {
@@ -153,23 +218,23 @@ header {
     }
   }
   &:hover {
-    /*fill: $accent-color;*/
     cursor: pointer;
   }
 }
 
-.menu__button-tablet {
-  z-index: 3;
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
-  display: flex;
-  align-items: center;
-  padding: 12px 40px;
-  border: none;
-  border-radius: 22px;
-  margin: 0;
-  @media screen and (max-width: 1279px) {
-    margin-left: 250px;
-  }
+.menu__backdrop {
+  position: fixed;
+  z-index: 8;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  /*@include transitionMain(opacity);*/
+  overflow-y: scroll;
+  padding-top: 93px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
+

@@ -1,33 +1,284 @@
-// // Пример использования миксина медиазапросов
-// .my-box {
-//   width: 100%;
-// // от 319рх и меньше
-//   @include for-size(responsive) {
-//     width: 319px;
-//   }
+.section-location {
+  position: relative;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    180deg,
+    getColor('main-bg') 0,
+    getColor('main-bg') 84px,
+    getColor('lightPink') 0,
+    getColor('lightPink')
+  );
+}
+.location-overlay {
+  @include for-size(desktop) {
+    position: absolute;
+    left: 50%;
+    top: 12%;
+    transform: translateX(-50%);
+    min-width: $desktop;
+    width: 100%;
+    height: 382px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-image: url('../images/location/location-bg.png');
+    // background-position: 0 84px;
+    background-color: getColor('lightPink');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/location/location-bg@2x.png');
+    }
+  }
+}
+.location-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 30px 44px 30px;
 
-// // от 320рх и больше
-//   @include for-size(phone) {
-//     width: 320px;
-//   }
+  @include for-size(tablet) {
+    padding: 0 0 70px;
+  }
+  @include for-size(desktop) {
+    padding-bottom: 75px;
+  }
+  margin-bottom: -20px;
+}
 
-// // для диапазона 320-767рх
-//   @include to-size() {
-//     padding: calc(320px - 767px);
-//   }
+.location-card {
+  width: 100%;
+  padding: 43px 20px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
 
-// // от 768рх и больше
-//   @include for-size(tablet) {
-//     width: 768px;
-//   }
-  
+  @include for-size(tablet) {
+    width: 220px;
+    padding: 50px 32px;
+    padding-bottom: 0;
+  }
+  @include for-size(desktop) {
+    width: 330px;
+    padding: 50px 43px;
+    padding-bottom: 0;
+  }
 
-// // для диапазона 768-1199рх
-// @include to-size(tablet, max-tablet) {
-//       width: calc(768px - 1199px);
-// }
-// // от 1200рх и больше
-//   @include for-size(desktop) {
-//     width: 1200px;
-//   }
-// }
+  border-radius: 24px;
+  background: getColor('main-bg');
+  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+  @include transitionMain(transform);
+  &:focus,
+  &:hover {
+    transform: scale(1.14);
+    box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.5);
+  }
+}
+
+.location-title {
+  font-size: 12px;
+  line-height: 1.86;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+
+  color: getColor(main-bg);
+  margin-bottom: 25px;
+  border-radius: 4px;
+  @include for-size(tablet) {
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  &__brown {
+    width: 80px;
+    background: getColor(brown-bg);
+    @include for-size(tablet) {
+      width: 73px;
+    }
+  }
+
+  &__green {
+    width: 130px;
+    background: getColor(green-bg);
+    @include for-size(tablet) {
+      width: 138px;
+    }
+  }
+}
+
+.location-city {
+  margin-bottom: 10px;
+
+  font-size: 12px;
+  line-height: 1.86;
+  letter-spacing: 0.04em;
+  color: getColor('mainText');
+  @include for-size(tablet) {
+    margin-bottom: 14px;
+    font-size: 14px;
+  }
+  @include for-size(desktop) {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+}
+
+.location-description {
+  padding-bottom: 25px;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  @include for-size(tablet) {
+    padding-bottom: 30px;
+    font-size: 14px;
+    line-height: 1.66;
+  }
+
+  color: getColor(secondaryText);
+}
+
+.location-schedule {
+  padding: 25px 0;
+  border-top: 1px solid getColor(border);
+  border-bottom: 1px solid getColor(border);
+  @include for-size(tablet) {
+    padding: 30px 0;
+    font-size: 14px;
+  }
+  &__item {
+    font-size: 12px;
+    line-height: 1.86;
+    margin-bottom: 10px;
+
+    @include for-size(tablet) {
+      font-size: 14px;
+    }
+    @include for-size(desktop) {
+      font-size: 16px;
+    }
+  }
+  &__day {
+    color: getColor(mainText);
+  }
+  &__time {
+    color: getColor(secondaryPink);
+  }
+}
+
+.location-list {
+  padding-top: 25px;
+  padding-bottom: 32px;
+
+  @include for-size(tablet) {
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+  @include for-size(desktop) {
+    padding-bottom: 62px;
+  }
+}
+
+.location-contacts {
+  font-size: 12px;
+  line-height: 1.5;
+  color: getColor(secondaryText);
+  @include for-size(tablet) {
+    font-size: 14px;
+    line-height: 1.83;
+  }
+  &__link {
+    &:focus,
+    &:hover {
+      color: getColor('accent');
+    }
+  }
+}
+
+.btn-wrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-block;
+  width: 160px;
+  height: 44px;
+
+  @include for-size(tablet) {
+    width: 190px;
+  }
+
+  border-radius: 22px;
+  border-color: transparent;
+  outline: transparent;
+
+  font-family: DM Sans;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.31;
+
+  &-location__our {
+    margin: 10px 7px 0;
+    color: getColor('main-bg');
+    background: getColor('accent');
+
+    @include transitionMain(background-color, color, border);
+
+    &:hover,
+    &:focus {
+      color: getColor('main-bg');
+      background: getColor('accent');
+
+      animation-name: animateMainButton;
+      animation-duration: 500ms;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 0s;
+    }
+  }
+
+  &-location__franchise {
+    margin: 10px 7px 0;
+    color: getColor('accent');
+    background: getColor('main-bg');
+
+    &:focus,
+    &:hover {
+      background-color: #ecebeb;
+      @include animateMainButtonRed;
+    }
+  }
+}
+
+.btn-icon {
+  margin-left: 8px;
+  fill: currentColor;
+}
+
+.modal-window-map {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 300px;
+  max-width: 528px;
+  padding: 10px;
+  background-color: getColor('accent');
+  border-radius: 12px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  @include for-size(tablet) {
+    min-width: 480px;
+    max-width: 750px;
+  }
+  @include for-size(desktop) {
+    min-width: 800px;
+    max-width: 1200px;
+  }
+}
