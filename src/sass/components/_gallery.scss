@@ -1,24 +1,17 @@
 .gallery {
+  &__container {
+    width: 100%;
+    background-image: linear-gradient(
+      to bottom,
+      $secondary-background-color 40%,
+      $main-background-color 40%
+    );
+  }
 
-
-    &__container {
-        width: 100%;
-        background-image: linear-gradient(
-            to bottom,
-            $secondary-background-color 40%,
-            $main-background-color 40%,
-            
-    
-        );
-    
-    }
-
-    
-
-    &__image {
-        width: 100%;
-        height: 100%;
-    }
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 /*
@@ -54,3 +47,33 @@ svetlana
         
     }
     */
+
+// Masonry gallery
+.masonry {
+  column-gap: 1em;
+
+  @media screen and (min-width: 480px) {
+    column-count: 3;
+  }
+
+  @media screen and (min-width: 768px) {
+    column-count: 4;
+  }
+
+  @media screen and (min-width: 1280px) {
+    column-count: 6;
+  }
+}
+
+.masonry__image {
+  background-color: #ffffff;
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+  border-radius: 25px;
+}
+
+.masonry__image:hover {
+  opacity: 0.7;
+  transition: all 0.5s ease-in-out;
+}
