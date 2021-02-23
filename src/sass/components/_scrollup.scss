@@ -1,54 +1,36 @@
 .scrollup {
   position: fixed;
-  right: 10px;
+  right: 20px;
   bottom: 50px;
   width: 50px;
   height: 50px;
   border: 1px solid $accent-color;
-  background-color: #fff;
+  background-color: $secondary-color;
   border-radius: 50%;
   outline: none;
 
-  // display: none;
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+  }
 
-  // &:hover,
-  // &:focus {
-  //   // filter: brightness(1.5);
-  //   outline: 0;
-  //   // background-color: $accent-color;
-  // }
-
-  &::before,
   &::after {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-
-  &::before {
-    width: 5px;
-    height: 25px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    background-color: $accent-color;
-  }
-
-  &::after {
-    width: 15px;
-    height: 15px;
-    transform: translate(-50%, -50%) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -30%) rotate(45deg);
     border-top: 5px solid $accent-color;
     border-left: 5px solid $accent-color;
   }
 
-  // &:hover::before,
-  // &:focus::before,
-  // &:hover::after,
-  // &:focus::after {
-  //   border-color: #fff;
-  //   border-top: 5px solid #fff;
-  //   border-left: 5px solid #fff;
-  // }
+  &:hover::after,
+  &:focus::after {
+    border-color: $secondary-color;
+    border-top: 5px solid $secondary-color;
+    border-left: 5px solid $secondary-color;
+  }
 }
