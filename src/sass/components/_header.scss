@@ -1,18 +1,25 @@
 // Хедер
 .page-header {
   position: relative;
-  background-color: #e18298;
 }
 
 .header-conteiner {
   position: relative;
   margin: 0 auto;
+
+  @media screen and (min-width: $desktop-width) {
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+    z-index: 10;
+  }
 }
 
 .conteiner-relative {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -23,6 +30,8 @@
   padding-right: 20px;
 
   z-index: 5;
+
+  transform: translateX(-50%);
 
   @media screen and (min-width: $mobile-width) {
     min-width: $mobile-width;
@@ -57,7 +66,7 @@
   width: 100%;
   min-height: 100vh;
   background-color: #e17992;
-  z-index: 3;
+  z-index: 8;
 
   transform: translateX(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -76,10 +85,14 @@
   @media screen and (min-width: $desktop-width) {
     position: absolute;
     top: 51px;
-    left: 0;
+    left: 50%;
+    width: 541px;
     padding: 0;
-    margin-left: 110px;
+
+    transform: translateX(-50%);
     background-color: transparent;
+
+    transition: none;
   }
 }
 
@@ -221,7 +234,7 @@
     position: absolute;
     bottom: 30px;
     left: -20px;
-    width: 120%;
+    width: 115%;
     height: 1px;
     border-radius: 2px;
     background-color: #e18298;
@@ -236,7 +249,7 @@
     position: absolute;
     bottom: -12px;
     left: -20px;
-    width: 120%;
+    width: 115%;
     height: 1px;
     border-radius: 2px;
     background-color: #e18298;
