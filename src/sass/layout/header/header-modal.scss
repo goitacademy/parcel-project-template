@@ -1,6 +1,6 @@
 .header__connection {
-    text-align: left;
-    font-weight: 500;
+  text-align: left;
+  font-weight: 500;
   font-size: 18px;
   line-height: 1.15;
   letter-spacing: 0.03em;
@@ -47,9 +47,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  fill: getColor('accent');
-  @include transitionMain(transition);
-  transition-property: fill;
+  fill: getColor('grey');
+  @include transitionMain(fill);
+  &:focus,
+  &:hover {
+    fill: getColor('accent');
+  }
 }
 .header__form__submit-btn {
   width: 138px;
@@ -128,7 +131,7 @@
 .header__form__input:focus,
 .header__form__input__textarea:focus {
   border: 1px solid getColor('accent');
-  border-radius: 4px;
+  border-radius: 24px;
   outline: none;
   @include transitionMain(transition);
   transition-property: border-color;
@@ -176,12 +179,14 @@
   letter-spacing: 0.01em;
   color: getColor('accent');
 }
-
+.header__form__input__textarea::placeholder {
+  color: getColor('accent');
+}
 .header__form__input__textarea:placeholder-shown {
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.01em;
-  color: rgba(117, 117, 117, 0.5);
+  color: getColor('accent');
 }
 
 .header__checkbox-label {
@@ -236,7 +241,7 @@
   fill: getColor('accent');
 }
 
-.header__form__input-icon__phone {
+.form__input-icon__phone {
   height: 13px;
   width: 13px;
   fill: getColor('accent');
@@ -249,5 +254,5 @@
 }
 
 .header__form__input:focus-within ~ span > .header__form__input-icon {
-  fill: getColor('grey');
+  fill: getColor('secondaryText');
 }
