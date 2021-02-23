@@ -68,10 +68,16 @@
     font-size: 48px;
     line-height: 0.97;
     color: $accent-color;
-    // animation: blur 4000ms ease;
-    // animation-timing-function: steps(4);
-    // animation-iteration-count: 2;
-    // text-shadow: 0px 0px 5px $accent-color;
+    @include transition(text-shadow);
+
+    &:hover,
+    &:focus {
+      text-shadow: 0px 0px 10px #fff, 0px 0px 10px #fff, 0px 0px 25px #fff,
+        0px 0px 25px #ffa5ba, 0px 0px 25px #ffa5ba, 0px 0px 25px #ffa5ba,
+        0px 0px 25px #d41342, 0px 0px 25px #d41342, 0px 0px 50px#d41342,
+        0px 0px 50px #ffa5ba, 0px 0px 50px #ffa5ba, 0px 0px 150px #ffa5ba,
+        0px 10px 100px #ffa5ba, 0px 10px 100px #ffa5ba, 0px 10px 100px #ffa5ba;
+    }
 
     @media screen and (min-width: 768px) {
       font-size: 34px;
@@ -149,7 +155,7 @@
     background-color: $primary-text-color;
     color: $accent-color;
     border-color: transparent;
-    @include transition(color, box-shadow);
+    @include transition(background-color, box-shadow);
     // z-index: 10;
 
     @media screen and (max-width: 1280px) {
@@ -165,7 +171,6 @@
     &:focus,
     &:hover {
       background-color: #ecebeb;
-      color: $accent-color;
       outline: 0;
       box-shadow: 0 0 10px 0 $accent-color;
     }
@@ -328,6 +333,8 @@
   }
 
   &-number {
+    @include transition(text-shadow);
+
     @media screen and (min-width: 768px) {
       margin-top: 0;
       margin-bottom: 2px;
