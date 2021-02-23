@@ -205,12 +205,13 @@
   background-position: center;
   background-image: url('https://img.icons8.com/metro/26/fa314a/long-arrow-right.png');
   background-repeat: no-repeat;
-  animation: animate 3000ms infinite 1000ms;
+  @include transit(transform);
+  @include transition(color);
+
   &:focus,
   &:hover {
     background-color: $accent-color;
     background-image: url('https://img.icons8.com/metro/26/ffffff/long-arrow-right.png');
-    animation: paused;
   }
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -219,19 +220,5 @@
 
   @media screen and (min-width: 768px) {
     margin-top: 50px;
-  }
-
-  @keyframes animate {
-    0% {
-      transform: translateX(0);
-    }
-
-    50% {
-      transform: translateX(50px);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
   }
 }
