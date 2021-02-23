@@ -75,7 +75,8 @@
 .box {
   overflow: hidden;
   position: relative;
-  height: 100vh;
+  // height: 100vh;
+  height: auto;
   z-index: -1;
 }
 @media screen and (min-width: $tablet) {
@@ -219,6 +220,8 @@
   animation-timing-function: linear;
   animation-iteration-count: 5;
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button__menu--container {
@@ -241,16 +244,26 @@
 @media screen and (min-width: $tablet) {
   .button__menu--header:hover,
   .button__menu--header:focus {
-    background-color: $accent-color;
-    color: $text-white-color;
-    outline: transparent;
+       background-color: $accent-color;
+       color: $text-white-color;
+       outline: transparent;
+    
   }
 }
 
 .button__menu--icon {
-  margin-left: 15px;
-  fill: $accent-color;
+     margin-left: 13px;
+     fill: $accent-color;
+     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+.button__menu--header:hover &,
+.button__menu--header:focus &{
+     fill: $text-white-color;
+     }
 }
+
+
+
 
 @media screen and (min-width: $desktop) {
   .page-header__list {
@@ -259,6 +272,7 @@
     padding-left: 80px;
   }
 }
+
 
 .page-header__item {
   margin-bottom: 22px;
@@ -339,6 +353,7 @@
 // Hero-title
 
 .hero__title {
+  cursor: default;
   position: absolute;
   z-index: 1;
   top: 193px;
@@ -407,6 +422,7 @@
   font-weight: 400;
   font-size: 8px;
   line-height: 1.3;
+  cursor: pointer;
 }
 
 @media screen and (min-width: $tablet) {
@@ -509,6 +525,7 @@
   margin-top: 7px;
   width: 18px;
   height: 18px;
+  cursor: pointer;
   background-color: $text-white-color;
   fill: $accent-color;
 }
@@ -694,3 +711,33 @@
     bottom: 0;
   }
 }
+
+
+.block-up{
+  position: fixed;
+  z-index: 20;
+  right: 30px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.block-anhor{
+  fill:$accent-color;
+  opacity: 0.3;
+  &:hover,
+  &:focus{
+    opacity: 1;
+  }
+}
+
+
+#back-top{
+  position:fixed;
+  display:none;
+  }
