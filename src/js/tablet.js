@@ -12,3 +12,4 @@
     refs.buttonTablet.classList.toggle('is-hidden');
   }
 })();
+
