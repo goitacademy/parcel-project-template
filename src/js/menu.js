@@ -13,3 +13,8 @@
       setup('menu');
       setup('franshize');
       setup('location');
+      setup('header-modal');
+
+     
+
+      
