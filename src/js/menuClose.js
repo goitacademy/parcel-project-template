@@ -1,4 +1,4 @@
-const btnMenu = document.querySelector('.menu__button');
+/*const btnMenu = document.querySelector('.menu__button');
 const menu = document.querySelector('.menu__container');
 const toggleMenu = function() {
     menu.classList.toggle('is-open');
