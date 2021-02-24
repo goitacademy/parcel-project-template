@@ -14,6 +14,7 @@
       setup('franshize');
       setup('location');
       setup('header-modal');
+      setup('mobile');
 
      
 
