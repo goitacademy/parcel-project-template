@@ -6,4 +6,3 @@ $(document).ready(function () {
     // slidesToScroll: 2,
   });
 });
-
