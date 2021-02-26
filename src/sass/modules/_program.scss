@@ -1,20 +1,28 @@
 .program-section {
-  background-image: linear-gradient(
-    to bottom,
-    $dark-color-black 90%,
-    $light-color-white 10%
-  );
-  @media screen and (min-width: $tablet) and (max-width: 1359px) {
-    background-image: linear-gradient(
-      to bottom,
-      $dark-color-black 85%,
-      $light-color-white 15%
-    );
-  }
+  background-color: $dark-color-black;
 }
 
 .program-section .title {
   color: $light-color-white;
+}
+
+.program-list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+
+  //   border-left: 1px solid $light-color-white;
+
+  //   @media screen and (min-width: $tablet) {
+  //     padding-left: 50px;
+  //   }
+  @media screen and (min-width: $desktop) {
+    flex-direction: row;
+    padding-left: 0;
+    padding-top: 60px;
+    border-left: none;
+    border-top: 1px solid $light-color-white;
+  }
 }
 
 .program-item {
@@ -22,6 +30,30 @@
   line-height: 2;
   text-transform: uppercase;
   color: $light-color-white;
+  outline: 1px solid red;
+
+  padding-left: 20px;
+
+  @media screen and (min-width: $tablet) {
+    padding-left: 50px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  &:not(:last-child) {
+    border-left: 1px solid $light-color-white;
+  }
+  &::before {
+    content: '';
+    display: inline-flex;
+
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $bright-color-orange;
+  }
 }
 
 .program-skills {
@@ -29,10 +61,21 @@
   line-height: 1.667;
   text-transform: none;
   color: $bright-color-orange;
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+    line-height: 1.65;
+  }
+  &::before {
+    content: '— ';
+  }
 }
 
 .program-skills .list {
   font-weight: 500;
   color: $light-color-gray;
   opacity: 0.5;
+  @media screen and (min-width: $desktop) {
+    font-size: 18px;
+    line-height: 1.556;
+  }
 }
