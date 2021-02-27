@@ -9,16 +9,71 @@
       bottom: 0;
       right: 0;
       display: block;
-      background-image: url(./../images/mobile/program.png);
       width: 120px;
       height: 137px;
+      background-image: url(./../images/mobile/program.png);
+      background-size: contain;
+
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (-webkit-min-device-pixel-ratio: 2),
+        screen and (-o-min-device-pixel-ratio: 2/1),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        & {
+          background-image: url(./../images/mobile/program@2x.png);
+        }
+      }
+      @media screen and (min-width: $tablet) {
+        background-image: url(./../images/tablet/program.png);
+        width: 384px;
+        height: 280px;
+        background-size: contain;
+
+        @media screen and (min-device-pixel-ratio: 2),
+          screen and (-webkit-min-device-pixel-ratio: 2),
+          screen and (-o-min-device-pixel-ratio: 2/1),
+          screen and (min-resolution: 192dpi),
+          screen and (min-resolution: 2dppx) {
+          & {
+            background-image: url(./../images/tablet/program@2x.png);
+          }
+        }
+      }
     }
   }
 }
 
+.program-period {
+  position: relative;
+  top: -8px;
+}
 .program-section .title {
   color: $light-color-white;
   margin-bottom: 43px;
+}
+
+.program-thumb {
+  display: flex;
+
+  @media screen and (max-width: 767px) {
+    max-width: 276px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    padding-left: 68px;
+  }
+  @media screen and (max-width: 350px) {
+    margin-left: auto;
+  }
+
+  @media screen and (min-width: 351px) and (max-width: 767px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding-left: 57px;
+  }
 }
 
 .program-list {
@@ -29,7 +84,7 @@
   //   @media screen and (min-width: $tablet) {
   //     padding-left: 50px;
   //   }
-  margin-left: auto;
+  //   margin-left: auto;
   @media screen and (min-width: $desktop) {
     flex-direction: row;
     padding-left: 0;
@@ -41,6 +96,7 @@
 
 .program-item {
   position: relative;
+
   font-weight: 700;
   line-height: 2;
   text-transform: uppercase;
@@ -64,7 +120,7 @@
   &::before {
     content: '';
     position: absolute;
-    top: 8px;
+    top: -1px;
     left: -6.5px;
     display: inline-flex;
 
@@ -79,6 +135,11 @@
   @media screen and (min-width: $tablet) {
     display: flex;
   }
+}
+
+.program-skills-wrap {
+  display: inline-block;
+  padding: 5px 0;
 }
 
 .program-skills-item {
@@ -106,7 +167,8 @@
   color: $light-color-gray;
   opacity: 0.5;
   margin-top: 5px;
-  .program-item:nth-child(3n) & {
+  .program-item:nth-child(3n) &,
+  .program-item:nth-child(5n) & {
     margin-top: 10px;
   }
 
