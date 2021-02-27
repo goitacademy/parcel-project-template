@@ -2,12 +2,32 @@
   margin-bottom: 20px;
 
   text-align: start;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 30px;
+  }
+}
+
+.about-wrap {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
 }
 
 .about-photo {
   margin-bottom: 20px;
   max-width: 243px;
   height: auto;
+  @media screen and (min-width: $tablet) {
+    width: 243px;
+  }
+}
+
+.about-teacher {
+  @media screen and (min-width: $tablet) {
+    width: 402px;
+  }
 }
 
 .teacher-name {
@@ -27,7 +47,7 @@
 
   font-weight: 600;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 1.21;
   letter-spacing: 0.06em;
   &::after {
     position: absolute;
@@ -38,6 +58,17 @@
     background-color: $bright-color-orange;
     left: 0;
     bottom: -21px;
+    cursor: pointer;
+
+    transition: width 250ms linear 250ms;
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      transition-delay: 250ms;
+      width: 100%;
+    }
   }
 }
 
@@ -80,4 +111,12 @@
   letter-spacing: 0.03em;
 
   color: $bright-color-orange;
+
+  transition: font-weight 250ms linear 250ms;
+  transition: text-decoration 250ms linear 250ms;
+  &:hover,
+  &:focus {
+    font-weight: 800;
+    text-decoration: none;
+  }
 }
