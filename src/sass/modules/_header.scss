@@ -1,23 +1,223 @@
+header {
+  .container {
+    display: flex;
+    padding-top: 32px;
+    padding-bottom: 46px;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+
+    @media screen and (max-width: 1359px) {
+      display: none;
+    }
+  }
+  .mobile-container {
+    display: flex;
+    padding: 0 20px;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    justify-content: space-between;
+
+    @media screen and (min-width: $mobile) {
+      max-width: $mobile;
+    }
+
+    @media screen and (min-width: $tablet) {
+      max-width: $tablet;
+      padding: 0 40px;
+      padding-top: 40px;
+      padding-bottom: 70px;
+    }
+
+    @media screen and (min-width: 1360px) {
+      display: none;
+    }
+  }
+}
+.decktop-navigation {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.decktop-navigation-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li:not(:last-child) {
+    margin-right: 40px;
+  }
+
+  a {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.214;
+    letter-spacing: 0.03em;
+    color: $light-color-gray;
+
+    &:hover,
+    &:focus {
+      color: $bright-color-orange;
+    }
+  }
+
+  .current {
+    color: $bright-color-orange;
+  }
+}
+
+.button-consultation {
+  padding: 16px 5px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ff6b09;
+  background: #ffffff;
+  border: 2px solid #ff6b09;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: $tablet) {
+    margin-right: 40px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 60px;
+    margin-right: 0;
+    padding: 26px 24px;
+    font-size: 14px;
+    line-height: 1.214;
+    letter-spacing: 0.14em;
+  }
+}
+
 .button-menu-open {
+  padding: 0;
   stroke: #000000;
   border: 0;
   background-color: rgba(0, 0, 0, 0);
 }
-.button-menu-close {
-  // stroke: #ffffff;
-  stroke: #000;
-  border: 0;
-  background-color: rgba(0, 0, 0, 0);
+
+.mobile-container-buttons {
+  display: flex;
 }
-.button-modal-close {
-  // stroke: #ffffff;
-  stroke: #000;
+
+/*--- Стили мобильного меню ---*/
+
+.backdrop-mobile.is-hidden {
+  display: none;
+  pointer-events: none;
+}
+
+.backdrop-mobile {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(17, 21, 24, 0.9);
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+  overflow-y: scroll;
+}
+
+.backdrop-menu {
+  padding: 30px 20px;
+  padding-bottom: auto;
+
+  @media screen and (min-width: 480px) {
+    width: $mobile;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  @media screen and (min-width: 768px) {
+    width: $tablet;
+    padding: 42px 40px 72px 40px;
+  }
+}
+
+.fixed-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mobile-navigation {
+  padding: 50px 0;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.mobile-navigation-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+
+    @media screen and (min-width: 768px) {
+      font-size: 26px;
+    }
+  }
+
+  .current {
+    color: $bright-color-orange;
+  }
+}
+
+.button-menu-consultation {
+  display: flex;
+  margin: 0 auto;
+  padding: 16px 5px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ff6b09;
+  border: 2px solid #ff6b09;
+  background-color: rgba(0, 0, 0, 0);
+
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.button-menu-close {
+  padding: 0;
+  stroke: #ffffff;
   border: 0;
   background-color: rgba(0, 0, 0, 0);
 }
 
-.mobile-container,
-.backdrop-menu,
+/*--- Стили формы модального окна ---*/
+
+.button-modal-close {
+  stroke: #ffffff;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .backdrop-form {
   display: none;
 }
