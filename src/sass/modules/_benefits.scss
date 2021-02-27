@@ -11,21 +11,25 @@
     max-width: 50%;
     margin: 0 0 30px;
     text-align: left;
-    font-weight: 800;
-    font-size: 20px;
-    line-height: 27px;
-
-    letter-spacing: 0.03em;
-
     color: #ffffff;
+
+    @media screen and (min-width: $tablet) {
+      text-align: center;
+      max-width: initial;
+    }
   }
 
   .benefits-list-wrapper {
+    padding: 20px 30px 20px 30px;
+    box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+    background: $light-color-white;
+
     @media screen and (max-width: 767px) {
       width: 100%;
-      padding: 20px 30px 20px 30px;
-      box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
-      background: $light-color-white;
+    }
+
+    @media screen and (min-width: $tablet) {
+      padding: 30px 100px 25px;
     }
 
     ol {
@@ -55,9 +59,35 @@
         color: $bright-color-orange;
       }
 
-      li:not(:last-child) {
-        margin-bottom: 20px;
+      @media screen and (max-width: 767px) {
+        li:not(:last-child) {
+          margin-bottom: 20px;
+        }
+      }
+
+      @media screen and (min-width: $tablet) {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+          width: calc((100% - 20px) / 2);
+          max-width: 220px;
+
+          @media screen and (min-width: $tablet) and (max-width: 1359px) {
+            &:nth-child(odd) {
+              margin-right: 20px;
+            }
+            &:not(:nth-last-child(-n + 2)) {
+              margin-bottom: 30px;
+            }
+          }
+        }
       }
     }
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding: 50px 0;
+    background: linear-gradient(to bottom, #111518 45%, #ffffff 45%);
   }
 }
