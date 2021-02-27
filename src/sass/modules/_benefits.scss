@@ -1,0 +1,43 @@
+.benefits {
+    background: linear-gradient(to bottom, $dark-color-black 70%, $light-color-white 70%);
+
+    .container {
+        @media screen and (max-width: 767px) {
+            width: 280px;
+            padding: 20px 30px 20px 30px;
+            box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+        }
+        background-color: $light-color-white;
+
+        ol {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            counter-reset: steps;
+
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 20px;
+
+            letter-spacing: 0.08em;
+
+            color: #111518;
+
+            li {
+                display: flex;
+                flex-direction: column;
+                counter-increment: steps;
+            }
+
+            li::before {
+                content: "— " "0"counter(steps);
+                margin-bottom: 10px;
+                color: $bright-color-orange;
+            }
+
+            li:not(:last-child) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
