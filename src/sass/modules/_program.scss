@@ -1,36 +1,51 @@
 .program-section {
+  position: relative;
   background-color: $dark-color-black;
+
+  .program-container {
+    &::after {
+      content: ' ';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      display: block;
+      background-image: url(./../images/mobile/program.png);
+      width: 120px;
+      height: 137px;
+    }
+  }
 }
 
 .program-section .title {
   color: $light-color-white;
+  margin-bottom: 43px;
 }
 
 .program-list {
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
-
-  //   border-left: 1px solid $light-color-white;
+  padding-left: 0;
 
   //   @media screen and (min-width: $tablet) {
   //     padding-left: 50px;
   //   }
+  margin-left: auto;
   @media screen and (min-width: $desktop) {
     flex-direction: row;
     padding-left: 0;
     padding-top: 60px;
     border-left: none;
-    border-top: 1px solid $light-color-white;
+    // border-top: 1px solid $light-color-white;
   }
 }
 
 .program-item {
+  position: relative;
   font-weight: 700;
   line-height: 2;
   text-transform: uppercase;
   color: $light-color-white;
-  outline: 1px solid red;
+  //   outline: 1px solid red;
 
   padding-left: 20px;
 
@@ -43,10 +58,14 @@
     line-height: 1.4;
   }
   &:not(:last-child) {
+    padding-bottom: 40px;
     border-left: 1px solid $light-color-white;
   }
   &::before {
     content: '';
+    position: absolute;
+    top: 8px;
+    left: -6.5px;
     display: inline-flex;
 
     width: 12px;
@@ -56,26 +75,46 @@
   }
 }
 
-.program-skills {
+.program-skills-list {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+  }
+}
+
+.program-skills-item {
   font-size: 12px;
   line-height: 1.667;
   text-transform: none;
   color: $bright-color-orange;
+
+  margin-top: 5px;
+
   @media screen and (min-width: $desktop) {
     font-size: 20px;
     line-height: 1.65;
   }
   &::before {
-    content: '— ';
+    content: '\2014\A0';
+  }
+  &:not(:last-child) {
+    margin-bottom: 8px;
   }
 }
 
-.program-skills .list {
+.program-skills-item .list {
   font-weight: 500;
   color: $light-color-gray;
   opacity: 0.5;
+  margin-top: 5px;
+  .program-item:nth-child(3n) & {
+    margin-top: 10px;
+  }
+
   @media screen and (min-width: $desktop) {
     font-size: 18px;
     line-height: 1.556;
   }
+}
+.program-item:nth-child(3n) .program-skills-item:nth-child(3n) .list {
+  margin-top: 5px;
 }
