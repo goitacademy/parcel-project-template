@@ -6,17 +6,28 @@
     }
 
     .container {
+        display: flex;
+        align-items: center;
+
         @media screen and (max-width: $tablet - 1px) {
-            display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
         }
 
         @media screen and (min-width: $tablet) {
-            display: flex;
             flex-direction: row;
-            align-items: center;
+        }
+
+        @media screen and (min-width: $desktop) {
+            position: relative;
+            flex-direction: row;
+            justify-content: center;
+
+            .logo-container {
+                position: absolute;
+                top: 2px;
+                left: 23px;
+            }
         }
     }
 
@@ -40,6 +51,10 @@
             margin-left: auto;
         }
         
+        @media screen and (min-width: $desktop) {
+            margin: 0;
+        }
+
     }
 }
 
