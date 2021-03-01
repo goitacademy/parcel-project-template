@@ -64,9 +64,9 @@ header {
     }
   }
 
-  .current {
-    color: $bright-color-orange;
-  }
+  // .current {
+  //   color: $bright-color-orange;
+  // }
 }
 
 .button-consultation {
@@ -105,6 +105,11 @@ header {
   stroke: #000000;
   border: 0;
   background-color: rgba(0, 0, 0, 0);
+
+  &:focus,
+  &:hover {
+    stroke: $bright-color-orange;
+  }
 }
 
 .mobile-container-buttons {
@@ -177,9 +182,9 @@ header {
     }
   }
 
-  .current {
-    color: $bright-color-orange;
-  }
+  // .current {
+  //   color: $bright-color-orange;
+  // }
 }
 
 .button-menu-consultation {
@@ -208,16 +213,195 @@ header {
   stroke: #ffffff;
   border: 0;
   background-color: rgba(0, 0, 0, 0);
+
+  &:focus,
+  &:hover {
+    stroke: $bright-color-orange;
+  }
 }
 
 /*--- Стили формы модального окна ---*/
 
-.button-modal-close {
-  stroke: #ffffff;
-  border: 0;
-  background-color: rgba(0, 0, 0, 0);
+.backdrop-form.is-hidden {
+  display: none;
+  pointer-events: none;
 }
 
 .backdrop-form {
-  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 90px 20px;
+  background: rgba(17, 21, 24, 0.8);
+  z-index: 999;
+  overflow-y: scroll;
+  opacity: 1;
+}
+
+.header-modal {
+  position: relative;
+  background: #fff;
+  width: 100%;
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin: 0 auto;
+    width: 450px;
+  }
+  @media screen and (min-width: 1360px) {
+    width: 550px;
+  }
+}
+
+.button-modal-close {
+  position: absolute;
+  top: 34px;
+  right: 20px;
+  stroke: $dark-color-black;
+  border: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    stroke: $bright-color-orange;
+  }
+}
+
+.decktop-consultation-form {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    margin: 0 auto;
+    max-width: 450px;
+    text-align: center;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 1360px) {
+      font-weight: 800;
+      font-size: 26px;
+      line-height: 1.307;
+      letter-spacing: 0.03em;
+    }
+  }
+
+  .submit {
+    margin: 0 auto;
+    margin-top: 30px;
+    min-width: 200px;
+    padding: 16px 5px;
+    font-family: $main-font;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.87;
+    color: $bright-color-orange;
+    border: 2px solid #ff6b09;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+
+    &:focus,
+    &:hover {
+      background: #188ce8;
+      border-radius: 4px;
+      color: $light-color-white;
+    }
+  }
+}
+
+.form-bar {
+  position: relative;
+  margin-top: 40px;
+  display: block;
+
+  .form-input {
+    padding: 11px;
+    padding-left: 35px;
+    width: 100%;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+
+    &:focus {
+      border: 1px solid $bright-color-orange;
+      outline: 0;
+    }
+  }
+
+  .svg-modal {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+  }
+
+  .form-text {
+    position: absolute;
+    top: 50%;
+    left: 35px;
+    transform: translateY(-50%);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em;
+    color: $light-color-gray;
+  }
+}
+
+.form-input:focus + .svg-modal {
+  fill: $bright-color-orange;
+}
+
+.form-input:focus ~ .form-text,
+.form-input:not(:placeholder-shown) ~ .form-text {
+  transform: translateY(-40px);
+  left: 0;
+}
+
+.formbar-textarea {
+  position: relative;
+  display: block;
+  margin: 0;
+  margin-top: 40px;
+
+  .form-textarea {
+    margin: 0;
+    padding: 11px;
+    padding-left: 16px;
+    width: 100%;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    resize: none;
+
+    &:focus {
+      border: 1px solid $bright-color-orange;
+      outline: 0;
+    }
+  }
+  .text-textarea {
+    position: absolute;
+    left: 16px;
+    top: 12px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em;
+    color: $light-color-gray;
+  }
+}
+
+.form-textarea:focus + .text-textarea,
+.form-textarea:not(:placeholder-shown) + .text-textarea {
+  transform: translateY(-35px);
+  left: 0;
 }
