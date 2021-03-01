@@ -1,4 +1,7 @@
 .problems {
+  position: relative;
+  overflow-x: hidden;
+
   background-image: linear-gradient(
     to bottom,
     $dark-color-black 79%,
@@ -7,7 +10,7 @@
     $light-color-white 21%
   );
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) and (max-width: 1359px) {
     background-image: linear-gradient(
       to bottom,
       $dark-color-black 70%,
@@ -18,11 +21,32 @@
   }
 }
 
+.problems-svg {
+  position: absolute;
+  bottom: 0;
+  right: -8%;
+  z-index: 0;
+  fill: $dark-color-gray;
+}
+
+.problems-svg-bottom {
+  position: absolute;
+  bottom: 0;
+  right: -8%;
+  width: 100%;
+  height: 21%;
+  background-color: $light-color-white;
+}
+
 .problems-wrapper {
   padding-top: 50px;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) and (max-width: 1359px) {
     padding-top: 60px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: 100px;
   }
 }
 
@@ -31,8 +55,12 @@
   text-align: left;
   color: $light-color-white;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) and (max-width: 1359px) {
     width: 470px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 866px;
   }
 }
 
@@ -51,6 +79,7 @@
 }
 
 .problems-items-container {
+  position: relative;
   margin-top: 27px;
   padding: 20px;
   padding-left: 30px;
@@ -58,28 +87,40 @@
   background: $light-color-white;
   box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $tablet) and (max-width: 1359px) {
     margin-top: 25px;
     padding: 30px 96px 26px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 70px;
+    padding: 70px 0 62px 114px;
   }
 }
 
 .problems-items-wrapper {
-  margin-top: -10px;
   counter-reset: steps;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (max-width: 767px) {
+    margin-top: -10px;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: 1359px) {
     display: flex;
     flex-wrap: wrap;
     margin-top: -8px;
     margin-left: -22px;
   }
+
+  @media screen and (min-width: $desktop) {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-top: -32px;
+    margin-left: -40px;
+  }
 }
 
 .problems-item {
-  margin-top: 10px;
-  flex-basis: calc(100% - 10px);
-
   counter-increment: steps;
   font-weight: 700;
   line-height: 1.43;
@@ -92,13 +133,33 @@
     color: $bright-color-orange;
   }
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (max-width: 767px) {
+    margin-top: 10px;
+    flex-basis: calc(100% - 10px);
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: 1359px) {
     margin-top: 8px;
     margin-left: 22px;
     flex-basis: calc(100% / 2 - 8px - 22px);
 
     &:nth-child(n + 5) {
       margin-top: 32px;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 32px;
+    margin-left: 40px;
+    flex-basis: calc(100% / 3 - 32px - 40px);
+
+    font-size: 20px;
+    line-height: 1.4;
+
+    &::before {
+      content: '—';
+      font-size: 20px;
+      line-height: 1.65;
     }
   }
 }
@@ -114,6 +175,10 @@
 .problems-item-text {
   margin-top: 5px;
   display: block;
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 10px;
+  }
 }
 
 .problems-item-width {
