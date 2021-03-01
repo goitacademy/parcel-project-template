@@ -1,0 +1,153 @@
+.header {
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 50px;
+
+  .container {
+    display: flex;
+    flex-direction: row-reverse;
+
+    .button-tablet {
+      display: none;
+
+      @media screen and(min-width: $tablet) and (max-width: $desktop - 1px) {
+        display: block;
+        margin-left: auto;
+        cursor: pointer;
+      }
+    }
+
+    .logo {
+      svg {
+        width: 80px;
+        height: 30px;
+        @media screen and (min-width: $tablet) {
+          width: 128px;
+          height: 45px;
+        }
+      }
+    }
+
+    @media screen and (min-width: $desktop) {
+      align-items: center;
+    }
+  }
+
+  .nav {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 200vw;
+
+    background: var(--background-mobile-menu-color);
+
+    padding-top: 110px;
+
+    &.is-open {
+      display: block;
+
+      ~ .logo {
+        z-index: 100;
+        fill: var(--white-color);
+      }
+    }
+
+    .navigation {
+      width: 260px;
+
+      margin-left: auto;
+      margin-right: auto;
+
+      @media screen and (min-width: $desktop) {
+        display: flex;
+        color: var(--text-color);
+        width: auto;
+        margin-right: 0;
+      }
+    }
+
+    .menu {
+      @media screen and (max-width: $desktop - 1px) {
+        &:not(:last-child) {
+          margin-bottom: 19px;
+        }
+      }
+
+      .menu-item {
+        display: block;
+        font-size: 20px;
+        font-weight: bold;
+        color: var(--white-color);
+        text-align: start;
+
+        &:hover,
+        &:focus {
+          color: var(--accent-color);
+        }
+        @media screen and (min-width: $desktop) {
+          //   display: inline-block;
+          color: var(--text-color);
+          font-size: 14px;
+          line-height: 1.21;
+        }
+      }
+
+      .current {
+        color: var(--accent-color);
+      }
+      @media screen and (min-width: $desktop) {
+        margin-right: 40px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .button {
+      display: block;
+      width: 260px;
+
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 50px;
+      @media screen and (min-width: $tablet) and (max-width: $desktop - 1px) {
+        display: none;
+      }
+
+      @media screen and (min-width: $desktop) {
+        display: block;
+        width: 343px;
+        height: 70px;
+        margin-left: 60px;
+        margin-right: 0;
+        margin-top: 0;
+      }
+    }
+
+    @media screen and (min-width: $tablet) {
+      padding-top: 159px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      position: relative;
+      display: flex;
+      height: auto;
+
+      background: transparent;
+
+      padding-top: 0;
+      align-items: center;
+
+      ~ .logo {
+        z-index: 100;
+        margin-top: 12px;
+      }
+    }
+  }
+}
+
+@import '../components/hamburgers';
