@@ -34,6 +34,9 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: $secondary-color;
+  animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+ 
   @media screen and (min-width: $tablet) {
     width: 162px;
     height: 80px;
@@ -49,6 +52,27 @@
     line-height: 1.158;
   }
 }
+@keyframes text-pop-up-top {
+  0% {
+   
+            transform: translateY(0);
+    
+            transform-origin: 50% 50%;
+    text-shadow: none;
+  }
+  100% {
+   
+            transform: translateY(-50px);
+    
+            transform-origin: 50% 50%;
+    text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+
+
+
 .hero-title {
   display: block;
 }
@@ -87,6 +111,9 @@
   border: none;
   margin-right: 8px;
   @extend %animation;
+  animation-duration: 100ms;
+  animation-name: slidein;
+  animation: jello-horizontal 1000ms both;
   @media screen and (min-width: $desktop) {
     display: inline-block;
     font-size: 14px;
@@ -94,6 +121,37 @@
     padding: 15px 28px;
   }
 }
+@keyframes jello-horizontal {
+  0% {
+    
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+   
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+  
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+   
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+  
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+  
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    
+            transform: scale3d(1, 1, 1);
+  }
+}
+
 .products:hover {
   cursor: pointer;
     background-color: $secondary-color;
@@ -201,55 +259,107 @@
 
   border: none;
   @extend %animation;
+  animation-duration: 100ms;
+  animation-name: slidein;
+  animation: jello-horizontal 1000ms both;
   @media screen and (min-width: $desktop) {
     font-size: 14px;
     line-height: 1.3;
     padding: 15px 28px;
   }}
+ 
+  @keyframes jello-horizontal {
+    0% {
+      
+              transform: scale3d(1, 1, 1);
+    }
+    30% {
+     
+              transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+    
+              transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+     
+              transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+    
+              transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+    
+              transform: scale3d(1.05, 0.95, 1);
+    }
+    100% {
+      
+              transform: scale3d(1, 1, 1);
+    }
+  }
   .made:hover{
     cursor: pointer;
     background-color:$accent-color;
     color: $secondary-color;
     outline: none;
+
+    -webkit-animation: swing 1s ease;
+
     // -webkit-animation: swing 1s ease;
+
     animation: swing 1s ease;
     // -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
     box-shadow: 0 0 12px $accent-color;
+
+    -moz-box-shadow: 0 0 12px $accent-color;
+    -o-box-shadow: 0 0 12px $accent-color;
+    -ms-box-shadow: 0 0 12px $accent-color;
+    -webkit-box-shadow: 0 0 12px $accent-color;
+
+    
+    animation: swing 1s ease;
+    
+    animation-iteration-count: 1;
+    box-shadow: 0 0 12px $accent-color;
+   
+
     // -moz-box-shadow: 0 0 12px $accent-color;
     // -o-box-shadow: 0 0 12px $accent-color;
     // -ms-box-shadow: 0 0 12px $accent-color;
     // -webkit-box-shadow: 0 0 12px $accent-color;
+
     @-webkit-keyframes swing
 {
     15%
     {
-        -webkit-transform: translateX(5px);
+        
         transform: translateX(5px);
     }
     30%
     {
-        -webkit-transform: translateX(-5px);
+       
        transform: translateX(-5px);
     }
     50%
     {
-        -webkit-transform: translateX(3px);
+    
         transform: translateX(3px);
     }
     65%
     {
-        -webkit-transform: translateX(-3px);
+      
         transform: translateX(-3px);
     }
     80%
     {
-        -webkit-transform: translateX(2px);
+      
         transform: translateX(2px);
     }
     100%
     {
-        -webkit-transform: translateX(0);
+      
         transform: translateX(0);
     }
 }
@@ -257,32 +367,32 @@
 {
     15%
     {
-        -webkit-transform: translateX(5px);
+     
         transform: translateX(5px);
     }
     30%
     {
-        -webkit-transform: translateX(-5px);
+       
         transform: translateX(-5px);
     }
     50%
     {
-        -webkit-transform: translateX(3px);
+        
         transform: translateX(3px);
     }
     65%
     {
-        -webkit-transform: translateX(-3px);
+     
         transform: translateX(-3px);
     }
     80%
     {
-        -webkit-transform: translateX(2px);
+      
         transform: translateX(2px);
     }
     100%
     {
-        -webkit-transform: translateX(0);
+       
         transform: translateX(0);
     }
 }
@@ -293,7 +403,7 @@
     color: $secondary-color;
     outline: none;
   }
- 
+
 
 .hero-ellipse {
   position: absolute;
@@ -304,49 +414,130 @@
   bottom: 75px;
   width: 344px;
   height: 344px;
-  
 
+  animation-duration: 30ms;
+  animation-name: slidein;
+
+  
+  animation: mymove 400ms;
+     @keyframes mymove {
+  
+      0%   {opacity: 0;
+        transform: scale(0, 0); top: 100px; width: 10px;}
+      100% {opacity: 1;
+        transform: scale(1.1, 1.1); top: 50px; width: 340px;}
+    }
+ 
   @media screen and (min-width: $tablet) {
     width: 322px;
     height: 322px;
     right: 137px;
     bottom: 46px;
+   
+    @keyframes mymove {
+  
+      0%   {opacity: 0;
+        transform: scale(0, 0); top: 50px; width: 100px;}
+      100% {opacity: 1;
+        transform: scale(1.1, 1.1); top: 10px; width: 322px;}
+    }
   }
   @media screen and (min-width: $desktop) {
     width: 538px;
     height: 538px;
    
     bottom: 75px;
-  }
-}
-.hero-ice-cream {
-  position: absolute;
-  left: 50%;
-  right: 50%;
-  transform: translate(-50%);
-  bottom: -75px;
-  display: block;
-  max-width: 100%;
-  height: auto;
- 
-  @media screen and (min-width: $tablet) {
-    bottom: -46px;
-    left: 40%;
-
-    transform: translate(-40%);
-  }
-  @media screen and (min-width: $desktop) {
-    bottom: -75px;
+  
+    @keyframes mymove {
+  
+      0%   {opacity: 0;
+        transform: scale(0, 0); right:calc(269px); bottom: calc(75px + 269px); width: 100px; height: 100px;}
+      100% {opacity: 1;
+        transform: scale(1.0, 1.0); bottom: 75px; width: 538px; height: 538px;}
+    }
    
   }
 }
+
+.hero-ice-cream {
+  position: absolute;
+  left: 237px;
+
+  bottom: 0;
+  display: block;
+  max-width: 100%;
+  height: auto;
+
+  animation: bounce-in-top 1.1s both;
+  
+  @media screen and (min-width: $tablet) {
+    bottom: 0;
+    left: 326px;
+  
+  }
+  @media screen and (min-width: $desktop) {
+    bottom: 0;
+    left: 500px;
+  
+  }
+}
+
+@keyframes bounce-in-top {
+  0% {
+       
+            transform: translate(0%, -500px);
+            animation-timing-function: ease-in;
+    opacity: 0;
+
+            transform-origin: 50% 50%;
+  }
+  38% {
+            transform: translateY(0);
+            animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+          
+            animation-timing-function: ease-in;
+           
+            transform: translate(-40px, -65px) rotate(-6deg);
+  }
+  72% {
+            transform: translateY(0);
+            animation-timing-function: ease-out;
+            
+  }
+  81% {
+         
+            animation-timing-function: ease-in;
+            transform: translate(30px, -28px) rotate(6deg);
+  }
+  90% {
+            transform: translateY(0);
+            animation-timing-function: ease-out;
+  }
+  95% {
+            transform: translateY(-8px);
+            animation-timing-function: ease-in;
+  }
+  100% {
+            transform: translate(0, 0);
+            animation-timing-function: ease-out;
+       
+            transform-origin: 50% 50%;
+  }
+}
+
+
+
+
 .hero-sectio-title {
   position: absolute;
   
   top: 193px;
   // z-индех не менять завязка с выплывающим меню хедера
   z-index: 1;
-  
+
   @media screen and (min-width: $tablet) {
     top: 102px;
    
@@ -366,8 +557,6 @@
     left: 174px;
     @media screen and (min-width: $desktop) {
       display: block; 
-     
-      // left: 295px;
       bottom: 102px;
     }
   }
@@ -462,11 +651,22 @@ right: 0;
       text-align: right;
       letter-spacing: 0.04em;
       color: $accent-color;
+      animation: rotate-center 0.6s ease-in-out both;
       @media screen and (min-width: $desktop) {
      
       font-size: 46px;
       line-height: 1.152;
       }}
+      @keyframes rotate-center {
+        0% {
+          -webkit-transform: rotate(0);
+                  transform: rotate(0);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+                  transform: rotate(360deg);
+        }
+      }
     
     .ellipse-small-text {
       position: absolute;
@@ -512,11 +712,22 @@ right: 0;
       text-align: right;
       letter-spacing: 0.04em;
       color: $accent-color;
+      animation: rotate-center 0.6s ease-in-out both;
       @media screen and (min-width: $desktop) {
         font-size: 46px;
         line-height: 1.152;
        
         }
+    }
+    @keyframes rotate-center {
+      0% {
+        -webkit-transform: rotate(0);
+                transform: rotate(0);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+      }
     }
     .small-text {
       position: absolute;
