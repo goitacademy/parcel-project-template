@@ -4,20 +4,31 @@
 
   &-shadow {
     box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
-    padding: 20px 20px 30px;
+
     margin-bottom: 20px;
 
     @media screen and (min-width: $tablet) {
-      padding: 40px;
       margin-bottom: 30px;
     }
 
     @media screen and (min-width: $desktop) {
       max-width: 1090px;
-      padding: 50px 112px 50px 82px;
+
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 40px;
+    }
+  }
+
+  .slide-wrapper {
+    padding: 20px 20px 30px;
+
+    @media screen and (min-width: $tablet) {
+      padding: 40px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      padding: 50px 112px 50px 82px;
     }
   }
 
@@ -37,14 +48,11 @@
     flex-direction: column;
     align-items: center;
 
-    .reviews-img-box {
+    @media screen and (max-width: 767px) {
       margin-bottom: 20px;
-    }
-
-    a {
-      @media screen and (max-width: 767px) {
-        margin-bottom: 20px;
-      }
+      max-width: 90px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     @media screen and (min-width: $tablet) {
@@ -131,6 +139,9 @@
   }
 }
 .reviews-img-box {
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
   @media screen and (min-width: $tablet) {
     width: 100%;
   }
@@ -143,4 +154,99 @@
   border-bottom: 1px solid $bright-color-orange;
   color: $bright-color-orange;
   cursor: pointer;
+}
+
+// Slider
+.review-slider {
+  display: flex;
+
+  .slick-slide {
+    outline: none;
+  }
+}
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  z-index: 1;
+  border: none;
+  outline-color: $bright-color-orange;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-top: 140px;
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 150px;
+  }
+}
+.slick-prev {
+  left: -20px;
+
+  @media screen and (min-width: $desktop) {
+    left: -100px;
+  }
+}
+.slick-next {
+  right: -20px;
+
+  @media screen and (min-width: $desktop) {
+    right: -100px;
+  }
+}
+
+.review-second-slider {
+  display: flex;
+  align-items: center;
+  width: 190px;
+  margin: 0 auto;
+
+  .slick-list {
+    width: 190px;
+  }
+
+  .slick-slide {
+    cursor: pointer;
+  }
+
+  .slick-prev {
+    left: -48px;
+    margin-top: 0;
+  }
+  .slick-next {
+    right: -48px;
+    margin-top: 0;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 600px;
+
+    .slick-list {
+      width: 600px;
+    }
+  }
+}
+.second-slider-img-box {
+  max-width: 54px;
+  min-width: 54px;
+  max-height: 54px;
+  min-height: 54px;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  overflow: hidden;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  img {
+    object-position: 50% 50%;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-left: 26px;
+    margin-right: 5px;
+  }
+}
+.review-second-slider .slick-current {
+  border: 1px solid $bright-color-orange;
 }
