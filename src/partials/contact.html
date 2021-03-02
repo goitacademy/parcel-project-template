@@ -15,9 +15,29 @@
         <form>
             <div class="form-field">
                 <label for="name"></label>
-                <input type="text" name="name" id="name" placeholder="Имя*">
+                <input 
+                autocomplete="off"
+                type="text" 
+                name="username" 
+                id="name" 
+                required
+                placeholder="Имя*" 
+                pattern="^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$"
+                oninvalid="this.setCustomValidity('Введите имя')"
+                oninput="this.setCustomValidity('')"/>
+
                 <label for="phone"></label>
-                <input type="tel" name="tel" id="phone" placeholder="Телефон*">
+                <input 
+                autocomplete="off"
+                type="tel" 
+                name="telephoneNumber" 
+                id="phone" 
+                required
+                placeholder="Телефон*" 
+                pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
+                oninvalid="this.setCustomValidity('Введите номер телефона')"
+                oninput="this.setCustomValidity('')"/>
+                
                 <button type="submit" aria-label="Отправить заявку" class="button">хочу на бесплатное занятие</button>
             </div>
         </form>
