@@ -3,26 +3,27 @@
 
 	function init() {
 		//Links 
-		
-		let contactLink  = d.getElementById('contactLink');
-		
+		let programLink  = d.getElementById('programLink');
+        let aboutLink = d.getElementById('aboutLink');
+        let how_we_doLink = d.getElementById('how_we_doLink');
+        let contactsLink = d.getElementById('contactsLink');
+
+
 		//Anchors
+        let program_scroll = d.getElementById('program_scroll');
+        let about_scroll = d.getElementById('about_scroll');
+        let how_we_do_scroll = d.getElementById('how_we_do_scroll');
+        let contacts_scroll = d.getElementById('contacts_scroll');
+
 		
-		let contact      = d.getElementById('contact');
+        programLink.addEventListener('click', (e) => { scrollTo(program_scroll, e) }, false);
+        aboutLink.addEventListener('click', (e) => { scrollTo(about_scroll, e) }, false);
+		how_we_doLink.addEventListener('click', (e) => { scrollTo(how_we_do_scroll, e) }, false);
+		contactsLink.addEventListener('click', (e) => { scrollTo(contacts_scroll, e) }, false);
+
+		contactsLink.addEventListener('click', (e) => { scrollTo(contacts_scroll, e) }, false);
+		contactsLink2.addEventListener('click', (e) => { scrollTo(contacts_scroll, e) }, false);
 		
-		contactLink.addEventListener('click', (e) => { scrollTo(contact, e) }, false);
-		
-		console.log(contact); //DEBUG
-		console.log('contact: '+scrollTopValue(contact)+' / '+offsetTopValue(contact)); //DEBUG
-		
-		console.log('App loaded. Have fun!');
-	}
-	
-	function scrollTopValue(domElement) { //DEBUG
-		return 'scrollTopValue:', domElement.scrollTop;
-	}
-	function offsetTopValue(domElement) { //DEBUG
-		return 'offsetTopValue:', domElement.offsetTop;
 	}
 
 	var requestAnimFrame = (function() {
@@ -34,12 +35,14 @@
 	function scrollTo(to, callback, duration = 1500) { 
 		
 		if (isDomElement(to)) {
-			
+
 			to = to.offsetTop;
 		}
 		
+		
+		
 		function move(amount) {
-			
+			// document.scrollingElement.scrollTop = amount; //FIXME Test that
 			document.documentElement.scrollTop = amount;
 			document.body.parentNode.scrollTop = amount;
 			document.body.scrollTop = amount;
@@ -81,7 +84,6 @@
 
 	init();
 })();
-
 
 Math.easeInOutQuad = function(t, b, c, d) {
 	t /= d / 2;
