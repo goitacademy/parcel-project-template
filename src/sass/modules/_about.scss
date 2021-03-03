@@ -131,7 +131,7 @@
     margin-bottom: 32px;
   }
 }
-// ok
+
 .teacher-education {
   margin-bottom: 10px;
 
@@ -176,5 +176,68 @@
     font-size: 18px;
     line-height: 1.56;
     letter-spacing: 0em;
+  }
+}
+
+// Стили модалки с сертификатом
+
+.backdrop-certificate {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(17, 21, 24, 0.9);
+
+  opacity: 1;
+
+  &.is-hidden {
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+.certificate-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 4px;
+  width: 267px;
+  height: 377px;
+
+  background-color: $bright-color-orange;
+
+  @media screen and (min-width: $mobile) {
+    width: 400px;
+    height: 563px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 484px;
+    height: 682px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 667px;
+    height: 939px;
+  }
+}
+
+.button-certificate-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 0;
+  padding: 0;
+  stroke: $dark-color-black;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  transition: stroke 250ms linear 250ms;
+
+  &:focus,
+  &:hover {
+    stroke: $bright-color-orange;
   }
 }
