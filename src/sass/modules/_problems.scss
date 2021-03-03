@@ -1,0 +1,172 @@
+.problems {
+  position: relative;
+  padding-top: 50px;
+
+  background-image: linear-gradient(
+    to bottom,
+    $dark-color-black 79%,
+    $dark-color-black 79%,
+    $light-color-white 21%,
+    $light-color-white 21%
+  );
+
+  @media screen and (min-width: $tablet) and (max-width: 1359px) {
+    padding-top: 60px;
+    background-image: linear-gradient(
+      to bottom,
+      $dark-color-black 70%,
+      $dark-color-black 70%,
+      $light-color-white 30%,
+      $light-color-white 30%
+    );
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: 100px;
+    background-image: url(../../src/images/desktop/fire.svg),
+      linear-gradient(
+        to bottom,
+        $dark-color-black 79%,
+        $dark-color-black 79%,
+        $light-color-white 21%,
+        $light-color-white 21%
+      );
+    background-repeat: no-repeat;
+    background-position: right -45px bottom 149px, center;
+  }
+}
+
+.problems-title {
+  margin-bottom: 0;
+  text-align: left;
+  color: $light-color-white;
+
+  @media screen and (min-width: $tablet) and (max-width: 1359px) {
+    width: 470px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 866px;
+  }
+}
+
+.problems-title-indent {
+  @media screen and (max-width: $mobile) {
+    display: block;
+  }
+}
+
+.problems-title-second-indent {
+  display: block;
+}
+
+.problems-title-color {
+  color: $bright-color-orange;
+}
+
+.problems-items-container {
+  position: relative;
+  margin-top: 27px;
+  padding: 20px;
+  padding-left: 30px;
+
+  background: $light-color-white;
+  box-shadow: -5px 8px 26px rgba(0, 0, 0, 0.04);
+
+  @media screen and (min-width: $tablet) and (max-width: 1359px) {
+    margin-top: 25px;
+    padding: 30px 96px 26px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 70px;
+    padding: 70px 0 62px 114px;
+  }
+}
+
+.problems-items-wrapper {
+  counter-reset: steps;
+
+  @media screen and (max-width: 767px) {
+    margin-top: -10px;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: 1359px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -8px;
+    margin-left: -22px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-top: -32px;
+    margin-left: -40px;
+  }
+}
+
+.problems-item {
+  counter-increment: steps;
+  font-weight: 700;
+  line-height: 1.43;
+
+  &::before {
+    content: '—';
+    display: inline-flex;
+    font-size: 18px;
+    line-height: 1.2;
+    color: $bright-color-orange;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin-top: 10px;
+    flex-basis: calc(100% - 10px);
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: 1359px) {
+    margin-top: 8px;
+    margin-left: 22px;
+    flex-basis: calc(100% / 2 - 8px - 22px);
+
+    &:nth-child(n + 5) {
+      margin-top: 32px;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 32px;
+    margin-left: 40px;
+    flex-basis: calc(100% / 3 - 32px - 40px);
+
+    font-size: 20px;
+    line-height: 1.4;
+
+    &::before {
+      content: '—';
+      font-size: 20px;
+      line-height: 1.65;
+    }
+  }
+}
+
+.problems-item-count {
+  &::before {
+    content: '0' counter(steps);
+    display: inline-flex;
+    color: $bright-color-orange;
+  }
+}
+
+.problems-item-text {
+  margin-top: 5px;
+  display: block;
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 10px;
+  }
+}
+
+.problems-item-width {
+  padding-right: 40px;
+}
