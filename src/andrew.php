@@ -1,9 +1,5 @@
 <?php
 
-/* https://api.telegram.org/botXXXXXXXXXXXXXXXXXXXXXXX/getUpdates,
-где, XXXXXXXXXXXXXXXXXXXXXXX - токен вашего бота, полученный ранее */
-
-//Переменная $name,$phone, $mail получает данные при помощи метода POST из формы
 $name = $_POST['user_name'];
 $phone = $_POST['user_phone'];
 
@@ -27,3 +23,5 @@ if ($sendToTelegram) {
 } else {
   echo "Error";
 }
+
+?>
