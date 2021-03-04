@@ -1,18 +1,19 @@
 header {
   .container {
-    display: flex;
     padding-top: 32px;
     padding-bottom: 46px;
     align-items: center;
     text-align: center;
     justify-content: space-between;
+    display: none;
 
-    @media screen and (max-width: 1359px) {
-      display: none;
+    @media screen and (min-width: $desktop) {
+      display: flex;
     }
   }
   .mobile-container {
     display: flex;
+    align-items: center;
     padding: 0 20px;
     margin: 0 auto;
     padding-top: 30px;
@@ -79,11 +80,11 @@ header {
   color: #ff6b09;
   background: #ffffff;
   border: 2px solid #ff6b09;
+  display: none;
+  cursor: pointer;
 
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
   @media screen and (min-width: $tablet) {
+    display: block;
     margin-right: 40px;
   }
 
@@ -94,18 +95,13 @@ header {
     font-size: 14px;
     line-height: 1.214;
     letter-spacing: 0.14em;
-  }
-}
 
-.button-menu-open {
-  padding: 0;
-  stroke: #000000;
-  border: 0;
-  background-color: rgba(0, 0, 0, 0);
-
-  &:focus,
-  &:hover {
-    stroke: $bright-color-orange;
+    &:focus,
+    &:hover {
+      background: #188ce8;
+      border-radius: 4px;
+      color: $light-color-white;
+    }
   }
 }
 
@@ -127,8 +123,12 @@ header {
   background: rgba(17, 21, 24, 0.9);
   width: 100%;
   height: 100vh;
-  z-index: 999;
+  z-index: 1;
   overflow-y: scroll;
+
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
 }
 
 .backdrop-menu {
@@ -150,6 +150,12 @@ header {
 .fixed-menu {
   display: flex;
   justify-content: space-between;
+
+  .logo-container {
+    @media screen and (max-width: $tablet - 1px) {
+      padding: 8px 0;      
+    }
+  }
 }
 
 .mobile-navigation {
@@ -210,18 +216,6 @@ header {
   }
 }
 
-.button-menu-close {
-  padding: 0;
-  stroke: #ffffff;
-  border: 0;
-  background-color: rgba(0, 0, 0, 0);
-
-  &:focus,
-  &:hover {
-    stroke: $bright-color-orange;
-  }
-}
-
 /*--- Стили формы модального окна ---*/
 
 .backdrop-form.is-hidden {
@@ -236,9 +230,8 @@ header {
   bottom: 0;
   left: 0;
   background: rgba(17, 21, 24, 0.9);
-  z-index: 999;
-  opacity: 1;
-  // height: 100vh;
+  z-index: 2;
+  // opacity: 1;
 
   padding: 70px 20px;
 

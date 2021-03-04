@@ -11,5 +11,6 @@
   function toggleModal() {
     document.body.classList.toggle("modal-open");
     refs.modal.classList.toggle('is-hidden');
+    refs.openModalBtn.classList.toggle('is-active')
   }
 })();
