@@ -7,11 +7,10 @@
 
   refs.openModalBtn.addEventListener('click', toggleModal);
   refs.closeModalBtn.addEventListener('click', toggleModal);
-  refs.links.addEventListener('click', toggleModal);
 
   function toggleModal() {
-    document.body.classList.toggle('modal-open');
+    document.body.classList.toggle("modal-open");
     refs.modal.classList.toggle('is-hidden');
-    refs.openModalBtn.classList.toggle('is-active');
+    refs.openModalBtn.classList.toggle('is-active')
   }
 })();
