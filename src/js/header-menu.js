@@ -15,14 +15,15 @@
         let how_we_do_scroll = d.getElementById('how_we_do_scroll');
         let contacts_scroll = d.getElementById('contacts_scroll');
 
-		
-        programLink.addEventListener('click', (e) => { scrollTo(program_scroll, e) }, false);
+		programLink.addEventListener('click', (e) => { scrollTo(program_scroll, e) }, false);
+		programLink2.addEventListener('click', (e) => { scrollTo(program_scroll, e) }, false);
         aboutLink.addEventListener('click', (e) => { scrollTo(about_scroll, e) }, false);
+        aboutLink2.addEventListener('click', (e) => { scrollTo(about_scroll, e) }, false);
 		how_we_doLink.addEventListener('click', (e) => { scrollTo(how_we_do_scroll, e) }, false);
-		contactsLink.addEventListener('click', (e) => { scrollTo(contacts_scroll, e) }, false);
-
+		how_we_doLink2.addEventListener('click', (e) => { scrollTo(how_we_do_scroll, e) }, false);
 		contactsLink.addEventListener('click', (e) => { scrollTo(contacts_scroll, e) }, false);
 		contactsLink2.addEventListener('click', (e) => { scrollTo(contacts_scroll, e) }, false);
+		contactsLink3.addEventListener('click', (e) => { scrollTo(contacts_scroll, e) }, false);
 		
 	}
 
