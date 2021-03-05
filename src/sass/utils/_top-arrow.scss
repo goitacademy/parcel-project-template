@@ -1,0 +1,63 @@
+.top-arrow {
+  position: fixed;
+  z-index: 10;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
+  height: auto;
+  right: 0;
+  bottom: 10px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 250ms, visibility 250ms;
+
+  @media screen and (min-width: $tablet) {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    right: 30px;
+    bottom: 50px;
+  }
+}
+
+.icon-upwards {
+  fill: $bright-color-orange;
+  width: 50px;
+  height: 50px;
+  @media screen and (min-width: $desktop) {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.top-arrow.show {
+  opacity: 0.4;
+  visibility: visible;
+}
+
+.top-arrow:hover,
+.top-arrow:focus {
+  opacity: 1;
+  cursor: pointer;
+  animation: bounceright 0.3s alternate ease infinite;
+}
+
+.top-arrow:active .icon-upwards {
+  fill: darken($bright-color-orange, 10%);
+}
+
+@keyframes bounceright {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-3px);
+  }
+}
