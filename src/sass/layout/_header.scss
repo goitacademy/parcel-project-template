@@ -1,92 +1,72 @@
+/* --- HEADER --- */
 header {
   padding-top: 30px;
-  padding-bottom: 50px;
-  //   background-color: antiquewhite;
 
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
 
-    .open-modal-btn {
-      background: unset;
-      border: none;
-      // height: 18px;
-      // margin-left: 40px;
-      padding: 0;
-    }
+  .navigation-links {
+    display: none;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.21;
 
-    .navigation-links-list {
-      display: none;
+    .navigation-links__link {
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $color-text-light;
 
-      .navigation-link {
-        text-decoration: none;
-        text-transform: uppercase;
-        color: $color-text-light;
-        transition: color 250ms ease-in-out;
-
-        &:hover,
-        &:focus {
-          color: $color-accent;
-        }
+      &:hover,
+      &:focus {
+        color: $color-accent;
       }
     }
+
+    li:not(:last-child) {
+      margin-right: 40px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      display: flex;
+    }
+  }
+
+  .header-buttons {
+    display: flex;
+    align-items: center;
   }
 
   .consultation-button {
     display: none;
-  }
-}
 
-@media screen and (min-width: 768px) {
-  header {
-    padding-top: 42px;
-
-    .header-buttons {
-      display: flex;
-      flex-direction: row;
-
-      .open-modal-btn {
-        margin-left: 40px;
-      }
-    }
-
-    .consultation-button {
+    @media screen and (min-width: $tablet) {
       display: block;
-      width: 260px;
-      height: 48px;
-      background: unset;
-      color: $color-accent;
-      align-self: center;
-      border: 2px solid $color-accent;
-      padding: 0;
-    }
-  }
-}
-
-@media screen and (min-width: 1366px) {
-  header {
-    .container {
-      .navigation-links-list {
-        display: flex;
-        font-weight: bold;
-        font-size: 14px;
-        line-height: 1.21;
-
-        li:not(:last-child) {
-          margin-right: 40px;
-        }
-      }
     }
 
-    .consultation-button {
+    @media screen and (min-width: $desktop) {
       width: 336px;
       height: 70px;
     }
   }
 
-  .open-modal-btn {
-    display: none;
+  .header-buttons__open-modal {
+    background: unset;
+    border: none;
+    height: 18px;
+    margin-left: 40px;
+    padding: 0;
+
+    @media screen and (min-width: $desktop) {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 42px;
   }
 }
 
@@ -96,9 +76,11 @@ header {
   align-items: center;
   width: 80;
 
-  .first-lane {
+  .logo__first-lane {
     display: flex;
     align-items: center;
+    font-family: Montserrat;
+    font-style: normal;
     font-weight: 800;
     font-size: 17px;
     line-height: 1.23;
@@ -108,43 +90,48 @@ header {
       width: 14px;
       height: 19px;
       margin: 0 4px 4px 4px;
-    }
-  }
-}
 
-@media screen and (min-width: 768px) {
-  .logo {
-    .first-lane {
-      svg {
+      @media screen and (min-width: $tablet) {
         width: 22px;
         height: 30px;
       }
     }
-  }
-}
 
-@media screen and (min-width: 768px) {
-  .logo {
-    .first-lane {
+    @media screen and (min-width: $tablet) {
       font-size: 26px;
     }
   }
-}
 
-.logo {
-  .second-lane {
+  .logo__second-lane {
+    font-family: Montserrat;
+    font-style: normal;
     font-weight: bold;
     font-size: 5.5px;
     line-height: 1.25;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-  }
-}
 
-@media screen and (min-width: 768px) {
-  .logo {
-    .second-lane {
+    @media screen and (min-width: $tablet) {
       font-size: 8px;
     }
   }
+
+  .text-accent {
+    color: $color-dark;
+
+    @media screen and (min-width: $tablet) {
+      color: $color-accent;
+    }
+  }
 }
+
+.consultation-button {
+  width: 260px;
+  height: 48px;
+  background: unset;
+  color: $color-accent;
+  align-self: center;
+  border: 2px solid $color-accent;
+  padding: 0;
+}
+/* --- /HEADER --- */
