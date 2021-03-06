@@ -108,15 +108,19 @@
 
 .problems-item {
   counter-increment: steps;
+  display: flex;
+  flex-direction: column;
   font-weight: 700;
   line-height: 1.43;
 
   &::before {
-    content: '—';
-    display: inline-flex;
-    font-size: 18px;
-    line-height: 1.2;
+    content: '— ' '0' counter(steps);
     color: $bright-color-orange;
+    margin-bottom: 5px;
+
+    @media screen and (min-width: $desktop) {
+      margin-bottom: 10px;
+    }
   }
 
   @media screen and (max-width: 767px) {
@@ -141,29 +145,6 @@
 
     font-size: 20px;
     line-height: 1.4;
-
-    &::before {
-      content: '—';
-      font-size: 20px;
-      line-height: 1.65;
-    }
-  }
-}
-
-.problems-item-count {
-  &::before {
-    content: '0' counter(steps);
-    display: inline-flex;
-    color: $bright-color-orange;
-  }
-}
-
-.problems-item-text {
-  margin-top: 5px;
-  display: block;
-
-  @media screen and (min-width: $desktop) {
-    margin-top: 10px;
   }
 }
 
