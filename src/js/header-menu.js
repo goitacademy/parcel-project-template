@@ -57,9 +57,6 @@
 			change = to - start,
 			currentTime = 0,
 			increment = 20;
-		console.log('start:', start); //DEBUG
-		console.log('to:', to); //DEBUG
-		console.log('change:', change); //DEBUG
 		
 		var animateScroll = function() {
 			// increment the time
