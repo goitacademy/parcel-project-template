@@ -44,8 +44,7 @@
 
 .how-we-do-item {
   position: relative;
-  margin-top: 15px;
-  padding: 30px 4px 10px;
+  margin: 15px auto 0;
 
   display: flex;
   flex-direction: column;
@@ -54,6 +53,42 @@
   flex-basis: calc(100% - 15px);
   max-width: 340px;
   height: 280px;
+  box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.1);
+
+  &:hover .how-we-do-svg,
+  &:hover .how-we-do-title,
+  &:hover .how-we-do-title::after,
+  &:hover .how-we-do-paragraph {
+    fill: $light-color-white;
+    color: $light-color-white;
+  }
+
+  @media screen and (max-width: 289px) {
+    height: 100%;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: 1359px) {
+    margin-top: 27px;
+    margin-left: 20px;
+
+    flex-basis: calc(100% / 2 - 27px - 20px);
+    min-width: 334px;
+    height: 334px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin: 10px;
+
+    flex-basis: calc((100% - 2 * 20px) / 3);
+    min-width: 424px;
+    height: 396px;
+  }
+}
+
+.how-we-do-wrapper {
+  padding: 30px 4px 10px;
+  width: 100%;
+  height: 100%;
 
   background: linear-gradient(
     to right,
@@ -64,20 +99,9 @@
   background-size: 204% 104%;
   background-position: 100%;
   transition: background-position 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.1);
 
-  &:hover,
-  &:hover .how-we-do-svg,
-  &:hover .how-we-do-title,
-  &:hover .how-we-do-title::after,
-  &:hover .how-we-do-paragraph {
-    fill: $light-color-white;
-    color: $light-color-white;
+  &:hover {
     background-position: 0 100%;
-  }
-
-  @media screen and (max-width: 289px) {
-    height: 100%;
   }
 
   @media screen and (min-width: $mobile) and (max-width: 767px) {
@@ -86,21 +110,10 @@
 
   @media screen and (min-width: $tablet) and (max-width: 1359px) {
     padding: 40px 19px 20px;
-    margin-top: 27px;
-    margin-left: 20px;
-
-    flex-basis: calc(100% / 2 - 27px - 20px);
-    min-width: 334px;
-    height: 334px;
   }
 
   @media screen and (min-width: $desktop) {
     padding: 40px 31px 55px;
-    margin: 10px;
-
-    flex-basis: calc((100% - 2 * 20px) / 3);
-    min-width: 424px;
-    height: 396px;
   }
 }
 
