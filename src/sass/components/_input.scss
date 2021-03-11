@@ -12,11 +12,20 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 1.21;
+  &::placeholder {
+    color: var(--light-color);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.21;
+  }
   &:hover,
   :active,
   :focus {
     outline: none;
     border: 1px solid var(--acsent-color);
+  }
+  &:not(:placeholder-shown):invalid {
+    border-color: red;
   }
   @media screen and (min-width: 768px) {
     width: 390px;
@@ -28,5 +37,9 @@
     font-size: 20px;
     line-height: 1.2;
     margin-bottom: 30px;
+    ::placeholder {
+      font-size: 20px;
+      line-height: 1.2;
+    }
   }
 }
