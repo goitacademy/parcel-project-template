@@ -33,7 +33,14 @@
         bottom: 0;
         width: 176px;
         height: 137px;
-        background-image: url(../images/bg-programm-img.png);
+        background-image: url('../images/bg-programm.png');
+        @media screen and (min-device-pixel-ratio: 2),
+          screen and (-webkit-min-device-pixel-ratio: 2),
+          screen and (-o-min-device-pixel-ratio: 2/1),
+          screen and (min-resolution: 192dpi),
+          screen and (min-resolution: 2dppx) {
+          background-image: url('../images/bg-programm@2x.png');
+        }
         background-size: 176px 137px;
         z-index: 1;
       }
@@ -56,13 +63,21 @@
         margin-bottom: 50px;
         & .hidden {
           color: var(--primaries-color);
+          pointer-events: none;
         }
         & ::after {
           left: -280px;
           top: -198px;
           width: 760px;
           height: 502px;
-          background-image: url(../images/bg-programm-img2.png);
+          background-image: url('../images/bg-programm2.png');
+          @media screen and (min-device-pixel-ratio: 2),
+            screen and (-webkit-min-device-pixel-ratio: 2),
+            screen and (-o-min-device-pixel-ratio: 2/1),
+            screen and (min-resolution: 192dpi),
+            screen and (min-resolution: 2dppx) {
+            background-image: url('../images/bg-programm2@2x.png');
+          }
           background-size: 760px 502px;
         }
       }
@@ -112,7 +127,7 @@
       }
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1366px) {
+    @media screen and (min-width: 768px) and (max-width: 1365px) {
       padding: 22px 0 190px 62px;
       & > .item {
         padding: 0 0 30px 56px;
@@ -150,7 +165,6 @@
     @media screen and (min-width: 1366px) {
       padding: 60px 0 0;
       margin-right: -30px;
-      border-top: 1px solid var(--light-color);
       & > .item {
         padding: 0;
         margin-right: 30px;
@@ -170,8 +184,7 @@
   }
 
   & .numbered-list {
-    position: relative;
-    z-index: 2;
+    padding-bottom: 0;
     margin-bottom: -20px;
     & .item {
       margin-bottom: 20px;
@@ -185,25 +198,28 @@
     );
     padding-top: 60px;
     & .numbered-list {
-      margin-bottom: -30px;
-      & .item {
+      padding-bottom: 5px;
+      & .item:not(:nth-child(n + 4)) {
         margin-bottom: 30px;
       }
     }
   }
   @media screen and (min-width: 1366px) {
-    /*background-image: linear-gradient(
+    background-image: linear-gradient(
       to bottom,
       var(--primaries-color) 86%,
       var(--light-color) 86%
-    );*/
+    );
     padding-top: 120px;
+    & .title-tumb {
+      border-bottom: 1px solid var(--light-color);
+    }
     & .list-programm {
       display: flex;
       justify-content: space-between;
     }
     & .numbered-list {
-      padding-left: 82px;
+      padding: 70px 82px 50px;
     }
   }
 }
