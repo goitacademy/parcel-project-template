@@ -3,14 +3,25 @@
   align-items: center;
   justify-content: center;
 }
-@mixin button-maker ($width: 100px, $height: 44px, $color-font: #D41443, $bcg-color: #ffffff) {
-   
+
+@mixin font($fs: 16px, $fw: 500, $lh: 28px) {
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lh/$fs;
+}
+
+@mixin button-maker(
+  $width: 100px,
+  $height: 44px,
+  $color-font: #d41443,
+  $bcg-color: #ffffff
+) {
   min-width: $width;
-  height:$height;
-  
+  height: $height;
+
   display: inline-flex;
   justify-content: center;
-  align-items: center;	
+  align-items: center;
 
   color: $color-font;
   background: $bcg-color;
@@ -24,3 +35,35 @@
   border-radius: 22px;
   cursor: pointer;
 }
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-only {
+  @media (max-width: 1199px) {
+    @content;
+  }
+}
+

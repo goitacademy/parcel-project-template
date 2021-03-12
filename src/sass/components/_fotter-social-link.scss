@@ -1,1 +1,48 @@
+.social {
+  @include flex-center;
+  justify-content: flex-end;
+}
 
+.social__item {
+  &:not(:last-child) {
+    margin-right: 29px;
+  }
+}
+
+.social__link {
+  @include flex-center;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    svg {
+      fill: $primary-white-color;
+    }
+  }
+}
+.social__icon {
+  height: 40px;
+  width: 40px;
+
+  background: $subtitle-text-color;
+}
+.social__contact {
+  @include font(12px, 500, 22px);
+  color: $head-text-color;
+
+  span {
+    color: $accent-color;
+  }
+  @include for-tablet-portrait-up {
+    @include font(14px, 500, 26px);
+  }
+
+  @include for-desktop-up {
+    @include font(16px, 500, 30px);
+  }
+}
