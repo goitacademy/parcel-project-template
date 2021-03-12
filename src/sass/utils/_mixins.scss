@@ -37,21 +37,29 @@
   letter-spacing: $ls;
 }
 
-@mixin button() {
-  min-width: 200px;
-  background-color: $btn-color;
+@mixin button(
+  $mw: 62px,
+  $btn-clr: $accent-btn-background-color,
+  $txt-clr: $text-color,
+  $fs: 8px,
+  $fw: 400,
+  $lh: 10px,
+  $pt: 10px,
+  $pb: 10px,
+  $pl: 10px,
+  $pr: 10px
+) {
+  min-width: $mw;
+  background-color: $btn-clr;
   border: none;
   border-radius: 20px;
-
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20.83;
+  display: inline-block;
+  font-family: inherit;
+  font-weight: $fw;
+  font-size: $fs;
+  line-height: decimal-round($lh/$fs, 3);
   text-align: center;
   letter-spacing: 0.06em;
-  color: $accent-color;
-}
-
-@mixin btn-hover-focus() {
-  background-color: $btn-hover-color;
-  cursor: pointer;
+  color: $txt-clr;
+  padding: $pt $pr $pb $pl;
 }
