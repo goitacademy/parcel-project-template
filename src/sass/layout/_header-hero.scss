@@ -2,30 +2,12 @@
   background-color: var(--bg-header-hero);
 
   .container {
+    outline: 2px solid rgb(26, 32, 32);
+
     display: flex;
     align-items: center;
-
     padding-top: 21px;
     padding-bottom: 21px;
-
-    outline: 2px solid rgb(26, 32, 32);
-  }
-
-  .btn-light {
-    display: flex;
-    align-items: center;
-    padding: 12px 37px;
-    margin-left: auto;
-    border-radius: 22px;
-
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.313;
-
-    &:hover,
-    &:focus {
-      background-color: var(--bg-btn-light-hover);
-    }
   }
 }
 
@@ -34,22 +16,22 @@
   align-items: center;
 }
 
-.header-logo {
-}
-
 .header-logo__box {
-  position: relative;
-  margin-right: 110px;
+  @media screen and (max-width: 1279px) {
+    display: flex;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 110px;
+    position: relative;
+  }
 }
 
 .header-logo__icon-box {
-  position: absolute;
-  top: 50%;
-  left: -70px;
-  transform: translateY(-50%);
-
   width: 50px;
   height: 50px;
+  margin-right: 10px;
 
   display: flex;
   justify-content: center;
@@ -58,6 +40,17 @@
   fill: var(--color-design-white);
   background-color: var(--color-design-main);
   border-radius: 50%;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    top: 50%;
+    left: -70px;
+    transform: translateY(-50%);
+  }
 }
 
 .header-logo__caption {
@@ -71,6 +64,10 @@
 }
 
 .header__list {
+  @media screen and (max-width: 1279px) {
+    display: none;
+  }
+
   display: flex;
   align-items: center;
 }
@@ -99,7 +96,29 @@
   }
 }
 
-.header-button {
+.header-button.btn-light {
+  display: flex;
+  align-items: center;
+  padding: 12px 37px;
+  margin-left: 30px;
+  border-radius: 22px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.313;
+
+  &:hover,
+  &:focus {
+    background-color: var(--bg-btn-light-hover);
+  }
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: auto;
+  }
 }
 
 .header-button__caption {
