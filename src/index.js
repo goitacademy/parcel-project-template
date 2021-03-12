@@ -10,17 +10,17 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const swiper = new Swiper('.swiper-container', {
     loop: true,
-    //   spaceBetween: 30,
-    //   centeredSlides: true,
-    //   autoplay: {
-    //     delay: 2500,
-    //     disableOnInteraction: true,
-    //   },
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: true,
+      },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
         bulletActiveClass: 'customer-reviews__dots--active',
-        bulletClass:'customer-reviews__dots'
+        bulletClass: 'customer-reviews__dots'
       },
       navigation: {
         nextEl: '.swiper-button-next',
