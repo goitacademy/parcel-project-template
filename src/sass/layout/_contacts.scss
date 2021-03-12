@@ -1,4 +1,12 @@
+.dash {
+  display: block;
+  background-color: var(--dash-color);
+  width: 100%;
+  height: 1px;
+  margin-bottom: 25px;
+}
 .contacts {
+  font: var(--text-main-font);
   padding-bottom: 115px;
   background: rgb(255, 255, 255);
   background: linear-gradient(
@@ -7,8 +15,15 @@
     rgba(255, 255, 255, 1) 81px,
     rgba(255, 245, 246, 1) 81px
   );
+  &-labe-color-cafe {
+    background-color: var(--products-ice-coffee);
+  }
+  &-labe-color-foodtruck {
+    background-color: var(--products-milkshakes);
+  }
 
   &-item {
+    display: block;
     min-width: 220px;
     background-color: #fff;
     box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
@@ -16,9 +31,12 @@
   }
   &-type {
     border-radius: 4px;
-    background-color: violet;
+
     padding: 0px 25px;
     text-transform: uppercase;
+    margin: 0;
+    border: none;
+    display: inline-block;
 
     font-style: normal;
     font-weight: 500;
@@ -27,6 +45,55 @@
     /* or 22px */
 
     letter-spacing: 0.04em;
+  }
+  &-type-bg {
+    margin-bottom: 25px;
+  }
+  &-city {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.86;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+  }
+  &-description {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.5;
+
+    color: var(--contacts-text-color);
+    margin-bottom: 25px;
+  }
+  &-days {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.86;
+  }
+  &-hours {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.86;
+    color: var(--sub-title-elipse);
+    margin-bottom: 25px;
+  }
+  &-info {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--contacts-text-color);
+    display: flex;
+    flex-direction: column;
+  }
+  &-tel {
+    color: currentColor;
+  }
+  &-mail {
+    color: currentColor;
   }
 
   @media screen and (max-width: 767px) {
@@ -47,8 +114,16 @@
     &-button-item:not(:last-child) {
       margin-bottom: 10px;
     }
+    &-button-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
   @media screen and (min-width: 768px) {
+    .dash {
+      margin-bottom: 30px;
+    }
     .contacts {
       padding-bottom: 158px;
       background: rgb(255, 255, 255);
@@ -65,11 +140,45 @@
       margin: 10px;
     }
     &-type {
-      border-radius: 4px;
-      background-color: violet;
-      padding: 8px 15px;
+      font-size: 16px;
+      border-radius: 6px;
+
+      padding: 5px 15px;
       text-transform: uppercase;
+      font-size: 16px;
+      line-height: 1.86;
     }
+    &-city {
+      font-size: 14px;
+      line-height: 1.86;
+    }
+    &-description {
+      font-size: 16px;
+      line-height: 1.66;
+      margin-bottom: 30px;
+    }
+
+    &-days {
+      font-size: 14px;
+      line-height: 1.86;
+    }
+    &-hours {
+      font-size: 14px;
+      line-height: 1.86;
+      margin-bottom: 16px;
+    }
+    &-work-hours {
+      margin-bottom: 30px;
+    }
+    &-info {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    &-tel {
+    }
+    &-mail {
+    }
+
     &-list {
       margin-bottom: 81px;
       display: flex;
@@ -77,6 +186,7 @@
     }
     &-button-list {
       display: flex;
+      justify-content: center;
     }
     &-button-item:not(:last-child) {
       margin-right: 15px;
