@@ -13,14 +13,15 @@ const swiper = new Swiper('.swiper-container', {
       spaceBetween: 30,
       centeredSlides: true,
       autoplay: {
-        delay: 2500,
+        delay: 5000,
         disableOnInteraction: true,
       },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
         bulletActiveClass: 'customer-reviews__dots--active',
-        bulletClass: 'customer-reviews__dots'
+        bulletClass: 'customer-reviews__dots',
+        modifierClass: 'customer-reviews__pagination'
       },
       navigation: {
         nextEl: '.swiper-button-next',
