@@ -1,29 +1,73 @@
 .header-hero {
-  height: 100vh;
   background-color: var(--ice-cream-color);
+
+  @media screen and (max-width: 480px) {
+    height: 100vh;
+  }
 }
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  height: 60px;
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    left: 34px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    align-items: baseline;
+    justify-content: end;
+  }
+
+  //   height: 60px;
+}
+
+.logo-header {
+  @media screen and (min-width: 1200px) {
+    position: absolute;
+    left: 46px;
+    top: 37px;
+  }
 }
 
 .btn-buy {
+  margin-top: 40px;
   @media screen and (max-width: 767px) {
     display: none;
   }
 }
 
-.nav_list {
-  @media screen and (max-width: 1199px) {
+.menu_button {
+  @media screen and (min-width: 1200px) {
     display: none;
   }
 }
 
+.nav_list {
+  display: flex;
+  margin-top: 52px;
+
+  @media screen and (max-width: 1199px) {
+    display: none;
+  }
+
+  & .nav_item {
+    @include font(16px, 700, 21px);
+    color: var(--secondary-text-color);
+
+    &:not(:last-child) {
+      margin-right: 35px;
+    }
+  }
+}
+
+// hero
+
 .hero {
-  //   position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
 .headline-bottom {
@@ -39,12 +83,23 @@
   top: 193px;
 
   z-index: 998;
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+  }
 }
 
 .box-right {
+  margin-top: 74px;
   @media screen and (max-width: 767px) {
     display: none;
   }
+}
+
+.points-item-qty {
+  font-family: var(--primary-font);
+  @include font(46px, 400, 53px);
+  color: var(--title-text-color);
 }
 
 .box-center {
@@ -56,6 +111,11 @@
     left: 117px;
     top: 92px;
     z-index: 997;
+
+    @media screen and (min-width: 1200px) {
+      left: 594px;
+      top: 108px;
+    }
   }
   &::before {
     position: absolute;
@@ -68,6 +128,16 @@
     top: 83px;
     border-radius: 50%;
     background-color: var(--product-text-color);
+
+    @media screen and (min-width: 768px) {
+      left: 307px;
+      top: 31px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      left: 475px;
+      top: 52px;
+    }
   }
 }
 
