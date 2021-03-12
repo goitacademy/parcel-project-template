@@ -6,7 +6,7 @@ $(document).ready(function () {
             speed: 500,
             infinite: false,
             autoplay: true,
-            autoplaySpeed: 5000,
+            autoplaySpeed: 3000,
             pauseOnDotsHover: true,
             // appendDots:$('.sviper-dots'),
         }
