@@ -1,86 +1,48 @@
-// .section-hero {
-//     height: 502px;
-//     @media screen and (min-width: 768px) {
-//         height: 399px;
-//     }
-//     @media screen and (min-width: 1200px) {
-//         height: 665px;
-//     }
-// }
-
-  // .section-hero & {
-  //   display: flex;
-  //   justify-content: space-between;
-  // position: relative;
-  // padding-top: 83px;
-  // height: 502px;
-  // background-color: $accent-background-color;
-  // overflow: hidden;
-
-  // @media screen and (min-width: 768px) {
-  //   padding-top: 31px;
-  //   height: 399px;
-  // }
-
-  // @media screen and (min-width: 1200px) {
-  //   padding-top: 52px;
-  //   height: 665px;
-  // }
-  // }
+.section-hero {
+  background-color: $accent-background-color;
+}
 
 .hero-title-navigation {
-  margin-top: 193px;
-  width: 106px;
+  margin-top: 110px;
+  width: 218px;
   z-index: 2;
   @media screen and (min-width: 768px) {
-    margin-top: 102px;
-    width: 80px;
+    margin-top: 71px;
+    width: 162px;
   }
   @media screen and (min-width: 1200px) {
-    margin-top: 171px;
-    width: 137px;
+    margin-top: 119px;
+    width: 277px;
   }
 }
 
 .hero-title {
   margin-bottom: 20px;
-  font-family: Titan One;
-  font-weight: 400px;
-  font-size: 26px;
-  line-height: 30px;
-  letter-spacing: 0.04em;
+  font-family: $title-text-font;
   text-transform: uppercase;
-
-  color: #ffffff;
+  color: $text-color;
+  @include font($fs: 26px, $fw: 400, $lh: 30px);
   @media screen and (min-width: 768px) {
-    font-size: 22px;
-    line-height: 26px;
+    @include font($fs: 22px, $fw: 400, $lh: 26px);
   }
-
+  
   @media screen and (min-width: 1200px) {
     margin-bottom: 25px;
-    font-size: 38px;
-    line-height: 44px;
+    @include font($fs: 38px, $fw: 400, $lh: 44px);
   }
 }
 
 .hero-title-passion {
-  font-family: Titan One;
-  font-weight: 400;
-  font-size: 48px;
-  line-height: 46px;
-  letter-spacing: 0.04em;
+  font-family: $title-text-font;
   text-transform: uppercase;
-
-  color: #d41443;
+  color: $accent-color;
+  @include font($fs: 48px, $fw: 400, $lh: 46px);
   @media screen and (min-width: 768px) {
-    font-size: 34px;
-    line-height: 30px;
+    @include font($fs: 34px, $fw: 400, $lh: 30px);
   }
   @media screen and (min-width: 1200px) {
     margin-bottom: 25px;
-    font-size: 58px;
-    line-height: 52px;
+    @include font($fs: 58px, $fw: 400, $lh: 52px);
   }
 }
 
@@ -101,24 +63,21 @@
   min-width: 62px;
   height: 24px;
   border-radius: 20px;
-  background: #d41443;
-  font-family: DM Sans;
-  font-weight: 400;
-  font-size: 8px;
-  line-height: 10px;
+  background-color: $accent-btn-background-color;
   text-align: center;
-  color: #ffffff;
+  color: $text-color;
+  transition: background-color $time-hover linear;
+  @include font($fs: 8px, $fw: 400, $lh: 10px);
   @media screen and (min-width: 1200px) {
-    width: 104px;
+    min-width: 104px;
     height: 40px;
-    font-size: 14px;
-    line-height: 18px;
+    @include font($fs: 14px, $fw: 400, $lh: 18px);
   }
-
+  
   &:hover,
   &:focus {
     cursor: pointer;
-    background-color: #c7133e;
+    background-color: $accent-btn-hover-color;
   }
 }
 
@@ -127,30 +86,26 @@
   min-width: 82px;
   height: 24px;
   border-radius: 20px;
-  background: #ffffff;
-  font-family: DM Sans;
-  font-weight: 400;
-  font-size: 8px;
-  line-height: 10px;
+  background-color: $btn-background-color;
   text-align: center;
-  color: #d41443;
+  color: $accent-color;
+  transition: background-color $time-hover linear;
+  @include font($fs: 8px, $fw: 400, $lh: 10px);
   @media screen and (min-width: 1200px) {
-    width: 138px;
+    min-width: 138px;
     height: 40px;
-    font-size: 14px;
-    line-height: 18px;
+    @include font($fs: 14px, $fw: 400, $lh: 18px);
   }
-
+  
   &:hover,
   &:focus {
     cursor: pointer;
-    background-color: #ecebeb;
+    background-color: $btn-hover-color;
   }
 }
 
 .hero-milk-block {
   display: none;
-  // z-index: 1;
 
   @media screen and (min-width: 768px) {
     position: absolute;
@@ -163,6 +118,7 @@
   @media screen and (min-width: 1200px) {
     bottom: 45px;
     left: 77px;
+    z-index: 2;
   }
 }
 
@@ -176,25 +132,23 @@
 .hero-milk-description {
   width: 114px;
   height: 48px;
-  font-family: DM Sans;
-  font-weight: 400;
-  font-size: 8px;
-  line-height: 12px;
-  color: #ffffff;
+  color: $text-color;
+  @include font($fs: 8px, $fw: 400, $lh: 12px);
   @media screen and (min-width: 1200px) {
-    font-size: 14px;
-    line-height: 20px;
     width: 200px;
     height: 78px;
+    @include font($fs: 14px, $fw: 400, $lh: 20px);
   }
 }
 
 .hero-ice-cream-pic {
   position: absolute;
   bottom: 0;
-  right: 32px;
+  left: 36.56vw;
+  // right: 32px;
   z-index: 1;
   @media screen and (min-width: 768px) {
+    left: auto;
     right: 247px;
   }
   @media screen and (min-width: 1200px) {
@@ -209,7 +163,7 @@
   width: 346px;
   height: 344px;
   border-radius: 50%;
-  background-color: #ffa5ba;
+  background-color: $ellipse-background-color;
   bottom: 75px;
   left: -81px;
   z-index: -1;
@@ -239,16 +193,11 @@
 }
 
 .hero-stores-item {
-  font-family: DM Sans;
-  font-weight: 400;
-  font-size: 8px;
-  line-height: 18px;
   text-align: right;
-
-  color: #ffffff;
+  color: $text-color;
+  @include font($fs: 8px, $fw: 400, $lh: 10px);
   @media screen and (min-width: 1200px) {
-    line-height: 10px;
-    font-size: 14px;
+    @include font($fs: 14px, $fw: 400, $lh: 10px);
   }
   &:not(:last-child) {
     margin-bottom: 14px;
@@ -260,21 +209,16 @@
 
 .hero-stores-count {
   position: relative;
-  font-family: Titan One;
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 32px;
-
+  font-family: $title-text-font;
   text-align: right;
-  letter-spacing: 0.04em;
   text-transform: uppercase;
-
-  color: #d41443;
+  @include font($fs: 28px, $fw: 400, $lh: 32px);
+  
+  color: $accent-color;
   z-index: 2;
-
+  
   @media screen and (min-width: 1200px) {
-    font-size: 46px;
-    line-height: 53px;
+    @include font($fs: 46px, $fw: 400, $lh: 53px);
   }
   &::before {
     position: absolute;
@@ -284,7 +228,7 @@
     content: '';
     width: 16px;
     height: 16px;
-    background: #ffffff;
+    background: $body-background-color;
     border-radius: 50%;
     z-index: -1;
     @media screen and (min-width: 1200px) {
