@@ -1,0 +1,288 @@
+.production .container {
+  //это потом убрать
+  padding-right: 20px;
+  padding-left: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding-right: 36px;
+    padding-left: 36px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-right: 75px;
+    padding-left: 75px;
+  }
+}
+
+.production {
+  //общие стили для всех секций - надо перенести в общий стиль для секции
+  padding-top: 125px;
+  padding-bottom: 48px;
+  @media screen and (min-width: 768px) {
+    padding-top: 130px;
+    padding-bottom: 70px;
+  }
+  @media screen and (min-width: 1200px) {
+    padding-top: 125px;
+  }
+
+  // стили для этой секции
+  background-color: $section-background-color;
+
+  //фон с брызгами молока по сторонам
+
+  //на мобильных
+  @media screen and (max-width: 767px) {
+    background-image: url('../images/production/productionbg/production-bg-mobile.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 766px;
+  }
+  @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+    screen and (min-resolution: 192dpi) and (max-width: 767px),
+    screen and (min-resolution: 2dppx) and (max-width: 767px) {
+    background-image: url('../images/production/productionbg/production-bg-mobile@2x.png');
+  }
+
+  //на десктопах
+  @media screen and (min-width: 1200px) {
+    background-image: url('../images/production/productionbg/production-bg-desktop.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 342px;
+  }
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
+    screen and (min-resolution: 192dpi) and (min-width: 1200px),
+    screen and (min-resolution: 2dppx) and (min-width: 1200px) {
+    background-image: url('../images/production/productionbg/production-bg-desktop@2x.png');
+  }
+}
+
+.production__subtitle {
+  //общие стили для подзаголовка
+  font-family: Titan One;
+  @include font(18px, 400, 21px, 00.04em);
+  text-align: center;
+  text-transform: uppercase;
+  color: $title-text-color;
+
+  @media screen and (min-width: 768px) {
+    font-size: 26px;
+    line-height: 1.15;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 30px;
+  }
+  // стили заголавка этой секции
+  margin-bottom: 15px;
+}
+
+.production__title {
+  //общие стили для заголовка
+  font-family: Titan One;
+  @include font(34px, 400, 39px, 00.04em);
+  text-align: center;
+  text-transform: uppercase;
+  color: $accent-color;
+  margin-left: auto;
+  margin-right: auto;
+
+  // стили заголавка этой секции
+  margin-bottom: 26px;
+
+  @media screen and (max-width: 767px) {
+    width: 200px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+    line-height: 1.15;
+    margin-bottom: 50px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 58px;
+    margin-bottom: 55px;
+  }
+}
+
+.production__thumb {
+  @media screen and (max-width: 767px) {
+    margin-bottom: 46px;
+  }
+}
+
+.production_div {
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+  //нижний отступ секции
+  padding-bottom: 39px;
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    padding-bottom: 66px;
+  }
+}
+
+.production__img {
+  display: block;
+}
+
+.production__thumb {
+  // @media screen and (min-width: 768px) {
+  //   width: 340px;
+  // }
+}
+
+// блок с текстом и кнопка
+.production__description {
+  @include font(12px, 500, 19px, 0);
+  color: $text-description-color;
+
+  &--bold {
+    margin-bottom: 35px;
+    font-weight: 500;
+    color: $text-additional-color;
+    @media screen and (min-width: 768px) {
+      letter-spacing: 0em;
+    }
+    @media screen and (min-width: 1200px) {
+      font-size: 16px;
+      line-height: 1.65;
+      letter-spacing: 0.04em;
+      margin-bottom: 39px;
+    }
+  }
+  &--second {
+    padding-bottom: 10px;
+    @media screen and (min-width: 1200px) {
+      padding-bottom: 25px;
+    }
+    //переносим слово tincidunt на новую строку в мобилке
+    & span {
+      @media screen and (max-width: 767px) {
+        display: block;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-top: 50px;
+    margin-left: 16px;
+    width: 340px;
+    letter-spacing: 0.04em;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-left: 74px;
+    margin-top: 47px;
+    width: 460px; //463
+    font-size: 14px;
+    line-height: 1.94;
+  }
+}
+//Кнопка
+.production__button {
+  @include button();
+  padding: 10px 30px;
+  align-items: center;
+  width: 176px;
+  height: 44px;
+  // display: block;
+
+  background-color: $body-background-color;
+  color: $accent-color;
+  @media screen and (max-width: 767px) {
+    margin-top: 17px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-top: 62px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-top: 45px;
+  }
+}
+
+.production__list {
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+.production__item {
+  @media screen and (max-width: 767px) {
+    margin-right: 50px;
+    &:not(:last-child) {
+      margin-bottom: 38px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    &:not(:last-child) {
+      margin-right: 75px;
+    }
+    &:last-child {
+      margin-right: 55px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    &:not(:last-child) {
+      margin-right: 78px;
+    }
+    &:last-child {
+      margin-right: 48px;
+    }
+  }
+}
+
+.production__item::before {
+  content: '';
+  display: block;
+  height: 50px;
+  background-repeat: no-repeat;
+  margin-bottom: 16px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 36px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 40px;
+  }
+}
+
+.production__item:nth-child(1)::before {
+  background-image: url('../images/production/icons/icon1.svg');
+}
+.production__item:nth-child(2)::before {
+  background-image: url('../images/production/icons/icon2.svg');
+}
+.production__item:nth-child(3)::before {
+  background-image: url('../images/production/icons/icon3.svg');
+}
+
+.production__item-title {
+  font-family: Titan One;
+  @include font(36px, 400, 41px, 00.04em);
+  color: $accent-color;
+  margin-bottom: 12px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 13px;
+    font-size: 48px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 15px;
+    font-size: 58px;
+  }
+}
+
+.production__item-desc {
+  @include font(12px, 700, 20px, 0);
+  color: $text-additional-color;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.74;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 16px;
+    line-height: 1.65;
+    letter-spacing: 0.02em;
+  }
+}
