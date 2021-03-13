@@ -3,10 +3,7 @@
 button {
     padding: 0;
     margin: 0;
-    border: 0;
-    
 }
-
 
 .font-heading {
     font-family: Titan One;
@@ -18,16 +15,12 @@ button {
 }
 
 .products-description{
-
-    // margin-top: 66px;
-
     font-family: DM Sans;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 1.52;
-    
-    color: #FFFFFF;
+    color: $primary-white-color;
     text-transform: none;
 
     &-details{
@@ -67,13 +60,14 @@ button {
     }
 
     & span {
-        color: #FFA5BA;
+        display: block;
+        color: $subtitle-text-color;
         font-size: 18px; 
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     & h1 {
         font-size: 34px; 
-        color: #D41443;
+        color: $accent-color;
         margin-bottom: 30px;
     }
     
@@ -82,20 +76,19 @@ button {
         position: relative;
         width: 100%;
         min-height: 485px;
-        // padding-top: 161px;
+       
         padding-top: 50vw;
         padding-left: 40px;
         padding-right: 40px;
         padding-bottom: 40px;      
-        // margin-top: 130px;
+     
         margin-top: 40vw;
         border-radius: 24px;
     }
 
     & h2 {
         font-size: 20px;
-        color: #FFFFFF; 
-        // margin-bottom: 66px;
+        color: $primary-white-color; 
         margin-bottom: 20vw;
     }
     &-after::after {
@@ -106,11 +99,10 @@ button {
         height: 0;
         width: 0;
         position: absolute;
-        // top: 190px;
         top: 59vw;
         left: 50%;
         transform: translateX(-20px);      
-        background-color: #FFFFFF;
+        background-color: $primary-white-color;
 }
 
 }
@@ -126,39 +118,58 @@ button {
 	    width: 90%;
         height: 78vw;
 	    // height: 252px;
-        background-image: url("../images/products/mob/#{$product}-prod-1x.png");
+        
         background-repeat: no-repeat;      
         background-position: center;   
-        background-size: cover;
+        background-size: contain;
+        background-image: url("../images/products/mobile/product-#{$product}-249.png");
+
+        @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+         screen and (min-resolution: 2dppx){
+          background-image: url("../images/products/mobile/product-#{$product}-498.png");   
+         }
 
         @media screen and (min-width: 768px) {
         top: -113px;
         height: 252px;
-        background-image: url("../images/products/mob/#{$product}-prod-1x.png");
-        background-size: auto;
+        background-image: url("../images/products/tablet/product-#{$product}-220.png");
+        // background-size: auto;
         }
-        @media screen and (min-width: 1200px) {
-        background-image: url("../images/products/mob/#{$product}-prod-1x.png");
+         @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+        screen and (min-resolution: 192dpi) and (min-width: 768px),
+        screen and (min-resolution: 2dppx) and (min-width: 768px){
+        // top: -226px;
+        // height: 504px;
+        background-image: url("../images/products/tablet/product-#{$product}-440.png");
+        }
+        @media screen and (min-width: 1280px) {
         width: 335px;
         height: 335px;
         left: -3px;
+        top: -210px;
+        background-image: url("../images/products/desktop/product-#{$product}-335.png");
         }
-
+        @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+        screen and (min-resolution: 192dpi) and (min-width: 1280px),
+        screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+        background-image: url("../images/products/desktop/product-#{$product}-670.png");
+        }
 
     }
 
     .products {
         
         &-icecream::before {
-        @include products-before(icecream);
+        @include products-before(1);
        }
       
        &-icecoffee::before {
-        @include products-before(icecoffee);
+        @include products-before(2);
        }
       
       &-milkshake::before {
-        @include products-before(milkshake);
+        @include products-before(3);
         }
        
     }
@@ -197,7 +208,7 @@ button {
     }
     
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
 
     .products {
         padding-top: 127px;
@@ -212,21 +223,18 @@ button {
         
         width: 329px;
         min-height: 525px;         
-        margin-top: 130px;
+        margin-top: 210px;
         
         &:not(:last-child){
             margin-right: 30px;
         }
     }
-
-    .products-after::after {
-        top:190px;
-    }
-    .products h2 {
-        margin-bottom: 66px;
-    }
+  
     .products h1 {
         margin-bottom: 50px;
+    }
+    .products-description-details {
+        margin-top: 62px;
     }
 }
 
