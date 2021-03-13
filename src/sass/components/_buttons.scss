@@ -9,9 +9,29 @@
   }
 }
 .header-btn {
-  @include button();
+  @include button(
+    $mw: 62px,
+    $btn-clr: $btn-background-color,
+    $txt-clr: $accent-color,
+    $fs: 16px,
+    $fw: 700,
+    $lh: 21px,
+    $pt: 10px,
+    $pb: 10px,
+    $pl: 10px,
+    $pr: 10px
+  );
   width: 159px;
   height: 44px;
   padding: 10px 30px;
   align-items: center;
+
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $btn-hover-color;
+  }
 }
