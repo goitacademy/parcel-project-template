@@ -1,0 +1,150 @@
+// Mobile Menu
+.mobile__menu {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: scroll;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(-100%) scale(0);
+
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    // background-color: var(--primary-bg-color);
+    background-color: #E17992;
+
+    z-index: 10;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.mobile__menu.is-open {
+    transform: translateX(-50%) translateY(0) scale(1);
+
+    opacity: 1;
+    visibility: visible;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px){
+    .mobile__menu {
+    width: 250px;
+    }
+}
+
+/////////////////////////
+.mobile__close__btn {
+    position: absolute;
+    top:10px;
+    right: 15px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    color: var(--primary-text-color);
+
+
+    &:focus
+    {
+        color: var(--accent-color);
+    }
+}
+
+
+// a:visited {
+//     // color:#990066;
+//     text-decoration: none;
+// }
+
+
+.menu__close__btn__icon {
+    width: 40px;
+    height: 40px;
+    fill: currentColor;
+    
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:focus {
+        fill: var(--accent-color);
+    }
+
+}
+
+.mobile__menu__nav {
+    margin-bottom: 64px;
+}
+
+//Mobile BTN
+.btn__order {
+    width: 186px;
+    height: 44px;
+  
+    border-radius: 22px;
+    
+    background-color: #FFFFFF;
+    color: #D41443;
+  
+    // Левый паддинг измерил вручную
+    padding-left: 52;
+    padding-right: 43px;
+  
+    margin-bottom: 32px;
+  }
+  
+  .btn__title {
+   
+  font-weight: 700;
+  //MIXIN Добавить //////////////////////////////
+  font-size: 16px;
+  line-height: 21px;
+  
+  color: #D41443;
+  }
+  // END Mobile BTN
+  
+  //Mobile Navigation
+  .mobile__menu__nav {
+  
+      & .nav__item{
+          display: block;
+          width: 250px;
+          height: 42px;
+  
+          border-top: 1px solid #E18298;
+  
+          &:last-child {
+              border-bottom:  1px solid #E18298;
+          }
+      }
+  }
+  
+  .mobile__menu__item {
+  font-weight: 700;
+  //MIXIN Добавить //////////////////////////
+  font-size: 14px;
+  line-height: 18px;
+  
+  color: #FFFFFF;
+     
+  font-weight: 700;
+  //MIXIN Добавить ///////////////////////
+  font-size: 14px;
+  line-height: 18px;
+  }
+  
+  // .nav__item:not(:last-child) {
+  //     margin-bottom: 23px;
+  // }
+  
+  .mobile__menu__item:focus {
+      // color: var(--accent-color);
+      color: #D41443;
+  }
