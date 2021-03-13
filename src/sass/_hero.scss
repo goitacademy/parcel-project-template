@@ -27,7 +27,7 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: $text-white-color;
-  width: 220px;
+  max-width: 220px;
   margin-bottom: 20px;
 }
 .hero-title-accent {
@@ -37,14 +37,15 @@
 }
 .hero-list {
   display: flex;
+  .hero-item {
+    margin-right: 8px;
+    &:not(:first-child) {
+      margin-right: 0;
+    }
+  }
 }
 
 .hero-item {
-  margin-right: 8px;
-  &:not(:first-child) {
-    margin-right: 0;
-  }
-
   .button {
     display: block;
     padding: 5px 10px;
@@ -95,30 +96,34 @@
   }
 }
 
-@media screen and (min-width: 480px) {
-  .hero-container {
-    // width: 480px;
-  }
-}
+// @media screen and (min-width: 480px) {
+//   .hero-container {
+//     width: 480px;
+//   }
+// }
 
 @media screen and (min-width: 768px) {
-  .hero-container {
-    // width: 768px;
-    padding: 0 34px;
-    display: flex;
+  .hero {
+    .header-container {
+      padding: 0 34px;
+      display: flex;
+    }
   }
   .hero-description,
   .counter-list,
   .hero-accent {
     display: flex;
   }
+  .hero-list {
+    margin-bottom: 19px;
+  }
   .hero-description-img {
     max-width: 124px;
     margin-top: 19px;
   }
   .hero-title-box {
-    position: none;
-    // margin-top: 102px;
+    position: relative;
+    margin-top: 102px;
   }
   .hero-img {
     max-width: 324px;
@@ -133,16 +138,27 @@
     font-size: 34px;
     line-height: 31px;
   }
-
+  .hero-description {
+    align-items: flex-end;
+    display: flex;
+    // .hero-item {
+    //   align-items: flex-end;
+    // }
+  }
   .hero-description-section {
+    padding-bottom: 6px;
     max-width: 114px;
+    // display: flex;
+    // align-items: flex-end;
     .hero-description-text {
       font-weight: 400;
       font-size: 8px;
       line-height: 10px;
       color: $text-white-color;
+      margin-bottom: 7px;
     }
     .button {
+      padding: 0;
       width: 18px;
       height: 18px;
       display: flex;
@@ -151,16 +167,125 @@
     }
   }
   .arrow {
-    width: 10px;
-    height: 10px;
-    // fill: $text-red-color;
+    width: 6px;
+    height: 6px;
+    fill: $text-red-color;
+  }
+  .counter-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .counter-list {
+    display: inline-block;
+    margin-left: auto;
+    margin-bottom: 72px;
+    .counter-item:not(:last-child) {
+      margin-bottom: 13px;
+    }
+  }
+  .counter-description {
+    max-width: 51px;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 10px;
+    color: $text-white-color;
+    .counter-number {
+      font-family: 'Titan One', sans-serif;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 32px;
+      letter-spacing: 0.04em;
+      color: $text-red-color;
+    }
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .hero-container {
-    width: 1280px;
-    padding-right: 112px;
-    padding-left: 46px;
+  .hero {
+    .header-container {
+      width: 1280px;
+      padding: 0 112px;
+    }
+  }
+  .hero-list {
+    margin-bottom: 56px;
+    .hero-item {
+      margin-right: 15px;
+    }
+  }
+
+  .hero-description-img {
+    max-width: 188px;
+    margin-top: 56px;
+  }
+  .hero-description {
+    .hero-item {
+      margin-bottom: 45px;
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  .hero-title-box {
+    position: relative;
+    margin-top: 171px;
+  }
+  .hero-img {
+    max-width: 538px;
+    // height: 368;
+  }
+  .hero-title {
+    max-width: 277px;
+    font-size: 38px;
+    line-height: 44px;
+    margin-bottom: 25px;
+  }
+  .hero-title-accent {
+    font-size: 58px;
+    line-height: 52px;
+  }
+  .hero-item {
+    .button {
+      padding: 10px 20px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 0px;
+      height: 40px;
+    }
+  }
+  .hero-description-section {
+    padding-bottom: 9px;
+    max-width: 200px;
+    .hero-description-text {
+      font-size: 14px;
+      line-height: 18px;
+      margin-bottom: 20px;
+    }
+    .button {
+      padding: 0;
+      width: 26px;
+      height: 26px;
+    }
+  }
+  .arrow {
+    width: 10px;
+    height: 10px;
+  }
+  .counter-list {
+    margin-bottom: 109px;
+    .counter-item:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+  .counter-description {
+    max-width: 92px;
+    font-size: 14px;
+    line-height: 18px;
+    .counter-number {
+      font-size: 46px;
+      line-height: 53px;
+    }
   }
 }
