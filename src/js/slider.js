@@ -4,7 +4,7 @@ $(document).ready(function(){
     dots: true,
   infinite: true,
   autoplay: true,
-  autoplaySpeed: 2000,
+  autoplaySpeed: 5000,
   cssEase: 'linear'
   });
 });
