@@ -1,8 +1,14 @@
-@media screen and (max-width: 767px) {
-  .hero__description-thumb {
+.hero__description-thumb {
+  @media screen and (max-width: 767px) {
     display: none;
   }
-  .counter__thumb {
+  @media screen and (min-width: $tablet) {
+    max-width: 114px;
+    margin-right: auto;
+  }
+}
+.counter__thumb {
+  @media screen and (max-width: 1279px) {
     display: none;
   }
 }
@@ -15,6 +21,11 @@
   max-width: 220px;
   margin-top: 193px;
   z-index: 1;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 168px;
+    margin-top: 102px;
+  }
 }
 .hero__title {
   font-family: $ff-accent;
@@ -24,6 +35,12 @@
   text-transform: uppercase;
   color: var(--light-text-color);
   margin-bottom: 19px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 1.136;
+  }
 }
 .hero__span {
   font-family: $ff-accent;
@@ -31,6 +48,12 @@
   line-height: 0.958;
   text-transform: uppercase;
   color: var(--accent-primary-color);
+
+  @media screen and (min-width: $tablet) {
+    font-size: 34px;
+    line-height: 0.911;
+    letter-spacing: 0.04em;
+  }
 }
 .compositions-links {
   display: flex;
@@ -41,6 +64,10 @@
 }
 .compositions-links {
   margin-bottom: 160px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 66px;
+  }
 }
 .compositions-links__item {
   &:not(:last-child) {
@@ -52,6 +79,11 @@
   position: absolute;
   top: 92px;
   right: 27px;
+
+  @media screen and (min-width: $tablet) {
+    left: 378px;
+    top: 63px;
+  }
 }
 .circle {
   &::before {
@@ -64,5 +96,36 @@
     top: 83px;
     border-radius: 50%;
     background-color: var(--text-label-color);
+
+    @media screen and (min-width: $tablet) {
+      width: 324px;
+      height: 322px;
+      left: 307px;
+      top: 31px;
+    }
+  }
+}
+.hero__description {
+  @media screen and (min-width: $tablet) {
+    font-size: 8px;
+    line-height: 1.5;
+    color: var(--light-text-color);
+    margin-bottom: 7px;
+  }
+}
+.hero__button {
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 34px;
+    display: block;
+    cursor: pointer;
+    z-index: 1;
+    width: 18px;
+    height: 18px;
+    border: 0;
+    border-radius: 50%;
+    background-image: url('../images/2-hero/tablet/hero-arrow-768-1x.webp');
+
+    transition: transform $time-main $timing-function-main,
+      box-shadow $time-main $timing-function-main;
   }
 }
