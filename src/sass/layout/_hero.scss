@@ -18,6 +18,7 @@
   }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     margin-bottom: 66px;
+    position: relative;
   }
 }
 
@@ -81,7 +82,97 @@
   }
 }
 
+.hero-wrapper-counters {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    position: absolute;
+    top: 94px;
+    right: 34px;
+    z-index: 10;
+  }
+}
+
+.hero-count-wrap {
+  position: relative;
+
+  &:not-last-child {
+    margin-bottom: 13px;
+  }
+}
+
+.hero-count-ellipse-1 {
+  position: absolute;
+  display: block;
+  z-index: 1;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: $primary-white-color;
+}
+
+.hero-count-numbers-1 {
+  @include font(28px, $title-font-weight, 32px);
+  position: absolute;
+  z-index: 10;
+  top: 2px;
+  right: 7px;
+  font-family: Titan One;
+  letter-spacing: 0.04em;
+  color: $accent-color;
+}
+
+.hero-count-desc-1 {
+  @include font(8px, $title-font-weight, 10px);
+  position: absolute;
+  z-index: 10;
+  top: 35px;
+  right: 10px;
+  display: block;
+  color: $primary-white-color;
+}
+
+.hero-count-ellipse-2 {
+  position: absolute;
+  display: block;
+  z-index: 1;
+  top: 55px;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: $primary-white-color;
+}
+
+.hero-count-numbers-2 {
+  @include font(28px, $title-font-weight, 32px);
+  position: absolute;
+  z-index: 10;
+  top: 57px;
+  right: 5px;
+  font-family: Titan One;
+  letter-spacing: 0.04em;
+  color: $accent-color;
+}
+
+.hero-count-desc-2 {
+  @include font(8px, $title-font-weight, 10px);
+  position: absolute;
+  z-index: 10;
+  top: 90px;
+  right: 0;
+  display: block;
+  width: 50px;
+  color: $primary-white-color;
+}
+
 .hero-wrapper-description {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 112px;
     height: 50px;
@@ -142,6 +233,7 @@
   animation-name: changeSize;
   animation-duration: 1s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 250ms;
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     bottom: 46px;
@@ -163,5 +255,62 @@
     right: 230px;
     width: 143px;
     height: 336px;
+  }
+}
+
+@keyframes changeMilkPosition {
+  0% {
+    transform: translateX(-400px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes changePosition {
+  0% {
+    transform: translateX(1000px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.hero-jug-milk-img {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    position: absolute;
+    bottom: 35px;
+    width: 124px;
+    height: 126px;
+    z-index: 10;
+    animation-name: changeMilkPosition;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-delay: 250ms;
+  }
+}
+
+.hero-girl-img {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    position: absolute;
+    bottom: 0;
+    right: 34px;
+    width: 168px;
+    height: 133px;
+    z-index: 10;
+    animation-name: changePosition;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-delay: 250ms;
   }
 }
