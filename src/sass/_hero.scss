@@ -1,15 +1,23 @@
 .hero {
   background: $bg-hero-color;
+  // padding-top: 96px;
+  position: relative;
+}
+.hero-container {
+  width: 320px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
 }
 .hero-description,
 .counter-list,
 .hero-accent {
   display: none;
 }
-.hero-main-img {
-  display: inline-block;
-  max-width: 177px;
-  height: auto;
+.hero-title-box {
+  position: absolute;
+  z-index: 2;
+  top: 38%;
 }
 .hero-title {
   font-family: 'Titan One', sans-serif;
@@ -19,11 +27,72 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: $text-white-color;
+  width: 220px;
+  margin-bottom: 20px;
 }
 .hero-title-accent {
   color: $text-red-color;
   font-size: 48px;
   line-height: 46px;
+}
+.hero-list {
+  display: flex;
+}
+
+.hero-item {
+  margin-right: 8px;
+  &:not(:first-child) {
+    margin-right: 0;
+  }
+
+  .button {
+    display: block;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    background: $text-red-color;
+    color: $text-white-color;
+
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 10px;
+    height: 24px;
+    border-radius: 20px;
+
+    &:hover,
+    &:focus {
+      background: #c7133e;
+    }
+  }
+}
+.hero-item + .hero-item .button {
+  background: $text-white-color;
+  color: $text-red-color;
+  &:hover,
+  &:focus {
+    background: #ecebeb;
+  }
+}
+.hero-img {
+  padding-top: 92px;
+  max-width: 346px;
+  height: 421;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  background-image: radial-gradient(
+    circle closest-corner at 60% 50%,
+    $text-pink-color 65%,
+    transparent 50%
+  );
+  position: relative;
+
+  .hero-main-img {
+    display: inline-block;
+    max-width: 177px;
+    height: auto;
+    margin-left: 10%;
+  }
 }
 
 @media screen and (min-width: 480px) {
