@@ -15,10 +15,17 @@
   text-transform: uppercase;
 
   color: var(--pink);
+
+  @media screen and (min-width: 768px) {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
 }
 
 .products-title {
-  margin: 0;
   margin-bottom: 31px;
   font-family: Titan One;
   font-style: normal;
@@ -30,59 +37,109 @@
   text-transform: uppercase;
 
   color: var(--dark-pink);
+
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+    line-height: 55px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
 }
 
 // ===============список
+.products-item {
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 
-.products-content {
-  width: 280px;
-  height: 485px;
-  margin-bottom: 16px;
-
-  background: var(--pink);
-  border-radius: 24px;
-
-  //   &::before {
-  //     width: 249px;
-  //     height: 252px;
-  //     background-image: url('../../src/images/2-products/320-icecream.png');
-  //     background-size: contain;
-  //     background-repeat: no-repeat;
-  //     background-position: center;
-  //   }
+  @media screen and (min-width: 1280px) {
+  }
 }
 
-// .products-item:first-child {
-//   width: 249px;
-//   height: 252px;
+.products-list {
+  position: relative;
 
-//   background-image: url('../images/2-products/320-icecream.png');
-// }
+  @media screen and (min-width: 768px) {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
 
-// .products-item:nth-child(2) {
-//   width: 249px;
-//   height: 252px;
+  @media screen and (min-width: 1280px) {
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+}
 
-//   background-image: url('../images/2-products/320-ice-coffee.png');
-// }
+.products-content {
+  width: 100%;
+  max-width: 280px;
+  height: 485px;
+  margin-top: 130px;
 
-.products-content::before {
-  content: '';
-  display: block;
-  margin: auto;
-  width: 249px;
-  height: 252px;
+  padding-top: 116px;
 
-  background-image: url('../images/2-products/320-icecream.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  //   background: var(--pink);
+  border-radius: 24px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+
+    display: block;
+    margin: auto;
+    // margin-top: 16px;
+
+    width: 249px;
+    height: 252px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 220px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
+}
+
+.cream {
+  background: var(--pink);
+  &::before {
+    content: '';
+    background-image: url('../images/2-products/320-icecream.png');
+  }
+}
+
+.coffee {
+  background: #f0d1a5;
+  &::before {
+    content: '';
+    background-image: url('../images/2-products/320-ice-coffee.png');
+  }
+}
+
+.shakes {
+  background: #c2e297;
+  &::before {
+    content: '';
+    background-image: url('../images/2-products/320-milkshakes.png');
+  }
 }
 
 // ============заголовок блока
 
 .products-content-title {
-  margin: 0;
+  //   display: block;
+  margin-top: 22px;
   font-family: Titan One;
   font-style: normal;
   font-weight: normal;
@@ -95,10 +152,25 @@
   text-transform: uppercase;
 
   color: var(--white);
+
+  &::after {
+    content: '...';
+
+    font-size: 26px;
+    line-height: 6px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    display: block;
+    justify-content: center;
+    // width: 6px;
+    // height: 6px;
+  }
 }
 
 .products-desc {
-  margin: 0;
+  margin-bottom: 30px;
   font-family: DM Sans;
   font-style: normal;
   font-weight: bold;
@@ -111,18 +183,23 @@
   color: var(--white);
 }
 
-.products-icon {
-  margin: auto;
-  display: flex;
+.button-products {
+  display: inline-block;
+  border: none;
   width: 40px;
   height: 40px;
 
-  //   margin-top: 30px;
-  //   margin-bottom: 41px;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
+  cursor: pointer;
   background-color: var(--white);
   border-radius: 50%;
+}
+
+.products-icon {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 // <picture>
