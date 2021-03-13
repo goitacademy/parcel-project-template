@@ -1,8 +1,3 @@
-@charset "UTF-8";
-/*
- * Главный файл стилей.
- * Все паршалы подключаются сюда.
- */
 .container {
   width: 100%;
   margin-right: auto;
@@ -11,7 +6,7 @@
   padding-right: 15px;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 480px) {
   .container {
     width: 310px;
   }
@@ -30,7 +25,22 @@
 }
 
 body {
-  background-color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: #907e82;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+p {
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -47,8 +57,86 @@ img {
   height: auto;
 }
 
+.social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.social__item:not(:last-child) {
+  margin-right: 29px;
+}
+
+.social__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social__link:hover, .social__link:focus {
+  background-color: #d41443;
+}
+
+.social__link:hover svg, .social__link:focus svg {
+  fill: #ffffff;
+}
+
 .social__icon {
-  fill: red;
+  height: 40px;
+  width: 40px;
+  background: #ffa5ba;
+}
+
+.social__contact {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.83333;
+  color: #000000;
+}
+
+.social__contact span {
+  color: #d41443;
+}
+
+@media (min-width: 600px) {
+  .social__contact {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.85714;
+  }
+}
+
+@media (min-width: 1200px) {
+  .social__contact {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.875;
+  }
+}
+
+.about-section {
+  padding-top: 125px;
+  background-color: #fff5f6;
 }
 
 .advantage__container {
@@ -95,12 +183,113 @@ img {
 
 .advantage__text {
   font-family: DM Sans;
-  weight: 700;
+  font-weight: 700;
   width: 230px;
   height: 36px;
   font-size: 12px;
   line-height: 1.666;
   color: #000000;
+}
+
+.footer {
+  background-color: #fff5f6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.motto {
+  font-family: 'Titan One', sans-serif;
+  color: #ffa5ba;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.11111;
+  text-transform: uppercase;
+}
+
+.motto span {
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.14706;
+  color: #d41443;
+}
+
+@media (max-width: 599px) {
+  .motto {
+    width: 240px;
+  }
+}
+
+@media (min-width: 600px) {
+  .motto {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.11538;
+  }
+  .motto span {
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.14583;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1199px) {
+  .motto {
+    width: 340px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .motto {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.13333;
+  }
+  .motto span {
+    font-size: 58px;
+    font-weight: 400;
+    line-height: 1.13793;
+  }
+}
+
+.copyright {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  border-top: 1px solid #e1e1e1;
+  padding: 22px 0px 25px 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@media (min-width: 600px) {
+  .copyright {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.85714;
+    padding: 29px 0px 18px 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .copyright {
+    padding: 9px 0px 10px 0;
+  }
+}
+
+@media (max-width: 599px) {
+  .copyright__text {
+    width: 130px;
+  }
 }
 
 .gallery {
@@ -148,12 +337,45 @@ img {
 .products h1 {
   font-size: 34px;
   color: #D41443;
-  margin-bottom: 31px;
+  margin-bottom: 144px;
 }
 
 .products h2 {
   font-size: 20px;
   color: #FFFFFF;
+}
+
+.products-cards-item {
+  width: 100%;
+  height: 485px;
+  padding-top: 161px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  background: #FFB8CA;
+  border-radius: 24px;
+}
+
+.title {
+  margin-bottom: 50px;
+  font-size: 58px;
+  font-weight: 400;
+  line-height: 1.13793;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #d41443;
+}
+
+.subtitle {
+  margin-bottom: 15px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.13333;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffa5ba;
 }
 
 .visually-hidden {
