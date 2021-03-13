@@ -1,22 +1,17 @@
-.hero__description-thumb {
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
-  @media screen and (min-width: $tablet) {
-    max-width: 114px;
-    margin-right: auto;
-  }
-}
-.counter__thumb {
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
-}
-
 .hero {
   background-color: var(--accent-secondary-color);
-}
-.hero__title-thumb {
+
+  &__description-thumb {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+    @media screen and (min-width: $tablet) {
+      max-width: 114px;
+      margin-right: auto;
+    }
+  }
+
+  &__title-thumb {
   margin-right: auto;
   max-width: 220px;
   margin-top: 193px;
@@ -26,8 +21,8 @@
     max-width: 168px;
     margin-top: 102px;
   }
-}
-.hero__title {
+  }
+  &__title {
   font-family: $ff-accent;
   font-size: 26px;
   line-height: 1.153;
@@ -42,7 +37,7 @@
     line-height: 1.136;
   }
 }
-.hero__span {
+&__span {
   font-family: $ff-accent;
   font-size: 48px;
   line-height: 0.958;
@@ -55,31 +50,12 @@
     letter-spacing: 0.04em;
   }
 }
-.compositions-links {
-  display: flex;
-  align-items: center;
-  margin-top: 0;
-  margin-right: auto;
-  padding: 0;
-}
-.compositions-links {
-  margin-bottom: 160px;
 
-  @media screen and (min-width: $tablet) {
-    margin-bottom: 66px;
-  }
-}
-.compositions-links__item {
-  &:not(:last-child) {
-    margin-right: 8px;
-  }
-}
-
-.hero__img {
+  &__img {
   position: absolute;
   top: 92px;
-  right: 0;
   right: 27px;
+
 
   @media screen and (min-width: $tablet) {
     right: 0;
@@ -87,28 +63,8 @@
     margin-right: 247px;
   }
 }
-.circle {
-  &::before {
-    content: '';
-    display: block;
-    width: 346px;
-    height: 344px;
-    position: absolute;
-    left: 36px;
-    top: 83px;
-    border-radius: 50%;
-    background-color: var(--text-label-color);
 
-    @media screen and (min-width: $tablet) {
-      width: 324px;
-      height: 322px;
-      right: 0;
-      top: 31px;
-      // margin-left: 307px;
-    }
-  }
-}
-.hero__description {
+&__description {
   @media screen and (min-width: $tablet) {
     font-size: 8px;
     line-height: 1.5;
@@ -116,7 +72,8 @@
     margin-bottom: 7px;
   }
 }
-.hero__button {
+
+&__button {
   @media screen and (min-width: $tablet) {
     margin-bottom: 34px;
     display: block;
@@ -132,29 +89,76 @@
       box-shadow $time-main $timing-function-main;
   }
 }
-.counter__thumb {
-  @media screen and (min-width: $tablet) {
-    display: inline-block;
-    position: absolute;
-    // left: 691px;
-    right: 0;
-    top: 94px;
-    margin-right: 34px;
-  }
 }
-.counter__number {
+.compositions-links {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  margin-right: auto;
+  padding: 0;
+  margin-bottom: 160px;
+
   @media screen and (min-width: $tablet) {
-    font-family: $ff-accent;
-    font-size: 28px;
-    line-height: 1.142;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--accent-primary-color);
+    margin-bottom: 66px;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
   }
 }
 
-.counter__label {
-  font-size: 8px;
-  line-height: 1.25;
-  color: var(--light-text-color);
+.circle {
+  &::before {
+    content: '';
+    display: block;
+    width: 346px;
+    height: 344px;
+    left: 36px;
+    top: 83px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--text-label-color);
+
+    @media screen and (min-width: $tablet) {
+      width: 324px;
+      height: 322px;
+      right: 0;
+      top: 31px;
+      margin-right: 137px;
+    }
+  }
 }
+
+.counter {
+  &__thumb {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+    @media screen and (min-width: $tablet) {
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: 94px;
+    }
+  }
+
+  &__number {
+    @media screen and (min-width: $tablet) {
+      font-family: $ff-accent;
+      font-size: 28px;
+      line-height: 1.142;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-primary-color);
+    }
+  }
+
+  &__label {
+    font-size: 8px;
+    line-height: 1.25;
+    color: var(--light-text-color);
+  }
+}
+
