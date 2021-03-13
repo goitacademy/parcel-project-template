@@ -1,5 +1,11 @@
 .hero {
   background-color: var(--accent-secondary-color);
+  // padding: 6px 0 160px 0;
+
+  // @media screen and (min-width: $tablet) {
+  //   padding-top: 37px;
+  //   padding-bottom: 28px;
+  // }
 
   &__description-thumb {
     @media screen and (max-width: 767px) {
@@ -14,7 +20,7 @@
   &__title-thumb {
   margin-right: auto;
   max-width: 220px;
-  margin-top: 193px;
+  margin-top: 188px;
   z-index: 1;
 
   @media screen and (min-width: $tablet) {
@@ -53,14 +59,13 @@
 
   &__img {
   position: absolute;
+  left: 105px;
   top: 92px;
-  right: 27px;
 
 
   @media screen and (min-width: $tablet) {
-    right: 0;
+    left: 378px;
     top: 63px;
-    margin-right: 247px;
   }
 }
 
@@ -93,10 +98,9 @@
 .compositions-links {
   display: flex;
   align-items: center;
-  margin-top: 0;
   margin-right: auto;
+  margin: 0;
   padding: 0;
-  margin-bottom: 160px;
 
   @media screen and (min-width: $tablet) {
     margin-bottom: 66px;
@@ -105,28 +109,6 @@
   &__item {
     &:not(:last-child) {
       margin-right: 8px;
-    }
-  }
-}
-
-.circle {
-  &::before {
-    content: '';
-    display: block;
-    width: 346px;
-    height: 344px;
-    left: 36px;
-    top: 83px;
-    position: absolute;
-    border-radius: 50%;
-    background-color: var(--text-label-color);
-
-    @media screen and (min-width: $tablet) {
-      width: 324px;
-      height: 322px;
-      right: 0;
-      top: 31px;
-      margin-right: 137px;
     }
   }
 }
@@ -146,6 +128,8 @@
 
   &__number {
     @media screen and (min-width: $tablet) {
+      position: relative;
+      z-index: 1;
       font-family: $ff-accent;
       font-size: 28px;
       line-height: 1.142;
@@ -153,12 +137,48 @@
       text-transform: uppercase;
       color: var(--accent-primary-color);
     }
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--light-text-color);
+      z-index: -1;
+    }
   }
 
   &__label {
     font-size: 8px;
     line-height: 1.25;
     color: var(--light-text-color);
+    margin-bottom: 13px;
+  }
+}
+
+.circle {
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 346px;
+    height: 344px;
+    left: 16px;
+    top: 83px;
+    border-radius: 50%;
+    background-color: var(--text-label-color);
+
+    @media screen and (min-width: $tablet) {
+      width: 324px;
+      height: 322px;
+      left: 307px;
+      top: 31px;
+      
+    }
   }
 }
 
