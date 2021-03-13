@@ -1,7 +1,7 @@
 header{
     background-color: var(--pink);
     font-family: 'DM Sans', sans-serif;
-    @include font-tablet($fs: 16px);
+    @include font-mobile($fs:14px, $lh:18px);
     color: var(--white);
     .container{
         display: flex;
@@ -28,8 +28,6 @@ header{
         color: inherit;
     }
 
-
-
     @media screen and (max-width: 767px) {
         .container{
             position: relative;
@@ -43,12 +41,14 @@ header{
             right: -10px;
         }
         .buy-now{
+            @include font-mobile($fs:16px);
             display: none;
         }
     }
 
     @media screen and (min-width: 768px) {
         .container{
+            @include font-tablet($lh: 18px);
             align-items: center;
             padding-top: 37px;
             padding-bottom: 7px;
@@ -56,6 +56,7 @@ header{
         .burger{
             margin-left: auto;
             margin-right: 30px;
+
         }
         .buy-now{
             display: flex;
@@ -70,6 +71,7 @@ header{
             background-color: var(--white);
             border: none;
             cursor: pointer;
+            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
             svg{
                 display: block;
@@ -77,6 +79,12 @@ header{
                 margin-top: 17px;
                 margin-bottom: 15px;
                 align-self: center;
+            }
+            
+    
+            &:hover,
+            &:focus{
+                background-color: var(--accent) ;
             }
         }
     }
@@ -88,6 +96,7 @@ header{
 
     @media screen and (min-width: 1280px) {
         .container{
+            @include font-desktop();
             position: relative;
             align-items: center;
             padding-top: 32px;
@@ -103,12 +112,19 @@ header{
             margin-right: 110px;
         }
 
-        .item:not(:last-child){
-            margin-right: 35px;
+        .link{
+            transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+            &:hover,
+            &:focus{
+                color: var(--dark-pink);
+            }
         }
 
-        .item:first-child{
-            color: var(--dark-pink);
+
+
+        .item:not(:last-child){
+            margin-right: 35px;
         }
 
         .logo{
