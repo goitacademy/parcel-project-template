@@ -1,5 +1,16 @@
 .footer {
-    background-color: #fff6f5;
+    background-color: var(--bg-secondary-color);
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: var(--footer-pseudo-color);
+        position: absolute;
+        bottom: 88px;
+    }
 }
 
 .footer-text {
@@ -9,7 +20,7 @@
     line-height: 1.167;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: #FFA5BA;
+    color: var(--pink);
 
     &-wrapper {
         max-width: 232px;
@@ -20,7 +31,7 @@
         display: block;
         font-size: 34px;
         line-height: 1.147;
-        color: #D41443;
+        color: var(--dark-pink);
         margin-top: 17px;
     }
 }
@@ -47,13 +58,13 @@
     justify-content: center;
     width: 32px;
     height: 32px;
-    background-color: #FEA5BB;
+    background-color: var(--social-link-bg-color);
     border-radius: 50%;
 
     &-icon {
         width: 60%;
         height: 60%;
-        fill: #ffffff;
+        fill: var(--white);
     }
 }
 
@@ -61,11 +72,11 @@
     font-weight: 700;
     font-size: 12px;
     line-height: 1.833;
-    color: #000000;
+    color: var(--black);
 
     .contact-phone-number {
         display: inline;
-        color: #D41443;
+        color: var(--dark-pink);
     }
 }
 
@@ -73,19 +84,20 @@
     font-weight: 700;
     font-size: 14px;
     line-height: 1.5;
-    color: #907E82;
+    color: var(--grey);
     display: block;
     text-align: center;
 
     &-wrapper {
-        width: 100%;
-        height: 91px;
-        border-top: 1px solid #E1E1E1;
         padding: 23px 66px;
     }
 }
 
 @media screen and (min-width: 768px) {
+    .footer::after {
+        bottom: 74px;
+    }
+
     .footer-container {
         display: flex;
         justify-content: space-between;
@@ -129,7 +141,6 @@
         line-height: 1.857;
     
         &-wrapper {
-            height: 74px;
             padding-top: 29px;
             padding-bottom: 19px;
         }
@@ -137,6 +148,10 @@
 }
 
 @media screen and (min-width: 1280px) {
+    .footer::after {
+        bottom: 45px;
+    }
+
     .footer-container {
         align-items: center;
         margin-bottom: 97px;
@@ -177,7 +192,6 @@
         letter-spacing: 0.02em;
     
         &-wrapper {
-            height: 45px;
             padding-top: 9px;
             padding-bottom: 10px;
         }
