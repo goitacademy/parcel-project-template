@@ -16,6 +16,7 @@
     display: flex;
     align-items: center;
     margin: -30px;
+    padding-left: 0;
   }
 
   @include adaptive-for-desktop {
@@ -24,13 +25,15 @@
 }
 
 .advantages-item:not(:last-child) {
-  @media screen and (max-width: 767px) {
+  @include adaptive-before-tablet {
     margin-bottom: 38px;
   }
 }
 
 .advantages-item {
-  max-width: 230px;
+  @include adaptive-before-tablet {
+    max-width: 230px;
+  }
 
   @include adaptive-for-tablet {
     margin: 30px;
@@ -43,7 +46,7 @@
   }
 }
 
-.advantages-picture {
+.advantages-icon {
   margin-bottom: 16px;
   @include adaptive-for-tablet {
     margin-bottom: 36px;
@@ -51,6 +54,69 @@
 
   @include adaptive-for-desktop {
     margin-bottom: 40px;
+  }
+}
+
+.udder-icon {
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 33px;
+    height: 50px;
+    @extend .advantages-icon;
+    background-image: url('../images/advantages/udder-and-bucket.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/advantages/udder-and-bucket-2x.png');
+    }
+  }
+}
+
+.apple-icon {
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    @extend .advantages-icon;
+    background-image: url('../images/advantages/apple-and-bucket.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/advantages/apple-and-bucket-2x.png');
+    }
+  }
+}
+
+.heart-icon {
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 44px;
+    height: 50px;
+    @extend .advantages-icon;
+    background-image: url('../images/advantages/heart-on-stick.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/advantages/heart-on-stick-2x.png');
+    }
   }
 }
 
