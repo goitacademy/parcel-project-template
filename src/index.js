@@ -36,4 +36,8 @@ import './sass/main.scss';
      
       
     });
-  })()
+})()
+  
+
+  // <script script src = "./modal.js" ></script >
+import './modal';
