@@ -1,13 +1,12 @@
 .gallery {
   display: flex;
   justify-content: center;
-  align-items: center;
 
   background-image: linear-gradient(
     to bottom,
-    #fff5f6 45%,
-    #fff 45%,
-    #fff 100%
+    var(--second-bgc) 45%,
+    var(--light-text-color) 45%,
+    var(--light-text-color) 100%
   );
 
   padding-top: 49px;
@@ -24,19 +23,91 @@
 }
 
 .gallery__wrapper {
-  margin: -1px;
+  margin: -2px;
+  display: inline;
 
-  @media (min-width: $desktop) {
+  @media (min-width: $tablet) {
     margin: -3px;
+  }
+
+  &.first-clmn {
+    padding-top: 40px;
+
+    @media (min-width: $tablet) {
+      padding-top: 87px;
+    }
+
+    @media (min-width: $desktop) {
+      padding-top: 140px;
+    }
+  }
+
+  &.second-clmn {
+    padding-top: 25px;
+
+    @media (min-width: $tablet) {
+      padding-top: 52px;
+    }
+
+    @media (min-width: $desktop) {
+      padding-top: 84px;
+    }
+  }
+
+  &.fourth-clmn {
+    padding-top: 28px;
+
+    @media (min-width: $tablet) {
+      padding-top: 60px;
+    }
+
+    @media (min-width: $desktop) {
+      padding-top: 100px;
+    }
+  }
+
+  &.fifth-clmn {
+    padding-top: 15px;
+
+    @media (min-width: $tablet) {
+      padding-top: 32px;
+    }
+
+    @media (min-width: $desktop) {
+      padding-top: 53px;
+    }
+  }
+
+  &.sixth-clmn {
+    padding-top: 43px;
+
+    @media (min-width: $tablet) {
+      padding-top: 93px;
+    }
+
+    @media (min-width: $desktop) {
+      padding-top: 153px;
+    }
   }
 }
 
 .gallery__picture {
-  margin: 3px;
+  margin: 4px;
   border-radius: 4px;
+  overflow: hidden;
+
+  transition: 500ms linear;
+
+  @media (min-width: $tablet) {
+    margin: 6px;
+    border-radius: 12px;
+  }
 
   @media (min-width: $desktop) {
-    margin: 6px;
     border-radius: 20px;
+  }
+
+  &:hover {
+    transform: scale(1.2);
   }
 }
