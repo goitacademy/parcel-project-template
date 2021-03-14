@@ -1,86 +1,49 @@
-// .section-hero {
-//     height: 502px;
-//     @media screen and (min-width: 768px) {
-//         height: 399px;
-//     }
-//     @media screen and (min-width: 1200px) {
-//         height: 665px;
-//     }
-// }
-
-  // .section-hero & {
-  //   display: flex;
-  //   justify-content: space-between;
-  // position: relative;
-  // padding-top: 83px;
-  // height: 502px;
-  // background-color: $accent-background-color;
-  // overflow: hidden;
-
-  // @media screen and (min-width: 768px) {
-  //   padding-top: 31px;
-  //   height: 399px;
-  // }
-
-  // @media screen and (min-width: 1200px) {
-  //   padding-top: 52px;
-  //   height: 665px;
-  // }
-  // }
+.section-hero {
+  background-color: $accent-background-color;
+}
 
 .hero-title-navigation {
-  margin-top: 193px;
-  width: 106px;
+  margin-top: 110px;
+  width: 218px;
   z-index: 2;
   @media screen and (min-width: 768px) {
-    margin-top: 102px;
-    width: 80px;
+    margin-top: 71px;
+    width: 162px;
   }
   @media screen and (min-width: 1200px) {
-    margin-top: 171px;
-    width: 137px;
+    margin-top: 119px;
+    width: 277px;
   }
 }
 
 .hero-title {
   margin-bottom: 20px;
-  font-family: Titan One;
-  font-weight: 400px;
-  font-size: 26px;
-  line-height: 30px;
-  letter-spacing: 0.04em;
+  font-family: $title-text-font;
   text-transform: uppercase;
-
-  color: #ffffff;
+  color: $text-color;
+  animation-duration: 2s;
+  @include font($fs: 26px, $fw: 400, $lh: 30px);
   @media screen and (min-width: 768px) {
-    font-size: 22px;
-    line-height: 26px;
+    @include font($fs: 22px, $fw: 400, $lh: 26px);
   }
-
+  
   @media screen and (min-width: 1200px) {
     margin-bottom: 25px;
-    font-size: 38px;
-    line-height: 44px;
+    @include font($fs: 38px, $fw: 400, $lh: 44px);
   }
 }
 
 .hero-title-passion {
-  font-family: Titan One;
-  font-weight: 400;
-  font-size: 48px;
-  line-height: 46px;
-  letter-spacing: 0.04em;
+  font-family: $title-text-font;
   text-transform: uppercase;
-
-  color: #d41443;
+  color: $accent-color;
+  @include font($fs: 48px, $fw: 400, $lh: 46px);
   @media screen and (min-width: 768px) {
-    font-size: 34px;
-    line-height: 30px;
+    @include font($fs: 34px, $fw: 400, $lh: 30px);
   }
   @media screen and (min-width: 1200px) {
     margin-bottom: 25px;
-    font-size: 58px;
-    line-height: 52px;
+    @include font($fs: 58px, $fw: 400, $lh: 52px);
   }
 }
 
@@ -101,24 +64,21 @@
   min-width: 62px;
   height: 24px;
   border-radius: 20px;
-  background: #d41443;
-  font-family: DM Sans;
-  font-weight: 400;
-  font-size: 8px;
-  line-height: 10px;
+  background-color: $accent-btn-background-color;
   text-align: center;
-  color: #ffffff;
+  color: $text-color;
+  transition: background-color $time-hover linear;
+  @include font($fs: 8px, $fw: 400, $lh: 10px);
   @media screen and (min-width: 1200px) {
-    width: 104px;
+    min-width: 104px;
     height: 40px;
-    font-size: 14px;
-    line-height: 18px;
+    @include font($fs: 14px, $fw: 400, $lh: 18px);
   }
-
+  
   &:hover,
   &:focus {
     cursor: pointer;
-    background-color: #c7133e;
+    background-color: $accent-btn-hover-color;
   }
 }
 
@@ -127,42 +87,39 @@
   min-width: 82px;
   height: 24px;
   border-radius: 20px;
-  background: #ffffff;
-  font-family: DM Sans;
-  font-weight: 400;
-  font-size: 8px;
-  line-height: 10px;
+  background-color: $btn-background-color;
   text-align: center;
-  color: #d41443;
+  color: $accent-color;
+  transition: background-color $time-hover linear;
+  @include font($fs: 8px, $fw: 400, $lh: 10px);
   @media screen and (min-width: 1200px) {
-    width: 138px;
+    min-width: 138px;
     height: 40px;
-    font-size: 14px;
-    line-height: 18px;
+    @include font($fs: 14px, $fw: 400, $lh: 18px);
   }
-
+  
   &:hover,
   &:focus {
     cursor: pointer;
-    background-color: #ecebeb;
+    background-color: $btn-hover-color;
   }
 }
 
 .hero-milk-block {
   display: none;
-  // z-index: 1;
 
   @media screen and (min-width: 768px) {
     position: absolute;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     bottom: 28px;
     left: 34px;
   }
 
   @media screen and (min-width: 1200px) {
     bottom: 45px;
-    left: 77px;
+    left: 37px;
+    z-index: 2;
   }
 }
 
@@ -173,32 +130,278 @@
   }
 }
 
+
 .hero-milk-description {
   width: 114px;
   height: 48px;
-  font-family: DM Sans;
-  font-weight: 400;
-  font-size: 8px;
-  line-height: 12px;
-  color: #ffffff;
+  color: $text-color;
+  @include font($fs: 8px, $fw: 400, $lh: 12px);
   @media screen and (min-width: 1200px) {
-    font-size: 14px;
-    line-height: 20px;
     width: 200px;
     height: 78px;
+    @include font($fs: 14px, $fw: 400, $lh: 20px, $ls: 0em);
+  }
+}
+
+.milk-description-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  margin-top: 7px;
+  margin-bottom: 6px;
+  width: 18px;
+  height: 18px;
+  background-color: $btn-background-color;
+  fill: $accent-color;
+  padding: 0;
+  transition: background-color $time-hover linear, fill $time-hover linear;
+  @media screen and (min-width: 1200px) {
+    margin-top: 20px;
+    margin-bottom: 11px;
+    width: 26px;
+    height: 26px;
+  }
+  &:hover,
+  &focus {
+    cursor: pointer;
+    background-color: $accent-btn-hover-color;
+    fill: $btn-background-color;
+  }
+}
+
+.milk-description-icon {
+  width: 10px;
+  height: 8px;
+  @media screen and (min-width: 1200px) {
+    width: 12px;
+    height: 10px;
   }
 }
 
 .hero-ice-cream-pic {
   position: absolute;
   bottom: 0;
-  right: 32px;
+  left: 36.56vw;
   z-index: 1;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
   @media screen and (min-width: 768px) {
+    left: auto;
     right: 247px;
   }
   @media screen and (min-width: 1200px) {
-    right: 450px;
+    right: 410px;
+  }
+  &:hover {
+    animation-name: shake-slow;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+  }
+
+  @keyframes shake-slow {
+    2% {
+      transform: translate(1px, 7px) rotate(-1.5deg);
+    }
+
+    4% {
+      transform: translate(6px, -6px) rotate(-1.5deg);
+    }
+
+    6% {
+      transform: translate(5px, 4px) rotate(0.5deg);
+    }
+
+    8% {
+      transform: translate(10px, -7px) rotate(2.5deg);
+    }
+
+    10% {
+      transform: translate(-6px, 10px) rotate(2.5deg);
+    }
+
+    12% {
+      transform: translate(-6px, -6px) rotate(-0.5deg);
+    }
+
+    14% {
+      transform: translate(-4px, 9px) rotate(-2.5deg);
+    }
+
+    16% {
+      transform: translate(-4px, 4px) rotate(1.5deg);
+    }
+
+    18% {
+      transform: translate(-2px, -3px) rotate(-2.5deg);
+    }
+
+    20% {
+      transform: translate(3px, 9px) rotate(2.5deg);
+    }
+
+    22% {
+      transform: translate(1px, -4px) rotate(0.5deg);
+    }
+
+    24% {
+      transform: translate(9px, 3px) rotate(3.5deg);
+    }
+
+    26% {
+      transform: translate(-3px, 3px) rotate(-1.5deg);
+    }
+
+    28% {
+      transform: translate(10px, -7px) rotate(3.5deg);
+    }
+
+    30% {
+      transform: translate(-6px, -1px) rotate(3.5deg);
+    }
+
+    32% {
+      transform: translate(-5px, 8px) rotate(-2.5deg);
+    }
+
+    34% {
+      transform: translate(2px, -2px) rotate(3.5deg);
+    }
+
+    36% {
+      transform: translate(0px, 3px) rotate(-0.5deg);
+    }
+
+    38% {
+      transform: translate(-9px, -7px) rotate(-0.5deg);
+    }
+
+    40% {
+      transform: translate(1px, -1px) rotate(0.5deg);
+    }
+
+    42% {
+      transform: translate(-9px, 8px) rotate(0.5deg);
+    }
+
+    44% {
+      transform: translate(1px, -2px) rotate(-0.5deg);
+    }
+
+    46% {
+      transform: translate(-4px, -8px) rotate(1.5deg);
+    }
+
+    48% {
+      transform: translate(-7px, 0px) rotate(0.5deg);
+    }
+
+    50% {
+      transform: translate(6px, -7px) rotate(-2.5deg);
+    }
+
+    52% {
+      transform: translate(-1px, -2px) rotate(-2.5deg);
+    }
+
+    54% {
+      transform: translate(8px, 0px) rotate(2.5deg);
+    }
+
+    56% {
+      transform: translate(-5px, -3px) rotate(2.5deg);
+    }
+
+    58% {
+      transform: translate(5px, 2px) rotate(-2.5deg);
+    }
+
+    60% {
+      transform: translate(5px, -3px) rotate(-1.5deg);
+    }
+
+    62% {
+      transform: translate(1px, -8px) rotate(-1.5deg);
+    }
+
+    64% {
+      transform: translate(7px, -7px) rotate(0.5deg);
+    }
+
+    66% {
+      transform: translate(5px, -8px) rotate(1.5deg);
+    }
+
+    68% {
+      transform: translate(-9px, -6px) rotate(3.5deg);
+    }
+
+    70% {
+      transform: translate(-2px, -1px) rotate(-2.5deg);
+    }
+
+    72% {
+      transform: translate(-4px, 3px) rotate(-2.5deg);
+    }
+
+    74% {
+      transform: translate(8px, -7px) rotate(1.5deg);
+    }
+
+    76% {
+      transform: translate(-2px, 7px) rotate(-1.5deg);
+    }
+
+    78% {
+      transform: translate(3px, 7px) rotate(-1.5deg);
+    }
+
+    80% {
+      transform: translate(1px, -3px) rotate(1.5deg);
+    }
+
+    82% {
+      transform: translate(-6px, -4px) rotate(0.5deg);
+    }
+
+    84% {
+      transform: translate(6px, 6px) rotate(-1.5deg);
+    }
+
+    86% {
+      transform: translate(0px, -2px) rotate(-1.5deg);
+    }
+
+    88% {
+      transform: translate(9px, -3px) rotate(-0.5deg);
+    }
+
+    90% {
+      transform: translate(1px, 0px) rotate(1.5deg);
+    }
+
+    92% {
+      transform: translate(0px, -6px) rotate(-1.5deg);
+    }
+
+    94% {
+      transform: translate(-1px, -2px) rotate(2.5deg);
+    }
+
+    96% {
+      transform: translate(5px, 1px) rotate(-2.5deg);
+    }
+
+    98% {
+      transform: translate(4px, 0px) rotate(-0.5deg);
+    }
+
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(0);
+    }
   }
 }
 
@@ -209,7 +412,7 @@
   width: 346px;
   height: 344px;
   border-radius: 50%;
-  background-color: #ffa5ba;
+  background-color: $ellipse-background-color;
   bottom: 75px;
   left: -81px;
   z-index: -1;
@@ -239,16 +442,11 @@
 }
 
 .hero-stores-item {
-  font-family: DM Sans;
-  font-weight: 400;
-  font-size: 8px;
-  line-height: 18px;
   text-align: right;
-
-  color: #ffffff;
+  color: $text-color;
+  @include font($fs: 8px, $fw: 400, $lh: 10px);
   @media screen and (min-width: 1200px) {
-    line-height: 10px;
-    font-size: 14px;
+    @include font($fs: 14px, $fw: 400, $lh: 10px);
   }
   &:not(:last-child) {
     margin-bottom: 14px;
@@ -256,25 +454,24 @@
       margin-bottom: 18px;
     }
   }
+  &:hover,
+  &:focus {
+    cursor: default;
+  }
 }
 
 .hero-stores-count {
   position: relative;
-  font-family: Titan One;
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 32px;
-
+  font-family: $title-text-font;
   text-align: right;
-  letter-spacing: 0.04em;
   text-transform: uppercase;
-
-  color: #d41443;
+  @include font($fs: 28px, $fw: 400, $lh: 32px);
+  
+  color: $accent-color;
   z-index: 2;
-
+  
   @media screen and (min-width: 1200px) {
-    font-size: 46px;
-    line-height: 53px;
+    @include font($fs: 46px, $fw: 400, $lh: 53px);
   }
   &::before {
     position: absolute;
@@ -284,7 +481,7 @@
     content: '';
     width: 16px;
     height: 16px;
-    background: #ffffff;
+    background: $body-background-color;
     border-radius: 50%;
     z-index: -1;
     @media screen and (min-width: 1200px) {
@@ -299,6 +496,7 @@
 .hero-girl-pic {
   display: none;
   z-index: 1;
+  animation-duration: 2s;
   @media screen and (min-width: 768px) {
     position: absolute;
     display: block;
@@ -306,6 +504,6 @@
     right: 34px;
   }
   @media screen and (min-width: 1200px) {
-    right: 109px;
+    right: 69px;
   }
 }
