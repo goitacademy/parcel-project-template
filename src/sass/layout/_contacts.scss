@@ -1,10 +1,18 @@
 .contacts {
   max-width: 100%;
-  background-image: linear-gradient(#ffffff 7%, #fff5f6 7%, #fff5f6 100%);
+  background-image: linear-gradient(
+    $body-background-color 7%,
+    $section-background-color 7%,
+    $section-background-color 100%
+  );
   padding-top: 43px;
 
   @media screen and (min-width: 768px) {
-    background-image: linear-gradient(#ffffff 23%, #fff5f6 23%, #fff5f6 100%);
+    background-image: linear-gradient(
+      $body-background-color 23%,
+      $section-background-color 23%,
+      $section-background-color 100%
+    );
     padding-top: 60px;
   }
 
@@ -12,7 +20,11 @@
     padding-top: 66px;
 
     background-image: url(../images/contacts/desktop/contacts__img-1.png),
-      linear-gradient(#ffffff 24%, #fff5f6 24%, #fff5f6 100%);
+      linear-gradient(
+        $body-background-color 24%,
+        $section-background-color 24%,
+        $section-background-color 100%
+      );
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -22,7 +34,11 @@
     screen and (min-resolution: 192dpi) and (min-width: 1200px),
     screen and (min-resolution: 2dppx) and (min-width: 1200px) {
     background-image: url(../images/contacts/desktop/contacts__img-1@2x.png),
-      linear-gradient(#ffffff 24%, #fff5f6 24%, #fff5f6 100%);
+      linear-gradient(
+        $body-background-color 24%,
+        $section-background-color 24%,
+        $section-background-color 100%
+      );
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -51,12 +67,11 @@
   &__section {
     width: 81%;
     height: auto;
-    margin: 0px auto;
     padding: 43px 20px;
-    background-color: white;
+    background-color: $body-background-color;
     box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
     border-radius: 24px;
-    margin-bottom: 20px;
+    margin: 0px auto 20px auto;
 
     @media screen and (min-width: 768px) {
       width: 220px;
@@ -67,14 +82,12 @@
 
     @media screen and (min-width: 1200px) {
       width: 330px;
-      padding: 0px 44px;
-      padding-top: 51px;
-      padding-bottom: 62px;
+      padding: 51px 44px 62px 44px;
     }
   }
 
   &__name-building {
-    background-color: #f0d1a5;
+    background-color: $coffee-background-color;
     border-radius: 4px;
     width: 80px;
     height: 16px;
@@ -83,13 +96,13 @@
     justify-content: center;
     align-items: center;
 
-    font-style: normal;
-    font-weight: 500;
     font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
     line-height: 1.8333;
     letter-spacing: 0.04em;
 
-    color: #ffffff;
+    color: $text-color;
 
     @media screen and (min-width: 768px) {
       width: 73px;
@@ -100,7 +113,7 @@
     }
 
     &--foodtruck {
-      background-color: #c2e297;
+      background-color: $shake-background-color;
       width: 130px;
       @media screen and (min-width: 768px) {
         width: 138px;
@@ -118,7 +131,7 @@
     padding-top: 25px;
     padding-bottom: 10px;
 
-    color: #000000;
+    color: $text-additional-color;
 
     @media screen and (min-width: 768px) {
       font-size: 14px;
@@ -135,12 +148,11 @@
   }
 
   &__text {
-    font-family: DM Sans;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.5;
-    color: #907e82;
+    color: $text-description-color;
     padding-bottom: 25px;
 
     @media screen and (min-width: 768px) {
@@ -157,8 +169,8 @@
   }
 
   &__work-schedule {
-    border-top: 1px solid #e1e1e1;
-    border-bottom: 1px solid #e1e1e1;
+    border-top: 1px solid $bgd-review;
+    border-bottom: 1px solid $bgd-review;
     padding: 25px 0px;
     @media screen and (min-width: 768px) {
       padding: 30px 0px;
@@ -173,7 +185,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.8333;
-    color: #000000;
+    color: $text-additional-color;
 
     @media screen and (min-width: 768px) {
       font-size: 14px;
@@ -192,7 +204,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.8333;
-    color: #ffa5ba;
+    color: $ellipse-background-color;
 
     &:not(:last-child) {
       padding-bottom: 10px;
@@ -228,7 +240,14 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.5;
-    color: #907e82;
+    color: $text-description-color;
+    transition: color 250ms linear;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $ellipse-background-color;
+    }
 
     @media screen and (min-width: 768px) {
       font-size: 14px;
@@ -250,7 +269,7 @@
     margin: 0 auto;
     margin-top: 54px;
     padding: 0px 17px;
-    background-color: white;
+    background-color: $body-background-color;
     cursor: pointer;
 
     font-style: normal;
@@ -283,7 +302,7 @@
 
     &--red {
       background-color: #d41342;
-      color: white;
+      color: $text-color;
       @media screen and (min-width: 768px) {
         width: 191px;
       }
@@ -292,13 +311,13 @@
       }
     }
     &--white {
-      color: #d41443;
+      color: $accent-btn-background-color;
       transition: background-color 250ms linear;
 
       &:hover,
       &:focus,
       &:active {
-        background-color: #ecebeb;
+        background-color: $btn-hover-color;
       }
       @media screen and (min-width: 768px) {
         width: 174px;
