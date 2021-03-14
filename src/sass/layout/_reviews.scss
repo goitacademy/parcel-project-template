@@ -14,23 +14,18 @@
   color: $head-text-color;
 }
 
-.slider__text {
+.slider__text-wrapper {
   position: relative;
-  @include font(12px, 500, 31px);
   margin-bottom: 52px;
-  padding-top: 43px;
-  padding-left: 57px;
-  padding-right: 66px;
-  padding-bottom: 20px;
+  padding: 40px 50px 20px 50px;
   background-color: #fafafa;
   z-index: 1;
 
   &::before {
     content: '';
     position: absolute;
-    left: 61px;
+    left: 71px;
     top: 28px;
-
     width: 54px;
     height: 40px;
     background-image: url('../images/reviews/quote.png');
@@ -51,6 +46,105 @@
   }
 }
 
+.slider__text {
+  @include font(12px, 500, 31px);
+  padding: 0 17px;
+  background-image: repeating-linear-gradient(
+    to top,
+    #e1e1e1 0px 1px,
+    transparent 1px 31px
+  );
+}
+
 .slider__location {
   @include font(14px, 500, 26px);
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 479px) {
+  .slider {
+    max-width: 290px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .slider__text-wrapper {
+    &::before {
+      left: 66px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .slider {
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-bottom: 197px;
+  }
+  .slider__image {
+    margin-bottom: 19px;
+  }
+
+  .slider__text-wrapper {
+    padding: 47px 36px 28px 60px;
+    margin-bottom: 42px;
+
+    &::before {
+      left: 40px;
+      top: 30px;
+    }
+
+    &::after {
+      bottom: -24px;
+    }
+  }
+
+  .slider__text {
+    @include font(14px, 500, 30px);
+    padding-left: 20px;
+    padding-right: 47px;
+    letter-spacing: 0.04em;
+  }
+
+  .slider__location {
+    @include font(16px, 500, 30px);
+    margin-bottom: 35px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .slider {
+    padding-left: 67px;
+    padding-right: 67px;
+    padding-bottom: 234px;
+  }
+
+  .slider__image {
+    margin-bottom: 15px;
+  }
+
+  .slider__text-wrapper {
+    padding: 47px 54px 32px 59px;
+    margin-bottom: 34px;
+
+    &::before {
+      left: 50px;
+      top: 32px;
+    }
+
+    &::after {
+      bottom: -19px;
+    }
+  }
+
+  .slider__text {
+    @include font(16px, 500, 30px);
+    padding-left: 28px;
+    padding-right: 35px;
+  }
+
+  .slider__location {
+    @include font(20px, 500, 37px);
+  }
 }
