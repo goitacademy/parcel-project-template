@@ -1,12 +1,12 @@
 .hero {
   background-color: var(--bg-header-hero);
 
-  outline: 2px solid #000;
+  // outline: 2px solid #000;
 
   .container {
-    @media screen and (max-width: 767px) {
-      position: relative;
-    }
+    // @media screen and (max-width: 767px) {
+    position: relative;
+    // }
 
     @media screen and (min-width: 768px) {
       display: flex;
@@ -21,9 +21,17 @@
     left: 20px;
     z-index: 2;
   }
+
+  @media screen and (min-width: 768px) {
+    width: 230px;
+    // margin-right: 298px;
+  }
 }
 
 .hero__caption {
+  @media screen and (max-width: 768px) {
+    margin-bottom: 19px;
+  }
 }
 
 .hero__title {
@@ -37,6 +45,11 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-design-white);
+
+  @media screen and (min-width: 768px) {
+    font-size: 22px;
+    line-height: 1.136;
+  }
 }
 
 .hero__subtitle {
@@ -46,6 +59,11 @@
   line-height: 96.5%;
   text-transform: uppercase;
   color: var(--color-design-main);
+
+  @media screen and (min-width: 768px) {
+    font-size: 34px;
+    line-height: 90.5%;
+  }
 }
 
 .buttons-list {
@@ -78,24 +96,46 @@
   border-radius: 20px;
 }
 
-.hero__wrap-desc {
-  @media screen and (max-width: 480px) {
+.hero__wrap-first {
+  @media screen and (max-width: 767px) {
     display: none;
   }
+
+  display: flex;
+  align-items: flex-end;
 }
 
 .hero__bottle-img {
 }
 
 .hero__desc {
+  max-width: 110px;
+
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 150%;
+  color: var(--color-design-white);
 }
 
 .hero__circle-link {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--bg-btn-light);
 }
 
 .hero__box-second {
   position: relative;
   z-index: 1;
+  @media screen and (max-width: 767px) {
+    left: 37%;
+  }
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    top: -35px;
+    left: 344px;
+  }
 
   &::before {
     position: absolute;
@@ -108,10 +148,13 @@
     border-radius: 50%;
     content: '';
     background-color: var(--color-subtitle);
-  }
 
-  @media screen and (max-width: 767px) {
-    left: 37%;
+    @media screen and (min-width: 768px) {
+      top: -30px;
+      left: -71px;
+      width: 324px;
+      height: 324px;
+    }
   }
 }
 
@@ -120,19 +163,56 @@
 }
 
 .hero__box-third {
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+    z-index: 2;
+    margin-left: auto;
   }
 }
 
 .achievement-list {
+  margin-bottom: 72px;
 }
 
-.achievement-list__item {
+.achievement-list__item:first-child {
+  margin-bottom: 13px;
 }
 
 .achievement-list__numbers {
+  position: relative;
+
+  font-family: var(--text-secondary);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.143;
+  text-align: right;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-design-main);
+
+  &::before {
+    position: absolute;
+    z-index: -1;
+    top: -2px;
+    right: -6px;
+
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    content: '';
+    background-color: var(--bg-btn-light);
+  }
 }
 
 .achievement-list__desc {
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1.25;
+  text-align: right;
+  color: var(--color-design-white);
 }
