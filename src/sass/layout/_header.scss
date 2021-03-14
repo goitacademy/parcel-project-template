@@ -1,2 +1,173 @@
-.header {
+.header {    
+    background-color: var(--accent-secondary-color);
+    padding-bottom: 27px;
+
+    @media screen and(min-width: $tablet) {      
+        padding-bottom: 15px;    
+    }
+
+    @media screen and(min-width: $desktop) {       
+        padding-bottom: 84px;    
+    }
+
+    &__thumb {
+        display: flex;
+        align-items: center;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    & .button {
+        display: none;
+
+        @media screen and(min-width: $tablet) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 160px;
+        }
+    }
 }
+
+.function-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    color: var(--accent-primary-color);
+    fill: currentColor;
+    background-color: transparent;
+    border: none;
+    z-index: 1;
+
+    @media screen and(min-width: $tablet) {
+        margin-right: 30px;
+    }
+
+    @media screen and(min-width: $desktop) {
+        display: none;
+    }
+}
+
+.navigation {
+    display: none;
+    
+    @media screen and(min-width: $desktop) {
+        display: block;
+        margin-left: 240px;
+        z-index: 1;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;        
+    }
+    
+    &__item:not(:last-child) {
+            margin-right: 35px;
+        }
+
+    &__link {
+        padding-top: 14px;
+        padding-bottom: 14px;
+        font-family: $ff-main;
+        color: var(--light-text-color);
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.313;
+        transition: color $time-main $timing-function-main;
+
+      &:hover, &:focus {
+        color: var(--accent-hover-color);
+      }
+    }
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100vw;    
+    z-index: 4;
+    width: 250px;
+    height: 100vh;
+    padding-top: 60px;    
+    transition: transform 1s $timing-function-main;
+    background-color: var(--bgc-mobile-menu);
+
+    @media screen and(min-width: $tablet){
+        width: 254px;
+    }
+
+    @media screen and(min-width: $desktop){
+        display: block;
+    }
+
+    &.is-open {
+        transform: translateX(-100vw);
+    }
+
+    & .function-button {
+        position: absolute;
+        right: 28px;
+        top: 23px;
+        
+        width: 15px;
+        height: 15px;
+        fill: var(--light-text-color);
+
+        @media screen and(min-width: $tablet){
+        right: 34px;
+        margin-right: 0;
+        }       
+    }
+
+    & .button {
+        display: block;
+        width: 209px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 19px;
+        
+    }
+
+    &__list {
+        border-top: 1px solid #E18298;
+    }
+
+    &__item {
+        border-bottom: 1px solid #E18298;        
+    }
+
+    &__link {
+        display: inline-block;
+        padding: 12px 21px;
+        font-family: $ff-main;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.286;
+        color:var(--light-text-color);
+        transition: color $time-main $timing-function-main;
+
+        &:hover, &:focus {
+            color: var(--accent-hover-color);
+        }
+
+         @media screen and(min-width: $tablet){
+            padding: 12px 24px;
+        }       
+    }
+}
+
+body.menu-open {
+    overflow-y: hidden;
+  }
+
