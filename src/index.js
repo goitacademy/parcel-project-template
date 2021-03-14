@@ -3,7 +3,7 @@ import './sass/main.scss';
 (() => {
     const menuBtnRef = document.querySelector("[data-menu-button]");
     const mobileMenuRef = document.querySelector("[data-menu]");
-  const mobileBtnClose = document.querySelector("[data-menu-close]");
+    const mobileBtnClose = document.querySelector("[data-menu-close]");
   
     const Btn1 = document.querySelector("[bat-0]");
     const Btn2 = document.querySelector("[bat-0]");
