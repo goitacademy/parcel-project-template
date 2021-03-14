@@ -1,36 +1,20 @@
 .production .container {
   //это потом убрать
-  padding-right: 20px;
-  padding-left: 20px;
-
-  @media screen and (min-width: 768px) {
-    padding-right: 36px;
-    padding-left: 36px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    padding-right: 75px;
-    padding-left: 75px;
-  }
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .production {
-  //общие стили для всех секций - надо перенести в общий стиль для секции
   padding-top: 125px;
-  padding-bottom: 48px;
-  @media screen and (min-width: 768px) {
+  padding-bottom: 39px;
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
     padding-top: 130px;
-    padding-bottom: 70px;
-  }
-  @media screen and (min-width: 1200px) {
-    padding-top: 125px;
+    padding-bottom: 66px;
   }
 
-  // стили для этой секции
   background-color: $section-background-color;
 
   //фон с брызгами молока по сторонам
-
   //на мобильных
   @media screen and (max-width: 767px) {
     background-image: url('../images/production/productionbg/production-bg-mobile.png');
@@ -115,24 +99,13 @@
   @media screen and (min-width: 768px) {
     display: flex;
   }
-  //нижний отступ секции
-  padding-bottom: 39px;
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
-    padding-bottom: 66px;
-  }
 }
 
 .production__img {
   display: block;
 }
 
-.production__thumb {
-  // @media screen and (min-width: 768px) {
-  //   width: 340px;
-  // }
-}
-
-// блок с текстом и кнопка
+// блок с текстом и кнопкой
 .production__description {
   @include font(12px, 500, 19px, 0);
   color: $text-description-color;
@@ -193,107 +166,35 @@
     $lh: 21px,
     $pt: 10px,
     $pb: 10px,
-    $pl: 10px,
-    $pr: 10px
+    $pl: 30px,
+    $pr: 30px
   );
-  padding: 10px 30px;
   align-items: center;
+  letter-spacing: 0;
   width: 176px;
   height: 44px;
-  // display: block;
 
   background-color: $body-background-color;
   color: $accent-color;
-  @media screen and (max-width: 767px) {
-    margin-top: 17px;
+  transition: background-color 250ms linear;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $btn-hover-color;
   }
+
+  margin-top: 17px;
   @media screen and (min-width: 768px) {
     margin-top: 62px;
   }
   @media screen and (min-width: 1200px) {
     margin-top: 45px;
   }
-}
-
-.production__list {
-  @media screen and (min-width: 768px) {
-    display: flex;
-  }
-}
-.production__item {
-  @media screen and (max-width: 767px) {
-    margin-right: 50px;
-    &:not(:last-child) {
-      margin-bottom: 38px;
-    }
-  }
-  @media screen and (min-width: 768px) {
-    &:not(:last-child) {
-      margin-right: 75px;
-    }
-    &:last-child {
-      margin-right: 55px;
-    }
-  }
-  @media screen and (min-width: 1200px) {
-    &:not(:last-child) {
-      margin-right: 78px;
-    }
-    &:last-child {
-      margin-right: 48px;
-    }
-  }
-}
-
-.production__item::before {
-  content: '';
-  display: block;
-  height: 50px;
-  background-repeat: no-repeat;
-  margin-bottom: 16px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 36px;
-  }
-  @media screen and (min-width: 1200px) {
-    margin-bottom: 40px;
-  }
-}
-
-.production__item:nth-child(1)::before {
-  background-image: url('../images/production/icons/icon1.svg');
-}
-.production__item:nth-child(2)::before {
-  background-image: url('../images/production/icons/icon2.svg');
-}
-.production__item:nth-child(3)::before {
-  background-image: url('../images/production/icons/icon3.svg');
-}
-
-.production__item-title {
-  font-family: Titan One;
-  @include font(36px, 400, 41px, 00.04em);
-  color: $accent-color;
-  margin-bottom: 12px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 13px;
-    font-size: 48px;
-  }
-  @media screen and (min-width: 1200px) {
-    margin-bottom: 15px;
-    font-size: 58px;
-  }
-}
-
-.production__item-desc {
-  @include font(12px, 700, 20px, 0);
-  color: $text-additional-color;
-  @media screen and (min-width: 768px) {
-    font-size: 14px;
-    line-height: 1.74;
-  }
-  @media screen and (min-width: 1200px) {
-    font-size: 16px;
-    line-height: 1.65;
-    letter-spacing: 0.02em;
+  // Иконка в виде стрелки
+  & svg {
+    width: 7px;
+    height: 11px;
+    margin-left: 13px;
   }
 }

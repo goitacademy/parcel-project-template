@@ -1,0 +1,103 @@
+.advantages .container {
+  //это потом убрать
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.advantages {
+  background-color: $section-background-color;
+  padding-bottom: 97px;
+  @media screen and (min-width: 768px) {
+    padding-bottom: 140px;
+  }
+}
+
+.advantages__list {
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+.advantages__item {
+  @media screen and (max-width: 767px) {
+    margin-right: 50px;
+    &:not(:last-child) {
+      margin-bottom: 38px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    &:not(:last-child) {
+      margin-right: 75px;
+    }
+    &:last-child {
+      margin-right: 55px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    &:not(:last-child) {
+      margin-right: 78px;
+    }
+    &:last-child {
+      margin-right: 48px;
+    }
+  }
+}
+
+.advantages__item::before {
+  content: '';
+  display: block;
+  height: 50px;
+  background-repeat: no-repeat;
+  margin-bottom: 16px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 36px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 40px;
+  }
+}
+
+//Добавляем иконки в виде псевдоєлемента before с помощью директивы @each
+@each $varible in 1, 2, 3 {
+  .advantages__item:nth-child(#{$varible})::before {
+    background-image: url('../images/advantages/icons/icon#{$varible}.svg');
+  }
+}
+
+// .advantages__item:nth-child(1)::before {
+//   background-image: url('../images/advantages/icons/icon1.svg');
+// }
+// .advantages__item:nth-child(2)::before {
+//   background-image: url('../images/advantages/icons/icon2.svg');
+// }
+// .advantages__item:nth-child(3)::before {
+//   background-image: url('../images/advantages/icons/icon3.svg');
+// }
+
+.advantages__item-title {
+  font-family: Titan One;
+  @include font(36px, 400, 41px, 00.04em);
+  color: $accent-color;
+  margin-bottom: 12px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 13px;
+    font-size: 48px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 15px;
+    font-size: 58px;
+  }
+}
+
+.advantages__item-desc {
+  @include font(12px, 700, 20px, 0);
+  color: $text-additional-color;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.74;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 16px;
+    line-height: 1.65;
+    letter-spacing: 0.02em;
+  }
+}
