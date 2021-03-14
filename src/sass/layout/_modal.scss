@@ -130,7 +130,11 @@ textarea::placeholder {
     font-size: 14px;
     line-height: 1.71;
 
-    color: $text-additional-color;
+    color: $accent-background-color;
+&:hover,
+&:focus {
+    color: $mobile-background-color;
+}
 }
 
 .modal-submit {
@@ -158,11 +162,41 @@ textarea::placeholder {
     &::placeholder {
         color: $accent-color;
     }}
-
+.modal-input {
+    outline: none;
+    width: 100%;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 42px;
+    
+    transition: border-color $time-hover cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover,
+    &:focus {
+        border-color: $accent-color;
+        cursor: pointer;
+    }
+}
 .modal-icon {
     position: absolute;
     top: 50%;
     left: 12px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    fill: $mobile-border-color;
+    width: 20px;
+    height: 20px;
+    
+    transition: fill $time-hover cubic-bezier(0.4, 0, 0.2, 1);
+    
+    .modal-input:hover+&,
+    .modal-input:focus+& {
+    fill: $accent-color;
+    cursor: pointer;
+    }
 }
 
 .form-field input:focus,
