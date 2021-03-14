@@ -15,10 +15,20 @@
   text-transform: uppercase;
 
   color: var(--pink);
+
+  @media screen and (min-width: 768px) {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 30px;
+    line-height: 34px;
+    letter-spacing: 0.04em;
+  }
 }
 
 .products-title {
-  margin: 0;
   margin-bottom: 31px;
   font-family: Titan One;
   font-style: normal;
@@ -30,59 +40,137 @@
   text-transform: uppercase;
 
   color: var(--dark-pink);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 39px;
+    font-size: 48px;
+    line-height: 55px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 49px;
+    font-size: 58px;
+    line-height: 66px;
+    letter-spacing: 0.06em;
+  }
 }
 
 // ===============список
-
-.products-content {
-  width: 280px;
-  height: 485px;
-  margin-bottom: 16px;
-
-  background: var(--pink);
-  border-radius: 24px;
-
-  //   &::before {
-  //     width: 249px;
-  //     height: 252px;
-  //     background-image: url('../../src/images/2-products/320-icecream.png');
-  //     background-size: contain;
-  //     background-repeat: no-repeat;
-  //     background-position: center;
-  //   }
+.products-item {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
 }
 
-// .products-item:first-child {
-//   width: 249px;
-//   height: 252px;
+.products-list {
+  @media screen and (min-width: 768px) {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
 
-//   background-image: url('../images/2-products/320-icecream.png');
-// }
+  @media screen and (min-width: 1280px) {
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+}
 
-// .products-item:nth-child(2) {
-//   width: 249px;
-//   height: 252px;
+.products-content {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  height: 485px;
+  margin-top: 146px;
 
-//   background-image: url('../images/2-products/320-ice-coffee.png');
-// }
+  padding-top: 140px;
+  padding-left: 40px;
+  padding-right: 40px;
 
-.products-content::before {
-  content: '';
-  display: block;
-  margin: auto;
-  width: 249px;
-  height: 252px;
+  border-radius: 24px;
 
-  background-image: url('../images/2-products/320-icecream.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  @media screen and (min-width: 768px) {
+    margin-top: 111px;
+    padding-top: 123px;
+    padding-left: 11px;
+    padding-right: 11px;
+    max-width: 220px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 209px;
+    padding-top: 124px;
+    padding-left: 44px;
+    padding-right: 44px;
+
+    max-width: 329px;
+    max-height: 525px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -140%);
+
+    display: block;
+    margin: auto;
+
+    width: 249px;
+    height: 252px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media screen and (min-width: 768px) {
+      transform: translate(-50%, -150%);
+      width: 220px;
+      height: 233px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      transform: translate(-50%, -140%);
+      width: 335px;
+      height: 335px;
+    }
+  }
+}
+
+.cream {
+  background: var(--pink);
+  &::before {
+    content: '';
+    background-image: url('../images/2-products/320-icecream.png');
+  }
+
+}
+
+.coffee {
+  background: #f0d1a5;
+  &::before {
+    content: '';
+    background-image: url('../images/2-products/320-ice-coffee.png');
+  }
+}
+
+.shakes {
+  background: #c2e297;
+  &::before {
+    content: '';
+    background-image: url('../images/2-products/320-milkshakes.png');
+  }
 }
 
 // ============заголовок блока
 
 .products-content-title {
-  margin: 0;
+  position: relative;
+  display: block;
+
+  margin-top: 22px;
   font-family: Titan One;
   font-style: normal;
   font-weight: normal;
@@ -95,10 +183,28 @@
   text-transform: uppercase;
 
   color: var(--white);
+
+  @media screen and (min-width: 768px) {
+    margin-top: 30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 38px;
+  }
+
+
+  &::after {
+    content: '';
+    background-image: url('../images/2-products/dots.svg');
+    width: 26px;
+    height: 6px;
+    margin: 30px auto;
+    display: block;
+  }
 }
 
 .products-desc {
-  margin: 0;
+  margin-bottom: 30px;
   font-family: DM Sans;
   font-style: normal;
   font-weight: bold;
@@ -111,18 +217,23 @@
   color: var(--white);
 }
 
-.products-icon {
-  margin: auto;
-  display: flex;
+.button-products {
+  display: inline-block;
+  border: none;
   width: 40px;
   height: 40px;
 
-  //   margin-top: 30px;
-  //   margin-bottom: 41px;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
+  cursor: pointer;
   background-color: var(--white);
   border-radius: 50%;
+}
+
+.products-icon {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 // <picture>
@@ -147,4 +258,51 @@
 //                                 srcset="./images/2-products/320-ice-coffee.png 1x, ./images/2-products/320-ice-coffee@2x.png 2x, ./images/2-products/320-ice-coffee@2x.png 3x"
 //                                     media="(min-width: 320px)">
 //                                 <img src="./images/2-products/320-ice-coffee.png" alt="images ice-coffee">
-//                             </picture>
+//  </picture>
+
+.product-item {
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+  border-bottom: 2px solid #f5f5f5;
+  background: white;
+  font-family: 'Open Sans';
+  transition: 0.3s ease-in;
+}
+.product-item:hover {
+  border-bottom: 2px solid #fc5a5a;
+}
+.product-item img {
+  display: block;
+  width: 100%;
+}
+.product-list {
+  background: #fafafa;
+  padding: 15px 0;
+}
+.product-list h3 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #444444;
+  margin: 0 0 10px 0;
+}
+.price {
+  font-size: 16px;
+  color: #fc5a5a;
+  display: block;
+  margin-bottom: 12px;
+}
+.button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 12px;
+  background: #cccccc;
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 28px;
+  transition: 0.3s ease-in;
+}
+.product-item:hover .button {
+  background: #fc5a5a;
+}
