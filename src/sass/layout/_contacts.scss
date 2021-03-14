@@ -5,6 +5,11 @@
   height: 1px;
   margin-bottom: 25px;
 }
+.arrow {
+  fill: black;
+  width: 10px;
+  height: 10px;
+}
 .contacts {
   font: var(--text-main-font);
   padding-bottom: 115px;
@@ -15,11 +20,23 @@
     rgba(255, 255, 255, 1) 81px,
     rgba(255, 245, 246, 1) 81px
   );
-  &-labe-color-cafe {
-    background-color: var(--products-ice-coffee);
+  &-button {
+    border-radius: 22px;
+    background-color: var(--background-elements);
+    color: var(--color-accent);
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-width: 161px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.31;
   }
-  &-labe-color-foodtruck {
-    background-color: var(--products-milkshakes);
+  &-active,
+  &-button:hover,
+  &-button:focus {
+    background-color: var(--color-accent);
+    color: var(--background-elements);
   }
 
   &-item {
@@ -31,7 +48,7 @@
   }
   &-type {
     border-radius: 4px;
-
+    background-color: var(--products-ice-coffee);
     padding: 0px 25px;
     text-transform: uppercase;
     margin: 0;
@@ -45,6 +62,12 @@
     /* or 22px */
 
     letter-spacing: 0.04em;
+  }
+  &-labe-color-cafe {
+    background-color: var(--products-ice-coffee);
+  }
+  &-labe-color-foodtruck {
+    background-color: var(--products-milkshakes);
   }
   &-type-bg {
     margin-bottom: 25px;
@@ -78,6 +101,11 @@
     font-size: 12px;
     line-height: 1.86;
     color: var(--sub-title-elipse);
+  }
+  &-hours:not(:last-child) {
+    margin-bottom: 16px;
+  }
+  &-work-hours {
     margin-bottom: 25px;
   }
   &-info {
@@ -91,9 +119,13 @@
   }
   &-tel {
     color: currentColor;
+    font-size: inherit;
+    line-height: inherit;
   }
   &-mail {
     color: currentColor;
+    font-size: inherit;
+    line-height: inherit;
   }
 
   @media screen and (max-width: 767px) {
@@ -108,6 +140,7 @@
     &-item:not(:last-child) {
       margin-bottom: 10px;
     }
+
     &-list {
       margin-bottom: 54px;
     }
@@ -134,10 +167,17 @@
         rgba(255, 245, 246, 1) 81px
       );
     }
+    &-button {
+      padding-right: 32px;
+      padding-left: 32px;
+    }
     &-item {
       width: calc((100% - 2 * 10px) / 3);
       padding: 50px 32px;
       margin: 10px;
+    }
+    &-list {
+      margin: -10px;
     }
     &-type {
       font-size: 16px;
@@ -153,7 +193,7 @@
       line-height: 1.86;
     }
     &-description {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1.66;
       margin-bottom: 30px;
     }
@@ -165,14 +205,16 @@
     &-hours {
       font-size: 14px;
       line-height: 1.86;
+    }
+    &-hours:not(:last-child) {
       margin-bottom: 16px;
     }
     &-work-hours {
       margin-bottom: 30px;
     }
     &-info {
-      font-size: 12px;
-      line-height: 1.5;
+      font-size: 14px;
+      line-height: 1.86;
     }
     &-tel {
     }
@@ -182,7 +224,6 @@
     &-list {
       margin-bottom: 81px;
       display: flex;
-      marign: -10px;
     }
     &-button-list {
       display: flex;
@@ -193,6 +234,9 @@
     }
   }
   @media screen and (min-width: 1200px) {
+    .dash {
+      margin-bottom: 32px;
+    }
     .contacts {
       padding-bottom: 165px;
       background: rgb(255, 255, 255);
@@ -203,11 +247,52 @@
         rgba(255, 245, 246, 1) 100px
       );
     }
+    &-button {
+      padding-right: 35px;
+      padding-left: 35px;
+    }
     &-item {
       width: calc((100% - 30px * 2) / 3);
       padding: 52px 43px 61px 43px;
-      margin: -15px;
+      //margin: -15px;
       margin: 15px;
+    }
+    &-list {
+      margin: -15px;
+      margin-bottom: 86px;
+    }
+
+    &-city {
+      font-size: 16px;
+      line-height: 1.86;
+    }
+    &-description {
+      font-size: 16px;
+      line-height: 1.86;
+      margin-bottom: 32px;
+    }
+
+    &-days {
+      font-size: 16px;
+      line-height: 1.86;
+    }
+    &-hours {
+      font-size: 16px;
+      line-height: 1.86;
+    }
+    &-hours:not(:last-child) {
+      margin-bottom: 15px;
+    }
+    &-description {
+      margin-bottom: 32px;
+    }
+
+    &-work-hours {
+      margin-bottom: 32px;
+    }
+    &-info {
+      font-size: 16px;
+      line-height: 1.83;
     }
   }
 }
