@@ -19,26 +19,52 @@
     text-transform: uppercase;
 }
 
-.products-item-1 {
-    background-color: $accent-bg-pink;
-    border-radius: 24px;
-}
-
-.products-item-2 {
-    background-color: $accent-bg-maize;
-    border-radius: 24px;
-}
-
-.products-item-3 {
-    background-color: $accent-bg-green;
-    border-radius: 24px;
-}
-
 .products-items {
     border-radius: 24px;
-    width: 280px;
-    height: 485px;
+    position: relative;
 }
+
+.products-items:first-child {
+    background-color: $accent-bg-pink;
+}
+
+.products-items:nth-child(2n + 2) {
+    background-color: $accent-bg-maize;
+}
+
+.products-items:last-child {
+    background-color: $accent-bg-green;
+}
+
+.products-item-name {
+    font-family: $accent-font;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $color-main;
+}
+
+.products-item-text {
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: $color-main;
+}
+
+.products-item-box::before {
+   content: "";
+   background-image: url('products-img-1.png');
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 335px;
+   height: 335px;
+}
+
 
 @media screen and (min-width: 320px) {
     .products-caption {
@@ -62,10 +88,20 @@
     }
 
     .products-items {
-        width: 280px;
+        max-width: 440px;
         height: 485px;
         margin-bottom: 17px;
     } 
+
+    .products-item-name {
+        font-size: 20px;
+        line-height: 1.15;
+    }
+
+    .products-item-text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
 }
 
 
@@ -89,7 +125,21 @@
     .products-items {
         width: 220px;
         height: 485px;
+        margin: 10px;
     } 
+
+    .products-list {
+        display: flex;
+        flex-wrap: nowrap;
+        margin: -10px;
+        padding: 0;
+        flex-direction: row;
+    }
+
+    .products-item-text {
+        font-size: 14px;
+        line-height: 1.79;
+    }
 }
 
 
@@ -112,14 +162,30 @@
     .products-items {
         width: 329px;
         height: 525px;
-        margin: 10px;
+        margin: 14px;
     }
 
     .products-list {
         display: flex;
-        flex-wrap: wrap;
-        margin: -10px;
+        flex-wrap: nowrap;
+        margin: -14px;
         padding: 0;
         flex-direction: row;
+    }
+
+    .products-item-name {
+        font-size: 30px;
+        line-height: 1.13;
+    }
+
+    .products-item-text {
+        font-size: 16px;
+        line-height: 1.75;
+        margin-top: 32px;
+        margin-bottom: 62px;
+    }
+
+    .products-item-box {
+        padding: 38px 44px 50px;
     }
 }
