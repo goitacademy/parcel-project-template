@@ -11,6 +11,9 @@
   width: 8px;
   height: 10px;
   margin-left: 13px;
+  transition-property: stroke;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--time-function);
 }
 .contacts {
   font: var(--text-main-font);
@@ -33,16 +36,22 @@
     font-weight: bold;
     font-size: 16px;
     line-height: 1.31;
+    transition-property: background-color, color;
+    transition-duration: var(--transition-time);
+    transition-timing-function: var(--time-function);
   }
+
   &-active .arrow,
-  &-active,
   &-button:hover .arrow,
+  &-button:focus .arrow {
+    stroke: var(--background-elements);
+  }
+  &-active,
   &-button:hover,
-  &-button:focus .arrow,
   &-button:focus {
+    cursor: pointer;
     background-color: var(--color-accent);
     color: var(--background-elements);
-    stroke: var(--background-elements);
   }
 
   &-item {
