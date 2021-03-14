@@ -1,8 +1,39 @@
+.advantages {
+    padding-top: 39px;
+    padding-bottom: 97px;
+    background-color: $secondary-bg-pink;
+}
+
+.advantages-block {
+    position: relative;
+
+        &:not(:first-child) {
+            margin-top: 100px;
+    }
+}
+
 .advantages-heading {
   font-size: 36px;
   font-weight: 400;
   line-height: 1.14;
   letter-spacing: 0.04em;
+
+  &::before {
+    position: absolute;
+    top: -65px;
+  }
+}
+
+.advantages-heading.first::before {
+    content: url(../images/advantages/icon1.png);
+}
+
+.advantages-heading.second::before {
+    content: url(../images/advantages/icon2.png);
+}
+
+.advantages-heading.third::before {
+    content: url(../images/advantages/icon3.png);
 }
 
 .advantages-description {
@@ -19,6 +50,12 @@
 
 
 @media screen and (min-width: 768px) {
+    .advantages-block {
+        
+        &:not(:first-child) {
+            margin-top: 0;
+        }
+    }
     .advantages-description {
         font-size: 14px;
     }
@@ -38,6 +75,9 @@
 }
 
 @media screen and (min-width: 1200px) {
+    .advantages {
+        padding-bottom: 139px;
+    }
     .advantages-heading {
         font-size: 58px;
     }
