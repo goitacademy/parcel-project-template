@@ -3,12 +3,12 @@
 
   & .container {
     //width: 320px;
-    background-color: #fff5f6;
+    background-color: var(--secondary-bg-color);
   }
   &-separator {
     width: 360px; //320+2*20(paddings)
     height: 2px;
-    background-color: #e1e1e1;
+    background-color: var(--primary-line-color);
     margin: 0 auto;
   }
 
@@ -31,17 +31,17 @@
 
   &-text1 {
     font-family: Titan One;
-    //font-style: normal;
-    font-weight: 400;
+    font-style: 400;
+    font-weight: normal;
     font-size: 18px;
     line-height: 21px;
     text-transform: uppercase;
-    color: var(--light-accent-color); //#ffa5ba;
+    color: var(--light-accent-color);
     margin-bottom: 30px;
   }
   &-text2 {
     font-family: Titan One;
-    //font-style: normal;
+    font-style: normal;
     font-weight: 400;
     font-size: 34px;
     line-height: 39px;
@@ -52,8 +52,8 @@
   }
   &-text3 {
     font-family: DM Sans;
-    //font-style: normal;
-    font-weight: 700; //bold
+    font-style: normal;
+    font-weight: 700;
     font-size: 12px;
     line-height: 186%;
     /* or 22px */
@@ -63,13 +63,13 @@
     margin-left: 0px;
   }
   &-tel-link {
-    color: red;
+    color: var(--accent-color);
     padding-left: 5px;
     text-decoration: none;
   }
   &-copyright {
     font-family: DM Sans;
-    //font-style: normal;
+    font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 152%;
@@ -82,19 +82,6 @@
     padding-right: 85px;
     &-container {
       text-align: center;
-    }
-  }
-  &-button-top {
-    border: none;
-    background-color: #fea5bb;
-    margin-bottom: 30px;
-    & a {
-      text-decoration: none;
-      color: #000000;
-    }
-    &:hover,
-    &:focus {
-      background-color: var(--accent-color);
     }
   }
 }
@@ -137,8 +124,8 @@
     height: 32px;
 
     fill: currentColor;
-    background-color: #fea5bb;
-    color: white; /*inherit;*/
+    background-color: var(--social-link-bg-basic-color);
+    color: var(--primary-light-color); /*inherit;*/
 
     //@include transition; //background-color, color;
   }
@@ -146,7 +133,7 @@
   &-link:hover,
   &-link:focus {
     background-color: var(--accent-color);
-    color: white;
+    color: var(--primary-light-color);
   }
 
   &-icon {
@@ -155,7 +142,7 @@
   }
 }
 
-@media screen and (max-width: $phone - 1px) {
+@include adaptive-before-phone {
   .footer {
     width: 100%;
 
