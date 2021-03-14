@@ -1,49 +1,36 @@
 .logotype {
-    width: 200px;
-    height: 200px;
-    background-color: var(--accent-secondary-color);
-  
+    width: 199px;
+    height: 50px;  
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    color: var(--accent-primary-color);  
+    fill: currentColor;
+    transition: color $time-main $timing-function-main;
+
+      &:hover, &:focus {
+        color: var(--accent-hover-color);
+      }
   
-    cursor: pointer;
-  
+      @media screen and(min-width: $desktop) {
+      position: absolute;
+      top: 0;
+      left: -70px;
+    }
+      
     &__icon {
-      width: 50px;
-      height: 50px;
       border-radius: 50%;
-  
-      z-index: 1;
-  
       transform: rotate(180deg) rotateY(180deg);
-      background-color: var(--light-text-color);
-      fill: var(--accent-primary-color);  
-  
-      margin-right: 20px;
+      background-color: var(--light-text-color);  
+    
     }
   
     &__text {
-        font-family: 'Titan One';
-        font-size: 18px;
-        font-style: normal;
+        font-family: $ff-accent;
+        font-size: 23px;
         font-weight: 400;
-        line-height: 1.15;
+        line-height: 1.25;
         letter-spacing: .04em;
-        text-align: center;
-  
-        color: var(--accent-primary-color);  
-        text-transform: uppercase;
-    }
-  
-    &:hover &__icon,
-    &:focus &__icon {
-      fill: var(--accent-hover-color);
-      background-color: var(--light-hover-color);
-    }
-  
-    &:hover &__text,
-    &:focus &__text {
-      color: var(--accent-hover-color);
-    }
+        text-transform: uppercase;        
   }
+}
