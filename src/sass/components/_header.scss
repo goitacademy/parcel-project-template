@@ -1,11 +1,17 @@
-.burger__btn {
+.header {
+    position: absolute;
+    width: 100%;
+}
 
+.burger__btn {
+display: block;
     width: 20px;
     height: 12px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    // margin-bottom: 19px;
+
+    // display: flex;
+    // align-items: center;
 
     padding: 0;
     border: 0;
@@ -22,14 +28,16 @@
 }
 
   // убрал подчеркивание ссылки У СЕБЯ
-  .logo {
+  .logo-ice, .logo__link {
 width: 199px;
 height: 50px;
-
-    text-decoration: none;
-
 }
 
+@media screen and (max-width: 1199px) {
+  .site-nav {
+      display: none;
+  }  
+}
 
 @media screen and (max-width: 767px) {
 
@@ -39,8 +47,7 @@ height: 50px;
     // padding-top: 6px;
     padding: 6px 20px 0;
 
-    background-color: skyblue;
-    // background-color: transparent;
+    background-color: transparent;
 
     display: flex;
     justify-content: space-between;
@@ -51,46 +58,30 @@ height: 50px;
 //     fill: inherit;
 //    }
 
-// .burger__btn {
-
-//     width: 20px;
-//     height: 12px;
-
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-
-//     padding: 0;
-//     border: 0;
-//     background-color: transparent;
-// /// Переделать бургер меню СЕЙЧАС Fill задается в SVG
-//     // text-decoration-color: #D41443;
-//     // color: #D41443;
-
-//     & icon_btn {
-//         // color: #D41443;
-//         fill: currentColor;
-//         // fill: #D41443;
-//     }
-// }
-
-.btn__order-tabl {
-// opacity: 0;
-// visibility: hidden;
-display: none;
-}
-// Закрытие медиа запроса до 767px
+    .btn__order-tabl {
+    display: none;
+    }
 }   
+// Закрытие медиа запроса до 767px
 
-// ОТКРЫТИЕ медиа запроса до 768px
+// ОТКРЫТИЕ медиа запроса от 768px
 @media screen and (min-width: 768px) {
     .header .container  {
     height: 87px;
     // padding: 37px 34px 0;
     padding-top: 37px;
-    
+
+    display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    
+    background-color: transparent;
+    }
+
+    .burger__btn {
+        margin-right: 30px;
+        margin-bottom: 22px;
+        margin-left: auto;
     }
 
     //Tablet BTN
@@ -111,8 +102,8 @@ display: none;
     padding-left: 56px;
     padding-right: 48px;
   
-    margin: 0 auto;
-    margin-bottom: 32px;
+    // margin: 0 auto;
+    margin-bottom: 5px;
   }
   
   .btn__title-tabl {
@@ -132,12 +123,39 @@ display: none;
       fill: currentColor;
   }
 }
+// Закрытие медиа запроса от 767px
 
 // ОТКРЫТИЕ медиа запроса от 1200px
 @media screen and (min-width: 1200px) {
+    .container.desktop {
+        padding-top: 37px;
+        padding-bottom: 0;
+        padding-left: 46px;
+        padding-right: 115px;
+    }
+
     .burger__btn {
-//         opacity: 0;
-// visibility: hidden;
-display: none;
+        display: none;
+    }
+
+    .site-nav {
+        display: flex;
+
+        margin-bottom: 16px;
+    }
+
+    .site-nav__item:not(:last-child) {
+        margin-right: 35px;
+    }
+
+    .site-nav__link{
+        // font-family: DM Sans;
+// font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 21px;
+/* identical to box height */
+
+color: #FFFFFF
     }
 }
