@@ -24,19 +24,22 @@
 }
 
 .menu {
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(-100%) scale(0);
+  right: 0;
+  transform: translateX(100%)  ;
   background-color: $background-color-mob-menu;
   z-index: 1;
-  width: 101vw;
+  width: 250px;
   height: 100vh;
   display: flex;
+  opacity: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   transition: $trans-duration $trans-time-func;
+ 
+ 
 
   &__close-btn {
     position: absolute;
@@ -76,7 +79,13 @@
   }
 }
 .menu.is-open {
-  transform: translateX(-50%) translateY(0%) scale(1);
+  opacity: 1;
+  transform: translateX(0)  ;
+  transition:  $trans-duration $trans-time-func;
+}
+
+.menu.is-open  {
+ display: flex;
 }
 
 .menu-nav {
