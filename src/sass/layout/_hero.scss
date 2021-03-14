@@ -342,6 +342,28 @@
   }
 }
 
+@keyframes changeSize2 {
+  0% {
+    transform: scale(0.3);
+  }
+
+  25% {
+    transform: scale(0.6);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  75% {
+    transform: scale(0.6);
+  }
+
+  100% {
+    transform: scale(0.3);
+  }
+}
+
 .hero-ellipse {
   position: absolute;
   display: block;
@@ -352,16 +374,16 @@
   height: 344px;
   background-color: $subtitle-text-color;
   border-radius: 50%;
-  animation-name: changeSize;
-  animation-duration: 1s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-delay: 250ms;
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     bottom: 46px;
     right: 137px;
     width: 324px;
     height: 322px;
+    animation-name: changeSize;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-delay: 250ms;
   }
 
   @media screen and (min-width: 1280px) {
@@ -369,6 +391,10 @@
     right: 267px;
     width: 538px;
     height: 538px;
+    animation-name: changeSize2;
+    animation-duration: 6000ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-iteration-count: infinite;
   }
 }
 
@@ -403,7 +429,53 @@
   }
 }
 
-@keyframes changePosition {
+@keyframes tadam {
+  0% {
+    transform: rotateX(0deg);
+  }
+
+  10% {
+    transform: rotateX(20deg);
+  }
+
+  20% {
+    transform: rotateX(0deg);
+  }
+
+  30% {
+    transform: rotateX(-20deg);
+  }
+
+  40% {
+    transform: rotateX(0deg);
+  }
+
+  50% {
+    transform: rotateX(20deg);
+  }
+
+  60% {
+    transform: rotateZ(0deg);
+  }
+
+  70% {
+    transform: rotateZ(-20deg);
+  }
+
+  80% {
+    transform: rotateZ(0deg);
+  }
+
+  90% {
+    transform: rotateZ(20deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes changeGirlPosition {
   0% {
     transform: translateX(1000px);
   }
@@ -425,7 +497,7 @@
     height: 126px;
     z-index: 10;
     animation-name: changeMilkPosition;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     animation-delay: 250ms;
   }
@@ -434,6 +506,10 @@
     bottom: 45px;
     width: 188px;
     height: 191px;
+    animation-name: tadam;
+    animation-duration: 1500ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-iteration-count: 2;
   }
 }
 
@@ -449,7 +525,7 @@
     width: 168px;
     height: 133px;
     z-index: 10;
-    animation-name: changePosition;
+    animation-name: changeGirlPosition;
     animation-duration: 1s;
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     animation-delay: 250ms;
@@ -460,5 +536,9 @@
     right: 109px;
     width: 293px;
     height: 232px;
+    animation-name: tadam;
+    animation-duration: 1500ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-iteration-count: 2;
   }
 }
