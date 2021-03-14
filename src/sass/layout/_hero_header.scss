@@ -84,6 +84,7 @@ display: flex;
 
 
 .header-but-item{
+
   transition: var(--transition-duration) var(--timing-function);
   background: var(--text-color-dark-bg);
   border-radius: 20px;
@@ -190,10 +191,10 @@ display: flex;
   background-color: transparent;
   border: none;
   fill: var(--main-dark-color);
-  &:hover,
-  &:focus {
-    fill: var(--text-color-dark-bg);
-  }
+    &:hover,
+    &:focus {
+      fill: var(--text-color-dark-bg);
+    }
 }
 
 .hero-boarder {
@@ -207,21 +208,38 @@ display: flex;
 
 // modal
 .backdrop {
-
+  transition: var(--transition-duration) var(--timing-function);
   z-index: 7;
   // display: none;
   position: absolute; 
   padding-left: 20px;
+  padding-right: 20px;
   width: 250px;
-  height: 100vh;  
+  height: 100%;  
   right: 0px;
   top: 0px;
   background: #E17992;
-  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+  // box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+  box-shadow: -11px 0px 10px 1px rgb(223 25 72 / 20%) //не по макету
 }
-.modal-block{
-  position: relative;
+.background-close{
+  z-index: 6;
+  top: 0px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
 }
+
+.background-close.bat-close{
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; 
+}
+
+
+ 
+
 
 .mod-icon{
   margin-left: 16px;
@@ -238,7 +256,7 @@ display: flex;
   margin: 0;
   border: transparent;
   top: 23px;
-  right: 26px;
+  right: 20px;
   fill: var(--text-color-dark-bg);
 
   &:hover,
@@ -273,7 +291,7 @@ display: flex;
 }
 
 .modal-button{
-  background-color: #fff;
+  background-color: var(--text-color-dark-bg);
   // border-radius: 50%;
   display: flex;
   align-items: center;
@@ -282,6 +300,34 @@ display: flex;
   transition: var(--transition-duration) var(--timing-function);
   background: var(--text-color-dark-bg);
   border-radius: 20px;
-  padding: 6px 62px;
+  padding: 6px 60px;
 // padding: 19px 49px;
+}
+
+.modal-list{
+margin-top: 32px;
+}
+
+.modal-link{
+
+  color: #FFFFFF;
+
+}
+
+.accent{
+  color: #D41443;
+}
+
+.modal-item{
+  
+
+  border-top: 1px solid #E18298;
+  padding-top: 13px;
+
+
+
+     &:not(:last-child){
+       padding-bottom: 11px;
+    }
+
 }
