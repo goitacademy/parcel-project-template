@@ -9,16 +9,16 @@
   flex-direction: column;
   align-items: center;
 
-  @media (min-width: 320px) {
+  @media (min-width: $mobile) {
     padding: 121px 0 98px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: $tablet) {
     padding-top: 122px;
     padding-bottom: 112px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: $desktop) {
     padding-top: 127px;
     padding-bottom: 122px;
   }
@@ -87,11 +87,11 @@
   }
 
   &__list {
-    @media (min-width: 320px) {
+    @media (min-width: $mobile) {
       width: 280px;
     }
+    @media (min-width: $tablet) {
 
-    @media (min-width: 768px) {
       width: 700px;
       margin-bottom: 39px;
 
@@ -101,14 +101,17 @@
       justify-content: center;
     }
 
-    @media (min-width: 1200px) {
-      width: 1053px;
+    @media (min-width: $desktop) {
+      width: 1050px;
+
       margin-bottom: 49px;
     }
   }
 
   &__card {
-    position: relative;
+
+      position: relative;
+      overflow: hidden;
 
     width: 100%;
     height: 598px;
@@ -121,8 +124,10 @@
       height: 589px;
     }
     @media (min-width: $desktop) {
-      width: 335px;
-      height: 735px;
+
+        width: 336px;
+        height: 735px;
+
     }
   }
 
@@ -149,7 +154,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    z-index: 1;
+    z-index: 2;
 
     @media (min-width: $tablet) {
       width: 220px;
@@ -157,79 +162,21 @@
       left: 0;
     }
     @media (min-width: $desktop) {
-      width: 335px;
-      height: 335px;
+      width: 336px;
+      height: 336px;
     }
   }
 
-  &__card--first {
-    @extend .products__card;
-    .products__wrapper {
-      background-color: var(--accent-secondary-color);
-    }
-  }
-
-  &__card--second {
-    @extend .products__card;
-    .products__wrapper {
-      background-color: var(--cards-second-bgcolor);
-    }
-  }
-
-  &__card--third {
-    @extend .products__card;
-    .products__wrapper {
-      background-color: var(--cards-third-bgcolor);
-    }
-  }
-
-  &__card--first::before {
-    @media (max-width: $tablet - 1px) {
-      background-image: url('../images/products/product1_mobile.webp');
-    }
-    @media (min-width: $tablet) {
-      background-image: url('../images/products/product1_tablet.webp');
-    }
-    @media (min-width: $desktop) {
-      background-image: url('../images/products/product1_desktop.webp');
-    }
-  }
-
-  &__card--second::before {
-    @media (max-width: $tablet - 1px) {
-      background-image: url('../images/products/product2_mobile.webp');
-    }
-    @media (min-width: $tablet) {
-      background-image: url('../images/products/product2_tablet.webp');
-    }
-    @media (min-width: $desktop) {
-      background-image: url('../images/products/product2_desktop.webp');
-    }
-  }
-
-  &__card--third::before {
-    @media (max-width: $tablet - 1px) {
-      background-image: url('../images/products/product3_mobile.webp');
-    }
-    @media (min-width: $tablet) {
-      background-image: url('../images/products/product3_tablet.webp');
-    }
-    @media (min-width: $desktop) {
-      background-image: url('../images/products/product3_desktop.webp');
-    }
-  }
-
-  &__wrapper,
-  &__wrapper--back {
+  &__wrapper {
     position: absolute;
     top: 113px;
     left: 0;
-    z-index: 0;
 
-    perspective: 1500px;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transition: transform 500ms $timing-function-main;
+    z-index: 1;
+    overflow: hidden;
+ 
+    transition: transform 500ms $timing-function-main,
+                background-color 500ms $timing-function-main;
 
     display: flex;
     flex-direction: column;
@@ -238,19 +185,20 @@
 
     height: 485px;
     width: 100%;
-    padding: 161px 0 41px;
+    padding: 156px 0 41px;
 
     border-radius: 24px;
 
     @media (min-width: $tablet) {
       top: 111px;
-      padding: 152px 0 40px;
+      height: 478px;
+      padding: 147px 0 40px;
     }
     @media (min-width: $desktop) {
       top: 210px;
       height: 525px;
-
-      padding: 163px 0 50px;
+      width: 336px;
+      padding: 158px 0 50px;
     }
   }
 
@@ -263,8 +211,11 @@
     letter-spacing: 0.04em;
     text-align: center;
 
-    text-transform: uppercase;
-    color: var(--light-text-color);
+      text-transform: uppercase;
+      color: var(--light-text-color);
+      transition: transform 500ms $timing-function-main,
+                  color 500ms $timing-function-main;
+
 
     display: flex;
     flex-direction: column;
@@ -289,16 +240,17 @@
 
     margin-bottom: 30px;
 
+    transition: transform 500ms $timing-function-main;
     color: var(--light-text-color);
 
     @media (min-width: $tablet) {
       width: 198px;
+      line-height: 1.76;
       margin-bottom: 40px;
     }
     @media (min-width: $desktop) {
       width: 241px;
       font-size: 16px;
-      line-height: 1.76;
       margin-bottom: 62px;
     }
   }
@@ -314,49 +266,182 @@
   }
 
   &__button {
-    display: block;
+    position: relative;
     cursor: pointer;
     z-index: 1;
     width: 40px;
     height: 40px;
     border: 0;
     border-radius: 50%;
-    background-image: url('../images/products/arrow-right.webp');
 
-    transition: transform $time-main $timing-function-main,
-      box-shadow $time-main $timing-function-main;
+    color: var(--accent-primary-color);
+    background-color: var(--light-text-color);
+  
+    transition: background-color $time-main $timing-function-main,
+                color $time-main $timing-function-main,
+                transform $time-main $timing-function-main,
+                box-shadow $time-main $timing-function-main;
+
+  }
+
+  &__arrow,
+  &__close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: currentColor;
+
+    transition: opacity 500ms $timing-function-main;
+  }
+
+  &__close {
+    opacity: 0;
   }
 
   &__button:hover,
   &__button:focus {
-    //transform: scale(1.1);
-    -webkit-box-shadow: 0px 0px 25px -5px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 0px 25px -5px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 0px 30px -5px rgba(0, 0, 0, 0.2);
+    background-color: var(--accent-primary-color);
+    color: var(--light-text-color);
+    -webkit-box-shadow: 1px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 1px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 1px 0px 8px 0px rgba(34, 60, 80, 0.2);
   }
 
-  &__wrapper--back {
-    background-color: var(--accent-secondary-color);
-    border: 2px solid var(--accent-secondary-color);
-    transform: rotateY(180deg);
+  &__overlay {
+    position: absolute;
+    top: 237px;
+    left: 0;
+    width: 270px;
+    transform: translateX(-101%);
+    transition: transform 500ms $timing-function-main;
+    background-color: var(--light-text-color);
+    z-index: 1;
 
-    z-index: 0;
-    //display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .products__button {
-      transform: rotate(180deg);
+    padding: 15px 31px 15px;
+
+    @media (min-width: $tablet) {
+      padding: 12px 11px 12px;
+      top: 225px;
+      width: 210px;
+    }
+    @media (min-width: $desktop) {
+      padding: 15px 0 15px;
+      top: 245px;
+      width: 324px;
     }
   }
 
   &__check {
-    display: none;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    z-index: 1;
+    bottom: 80px;
+    left: 100px;
+    @media (min-width: $tablet) {
+      bottom: 47px;
+      left: 193px;
+    }
+    @media (min-width: $desktop) {
+      bottom: 47px;
+      left: 147px;
+    }
   }
 
-  &__check:checked ~ &__wrapper--back {
-    transform: rotateY(0deg);
+  checkbox:focus ~ &_wrapper &__button {
+    outline: 2px solid black;
   }
-  &__check:checked ~ &__wrapper {
-    transform: rotateY(180deg);
+
+  #card-first:focus ~ &_wrapper &__button,
+  #card-second:focus ~ &_wrapper &__button,
+  #card-third:focus ~ &_wrapper &__button {
+    background-color: var(--accent-primary-color);
+    color: var(--light-text-color);
+    -webkit-box-shadow: 1px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 1px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 1px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  }
+
+  #card-first:checked + &__wrapper {
+    background-color: #ffb8cab8;
+  }
+
+  #card-second:checked + &__wrapper {
+    background-color: #f0d1a5b8;
+  }
+
+  #card-third:checked  + &__wrapper {
+    background-color: #c2e297b8;
+  }
+
+  &__check:checked ~ &__wrapper &__subtitle {
+    transform: scale(1.1);
+    color: var(--accent-hover-color);
+  }
+
+  &__check:checked ~ &__wrapper &__text {
+    transform: scale(0);
+  }
+
+  &__check:checked ~ &__wrapper &__close {
+    opacity: 1;
+  }
+
+  &__check:checked ~ &__wrapper &__arrow {
+    opacity: 0;
+  }
+
+  &__check:checked ~ &__wrapper &__overlay {
+    transform: translateX(5px);
+  }
+
+  &__qualities {
+    width: 240px;
+    padding-left: 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    fill: var(--accent-primary-color);
+
+    @media (min-width: $tablet) and (max-width: $desktop - 1px){
+       margin-right: 14px;
+    }
+  }
+
+  &__meta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: .04em;
+    text-align: left;
+    color: var(--accent-primary-color);
+
+    @media (min-width: $desktop) {
+      font-size: 16px;
+      line-height: 1.76;
+    }
   }
 }
 
@@ -367,27 +452,62 @@
   }
 }
 
-// ======== STYLES TO DELETE ==========
-.container {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+.first {
+    .products__wrapper {
+      background-color: var(--accent-secondary-color);
+    }
+  }
 
-  // @media (min-width: $mobile) {
-  //   width: 320px;
-  //   // padding: 0 20px;
-  // }
-  // @media (min-width: $tablet) {
-  //   width: 768px;
-  //   padding: 0 34px;
-  // }
-  // @media (min-width: $desktop) {
-  //   width: 1280px;
-  //   padding: 0 114px;
-  // }
-}
+.second {
+    .products__wrapper {
+      background-color: var(--cards-second-bgcolor);
+    }
+  }
+
+.third {
+    .products__wrapper {
+      background-color: var(--cards-third-bgcolor);
+    }
+  }
+
+.first::before {
+    @media (max-width: $tablet - 1px) {
+      background-image: url('../images/products/product1_mobile.webp');
+    }
+    @media (min-width: $tablet) {
+      background-image: url('../images/products/product1_tablet.webp');
+    }
+    @media (min-width: $desktop) {
+      background-image: url('../images/products/product1_desktop.webp');
+    }
+  }
+
+ .second::before {
+    @media (max-width: $tablet - 1px) {
+      background-image: url('../images/products/product2_mobile.webp');
+    }
+    @media (min-width: $tablet) {
+      background-image: url('../images/products/product2_tablet.webp');
+    }
+    @media (min-width: $desktop) {
+      background-image: url('../images/products/product2_desktop.webp');
+    }
+  }
+
+.third::before {
+    @media (max-width: $tablet - 1px) {
+      background-image: url('../images/products/product3_mobile.webp');
+    }
+    @media (min-width: $tablet) {
+      background-image: url('../images/products/product3_tablet.webp');
+    }
+    @media (min-width: $desktop) {
+      background-image: url('../images/products/product3_desktop.webp');
+    }
+  }
+
+// ======== STYLES TO DELETE ==========
+
 a {
   text-decoration: none;
   display: block;
