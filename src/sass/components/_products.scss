@@ -18,14 +18,14 @@
 
   @media screen and (min-width: 768px) {
     width: 768px;
-    // padding-left: 34px;
-    // padding-right: 34px;
+    padding-left: 34px;
+    padding-right: 34px;
   }
 
-  @media screen and (min-width: 1200px) {
-    width: 1200px;
-    // padding-left: 115px;
-    // padding-right: 115px;
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding-left: 115px;
+    padding-right: 115px;
   }
 }
 
@@ -71,8 +71,10 @@
 
 
 .products-list {
-  // display: flex;
-  // flex-direction: column;
+ list-style: none;
+
+  
+  
   &-title {
     font-family: Titan One;
     font-style: normal;
@@ -94,7 +96,9 @@
     text-align: center;
     letter-spacing: 0.04em;
     color: #fff;
-    margin: 0 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    // margin: 0 40px;
     margin-bottom: 30px;
   }
   &-item {
@@ -102,16 +106,15 @@
     border-radius: 24px;
     padding-top: 161px;
     padding-bottom: 41px;
-   
-  //   &::not(:last-child) {
-  // margin-bottom: 130px;
-  //   }
-
+    max-width: 280px;
+    margin: 0 auto;
+  
 
     &.pink {
       background-color: #ffb8ca;
       
     }
+  
     &.apricot {
       background-color: #f0d1a5;
       
@@ -122,25 +125,71 @@
   }
 }
 
+.products-list-item {
+  max-width: 280px;
+  position: relative;
+&::before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  height: 252px;
+  min-width: 249px;
+  bottom: 346px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  // right: 10px;
+  background-repeat: no-repeat;
+}
+&.pink::before {
+  background-image: url(../images/product/mob1.png);
+}
+&.apricot::before {
+  background-image: url(../images/product/mob2.png);
+}
+&.green::before {
+  background-image: url(../images/product/mob3.png);
+}
+}
+
 
 @media screen and (min-width: 768px) {
   .products-list {
     display: flex;
     flex-wrap: nowrap;
-    // margin: -10px;
     justify-content: space-between;
 
     &-item {
     display: inline-block;
     max-width: 220px;
-    // margin: 10px; 
+    @media screen and (min-width: 1280px) {
+      max-width: 330px;
+
+      &::before {
+        height: 226px;
+        max-width: 220px;
+        bottom: 425px;
+      }
+    }
+
+    
+    }
+
+    &-text {
+      margin-bottom: 40px;
+      
     }
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .products-list-item {
     max-width: 330px;
+  }
+
+  .products-list-text {
+    padding-left: 44px;
+    padding-right: 44px;
   }
 }
 .products-button {
