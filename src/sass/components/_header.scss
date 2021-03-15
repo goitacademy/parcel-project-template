@@ -1,3 +1,4 @@
+
 .mobile-menu {
     width: 100%;
     max-width: 250px;
@@ -92,3 +93,150 @@
     top: 15px;
     right: 18px;
 }
+
+//=======
+
+header{
+    background-color: var(--hero-pink);
+    font-family: 'DM Sans', sans-serif;
+    @include font-mobile($fs:14px, $lh:18px);
+    color: var(--white);
+    .container{
+        display: flex;
+    }
+    nav{
+        display: flex;
+    }
+    .list{
+        display: flex;
+    }
+    .burger{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background-color: Transparent;
+        fill: var(--dark-pink);
+        cursor: pointer;
+    }
+    .link{
+        color: inherit;
+    }
+
+    @media screen and (max-width: 767px) {
+        .container{
+            position: relative;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 6px;
+            padding-bottom: 27px;
+        }
+        .burger{
+            position: absolute;
+            top: 11px;
+            right: -10px;
+        }
+        .buy-now{
+            @include font-mobile($fs:16px);
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .container{
+            @include font-tablet($lh: 18px);
+            align-items: center;
+            padding-top: 37px;
+            padding-bottom: 7px;
+        }
+        .burger{
+            position: relative;
+            z-index: 1;
+            margin-left: auto;
+            margin-right: 30px;
+
+        }
+        .buy-now{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include font-tablet($fs: 16px);
+            color: var(--dark-pink);
+            padding: 0;
+            width: 160px;
+            height: 44px;
+            border-radius: 22px;
+            background-color: var(--white);
+            border: none;
+            cursor: pointer;
+            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+            svg{
+                display: block;
+                margin-left: 12px;
+                margin-top: 17px;
+                margin-bottom: 15px;
+                align-self: center;
+            }
+            
+    
+            &:hover,
+            &:focus{
+                background-color: var(--accent) ;
+            }
+        }
+    }
+    @media screen and (max-width: 1280px) {
+        nav .list{
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .container{
+            @include font-desktop();
+            position: relative;
+            align-items: center;
+            padding-top: 32px;
+            padding-bottom: 69px;
+        }
+        .burger{
+            display: none;
+        }
+
+        nav {
+            align-items: center;
+            margin-left: auto;
+            margin-right: 110px;
+        }
+
+        .link{
+            transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+            &:hover,
+            &:focus{
+                color: var(--dark-pink);
+            }
+        }
+
+
+
+        .item:not(:last-child){
+            margin-right: 35px;
+        }
+
+        .logo{
+            position: absolute;
+            left: -69px;
+            top: 31px;
+        }
+
+    }
+
+
+    
+}
+
