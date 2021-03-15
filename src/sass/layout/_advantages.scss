@@ -1,0 +1,137 @@
+.advantages {
+  padding-top: 20px;
+  padding-bottom: 48px;
+  background-color: var(--second-bgc);
+
+  @media (min-width: $tablet) {
+    padding-top: 33px;
+    padding-bottom: 71px;
+  }
+
+  @media (min-width: $desktop) {
+    padding-top: 20px;
+    padding-bottom: 70px;
+  }
+}
+
+.advantages__item {
+  // transition: transform 500ms $timing-function-main;
+
+  &::before {
+    display: block;
+    content: ' ';
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 16px;
+  }
+
+  &:first-child:before {
+    width: 33px;
+    background-image: url('./../images/5-advantages/advantages-1-1x.png');
+  }
+  &:nth-child(2):before {
+    width: 50px;
+    background-image: url('./../images/5-advantages/advantages-2-1x.png');
+  }
+  &:last-child:before {
+    width: 44px;
+    background-image: url('./../images/5-advantages/advantages-3-1x.png');
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 38px;
+  }
+
+  // &:hover {
+  //   transform: scale(1.1);
+  // }
+}
+
+@media screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  .advantages__item {
+    &:first-child:before {
+      background-image: url('./../images/5-advantages/advantages-1@2x.png');
+    }
+    &:nth-child(2):before {
+      background-image: url('./../images/5-advantages/advantages-2@2x.png');
+    }
+    &:last-child:before {
+      background-image: url('./../images/5-advantages/advantages-3@2x.png');
+    }
+  }
+}
+
+.advantages__text {
+  margin-bottom: 20px;
+  font-family: $ff-accent;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--accent-primary-color);
+}
+
+.advantages__description {
+  font-family: $ff-main;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.7;
+  color: var(--dark--text-color);
+}
+
+// Tablet styles
+@media screen and (min-width: $tablet) {
+  .advantages__list {
+    display: flex;
+
+    .advantages__item {
+      width: 180px;
+      margin-bottom: 0;
+
+      &:not(:last-child) {
+        margin-right: 60px;
+      }
+
+      &::before {
+        margin-bottom: 36px;
+      }
+    }
+  }
+
+  .advantages__text {
+    margin-bottom: 13px;
+    font-size: 48px;
+  }
+
+  .advantages__description {
+    font-size: 14px;
+  }
+}
+
+// Desktop styles
+@media screen and (min-width: $desktop) {
+  .advantages__list {
+    .advantages__item {
+      width: 330px;
+
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+
+      &::before {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  .advantages__text {
+    margin-bottom: 15px;
+    font-size: 58px;
+  }
+
+  .advantages__description {
+    font-size: 16px;
+  }
+}
