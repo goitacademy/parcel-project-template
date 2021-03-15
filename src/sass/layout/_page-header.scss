@@ -7,14 +7,42 @@
   }
 }
 .navigation{
+  &__menu{
+    display: none;
+    @media screen and(min-width:$desktop){
+ display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -17.5px;
+    z-index: 500;
+    }
+   
+  }
+  &__item{
+    margin: 17.5px;
+  }
+
+  &__link{
+    font-family: DM Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 21px;
+align-items: center;
+transition: color $trans-duration $trans-time-func;
+color:$white-color;
+  }
   &__container{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  &__menu{
-    display: flex;
+  
   }
-  }
+   &__link:focus,
+    &__link:hover{
+      color: $accent-red-color;
+    }
+
 }
 
 .menu-burger {
@@ -102,19 +130,36 @@
   &__buy-btn-tab{
     display: none;
     @media screen and(min-width:$tablet){
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 160px;
     height: 44px;
     border-radius: 22px;
     background-color: $white-color;
-    font-family: DM Sans;
-
     font-weight: 700;
     font-size: 16px;
     line-height: 21px;
     color: $accent-red-color;
+    z-index: 500;
+    transition: background-color  $trans-time-func $trans-duration;
+    }
+    @media screen and(min-width:$desktop){
+      margin-left: 110px;
+      &:focus,
+    &:hover{
+      background-color: $icon-bkg-color2;
+    }
     }
     
+    
+  }
+
+  &__btn-icon{
+    width: 7px;
+    height: 11px;
+    margin-top: 1px;
+    margin-left: 12px;
   }
 
   &__line-icon {
@@ -152,7 +197,11 @@
 }
 
 .logo {
+  z-index: 500;
   @media screen and (min-width:$tablet){
     margin-right: 291px;
+  }
+  @media screen and (min-width:$desktop){
+    margin-right: 110px;
   }
 }
