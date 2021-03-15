@@ -13,22 +13,51 @@
   padding-bottom: 30px;
 }
 .customer-card {
+  position: relative;
   background-color: var(--light-shaded-bg-color);
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 70px;
-  padding-bottom: 20px;
+  padding: 43px 60px 26px 60px;
+
+  @include adaptive-for-tablet {
+    padding: 47px 36px 26px 60px;
+  }
+
+  @include adaptive-for-desktop {
+    padding: 43px 54px 26px;
+  }
+
+   &::before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 28px;
+    left: 70px;
+    width: 54px;
+    height: 40px;
+    background-image: url("../images/customer-reviews/quotation-marks.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+
+    @include adaptive-for-tablet {
+    left: 40px;
+    }
+
+    @include adaptive-for-desktop {
+      left: 50px;
+    }
+  }
 }
 
-.customer-card-icon {
-  position: relative;
-  top: -43px;
-  left: 10px;
-  bottom: 0;
-  width: 54px;
-  height: 40px;
-}
+// .customer-card-icon {
+//   position: relative;
+//   top: -43px;
+//   left: 10px;
+//   bottom: 0;
+//   width: 54px;
+//   height: 40px;
+// }
 .customer-card-text {
+  padding: 3px 20px 5px 15px;
   background-image: repeating-linear-gradient(
     to bottom,
     var(--light-shaded-bg-color),
@@ -36,21 +65,33 @@
     var(--primary-line-color) 30px,
     var(--primary-line-color) 31px
   );
+
+  @include adaptive-for-tablet {
+    padding: 3px 44px 5px 20px;
+    }
+
+    @include adaptive-for-desktop {
+      padding: 3px 35px 5px 28px;
+    }
 }
 .customer-text {
+  position: relative;
+  z-index: 2;
   font-weight: 500;
   font-size: 12px;
   line-height: 2.58;
   text-align: center;
 
-  // &::after {
-  //       position: relative;
-  //       content: "";
-  //       display: block;
-  //       top: 0px;
-  //       left: 0px;
-  //       background-image: url(./images/icon-sprite.svg#icon-quotation-marks);
-  // }
+  @include adaptive-for-tablet {
+    font-size: 14px;
+    line-height: 2.142;
+    }
+
+    @include adaptive-for-desktop {
+      font-size: 16px;
+      line-height: 1.875;
+    }
+
 }
 .customer-name {
   font-weight: 500;
