@@ -1,7 +1,12 @@
 .swiper {
   padding-top: 40px;
   padding-bottom: 43px;
+
+  @media (min-width: $desktop) {
+    background-color: var(--second-bgc);
+  }
 }
+
 
 .text-quote {
 font-style: normal;
@@ -13,10 +18,6 @@ letter-spacing: 0.04em
 
 .swiper-wrapper {
   padding-bottom: 130px;
-}
-
-.slider-text {
-  padding-bottom: 40px;
 }
 
 .swiper-slide {
@@ -54,22 +55,23 @@ letter-spacing: 0.04em
   background: rgba(0, 0, 0, 0.2);
 }
 
-.swiper-pagination {
-  bottom: 60px;
-}
-
-.swiper-pagination-bullet-active {
-  color: #fff;
-  background: #c7133e;
-}
-
 .slider-point {
   display: flex;
   align-items: center;
   justify-content: center;
   grid-gap: 10px;
-  top: 25px;
-  position: relative;
+  position: absolute;
+  bottom: 184px;
+  left: 50%;
+  z-index: 100;
+  transform: translateX(-50%);
+
+  @media (min-width: $tablet) {
+    bottom: 182px;
+  }
+  @media (min-width: $desktop) {
+    bottom: 180px;
+  }
 }
 
 .slider-point span {
@@ -78,18 +80,28 @@ letter-spacing: 0.04em
   height: 4px;
   background: #c7133e;
   border-radius: 50%;
-  position: relative;
-  bottom: 135px;
-  z-index: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #fff;
+  border-radius: 0;
+  background-image: url('../images/7-testimonials/home.svg');
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .slider-avatar {
-  margin: 0 auto;
-  margin-bottom: 20px;
-}
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  margin: 0 auto 29px;
 
-.slider-adress {
- margin-top: 20px;
+  @media (min-width: $tablet) {
+    margin-bottom: 19px;
+  }
+  @media (min-width: $desktop) {
+    margin-bottom: 15px;
+  }
 }
 
 .slider-adress-text {
@@ -115,39 +127,29 @@ line-height: 186%;
     text-align: center;
     letter-spacing: 0.03em;
   }
-  .slider-text p {
-    width: 180px;
-    font-size: 13px;
-    letter-spacing: .07em;
-    margin: 0 auto;
-    line-height: 256%;
-}
-  .text-quote {
-    width: 180px;
-    height: 270px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 186%;
-    letter-spacing: 0.04em;
-  }
+
   .slider-quote {
         margin: 0 auto;
     height: 100%;
-    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(1.56%,#e1e1e1),color-stop(1.56%,#fafafa),color-stop(50%,#fafafa),color-stop(50%,#e1e1e1),color-stop(51.56%,#e1e1e1),color-stop(51.56%,#fafafa),to(#fafafa));
-    background-image: linear-gradient(
-0deg
-,#e1e1e1 1.56%,#fafafa 0,#fafafa 50%,#e1e1e1 0,#e1e1e1 51.56%,#fafafa 0,#fafafa);
-    background-size: 64px 64px;
+
   }
 .slider-bg {
 width: 280px;
-height:308px;
     background: -webkit-gradient(linear,left bottom,left top,from(#fafafa),color-stop(60%,#fafafa),color-stop(100%,transparent),to(transparent));
     background: linear-gradient( 
 0deg
  ,#fafafa,#fafafa 100%,transparent 0,transparent);
         padding: 32px;
+        margin-bottom: 40px;
+
+        @media (min-width: $tablet) {
+          height: 164px;
+          margin-bottom: 70px;
+        }
+        @media (min-width: $desktop) {
+          height: 138px;
+          margin-bottom: 34px;
+        }
 }
 p.text-quote {
   -webkit-transform-style: preserve-3d;
@@ -180,17 +182,10 @@ p.text-quote {
 .slider-quote {
     width: 524px;
     height: 106px;
+    display: flex;
+    align-items: flex-end;
 }
-.slider-text p {
-    width: 460px;
-    font-size: 14px;
-    line-height: 232%;
-    letter-spacing: .04em;
-    margin: 0 auto;
-}
-.slider-adress {
-    margin-top: -125px;
-}
+
 }
 
 
@@ -208,13 +203,41 @@ p.text-quote {
     width: 822px;
     height: 74px;
 }
-.slider-text p {
-    width: 750px;
-    line-height: 2.2;
-    font-size: 16px;
-    margin: 0 auto;
-}
-.slider-adress {
-    margin-top: -145px;
-}
   }
+
+  .text-quote {
+    width: 100%;
+    line-height: 2.55;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin: 0 auto;
+
+    background-image: repeating-linear-gradient(to top, #e1e1e1, #e1e1e1 1px, transparent 1px, transparent 30px);
+
+    @media (min-width: $tablet) {
+      line-height: 2.16;
+      font-size: 14px;
+      background-image: repeating-linear-gradient(to top, #e1e1e1, #e1e1e1 1px, transparent 1px, transparent 30px);
+
+    }
+    @media (min-width: $tablet) {
+      line-height: 1.86;
+      font-size: 16px;
+      background-image: repeating-linear-gradient(to top, #e1e1e1, #e1e1e1 1px, transparent 1px, transparent 30px);
+
+    }
+}
+
+.swiper-slide,
+.swiper-slide-prev,
+.swiper-slide-active,
+.slider-avatar {
+  background-color: transparent;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets, 
+.swiper-pagination-custom, 
+.swiper-pagination-fraction {
+  bottom: 86px;
+}
