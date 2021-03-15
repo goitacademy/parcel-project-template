@@ -82,7 +82,8 @@ max-width: 280px;
   }
 }
 .about-text,
-.about-description {
+.about-description,
+.modal-description {
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -109,7 +110,8 @@ margin-bottom: 47px;
      margin-bottom: 35px;
   }
 }
-.about-description {
+.about-description,
+.modal-description {
   color: var(--text-color-light);
  
    
@@ -219,12 +221,12 @@ transition: background-color var(--transition-duration) var(--timing-function);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  width: 280px;
-  max-width: 450px;
+  width: 100%;
+  max-width: 320px;
   height: 95%;
-  max-height: 450px;
-  overflow-y: scroll;
-  z-index: 1050;
+  max-height: 600px;
+  // overflow-y: scroll;
+  z-index: 100500;
   background-color: var(--bg-feedback);
   border-radius: 4px;
    background-image: url('../images/about/mobile-sectionbg.png');
@@ -235,12 +237,45 @@ transition: background-color var(--transition-duration) var(--timing-function);
     transform: translate(-50%, -50%) scale(0.8);
   }
 }
+.modal-content{
+  // overflow-y: scroll;
+}
+.modal-close{
+  position: absolute;
+  top:8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+  background-color: var(--bg-feedback);
+  transition: fill var(--transition-duration) var(--timing-function);
+  &:hover,
+  &:focus {
+    fill: var(--main-dark-color);
+  }
+}
+
 .modal-image-cow{
+  position: relative;
   width: 75px;
   height: 75px;
-animation: mymove var(--transition-duration) var(--timing-function);
+animation-name: mymove;
+  animation-duration: 250ms;
+  animation-timing-function: linear;
+  animation-name: scale;
+  animation-fill-mode: forwards;
+  transform-origin: center left;
 }
 @keyframes mymove {
-  from {top: 0px;}
-  to {top: 200px;}
+
+  0%   {top: 0px; background-image: url('../images/about/mobile-sectionbg.png'); width: 75px;}
+  100% {top: 200px; background-image: url('../images/about/mobile-sectionbg.png'); width: 150px;}
+}
+.modal-description{
+  max-width: 280px;
+  margin: auto;
+
 }
