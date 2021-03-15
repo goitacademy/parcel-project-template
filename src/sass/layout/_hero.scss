@@ -89,7 +89,7 @@
   position: absolute;
   top: 8px;
   left: 81px;
-
+  animation-duration: 1500ms;
 
   @media screen and (min-width: $tablet) {
     left: 340px;
@@ -110,6 +110,7 @@
       position: absolute;
       left: 0;
       top: 208px;
+      animation-duration: 1000ms;
     }
 
     @media screen and (min-width: $desktop) {
@@ -126,10 +127,12 @@
         position: absolute;
         bottom: -34px;
         right: 0;
+        animation-duration: 1500ms;
+        animation-delay: 500ms;
       }
 
     @media screen and (min-width: $desktop) {
-      bottom: -53px;
+      bottom: -54px;
       right: 0;
     }
   }
@@ -150,38 +153,47 @@
 }
 
 &__button {
-  @media screen and (min-width: $tablet) {
-    display: block;
+  position: relative;
     cursor: pointer;
     z-index: 1;
     width: 18px;
     height: 18px;
     border: 0;
     border-radius: 50%;
-    background-image: url('../images/2-hero/tablet/hero-arrow-768-1x.webp');
-
-    // @media screen and (min-device-pixel-ratio: 2) and (min-width: $tablet),
-    // screen and (min-resolution: 192dpi) and (min-width: $tablet),
-    // screen and (min-resolution: 2dppx) and (min-width: $tablet) {
-    //   background-image: url('../images/2-hero/tablet/hero-arrow-768@2x.webp');
-    // }
 
     @media screen and (min-width: $desktop) {
       width: 26px;
       height: 26px;
-      background-image: url('../images/2-hero/desktop/hero-arrow-1200-1x.webp');
     }
 
-    // @media screen and (min-device-pixel-ratio: 2) and (min-width: $desktop),
-    // screen and (min-resolution: 192dpi) and (min-width: $desktop),
-    // screen and (min-resolution: 2dppx) and (min-width: $desktop) {
-    //   background-image: url('../images/2-hero/desktop/hero-arrow-1200@2x.webp');
-    // }
-
-    transition: transform $time-main $timing-function-main,
-      box-shadow $time-main $timing-function-main;
-  }
+    color: var(--accent-primary-color);
+    background-color: var(--light-text-color);
+  
+    transition: background-color $time-main $timing-function-main,
+                color $time-main $timing-function-main,
+                transform $time-main $timing-function-main,
+                box-shadow $time-main $timing-function-main;
 }
+
+  &__button:hover,
+  &__button:focus {
+    background-color: var(--accent-primary-color);
+    color: var(--light-text-color);
+    -webkit-box-shadow: 1px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 1px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 1px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  }
+
+  &__arrow,
+  &__close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: currentColor;
+
+    transition: opacity 500ms $timing-function-main;
+  }
 }
 .compositions-links {
   display: flex;
