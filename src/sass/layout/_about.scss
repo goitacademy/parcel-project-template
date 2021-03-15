@@ -1,19 +1,23 @@
 .about {
+
+    padding-top: 130px;
     padding-bottom: 40px;
     background-color: $rose-section-color;
 
-    background-image: url(./../images/png/about-bg/descktop/bg-img1.png);
+    background-image: url("./../images/png/about-bg/descktop/bg-img1.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 50% 90%;
 
-    @media screen and (min-width: $tablet) and (max-width: 1279px) {
-        background-image: none;
-    }
+        @media screen and (min-width: $tablet) and (max-width: 1279px) {
+            background-image: none;
+            padding-bottom: 65px;
+        }
 
-    @media screen and (min-width: $desktop) {
-        background-position: 50% 50%;
-    }
+        @media screen and (min-width: $desktop) {
+            background-position: 50% 50%;
+        }
+
     /*about-pretitle*/
     &-pretitle {
         margin-bottom: 15px;
@@ -24,6 +28,16 @@
         text-align: center;
         text-transform: uppercase;
         color: $rose-text-color;
+
+        @media screen and (min-width: $tablet) {
+            font-size: 26px;
+            line-height: 1.154;
+        }
+
+        @media screen and (min-width: $desktop) {
+            font-size: 30px;
+            line-height: 1.334;
+        }
     }
 
 
@@ -39,8 +53,23 @@
         letter-spacing: 0.04em;
         text-transform: uppercase;
         color: $accent-red-color;
+
+        @media screen and (min-width: $tablet) {
+            font-size: 48px;
+            line-height: 1.146;
+        }
+
+        @media screen and (min-width: $desktop) {
+            font-size: 58px;
+            line-height: 1.138;
+        }
     }
 
+
+    /*about-photo*/
+    &-photo {
+        margin: 0 auto;
+    }
     /*about-main-text*/
     &-main-text {
         margin-top: 46px;
@@ -49,16 +78,39 @@
         font-weight: 500;
         font-size: 12px;
         line-height: 1.583;
+
+        @media screen and (min-width: $tablet) {
+            margin-bottom: 40px;
+
+            font-size: 14px;
+            line-height: 1.786;
+        }
+
+        @media screen and (min-width: $desktop) {
+            font-size: 16px;
+            line-height: 1.75;
+        }
     }
 
     /*about-second-text*/
-    &-second-text {
+    &-second-text,
+    &-second-text2 {
         margin-bottom: 20px;
 
         font-weight: 500;
         font-size: 12px;
         line-height: 1.583;
         color: $secondary-text-color;
+
+        @media screen and (min-width: $tablet) {
+            font-size: 14px;
+            line-height: 1.786;
+        }
+
+        @media screen and (min-width: $desktop) {
+            font-size: 14px;
+            line-height: 1.928;
+        }
     }
 
     /*about-btn*/
@@ -73,6 +125,12 @@
         border: 0px;
         
         background-color: $white-color;
+
+        transition: background-color $trans-duration $trans-time-func;
+
+        @media screen and (min-width: $tablet) {
+            margin: 0 auto 0 0;
+        }
 
         &:hover,
         &:focus {
@@ -98,6 +156,97 @@
     /*THUMBS*/
     /*about-thumb*/
     &-thumb {
-        display: flex;
+        @media screen and (min-width: $tablet) {
+            display: flex;
+        }
+    }
+
+    /*about-thumb2*/
+    &-thumb-2 {
+        @media screen and (min-width: $tablet) {
+            margin-left: 17px;
+
+            max-width: 340px;
+        }
+        @media screen and (min-width: $desktop) {
+            margin-left: 74px;
+        }
+    }
+
+
+
+    /*.....ABOUT MODAL WINDOW.....*/
+    /*about - backdrop*/
+    &-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        
+        background-color: rgba(0, 0, 0, 0.2);
+        
+        opacity: 1;
+        transition: opacity $trans-duration $trans-time-func;
+        
+        &.is-hidden {
+            opacity: 0;
+        }
+    }
+
+    /*about - modal window*/
+    &-modal-wnd {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        z-index: 99;
+        
+        width: 100%;
+        height: 100vh;
+        padding: 40px;
+        overflow-y: scroll;
+        
+        background-color: $white-color;
+        box-shadow: 
+            0px 1px 3px rgba(0, 0, 0, 0.12),
+            0px 1px 1px rgba(0, 0, 0, 0.14), 
+            0px 2px 1px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        
+        transition: transform $trans-duration $trans-time-func;
+        
+        @media screen and (min-width: $mobile) {
+            width: 450px;
+            height: 609px;
+        }
+        
+        @media screen and (min-width: $tablet) {
+            overflow-y: auto;
+        }
+        
+        @media screen and (min-width: $desktop) {
+            width: 600px;
+            height: 600px;
+        }
+        
+        .backdrop.is-hidden & {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+    }
+}
+
+@media screen and (min-width: $tablet) {
+    .about-second-text2 {
+        margin-bottom: 53px;
+    }
+}
+@media screen and (min-width: $desktop) {
+    .about-main-text {
+        margin-bottom: 35px;
+    }
+    .about-second-text2 {
+        margin-bottom: 45px;
     }
 }
