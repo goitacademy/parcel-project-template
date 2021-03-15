@@ -55,3 +55,4 @@ import './sass/main.scss';
     refs.modal.classList.toggle("is-hidden");
   }
 })();
+
