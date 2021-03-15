@@ -1,35 +1,51 @@
 .about-modal__field {
   position: absolute;
-  top: 50%;
+  width: 90%;
+  height: 500px;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  z-index: 10;
-
-  display: flex;
-  justify-content: flex-end;
-
-  padding: 40px 40px;
-
-  max-width: 500px;
-  height: 95%;
-  max-height: 609px;
+  top: 50%;
+  transform: translate(-50%, -50%);
   overflow: scroll;
-  background-color: var(--bg-btn-light-hover);
 
-  transition: transform 250ms linear;
+  padding: 25px;
+  background-color: var(--color-design-white);
 
-  @media screen and (max-width: 479px) {
-    width: 100%;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and(min-width:480px) {
+    width: 440px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
-
-  @media screen and (min-width: 1200px) {
-    max-width: 528px;
-    height: 95%;
-    max-height: 581px;
+  @media screen and(min-width:768px) {
+    width: 600px;
+  }
+  @media screen and(min-width:1280px) {
+    width: 680px;
   }
 }
 
+.about-modal__title.section-subtitle {
+  color: var(--color-design-main);
+
+  font-size: 26px;
+
+  @media screen and(min-width:480px) {
+    font-size: 30px;
+  }
+
+  @media screen and(min-width:768px) {
+    font-size: 36px;
+  }
+}
 .about-modal__text {
+  text-align: center;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.58;
@@ -38,29 +54,33 @@
 }
 .about-modal__btn-thumb {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 5%;
+  right: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
+  margin-bottom: 5px;
 
-  background-color: var(--bg-btn-ligh);
   width: 30px;
   height: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-color: transparent;
   border-radius: 50%;
-  cursor: pointer;
-
-  color: var(--color-design-main);
+  background-color: var(--color-design-white);
+  transition: background-color 250ms linear;
 
   &:hover,
   &:focus {
-    color: var(--bg-social);
+    background-color: var(--bg-btn-dark);
   }
 }
 
 .about-modal__icon-close {
-  fill: currentColor;
+  fill: var(--bg-btn-dark);
+  transition: fill 250ms linear;
 
-  transition: color 250ms linear;
+  .about-modal__btn-thumb:hover &,
+  .about-modal__btn-thumb:focus & {
+    fill: var(--color-design-white);
+  }
 }
