@@ -1,4 +1,5 @@
 .about {
+  position: relative;
   padding-top: 125px;
   padding-bottom: 0;
   background-color: var(--bg-color-light);
@@ -82,7 +83,8 @@ max-width: 280px;
   }
 }
 .about-text,
-.about-description {
+.about-description,
+.modal-description {
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -109,7 +111,8 @@ margin-bottom: 47px;
      margin-bottom: 35px;
   }
 }
-.about-description {
+.about-description,
+.modal-description {
   color: var(--text-color-light);
  
    
@@ -199,36 +202,99 @@ transition: background-color var(--transition-duration) var(--timing-function);
   
 }
 
-// .backdrop {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: rgba(209, 202, 202, 0.493);
-//   opacity: 1;
-//   transition: opacity var(--transition-duration) var(--timing-function);
-// }
-// .backdrop.is-hidden {
-//   opacity: 0;
-//   pointer-events: none;
-//   visibility: hidden;
-// }
-// .modal {
-//   position: absolute;
-//   top: 50px;
-//   left: 50px;
-//   transform: translate(-50%, -50%) scale(1);
-//   width: 100%;
-//   max-width: 450px;
-//   height: 95%;
-//   max-height: 609px;
-//   background-color: var(--bg-feedback);
-//   border-radius: 4px;
-//   transition: transform var(--transition-duration) var(--timing-function);
+.backdrop-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(209, 202, 202, 0.493);
+  opacity: 1;
+  transition: opacity var(--transition-duration) var(--timing-function);
+}
+.backdrop-modal.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 100%;
+  max-width: 320px;
+  height: 95%;
+  max-height: 600px;
+  // overflow-y: scroll;
+  z-index: 100500;
+  background-color: var(--bg-feedback);
+  border-radius: 4px;
+   background-image: url('../images/about/mobile-sectionbg.png');
+  transition: transform var(--transition-duration) var(--timing-function);
+  .backdrop-modal.is-hidden & {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
 
+   @media screen and(min-width:768px){
+    max-width: 450px;
+    background-image: url('../images/about/desktop-sectionbg.png');
+  }
+   @media screen and(min-width:1280px){
+    max-width: 550px;
+   overflow: hidden;
+  }
+}
 
-  // .backdrop.is-hidden & {
-  //   transform: translate(-50%, -50%) scale(0.8);
-  // }
-// }
+.modal-content{
+height: 100%;
+  overflow-y: scroll;
+}
+.modal-close{
+  position: absolute;
+  top:8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-feedback);
+  transition: fill var(--transition-duration) var(--timing-function);
+  &:hover,
+  &:focus {
+    fill: var(--hover-light-bg-btn);
+    background-color: var(--hover-dark-bg-btn);
+  }
+}
+
+.modal-image-cow{
+  position: relative;
+  width: 75px;
+  height: 75px;
+animation-name: mymove;
+  animation-duration: 250ms;
+  animation-timing-function: linear;
+  animation-name: scale;
+  animation-fill-mode: forwards;
+  transform-origin: center left;
+}
+@keyframes mymove {
+
+  0%   {top: 0px; background-image: url('../images/about/mobile-sectionbg.png'); width: 75px;}
+  100% {top: 200px; background-image: url('../images/about/mobile-sectionbg.png'); width: 150px;}
+}
+.modal-description{
+  align-items: center;
+  max-width: 280px;
+  margin: auto;
+ @media screen and(min-width:768px){
+    max-width: 400px;
+ }
+ @media screen and(min-width:1280px){
+    max-width: 500px;
+}
+}
