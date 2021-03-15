@@ -1,0 +1,149 @@
+.about-button {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
+  color: #d41443;
+  background-color: #ffffff;
+  font-family: inherit;
+  margin-top: 17px;
+  text-align: center;
+  align-items: baseline;
+  border: none;
+  border-radius: 22px;
+  min-width: 176px;
+  min-height: 44px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  & :hover,
+  & :focus {
+    cursor: pointer;
+    background-color: #ecebeb;
+  }
+}
+.about-arrow {
+  margin-left: 12px;
+}
+
+.about-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.about-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 75%;
+  height: 75%;
+  max-width: 450px;
+  max-height: 610px;
+  overflow: scroll;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(#f0d6da, #ec8195);
+  padding: 40px;
+  z-index: 1000;
+  vertical-align: middle;
+}
+
+.about-backdrop.is-hidden .about-modal {
+  transform: translate(-50%, -50%) scale(0.5) rotate(-360deg);
+}
+
+.about-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-close:hover,
+.about-close:focus {
+  background: #c7133e;
+}
+
+.close-icon {
+  fill: #d41443;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  .about-close:hover &,
+  .about-close:focus & {
+    fill: #ffffff;
+  }
+}
+
+.close-icon:hover,
+.close-icon:focus {
+  fill: #ffffff;
+}
+
+.about-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-modal-title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  display: inline-block;
+  margin-bottom: 15px;
+  text-align: start;
+  text-transform: uppercase;
+  color: rgb(36, 30, 30);
+}
+.about-modal-first-p {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: start;
+  margin-bottom: 35px;
+  color: grey;
+}
+
+.about-video {
+  width: 250px;
+  height: 173px;
+  text-align: center;
+  border: 10px solid #ec8195;
+}
+
+@media screen and (min-width: 768px) {
+  .about-button {
+    font-size: 16px;
+  }
+  .about-video {
+    width: 450px;
+    height: 273px;
+  }
+}
