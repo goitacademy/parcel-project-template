@@ -3,79 +3,74 @@
 .hero-section {
   width: 100%;
   min-width: 200px;
-  padding-top: 193px;
-  padding-bottom: 160px;
   position: relative;
   margin: 0 auto;
   background-color: #ffb8ca;
-  background-image: url('../images/hero-images/m-hero-icecone.png'),
-    url('../images/hero-images/m-hero-circle.png');
+}
+
+.hero-container {
+  position: relative;
+  margin: 0 auto;
+  padding-top: 193px;
+  padding-bottom: 160px;
+  background-image: url('../images/hero-images/m-hero-circle.png');
   background-repeat: no-repeat;
-  background-position: bottom 0 right 32px, bottom 75px right 0;
-  background-size: 171px 410px, 284px 344px;
+  background-position: bottom 75px right 0;
+  background-size: 284px 344px;
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 320px),
   screen and (min-resolution: 192dpi) and (min-width: 320px),
   screen and (min-resolution: 2dppx) and (min-width: 320px) {
-  .hero-section {
-    background-image: url('../images/hero-images/m-hero-icecone@2x.png'),
-      url('../images/hero-images/m-hero-circle@2x.png');
-    background-position: bottom 0 right 32px, bottom 75px right 0;
-    background-size: 171px 410px, 284px 344px;
+  .hero-container {
+    background-image: url('../images/hero-images/m-hero-circle@2x.png');
+    background-position: bottom 75px right 0;
+    background-size: 284px 344px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .hero-section {
-    background-image: url('../images/hero-images/t-hero-icecone.png'),
-      url('../images/hero-images/t-hero-circle.png');
-    background-position: bottom 0 right 247px, bottom 46px right 137px;
-    background-size: 143px 336px, 324px 324px;
+  .hero-container {
+    background-image: url('../images/hero-images/t-hero-circle.png');
+    background-position:  bottom 46px right 137px;
+    background-size: 324px 324px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
   screen and (min-resolution: 192dpi) and (min-width: 768px),
   screen and (min-resolution: 2dppx) and (min-width: 768px) {
-  .hero-section {
-    background-image: url('../images/hero-images/t-hero-icecone@2x.png'),
-      url('../images/hero-images/t-hero-circle@2x.png');
-    background-position: bottom 0 right 247px, bottom 46px right 137px;
-    background-size: 143px 336px, 324px 324px;
+  .hero-container {
+    background-image: url('../images/hero-images/t-hero-circle@2x.png');
+    background-position: bottom 46px right 137px;
+    background-size: 324px 324px;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .hero-section {
-    background-image: url('../images/hero-images/d-hero-icecone.png'),
-      url('../images/hero-images/d-hero-circle.png');
-    background-position: bottom 0 right 450px, bottom 75px right 267px;
-    background-size: 236px 557px, 538px 538px;
+  .hero-container {
+    background-image: url('../images/hero-images/d-hero-circle.png');
+    background-position: bottom 75px right 267px;
+    background-size: 538px 538px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
   screen and (min-resolution: 192dpi) and (min-width: 1200px),
   screen and (min-resolution: 2dppx) and (min-width: 1200px) {
-  .hero-section {
-    background-image: url('../images/hero-images/d-hero-icecone@2x.png'),
-      url('../images/hero-images/d-hero-circle@2x.png');
-    background-position: bottom 0 right 450px, bottom 75px right 267px;
-    background-size: 236px 557px, 538px 538px;
+  .hero-container {
+    background-image: url('../images/hero-images/d-hero-circle@2x.png');
+    background-position: bottom 75px right 267px;
+    background-size: 538px 538px;
   }
 }
 
-.hero-container {
-  margin: 0 auto;
-  width: 100%;
-  min-width: 244px;
-}
-
 .hero-title {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 220px;
+  z-index: 555;
 
   font-family: Titan One;
   font-style: normal;
@@ -95,10 +90,12 @@
 }
 
 .hero-btn {
+  position: relative;
   cursor: pointer;
   border-radius: 20px;
   height: 24px;
   border: none;
+  z-index: 555;
 
   font-family: DM Sans;
   font-style: normal;
@@ -142,6 +139,14 @@
   color: #d41443;
 }
 
+.hero-icecone-img {
+  position: absolute;
+  width: 171px;
+  height: 410px;
+  bottom: 0;
+  right: 32px;
+}
+
 @media screen and (max-width: 767px) {
   .hero-bio-text,
   .hero-bio-img,
@@ -156,13 +161,17 @@
 // Tablet styles //
 
 @media screen and (min-width: 768px) {
-  .hero-section {
+  .hero-container {
+    position: relative;
     padding-top: 94px;
     padding-bottom: 34px;
-  }
-
-  .hero-container {
-    min-width: 700px;
+    
+    .hero-icecone-img {
+    width: 143px;
+    height: 336px;
+    bottom: 0;
+    right: 247px;
+    }
   }
 
   .hero-title-position {
@@ -245,7 +254,6 @@
     position: absolute;
     left: 36px;
     top: 0px;
-    z-index: 5;
     content: '';
     width: 16px;
     height: 16px;
@@ -256,6 +264,7 @@
   }
 
   .hero-counter-number {
+    position: relative;
     padding-right: 10px;
     z-index: 555;
     font-family: Titan One;
@@ -297,14 +306,17 @@
 // Desktop styles //
 
 @media screen and (min-width: 1200px) {
-  .hero-section {
-    padding-top: 156px;
-    padding-bottom: 56px;
-  }
 
   .hero-container {
-    width: 100%;
-    min-width: 1200px;
+    padding-top: 156px;
+    padding-bottom: 56px;
+
+    .hero-icecone-img {
+    width: 236px;
+    height: 557px;
+    bottom: 0;
+    right: 450px;
+    }
   }
 
   .hero-title {
