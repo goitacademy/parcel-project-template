@@ -1,96 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ice cream</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <!-- Hero and header section -->
+    <include src="./partials/header-hero.html"></include>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ice cream</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Titan+One&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
-    integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
-    crossorigin="anonymous" />
-</head>
+    <!-- Hero section -->
+    <include src="./partials/hero.html"></include>
 
-<body>
-  <!-- Hero and header section -->
-  <include src="./partials/header-hero.html"></include>
+    <!-- Products section -->
+    <include src="./partials/products.html"></include>
 
-  <!-- Products section -->
-  <include src="./partials/products.html"></include>
+    <!-- About section -->
+    <include src="./partials/about.html"></include>
 
-  <!-- About section -->
-  <include src="./partials/about.html"></include>
+    <!-- Advantages section -->
+    <include src="./partials/advantages.html"></include>
 
-  <!-- Advantages section -->
-  <include src="./partials/advantages.html"></include>
+    <!-- Gallery section -->
+    <include src="./partials/gallery.html"></include>
 
-  <!-- Gallery section -->
-  <include src="./partials/gallery.html"></include>
+    <!-- Customer review section -->
+    <include src="./partials/customer-reviews.html"></include>
 
-  <!-- Customer review section -->
-  <include src="./partials/customer-reviews.html"></include>
+    <!-- Contacts section -->
+    <include src="./partials/contacts.html"></include>
 
-  <!-- Contacts section -->
-  <include src="./partials/contacts.html"></include>
+    <!-- Footer section -->
+    <include src="./partials/footer.html"></include>
 
-  <!-- Footer section -->
-  <include src="./partials/footer.html"></include>
+    <!-- Mobile menu -->
+    <include src="./partials/mobile-menu.html"></include>
 
-  <!-- Mobile menu -->
-  <include src="./partials/mobile-menu.html"></include>
+    <!-- Modal about section -->
+    <include src="./partials/modal-about.html"></include>
 
-  <!-- Modal about section -->
-  <include src="./partials/modal-about.html"></include>
+    <!-- Modal franchise  -->
+    <include src="./partials/modal-franchise.html"></include>
 
-  <!-- Modal franchise  -->
-  <include src="./partials/modal-franchise.html"></include>
+    <!-- Modal map -->
+    <include src="./partials/modal-map.html"></include>
 
-  <!-- Modal map -->
-  <include src="./partials/modal-map.html"></include>
+    <!-- Modal product -->
+    <include src="./partials/modal-product.html"></include>
 
-  <!-- Modal product -->
-  <include src="./partials/modal-product.html"></include>
+    <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
+    <script src="./index.js"></script>
 
-  <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
-  <script src="./index.js"></script>
-  <script>
-    const btn = document.getElementById("menu-toggle");
-    const lines = btn.querySelectorAll(".line");
-    const cls = { open: "open", close: "close" };
-    let btnClass = cls.open;
+    <!-- burger  -->
+    <script>
+      const btn = document.getElementById('menu-toggle');
+      const lines = btn.querySelectorAll('.line');
+      const cls = { open: 'open', close: 'close' };
+      let btnClass = cls.open;
 
-    btn.addEventListener("click", () => {
-      if (btn.classList.contains(cls.open)) {
-        btn.classList.remove(btnClass);
-        btnClass = cls.close;
-      } else if (btn.classList.contains(cls.close)) {
-        btn.classList.remove(btnClass);
-        btnClass = cls.open;
-      }
+      btn.addEventListener('click', () => {
+        if (btn.classList.contains(cls.open)) {
+          btn.classList.remove(btnClass);
+          btnClass = cls.close;
+        } else if (btn.classList.contains(cls.close)) {
+          btn.classList.remove(btnClass);
+          btnClass = cls.open;
+        }
 
-      void btn.offsetWidth;
-      btn.classList.add(btnClass);
-    });
-  </script>
-  <script>(() => {
-      const refs = {
-        openModalBtn: document.querySelector('[data-modal-open]'),
-        closeModalBtn: document.querySelector('[data-modal-close]'),
-        modal: document.querySelector('[data-modal]'),
-      };
+        void btn.offsetWidth;
+        btn.classList.add(btnClass);
+      });
+    </script>
 
-      refs.openModalBtn.addEventListener('click', toggleModal);
-      refs.closeModalBtn.addEventListener('click', toggleModal);
+    <!-- Mobile menu  -->
+    <script>
+      (() => {
+        const menuBtnRef = document.querySelector('[data-menu-button]');
+        const mobileMenuRef = document.querySelector('[data-menu]');
 
-      function toggleModal() {
-        refs.modal.classList.toggle('is-hidden');
-      }
+        menuBtnRef.addEventListener('click', () => {
+          const expanded =
+            menuBtnRef.getAttribute('aria-expanded') === 'true' || false;
 
-    })();
-  </script>
-  <script>(() => {
+          menuBtnRef.classList.toggle('is-open');
+          menuBtnRef.setAttribute('aria-expanded', !expanded);
+
+          mobileMenuRef.classList.toggle('is-open');
+        });
+      })();
+    </script>
+
+    <script>
+      const btnmn = document.getElementById('menu-toggle');
+      const line = btnmn.querySelectorAll('.line');
+      const cl = { open: 'open', close: 'close' };
+      let btnClasses = cl.open;
+
+      btnmn.addEventListener('click', () => {
+        if (btnmn.classList.contains(cl.open)) {
+          btnmn.classList.remove(btnClasses);
+          btnClasses = cl.close;
+        } else if (btnmn.classList.contains(cl.close)) {
+          btnmn.classList.remove(btnClasses);
+          btnClasses = cl.open;
+        }
+
+        void btnmn.offsetWidth;
+        btnmn.classList.add(btnClasses);
+      });
+    </script>
+    <script>
+      (() => {
+        const refs = {
+          openModalBtn: document.querySelector('[data-modal-open]'),
+          closeModalBtn: document.querySelector('[data-modal-close]'),
+          modal: document.querySelector('[data-modal]'),
+        };
+
+        refs.openModalBtn.addEventListener('click', toggleModal);
+        refs.closeModalBtn.addEventListener('click', toggleModal);
+
+        function toggleModal() {
+          refs.modal.classList.toggle('is-hidden');
+        }
+      })();
+    </script>
+      <script>(() => {
       const refs = {
         openModalBtn: document.querySelector('[data-about-modal-open]'),
         closeModalBtn: document.querySelector('[data-about-modal-close]'),
@@ -105,6 +155,6 @@
       }
   })();
   </script>
-</body>
-
+  </body>
 </html>
+
