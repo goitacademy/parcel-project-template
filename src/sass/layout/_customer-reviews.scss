@@ -1,3 +1,9 @@
+@include adaptive-before-phone {
+  .container {
+  width: 320px;
+  padding: 0 20px;
+  }
+}
 .customer {
   padding-top: 80px;
   padding-bottom: 80px;
@@ -14,13 +20,11 @@
   padding-bottom: 20px;
 }
 
-// .customer-card-text {
-
-// }
 .customer-card-icon {
   position: relative;
-  top: 0px;
-  left: 0px;
+  top: -43px;
+  left: 10px;
+  bottom: 0;
   width: 54px;
   height: 40px;
 }
@@ -32,13 +36,21 @@
     var(--primary-line-color) 30px,
     var(--primary-line-color) 31px
   );
-
 }
 .customer-text {
   font-weight: 500;
   font-size: 12px;
   line-height: 2.58;
   text-align: center;
+
+  // &::after {
+  //       position: relative;
+  //       content: "";
+  //       display: block;
+  //       top: 0px;
+  //       left: 0px;
+  //       background-image: url(./images/icon-sprite.svg#icon-quotation-marks);
+  // }
 }
 .customer-name {
   font-weight: 500;
@@ -82,4 +94,72 @@
         border-radius: 50%;
         background-color: var(--secondary-accent-color); 
         }
+}
+.customer-slade-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+.customer-slade-point {
+  margin-right: 18px;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+.customer-slade-icon-home {
+  width: 12px;
+ height: 12px;
+ fill: var(--accent-color);
+}
+.customer-slade-icon-point {
+ width: 12px;
+ height: 12px;
+}
+@include adaptive-for-phone {
+  .customer {
+    width: 100%;
+  }
+  .container {
+      width: 480px;
+      padding: 0 20px;
+  }
+}
+@include adaptive-for-tablet {
+  .container {
+      width: 700px;
+      padding: 0 34px;
+  }
+  .customer {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  }
+  .customer-card {
+    margin:0 35px;
+  }
+  .customer-img-girl {
+  padding-bottom: 20px;
+  }
+  .customer-point {
+        top: 25px;
+  }
+  .customer-name {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  }
+}
+@include adaptive-for-desktop {
+  .container {
+      width: 1130px;
+      padding: 0 75px;
+  }
+  .customer {
+  padding-top: 120px;
+  padding-bottom: 130px;
+  }
+  .customer-card {
+    margin:0 100px;
+  }
 }
