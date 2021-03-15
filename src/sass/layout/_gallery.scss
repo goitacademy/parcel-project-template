@@ -1,25 +1,39 @@
 .gallery {
-  // padding: 50px 0 40px;
   height: 122px;
-//   background-size: cover;
+  position: relative;
+  background-image: linear-gradient(
+    to bottom,
+   $section-background-color 40%,
+    $body-background-color 40%,);
+  
+}
+
+.gallery-container {
+  position: absolute;
+  top: 0;
+ width: 100%;
+ height: 122px;
+background-image: url('../images/gallery/mobile/ice-cream-mob.jpg');
+  background-size: contain;
   background-repeat: no-repeat;
-  background: $body-background-color;
-  background-image: url('../images/gallery/mobile/ice-cream-mob.jpg');
+  background-position: center;
 }
 
 @media screen and (min-devicel-ratio: 2),
   screen and (min-resolution: 192dpi) and (min-width: 320px),
   screen and (min-resolution: 2dppx) and (min-width: 320px) {
-  .gallery {
+  .gallery-container {
     background-image: url('../images/gallery/mobile/ice-cream-mob@2x.jpg');
   }
 }
 
 @media screen and (min-width: 768px) {
+  .gallery-container,
   .gallery {
-    max-width: 768px;
     height: 264px;
-    margin: 0 auto;
+  }
+
+  .gallery-container {
     background-image: url('../images/gallery/tablet/ice-cream-tabl.jpg');
   }
 }
@@ -27,16 +41,19 @@
 @media screen and (min-devicel-ratio: 2),
   screen and (min-resolution: 192dpi) and (min-width: 768px),
   screen and (min-resolution: 2dppx) and (min-width: 768px) {
-  .gallery {
+  .gallery-container {
     background-image: url('../images/gallery/tablet/ice-cream-tabl@2x.jpg');
   }
 }
 
 @media screen and (min-width: 1200px) {
+  .gallery-container,
   .gallery {
-    max-width: 1600px;
     height: 430px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .gallery-container {
+    box-shadow: 0 7px 7px -4px rgba(0, 0, 0, 0.25);
     background-image: url('../images/gallery/desktop/ice-cream-desk.jpg');
   }
 }
@@ -44,7 +61,7 @@
 @media screen and (min-devicel-ratio: 2),
   screen and (min-resolution: 192dpi) and (min-width: 1200px),
   screen and (min-resolution: 2dppx) and (min-width: 1200px) {
-  .gallery {
+  .gallery-container {
     background-image: url('../images/gallery/desktop/ice-cream-desk@2x.jpg');
   }
 }
