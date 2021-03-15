@@ -1,4 +1,5 @@
 .about {
+  position: relative;
   padding-top: 125px;
   padding-bottom: 0;
   background-color: var(--bg-color-light);
@@ -217,7 +218,7 @@ transition: background-color var(--transition-duration) var(--timing-function);
   visibility: hidden;
 }
 .modal {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
@@ -225,7 +226,7 @@ transition: background-color var(--transition-duration) var(--timing-function);
   max-width: 320px;
   height: 95%;
   max-height: 600px;
-  overflow-y: scroll;
+  // overflow-y: scroll;
   z-index: 100500;
   background-color: var(--bg-feedback);
   border-radius: 4px;
@@ -239,14 +240,15 @@ transition: background-color var(--transition-duration) var(--timing-function);
     max-width: 450px;
     background-image: url('../images/about/desktop-sectionbg.png');
   }
-   @media screen and(min-width:768px){
+   @media screen and(min-width:1280px){
     max-width: 550px;
-   
+   overflow: hidden;
   }
 }
 
 .modal-content{
-overflow-y: scroll;
+height: 100%;
+  overflow-y: scroll;
 }
 .modal-close{
   position: absolute;
@@ -254,15 +256,18 @@ overflow-y: scroll;
   right: 8px;
   width: 20px;
   height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  // overflow-y: scroll;
   background-color: var(--bg-feedback);
   transition: fill var(--transition-duration) var(--timing-function);
   &:hover,
   &:focus {
-    fill: var(--main-dark-color);
+    fill: var(--hover-light-bg-btn);
+    background-color: var(--hover-dark-bg-btn);
   }
 }
 
