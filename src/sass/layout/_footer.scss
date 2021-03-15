@@ -3,7 +3,7 @@
   background-color: var(--secondary-bg-color);
   
   &-separator {
-    width: 360px;
+    width: 100%;//360px;
     height: 2px;
     background-color: var(--primary-line-color);
     margin: 0 auto;
@@ -13,11 +13,16 @@
     display: flex;
     flex-wrap: wrap;
     padding-right: 0px;
+
+    position: relative;
   }
   &-right {
     display: block;
-    padding-left: 40px;
+    //padding-left: 40px;
     padding-right: 0px;
+
+    position: absolute;
+    right: 0px;
   }
 
   &-left {
@@ -63,7 +68,7 @@
     padding-left: 5px;
     text-decoration: none;
   }
-  &-copyright {
+  &-copyright1, &-copyright2 {
     font-family: DM Sans;
     font-style: normal;
     font-weight: 700;
@@ -73,11 +78,17 @@
     color: var(--secondary-dark-shaded-color);
     padding-top: 30px;
     padding-bottom: 30px;
-    padding-left: 85px;
-    padding-right: 85px;
+    //padding-left: 85px;
+    //padding-right: 85px;
     &-container {
       text-align: center;
     }
+  }
+  &-copyright1 {
+    display: block;
+  }
+  &-copyright2 {
+    display: none;
   }
 }
 
@@ -130,51 +141,70 @@
   }
 }
 
-@include adaptive-before-phone {
+@include adaptive-before-tablet {
+  .footer {
+    width: 100%;
+
+    &-leftright {
+      height: 330px;
+    }
+    &-right {
+      padding-top: 180px;
+    }
+  &-copyright2 {
+    display: block;
+  }
+  &-copyright1 {
+    display: none;
+  }
+  }
+}
+
+@include adaptive-before-tablet {
   .footer {
     width: 100%;
 
     & .container {
-      width: 320px;
+      width: calc(100% - 40px);//320px;
       padding: 0 20px;
     }
-    &-separator {
+    /*&-separator {
       width: 360px;
-    }
+    }*/
   }
 }
 
 @include adaptive-for-phone {
   .footer {
 
-    &-separator {
+    /*&-separator {
       width: 520px;
-    }
-    &-right {
+    }*/
+    /*&-right {
       padding-left: 200px;
-    }
-    &-left {
+    }*/
+    /*&-left {
       width: 234px;
-    }
-    &-copyright {
+    }*/
+    /*&-copyright {
       padding-left: 165px;
       padding-right: 165px;
-    }
+    }*/
   }
 }
 
 @include adaptive-for-tablet {
   .footer {
 
-    &-separator {
+    /*&-separator {
       width: 768px;
-    }
-    &-right {
+    }*/
+    /*&-right {
       padding-left: 80px;
     }
     &-left {
       width: 340px;
-    }
+    }*/
     &-text1 {
       font-size: 26px;
       line-height: 30px;
@@ -191,15 +221,15 @@
 @include adaptive-for-desktop {
   .footer {
 
-    &-separator {
+    /*&-separator {
       width: 1200px;
-    }
-    &-right {
+    }*/
+    /*&-right {
       padding-left: 290px;
     }
     &-left {
       width: 480px; //474px;
-    }
+    }*/
     &-text1 {
       font-size: 30px;
       line-height: 34px;
