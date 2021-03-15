@@ -15,10 +15,18 @@
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body>
     <!-- Hero and header section -->
     <include src="./partials/header-hero.html"></include>
+
+    <!-- Hero section -->
+    <include src="./partials/hero.html"></include>
 
     <!-- Products section -->
     <include src="./partials/products.html"></include>
@@ -58,9 +66,13 @@
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
     <script src="./js/gallary.js"></script>
+    
+    <!-- burger  -->
+
     <script>
       const btn = document.getElementById('menu-toggle');
       const lines = btn.querySelectorAll('.line');
@@ -78,6 +90,44 @@
 
         void btn.offsetWidth;
         btn.classList.add(btnClass);
+      });
+    </script>
+
+    <!-- Mobile menu  -->
+    <script>
+      (() => {
+        const menuBtnRef = document.querySelector('[data-menu-button]');
+        const mobileMenuRef = document.querySelector('[data-menu]');
+
+        menuBtnRef.addEventListener('click', () => {
+          const expanded =
+            menuBtnRef.getAttribute('aria-expanded') === 'true' || false;
+
+          menuBtnRef.classList.toggle('is-open');
+          menuBtnRef.setAttribute('aria-expanded', !expanded);
+
+          mobileMenuRef.classList.toggle('is-open');
+        });
+      })();
+    </script>
+
+    <script>
+      const btnmn = document.getElementById('menu-toggle');
+      const line = btnmn.querySelectorAll('.line');
+      const cl = { open: 'open', close: 'close' };
+      let btnClasses = cl.open;
+
+      btnmn.addEventListener('click', () => {
+        if (btnmn.classList.contains(cl.open)) {
+          btnmn.classList.remove(btnClasses);
+          btnClasses = cl.close;
+        } else if (btnmn.classList.contains(cl.close)) {
+          btnmn.classList.remove(btnClasses);
+          btnClasses = cl.open;
+        }
+
+        void btnmn.offsetWidth;
+        btnmn.classList.add(btnClasses);
       });
     </script>
     <script>

@@ -2,12 +2,19 @@
   background-color: var(--bg-header-hero);
 
   .container {
-    outline: 2px solid rgb(26, 32, 32);
-
     display: flex;
     align-items: center;
     padding-top: 21px;
-    padding-bottom: 21px;
+    padding-bottom: 27px;
+
+    @media screen and (min-width: 768px) {
+      padding-top: 38px;
+      padding-bottom: 15px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      padding-bottom: 21px;
+    }
   }
 }
 
@@ -73,6 +80,8 @@
     display: none;
   }
 
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
 }
@@ -91,6 +100,8 @@
 
   color: var(--color-design-white);
 
+  transition: color 250ms linear;
+
   &--current {
     color: var(--color-design-main);
   }
@@ -102,8 +113,6 @@
 }
 
 .header-button.btn-light {
-  display: flex;
-  align-items: center;
   padding: 12px 37px;
   margin-left: 30px;
   border-radius: 22px;
@@ -111,11 +120,6 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 1.313;
-
-  &:hover,
-  &:focus {
-    background-color: var(--bg-btn-light-hover);
-  }
 
   @media screen and (max-width: 767px) {
     display: none;
