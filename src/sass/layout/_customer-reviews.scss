@@ -1,16 +1,191 @@
-.reviews__img {
-  margin: 0 auto 29px;
+.reviews {
+  &__section {
+    padding-top: 80px;
+    padding-bottom: 86px;
+
+    @media screen and (min-width: $tablet) {
+      padding-top: 121px;
+      padding-bottom: 119px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      padding-top: 123px;
+      padding-bottom: 132px;
+    }
+  }
+
+  &__img {
+    margin: 0 auto 29px;
+
+    @media screen and (min-width: $tablet) {
+      margin-bottom: 19px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__text-wrapper {
+    background-color: #fafafa;
+    background-image: url(././../images/svg/quote-icon.svg);
+    background-repeat: no-repeat;
+    background-position: 61px 28px;
+    padding: 43px 50px 20px 50px;
+    margin-bottom: 30px;
+
+    @media screen and (min-width: $tablet) {
+      padding: 47px 80px 34px 80px;
+      width: 620px;
+      margin: 0 auto;
+      margin-bottom: 24px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      padding: 47px 89px 39px 87px;
+      width: 926px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__text {
+    padding-right: 16px;
+    padding-left: 7px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 2.583;
+    text-align: center;
+
+    background-image: repeating-linear-gradient(
+      to top,
+      #e1e1e1 0px 1px,
+      transparent 1px 31px
+    );
+
+    @media screen and (min-width: $tablet) {
+      font-size: 14px;
+      line-height: 2.143;
+      letter-spacing: 0.04em;
+    }
+
+    @media screen and (min-width: $desktop) {
+      font-size: 16px;
+      line-height: 1.875;
+    }
+  }
+
+  &__decor {
+    position: relative;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 4px;
+    height: 4px;
+    background-color: $accent-hover-color;
+    border-radius: 50%;
+    margin-bottom: 18px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background-color: $accent-hover-color;
+      border-radius: 50%;
+    }
+    &::before {
+      right: 10px;
+    }
+
+    &::after {
+      left: 10px;
+    }
+
+    @media screen and (min-width: $tablet) {
+      margin-bottom: 14px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__customer-name {
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.857;
+
+    @media screen and (min-width: $tablet) {
+      font-size: 16px;
+      line-height: 1.875;
+    }
+
+    @media screen and (min-width: $desktop) {
+      font-size: 20px;
+      line-height: 1.85;
+    }
+  }
 }
 
-.reviews__text {
-  background-color: #fafafa;
-  background-image: url(././../images/svg/quote-icon.svg);
-  background-repeat: no-repeat;
-  // background-size: 54px 40px;
-  background-position: 61px 28px;
-  padding: 43px 66px;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 2.583;
-  text-align: center;
+.slick-track {
+  display: flex;
+}
+
+.slick-list {
+  overflow: hidden;
+}
+
+.slider {
+  position: relative;
+}
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  font-size: 0;
+  width: 48px;
+  height: 48px;
+}
+
+.slick-prev {
+  left: 0;
+  background: url(././../images/svg/icon-left.svg) 0 0 / 100% no-repeat;
+}
+
+.slick-next {
+  right: 0;
+  background: url(././../images/svg/icon-right.svg) 0 0 / 100% no-repeat;
+}
+
+.slick-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-dots {
+  & button {
+    font-size: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #d9d9d9;
+  }
+
+  li {
+    &:not(:last-child) {
+      margin-right: 18px;
+    }
+
+    &.slick-active button {
+      background-image: url(././../images/svg/home.svg);
+      background-color: transparent;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
 }
