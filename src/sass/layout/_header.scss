@@ -8,11 +8,6 @@ display: block;
     width: 20px;
     height: 12px;
 
-    // margin-bottom: 19px;
-
-    // display: flex;
-    // align-items: center;
-
     padding: 0;
     border: 0;
     background-color: transparent;
@@ -41,25 +36,18 @@ height: 50px;
 
 @media screen and (max-width: 767px) {
 
-.header .container  {
-    width: 100%;
-    height: 56px;
-    // padding-top: 6px;
-    padding: 6px 20px 0;
+    .header .container  {
+        max-width: 480px;
+        // width: 100%;
+        height: 56px;
+        // padding-top: 6px;
+        padding: 6px 20px 0;
 
-    background-color: transparent;
+        background-color: transparent;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-// path {
-//     fill: inherit;
-//    }
-
-    .btn__order-tabl {
-    display: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }   
 // Закрытие медиа запроса до 767px
@@ -67,6 +55,7 @@ height: 50px;
 // ОТКРЫТИЕ медиа запроса от 768px
 @media screen and (min-width: 768px) {
     .header .container  {
+    width: 768px;
     height: 87px;
     // padding: 37px 34px 0;
     padding-top: 37px;
@@ -83,50 +72,15 @@ height: 50px;
         margin-bottom: 22px;
         margin-left: auto;
     }
-
-    //Tablet BTN
-.btn__order-tabl {
-    display: inline-block;
-    text-align: center;
-    
-    width: 209px;
-    height: 44px;
-  
-    border-radius: 22px;
-    border: 0;
-    
-    background-color: #FFFFFF;
-    color: #D41443;
-  
-    // Левый паддинг измерил вручную
-    padding-left: 56px;
-    padding-right: 48px;
-  
-    // margin: 0 auto;
-    margin-bottom: 5px;
-  }
-  
-  .btn__title-tabl {
-   
-  font-weight: 700;
-  //MIXIN Добавить //////////////////////////////
-  font-size: 16px;
-  line-height: 21px;
-  
-  color: #D41443;
-  }
-
-  .btn__order-icon-tabl {
-      width: 8px;
-      height: 10px;
-      margin-left: 27px;
-      fill: currentColor;
-  }
 }
 // Закрытие медиа запроса от 767px
 
 // ОТКРЫТИЕ медиа запроса от 1200px
 @media screen and (min-width: 1200px) {
+    .header .container {
+        max-width: 1200px;
+        width: 1200px;
+    }
     .container.desktop {
         padding-top: 37px;
         padding-bottom: 0;
@@ -148,14 +102,8 @@ height: 50px;
         margin-right: 35px;
     }
 
-    .site-nav__link{
-        // font-family: DM Sans;
-// font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 21px;
-/* identical to box height */
-
-color: #FFFFFF
+    .site-nav__link {
+        @include fw_fs_line-height-calc(700, 16, 21);
+        color: var(--button-color);
     }
 }
