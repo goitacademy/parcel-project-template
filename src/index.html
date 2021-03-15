@@ -97,5 +97,43 @@
         })();
     </script>
 
+    <script>
+      const btn = document.getElementById("menu-toggle");
+      const lines = btn.querySelectorAll(".line");
+      const cls = { open: "open", close: "close" };
+      let btnClass = cls.open;
+
+      btn.addEventListener("click", () => {
+        if (btn.classList.contains(cls.open)) {
+          btn.classList.remove(btnClass);
+          btnClass = cls.close;
+        } else if (btn.classList.contains(cls.close)) {
+          btn.classList.remove(btnClass);
+          btnClass = cls.open;
+        }
+
+        void btn.offsetWidth;
+        btn.classList.add(btnClass);
+      });
+    </script>
+    <script>(() => {
+        const refs = {
+          openModalBtn: document.querySelector('[data-modal-open]'),
+          closeModalBtn: document.querySelector('[data-modal-close]'),
+          modal: document.querySelector('[data-modal]'),
+        };
+
+        refs.openModalBtn.addEventListener('click', toggleModal);
+        refs.closeModalBtn.addEventListener('click', toggleModal);
+
+        function toggleModal() {
+          refs.modal.classList.toggle('is-hidden');
+        }
+
+      })();
+    </script>
+
   </body>
+
 </html>
+
