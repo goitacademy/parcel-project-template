@@ -7,7 +7,7 @@ function scrollTo(element) {
 }
 
 var button = document.querySelector('.button-up');
-var footer = document.querySelector('#header');
+var header = document.querySelector('#header');
 
 button.addEventListener('click', () => {
   scrollTo(header);
