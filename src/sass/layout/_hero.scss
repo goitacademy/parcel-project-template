@@ -1,6 +1,6 @@
 .hero {
     background-color: var(--hero-bcg-color);
-    z-index: 1;
+    z-index: -1;
 }
 
 
@@ -11,17 +11,16 @@
 
     min-width: 320px;
     height: 502px;
-    // z-index: 1000;
+    
+    position: relative;
+    
     }
 
     .hero__content {
-        z-index: 1000;
+        
     }
 .hero__titel {
-    
-    margin-top: 110px;
     margin-bottom: 19px;
-    
 }
 
     .hero__titel--white {
@@ -32,32 +31,28 @@
         letter-spacing: 0.04em;
         text-transform: uppercase;
         
-        color: #FFFFFF;
+        color: var(--button-color);
        
     }
 
     .hero__titel--acent {
         font-family: 'Titan One';
-        
-        font-weight: 400;
-        font-size: 48px;
-        line-height: 96.5%;
-        /* or 46px */
-        
+        @include fw_fs_line-height-calc(400, 48, 46);
+              
         text-transform: uppercase;
         
-        color: #D41443;
+        color: var(--dark-accent-color);
     }
 
 //Hero-btn
-.hero-btn {
+.hero-btn--s {
     display: flex;
 }
 
 //Ice-Cream
 
 .ice__cream {
-    position: relative;
+    // position: relative;
 }
 
 // .ice__cream:before {
@@ -72,31 +67,41 @@
 //   border-radius: 50%;
 // }
 
-.ice__cream_img {
-    position: absolute;
-    top: 250px;
+// .ice__cream_img {
+//     // position: absolute;
+//     top:0;
 
-    left:calc(100% - 300px);
-    // left: calc(100% - 115px);
-    transform: translate(-50%, -50%);
+//     left:0;
+//     // left: calc(100% - 115px);
+//     // transform: translate(-50%, -50%);
 
-    // z-index: 3;
+//     // z-index: 3;
+// }
+
+
+@media screen and (max-width: 767px) {
+    .girl-img, .milk-img {
+    display: none;
+  }
 }
 
 .girl-img {
-    position: absolute;
-//     bottom: 0;
-//     left: 0;
-//     transform: translate(-50%, -50%);
+   
+    // position: absolute;
+    top: 0;
+    // left: 0;
+    // transform: translate(-50%, -50%);
+    // z-index: 1000;
 }
 
 
-// .milk-img {
-//     position: absolute;
-//     bottom: 0;
-//     right: 0;
-//     transform: translate(-50%, -50%);
-// }
+.milk-img {
+   
+    // position: absolute;
+    // bottom: 0;
+    // right: 0;
+    // transform: translate(-50%, -50%);
+}
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
    .container_hero  {
@@ -112,10 +117,83 @@
 
         // padding-right: 34px;
         padding-left: 70px;
+        padding-right: 70px;
         padding-top: 83px;
             max-width: 1120px;
             height: 665px;
     }
 }
 
+.hero__wraper {
+    display: flex;
+    justify-content: space-between;
+    
+    margin-top: 27px;
+}
+
+.hero__title__btn__wraper {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+// Валентина
+
+.hero-small-list {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.hero-small-item {
+  position: relative;
+  width: 51px;
+  margin-bottom: 13px;
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 15px;
+    width: 92px;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.hero-small-item::before {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  color: var(--button-color);
+  z-index: 10000;
+  @media screen and (min-width: 1280px) {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.hero-number {
+  display: flex;
+  text-align: right;
+  justify-content: flex-end;
+  font-family: Titan One;
+  @include font(400, 28px, 1.14);
+  color: var(--dark-accent-color);
+  @media screen and (min-width: 1280px) {
+    @include font(400, 46px, 1.152);
+  }
+}
+
+.hero-rest {
+  display: flex;
+  text-align: right;
+  justify-content: flex-end;
+  @include font(400, 8px, 1.25);
+  color: var(--button-color);
+  @media screen and (min-width: 1280px) {
+    @include font(400, 14px, 1.285);
+  }
+}
+// END Валентина
      
