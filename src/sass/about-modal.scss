@@ -7,7 +7,7 @@
   font-family: inherit;
   margin-top: 17px;
   text-align: center;
-  align-items: center;
+  align-items: baseline;
   border: none;
   border-radius: 22px;
   min-width: 176px;
@@ -19,6 +19,7 @@
   & :hover,
   & :focus {
     cursor: pointer;
+    background-color: #ecebeb;
   }
 }
 .about-arrow {
@@ -58,7 +59,7 @@
   overflow: scroll;
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background-color: #ffffff;
+  background: linear-gradient(#f0d6da, #ec8195);
   padding: 40px;
   z-index: 1000;
   vertical-align: middle;
@@ -74,9 +75,9 @@
   right: 15px;
   width: 30px;
   height: 30px;
-  background: pink;
+  background: #ffffff;
   border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: none;
   cursor: pointer;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -84,21 +85,25 @@
 
 .about-close:hover,
 .about-close:focus {
-  fill: red;
-  color: red;
+  background: #c7133e;
 }
 
 .close-icon {
-  fill: #000000;
+  fill: #d41443;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  .about-close:hover &,
+  .about-close:focus & {
+    fill: #ffffff;
+  }
 }
 
-.close-icon:hover .close-icon,
-.close-icon:focus .close-icon {
+.close-icon:hover,
+.close-icon:focus {
   fill: #ffffff;
 }
 
@@ -113,8 +118,9 @@
   line-height: 1.5;
   letter-spacing: 0.03em;
   display: inline-block;
-  margin-bottom: 15px;
-  text-align: start;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
   color: rgb(36, 30, 30);
 }
 .about-modal-first-p {
@@ -124,9 +130,22 @@
   margin-bottom: 35px;
   color: grey;
 }
-.about-modal-second-p {
-  font-size: 14px;
-  font-weight: 400;
-  text-align: start;
-  color: gray;
+.about-video-box {
+  text-align: center;
+}
+.about-video {
+  width: 250px;
+  height: 173px;
+  text-align: center;
+  border: 10px solid #ec8195;
+}
+
+@media screen and (min-width: 768px) {
+  .about-button {
+    font-size: 16px;
+  }
+  .about-video {
+    width: 430px;
+    height: 373px;
+  }
 }
