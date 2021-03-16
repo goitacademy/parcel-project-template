@@ -1,15 +1,13 @@
 .header-hero {
   overflow: hidden;
-  max-width: 1600px;
-  margin: 0 auto;
+
+  background-color: var(--bg-hero);
 }
 
 .header {
   background-color: var(--bg-hero);
-
-  @media screen and (min-width: 768px) {
-    position: static;
-  }
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .Logo-icon {
@@ -414,7 +412,10 @@
 }
 
 ///////////////////////////// mobil/////////////////////////////////
+
 .backdrop {
+  transition: var(--transition-duration) var(--timing-function);
+  transform: translatex(0);
   z-index: 7;
   // display: none;
   position: fixed;
@@ -434,6 +435,14 @@
     pointer-events: none;
   }
 }
+
+.is-open {
+  transform: translatex(100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .background-close {
   content: '';
   z-index: 3;
@@ -448,6 +457,12 @@
     visibility: hidden;
     pointer-events: none;
   }
+}
+
+.background-close p {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .background-close.bat-close {
@@ -483,12 +498,6 @@
 .btn-buy-now {
   padding-top: 60px;
   display: flex;
-}
-
-.is-open {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
 }
 
 .title-buy-now {
@@ -567,18 +576,19 @@
     margin-left: 35px;
   }
   @media screen and (min-width: 1280px) {
-    margin-left: 155px;
+    margin-left: 115px;
   }
 }
 .container-box {
   display: block;
 }
 
-.hero-content {
+.hero-case {
   // display: none;
 
   z-index: 1;
-  &::before {
+  &::after {
+    z-index: -1;
     // border: solid 5px;
     content: '';
     width: 345px;
@@ -624,15 +634,15 @@
 }
 
 .left-case {
-  z-index: 1;
+  z-index: 2;
   // border: solid 5px;
 
   @media screen and (min-width: 768px) {
     margin-top: 40px;
   }
   @media screen and (min-width: 1280px) {
-    margin-top: 0;
-    padding-top: 85px;
+    margin-top: 85px;
+    // padding-top: 85px;
   }
 }
 
