@@ -129,7 +129,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mySiema = new _siema.default({
   selector: '.siema',
-  duration: 500,
+  duration: 1500,
   easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
   perPage: 1,
   startIndex: 0,
@@ -179,7 +179,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51656" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52615" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
