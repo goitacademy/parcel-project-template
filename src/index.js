@@ -1,4 +1,3 @@
-
 import './sass/main.scss';
 
 (() => {
@@ -11,6 +10,12 @@ import './sass/main.scss';
     const BtnClose = document.querySelector("[bat-close]");
     const MenuRef = document.querySelector("[bat-ref]");
   
+    const idExit1 = document.querySelector("[id-Exit1]");
+    const idExit2 = document.querySelector("[id-Exit2]");
+    const idExit3 = document.querySelector("[id-Exit3]");
+    const idExit4 = document.querySelector("[id-Exit4]");
+    const idExit5 = document.querySelector("[id-Exit5]");
+  
     menuBtnRef.addEventListener("click", () => {
       mobileMenuRef.classList.toggle("is-open");
 
@@ -21,6 +26,43 @@ import './sass/main.scss';
   
   
     MenuRef.addEventListener('click', () => {
+      mobileMenuRef.classList.toggle("is-open");
+
+      BtnClose.classList.toggle("bat-close");
+      MenuRef.classList.toggle("bat-ref");  
+      
+    });
+  
+  
+    idExit1.addEventListener('click', () => {
+      mobileMenuRef.classList.toggle("is-open");
+
+      BtnClose.classList.toggle("bat-close");
+      MenuRef.classList.toggle("bat-ref");  
+      
+    });
+    idExit2.addEventListener('click', () => {
+      mobileMenuRef.classList.toggle("is-open");
+
+      BtnClose.classList.toggle("bat-close");
+      MenuRef.classList.toggle("bat-ref");  
+      
+    });
+    idExit3.addEventListener('click', () => {
+      mobileMenuRef.classList.toggle("is-open");
+
+      BtnClose.classList.toggle("bat-close");
+      MenuRef.classList.toggle("bat-ref");  
+      
+    });
+    idExit4.addEventListener('click', () => {
+      mobileMenuRef.classList.toggle("is-open");
+
+      BtnClose.classList.toggle("bat-close");
+      MenuRef.classList.toggle("bat-ref");  
+      
+    });
+    idExit5.addEventListener('click', () => {
       mobileMenuRef.classList.toggle("is-open");
 
       BtnClose.classList.toggle("bat-close");
@@ -41,8 +83,25 @@ import './sass/main.scss';
 })()
 
 
+
+ $(document).ready(function(){
+    $("#menu1").on("click","a", function (event) {
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({scrollTop: top}, 1500);
+    });
+ });
+
+ $(document).ready(function(){
+    $("#menu2").on("click","a", function (event) {
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({scrollTop: top}, 1500);
+    });
+});
+
+
 import './modal';
 
-$(document).ready(function(){
-  $('.customer-reviews__wrappers').slick();
-});
