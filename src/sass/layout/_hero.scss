@@ -1,10 +1,18 @@
-
+@include adaptive-before-phone {
+ 
+  .hero .container {
+      width: 320px;
+      padding: 0;
+      margin: 0 auto;
+  }
+}
 
 .hero .container{background-color: var(--colorful-bg-color-one);
     position: relative;
   }
 
 .hero {
+ 
  
   background-color: var(--colorful-bg-color-one);
   }
@@ -53,9 +61,9 @@
 
 .wrapper-container {
   position: absolute;
-  bottom: 0;
+  
   left: 20px;
-  transform: translatey(-100%);
+  transform: translatey(50%);
 }
 
 
@@ -65,13 +73,15 @@
     .ice-cream-picture{background-image: url(../images/hero/hero-circle-big-mobile.png);
     display:flex;
 background-repeat: no-repeat;
-background-position: top right;
-justify-content: space-evenly;
+background-position: right top;
+justify-content: space-around;
+
 
 
  }
 
 @media screen and (max-width: 767px) {
+
   .hero-paragraph {
     display: none;
   }
@@ -85,10 +95,24 @@ justify-content: space-evenly;
 
   .counter-container{display: none;}
 }
-@media screen and (min-width:768px){
+@include adaptive-for-phone {
+  
+  .container {
+      width: 480px;
+      padding: 0 20px;
+  }
+}
 
 
-     .ice-cream-picture{background-image: url(../images/hero/hero-circle-big-tablet.png);
+
+@include adaptive-for-tablet {
+  .container {
+      width: 700px;
+      padding: 0 34px;}
+
+
+
+ .ice-cream-picture{background-image: url(../images/hero/hero-circle-big-tablet.png);
 min-width: 324px;
 display: inline-flex;
 background-repeat: no-repeat;
@@ -102,8 +126,8 @@ justify-content:center;
 
 
      .hero-paragraph{
-max-width: 122px;
-max-height: 48px;
+width: 122px;
+height: 48px;
 font-weight: 400;
 font-size: 8px;
 line-height: 1.5;
@@ -182,6 +206,8 @@ bottom: 0%;
 .wrapper-container{position: relative;
 transform: translateY(0);
   display: inline-block;
+  bottom: -15px;
+ left: 0;
 }
 
 .counter-container{display: inline-flex;
@@ -200,6 +226,9 @@ line-height: 1.142;
 letter-spacing: 0.04em;
 text-transform: uppercase;
 color: var(--accent-color);
+background-image: url(../images/hero/counter-circle-tablet.png);
+background-repeat: no-repeat;
+background-position: top right ;
 }
 
 .cafes-counter-description, .trucks-counter-description{
@@ -211,22 +240,104 @@ color: var( --primary-light-bg-color);
 
 
 
+  }
 
-}
+
+    
 
 
-@media screen and (min-width:1200px){
+
+
+@include adaptive-for-desktop {
+  .container {
+      width: 1130px;
+      padding: 0 75px;
+   }
+
+   .hero-title{font-size: 38px;
+line-height: 1.157;
+width: 277px;
+height: 137px;}
  
+.hero-title-theme-accent{font-size: 58px;
+line-height: 90.5%;}
+
+.info-button{font-size: 14px;
+line-height: 1.285;}
+
+.hero-paragraph{font-size: 14px;
+line-height: 1.428;
+width: 200px;
+height: 78px;
+}
+
+.hero-button{width: 26px;
+  justify-content: center;
+ height: 26px;}
+
+ .hero-button-icon{width: 10px;
+height: 10px;}
+
+.counter-container{
+right: 75px;
+top: 78px;
+
+}
+
+.cafes-counter, .trucks-counter{
+font-size: 46px;
+line-height: 1.152;
+background-image: url(../images/hero/counter-circle-desktop.png);
 
 
-  .ice-cream-picture{background-image: url(../images/hero/hero-circle-big-desktop.png);
-min-width: 324px;
-display: inline-flex;
+
+}
+
+
+
+.cafes-counter-description, .trucks-counter-description{
+font-size: 14px;
+line-height: 1.285;
+}
+
+.wrapper-container{left:40px}
+
+
+.milk-decanter-wrapper{margin-top: 56px;
+margin-bottom: 45px;}
+
+      .ice-cream-picture{background-image: url(../images/hero/hero-circle-big-desktop.png);
+width:538px;
+height: 538px;
+background-position: 50% 50%;
 background-repeat: no-repeat;
+position:absolute;
+
+
+
+}
+
+
+
+
+
+
+.hero-left-side{display: inline-flex;
+flex-direction: column;
+
+left: 40px;
+
+}
+
+.girl-so-tasty{
+display:inline-flex;
 position: absolute;
-bottom: 0;
-justify-content:center;
-
+right: 75px;
 
 }
+
+  
 }
+
+  
+  
