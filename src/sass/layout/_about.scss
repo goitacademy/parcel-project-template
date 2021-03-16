@@ -166,31 +166,39 @@
 .about-button {
   width: 176px;
   height: 44px;
-  background-color: var(--button-color);
   border-radius: 22px;
-  border-color: transparent;
+  border: 0;
   @include font(700, 14px, 1.285);
+  background-color: var(--button-color);
+  color: var(--dark-accent-color);
   display: flex;
-  margin-left: 30px;
   align-items: center;
   text-align: center;
   justify-content: center;
-  color: var(--dark-accent-color);
+  margin-left: 30px;
+  padding: 12px 20px;
   transition: all var(--time) var(--delay);
-  &:hover,
-  &:focus {
-    background-color: var(--dark-accent-color);
-    color: var(--button-color);
-    & > .about-button-icon {
-      fill: var(--button-color);
-    }
-  }
   @media screen and (min-width: 768px) {
     margin-left: 0;
   }
 }
 
-.about-button-icon {
-  margin-left: 14px;
-  fill: currentColor;
+ .about-button::after {
+   content: '';
+   width: 8px;
+   height: 10px;
+   margin-left: 14px;
+   background-image: url('../images/icon/cont-vector.svg');
+   background-size: contain;
+ }
+
+.about-button:hover ,
+.about-button:focus  {
+  color: var(--button-color);
+  background-color: var(--dark-accent-color);
+}
+
+.about-button:hover::after ,
+.about-button:focus::after {
+  background-image: url('../images/icon/Vector.svg');
 }
