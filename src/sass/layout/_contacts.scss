@@ -1,38 +1,51 @@
 .contacts {
   width: 100%;
-    font-family: DM Sans,sans-serif;
-    font-size: 16px;
-    line-height: 1.86;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+  // margin-right: auto;
+  // margin-left: auto;
+  padding-right: 50px;
+  padding-bottom: 56px;
+  padding-left: 50px;
+  text-align: center;
+  font-family: DM Sans,sans-serif;
+  font-size: 12px;
+  line-height: 1.86;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 
-    margin-right: auto;
-    margin-left: auto;
-    padding-bottom: 56px;
-    text-align: center;
-    background-color: var(--secondary-bg-color);
+  background-color: var(--secondary-bg-color);
+    
+    @include adaptive-for-tablet {
+      font-size: 14px;
+    }
+    @include adaptive-for-desktop {
+      font-size: 16px;
+    }
 }
-// .contacts-container {
-//   // margin-top: -84px;
-//   }
 
 .location-list {
+  margin-bottom: 54px;
   @include adaptive-before-tablet {
      padding: 30px;
   }
 
   @include adaptive-for-tablet {
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0;
     margin: -10px;
+    margin-bottom: 80px;
   }
 
   @include adaptive-for-desktop {
     margin: -15px;
+    margin-bottom: 86px;
   }
 }
 
 .location-list-item {
+  max-width: 220px;
+  margin: 0 auto;
   padding: 43px 20px;
   text-align: left;
   background-color: var(--primary-light-color);
@@ -41,13 +54,13 @@
 
   @include adaptive-for-tablet {
     margin: 10px;
-    flex-basis: calc((100% - 60px) / 3);
+    flex-basis: calc((100% - 3*20px) / 3);//3 - number of cards in a row, 20px - gap between cards
     padding: 50px 31px;
   }
 
   @include adaptive-for-desktop {
     margin: 15px;
-    flex-basis: calc((100% - 90px) / 3);
+    flex-basis: calc((100% - 3*30px) / 3);//3 - number of cards in a row, 30px - gap between cards
     padding: 50px 43px;
   }
 }
@@ -61,21 +74,24 @@
 .location-list-place {
     display: inline-block;
     margin-bottom: 25px;
-    padding: 0 30px;
-    font-size: 16px;
+    padding: 0 25px;
+    font-size: 12px;
     line-height: 1.86;
     font-weight: 500;
     letter-spacing: 0.04em;
     color: var(--primary-light-color);
     text-transform: uppercase;
     border-radius: 4px;
+    @include adaptive-for-tablet {
+      font-size: 16px;
+    }
 }
 
 .cafe {
-    background-color: #f0d1a5;
+  background-color: #f0d1a5;
 }
 .truck {
-    background-color: #c2e297;
+  background-color: #c2e297;
 }
 
 .location-list-city {
@@ -122,11 +138,23 @@
   }
 }
 
-//Buttons
+//Buttons 
+
+.location-button-list {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+}
+
+.location-button-item {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
 
 .location-button {
-    cursor: pointer;
-        display: flex;
+      display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 37px 0;
@@ -148,45 +176,9 @@
 
       &:hover,
       &:focus {
-        background: var(--button-hover-color);
+        color: var(--primary-light-color);
+        background: var(--accent-color);
       }
-    
 }
 
-///////// End buttons
-
-// @include adaptive-before-tablet {
-//   .contacts-container {
-//     width: 69%;
-//   }
-// // .location-list-item:not(:last-child){
-// //     margin-bottom: 20px;
-// //     }
-// }
-
-//   @include adaptive-for-tablet {
-//     // .contacts-container {
-//     //   margin-top: -78px;
-//     // }
-//   .location-list{
-// display: flex;
-//   }
-// // .location-list-item:not(:last-child){
-// // margin-right: 20px;
-// // }
-// .location-list-item {
-// padding: 50px 30px;
-// }
-// }
-
-
-//   @include adaptive-for-desktop {
-// //   .location-list-item:not(:last-child){
-// // margin-right: 30px;
-// // }
-// .location-list-item {
-// padding: 50px 40px;
-// }
-
-  
-//   }
+// End buttons
