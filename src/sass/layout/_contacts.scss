@@ -1,14 +1,14 @@
 .contacts {
   width: 100%;
-  padding-right: 50px;
   padding-bottom: 56px;
-  padding-left: 50px;
   text-align: center;
   font-family: DM Sans, sans-serif;
   font-size: 12px;
   line-height: 1.86;
   font-weight: 500;
   letter-spacing: 0.04em;
+  display: flex;
+  justify-content: center;
 
   background-image: linear-gradient(
     to bottom,
@@ -17,9 +17,24 @@
     var(--secondary-bg-color) 85%
   );
 
+  .container {
+    width: 100%;
+    max-width: 480px;
+    padding: 0;
+    margin: 0;
+  }
+
   @include adaptive-for-tablet {
     font-size: 14px;
-    padding: 0;
+    padding: 0 0 158px 0;
+
+    .container {
+      max-width: none;
+    }
+
+    .location-button-list {
+      flex-direction: row;
+    }
   }
   @include adaptive-for-desktop {
     font-size: 16px;
@@ -29,6 +44,14 @@
       var(--secondary-bg-color) 15%,
       var(--secondary-bg-color) 85%
     );
+    padding-bottom: 158px;
+
+    .container {
+      max-width: none;
+    }
+    .location-button-list {
+      flex-direction: row;
+    }
   }
 }
 
@@ -43,13 +66,18 @@
   margin-left: -15px;
 
   @include adaptive-for-tablet {
-    flex-direction: row;
     padding: 0;
-    margin-top: -15px;
-    margin-right: -15px;
-    margin-bottom: 54px;
-    margin-left: -15px;
-    margin-bottom: 80px;
+    display: flex;
+    margin: 0;
+    gap: 20px;
+    flex-direction: row;
+    margin-bottom: 81px;
+
+    .location-list-item {
+      width: 158px;
+      max-width: 158px;
+      margin: 0;
+    }
   }
 
   @include adaptive-for-desktop {
@@ -150,18 +178,18 @@
 //Buttons
 
 .location-button-list {
-  display: -webkit-inline-box;
+  display: flex;
   gap: 15px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.location-button-item {
-  &:not(:last-child) {
-    margin-bottom: 10px;
-  }
-}
+// .location-button-item {
+//   &:not(:last-child) {
+//     margin-bottom: 10px;
+//   }
+// }
 
 .location-button {
   display: flex;
