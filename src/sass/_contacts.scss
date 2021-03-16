@@ -1,7 +1,7 @@
 .contacts {
     padding-top: 86px;
     padding-bottom: 113px;
-    background: linear-gradient(to bottom,$bg-main 11%, $bg-light-pink 11% 89% );
+    background: linear-gradient(to bottom,$bg-main 11%, $bg-light-pink 11% 89%);
 }
 
 .contacts-list {
@@ -9,16 +9,15 @@
 }
 
 .contacts-item {
-    
     width: 220px;
     padding: 43px 20px;
     background-color: $bg-main;
     box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
     border-radius: 24px;
-    margin: auto; 
     
-    &:not(:last-child) {
-        @media screen and (max-width: 767px) {
+    @media screen and (max-width: 767px) {
+        margin: auto; 
+            &:not(:last-child) {
             margin-bottom: 20px;
         }
     }
@@ -89,9 +88,6 @@
     line-height: 1.833;
     color: $color-dark;
 }
-
-
-
 .contacts-time {
     color: $color-pink;
     font-weight: 500;
@@ -99,30 +95,162 @@
     line-height: 1.183;
 }
 
-//buttons//
 .contacts-btn-list {
     text-align: center;
 }
+
+
+//buttons//
 .contacts-btn-list {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    @media screen and (max-width: 767px) {
-        flex-direction: column;
-    }
     
     @media screen and (max-width: 767px) {
         flex-direction: column;
     }
 }
 
-.contacts-btn-item {
-    &:not(:last-child) {
-        @media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
+    .contacts-btn-item {
+        &:not(:last-child) {
             margin-bottom: 10px;
         }
     }
+        .contacts-btn-red, .contacts-btn-white {
+            width: 161px;
+        }
+}
+
+//backdrop
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: 300ms linear;
+}
+
+.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.contacts-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 95%;
+    background-image: url("../images/contacts-usa-map.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: scroll;
+    // border-radius: 22px;
+
+
+    @media screen and (min-width: 480px) {
+        max-width: 440px;
+    }
+}
+
+.contacts-btn-close {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: box-shadow 300ms linear;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2), 
+                    0px 4px 4px rgba(0, 0, 0, 0.1), 
+                    1px 4px 6px rgba(0, 0, 0, 0.2);;
+    }
+}
+
+.contacts-modal-2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 95%;
+    background-color: $bg-mobile-menu;;
+    // background-image: url("../images/contacts-usa-map.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: scroll;
+    // border-radius: 22px;
+
+    @media screen and (min-width: 480px) {
+        max-width: 440px;
+    }
+}
+.contacts-modal-form {
+    padding: 60px;
+}
+.contacts-modal-label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    font-size: 13px;
+    color: $color-dark;
+}
+
+.contacts-modal-input {
+    width: 100%;
+    height: 40px;
+    padding: 8px;
+    background-color: $bg-light-pink;
+    font-size: 16px;
+    border: none;
+    border-radius: 15px;
+    padding-left: 15px;
+    font-size: 13px;
+    color: $color-dark;
+    cursor: pointer;
+}
+
+.contacts-form-massange {
+    width: 100%;
+    height: 120px;
+    padding: 12px 16px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    display: block;
+    resize: none;
+    border-radius: 15px;
+    background-color: $bg-light-pink;
+    border: none;
+    cursor: pointer;
+}
+
+.contacts-form-btn {
+    margin: auto;
+}
+
+.contacts-btn-close-2 {
+    transition: background-color 300ms linear;
+        &:hover,
+        &:focus {
+            background-color: $bg-secondary;
+        }
 }
 
 @media screen and (min-width: 768px) {
@@ -130,7 +258,7 @@
         padding-top: 0;
         // padding-top: 119px;
         padding-bottom: 158px;
-        background: linear-gradient(to bottom,$bg-main 8%, $bg-light-pink 8% 91% );
+        background: linear-gradient(to bottom,$bg-main 8%, $bg-light-pink 8px 92%);
     }
 
     .contacts-list {
@@ -142,9 +270,9 @@
 
     .contacts-item {
         padding: 50px 31px;
-        &:not(:last-child) {
-            margin-right: 20px;
-        }
+            &:not(:last-child) {
+                margin-right: 20px;
+            }
     }
 
     .contacts-representation {
@@ -208,22 +336,16 @@
 
 .contacts-btn-item {
     &:not(:last-child) {
-
-        @media screen and (max-width: 767px) {
-            margin-bottom: 10px;
-
         margin-right: 15px;
         }
     }
 }
-
-
-@media screen and (min-width: 768px) {
-    .contacts {
-        padding-top: 0;
-        // padding-top: 119px;
-        padding-bottom: 158px;
-        background: linear-gradient(to bottom,$bg-main 8%, $bg-light-pink 8% 91% );
+@media screen and (max-width: 1199px) {
+    .contacts-btn-red {
+        width: 191px;
+    }
+    .contacts-btn-white {
+        width: 174px;
     }
 }
 
@@ -232,90 +354,58 @@
         padding-top: 0;
         // padding-top: 132px;
         padding-bottom: 165px;
+        background: linear-gradient (to bottom, $bg-main 11%, $bg-light-pink 11% 89%);
+    }
+
+    .bg-img {
         background-image: url(../images/bg-contacts@1x.png);
-        background-color: linear-gradient(to bottom,$bg-main 8%, $bg-light-pink 8% 91%);
+        background-position: right 0px top 100px;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 
     .contacts-list {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 81px;
+        margin-bottom: 86px;
     }
 
     .contacts-item {
-        padding: 50px 31px;
+        width: 330px;
+        padding: 51px 43px;
         &:not(:last-child) {
-            margin-right: 20px;
+            margin-right: 31px;
         }
-    }
-
-    .contacts-representation {
-        margin-bottom: 30px;
-        font-size: 16px;
-        line-height: 1.875;
-    }
-
-    .rectangle-cafe {
-        width: 73px;
-        height: 28px;
-    }
-
-    .rectangle-foodtruck {
-        width: 138px;
-        height: 28px;
     }
 
     .contacts-wrap {
         &::after {
             content: "";
             display: block;
-            margin-top: 30px;
-            margin-bottom: 30px;
+            margin-top: 32px;
+            margin-bottom: 32px;
         }
-    }
-
-    .contacts-wrap-days {
-        margin-bottom: 16px;
     }
 
     .contacts-subtitle {
-        margin-bottom: 14px;
-        font-size: 14px;
-        line-height: 1.857;
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.875;
     }
 
-    .contacts-desc {
-        font-size: 14px;
-        line-height: 1.643;
+    .contacts-desc, .contact-link {
+        font-size: 16px;
+        line-height: 1.813;
+    }
+    .contacts-days, .contacts-time {
+        font-size: 16px;
+        line-height: 1.875;
     }
 
-    .contact-link {
-        font-size: 14px;
-        line-height: 1.857;
+    //buttons
+
+    .contacts-btn-red {
+        width: 198px;
     }
-
-    
-    .contacts-time {
-        font-size: 14px;
-        line-height: 1.857;
-        color: $color-pink;
+    .contacts-btn-white {
+        width: 180px;
     }
-
-
-    .contacts-days {
-        font-size: 14px;
-        line-height: 1.833;
-        color: $color-dark;
-    }
-
-
-    //buttons//
-
-.contacts-btn-item {
-    &:not(:last-child) {
-        margin-right: 15px;
-        }
-    }
-}
 }
