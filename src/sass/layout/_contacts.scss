@@ -1,33 +1,68 @@
 .contacts {
+  width: 100%;
     font-family: DM Sans,sans-serif;
+    font-size: 16px;
+    line-height: 1.86;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+
     margin-right: auto;
     margin-left: auto;
     padding-bottom: 56px;
     text-align: center;
     background-color: var(--secondary-bg-color);
 }
-.contacts-container {
-    display: inline-block;
-    margin-top: -84px;
-    // max-width: 480px;
-  }
+// .contacts-container {
+//   // margin-top: -84px;
+//   }
 
 .location-list {
+  @include adaptive-before-tablet {
+     padding: 30px;
+  }
+
+  @include adaptive-for-tablet {
+    display: flex;
     padding: 0;
+    margin: -10px;
+  }
+
+  @include adaptive-for-desktop {
+    margin: -15px;
+  }
 }
 
 .location-list-item {
-    padding: 43px 20px;
-    text-align: left;
-    background-color: var(--primary-light-color);
-    box-shadow: 0 8px 30px rgb(212 20 67 / 10%);
-    border-radius: 24px;
+  padding: 43px 20px;
+  text-align: left;
+  background-color: var(--primary-light-color);
+  box-shadow: 0 8px 30px rgb(212 20 67 / 10%);
+  border-radius: 24px;
+
+  @include adaptive-for-tablet {
+    margin: 10px;
+    flex-basis: calc((100% - 60px) / 3);
+    padding: 50px 31px;
+  }
+
+  @include adaptive-for-desktop {
+    margin: 15px;
+    flex-basis: calc((100% - 90px) / 3);
+    padding: 50px 43px;
+  }
 }
+
+.location-list-item:not(:last-child) {
+  @include adaptive-before-tablet {
+    margin-bottom: 20px;
+  }
+}
+
 .location-list-place {
     display: inline-block;
     margin-bottom: 25px;
     padding: 0 30px;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.86;
     font-weight: 500;
     letter-spacing: 0.04em;
@@ -45,16 +80,10 @@
 
 .location-list-city {
     margin-bottom: 10px;
-    font-size: 12px;
-    line-height: 1.86;
-    font-weight: 500;
-    letter-spacing: 0.04em;
 }
 
 .location-list-content {
     font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
     color: var(--secondary-dark-shaded-color);
 
 }
@@ -72,15 +101,9 @@
 
   .location-work-day {
     margin-top: 25px;
-    font-size: 12px;
-    line-height: 1.86;
-    font-weight: 500;
   }
 
   .location-work-time {
-    font-size: 12px;
-    line-height: 1.86;
-    font-weight: 500;
     color: var(--social-link-bg-basic-color);
 }
 
@@ -89,20 +112,20 @@
 }
 
 .location-address-tel {
-    font-size: 12px;
-    line-height: 1.5;
-    font-weight: 500;
-    color: var(--secondary-dark-shaded-color);
+
+  line-height: 1.5;
+  color: var(--secondary-dark-shaded-color);
+
+  @include adaptive-for-tablet {
+    font-size: 14px;
+    line-height: 1.86;
+  }
 }
 
-
-// //////Buttons
-
+//Buttons
 
 .location-button {
     cursor: pointer;
-
-
         display: flex;
       align-items: center;
       justify-content: space-between;
@@ -130,44 +153,40 @@
     
 }
 
-// .basic-button-arrow .location {
-//   fill: var(--primary-light-color)
-// }
-
 ///////// End buttons
 
-@include adaptive-before-tablet {
-  .contacts-container {
-    width: 69%;
-  }
-.location-list-item:not(:last-child){
-    margin-bottom: 20px;
-    }
-}
+// @include adaptive-before-tablet {
+//   .contacts-container {
+//     width: 69%;
+//   }
+// // .location-list-item:not(:last-child){
+// //     margin-bottom: 20px;
+// //     }
+// }
 
-  @include adaptive-for-tablet {
-    .contacts-container {
-      margin-top: -78px;
-    }
-  .location-list{
-display: flex;
-  }
-.location-list-item:not(:last-child){
-margin-right: 20px;
-}
-.location-list-item {
-padding: 50px 30px;
-}
-}
+//   @include adaptive-for-tablet {
+//     // .contacts-container {
+//     //   margin-top: -78px;
+//     // }
+//   .location-list{
+// display: flex;
+//   }
+// // .location-list-item:not(:last-child){
+// // margin-right: 20px;
+// // }
+// .location-list-item {
+// padding: 50px 30px;
+// }
+// }
 
 
-  @include adaptive-for-desktop {
-  .location-list-item:not(:last-child){
-margin-right: 30px;
-}
-.location-list-item {
-padding: 50px 40px;
-}
+//   @include adaptive-for-desktop {
+// //   .location-list-item:not(:last-child){
+// // margin-right: 30px;
+// // }
+// .location-list-item {
+// padding: 50px 40px;
+// }
 
   
-  }
+//   }
