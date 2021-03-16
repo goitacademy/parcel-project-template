@@ -1,7 +1,5 @@
 .page-header {
   background: transparent;
-  display: flex;
-  justify-content: space-between;
 
   & .container {
     display: flex;
@@ -11,7 +9,9 @@
 }
 
 .site-nav {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .site-nav-logo {
@@ -36,10 +36,75 @@
   font-family: 'Titan One';
   line-height: 95.5%;
 }
+.burger-btn {
+  display: block;
+
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+}
+
+.burger-btn-icon {
+  width: 20px;
+  height: 14px;
+
+  fill: #d41443;
+}
 
 @media screen and (max-width: 767px) {
   .modal-btn {
     display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .page-header {
+    padding: 37px 0;
+  }
+
+  .modal-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width: 160px;
+    padding-top: 11px;
+    padding-left: 11px;
+    padding: 11px 37px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.312;
+    border-radius: 22px;
+    background-color: var(--primary-white-color);
+    border: none;
+    color: var(--accent-color);
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:focus,
+    &:hover {
+      background-color: var(--white-btn-hover);
+    }
+  }
+
+  .modal-btn-text {
+    margin-right: 11px;
+  }
+
+  .modal-btn-icon {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translateY(-35%);
+
+    width: 6px;
+    height: 11px;
+    stroke: var(--accent-color);
+    fill: var(--accent-color);
   }
 }
 
@@ -49,36 +114,53 @@
   }
 
   .burger-btn {
-    width: 40px;
-    height: 24px;
-
-    background-color: transparent;
-    border: none;
-    padding: 0px;
-  }
-
-  .burger-btn-icon {
-    width: 40px;
-    height: 24px;
-
-    fill: #d41443;
+    margin-left: auto;
+    margin-right: 30px;
   }
 }
 
-@media screen and (min-with: 768px) {
-  .modal-btn {
-    display: inline-block;
-    text-align: center;
-    font-family: inherit;
-
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.312;
-    color: var(--accent-color);
+@media screen and (min-width: 1280px) {
+  .site-nav-logo {
+    position: static;
+    padding-left: 0px;
   }
 
-  .mdl-btn-icon {
-    width: 6px;
-    height: 10px;
+  .logo-img {
+    transform: translateX(50%);
+  }
+
+  .burger-btn {
+    display: none;
+  }
+
+  .site-nav-logo {
+    margin-right: 110px;
+  }
+
+  .site-nav-list {
+    display: flex;
+  }
+
+  .site-nav-item {
+    & + & {
+      margin-left: 35px;
+    }
+  }
+
+  .site-nav-link {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    font-weight: bold;
+    color: var(--primary-white-color);
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+      color: var(--accent-color);
+    }
   }
 }
