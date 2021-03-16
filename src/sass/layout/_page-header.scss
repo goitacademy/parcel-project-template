@@ -2,10 +2,15 @@
   width: 100%;
   position: absolute;
   padding-top: 6px;
+  overflow: hidden;
 
   @media screen and (min-width: $tablet) {
     padding-top: 38px;
   }
+}
+
+.page-header .menu.is-open {
+  overflow: visible;
 }
 
 .navigation {
@@ -80,18 +85,19 @@
   width: 250px;
   height: 100vh;
   z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: $trans-duration $trans-time-func;
+  transform: translateX(100%);
+  // opacity: 0;
+  // visibility: hidden;
+  // pointer-events: none;
+  transition: transform $trans-duration $trans-time-func;
 
   &.is-open {
     position: fixed;
-    // transform: translateX(0);
-    transition: $trans-duration $trans-time-func;
-    visibility: revert;
-    opacity: 1;
-    pointer-events: all;
+    transform: translateX(0);
+    // transition: translate $trans-duration $trans-time-func;
+    // visibility: revert;
+    // opacity: 1;
+    // pointer-events: all;
   }
 
   &__packing-btn {
