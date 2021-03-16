@@ -1,0 +1,1 @@
+$('.slaider-item').slick();
