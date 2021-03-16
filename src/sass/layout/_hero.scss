@@ -1,6 +1,6 @@
 .hero {
     background-color: var(--hero-bcg-color);
-    z-index: 1;
+    z-index: -1;
 }
 
 
@@ -10,19 +10,80 @@
     padding-top: 83px;
 
     min-width: 320px;
+    
     height: 502px;
-    // z-index: 1000;
+
+    @media screen and (max-width: 767px) {
+      max-width: 480px;
     }
 
-    .hero__content {
-        z-index: 1000;
+    // @media screen and (max-width: 1199px) {
+    //   max-width: 768px;
+    // }
+
+    // @media screen and (max-width: 1199px) {
+    //   max-width: 1200px;
+    // }
+
+    ///////////////////////ОТНОСИТЕЛЬНО НЕГО - ПОЗИЦИОНИРОВАНИЕ КАРТИНОК
+    position: relative;
+    
     }
-.hero__titel {
-    
-    margin-top: 110px;
-    margin-bottom: 19px;
-    
-}
+
+    .container_hero:before {
+          content: '';
+          background-image: url('../images/hero/sircl/ellipse-mobile-pic.png');
+          background-repeat: no-repeat;
+          // background-size: cover;
+        height: 344px;
+        width: 290px;
+        position: absolute;
+        top: 50%;
+        left: 56%;
+        transform: translate(-50%, -50%);
+        // border-radius: 50%;
+        margin-right: -50px;
+
+        @media screen and (min-width: 480px) {
+          background-image: url('../images/hero/sircl/ellipse-tablet-pic.png');
+          height: 344px;
+          width: 346px;
+  
+          top: 45%;
+          left: 66%;
+          // margin-right: 0;
+          }
+
+        @media screen and (min-width: 768px) {
+        background-image: url('../images/hero/sircl/ellipse-tablet-pic.png');
+        height: 344px;
+        width: 346px;
+
+        top: 55%;
+        left: 56%;
+        // margin-right: 0;
+        }
+
+        @media screen and (min-width: 1200px) {
+          background-image: url('../images/hero/sircl/ellipse-desktop-pic.png');
+          height: 538px;
+          width: 538px;
+  
+          top: 49%;
+          left: 60%;
+          // margin-right: 0;
+          z-index: 0;
+          }
+      }
+
+    .hero__content {
+        position: relative;
+        z-index: 1;
+        padding-bottom: 19px;
+    }
+// .hero__titel {
+//     margin-bottom: 19px;
+// }
 
     .hero__titel--white {
         font-family: 'Titan One';
@@ -32,32 +93,29 @@
         letter-spacing: 0.04em;
         text-transform: uppercase;
         
-        color: #FFFFFF;
+        color: var(--button-color);
        
     }
 
     .hero__titel--acent {
         font-family: 'Titan One';
-        
-        font-weight: 400;
-        font-size: 48px;
-        line-height: 96.5%;
-        /* or 46px */
-        
+        @include fw_fs_line-height-calc(400, 48, 46);
+              
         text-transform: uppercase;
         
-        color: #D41443;
+        color: var(--dark-accent-color);
     }
 
 //Hero-btn
-.hero-btn {
+.hero-btn--s {
     display: flex;
 }
 
 //Ice-Cream
 
 .ice__cream {
-    position: relative;
+    // position: relative;
+    // right:0;
 }
 
 // .ice__cream:before {
@@ -74,29 +132,56 @@
 
 .ice__cream_img {
     position: absolute;
-    top: 250px;
+    top:297px;
+    left:62.5%;
+    // left:0;
+    transform:translate(-50%, -50%);
 
-    left:calc(100% - 300px);
-    // left: calc(100% - 115px);
-    transform: translate(-50%, -50%);
+    z-index: 0;
 
-    // z-index: 3;
+    @media screen and (min-width: 768px) {
+      top:231px;
+      left:62.5%;
+      left:56%;
+    }
+
+    @media screen and (min-width: 1200px) {
+      top:387px;
+      left:62.5%;
+      left:56%;
+    }
 }
 
-.girl-img {
+
+@media screen and (max-width: 767px) {
+    .girl-wraper, .milk-wraper {
+    display: none;
+  }
+}
+
+.girl-wraper {
+   
     position: absolute;
-//     bottom: 0;
-//     left: 0;
-//     transform: translate(-50%, -50%);
+    right: 0;
+    bottom: 0;
+    // transform: translate(-50%, -50%);
+    // z-index: 1000;
+    @media screen and (min-width: 768px) {
+      right: 2%;
+    }
+    @media screen and (min-width: 1200px) {
+      right: 6%;
+    }
 }
 
 
-// .milk-img {
-//     position: absolute;
-//     bottom: 0;
-//     right: 0;
-//     transform: translate(-50%, -50%);
-// }
+.milk-wraper {
+   
+    position: absolute;
+    bottom: 8%;
+    left: 3%;
+    // transform: translate(-50%, -50%);
+}
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
    .container_hero  {
@@ -112,10 +197,115 @@
 
         // padding-right: 34px;
         padding-left: 70px;
+        padding-right: 70px;
         padding-top: 83px;
             max-width: 1120px;
             height: 665px;
     }
 }
 
+.hero__wraper {
+    display: flex;
+    justify-content: space-between;
+    
+    padding-top: 110px;
+
+    @media screen and (min-width: 768px) {
+      padding-top: 15px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      padding-top: 84px;
+    }
+}
+
+.hero__title__btn__wraper {
+    display: flex;
+    flex-direction: column;
+     }
+
+
+// Валентина
+// .coutn-wraper {
+//   position: relative;
+//   z-index: 10;
+// }
+.hero-small-list {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.hero-small-item {
+  position: relative;
+  width: 51px;
+  margin-bottom: 13px;
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 15px;
+    width: 92px;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.hero-small-item::before {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  color: var(--button-color);
+  z-index: 10000;
+  @media screen and (min-width: 1200px) {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.hero-number {
+  display: flex;
+  text-align: right;
+  justify-content: flex-end;
+  font-family: Titan One;
+  @include font(400, 28px, 1.14);
+  color: var(--dark-accent-color);
+  @media screen and (min-width: 1200px) {
+    @include font(400, 46px, 1.152);
+  }
+}
+
+.hero-rest {
+  display: flex;
+  text-align: right;
+  justify-content: flex-end;
+  @include font(400, 8px, 1.25);
+  color: var(--button-color);
+  @media screen and (min-width: 1200px) {
+    @include font(400, 14px, 1.285);
+  }
+}
+// END Валентина
+
+.bio-title {
+  width: 114px;
+  height: 48;
+
+  // margin-right: 120px;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+}
+
+.bio-title-deskr {
+  font-weight: 400;
+font-size: 8px;
+line-height: 150%;
+/* or 12px */
+
+
+color: #FFFFFF;
+}
      
