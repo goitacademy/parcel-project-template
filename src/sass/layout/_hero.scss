@@ -10,18 +10,80 @@
     padding-top: 83px;
 
     min-width: 320px;
-    height: 502px;
     
+    height: 502px;
+
+    @media screen and (max-width: 767px) {
+      max-width: 480px;
+    }
+
+    // @media screen and (max-width: 1199px) {
+    //   max-width: 768px;
+    // }
+
+    // @media screen and (max-width: 1199px) {
+    //   max-width: 1200px;
+    // }
+
+    ///////////////////////ОТНОСИТЕЛЬНО НЕГО - ПОЗИЦИОНИРОВАНИЕ КАРТИНОК
     position: relative;
     
     }
 
+    .container_hero:before {
+          content: '';
+          background-image: url('../images/hero/sircl/ellipse-mobile-pic.png');
+          background-repeat: no-repeat;
+          // background-size: cover;
+        height: 344px;
+        width: 290px;
+        position: absolute;
+        top: 50%;
+        left: 56%;
+        transform: translate(-50%, -50%);
+        // border-radius: 50%;
+        margin-right: -50px;
+
+        @media screen and (min-width: 480px) {
+          background-image: url('../images/hero/sircl/ellipse-tablet-pic.png');
+          height: 344px;
+          width: 346px;
+  
+          top: 45%;
+          left: 66%;
+          // margin-right: 0;
+          }
+
+        @media screen and (min-width: 768px) {
+        background-image: url('../images/hero/sircl/ellipse-tablet-pic.png');
+        height: 344px;
+        width: 346px;
+
+        top: 55%;
+        left: 56%;
+        // margin-right: 0;
+        }
+
+        @media screen and (min-width: 1200px) {
+          background-image: url('../images/hero/sircl/ellipse-desktop-pic.png');
+          height: 538px;
+          width: 538px;
+  
+          top: 49%;
+          left: 60%;
+          // margin-right: 0;
+          z-index: 0;
+          }
+      }
+
     .hero__content {
-        
+        position: relative;
+        z-index: 1;
+        padding-bottom: 19px;
     }
-.hero__titel {
-    margin-bottom: 19px;
-}
+// .hero__titel {
+//     margin-bottom: 19px;
+// }
 
     .hero__titel--white {
         font-family: 'Titan One';
@@ -53,6 +115,7 @@
 
 .ice__cream {
     // position: relative;
+    // right:0;
 }
 
 // .ice__cream:before {
@@ -67,39 +130,56 @@
 //   border-radius: 50%;
 // }
 
-// .ice__cream_img {
-//     // position: absolute;
-//     top:0;
+.ice__cream_img {
+    position: absolute;
+    top:297px;
+    left:62.5%;
+    // left:0;
+    transform:translate(-50%, -50%);
 
-//     left:0;
-//     // left: calc(100% - 115px);
-//     // transform: translate(-50%, -50%);
+    z-index: 0;
 
-//     // z-index: 3;
-// }
+    @media screen and (min-width: 768px) {
+      top:231px;
+      left:62.5%;
+      left:56%;
+    }
+
+    @media screen and (min-width: 1200px) {
+      top:387px;
+      left:62.5%;
+      left:56%;
+    }
+}
 
 
 @media screen and (max-width: 767px) {
-    .girl-img, .milk-img {
+    .girl-wraper, .milk-wraper {
     display: none;
   }
 }
 
-.girl-img {
+.girl-wraper {
    
-    // position: absolute;
-    top: 0;
-    // left: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
     // transform: translate(-50%, -50%);
     // z-index: 1000;
+    @media screen and (min-width: 768px) {
+      right: 2%;
+    }
+    @media screen and (min-width: 1200px) {
+      right: 6%;
+    }
 }
 
 
-.milk-img {
+.milk-wraper {
    
-    // position: absolute;
-    // bottom: 0;
-    // right: 0;
+    position: absolute;
+    bottom: 8%;
+    left: 3%;
     // transform: translate(-50%, -50%);
 }
 
@@ -128,12 +208,22 @@
     display: flex;
     justify-content: space-between;
     
-    margin-top: 27px;
+    padding-top: 110px;
+
+    @media screen and (min-width: 768px) {
+      padding-top: 15px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      padding-top: 84px;
+    }
 }
 
 .hero__title__btn__wraper {
     display: flex;
     flex-direction: column;
+    z-index: 1;
+  
   }
 
 
@@ -149,7 +239,7 @@
   position: relative;
   width: 51px;
   margin-bottom: 13px;
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     margin-bottom: 15px;
     width: 92px;
   }
@@ -167,7 +257,7 @@
   height: 16px;
   color: var(--button-color);
   z-index: 10000;
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 30px;
     height: 30px;
   }
@@ -180,7 +270,7 @@
   font-family: Titan One;
   @include font(400, 28px, 1.14);
   color: var(--dark-accent-color);
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     @include font(400, 46px, 1.152);
   }
 }
@@ -191,7 +281,7 @@
   justify-content: flex-end;
   @include font(400, 8px, 1.25);
   color: var(--button-color);
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     @include font(400, 14px, 1.285);
   }
 }
