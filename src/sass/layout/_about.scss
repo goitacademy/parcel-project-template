@@ -5,8 +5,9 @@
   background-image: url(../images/about/m-milk.png);
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: bottom;
-  @media screen and (min-width: 772px) {
+  background-position-y: bottom, 61px;
+  width: 100%;
+  @media screen and (min-width: 768px) {
     padding-top: 130px;
   }
   @media screen and (min-width: 1280px) {
@@ -28,15 +29,15 @@
   }
 }
 
-@media screen and (min-width: 773px) {
+@media screen and (min-width: 769px) {
   .about-section {
     background-image: url(../images/about/d-milk.png);
   }
 }
 
-@media screen and (min-device-pixel-ratio: 2) and (min-width: 773px),
-  screen and (min-resolution: 192dpi) and (min-width: 773px),
-  screen and (min-resolution: 2dppx) and (min-width: 773px) {
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 769px),
+  screen and (min-resolution: 192dpi) and (min-width: 769px),
+  screen and (min-resolution: 2dppx) and (min-width: 769px) {
   .about-section {
     background-image: url(../images/about/d-milk@2x.png);
   }
@@ -50,7 +51,7 @@
   color: var(--bright-accent-color);
   display: block;
   margin-bottom: 15px;
-  @media screen and (min-width: 772px) {
+  @media screen and (min-width: 768px) {
     font-size: 26px;
     line-height: 30px;
   }
@@ -68,7 +69,7 @@
   color: var(--dark-accent-color);
   margin-bottom: 26px;
   margin-top: 0;
-  @media screen and (min-width: 772px) {
+  @media screen and (min-width: 768px) {
     @include font(400, 48px, 1.146);
     margin-bottom: 50px;
   }
@@ -79,8 +80,28 @@
 }
 
 .about-for-flex {
-  @media screen and (min-width: 772px) {
+  @media screen and (min-width: 768px) {
     display: flex;
+  }
+}
+
+.about-container {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding-left: 115px;
+    padding-right: 115px;
   }
 }
 
@@ -88,7 +109,7 @@
   margin-bottom: 46px;
   margin-left: auto;
   margin-right: auto;
-  @media screen and (min-width: 772px) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 0;
     min-width: 340px;
   }
@@ -99,7 +120,7 @@
 }
 
 .about-flextext {
-  @media screen and (min-width: 772px) {
+  @media screen and (min-width: 768px) {
     margin-left: 17px;
   }
   @media screen and (min-width: 1280px) {
@@ -112,7 +133,7 @@
   display: block;
   padding-left: 30px;
   padding-right: 30px;
-  @media screen and (min-width: 772px) {
+  @media screen and (min-width: 768px) {
     padding-left: 0;
     padding-right: 0;
     @include font(500, 14px, 1.76);
@@ -123,7 +144,7 @@
   &.first {
     color: var(--primary-text-color);
     margin-bottom: 33px;
-    @media screen and (min-width: 772px) {
+    @media screen and (min-width: 768px) {
       margin-bottom: 30px;
     }
     @media screen and (min-width: 1280px) {
@@ -133,7 +154,7 @@
   &.second {
     color: var(--secondary-text-color);
     margin-bottom: 17px;
-    @media screen and (min-width: 772px) {
+    @media screen and (min-width: 768px) {
       margin-bottom: 62px;
     }
     @media screen and (min-width: 1280px) {
@@ -145,30 +166,39 @@
 .about-button {
   width: 176px;
   height: 44px;
-  background-color: var(--button-color);
   border-radius: 22px;
-  border-color: transparent;
+  border: 0;
   @include font(700, 14px, 1.285);
+  background-color: var(--button-color);
+  color: var(--dark-accent-color);
   display: flex;
-  margin-left: 30px;
   align-items: center;
   text-align: center;
   justify-content: center;
-  color: var(--dark-accent-color);
+  margin-left: 30px;
+  padding: 12px 20px;
   transition: all var(--time) var(--delay);
-  &:hover,
-  &:focus {
-    background-color: var(--dark-accent-color);
-    color: var(--button-color);
-    fill: var(--button-color);
-  }
-  @media screen and (min-width: 772px) {
+  @media screen and (min-width: 768px) {
     margin-left: 0;
   }
 }
 
-.about-button-icon {
-  fill: currentColor;
-  margin-left: 14px;
-  transition: all var(--time) var(--delay);
+ .about-button::after {
+   content: '';
+   width: 8px;
+   height: 10px;
+   margin-left: 14px;
+   background-image: url('../images/icon/cont-vector.svg');
+   background-size: contain;
+ }
+
+.about-button:hover ,
+.about-button:focus  {
+  color: var(--button-color);
+  background-color: var(--dark-accent-color);
+}
+
+.about-button:hover::after ,
+.about-button:focus::after {
+  background-image: url('../images/icon/Vector.svg');
 }

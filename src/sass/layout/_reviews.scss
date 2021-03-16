@@ -1,8 +1,8 @@
 .gallery{
     display: flex;
     justify-content: center;
-    background: linear-gradient(180deg, rgba(255,245,246,1) 40%,
-     rgba(255,255,255,1) 40%);
+    background: linear-gradient(180deg, var(--primary-bcg-color) 40%,
+     var(--button-color) 40%);
 }
 
 
@@ -10,12 +10,12 @@
     max-width: 100%;
     padding-top: 80px;
     padding-bottom: 128px;  
-    background-color: #ffffff;
+    background-color: var(--button-color);
 
     &-card{
         margin: 0 auto;
         text-align: center;
-        max-width: 936px;
+        max-width: 926px;
         width: 100%;
         min-height: 350px;
         
@@ -32,19 +32,26 @@
     height: 85px;
 }
 
-.review-text{
+.review-text-wrapper{
     position: relative;
-    font-family: DM Sans;
+    background-color: #FAFAFA;
+    padding: 43px 48px 26px 39px;
+    margin-bottom: 30px; 
+    z-index: 1; 
+}
+
+.review-text{    
+    font-family: var(--font-family);
     font-weight: 500;
     font-size: 12px;
     line-height: 2.583;
-    letter-spacing: 0.04em;  
-   
-    background-color: #FAFAFA; 
+    letter-spacing: 0.04em;
     
-    padding: 43px 66px 26px 57px;
-    margin-bottom: 30px;  
+    padding: 0 18px;
+     
     z-index: 1; 
+    background-image: repeating-linear-gradient(to top, #E1E1E1 0px 1px, transparent 1px 31px);
+	text-align: center;
 }
 
 .review-text::before{
@@ -55,13 +62,8 @@
     left: 61px;
 }
 
-.rewiew-text-element{
-    background-image: repeating-linear-gradient(
-        to top, #E1E1E1 1px, transparent 3px, transparent 200%);
-} 
-
 .reviewers-name{
-    font-family: DM Sans;
+    font-family: var(--font-family);
     font-weight: 500;
     font-size: 14px;
     line-height: 1.857;    
@@ -69,6 +71,7 @@
     &::before{
         content: url('../images/reviews/reviews-group.svg');
         display: block;
+        font-size: 0;        
         margin-bottom: 18px;     
     }   
 }
@@ -83,7 +86,6 @@
 
 .my-dots{
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 .my-dots li{
@@ -93,7 +95,7 @@
     width: 12px;
     height: 12px;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 30px;   
 }   
 
 .my-dots li:nth-child(2){
@@ -104,12 +106,9 @@
 /* Элемент точки */
 .my-dots li button{
     position: absolute;
-    left: -5px;
+    left: -6px;
     font-size: 0;
-    line-height: 0;
-    display: block;
-    width: 12px;
-    height: 12px;
+    line-height: 0;    
     padding: 5px;
     cursor: pointer;
     color: transparent;
@@ -125,10 +124,7 @@
 }
 
 .my-dots li button:before {
-    width: 12;
-    height: 12;
     content: url('../images/reviews/reviews-dot.svg');
-    fill: black;
     text-align: center;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -136,28 +132,34 @@
 }
 
 .my-dots li.slick-active button:before{
-    width: 12;
-    height: 12;
-    content: url('../images/reviews/reviews-home.svg');
+    content: url('../images/reviews/reviews-home.svg'); 
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;   
 }
 
 
 @media screen and (min-width: 768px){
-    .rewiew{
-        
+    .rewiew{        
         padding: 121px 40px 119px 40px;
     }
 
     .rewiewer-image{
-        margin-bottom: 19px;
-       
+        margin-bottom: 19px;       
+    }
+
+    .review-text-wrapper{
+        padding: 47px 56px 34px 56px;
+        margin-bottom: 24px;
     }
     
     .review-text{
         font-size: 14px;
         line-height: 2.142;
-        padding: 47px 88px 34px 80px;
+        
+        padding: 0 24px;
     }
+    
     .review-text::before{
         top: 30px;
         left: 40px;
@@ -171,14 +173,14 @@
             margin-bottom: 14px;     
         }
     }
+
+    .my-dots li{
+        margin-top: 35px;
+     }   
 }
 
-.my-dots li{
-   margin-top: 35px;
-}   
 
-
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1280px){
     .rewiew{
         padding: 123px 63px 132px 63px;
     }
@@ -188,10 +190,15 @@
        
     }
 
+    .review-text-wrapper{
+        padding: 47px 88px 39px 88px;
+        margin-bottom: 19px;
+    }
+
     .review-text{
-    font-size: 16px;
-    line-height: 1.875;
-    padding: 47px 88px 39px 88px;
+        font-size: 16px;
+        line-height: 1.875;
+        padding: 0 4px;
     }
 
     .review-text::before{
