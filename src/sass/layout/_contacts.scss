@@ -10,8 +10,7 @@
   font-weight: 500;
   letter-spacing: 0.04em;
 
-  // background-color: var(--secondary-bg-color);
-  background-image: linear-gradient(to bottom, var(--primary-light-bg-color) 15%, var(--secondary-bg-color) 15%, var(--secondary-bg-color) 85%);
+  background-image: linear-gradient(to bottom, var(--primary-light-bg-color) 84px, var(--secondary-bg-color) 84px, var(--secondary-bg-color) 85%);
   
     
     @include adaptive-for-tablet {
@@ -19,33 +18,40 @@
     }
     @include adaptive-for-desktop {
       font-size: 16px;
+      background-image: linear-gradient(to bottom, var(--primary-light-bg-color) 15%, var(--secondary-bg-color) 15%, var(--secondary-bg-color) 85%);
     }
 }
 
 .location-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15px;
+  margin-right: -15px;
   margin-bottom: 54px;
-  @include adaptive-before-tablet {
-     padding: 30px;
-  }
+  margin-left: -15px;
+
 
   @include adaptive-for-tablet {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
     padding: 0;
-    margin: -10px;
+    margin-top: -15px;
+    margin-right: -15px;
+    margin-bottom: 54px;
+    margin-left: -15px;
     margin-bottom: 80px;
   }
 
   @include adaptive-for-desktop {
-    margin: -15px;
     margin-bottom: 86px;
   }
 }
 
 .location-list-item {
   max-width: 220px;
-  margin: 0 auto;
+  flex-basis: 100%;
+  margin: 10px;
   padding: 43px 20px;
   text-align: left;
   background-color: var(--primary-light-color);
@@ -53,28 +59,21 @@
   border-radius: 24px;
 
   @include adaptive-for-tablet {
-    margin: 10px;
-    flex-basis: calc((100% - 3*20px) / 3);//3 - number of cards in a row, 20px - gap between cards
+    flex-basis: calc((100% - 3*30px) / 3);//3 - number of cards in a row, 20px - gap between cards
+    margin: 15px;
     padding: 50px 31px;
   }
 
   @include adaptive-for-desktop {
-    margin: 15px;
-    flex-basis: calc((100% - 3*30px) / 3);//3 - number of cards in a row, 30px - gap between cards
+    max-width: 330px;
     padding: 50px 43px;
-  }
-}
-
-.location-list-item:not(:last-child) {
-  @include adaptive-before-tablet {
-    margin-bottom: 20px;
   }
 }
 
 .location-list-place {
     display: inline-block;
     margin-bottom: 25px;
-    padding: 0 25px;
+    padding: 0 20px;
     font-size: 12px;
     line-height: 1.86;
     font-weight: 500;
