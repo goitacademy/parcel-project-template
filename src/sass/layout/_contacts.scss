@@ -1,32 +1,79 @@
 .contacts {
-    font-family: DM Sans,sans-serif;
-    margin-right: auto;
-    margin-left: auto;
-    padding-bottom: 56px;
-    text-align: center;
-    background-color: var(--secondary-bg-color);
+  width: 100%;
+  padding-right: 50px;
+  padding-bottom: 56px;
+  padding-left: 50px;
+  text-align: center;
+  font-family: DM Sans,sans-serif;
+  font-size: 12px;
+  line-height: 1.86;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+
+  background-image: linear-gradient(to bottom, var(--primary-light-bg-color) 84px, var(--secondary-bg-color) 84px, var(--secondary-bg-color) 85%);
+  
+    
+    @include adaptive-for-tablet {
+      font-size: 14px;
+    }
+    @include adaptive-for-desktop {
+      font-size: 16px;
+      background-image: linear-gradient(to bottom, var(--primary-light-bg-color) 15%, var(--secondary-bg-color) 15%, var(--secondary-bg-color) 85%);
+    }
 }
-.contacts-container {
-    display: inline-block;
-    margin-top: -84px;
-    // max-width: 480px;
-  }
 
 .location-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15px;
+  margin-right: -15px;
+  margin-bottom: 54px;
+  margin-left: -15px;
+
+
+  @include adaptive-for-tablet {
+    flex-direction: row;
     padding: 0;
+    margin-top: -15px;
+    margin-right: -15px;
+    margin-bottom: 54px;
+    margin-left: -15px;
+    margin-bottom: 80px;
+  }
+
+  @include adaptive-for-desktop {
+    margin-bottom: 86px;
+  }
 }
 
 .location-list-item {
-    padding: 43px 20px;
-    text-align: left;
-    background-color: var(--primary-light-color);
-    box-shadow: 0 8px 30px rgb(212 20 67 / 10%);
-    border-radius: 24px;
+  max-width: 220px;
+  flex-basis: 100%;
+  margin: 10px;
+  padding: 43px 20px;
+  text-align: left;
+  background-color: var(--primary-light-color);
+  box-shadow: 0 8px 30px rgb(212 20 67 / 10%);
+  border-radius: 24px;
+
+  @include adaptive-for-tablet {
+    flex-basis: calc((100% - 3*30px) / 3);//3 - number of cards in a row, 20px - gap between cards
+    margin: 15px;
+    padding: 50px 31px;
+  }
+
+  @include adaptive-for-desktop {
+    max-width: 330px;
+    padding: 50px 43px;
+  }
 }
+
 .location-list-place {
     display: inline-block;
     margin-bottom: 25px;
-    padding: 0 30px;
+    padding: 0 20px;
     font-size: 12px;
     line-height: 1.86;
     font-weight: 500;
@@ -34,27 +81,24 @@
     color: var(--primary-light-color);
     text-transform: uppercase;
     border-radius: 4px;
+    @include adaptive-for-tablet {
+      font-size: 16px;
+    }
 }
 
 .cafe {
-    background-color: #f0d1a5;
+  background-color: #f0d1a5;
 }
 .truck {
-    background-color: #c2e297;
+  background-color: #c2e297;
 }
 
 .location-list-city {
     margin-bottom: 10px;
-    font-size: 12px;
-    line-height: 1.86;
-    font-weight: 500;
-    letter-spacing: 0.04em;
 }
 
 .location-list-content {
     font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
     color: var(--secondary-dark-shaded-color);
 
 }
@@ -72,15 +116,9 @@
 
   .location-work-day {
     margin-top: 25px;
-    font-size: 12px;
-    line-height: 1.86;
-    font-weight: 500;
   }
 
   .location-work-time {
-    font-size: 12px;
-    line-height: 1.86;
-    font-weight: 500;
     color: var(--social-link-bg-basic-color);
 }
 
@@ -89,21 +127,33 @@
 }
 
 .location-address-tel {
-    font-size: 12px;
-    line-height: 1.5;
-    font-weight: 500;
-    color: var(--secondary-dark-shaded-color);
+
+  line-height: 1.5;
+  color: var(--secondary-dark-shaded-color);
+
+  @include adaptive-for-tablet {
+    font-size: 14px;
+    line-height: 1.86;
+  }
 }
 
+//Buttons 
 
-// //////Buttons
+.location-button-list {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+}
 
+.location-button-item {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
 
 .location-button {
-    cursor: pointer;
-
-
-        display: flex;
+      display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 37px 0;
@@ -125,49 +175,9 @@
 
       &:hover,
       &:focus {
-        background: var(--button-hover-color);
+        color: var(--primary-light-color);
+        background: var(--accent-color);
       }
-    
 }
 
-// .basic-button-arrow .location {
-//   fill: var(--primary-light-color)
-// }
-
-///////// End buttons
-
-@include adaptive-before-tablet {
-  .contacts-container {
-    width: 69%;
-  }
-.location-list-item:not(:last-child){
-    margin-bottom: 20px;
-    }
-}
-
-  @include adaptive-for-tablet {
-    .contacts-container {
-      margin-top: -78px;
-    }
-  .location-list{
-display: flex;
-  }
-.location-list-item:not(:last-child){
-margin-right: 20px;
-}
-.location-list-item {
-padding: 50px 30px;
-}
-}
-
-
-  @include adaptive-for-desktop {
-  .location-list-item:not(:last-child){
-margin-right: 30px;
-}
-.location-list-item {
-padding: 50px 40px;
-}
-
-  
-  }
+// End buttons
