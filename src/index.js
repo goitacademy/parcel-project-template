@@ -9,11 +9,11 @@ import './sass/main.scss';
   const BtnClose = document.querySelector('[bat-close]');
   const MenuRef = document.querySelector('[bat-ref]');
 
-  const idexit1 = document.querySelector('[id-exit1]');
-  const idexit2 = document.querySelector('[id-exit2]');
-  const idexit3 = document.querySelector('[id-exit3]');
-  const idexit4 = document.querySelector('[id-exit4]');
-  const idexit5 = document.querySelector('[id-exit5]');
+  const idexit1 = document.querySelector('[data-id-exit1]');
+  const idexit2 = document.querySelector('[data-id-exit2]');
+  const idexit3 = document.querySelector('[data-id-exit3]');
+  const idexit4 = document.querySelector('[data-id-exit4]');
+  const idexit5 = document.querySelector('[data-id-exit5]');
 
   menuBtnRef.addEventListener('click', () => {
     mobileMenuRef.classList.toggle('is-open');
