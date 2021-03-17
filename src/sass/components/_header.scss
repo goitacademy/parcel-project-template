@@ -145,23 +145,24 @@ header{
         width: 100%;
         max-width: 250px;
         height: 100vh;
+        max-height: 502px;
         background-color: var(--mobile-menu-bg-color);
         box-shadow: -8px 0px 20px rgba(0, 0, 0, 0.25);
         padding-top: 60px;
-        z-index: 3;
+        z-index: 150;
     
-        position: absolute;
+        position: fixed;
         top: 0;
-        left: 50%;
+        right: 0;
     
-        transform: translateX(-50%) translateY(-101%);
-        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);    
+        transform: translateX(100%); 
+        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);    
         opacity: 0;
         pointer-events: none;
       
         &.is-open{
             opacity: 1;
-            transform: translateX(-50%) translateY(0%);
+            transform: translateX(0%);
             pointer-events: auto;
         }
         &-btn {
@@ -180,6 +181,12 @@ header{
             padding-right: 70px;
             
             position: relative;
+            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+
+            &:hover,
+            &:focus {
+                background-color: var(--accent) ;
+            }
     
             &-icon {
                 width: 20%;
@@ -188,6 +195,13 @@ header{
                 top: 19px;
                 right: 32px;
             }
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .mobile-menu {
+            max-width: 254px;
+            max-height: 1020px;
         }
     }
     
@@ -214,7 +228,8 @@ header{
 
         transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-        &:focus{
+        &:focus, 
+        &:hover {
             color: var(--dark-pink);
         }
     }
@@ -243,11 +258,7 @@ header{
     
         position: absolute;
         top: 15px;
-        right: 18px;
+        right: 19px;
     }
-    
-
-
-    
 }
 
