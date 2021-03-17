@@ -1,12 +1,21 @@
 .hero {
   background-color: var(--hero-bgc);
+
+  & .container {
+    min-height: 502px;
+    position: relative;
+  }
 }
 
-.title-box {
-  max-width: 218px;
+.title-content {
+  position: absolute;
+  top: 193px;
+  z-index: 3;
 }
 
 .hero-title {
+  max-width: 230px;
+  margin-bottom: 19px;
   text-transform: uppercase;
   text-align: left;
   font-family: Titan One;
@@ -39,6 +48,7 @@
 }
 
 .filtr-btn-red {
+  margin-right: 8px;
   color: var(--primary-white-color);
   background-color: var(--accent-color);
 
@@ -67,10 +77,19 @@
 }
 
 .thumb {
+  position: absolute;
+  top: 83px;
   width: 346px;
   height: 344px;
   background: #ffa5ba;
   border-radius: 100%;
+}
+
+.hero-img {
+  position: absolute;
+  top: 9px;
+  left: 81px;
+  z-index: 2;
 }
 
 @media screen and (max-width: 767px) {
@@ -81,12 +100,44 @@
 }
 
 @media screen and (min-width: 768px) {
+  .title-content {
+    top: 102px;
+  }
+
+  .thumb {
+    top: 31px;
+    left: 272px;
+    width: 324px;
+    height: 324px;
+  }
+
+  .hero-img {
+    top: 32px;
+    left: 71px;
+  }
+
+  .hero-title {
+    max-width: 165px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 1.136;
+  }
+
+  .hero-title-accent {
+    font-size: 34px;
+    line-height: 0.911;
+  }
+
   .hero-text-box {
+    position: absolute;
+    top: 292px;
+    left: 154px;
     display: block;
     max-width: 114px;
   }
 
   .hero-text {
+    margin-bottom: 7px;
     font-family: DM Sans;
 
     font-weight: normal;
@@ -94,6 +145,25 @@
     line-height: 1.5;
 
     color: var(--primary-white-color);
+  }
+
+  .hero-text {
+    &::before {
+      content: '';
+      width: 124px;
+      height: 126px;
+      background-image: url('../images/img-hero/milk-tablet.png');
+    }
+  }
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .hero-text {
+      &::before {
+        background-size: contain;
+        background-image: url('../images/img-hero/milk-tablet@2x.png');
+      }
+    }
   }
 
   .hero-text-btn {
@@ -113,6 +183,12 @@
     width: 5px;
     height: 5px;
     fill: var(--accent-color);
+  }
+
+  .marketing-list {
+    position: absolute;
+    left: 691px;
+    top: 91px;
   }
 
   .marketing-sum {
@@ -137,5 +213,107 @@
     text-align: right;
 
     color: var(--primary-white-color);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero {
+    height: 665px;
+  }
+
+  .title-content {
+    top: 171px;
+  }
+
+  .hero-title {
+    max-width: 280px;
+
+    margin-bottom: 25px;
+    font-size: 38px;
+    line-height: 1.157;
+  }
+
+  .hero-title-accent {
+    font-size: 58px;
+    line-height: 0.896;
+    /* or 52px */
+  }
+
+  .thumb {
+    top: 52px;
+    left: 475px;
+    width: 538px;
+    height: 538px;
+  }
+
+  .hero-img {
+    left: 119px;
+    top: 56px;
+  }
+
+  .hero-text-box {
+    left: 295px;
+    top: 485px;
+    width: 200px;
+  }
+
+  .hero-text {
+    font-size: 14px;
+    line-height: 1.42;
+  }
+
+  @media screen and(min-width:1280px) {
+    .hero-text {
+      &::before {
+        content: '';
+        width: 188px;
+        height: 191px;
+        background-image: url('../images/img-hero/milk-desctop.png');
+      }
+    }
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      .hero-text {
+        &::before {
+          background-size: contain;
+          background-image: url('../images/img-hero/milk-desctop@2x.png');
+        }
+      }
+    }
+
+    .hero-text {
+      &::before {
+        content: '';
+        width: 188px;
+        height: 191px;
+        background-image: url('../images/img-hero/milk-desctop.png');
+      }
+    }
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+    }
+    .hero-text {
+      &::before {
+        background-size: contain;
+        background-image: url('../images/img-hero/milk-desctop@2x.png');
+      }
+    }
+  }
+
+  .marketing-list {
+    left: 1111px;
+    top: 156px;
+  }
+
+  .marketing-sum {
+    font-size: 46px;
+    line-height: 1.152;
+  }
+
+  .marketing-text {
+    font-size: 14px;
+    line-height: 1.285;
   }
 }
