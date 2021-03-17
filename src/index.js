@@ -103,4 +103,9 @@ import './sass/main.scss';
     });
 });
 
-
+$('.single-item').slick({
+  autoplay: true,
+  arrows: false,
+  dots: true,
+  dotsClass: 'slick-dots',
+});
