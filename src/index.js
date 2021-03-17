@@ -15,6 +15,7 @@ import './sass/main.scss';
   const idexit4 = document.querySelector('[data-id-exit4]');
   const idexit5 = document.querySelector('[data-id-exit5]');
 
+
   menuBtnRef.addEventListener('click', () => {
     mobileMenuRef.classList.toggle('is-open');
 
