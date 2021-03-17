@@ -77,6 +77,7 @@ $(document).ready(function () {
   });
 });
 
+
 $(document).ready(function () {
   $('#menu2').on('click', 'a', function (event) {
     event.preventDefault();
@@ -85,6 +86,7 @@ $(document).ready(function () {
     $('body,html').animate({ scrollTop: top }, 1500);
   });
 });
+
 
 $('.single-item').slick({
   autoplay: true,
