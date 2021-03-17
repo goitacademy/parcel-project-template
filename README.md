@@ -1,3 +1,12 @@
+Teame: 
+Yurents Yurii -TL 
+Kovalenko Vitalii - SM 
+Navolnev Oleg 
+Lishchyk Bogdan
+Ovcharenko Stanislav 
+Serdiuk Roman 
+Tymoshchuk Katerina
+
 # parcel-project-template
 
 ## Developing
