@@ -1,5 +1,5 @@
 $('.customer-reviews--slide-block').slick({
-    arrows: false,
+    arrows: true,
     dots: true
 
 });
