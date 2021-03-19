@@ -1,8 +1,9 @@
 .hero {
+  min-height: 502px;
   background-color: var(--hero-bgc);
+  overflow: hidden;
 
   & .container {
-    min-height: 502px;
     position: relative;
   }
 }
@@ -76,20 +77,25 @@
   }
 }
 
-.thumb {
+.circle::before {
+  content: '';
   position: absolute;
   top: 83px;
+  left: 36px;
+
   width: 346px;
   height: 344px;
-  background: #ffa5ba;
-  border-radius: 100%;
+  background-color: var(--label-color);
+  border-radius: 50%;
 }
 
-.hero-img {
+.thumb {
   position: absolute;
-  top: 9px;
-  left: 81px;
-  z-index: 2;
+  top: 92px;
+  left: 117px;
+  width: 171px;
+  height: 410px;
+  background: transparent;
 }
 
 @media screen and (max-width: 767px) {
@@ -100,20 +106,26 @@
 }
 
 @media screen and (min-width: 768px) {
+  .hero {
+    min-height: 399px;
+  }
+
   .title-content {
     top: 102px;
   }
 
-  .thumb {
+  .circle::before {
     top: 31px;
-    left: 272px;
+    left: 307px;
     width: 324px;
-    height: 324px;
+    height: 322px;
   }
 
-  .hero-img {
-    top: 32px;
-    left: 71px;
+  .thumb {
+    top: 63px;
+    left: 378px;
+    width: 143px;
+    height: 336px;
   }
 
   .hero-title {
@@ -126,6 +138,12 @@
   .hero-title-accent {
     font-size: 34px;
     line-height: 0.911;
+  }
+
+  .filtr-btn {
+    font-size: 14px;
+    line-height: 1.285;
+    padding: 11px 20px;
   }
 
   .hero-text-box {
@@ -187,11 +205,19 @@
 
   .marketing-list {
     position: absolute;
+    top: 94px;
     left: 691px;
-    top: 91px;
+  }
+
+  .marketing-item {
+    & + & {
+      margin-top: 13px;
+    }
   }
 
   .marketing-sum {
+    position: relative;
+    z-index: 1;
     font-family: Titan One;
 
     font-size: 28px;
@@ -202,6 +228,18 @@
     text-transform: uppercase;
 
     color: var(--accent-color);
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      top: -10%;
+      left: 80%;
+      content: '';
+      width: 16px;
+      height: 16px;
+      background-color: var(--primary-white-color);
+      border-radius: 50%;
+    }
   }
 
   .marketing-text {
@@ -239,22 +277,24 @@
     /* or 52px */
   }
 
-  .thumb {
+  .circle::before {
     top: 52px;
     left: 475px;
     width: 538px;
     height: 538px;
   }
 
-  .hero-img {
-    left: 119px;
-    top: 56px;
+  .thumb {
+    top: 108px;
+    left: 594px;
+    width: 236px;
+    height: 557px;
   }
 
   .hero-text-box {
-    left: 295px;
     top: 485px;
-    width: 200px;
+    left: 295px;
+    min-width: 200px;
   }
 
   .hero-text {
@@ -262,38 +302,27 @@
     line-height: 1.42;
   }
 
-  @media screen and(min-width:1280px) {
-    .hero-text {
-      &::before {
-        content: '';
-        width: 188px;
-        height: 191px;
-        background-image: url('../images/img-hero/milk-desctop.png');
-      }
-    }
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      .hero-text {
-        &::before {
-          background-size: contain;
-          background-image: url('../images/img-hero/milk-desctop@2x.png');
-        }
-      }
-    }
+  .hero-text-btn {
+    width: 26px;
+    height: 26px;
+  }
 
-    .hero-text {
-      &::before {
-        content: '';
-        width: 188px;
-        height: 191px;
-        background-image: url('../images/img-hero/milk-desctop.png');
-      }
+  .btn-icon {
+    width: 10px;
+    height: 8px;
+  }
+
+  .hero-text {
+    &::before {
+      content: '';
+      width: 188px;
+      height: 191px;
+      background-image: url('../images/img-hero/milk-desctop.png');
     }
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-    }
+  }
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
     .hero-text {
       &::before {
         background-size: contain;
@@ -302,14 +331,39 @@
     }
   }
 
+  .hero-text {
+    &::before {
+      content: '';
+      width: 188px;
+      height: 191px;
+      background-image: url('../images/img-hero/milk-desctop.png');
+      background-size: cover;
+    }
+  }
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+  }
+  .hero-text {
+    &::before {
+      background-size: contain;
+      background-image: url('../images/img-hero/milk-desctop@2x.png');
+    }
+  }
+
   .marketing-list {
-    left: 1111px;
-    top: 156px;
+    left: 1106px;
+    top: 251px;
   }
 
   .marketing-sum {
     font-size: 46px;
     line-height: 1.152;
+
+    &::before {
+      width: 30px;
+      height: 30px;
+    }
   }
 
   .marketing-text {
