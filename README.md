@@ -1,4 +1,4 @@
-# Teame: 
+# Team: 
 ### Yurents Yurii -TL 
 ### Kovalenko Vitalii - SM 
 ### Navolnev Oleg 
