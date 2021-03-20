@@ -20,7 +20,8 @@
   max-height: 609px;
   padding: 40px;
   overflow: scroll;
-  background: var(--primary-white-color);
+  background: var(--hero-bgc);
+  filter: drop-shadow(-8px 0px 20px rgba(0, 0, 0, 0.25));
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -31,15 +32,19 @@
   right: 8px;
   width: 30px;
   height: 30px;
-  background: var(--primary-white-color);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  fill: #000000;
-  cursor: pointer;
+  background: transparent;
+  border: none;
 }
+
 .backdrop-icon-close {
   width: 18px;
   height: 18px;
+  stroke: var(--primary-white-color);
+
+  .modal-close-btn:hover &,
+  .modal-close-btn:focus & {
+    stroke: var(--accent-color);
+  }
 }
 
 .is-hidden {
@@ -94,13 +99,14 @@
 
 .modal-form-icon {
   position: absolute;
+  fill: var(--label-color);
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
   display: block;
   width: 18px;
   height: 18px;
-  transition: background-color 250ms linear;
+  transition: fill 250ms linear;
 
   .modal-form-input:focus + & {
     fill: var(--accent-color);
