@@ -32,8 +32,11 @@ npm run dev
 заменив `имя_пользователя` и `имя_репозитория` на свои.
 
 ```json
-"homepage": "https://имя_пользователя.github.io/имя_репозитория"
-"build": "parcel build src/*.html --public-url /имя_репозитория/",
+"homepage": "https://имя_пользователя.github.io/имя_репозитория",
+"scripts": {
+  "dev": "parcel src/*.html",
+  "build": "parcel build src/*.html --public-url /имя_репозитория/"
+},
 ```
 
 Через какое-то время живую страницу можно будет посмотреть по адресу указанному в отредактированном
