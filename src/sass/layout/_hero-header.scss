@@ -4,12 +4,14 @@
   width: 100%;
   padding-top: 0;
   padding-bottom: 0;
+  overflow: auto;
 }
 
 // ======== HEADER
 
 .header {
   position: absolute;
+  z-index: 1000;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -108,36 +110,59 @@
     }
   }
 }
+.mobile-menu {
+  display: none;
+}
+
 // ========= HERO
-.hero__description {
-  display: none;
-}
-.hero__link {
-  display: none;
-}
 .hero-statistics {
   display: none;
 }
 .hero {
-  padding: 0 0 160px 0;
   height: 100%;
-  background-image: url('../images/header-hero/mobile/mobile-1@2x.png');
-  background-repeat: no-repeat;
-  background-size: 90%;
-  background-position-y: bottom;
-  background-position-x: right;
-  overflow: auto;
-}
-.hero__title {
-  margin-top: 130px;
-  margin-bottom: 20px;
-  font-family: $secondary-font;
-  color: $primary-text-color;
-  font-size: 26px;
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  &__title {
+    margin-top: 190px;
+    margin-bottom: 20px;
+    font-family: $secondary-font;
+    color: $primary-text-color;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  &__description {
+    display: none;
+  }
+  &__link {
+    display: none;
+  }
+  &__container-left {
+    z-index: 10;
+  }
+  &__container-background--secondary {
+    display: none;
+  }
+  &__container-right {
+    display: none;
+  }
+  &__container-background--main {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 285px;
+    height: 420px;
+    background-image: url('../images/header-hero/mobile/mobile-1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/header-hero/mobile/mobile-1@2x.png');
+    }
+  }
 }
 .hero-title__accent {
   color: $accent-color;
@@ -150,9 +175,20 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 160px;
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
 }
-.hero-nav__item:not(:last-child) {
-  margin-right: 10px;
+.hero-nav__item .button--theme-red {
+  padding: 7px 16px;
+  font-size: 8px;
+  line-height: 1.31;
+}
+.hero-nav__item .button--theme-white {
+  padding: 7px 16px;
+  font-size: 8px;
+  line-height: 1.31;
 }
 @media screen and (min-width: 768px) {
   .header {
@@ -169,9 +205,144 @@
   .burger-button {
     margin: 0 30px 0 auto;
   }
-}
-.hero__image-background {
-  height: 370px;
+
+  // ======= HERO
+  .hero {
+    &__container-left {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 100%;
+    }
+    &__container-right {
+      display: block;
+    }
+    &__title {
+      margin-top: 105px;
+      margin-bottom: 20px;
+      font-size: 22px;
+      line-height: 1.13;
+    }
+    &__description {
+      display: block;
+      width: 110px;
+      height: 100%;
+      margin-left: 125px;
+      margin-bottom: 7px;
+      font-family: $main-font;
+      font-size: 8px;
+      line-height: 1.5;
+      color: $primary-text-color;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 28px;
+        display: inline-block;
+        height: 120px;
+        width: 120px;
+        background-image: url('../images/header-hero/tablet/tablet-2.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        @media screen and (min-device-pixel-ratio: 2),
+          screen and (min-resolution: 192dpi),
+          screen and (min-resolution: 2dppx) {
+          background-image: url('../images/header-hero/tablet/tablet-2@2x.png');
+        }
+      }
+    }
+    &__link {
+      display: block;
+      height: 18px;
+      width: 18px;
+      margin-left: 125px;
+      margin-bottom: 34px;
+      border-radius: 50%;
+      background-color: $primary-btn-hover;
+      cursor: pointer;
+    }
+    &__icon {
+      height: 18px;
+      width: 18px;
+      fill: $accent-color;
+    }
+    &__container-background--main {
+      right: 140px;
+      width: 325px;
+      height: 370px;
+      background-image: url('../images/header-hero/tablet/tablet-1.png');
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url('../images/header-hero/tablet/tablet-1@2x.png');
+      }
+    }
+    &__container-background--secondary {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 34px;
+      width: 170px;
+      height: 135px;
+      background-image: url('../images/header-hero/tablet/tablet-3.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url('../images/header-hero/tablet/tablet-3@2x.png');
+      }
+    }
+  }
+  .hero-title__accent {
+    font-size: 34px;
+    line-height: 0.9;
+  }
+  .hero-nav {
+    margin-bottom: 60px;
+  }
+  .hero-statistics {
+    display: block;
+    margin-top: 105px;
+    z-index: 5;
+    &__item {
+      position: relative;
+      &:not(:last-child) {
+        margin-bottom: 14px;
+      }
+    }
+    &__number {
+      font-family: $secondary-font;
+      z-index: 20;
+      position: relative;
+      font-size: 28px;
+      line-height: 1.14;
+      letter-spacing: 0.04em;
+      text-align: right;
+      text-transform: uppercase;
+      color: $accent-color;
+    }
+    &__description {
+      font-family: $main-font;
+      font-size: 8px;
+      line-height: 1.25;
+      text-align: right;
+      color: $primary-text-color;
+      &::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        right: -6px;
+        display: block;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background-color: #fff;
+      }
+    }
+  }
 }
 @media screen and (min-width: 1280px) {
   .header {
@@ -214,5 +385,98 @@
     // .active {
     //   color: $accent-color;
     // }
+  }
+  // ======== HERO
+  .hero {
+    &__title {
+      margin-top: 170px;
+      margin-bottom: 25px;
+      font-size: 38px;
+      line-height: 1.14;
+    }
+    &__description {
+      margin-bottom: 20px;
+      margin-left: 220px;
+      &::before {
+        width: 188px;
+        height: 192px;
+        bottom: 38px;
+        background-image: url('../images/header-hero/desctop/desctop-2.png');
+        @media screen and (min-device-pixel-ratio: 2),
+          screen and (min-resolution: 192dpi),
+          screen and (min-resolution: 2dppx) {
+          background-image: url('../images/header-hero/desctop/desctop-2@2x.png');
+        }
+      }
+    }
+    &__link {
+      width: 26px;
+      height: 26px;
+      margin-bottom: 56px;
+      margin-left: 220px;
+    }
+    &__icon {
+      width: 26px;
+      height: 26px;
+    }
+    &__description {
+      width: 200px;
+      height: 100%;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  }
+  .hero-title__accent {
+    font-size: 58px;
+  }
+  .hero-nav {
+    margin-bottom: 112px;
+    & .button--theme-red {
+      font-size: 14px;
+      line-height: 1.28;
+      padding: 11px 23px;
+    }
+    & .button--theme-white {
+      font-size: 14px;
+      line-height: 1.28;
+      padding: 11px 23px;
+    }
+  }
+
+  .hero__container-background--main {
+    right: 270px;
+    width: 540px;
+    height: 610px;
+    background-image: url('../images/header-hero/desctop/desctop-1.png');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/header-hero/desctop/desctop-1@2x.png');
+    }
+  }
+  .hero__container-background--secondary {
+    right: 110px;
+    width: 295px;
+    height: 230px;
+    background-image: url('../images/header-hero/desctop/desctop-3.png');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/header-hero/desctop/desctop-3@2x.png');
+    }
+  }
+  .hero-statistics {
+    &__number {
+      font-size: 46px;
+    }
+    &__description {
+      font-size: 18px;
+      &::after {
+        height: 30px;
+        width: 30px;
+        top: -6px;
+        right: -16px;
+      }
+    }
   }
 }
