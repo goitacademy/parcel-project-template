@@ -4,7 +4,7 @@
   width: 100%;
   padding-top: 0;
   padding-bottom: 0;
-  overflow: auto;
+  // overflow: auto;
 }
 
 // ======== HEADER
@@ -12,10 +12,10 @@
 .header {
   position: absolute;
   z-index: 1000;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 280px;
+  // top: 0;
+  // left: 50%;
+  // transform: translateX(-50%);
+  // width: 280px;
   padding-top: 6px;
   padding-bottom: 6px;
   display: flex;
@@ -42,7 +42,8 @@
   width: 20px;
 }
 .header .button--arrow-theme-white {
-  display: none;
+  display: block;
+  width: 160px;
 }
 .nav {
   display: none;
@@ -55,16 +56,21 @@
   flex-direction: column;
   align-items: flex-start;
   z-index: 100500;
-  position: fixed;
   width: 250px;
   height: 100vh;
-  max-height: 500px;
   top: 0;
   right: 0;
   background-color: $mobile-menu-color;
   padding: 60px 20px;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: scroll;
+
+  // transform-origin: 0% 0%;
+  transform: translateX(100%) translateY(0%);
+  // opacity: 0;
+  // visibility: hidden;
+  pointer-events: none;
+
   &__button-close {
     position: absolute;
     top: 23px;
@@ -89,7 +95,11 @@
     margin-bottom: 32px;
     margin-left: 0 auto;
   }
+  @media screen and (min-width: 768px) {
+    width: 33vw;
+  }
 }
+
 .mobile-menu-nav {
   display: flex;
   flex-direction: column;
@@ -110,8 +120,15 @@
     }
   }
 }
-.mobile-menu {
-  display: none;
+// .mobile-menu {
+//   display: none;
+// }
+
+.mobile-menu--is-open {
+  transform: translateX(0%) translateY(0%);
+  // opacity: 1;
+  // visibility: visible;
+  pointer-events: auto;
 }
 
 // ========= HERO
@@ -190,18 +207,30 @@
   font-size: 8px;
   line-height: 1.31;
 }
+
+// .mobile-menu.mobile-menu--is-open {
+//   .test {
+//     display: none;
+//   }
+// }
+
+@media screen and (max-width: 767px) {
+  .header > .button--arrow-theme-white {
+    display: none;
+  }
+}
 @media screen and (min-width: 768px) {
   .header {
     width: 700px;
     padding: 37px 0;
   }
-  .mobile-menu {
-    max-height: 1000px;
-  }
-  .button--arrow-theme-white {
-    display: block;
-    width: 160px;
-  }
+  // .mobile-menu {
+  //   max-height: 1000px;
+  // }
+  // .button--arrow-theme-white {
+  //   display: block;
+  //   width: 160px;
+  // }
   .burger-button {
     margin: 0 30px 0 auto;
   }
