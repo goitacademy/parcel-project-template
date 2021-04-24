@@ -1,51 +1,182 @@
 .header {
-  width: 100%;
   padding-top: 6px;
   outline: 1px solid red;
+  & .container {
+    max-width: 480px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    outline: 1px solid red;
+    @media screen and (min-width: 768px) {
+      max-width: 700px;
+    }
+    @media screen and (min-width: 1280px) {
+      max-width: 1050px;
+      align-items: flex-end;
+    }
+  }
+}
+.logo-wrapper {
+  @media screen and (min-width: 1280px) {
+    position: relative;
+    width: 130px;
+    height: 50px;
+  }
 }
 .logo {
-  margin-right: 61px;
+  margin-top: 6px;
   &:hover,
   &:focus {
     animation-name: pulse;
     animation-duration: 1000ms;
     animation-iteration-count: 2;
   }
+  @media screen and (min-width: 768px) {
+    margin-top: 37px;
+  }
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    left: -70px;
+    bottom: -15px;
+  }
 }
+
 .logo-img {
   width: 199px;
   height: 50px;
 }
 .overlay {
+  min-width: 480px;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
-  height: 502px;
+  height: 508px;
+  @media screen and (min-width: 768px) {
+    height: 405px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 665px;
+  }
   width: 100vw;
   margin-left: auto;
   margin-right: auto;
   background-color: var(--background-color-accent);
 }
-.hero__images-container {
+.header .modal-btn {
+  @media screen and (min-width: 768px) {
+    margin-top: 38px;
+    width: 160px;
+    font-family: var(--main-text);
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.31;
+    text-align: center;
+  }
+}
+
+.hero .container {
   position: relative;
   height: 446px;
+  outline: 1px solid red;
+  @media screen and (min-width: 768px) {
+    height: 312px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 588px;
+  }
 }
+.hero__main-text {
+  padding-top: 137px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 100px;
+  }
+}
+
 .hero__image {
+  z-index: -1;
   width: 171px;
   position: absolute;
   bottom: 0;
   right: 32px;
+  @media screen and (min-width: 768px) {
+    width: 143px;
+    right: 213px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 236px;
+    right: 330px;
+  }
 }
 .hero {
   position: relative;
   height: 446px;
+  @media screen and (min-width: 768px) {
+    height: 399px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 665px;
+  }
+}
+.hero__bioeco-info-image {
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    width: 124px;
+    left: 0;
+    bottom: 28px;
+  }
+  @media screen and (min-width: 1280px) {
+    left: -38px;
+    bottom: 45px;
+    width: 188px;
+  }
+}
+.hero__bioeco-info-text {
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    bottom: 54px;
+    left: 119px;
+    font-family: var(--main-font);
+    font-size: 8px;
+    line-height: 1.5;
+    color: var(--accent-text-color);
+    max-width: 114px;
+  }
+  @media screen and (min-width: 1280px) {
+    bottom: 82px;
+    left: 178px;
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 200px;
+  }
+}
+
+.hero__image-woman {
+  width: 168px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  @media screen and (min-width: 1280px) {
+    width: 293px;
+  }
 }
 .title-wrapper {
-  position: absolute;
-  top: 137px;
   z-index: 10;
   max-width: 218px;
+  height: 124px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    max-width: 162px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 277px;
+  }
 }
 .hero__title {
   font-family: Titan One;
@@ -54,6 +185,16 @@
   line-height: 1.15;
   text-transform: uppercase;
   color: var(--accent-text-color);
+  margin-bottom: 19px;
+  @media screen and (min-width: 768px) {
+    font-size: 22px;
+    line-height: 1.13;
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 38px;
+    margin-bottom: 25px;
+  }
 }
 .hero__title-accent {
   font-family: Titan One;
@@ -62,19 +203,103 @@
   line-height: 0.95;
   text-transform: uppercase;
   color: var(--accent-color-main);
+  @media screen and (min-width: 768px) {
+    font-size: 34px;
+    line-height: 0.91;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 58px;
+    line-height: 0.89;
+  }
+}
+.hero__buttons {
+  display: flex;
+}
+.hero__buttons-item {
 }
 
-@media screen and (max-width: 1199px) {
-  .navigation-list,
-  .modal-btn-header {
+.hero__buttons-item:not(:last-child) {
+  margin-right: 8px;
+  @media screen and (min-width: 1280px) {
+    margin-right: 15px;
+  }
+}
+
+.navigation-list {
+  @media screen and (max-width: 1279px) {
+    display: none;
+  }
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    min-width: 541px;
+  }
+  &__item {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.31;
+    color: var(--accent-text-color);
+  }
+  &__link {
+    color: var(--accent-text-color);
+    &:hover,
+    &:focus {
+      color: var(--accent-color-main);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero__counters-wrapper,
+  .hero__bioeco-info,
+  .hero__image-woman,
+  .header .modal-btn {
     display: none;
   }
 }
-@media screen and (max-width: 767px) {
-  .hero__counters-wrapper,
-  .hero__bioeco-info,
-  .hero__image-woman {
-    display: none;
+@media screen and (min-width: 768px) {
+  .hero__counters-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .counters-list {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+  }
+  .counters-list__item {
+    font-family: var(--secondary-font);
+    width: 65px;
+    text-align: right;
+    font-size: 28px;
+    line-height: 0.5;
+    margin-bottom: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent-color-main);
+  }
+  .counters-list__item-plaintext {
+    font-family: var(--main-font);
+    font-size: 8px;
+    line-height: 1.28;
+    color: var(--accent-text-color);
+    text-transform: lowercase;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .counters-list {
+    padding-top: 10px;
+  }
+  .counters-list__item {
+    width: 105px;
+    font-size: 46px;
+    margin-bottom: 15px;
+  }
+  .counters-list__item-plaintext {
+    font-size: 14px;
+    line-height: 1.28;
   }
 }
 // .hero {
