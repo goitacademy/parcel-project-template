@@ -465,71 +465,185 @@ ul {
 }
 
 .gallery {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(41%, #fff5f6), color-stop(41%, #ffffff));
-  background: linear-gradient(to bottom, #fff5f6 41%, #ffffff 41%);
+  position: relative;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(45%, #fff5f6), color-stop(45%, #ffffff));
+  background: linear-gradient(to bottom, #fff5f6 45%, #ffffff 45%);
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.gallery .container {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
 }
 
 .gallery__visual {
-  background-image: url(../images/mobile/gallery/masonry.webp);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  margin: 0 auto;
+  position: relative;
+  width: 286px;
   height: 122px;
+  margin: 0 auto;
 }
 
-@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-  .gallery__visual {
-    background-image: url(../images/mobile/gallery/masonry@2x.webp);
-  }
+.gallery__visual-img {
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }
 
-@media (min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-  .gallery__visual {
-    background-image: url(../images/mobile/gallery/masonry@3x.webp);
-  }
+/* ---- grid ---- */
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
-@media screen and (min-width: 480px) {
-  .gallery__visual {
-    background-image: url(../images/tablet/gallery/masonry.webp);
-  }
+/* ---- grid-item ---- */
+.grid-item {
+  width: 40px;
+  height: 40px;
+  float: left;
 }
 
-@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-  .gallery__visual {
-    background-image: url(../images/tablet/gallery/masonry@2x.webp);
-  }
+.grid-item--box1 {
+  position: absolute;
+  top: 30%;
+  left: 0;
 }
 
-@media (min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-  .gallery__visual {
-    background-image: url(../images/tablet/gallery/masonry@3x.webp);
-  }
+.grid-item--box2 {
+  position: absolute;
+  top: 13%;
+  left: 14.5%;
+}
+
+.grid-item--box3 {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 0;
+  left: 29%;
+}
+
+.grid-item--box4 {
+  position: absolute;
+  top: 15.5%;
+  right: 28.538%;
+}
+
+.grid-item--box5 {
+  position: absolute;
+  top: 7%;
+  right: 14.12%;
+}
+
+.grid-item--box6 {
+  position: absolute;
+  top: 31%;
+  right: 0;
+}
+
+.grid-item--box7 {
+  position: absolute;
+  bottom: 20%;
+  left: 14.5%;
+}
+
+.grid-item--box8 {
+  position: absolute;
+  bottom: 1%;
+  left: 29%;
+}
+
+.grid-item--box9 {
+  position: absolute;
+  bottom: 17.5%;
+  right: 28.538%;
+}
+
+.grid-item--box10 {
+  position: absolute;
+  bottom: 26%;
+  right: 14.12%;
 }
 
 @media screen and (min-width: 768px) {
+  .gallery {
+    padding-top: 140px;
+    padding-bottom: 120px;
+  }
   .gallery__visual {
-    background-image: url(../images/desktop/gallery/masonry.webp);
     height: 264px;
+    width: 620px;
+    left: 0;
   }
-}
-
-@media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-  .gallery__visual {
-    background-image: url(../images/desktop/gallery/masonry@2x.webp);
+  .grid-item {
+    width: 84px;
+    height: 84px;
   }
-}
-
-@media (min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
-  .gallery__visual {
-    background-image: url(../images/desktop/gallery/masonry@3x.webp);
+  .grid-item--box3 {
+    width: 170px;
+    height: 170px;
+  }
+  .grid-item--box4 {
+    top: 16%;
+    right: 29%;
+  }
+  .grid-item--box5 {
+    top: 8%;
+    right: 14.4%;
+  }
+  .grid-item--box7 {
+    bottom: 21%;
+  }
+  .grid-item--box9 {
+    bottom: 18%;
+    right: 29%;
+  }
+  .grid-item--box10 {
+    bottom: 26.5%;
+    right: 14.4%;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .gallery__visual {
     height: 430px;
+    width: 1008px;
+  }
+  .grid-item {
+    width: 130px;
+    height: 130px;
+  }
+  .grid-item--box2 {
+    top: 15%;
+  }
+  .grid-item--box3 {
+    width: 280px;
+    height: 280px;
+  }
+  .grid-item--box4 {
+    top: 17%;
+    right: 28.4%;
+  }
+  .grid-item--box5 {
+    top: 8%;
+  }
+  .grid-item--box7 {
+    bottom: 21%;
+    left: 14.5%;
+  }
+  .grid-item--box9 {
+    bottom: 19%;
+  }
+  .grid-item--box10 {
+    bottom: 28%;
   }
 }
 
