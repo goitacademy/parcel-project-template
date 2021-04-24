@@ -1,4 +1,4 @@
-# parcel-project-template
+# parcel-project-group-9
 
 ## Зависимости
 
