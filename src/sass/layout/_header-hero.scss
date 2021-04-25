@@ -1,16 +1,19 @@
 .header {
-  outline: 1px solid red;
+  outline: 1px solid navy;
+  min-width: 280px;
   & .container {
-    max-width: 480px;
+    position: relative;
+    height: 56px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    outline: 1px solid red;
+    outline: 1px solid lawngreen;
     @media screen and (min-width: 768px) {
-      max-width: 700px;
+      width: 700px;
+      height: 87px;
     }
     @media screen and (min-width: 1280px) {
-      max-width: 1050px;
+      width: 1050px;
       align-items: flex-end;
     }
   }
@@ -36,7 +39,8 @@
   @media screen and (min-width: 1280px) {
     position: absolute;
     left: -70px;
-    bottom: -15px;
+    bottom: 0px;
+    margin-top: 0;
   }
 }
 
@@ -44,18 +48,23 @@
   width: 199px;
   height: 50px;
 }
+.hero {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .overlay {
   min-width: 320px;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
-  height: 503px;
+  z-index: -3;
+  height: 502px;
   @media screen and (min-width: 768px) {
-    height: 400px;
+    height: 399px;
   }
   @media screen and (min-width: 1280px) {
-    height: 680px;
+    height: 665px;
   }
   width: 100vw;
   margin-left: auto;
@@ -72,17 +81,27 @@
     line-height: 1.31;
     text-align: center;
   }
+  @media screen and (min-width: 1280px) {
+    position: relative;
+  }
 }
-
+.hero .modal-btn {
+  height: 24px;
+  @media screen and (min-width: 1280px) {
+    height: 40px;
+  }
+}
 .hero .container {
+  overflow: hidden;
   position: relative;
   height: 446px;
   outline: 1px solid red;
   @media screen and (min-width: 768px) {
     height: 312px;
+    overflow: visible;
   }
   @media screen and (min-width: 1280px) {
-    height: 568px;
+    height: 578px;
   }
 }
 .hero__main-text {
@@ -112,6 +131,28 @@
     right: 330px;
   }
 }
+.ellipse {
+  position: absolute;
+  bottom: 75px;
+  left: 16px;
+  z-index: -2;
+  width: 346px;
+  height: 344px;
+  background-color: var(--accent-color-secondary);
+  border-radius: 50%;
+  @media screen and (min-width: 768px) {
+    width: 324px;
+    height: 322px;
+    bottom: 46px;
+    left: 275px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 538px;
+    height: 538px;
+    bottom: 76px;
+    left: 360px;
+  }
+}
 .hero {
   position: relative;
   height: 446px;
@@ -138,20 +179,50 @@
 .hero__bioeco-info-text {
   @media screen and (min-width: 768px) {
     position: absolute;
-    bottom: 54px;
+    bottom: 60px;
     left: 119px;
-    font-family: var(--main-font);
+    font-weight: normal;
     font-size: 8px;
     line-height: 1.5;
     color: var(--accent-text-color);
-    max-width: 114px;
+    max-width: 125px;
   }
   @media screen and (min-width: 1280px) {
-    bottom: 82px;
+    bottom: 110px;
     left: 178px;
     font-size: 14px;
     line-height: 1.4;
     max-width: 200px;
+  }
+}
+.round-button {
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--accent-text-color);
+  border-color: transparent;
+  @media screen and (min-width: 1280px) {
+    bottom: -50px;
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.round-button__arrow {
+  position: absolute;
+  right: 30%;
+  top: 30%;
+  width: 5px;
+  height: 5px;
+  fill: var(--accent-color-main);
+  @media screen and (min-width: 1280px) {
+    right: 35%;
+    top: 35%;
+    width: 7px;
+    height: 7px;
   }
 }
 
@@ -178,7 +249,7 @@
   }
 }
 .hero__title {
-  font-family: Titan One;
+  font-family: var(--secondary-font);
   font-weight: 400;
   font-size: 26px;
   line-height: 1.15;
@@ -196,7 +267,7 @@
   }
 }
 .hero__title-accent {
-  font-family: Titan One;
+  font-family: var(--secondary-font);
   font-weight: 400;
   font-size: 48px;
   line-height: 0.95;
@@ -214,11 +285,17 @@
 .hero__buttons {
   display: flex;
 }
-.hero__buttons-item {
-}
 
 .hero__buttons-item:not(:last-child) {
   margin-right: 8px;
+  & .modal-btn {
+    background-color: var(--accent-color-main);
+    color: var(--accent-text-color);
+    &:hover,
+    &:focus {
+      background-color: #c7133e;
+    }
+  }
   @media screen and (min-width: 1280px) {
     margin-right: 15px;
   }
@@ -230,6 +307,7 @@
   }
   @media screen and (min-width: 1280px) {
     display: flex;
+    padding-bottom: 16px;
     justify-content: space-between;
     padding-top: 50px;
     min-width: 541px;
@@ -258,54 +336,192 @@
     display: none;
   }
 }
+.mobile-menu .modal-btn {
+  display: block;
+  width: 209px;
+  height: 44px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.31;
+}
+
 @media screen and (min-width: 768px) {
   .hero__counters-wrapper {
     display: flex;
     justify-content: flex-end;
   }
   .counters-list {
+    z-index: 1;
     display: flex;
     flex-direction: column;
     padding-top: 5px;
+    margin-right: 7px;
+    @media screen and (min-width: 1280px) {
+      margin-right: 0;
+    }
+    &__item {
+      position: relative;
+      font-family: var(--secondary-font);
+      width: 65px;
+      text-align: right;
+      font-size: 28px;
+      line-height: 0.5;
+      margin-bottom: 22px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-color-main);
+    }
+    &__item-plaintext {
+      font-family: var(--main-font);
+      font-size: 8px;
+      line-height: 1.28;
+      color: var(--accent-text-color);
+      text-transform: lowercase;
+    }
+    &__ellipse {
+      position: absolute;
+      z-index: -1;
+      top: -11px;
+      right: -7px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: var(--accent-text-color);
+      @media screen and (min-width: 1280px) {
+        width: 30px;
+        height: 30px;
+        top: -21px;
+        right: -15px;
+      }
+    }
   }
-  .counters-list__item {
-    font-family: var(--secondary-font);
-    width: 65px;
-    text-align: right;
-    font-size: 28px;
-    line-height: 0.5;
-    margin-bottom: 13px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--accent-color-main);
+
+  .hero__bioeco-info {
+    display: flex;
   }
-  .counters-list__item-plaintext {
-    font-family: var(--main-font);
-    font-size: 8px;
-    line-height: 1.28;
-    color: var(--accent-text-color);
-    text-transform: lowercase;
+  .hero__image-woman {
+    display: block;
+  }
+  .header .modal-btn {
+    display: block;
+    margin-bottom: 5px;
   }
 }
 @media screen and (min-width: 1280px) {
   .counters-list {
     padding-top: 10px;
-  }
-  .counters-list__item {
-    width: 105px;
-    font-size: 46px;
-    margin-bottom: 15px;
-  }
-  .counters-list__item-plaintext {
-    font-size: 14px;
-    line-height: 1.28;
+    &__item {
+      width: 105px;
+      font-size: 46px;
+      margin-bottom: 32px;
+    }
+    &__item-plaintext {
+      font-size: 14px;
+      line-height: 1.28;
+    }
+    &__ellipse {
+      width: 30px;
+      height: 30px;
+      top: -21px;
+      right: -15px;
+    }
   }
 }
-// .hero {
-//   background-color: var(--background-color-accent);
-//   background-image: url('./images/mobile/hero/slider-icecream_mb.png'),
-//     url('./images/mobile/hero/ellipse.jpg');
-//   background-size: 171px, 346px;
-//   background-position: top right, center;
-//   background-repeat: repeat-x, no-repeat;
+
+.mobile-menu {
+  display: block;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 502px;
+  padding: 60px 21px;
+  background-color: #e17992;
+  filter: drop-shadow(-8px 0px 20px rgba(0, 0, 0, 0.25));
+  // transform: translateY(0%) translateX(150%);
+  transition: transform 350ms linear;
+  @media screen and (min-width: 768px) {
+    right: -254px;
+    width: 254px;
+    height: 100vh;
+  }
+}
+
+.menu-button,
+.mobile-menu__close-button {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+.menu-button {
+  top: 25px;
+  right: 20px;
+  @media screen and (min-width: 768px) {
+    top: 52px;
+    right: 190px;
+  }
+}
+.mobile-menu__close-button {
+  top: 23px;
+  right: 38px;
+  @media screen and (min-width: 768px) {
+    right: 34px;
+  }
+}
+
+.mobile-menu .modal-btn {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+.menu-icon {
+  width: 20px;
+  height: 12px;
+  fill: var(--accent-color-main);
+}
+
+.mobile-menu__close-icon {
+  height: 14px;
+  width: 14px;
+  fill: var(--accent-text-color);
+}
+
+.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) translateX(-100%);
+}
+
+.mobile-menu__item:not(:last-child) {
+  margin-bottom: 22px;
+}
+.mobile-menu__link {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.28;
+  text-align: left;
+  color: var(--accent-text-color);
+  &:hover,
+  &:focus {
+    color: var(--accent-color-main);
+  }
+}
+// .current {
+//   color: var(--accent-color-main);
 // }
+@media screen and (min-width: 1280px) {
+  .menu-button {
+    display: none;
+  }
+  .mobile-menu {
+    display: none;
+  }
+}
