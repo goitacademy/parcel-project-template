@@ -12,3 +12,5 @@ var msnry = new Masonry('.grid', {
   // options
   gutter: 3,
 });
+
+document.addEventListener('touchstart', onTouchStart, {passive: true});
