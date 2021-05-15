@@ -1,3 +1,8 @@
+.footer {
+  padding-top: 47px;
+  padding-bottom: 19px;
+}
+
 .social-icons__svg--twitter {
   width: 18.95px;
   height: 15px;
@@ -29,60 +34,59 @@
 }
 
 .social-icons {
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
+  padding-top: 47px;
+  margin-bottom: 34px;
 }
 
-.social-icons__item {
-  & + & {
-    margin-left: 9.47px;
+.social-icons__item:not(:last-child) {
+  margin-right: 9.47px;
+
+  @media screen and (min-width: $pc) {
+    margin-right: 12px;
   }
 }
 
-@media screen and (min-width: $pc) {
-  .social-icons__item + .social-icons__item {
-    margin-left: 12px;
-  }
+.social-icons__svg:hover,
+.social-icons__svg:focus {
+  stroke: #2196f3;
 }
 
-// .social-icons {
-//   display: inline-flex;
-// }
+.footer-contacts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-// .social-icons__item {
-//   width: 44px;
-//   height: 44px;
+.footer-contacts__icon {
+  margin-right: 3px;
+}
 
-//   & + & {
-//     margin-left: 10px;
-//   }
-// }
+.footer-contacts__link {
+  font-family: Montserrat;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  color: $text;
+}
 
-// .social-icons__link {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   border-radius: 50%;
-//   width: 100%;
-//   height: 100%;
-//   background-color: $main-color;
-//   color: #afb1b8;
-//   transition-property: background-color;
-//   transition-duration: 250ms;
-//   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+.footer-contacts__icon:hover,
+.footer-contacts__icon:focus {
+  stroke: #2196f3;
+}
 
-//   &:hover,
-//   &:focus {
-//     background-color: $brand-color;
-//   }
+.footer-contacts {
+  position: relative;
+}
 
-//   &:hover .social-icons__svg,
-//   &:focus .social-icons__svg {
-//     fill: $main-color;
-//   }
-// }
-
-// .social-icons__svg {
-//   width: 20px;
-//   height: 20px;
-//   fill: currentColor;
-// }
+.footer-contacts__item--img::after {
+  content: '';
+  display: block;
+  width: 113px;
+  height: 99px;
+  background-image: url('../images/wheat.png');
+  background-size: cover;
+  position: absolute;
+}
