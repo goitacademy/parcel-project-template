@@ -20,13 +20,19 @@
     }
 
     .hero__button {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 158px;
+        height: 45px;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
         margin-bottom: 45px;
 
         &:hover,
         &:focus {
             background-color: var(--hover-color);
+            color: white;
         }
     }
 
@@ -39,8 +45,8 @@
         margin-right: 10px;
     }
 
-    .hero_social-link {
-        padding: 5px;
+    .hero__social-link {
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
         &:hover,
         &:focus {
@@ -72,7 +78,16 @@
 @media screen and (min-width: 1280px) {
     .hero {
         text-align: start;
-        margin-left: 229px;
+        padding-left: 229px;
+        margin-left: 0;
+        
+        background-repeat: no-repeat;
+
+        background-image: url(../images/hero/desktop/hero-desktop-spoon@1x.png);
+
+        @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+            background-image: url(../images/hero/desktop/hero-desktop-spoon@2x.png);
+          }
     }
 
     .hero__title {
@@ -93,10 +108,6 @@
     .hero__button {
         margin-bottom: 65px;
     }
-
-    // .hero__social-link {
-    //     padding: 6px;
-    // }
 
     .hero__social-item:not(:last-child) {
         margin-right: 12px;
