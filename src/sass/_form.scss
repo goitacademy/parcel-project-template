@@ -1,0 +1,41 @@
+.form {
+  &__input {
+    display: block;
+    margin: auto;
+    width: 265px;
+    height: 22px;
+    border: none;
+    border-bottom: 1px solid var(--form-bg);
+    color: var(--form-bg);
+    background-color: transparent;
+
+    &:-webkit-autofill {
+      transition-delay: 3600s;
+    }
+
+    &:first-child {
+      margin-bottom: 25px;
+    }
+
+    &::placeholder {
+      line-height: var(--line-height);
+      color: rgba(171, 129, 108, 0.5);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:not(:placeholder-shown):required:invalid {
+      border-color: red;
+    }
+
+    @media screen and (min-width: 769px) {
+      width: 410px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      width: 430px;
+    }
+  }
+}
