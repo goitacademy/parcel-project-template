@@ -1,4 +1,6 @@
 .footer {
+  position: relative;
+  overflow: hidden;
   padding-top: 47px;
   padding-bottom: 19px;
 }
@@ -36,7 +38,6 @@
 .social-icons {
   display: flex;
   justify-content: center;
-  padding-top: 47px;
   margin-bottom: 34px;
 }
 
@@ -77,16 +78,43 @@
   stroke: #2196f3;
 }
 
-.footer-contacts {
-  position: relative;
+.footer-contacts__item {
+  z-index: 100;
 }
 
-.footer-contacts__item--img::after {
-  content: '';
-  display: block;
-  width: 113px;
-  height: 99px;
+.img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   background-image: url('../images/wheat.png');
   background-size: cover;
-  position: absolute;
+  background-repeat: no-repeat;
+  width: 113px;
+  height: 99px;
+  z-index: 1;
+  transform: translate(25%, 25%);
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: url('../images/wheat@2x.png');
+  }
+}
+
+@media screen and (min-width: $tablet) and (max-width: $pc) {
+  .img {
+    background-image: url('../images/wheat.png');
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url('../images/wheat@2x.png');
+    }
+  }
+}
+
+@media screen and (min-width: $pc) {
+  .img {
+    background-image: url('../images/wheat.png');
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url('../images/wheat@2x.png');
+    }
+  }
 }
