@@ -1,27 +1,61 @@
-.hero {
-  margin: 0 auto;
-  padding: 0;
-  height: 460.51px;
-  // background: url(/images/bg-1-mobile.png);
-  // background-size: contain;
-  // background-repeat: no-repeat;
-  // @media screen and (min-width: $tablet) {
-  //   width: $tablet;
-  //   display: flex;
-  //   background: url(/images/bg-1.png);
-  // }
+.container-hero {
+  @media screen and (min-width: $tablet) {
+    position: relative;
+  }
+}
+
+@media screen and (min-width: $mobile) and (max-width: 767px) {
+  .hero {
+    padding: 0;
+    width: 100%;
+  }
+}
+@media screen and (min-width: $tablet) and (max-width: 1279px) {
+  .hero {
+    width: 100%;
+    height: 796px;
+  }
+}
+@media screen and (min-width: $pc) {
+  .hero {
+    width: 100%;
+    height: 796px;
+  }
 }
 
 .image__donuts {
-  position: absolute;
-  top: -51px;
-  left: -12px;
-  @media screen and (min-width: $tablet) {
+  @media screen and (max-width: 767px) {
+    display: block;
+    width: 130px;
+    height: 165px;
     position: absolute;
-    top: -35px;
-    left: 254px;
+    top: -51px;
+    left: -12px;
+  }
+  @media screen and (min-width: 767px) {
+    display: none;
   }
 }
+
+.image__donuts-tablet {
+  display: none;
+  position: absolute;
+  left: 253px;
+  top: -120px;
+  width: 378px;
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
+  @media screen and (min-width: $pc) {
+    position: absolute;
+    width: 793px;
+    height: 831px;
+    left: 561px;
+    top: -340px;
+    pointer-events: none;
+  }
+}
+
 .hero__title {
   font-family: Caveat Brush;
   font-style: normal;
@@ -31,18 +65,26 @@
   line-height: 1.26;
 
   text-align: center;
+  padding-top: 35px;
+  margin: 0%;
+  letter-spacing: inherit;
+
+  color: $text;
   margin: 0;
   letter-spacing: inherit;
 
   position: relative;
   z-index: 20;
 
-  color: $text;
   @media screen and (min-width: $tablet) {
-    position: absolute;
-    left: 68px;
-    top: 80px;
-    text-align: left;
+    display: flex;
+    text-align: inherit;
+    margin: 10px 0 0 0;
+    padding: 0px;
+  }
+  @media screen and (min-width: $pc) {
+    font-size: 64px;
+    margin-top: 57px;
   }
 }
 
@@ -53,6 +95,9 @@
   font-size: 16px;
   line-height: 1.25;
   margin-top: 3px;
+  text-align: center;
+
+  color: $text;
   margin-bottom: 0px;
   text-align: center;
 
@@ -61,16 +106,16 @@
 
   color: $text;
   @media screen and (min-width: $tablet) {
-    position: absolute;
-    left: 68px;
-    top: 159px;
-    padding: 0px;
+    display: flex;
+  }
+  @media screen and (min-width: $pc) {
+    font-size: 24px;
+    margin-top: 15px;
   }
 }
 
 .button__register {
   display: flex;
-
   text-align: center;
   align-items: center;
   font-family: Caveat Brush;
@@ -90,9 +135,7 @@
   height: 40px;
   left: 88px;
   top: 219px;
-
   background-color: $button;
-
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
@@ -101,10 +144,13 @@
     background-color: $hover;
   }
   @media screen and (min-width: $tablet) {
-    position: absolute;
-    left: 68px;
-    top: 183px;
-    margin-top: 26px;
+    display: flex;
+    margin: 26px 0 0 0;
+  }
+  @media screen and (min-width: $pc) {
+    width: 158px;
+    font-size: 24px;
+    margin-top: 30px;
   }
 }
 
@@ -114,11 +160,14 @@
   width: 100%;
   justify-content: center;
   height: 19px;
+  margin-bottom: 10px;
   @media screen and (min-width: $tablet) {
-    position: absolute;
-    left: 95px;
-    top: 250px;
-    margin-top: 31px;
+    display: flex;
+    margin: 31px 0 0 0;
+    justify-content: flex-start;
+  }
+  @media screen and (min-width: $pc) {
+    margin-top: 57px;
   }
 }
 .social__item {
@@ -131,8 +180,9 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 0;
-  width: 19px;
-  height: 19px;
+  width: 25px;
+  height: 25px;
+
   border-radius: 50%;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -141,5 +191,41 @@
   &:focus {
     background-color: $hover;
     fill: $white;
+  }
+
+  @media screen and (min-width: $pc) {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.icon-twitter {
+  width: 19px;
+  height: 15px;
+  @media screen and (min-width: $pc) {
+    width: 24px;
+    height: 19px;
+  }
+}
+.icon-instagram {
+  width: 15px;
+  height: 15px;
+  @media screen and (min-width: $pc) {
+    width: 19px;
+    height: 19px;
+  }
+}
+.icon-facebook {
+  width: 9px;
+  height: 15px;
+  @media screen and (min-width: $pc) {
+    width: 11px;
+    height: 19px;
+  }
+}
+
+.pic {
+  @media (min-width: $tablet) {
+    display: none;
   }
 }
