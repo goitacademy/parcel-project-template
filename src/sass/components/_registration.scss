@@ -422,7 +422,7 @@
   }
 }
 
-.registration__thum1 {
+.registration__thumb1 {
   position: absolute;
   top: 0;
   left: 0;
@@ -433,13 +433,38 @@
   }
 }
 
-.registration__thum2 {
+.registration__thumb2 {
   position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(80%, -1%);
+  bottom: 0;
+  right: 0;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
   z-index: -1;
-  overflow: hidden;
+
+  @media screen and (min-width: $tablet) and (max-width: $pc) {
+    background-image: url('../images/registration/confetti-tablet.png');
+    width: 190.93px;
+    height: 345.35px;
+    transform: translate(15%, 45%);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url('../images/registration/confetti-tablet@2x.png');
+    }
+  }
+
+  @media screen and (min-width: $pc) {
+    background-image: url('../images/registration/confetti.png');
+    width: 301px;
+    height: 544px;
+    transform: translate(10%, 50%);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url('../images/registration/confetti@2x.png');
+    }
+  }
+
   @media screen and (max-width: $tablet) {
     display: none;
   }
