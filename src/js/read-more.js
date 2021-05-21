@@ -1,12 +1,14 @@
 
-$( "button" ).first().click(function() {
-  $( "p" ).first().fadeToggle( "slow", "linear" );
+$( "read-more-btn" ).first().click(function() {
+  $( "moreText" ).first().fadeToggle( "slow", "linear" );
 });
-$( "button" ).last().click(function() {
-  $( "p" ).last().fadeToggle( "fast", function() {
-    $( "#dots" ).append( "<div>finished</div>" );
-  });
-});
+
+
+// $("button").last().click(function () {
+//   $( "p" ).last().fadeToggle( "fast", function() {
+//     $( "#dots" ).append( "<div>finished</div>" );
+//   });
+// });
 
 
 // $('read-more-btn').click(function () {s
