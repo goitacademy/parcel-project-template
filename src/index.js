@@ -2,7 +2,7 @@ import './sass/main.scss';
 import menuElement from './menu.json';
 import menuTemplate from './templates/templates.hbs';
 import './changeTheme.js';
-import './styles.css';
+// import './styles.css';
 
 
 
