@@ -5,12 +5,14 @@ import ApiService from '../js/apiService.js';
 const apiService = new ApiService({});
 
 apiService.getData('weather', 'Kiev').then(data => {
-  document.querySelector('.content').innerHTML = moreInfoTpl(data);
+  document.querySelector('.content').insertAdjacentHTML('beforebegin', moreInfoTpl(data));
+  // document.querySelector('.content').innerHTML = moreInfoTpl(data);
   console.log(data);
 });
 
 apiService.getData('forecast', 'Kiev').then(data => {
-  document.querySelector('.content').innerHTML = moreInfoTpl(data);
+  document.querySelector('.content').insertAdjacentHTML('beforebegin', moreInfoTpl(data));
+  // document.querySelector('.content').innerHTML = moreInfoTpl(data);
   console.log(data);
 });
 
