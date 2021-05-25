@@ -1,8 +1,8 @@
 import moreInfoTpl from '../templates/moreInfo.hbs';
-import ApiService from '../js/apiService.js';
+import apiService from '../js/apiService.js';
 
 // пример:
-const apiService = new ApiService({});
+// const apiService = new ApiService({});
 
 apiService.getData('weather', 'Kiev').then(data => {
   document.querySelector('.content').insertAdjacentHTML('beforebegin', moreInfoTpl(data));
