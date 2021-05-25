@@ -6,8 +6,8 @@ document.querySelector('.content').insertAdjacentHTML('beforeend', chartTpl());
 // document.querySelector('.content').innerHTML = chartTpl();
 console.log(chartTpl());
 
-const ctx = document.querySelector('.js-chart').getContext('2d');
-console.log(ctx);
+// const ctx = document.querySelector('.js-chart').getContext('2d');
+// console.log(ctx);
 
 // new Chart(ctx, {
 //   type: 'bar',
