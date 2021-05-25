@@ -4,9 +4,9 @@ import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
 document.querySelector('.content').insertAdjacentHTML('beforeend', chartTpl());
-
 const ctx = document.querySelector('.js-chart').getContext('2d');
-// console.log(ctx);
+// document.querySelector('.content').innerHTML = chartTpl();
+console.log(chartTpl());
 
 new Chart(ctx, {
   type: 'line',
