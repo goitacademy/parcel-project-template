@@ -20,6 +20,29 @@ export default class ApiService {
       return Promise.reject('Something went wrong');
     });
   }
+
+  //   genData {
+  //     character: (data) => {
+  //         return {
+  //             character: data.results,
+  //             // pagination: genPagination(data.info, 'character')
+  //         };
+  //     },
+
+  //     location: (data) => {
+  //         return {
+  //             location: data.results,
+  //             // pagination: genPagination(data.info, 'location')
+  //         };
+  //     },
+
+  //     episode: (data) => {
+  //         return {
+  //             episode: data.results,
+  //             pagination: genPagination(data.info, 'episode')
+  //         };
+  //     }
+  // };
 }
 
 // const apiService = new ApiService({});
