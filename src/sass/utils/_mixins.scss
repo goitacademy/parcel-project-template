@@ -1,0 +1,25 @@
+// Миксин для набора карточек, задаем на элемент списка
+@mixin card-set($num) {
+  flex-basis: calc(100% / #{$num} - #{$card-magrin});
+  margin-left: $card-magrin;
+  margin-top: $card-magrin;
+}
+
+// Миксины для брейкпоинтов
+@mixin for-phone-only {
+  @media (max-width: $phone-sz) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media (min-width: $tablet-sz) {
+    @content;
+  }
+}
+
+@mixin for-desktop {
+  @media (min-width: $desktop-sz) {
+    @content;
+  }
+}
