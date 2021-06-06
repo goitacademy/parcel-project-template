@@ -1,8 +1,13 @@
 .wrapper {
   padding: 0 176px;
   text-align: center;
-  margin-bottom: 120px;
   position: relative;
+  height: 350px;
+}
+
+.reviews__foto {
+  display: flex;
+  justify-content: center;
 }
 
 .reviews__text,
@@ -12,6 +17,7 @@
   font-size: 20px;
   line-height: 1.86;
   text-align: center;
+  margin: 0;
 }
 
 .reviews__text {
@@ -20,7 +26,7 @@
 
   background-color: #fafafa;
   padding: 54px 98px 30px;
-  margin-bottom: 22px;
+  margin-bottom: 15px;
   position: relative;
   z-index: 1;
   text-decoration: underline;
@@ -40,15 +46,15 @@
   }
 }
 
-.reviews__decor-dot-box {
+.reviews__decor-box {
   display: flex;
   justify-content: center;
-  margin-bottom: 22px;
+  margin-bottom: 15px;
 }
 
-.reviews__decor-dot {
-  width: 5px;
-  height: 5px;
+.reviews__decor-point {
+  width: 4px;
+  height: 4px;
   background-color: red;
   border-radius: 50%;
 
@@ -62,34 +68,54 @@
 .slider {
   display: flex;
   justify-content: center;
+  height: inherit;
+  overflow: hidden;
+  position: relative;
 }
 
-.slider__dot input[type='radio'] {
+.slides {
+  opacity: 0;
+  position: absolute;
+  width: inherit;
+  z-index: 0;
+  transform: scale(1.5);
+  transition: transform ease-in-out 0.5s, opacity ease-in-out 0.5s;
+}
+
+#slide1:checked ~ .slider > .slide1,
+#slide2:checked ~ .slider > .slide2,
+#slide3:checked ~ .slider > .slide3 {
+  opacity: 1;
+  z-index: 1;
+  transform: scale(1);
+}
+
+.wrapper > input {
   display: none;
 }
-
-.slider__dot label {
-  position: relative;
-  cursor: pointer;
+.controls {
 }
 
-.slider__dot:not(:last-child) label {
-  margin-right: 16px;
-}
-
-.slider__dot label:before {
+.controls__lable {
   content: '';
+  cursor: pointer;
   display: inline-block;
+  margin: 0 18px 0 16px;
+  position: relative;
+  border-radius: 50%;
+  transition: background ease-in-out 0.01s;
   width: 12px;
   height: 12px;
   background-color: #d9d9d9;
-  border-radius: 50%;
 }
 
-.slider__dot input[type='radio']:checked + label:before {
+#slide1:checked ~ .controls label:nth-of-type(1),
+#slide2:checked ~ .controls label:nth-of-type(2),
+#slide3:checked ~ .controls label:nth-of-type(3) {
   width: 16px;
   height: 13px;
   border-radius: 0;
   background: url(../images/home.svg) center no-repeat;
   background-size: contain;
+  background-color: #fff;
 }
