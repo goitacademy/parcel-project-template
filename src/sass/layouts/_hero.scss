@@ -25,12 +25,24 @@
   background-image: url(../images/hero-header/ellipse_bg.svg);
   background-repeat: no-repeat;
   background-position: 36px;
+
+  @include for-tablet {
+    background-position: 50vw;
+  }
 }
 
 .container__hero {
   display: flex;
   align-items: center;
   height: 100vh;
+
+  @include for-tablet {
+    height: calc(100vh - 100px);
+    padding-top: 100px;
+
+    align-items: start;
+    justify-content: space-between;
+  }
 }
 
 .hero__wrap {
@@ -74,4 +86,52 @@
   bottom: 0;
   right: 10%;
   z-index: 0;
+
+  @include for-tablet {
+    right: 25%;
+  }
+}
+
+.hero__image-milk {
+  position: absolute;
+  bottom: 28px;
+  left: 34px;
+  z-index: 0;
+}
+
+.hero__counter-num {
+  display: none;
+  position: relative;
+
+  font-size: 28px;
+  text-align: right;
+  color: $primary-accent-color;
+
+  @include for-tablet {
+    display: block;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 16px;
+    height: 16px;
+    z-index: -1;
+
+    border-radius: 10px;
+    background-color: #fff;
+  }
+}
+
+.hero__counter-label {
+  display: none;
+  text-align: right;
+  color: #ffffff;
+
+  @include for-tablet {
+    display: block;
+  }
 }
