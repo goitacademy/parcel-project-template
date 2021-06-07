@@ -7,19 +7,25 @@
 
 // Миксины для брейкпоинтов
 @mixin for-phone-only {
-  @media (max-width: $phone-sz) {
+  @media screen and (max-width: $phone-sz) {
     @content;
   }
 }
 
 @mixin for-tablet {
-  @media (min-width: $tablet-sz) {
+  @media screen and (min-width: $tablet-sz) {
     @content;
   }
 }
 
 @mixin for-desktop {
-  @media (min-width: $desktop-sz) {
+  @media screen and (min-width: $desktop-sz) {
+    @content;
+  }
+}
+
+@mixin for-phone-to-tablet {
+  @media screen and (min-width: $phone-sz) and (max-width: #{$tablet-sz}-1) {
     @content;
   }
 }
