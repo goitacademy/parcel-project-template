@@ -2,10 +2,24 @@
 //   outline: 1px solid #000;
 // }
 
+ul {
+  margin: 0;
+}
+
 .header {
   @extend .container;
   position: relative;
   padding-top: 6px;
+  padding-bottom: 6px;
+  // background-color: tomato;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-top: 35px;
+  }
 }
 
 .menu-button {
@@ -13,10 +27,22 @@
   top: 19px;
   right: 20px;
   z-index: 3;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    top: 23px;
+    right: 38px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
 }
 
 .logo {
   display: block;
+  width: 199px;
+  height: 50px;
 }
 
 .menu-button .icon-close {
@@ -27,8 +53,11 @@
   display: block;
 }
 
-.menu-button.is-open .icon-menu {
-  display: none;
+.menu-button.is-open {
+  @media screen and (min-width: 768px) {
+    top: 17px;
+    right: 224px;
+  }
 }
 
 .menu-container {
@@ -36,9 +65,23 @@
   position: absolute;
   overflow: hidden;
   top: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
+
   z-index: 2;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    width: 254px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    position: static;
+    align-items: center;
+  }
 
   &.is-open {
     display: flex;
@@ -53,18 +96,52 @@
   margin-left: 21px;
   margin-right: 21px;
   margin-top: 60px;
+
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+
+  &-second {
+    @extend .btn;
+    @extend .btn--arrow-invert;
+    display: block;
+    margin-right: 0;
+    margin-left: auto;
+
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+
+    @media screen and (min-width: 1200px) {
+      margin-left: auto;
+    }
+  }
 }
 
 .header-navigation-list {
   list-style-type: none;
   padding: 0;
   margin-top: 21px;
+
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    margin-left: 110px;
+  }
 }
 
 .header-navigation-list-item {
   position: relative;
   padding-top: 12px;
   padding-bottom: 12px;
+
+  &:not(:first-child) {
+    @media screen and (min-width: 1200px) {
+      padding: 0;
+      margin-left: 35px;
+    }
+  }
 
   &::before {
     content: '';
@@ -74,6 +151,10 @@
     width: 100%;
     height: 1px;
     background-color: #e18298;
+
+    @media screen and (min-width: 1200px) {
+      display: none;
+    }
   }
 
   &:last-child::after {
@@ -84,6 +165,10 @@
     width: 100%;
     height: 1px;
     background-color: #e18298;
+
+    @media screen and (min-width: 1200px) {
+      display: none;
+    }
   }
 }
 
@@ -94,4 +179,8 @@
   font-weight: 700;
   color: #fff;
   margin-left: 21px;
+
+  @media screen and (min-width: 1200px) {
+    margin: 0;
+  }
 }
