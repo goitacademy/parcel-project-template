@@ -11,6 +11,7 @@
   text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  width: 100%;
 }
 
 .products__label {
@@ -45,35 +46,32 @@
 
   @include for-tablet {
     flex-direction: row;
-    flex-wrap: nowrap;
-    flex-basis: calc((100% - 2 * 20px) / 3);
+    flex-wrap: nowrap;    
   }
 
-  @include for-desktop {
-    flex-basis: calc((100% - 2 * 25px) / 3);
-  }
 }
 
 .products__item {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  width: 280px;
-  height: 485px;
   border-radius: 24px;
-  padding: 40px;
+  padding: 161px 40px 40px 40px;
 
   @include for-tablet {
-    padding: 161px 11px 40px 11px;
+    flex-basis: calc((100% - 2 * 20px) / 3);
+    padding: 152px 11px 40px 11px;
   }
 
   @include for-desktop {
-    padding: 0px 44px 50px 44px;
+    flex-basis: calc((100% - 2 * 25px) / 3);
+    padding: 163px 44px 50px 44px;
   }
 
   &:first-child {
-    margin-top: 17px;
+    margin-top: 144px;
     background: $first-bg-color;
 
     @include for-tablet {
@@ -127,14 +125,18 @@
   line-height: 1.15;
   color: $primary-body-color;
 
-
   &::before {
+    position: absolute;
+    top: -113px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
     display: block;
     content: '';
-    width: 249px;
+    max-width: 249px;
     height: 252px;
-    background-size: contain;
-    margin-bottom: 22px;
+    background-size: cover;
 
     @include for-tablet {
       margin-bottom: 30px;
@@ -152,7 +154,9 @@
     height: 6px;
     background-image: url(/images/dots.svg);
     background-size: cover;
-    margin: 30px auto;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
 
     @include for-desktop {
       margin: 32px auto;
@@ -236,7 +240,7 @@
   color: $primary-text-color;
   margin: 0;
   padding: 0;
-
+margin-top: 30px;
   margin-bottom: 30px;
 }
 
