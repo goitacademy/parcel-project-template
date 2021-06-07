@@ -1,35 +1,40 @@
+* {
+  outline: 1px solid #000;
+}
+
+// .header-button {
+//   @extend .btn;
+//   @extend .btn--arrow-invert;
+//   margin-top: 60px;
+// }
+
 .header {
   @extend .container;
-  padding-top: 0;
-  padding-bottom: 0;
+  position: relative;
+  padding-top: 6px;
 }
 
-.icon-menu,
-.icon-close {
+.menu-button {
+  position: absolute;
+  top: 19px;
+  right: 20px;
+  z-index: 3;
+}
+
+.logo {
   display: block;
-  fill: #000;
 }
 
-.menu-button .icon-cross {
+.menu-button .icon-close {
   display: none;
 }
 
-.menu-button.is-open .icon-cross {
+.menu-button.is-open .icon-close {
   display: block;
 }
 
 .menu-button.is-open .icon-menu {
   display: none;
-}
-
-.menu-button {
-  background-color: tomato;
-  position: absolute;
-  top: 25px;
-  right: 20px;
-  z-index: 3;
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
 .menu-container {
@@ -39,11 +44,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #fff;
+  // padding-left: 21px;
+  // padding-right: 21px;
   z-index: 2;
 
   &.is-open {
-    @extend .container;
     display: flex;
     flex-direction: column-reverse;
     background-color: $side-menu-bg-color;
@@ -53,5 +58,7 @@
 .header-button {
   @extend .btn;
   @extend .btn--arrow-invert;
+  margin-left: 21px;
+  margin-right: 21px;
   margin-top: 60px;
 }
