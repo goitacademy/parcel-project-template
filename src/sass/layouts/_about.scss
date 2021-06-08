@@ -1,13 +1,12 @@
 .about {
-  position: relative;
-  font-family: 'DM Sans', sans-serif;
   background-color: $secondary-body-color;
   background-repeat: no-repeat;
   background-size: contain;
 
   @include for-phone-only {
     background-image: url(../../src/images/about/mobile/background-mobile.png);
-    background-position: 50% 82%;
+    // background-position: 50% 82%;
+    background-position-y: 766px;
 
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
       background-image: url(../images/about/mobile/background-mobile@2x.png);
@@ -17,105 +16,42 @@
   @include for-desktop {
     background-image: url(../images/about/desktop/background-desktop.png);
 
-    background-position: 0 342px;
+    background-position-y: 342px;
 
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
       background-image: url(../images/about/desktop/background-desktop@2x.png);
     }
   }
+
+  @media screen and (min-width: 1650px) {
+    background-position-y: center;
+  }
 }
 
-// .about__label {
-//   margin-bottom: 15px;
-
-//   font-family: 'Titan One', cursive;
-//   font-size: 18px;
-//   line-height: 1.16;
-//   text-transform: uppercase;
-//   text-align: center;
-//   color: $secondary-accent-color;
-
-//   @include for-desktop {
-//     font-size: 30px;
-//     line-height: 1.13;
-//     letter-spacing: 0.04em;
-//   }
-// }
-
-// .about__title {
-//   font-family: Titan One;
-//   font-size: 34px;
-//   line-height: 39px;
-//   letter-spacing: 0.04em;
-//   text-align: center;
-//   text-transform: uppercase;
-//   color: $primary-accent-color;
-
-//   @include for-desktop {
-//     font-size: 58px;
-//     line-height: 1.14;
-//     letter-spacing: 0.06em;
-//   }
-
-// &::after {
-//   display: inline-block;
-//   content: '';
-//   width: 280px;
-//   height: 279px;
-//   margin-top: 26px;
-
-//   background-image: url(../images/about/mobile/cow-mobile.png);
-//   background-size: cover;
-
-//   @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-//     background-image: url(../images/about/mobile/cow-mobile@2x.png);
-//   }
-
-//   @include for-phone-only {
-//     margin-bottom: 46px;
-//   }
-
-//   @include for-tablet {
-//     position: absolute;
-//     width: 340px;
-//     height: 339px;
-//     display: block;
-//     margin-top: 55px;
-
-//     background-image: url(../images/about/tablet/cow-tablet.png);
-
-//     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-//       background-image: url(../images/about/tablet/cow-tablet@2x.png);
-//     }
-//   }
-
-//   @include for-desktop {
-//     width: 516px;
-//     height: 516px;
-
-//     background-image: url(../images/about/desktop/cow-desktop.png);
-
-//     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-//       background-image: url(../images/about/desktop/cow-desktop@2x.png);
-//     }
-//   }
-// }
-// }
+.about__title {
+  @include for-desktop {
+    margin-bottom: 55px;
+  }
+}
 
 .about__content {
-  display: flex;
-  align-items: center;
+  @include for-tablet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .about__img {
-  margin-top: 26px;
-
   @include for-phone-only {
-    margin-bottom: 46px;
+    width: 280px;
   }
 
-  @include for-tablet {
-    margin-top: 55px;
+  @include from-phone-to-tablet {
+    margin-top: 26px;
+    margin-bottom: 46px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -128,17 +64,16 @@
 
   @include for-tablet {
     max-width: 340px;
-    margin-left: auto;
-    margin-top: 106px;
+    margin-left: 17px;
   }
 
   @include for-desktop {
     max-width: 463px;
+    margin-left: 74px;
   }
 }
 
 .about__description {
-  font-family: DM Sans;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.62;
@@ -181,6 +116,11 @@
   padding-right: 37px;
   font-weight: 700;
   transition: color $transition-style;
+
+  @include for-tablet {
+    font-size: 16px;
+    line-height: 1.31;
+  }
 
   &:hover,
   &:focus {
