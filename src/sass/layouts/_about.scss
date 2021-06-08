@@ -2,15 +2,29 @@
   background-color: $secondary-body-color;
   background-repeat: no-repeat;
   background-size: contain;
+  padding-bottom: 0;
 
   @include for-phone-only {
     background-image: url(../../src/images/about/mobile/background-mobile.png);
-    // background-position: 50% 82%;
     background-position-y: 766px;
 
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
       background-image: url(../images/about/mobile/background-mobile@2x.png);
     }
+  }
+
+  @include from-phone-to-tablet {
+    background-position-y: bottom;
+
+    background-image: url(../../src/images/about/mobile/background-mobile.png);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url(../images/about/mobile/background-mobile@2x.png);
+    }
+  }
+
+  @include for-tablet {
+    padding-bottom: 66px;
   }
 
   @include for-desktop {
@@ -47,7 +61,7 @@
     width: 280px;
   }
 
-  @include from-phone-to-tablet {
+  @include from-none-to-tablet {
     margin-top: 26px;
     margin-bottom: 46px;
     margin-left: auto;
@@ -56,7 +70,7 @@
 }
 
 .about__thumb {
-  @include for-phone-only {
+  @include from-none-to-tablet {
     max-width: 220px;
     margin-left: auto;
     margin-right: auto;
