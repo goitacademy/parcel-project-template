@@ -1,7 +1,7 @@
 ;(() => {
   const menuBtnRef = document.querySelector("[data-menu-button]")
   const mobileMenuRef = document.querySelector("[data-menu]")
-  const listMenuRef = document.querySelector("[data-menu-list]")
+  const listMenuRef = $("a.scrollto")
 
   menuBtnRef.addEventListener("click", () => {
     const expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false
@@ -11,7 +11,8 @@
 
     mobileMenuRef.classList.toggle("is-open")
   })
-listMenuRef.addEventListener("click", () => {
+
+listMenuRef.click(function() {
     const expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false
 
     if (window.screen.width < 1200) {
