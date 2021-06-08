@@ -16,10 +16,10 @@ listMenuRef.click(function() {
     const expanded = menuBtnRef.getAttribute("aria-expanded") === "true" || false
 
     if (window.screen.width < 1200) {
-    menuBtnRef.classList.toggle("is-open")
+    menuBtnRef.classList.remove("is-open")
     menuBtnRef.setAttribute("aria-expanded", !expanded)
 
-    mobileMenuRef.classList.toggle("is-open")
+    mobileMenuRef.classList.remove("is-open")
   
 }
 })
