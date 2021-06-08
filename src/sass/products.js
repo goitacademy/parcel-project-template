@@ -1,5 +1,3 @@
-import './sass/main.scss';
-
 (() => {
     const refs = {
       openProductBtn: document.querySelector('[data-product-open]'),
@@ -7,8 +5,8 @@ import './sass/main.scss';
       product: document.querySelector('[data-product]'),
     };
   
-    refs.openProductBtn.addEventListener('click', toggleProduct);
-    refs.closeProductBtn.addEventListener('click', toggleProduct);
+    refs.openProductBtn.addEventListener('click', toggleModal);
+    refs.closeProductBtn.addEventListener('click', toggleModal);
   
     function toggleProduct() {
       document.body.classList.toggle("product-open");
