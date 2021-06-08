@@ -1,30 +1,34 @@
 .contact-section {
-    
-    @media  screen and (max-width: 767px) {
-   
-    background-image: linear-gradient($third-body-color 12%, $secondary-body-color 12%);
-    }
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;    
+
+    @media screen and (max-width: 767px) {    
+     
+    background-image: linear-gradient($primary-body-color 12%, $secondary-body-color 12%);
+        }
 
     @include for-tablet {
-        background-image: linear-gradient($third-body-color 27%, $secondary-body-color 27%);
+        background-image: linear-gradient($primary-body-color 27%, $secondary-body-color 27%);
     }
 
     @include for-desktop {
-        background-image: linear-gradient($third-body-color 28%, $secondary-body-color 28%);
-    }    
-    
+              
+        background-image: url(/images/contact/desktop/contact-bg.png), linear-gradient($primary-body-color 28%, $secondary-body-color 28%);
+        
+        @media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {      
+            background-image: url(/images/contact/desktop/contact-bg@2x.png), linear-gradient($primary-body-color 28%, $secondary-body-color 28%);
+        }  
+    }      
 }
 
 
 .contact-list {
- @include for-tablet {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -30px;
-    margin-bottom: -30px;
- } 
+    @include for-tablet {
+    
+        @include card-set-list (30px); 
+    }
 }
-
 
 .contact-item:not(:last-child) {
  @media  screen and (max-width: 767px) {
@@ -44,7 +48,6 @@
     }
 }
 
-
 .contact-card {
     margin-left: auto;
     margin-right: auto;
@@ -55,10 +58,8 @@
 
     @media  screen and (max-width: 767px) {
         width: 220px;
-    }
-   
+    }   
 }
-
 
 .contact-card__name {
     display: inline-block;
@@ -69,12 +70,14 @@
     border-radius: 4px;
     text-transform: uppercase;
     text-align: center;
-
-    font-weight: 500;
+      
     font-size: 12px;
     line-height: 1.86;
-    letter-spacing: 4%;
+    
     color: $primary-text-color;
+    @include for-tablet {
+      font-size: 16px;
+    }
 
     &--cafe {
         background-color: $second-bg-color;
@@ -91,11 +94,16 @@
     margin-bottom: 10px;
 
     color: $secondary-text-color;
-    font-style: normal;
-    font-weight: 500;
+    
     font-size: 12px;
     line-height: 1.83;
     letter-spacing: 0.04em;
+    @include for-tablet {
+        font-size: 14px;
+    }
+    @include for-desktop {
+        font-size: 16px;
+    }
 }
 
 .contact-card__text {
@@ -103,11 +111,16 @@
     margin-top: 0;
     margin-bottom: 25px;
     position: relative;
-    font-style: normal;
-    font-weight: 500;
+     
     font-size: 12px;
     line-height: 1.5;
     color: $third-text-color;
+    @include for-tablet {
+        font-size: 14px;
+    }
+    @include for-desktop {
+        font-size: 16px;
+    }
 }
 
 .contact-card__text::after {
@@ -131,8 +144,7 @@
     position: absolute;
     margin-top: 25px;
     width: 100%;
-    border: 1px solid $pseudo-element-color;
-    
+    border: 1px solid $pseudo-element-color;    
 
 }
 
@@ -145,42 +157,50 @@
 }
 
 
-
 .contact-card__work-time--days {
     display: block;
-
-    font-weight: 500;
+    
     font-size: 12px;
-    line-height: 1.83;
-         
+    line-height: 1.83;         
     color: $secondary-text-color;
+    @include for-tablet {
+         font-size: 14px;
+    }
+    @include for-desktop {
+        font-size: 16px;
+    }
 }
 
 
-.contact-card__work-time--hours {
-    
-
-    font-style: normal;
-    font-weight: 500;
+.contact-card__work-time--hours {      
     font-size: 12px;
     line-height: 1.83;
-
-    color: $secondary-accent-color ;
+    color: $secondary-accent-color;
+    @include for-tablet {
+        font-size: 14px;
+    }
+    @include for-desktop {
+        font-size: 16px;
+    }
 }
 
 
 .contact-link-list {
     margin-top: 25px;
-   
-
 }
 
 .contact-link {
     text-decoration: none;
-    font-weight: 500;
+    
     font-size: 12px;
     line-height: 1.5;
     color: $third-text-color;
+    @include for-tablet {
+       font-size: 14px;
+    }
+    @include for-desktop {
+        font-size: 16px;
+    }
 }
 
 .btn-set {
@@ -189,10 +209,8 @@
         justify-content: center;
         align-items: center;
         margin-top: 120px;
-
     }
 }
-
 
 .contact-btn {
     display: block;  
