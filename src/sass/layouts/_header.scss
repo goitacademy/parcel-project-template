@@ -1,48 +1,32 @@
-// * {
-//   outline: 1px solid #000;
-// }
-
-ul {
-  margin: 0;
-}
-
-li {
-  margin: 0;
-}
-
-a {
-  margin: 0;
-}
-
 .header {
-  @extend .container;
-  position: relative;
   padding-top: 6px;
   padding-bottom: 6px;
-  @media screen and (min-width: 768px) {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include for-tablet {
+    padding-top: 37px;
+    padding-bottom: 37px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include for-desktop {
     padding-top: 35px;
+    padding-bottom: 35px;
+    justify-content: space-between;
   }
 }
 
 .menu-button {
-  position: absolute;
-  top: 19px;
-  right: 20px;
-  z-index: 3;
+  display: block;
   border: none;
   background-color: transparent;
 
-  @media screen and (min-width: 768px) {
-    display: block;
-    top: 23px;
-    right: 38px;
+  @include for-tablet {
+    margin-left: auto;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include for-desktop {
     display: none;
   }
 }
@@ -52,119 +36,99 @@ a {
   width: 199px;
   height: 50px;
 
-  @media screen and (min-width: 1200px) {
+  @include for-desktop {
     margin-left: -69px;
   }
 }
 
-.menu-button .icon-menu {
+.menu-button .icon-close {
   display: none;
 }
 
 .menu-button.is-open .icon-menu {
-  display: block;
-}
-
-.menu-button.is-open .icon-close {
   display: none;
 }
 
+.menu-button.is-open .icon-close {
+  display: block;
+}
+
 .menu-button.is-open {
-  @media screen and (min-width: 768px) {
-    top: 17px;
-    right: 224px;
-  }
+  z-index: 5;
+  position: fixed;
+  top: 23px;
+  right: 28px;
 }
 
 .menu-container {
-  position: absolute;
+  padding: 60px 21px 0;
+  position: fixed;
   overflow: hidden;
   top: 0;
-  right: 0;
+  left: 100%;
   z-index: 2;
-  transform: scaleX(0);
-  transition-property: transform;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: right;
+  transform: translateX(0);
+  transition: transform $transition-style;
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: $side-menu-bg-color;
 
-  @media screen and (max-width: 767px) {
+  @include for-phone-only {
     width: 100%;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
+  @include for-phone-to-desktop {
     width: 254px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include for-desktop {
+    padding: 0;
     transform: none;
     display: flex;
     position: static;
     align-items: center;
+    background-color: transparent;
   }
 
   &.is-open {
-    display: flex;
-    flex-direction: column-reverse;
-    background-color: $side-menu-bg-color;
-    transform: scaleX(100%);
+    transform: translateX(-100%);
   }
 }
 
 .header-button {
-  @extend .btn;
-  @extend .btn--arrow-invert;
-  margin-left: 21px;
-  margin-right: 21px;
-  margin-top: 60px;
-  font-weight: 700;
+  width: 200px;
 
-  @media screen and (min-width: 768px) {
-    width: 186px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @media screen and (min-width: 1200px) {
+  @include for-desktop {
     display: none;
   }
 
   &-second {
-    @extend .btn;
-    @extend .btn--arrow-invert;
-    display: block;
-    margin-right: 0;
-    margin-left: auto;
-    font-weight: 700;
+    display: none;
+    margin-left: 30px;
 
-    @media screen and (max-width: 767px) {
-      display: none;
-    }
-
-    @media screen and (min-width: 768px) {
+    @include for-tablet {
+      display: block;
       min-width: 160px;
     }
 
-    @media screen and (min-width: 1200px) {
-      margin-left: auto;
+    @include for-desktop {
+      margin-left: 0;
       min-width: 159px;
     }
   }
 }
 
 .header-navigation-list {
-  list-style-type: none;
   padding: 0;
   margin-top: 21px;
   @media screen and (max-width: 1199px) {
     margin-bottom: 100vh;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include for-desktop {
     display: flex;
     align-items: center;
     margin-top: 0;
-    margin-left: 110px;
   }
 }
 
@@ -174,7 +138,7 @@ a {
   padding-bottom: 12px;
 
   &:not(:first-child) {
-    @media screen and (min-width: 1200px) {
+    @include for-desktop {
       margin-left: 35px;
     }
   }
@@ -188,7 +152,7 @@ a {
     height: 1px;
     background-color: #e18298;
 
-    @media screen and (min-width: 1200px) {
+    @include for-desktop {
       display: none;
     }
   }
@@ -202,7 +166,7 @@ a {
     height: 1px;
     background-color: #e18298;
 
-    @media screen and (min-width: 1200px) {
+    @include for-desktop {
       display: none;
     }
   }
@@ -216,7 +180,7 @@ a {
   color: #fff;
   margin-left: 21px;
 
-  @media screen and (min-width: 1200px) {
+  @include for-desktop {
     margin: 0;
     font-size: 16px;
     line-height: 1.31;
