@@ -1,0 +1,213 @@
+.header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include for-tablet {
+    padding-top: 37px;
+    padding-bottom: 37px;
+  }
+
+  @include for-desktop {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    justify-content: space-between;
+  }
+}
+
+.menu-button {
+  display: block;
+  border: none;
+  background-color: transparent;
+
+  @include for-tablet {
+    margin-left: auto;
+  }
+
+  @include for-desktop {
+    display: none;
+  }
+}
+
+.logo {
+  display: block;
+
+  @include for-desktop {
+    margin-left: -69px;
+  }
+}
+
+.menu-button .icon-close {
+  display: none;
+}
+
+.menu-button.is-open .icon-menu {
+  display: none;
+}
+
+.menu-button.is-open .icon-close {
+  display: block;
+}
+
+.menu-button.is-open {
+  z-index: 5;
+  position: fixed;
+  top: 23px;
+  right: 28px;
+}
+
+.menu-container {
+  padding: 60px 21px 0;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 100%;
+  z-index: 2;
+  transform: translateX(0);
+  transition: transform $transition-style;
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: $side-menu-bg-color;
+
+  @include for-phone-only {
+    width: 100%;
+  }
+
+  @include for-phone-to-desktop {
+    width: 254px;
+  }
+
+  @include for-desktop {
+    padding: 0;
+    transform: none;
+    display: flex;
+    position: static;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  &.is-open {
+    transform: translateX(-100%);
+  }
+}
+
+.header-button {
+  width: 200px;
+
+  @include for-desktop {
+    display: none;
+  }
+
+  &-second {
+    display: none;
+    margin-left: 30px;
+
+    @include for-tablet {
+      display: block;
+      min-width: 160px;
+    }
+
+    @include for-desktop {
+      margin-left: 0;
+      min-width: 159px;
+    }
+  }
+}
+
+.header-navigation-list {
+  padding: 0;
+  margin-top: 21px;
+  @media screen and (max-width: 1199px) {
+    margin-bottom: 100vh;
+  }
+
+  @include for-desktop {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+  }
+}
+
+.header-navigation-list-item {
+  position: relative;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  &:not(:first-child) {
+    @include for-desktop {
+      margin-left: 35px;
+    }
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 1px;
+    background-color: #e18298;
+
+    @include for-desktop {
+      display: none;
+    }
+  }
+
+  &:last-child::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 1px;
+    background-color: #e18298;
+
+    @include for-desktop {
+      display: none;
+    }
+  }
+}
+
+.header-navigation-link {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.28;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 21px;
+
+  @include for-desktop {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.31;
+  }
+
+  &__action {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.28;
+    font-weight: 700;
+    color: #d41443;
+    margin-left: 21px;
+
+    @include for-desktop {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.31;
+    }
+  }
+
+  &:hover {
+    color: #d41443;
+  }
+}
+
+.icon-menu {
+  stroke: #d41443;
+}
+
+.icon-close {
+  stroke: #fff;
+}

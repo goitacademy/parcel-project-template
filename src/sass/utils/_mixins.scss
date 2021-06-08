@@ -1,0 +1,51 @@
+// Миксин для набора карточек, задаем на список
+@mixin card-set-list ($num) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(#{$card-magrin} * -1);
+  margin-top: calc(#{$card-magrin} * -1);
+}
+
+// Миксин для набора карточек, задаем на элемент списка
+@mixin card-set($num) {
+  flex-basis: calc(100% / #{$num} - #{$card-magrin});
+  margin-left: $card-magrin;
+  margin-top: $card-magrin;
+}
+
+// Миксины для брейкпоинтов
+@mixin for-phone-only {
+  @media screen and (max-width: $phone-sz) {
+    @content;
+  }
+}
+
+@mixin from-phone-to-tablet {
+  @media screen and (max-width: $tablet-sz) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media screen and (min-width: $tablet-sz) {
+    @content;
+  }
+}
+
+@mixin for-desktop {
+  @media screen and (min-width: $desktop-sz) {
+    @content;
+  }
+}
+
+@mixin for-phone-to-tablet {
+  @media screen and (min-width: $phone-sz) and (max-width: #{$tablet-sz}-1) {
+    @content;
+  }
+}
+
+@mixin for-phone-to-desktop {
+  @media screen and (min-width: $tablet-sz) and (max-width: #{$desktop-sz}-1) {
+    @content;
+  }
+}
