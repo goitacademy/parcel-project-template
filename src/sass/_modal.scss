@@ -1,4 +1,10 @@
 // MODAL
+//переменные
+$timing-fn: cubic-bezier(0.4, 0, 0.2, 1);
+$accent-color: #ff6b01;
+$primary-text-color: #000000;
+$secondary-text-color: #8c8c8c;
+
 * {
   box-sizing: border-box;
 }
@@ -42,6 +48,44 @@ body {
   }
 }
 
+.backdrop {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  transition: opacity 500ms $timing-fn;
+  overflow-y: scroll;
+
+  z-index: 998;
+
+  /*мобильный*/
+  @media screen and (max-width: 767px) {
+    padding-top: 93px;
+    padding-bottom: 94px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /*планшет+ноут*/
+  @media screen and (min-width: 768px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+  }
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .modal {
   position: absolute;
 
@@ -51,19 +95,28 @@ body {
 
   min-width: 280px;
   min-height: 958px;
+  padding-top: 48px;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 41px;
 
   max-height: 90vh;
 
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
 
-  background-color: white;
+  outline: green solid 1px;
+
+  background-color: #fff;
 
   @media screen and (min-width: 768px) {
-    min-width: 528px;
+    display: flex;
+
+    padding-top: 42px;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 40px;
+    min-width: 618px;
     min-height: 562px;
   }
 
@@ -72,35 +125,65 @@ body {
     min-height: 568px;
   }
 }
+.modal__info {
+  //   display: flex;
+  //   flex-direction: column;
+}
 
-.modal__image {
-  margin-top: 48px;
-  margin-left: auto;
-  margin-right: auto;
+.modal__thumb {
+  //   margin-left: auto;
+  //   margin-right: auto;
   margin-bottom: 30px;
   width: 240px;
   height: 357px;
-  object-fit: cover;
 
   @media screen and (min-width: 768px) {
+    display: inline;
+    margin: 0;
+    margin-right: 32px;
     width: 264px;
     height: 364px;
   }
+}
+.modal__image {
+  //   margin-left: auto;
+  //   margin-right: auto;
+  //   margin-bottom: 30px;
+  //   width: 240px;
+  //   height: 357px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
 
-  @media screen and (min-width: 1024px) {
-    width: 396px;
-    height: 478px;
-  }
+  //   @media screen and (min-width: 768px) {
+  //     margin: 0;
+  //     margin-right: 32px;
+  //     width: 264px;
+  //     height: 364px;
+  //   }
+
+  //   @media screen and (min-width: 1024px) {
+  //     width: 396px;
+  //     height: 478px;
+  //   }
 }
 
-.modal-title {
+.modal__title {
+  margin: 0;
+  margin-bottom: 20px;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.15;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
 }
 
 .modal__wrapper {
   display: flex;
+  margin-bottom: 20px;
 }
 
 .modal__properties {
@@ -124,137 +207,150 @@ body {
 }
 
 .modal__item {
+  display: flex;
   &:not(:last-child) {
     margin-bottom: 10px;
   }
 }
 
 .modal__subtitle {
+  margin: 0;
+  margin-bottom: 10px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.333;
 }
 
 .modal__text {
+  margin: 0;
+  margin-bottom: 21px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.667;
+
+  @media screen and (min-width: 768px) {
+    width: 264px;
+  }
 }
 
-/*кнопка закрытия модального окна*/
-.button-close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  cursor: pointer;
+.modal__values--color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  margin-right: 2px;
+  width: 36px;
+  height: 16px;
 
-  padding: 0;
-  width: 20px;
-  height: 20px;
-
-  border: none;
-  border-radius: 50%;
-  line-height: 0;
-
-  //transition: color 250ms $timing-fn;
-
-  @media screen and (min-width: 320px) {
-    top: 8px;
-    right: 8px;
-    width: 30px;
-    height: 30px;
-  }
-
-  &:hover {
-    color: orange;
-  }
-
-  /*тень кнопки закрытия при фокусе*/
-  &:focus {
-    color: orange;
-    outline: none;
-    box-shadow: 0 0 0 1px orange;
-  }
-
-  &--color {
-    fill: currentColor;
-  }
-
-  &--size {
-    width: 20px;
-    height: 20px;
-
-    @media screen and (min-width: 320px) {
-      width: 30px;
-      height: 30px;
-    }
-  }
+  line-height: 1.167;
+  background-color: #ff6b01;
+  border-radius: 5px;
+  color: #fff;
 }
 
 .modal__button-list {
   display: flex;
   justify-content: space-between;
 
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.333;
-}
-
-.modal__button {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-.footer {
-  margin-left: auto;
-  margin-right: auto;
-
-  min-height: 100px;
-  width: 100%;
-
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.143;
-
-  background-color: #f7f7f7;
-  color: #545454;
-
   @media screen and (min-width: 768px) {
-    min-height: 77px;
-    font-size: 16px;
-    line-height: 1.188;
+    justify-content: flex-start;
   }
 }
+
 .modal__button {
+  text-align: center;
   width: 112px;
   height: 44px;
   background-color: #ff6b01;
   color: #fff;
+
   text-transform: uppercase;
   text-decoration: none;
-  //transition: background-color 250ms $timing-fn, color 250ms $timing-fn, box-shadow 250ms $timing-fn;
-  &--consult {
-    color: #ff6b01;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.333;
+
+  border-radius: 5px;
+  border: none;
+  transition: background-color 250ms $timing-fn, color 250ms $timing-fn, box-shadow 250ms $timing-fn;
+  &--active {
+    color: #000000;
     background-color: transparent;
+    border: 1px solid #000000;
   }
   &:hover {
     cursor: pointer;
   }
-  &:hover {
-    background-color: white;
-    color: #ff6b01;
-    border: 2px solid #ff6b01;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    &--consult {
-      box-shadow: 2px 2px 2px white;
-    }
+  //   &:hover {
+  //     background-color: white;
+  //     color: #ff6b01;
+  //     border: 2px solid #ff6b01;
+  //     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  //     &--consult {
+  //       box-shadow: 2px 2px 2px white;
+  //     }
+  //   }
+  //   &:focus {
+  //     // box-shadow: 2px 2px 2px $brand-color;
+  //     outline: none;
+  //     border: 2px solid #ff6b01;
+  //     background-color: white;
+  //     color: #ff6b01;
+  //   }
+
+  @media screen and (min-width: 768px) {
+    margin-right: 15px;
+    width: 125px;
   }
-  &:focus {
-    // box-shadow: 2px 2px 2px $brand-color;
-    outline: none;
-    border: 2px solid #ff6b01;
-    background-color: white;
+}
+
+/*кнопка закрытия модального окна*/
+.button-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+
+  padding: 0;
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  border-radius: 50%;
+  line-height: 0;
+  background-color: transparent;
+
+  transition: color 250ms $timing-fn;
+
+  //   @media screen and (min-width: 320px) {
+  //     top: 10px;
+  //     right: 10px;
+  //     width: 30px;
+  //     height: 30px;
+  //   }
+
+  &:hover {
     color: #ff6b01;
+  }
+
+  /*тень кнопки закрытия при фокусе*/
+  &:focus {
+    color: #ff6b01;
+    outline: none;
+    box-shadow: 0 0 0 1px #ff6b01;
+  }
+
+  &--color {
+    fill: #000000;
+  }
+
+  &--size {
+    width: 30px;
+    height: 30px;
+
+    // @media screen and (min-width: 320px) {
+    //   width: 30px;
+    //   height: 30px;
+    // }
   }
 }
