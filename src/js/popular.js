@@ -1,15 +1,16 @@
 //FT-07 Реализовать подгрузку популярных фильмов на главную (первую) страницу
-import axios from "axios";
-import getPopularFilms from './fetch-popular'
-import gallery from '../templates/film-card.hbs'
-import genres from './genres.json'
 
-const URL = 'https://image.tmdb.org/t/p/w500';
+import getFilms from './fetch-popular'
+import gallery from '../templates/film-card.hbs'
+import genres from  './genres.json'
+
+const URL = 'https://image.tmdb.org/t/p/original';
 const galleryContainer = document.querySelector('.film-card__list')
 
 
-function showPopularFilm() {
-    getPopularFilms().then( films  => {
+function showPopularFilm(queryParams) {
+    getFilms().then(films => {
+        console.log(films)
         const totalResult = films.results;
         const pages = films.total_pages;
         console.log(pages, `всего страниц для пагинации`)
@@ -25,7 +26,7 @@ function appendGalleryMarkup(filmResult) {
         
         film.release_date = Number.parseInt(film.release_date)
 
-        film.poster_path = URL + film.backdrop_path;
+        film.poster_path = URL + film.poster_path;
         const newGenres = film.genre_ids;
         const sumGenres = [];
         for (let i = 0; i < genres.length; i++) {

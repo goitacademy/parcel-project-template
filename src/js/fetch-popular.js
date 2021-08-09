@@ -7,10 +7,11 @@ const API_KEY = "27c4b211807350ab60580c41abf1bb8c";
 
 //значение переменной queryParams надо указывать в функции, которая будет отвечать
 //в слушателе событий за нужный поиск/запрос
-let queryParams = `trending/movie/week?api_key=${API_KEY}`;
+// let queryParams = `trending/movie/week?api_key=${API_KEY}`;
 
 //функция запроса - асинхронный код
-async function getFilms(queryParams) {
+async function getFilms() {
+    let queryParams = `trending/movie/week?api_key=${API_KEY}`;
     let url = BASE_URL + queryParams;
         
     try {
@@ -22,13 +23,13 @@ async function getFilms(queryParams) {
         console.log("массив объектов:", film);
         const totalResults = data.total_results;
         console.log("всего найдено фильмов:", totalResults);
-        return data, film, totalResults;
+        return data;
         } catch(error) {
                 throw(error)
             }
 }
-getFilms(queryParams);
-export default { getFilms };
+
+export default getFilms;
 
 //ЗАПРОСЫ
 //поиск по ключевому слову
