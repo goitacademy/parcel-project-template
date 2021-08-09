@@ -40,6 +40,17 @@ export default { getFilms };
 //полное описание фильма
 //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
 
+//ВАРИАНТЫ ИСОПЛЬЗОВАНИЯ ФУНКЦИИ ЗАПРОСА В РАЗНЫХ ЦЕЛЯХ
+
+// function onGetPopularFilms() {
+//     let QUERY_PARAMS = `trending/all/week?api_key=${API_KEY}`;
+//     getFilms(QUERY_PARAMS);
+// }
+
+// function onGetSearchFilms() {
+//     let QUERY_PARAMS = `search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`;
+//     getFilms(QUERY_PARAMS);
+// }
 
 
 //СТАРЫЙ КОД
@@ -66,14 +77,6 @@ export default { getFilms };
 // export default { getPopularFilms };
 
 
-// function onGetPopularFilms() {
-//     let QUERY_PARAMS = `trending/all/week?api_key=${API_KEY}`;
-//     getFilms(QUERY_PARAMS);
-// }
 
-// function onGetSearchFilms() {
-//     let QUERY_PARAMS = `search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`;
-//     getFilms(QUERY_PARAMS);
-// }
 
 
