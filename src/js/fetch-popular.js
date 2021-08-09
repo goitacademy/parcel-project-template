@@ -7,11 +7,10 @@ const API_KEY = "27c4b211807350ab60580c41abf1bb8c";
 
 //значение переменной queryParams надо указывать в функции, которая будет отвечать
 //в слушателе событий за нужный поиск/запрос
-// let queryParams = `trending/movie/week?api_key=${API_KEY}`;
+let queryParams = `trending/movie/week?api_key=${API_KEY}`;
 
 //функция запроса - асинхронный код
 async function getFilms() {
-    let queryParams = `trending/movie/week?api_key=${API_KEY}`;
     let url = BASE_URL + queryParams;
         
     try {
