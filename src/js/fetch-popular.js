@@ -30,10 +30,19 @@ async function getFilms(queryParams) {
 getFilms(queryParams);
 export default { getFilms };
 
+//ЗАПРОСЫ
+//поиск по ключевому слову
+//https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
+
+//популярные фильмы за неделю
+//https://api.themoviedb.org/3/trending/all/week?api_key=<<api_key>>
+
+//полное описание фильма
+//https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
 
 
 
-
+//СТАРЫЙ КОД
 
 // async function getPopularFilms() {
 //     const QUERY_PARAMS = `trending/all/week?api_key=${API_KEY}`;
@@ -56,14 +65,6 @@ export default { getFilms };
 // getPopularFilms();
 // export default { getPopularFilms };
 
-//поиск по ключевому слову
-//https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
-
-//популярные фильмы за неделю
-//https://api.themoviedb.org/3/trending/all/week?api_key=<<api_key>>
-
-//полное описание фильма
-//https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
 
 // function onGetPopularFilms() {
 //     let QUERY_PARAMS = `trending/all/week?api_key=${API_KEY}`;
