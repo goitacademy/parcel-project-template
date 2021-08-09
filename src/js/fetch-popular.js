@@ -40,7 +40,7 @@ export default { getFilms };
 //полное описание фильма
 //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
 
-//ВАРИАНТЫ ИСОПЛЬЗОВАНИЯ ФУНКЦИИ ЗАПРОСА В РАЗНЫХ ЦЕЛЯХ
+//ВАРИАНТЫ ИСПОЛЬЗОВАНИЯ ФУНКЦИИ ЗАПРОСА В РАЗНЫХ ЦЕЛЯХ
 
 // function onGetPopularFilms() {
 //     let queryParams = `trending/all/week?api_key=${API_KEY}`;
