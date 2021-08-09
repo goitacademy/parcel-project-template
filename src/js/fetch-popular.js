@@ -19,7 +19,7 @@ async function getFilms(queryParams) {
         console.log("результат запроса:",data);
         //массив объектов - популярные фильмы
         const film = data.results;
-        console.log("массив объектов: популярные фильмы", film);
+        console.log("массив объектов:", film);
         const totalResults = data.total_results;
         console.log("всего найдено фильмов:", totalResults);
         return data, film, totalResults;
