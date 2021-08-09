@@ -32,10 +32,10 @@ export default { getFilms };
 
 //ЗАПРОСЫ
 //поиск по ключевому слову
-//https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
+//https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false&query=
 
 //популярные фильмы за неделю
-//https://api.themoviedb.org/3/trending/all/week?api_key=<<api_key>>
+//https://api.themoviedb.org/3/trending/movie/week?api_key=<<api_key>>
 
 //полное описание фильма
 //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
