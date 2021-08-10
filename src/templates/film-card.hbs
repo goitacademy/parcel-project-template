@@ -1,9 +1,9 @@
 
 {{#each this}}
 <li class="film-card__item">
-    <div class="thumb__card">
-        <a class="film-card__link" href=""><img class="film-card__img" src="{{poster_path}}" alt="{{title}}"
-                loading="lazy" /></a>
+    <a class="film-card__link" href="https://image.tmdb.org/t/p/original{{poster_path}}"></a><div class="thumb__card">
+        <img data-id="{{id}}" class="film-card__img" src="https://image.tmdb.org/t/p/original{{poster_path}}" alt="{{title}}"
+                loading="lazy" />
     </div>
     <div class="film-card__info">
 
@@ -12,12 +12,13 @@
         </p>
 
         <ul class="genre-set">
-
+        {{#if genre_ids}}
             <li class="film-info__genre">{{genre_ids}}</li>
-
+        {{/if}}
         </ul>
 
         <span class="film-card__release">| {{release_date}}</span>
-    </div>
+        <span class="film-card__rating is-hidden">| {{vote_average}}</span>
+    </div></a>
 </li>
 {{/each}}
