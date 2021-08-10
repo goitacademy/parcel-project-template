@@ -8,12 +8,22 @@ import appendGalleryMarkup from './drow-marckup'
 
 
 console.log(getFilms())
-const galleryContainer = document.querySelector('.film-card__list')
+const logoLink = document.querySelector('.logo__link')
+const buttonHome = document.querySelector('.page-header__btn')
+ let queryParams = `trending/movie/week?api_key=27c4b211807350ab60580c41abf1bb8c`;
 
-
+//слушатель на кнопке
+buttonHome.addEventListener('click', () => {
+    showPopularFilm(queryParams)
+})
+ //слушатель на ссылке
+logoLink.addEventListener('click', () => {
+     showPopularFilm(queryParams)
+ })
 
 function showPopularFilm(queryParams) {
     console.log(`bjkblh`)
+   
     getFilms(queryParams).then(films => {
         console.log(films)
         const totalResult = films.results;
@@ -24,11 +34,10 @@ function showPopularFilm(queryParams) {
 }
 
 
-let queryParams = `trending/movie/week?api_key=27c4b211807350ab60580c41abf1bb8c`;
+
 showPopularFilm(queryParams);
 
-const buttonHome = document.querySelector('.page-header__btn')
-buttonHome.addEventListener('click', showPopularFilm)
+
 
 
 // /**
