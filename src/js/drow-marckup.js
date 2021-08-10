@@ -14,7 +14,7 @@ export default function appendGalleryMarkup(filmResult) {
 
 
 function filterGalleryProperty(filmResult) {
-    console.log(filmResult)
+    
    const newGallery = filmResult.map(film => {
         
         film.release_date = Number.parseInt(film.release_date)
