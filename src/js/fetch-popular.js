@@ -1,4 +1,3 @@
-
 import axios from "axios";
 //import "regenerator-runtime";
     
@@ -85,13 +84,13 @@ export default getFilms;
 // export default { getFilms };
 
 //ЗАПРОСЫ
-//поиск по ключевому слову
+//поиск по ключевому слову
 //https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false&query=
 
-//популярные фильмы за неделю
+//популярные фильмы за неделю
 //https://api.themoviedb.org/3/trending/movie/week?api_key=<<api_key>>
 
-//полное описание фильма
+//полное описание фильма
 //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
 
 //ВАРИАНТЫ ИСПОЛЬЗОВАНИЯ ФУНКЦИИ ЗАПРОСА В РАЗНЫХ ЦЕЛЯХ
