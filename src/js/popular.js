@@ -22,10 +22,8 @@ logoLink.addEventListener('click', () => {
  })
 
 function showPopularFilm(queryParams) {
-    console.log(`bjkblh`)
    
     getFilms(queryParams).then(films => {
-        console.log(films)
         const totalResult = films.results;
         const pages = films.total_pages;
         console.log(pages, `всего страниц для пагинации`)
