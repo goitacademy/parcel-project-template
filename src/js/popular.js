@@ -7,10 +7,16 @@ import genres from './genres.json'
 import appendGalleryMarkup from './drow-marckup'
 
 
+<<<<<<< Updated upstream
 console.log(getFilms())
 const logoLink = document.querySelector('.logo__link')
 const buttonHome = document.querySelector('.page-header__btn')
  let queryParams = `trending/movie/week?api_key=27c4b211807350ab60580c41abf1bb8c`;
+=======
+
+const galleryContainer = document.querySelector('.film-card__list')
+
+>>>>>>> Stashed changes
 
 //слушатель на кнопке
 buttonHome.addEventListener('click', () => {
