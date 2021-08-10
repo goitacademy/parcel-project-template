@@ -2,6 +2,7 @@ import axios from "axios";
 //import "regenerator-runtime";
     
 const BASE_URL = "https://api.themoviedb.org/3/";
+
 axios.defaults.baseURL = BASE_URL;
 const API_KEY = "27c4b211807350ab60580c41abf1bb8c";
 
@@ -13,7 +14,16 @@ let queryParams = `trending/movie/week?api_key=${API_KEY}`;
 async function getFilms() {
     let url = BASE_URL + queryParams;
         
-    try {
+    
+    }
+    //метод отвечает за все http запросы
+    async getFilms() {
+        //  let queryParams = `trending/movie/week?api_key=${API_KEY}`;
+         let url = BASE_URL + this.queryParams;
+      
+        console.log(this.queryParams)
+        try {
+             console.log(url, `URL`)
         const response = await axios.get(url);
         const data = response.data;
         console.log("результат запроса:",data);
@@ -26,9 +36,65 @@ async function getFilms() {
         } catch(error) {
                 throw(error)
             }
-}
+    }
+    
+      async searchFilms() {
+        let queryParams =  `search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${this.querySearch}`;
+         let url = BASE_URL + queryParams;
+       try {
+        const response = await axios.get(url);
+        const data = response.data;
+        console.log("результат запроса:",data);
+        //массив объектов - популярные фильмы
+        const film = data.results;
+        console.log("массив объектов:", film);
+        const totalResults = data.total_results;
+        console.log("всего найдено фильмов:", totalResults);
+        return data;
+        } catch(error) {
+                throw(error)
+            }
+      }
+    
+    async searchFilmAbout() {
+        let queryParams = `movie/{movie_id}?api_key=${API_KEY}&language=en-US`;
+         let url = BASE_URL + queryParams;
+       try {
+        const response = await axios.get(url);
+        const data = response.data;
+        console.log("результат запроса:",data);
+        //массив объектов - популярные фильмы
+        const film = data.results;
+        console.log("массив объектов:", film);
+        const totalResults = data.total_results;
+        console.log("всего найдено фильмов:", totalResults);
+        return data;
+        } catch(error) {
+                throw(error)
+            }
+    }
 
-export default getFilms;
+
+    incrementPage() {
+        this.page += 1;
+        
+    }
+    resetPage() {
+        console.log(this.page, `reset page`)
+      return  this.page = 1;
+     
+    }
+    query(newQuery) {
+        console.log(newQuery, `welcome `)
+        
+        // console.log(this.queryParams)
+        this.querySearch = newQuery;
+    
+        console.log(this.url)
+    }
+    
+  
+}
 
 //ЗАПРОСЫ
 //поиск по ключевому слову
