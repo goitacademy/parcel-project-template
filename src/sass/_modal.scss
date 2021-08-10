@@ -25,6 +25,10 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 /*контейнер*/
 .container {
   padding-left: 20px;
@@ -51,18 +55,21 @@ body {
 
 .backdrop {
   position: fixed;
-
   top: 0;
-  left: 0;
+  // left: 0;
+
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+
   width: 100%;
   height: 100%;
 
   background-color: rgba(0, 0, 0, 0.5);
-
   transition: opacity 500ms $timing-fn;
-  overflow-y: scroll;
+  // overflow-y: scroll;
 
-  z-index: 998;
+  z-index: 1;
 
   /*мобильный*/
   @media screen and (max-width: 767px) {
@@ -77,15 +84,9 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 998;
+    z-index: 1;
   }
 }
-
-// .backdrop.is-hidden {
-//   visibility: hidden;
-//   opacity: 0;
-//   pointer-events: none;
-// }
 
 .is-hidden {
   visibility: hidden;
@@ -95,7 +96,7 @@ body {
 
 .modal {
   position: absolute;
-  z-index: 997;
+  z-index: 100;
 
   top: 50%;
   left: 50%;
@@ -137,8 +138,9 @@ body {
   }
 }
 .modal__info {
-  //   display: flex;
-  //   flex-direction: column;
+  // position: absolute;
+  // display: flex;
+  // flex-direction: column;
 }
 
 .modal__thumb {
@@ -172,6 +174,8 @@ body {
   font-weight: 500;
   font-size: 20px;
   line-height: 1.15;
+
+  text-transform: uppercase;
 
   @media screen and (min-width: 1024px) {
     font-size: 30px;
@@ -213,6 +217,10 @@ body {
   &:not(:last-child) {
     margin-bottom: 10px;
   }
+}
+
+.modal__item.original_title {
+  text-transform: uppercase;
 }
 
 .modal__subtitle {
@@ -316,6 +324,9 @@ body {
 /*кнопка закрытия модального окна*/
 .button-close {
   position: absolute;
+
+  z-index: 200;
+
   top: 10px;
   right: 10px;
   cursor: pointer;
