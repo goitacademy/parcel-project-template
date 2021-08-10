@@ -8,20 +8,34 @@ const API_KEY = "27c4b211807350ab60580c41abf1bb8c";
 
 //значение переменной queryParams надо указывать в функции, которая будет отвечать
 //в слушателе событий за нужный поиск/запрос
-let queryParams = `trending/movie/week?api_key=${API_KEY}`;
+// let queryParams = `trending/movie/week?api_key=${API_KEY}`;
 
+
+const options = {
+    headers: {
+        Authorization: API_KEY,
+
+    },
+   
+};
 //функция запроса - асинхронный код
-async function getFilms() {
-    let url = BASE_URL + queryParams;
+export default class AxiosApi {
+
+    constructor() {
+        this.querySearch = '';
+        this.page = 1;
+        this.queryParams = `trending/movie/week?api_key=${API_KEY}`;
         
     
     }
+        
+    
     //метод отвечает за все http запросы
     async getFilms() {
         //  let queryParams = `trending/movie/week?api_key=${API_KEY}`;
          let url = BASE_URL + this.queryParams;
       
-        console.log(this.queryParams)
+       
         try {
              console.log(url, `URL`)
         const response = await axios.get(url);
@@ -38,7 +52,7 @@ async function getFilms() {
             }
     }
     
-      async searchFilms() {
+    async searchFilms() {
         let queryParams =  `search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${this.querySearch}`;
          let url = BASE_URL + queryParams;
        try {
