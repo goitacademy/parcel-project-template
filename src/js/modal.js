@@ -1,5 +1,4 @@
-//FT-17 По нажатию на карточку фильма на любой странице должна открываться модалка с динамически подставленной информацией о фильме
-//FT-20 Реализовать закрытие модалки по нажатию на клавишу ESC и по клику вне области модалки, не забыть снять слушателиimport getFilms from './fetch-popular';
+import getFilms from './fetch-popular';
 import modalFilm from '../templates/modal.hbs';
 import { URL } from '../js/popular.js';
 import genres from '../js/genres.json';
