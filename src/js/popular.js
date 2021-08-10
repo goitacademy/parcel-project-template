@@ -9,11 +9,11 @@ import appendGalleryMarkup from './drow-marckup'
 
 
 const galleryContainer = document.querySelector('.film-card__list')
-
+const axiosApiService = new AxiosApi();
 /**
  * Работает с помощью класса, ниже второй запрос на инпут
  */
-const axiosApiService = new AxiosApi();
+
 // function showPopularFilm() {
 //     getFilms().then(films => {
 //         console.log(films)
@@ -37,6 +37,12 @@ function showPopularFilm() {
  }).catch(error => console.log(error))
 }
 showPopularFilm()
+
+
+
+const buttonHome = document.querySelector('.page-header__btn')
+buttonHome.addEventListener('click', showPopularFilm)
+
 
 
 
