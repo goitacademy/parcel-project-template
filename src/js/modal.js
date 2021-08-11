@@ -3,6 +3,7 @@ import modalFilm from '../templates/modal.hbs';
 // import { URL } from '../js/popular.js';
 import genres from '../js/genres.json';
 
+let queryParams = `trending/movie/week?api_key=27c4b211807350ab60580c41abf1bb8c`;
 const cards = document.querySelector('.film-card__list');
 const cardsArray = document.querySelectorAll('.film-card__item');
 const backdrop = document.querySelector('.backdrop');
@@ -41,7 +42,7 @@ function onModalOpen(evt) {
 }
 
 function onGetFilms(evt) {
-  getFilms()
+  getFilms(queryParams)
     .then(data => {
       return data.results;
     })
@@ -64,7 +65,7 @@ function onModalMakeCard(openedFilm) {
   const nedenGenres = filteredGenres.map(genre => genre.name).join(', ');
 
   openedFilm.genre_ids = nedenGenres;
-  openedFilm.poster_path = URL + openedFilm.poster_path;
+  openedFilm.poster_path = openedFilm.poster_path;
   const modalCard = modalFilm(openedFilm);
 
   modal.insertAdjacentHTML('afterbegin', modalCard);
