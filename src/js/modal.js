@@ -1,6 +1,6 @@
 import getFilms from './fetch-popular';
 import modalFilm from '../templates/modal.hbs';
-import { URL } from '../js/popular.js';
+// import { URL } from '../js/popular.js';
 import genres from '../js/genres.json';
 
 const cards = document.querySelector('.film-card__list');
@@ -48,10 +48,12 @@ function onGetFilms(evt) {
     .then(films => {
       const openedFilm = films.find(film => film.title === evt.target.alt);
 
+      console.log(openedFilm);
+
       onModalMakeCard(openedFilm);
       return;
     })
-    .catch(error => console.log(error));
+    .catch(error => console.log('ошибка!!!  что-то не так с запросом'));
 }
 
 function onModalMakeCard(openedFilm) {
