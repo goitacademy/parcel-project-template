@@ -1,8 +1,8 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import fetchPhotos from './example2';
+import fetchPhotos from './main-page';
 
-const galleryUrl = document.querySelector('.gallery');
+const galleryUrl = document.querySelector('.movies');
 const container = document.getElementById('pagination');
 
 export const pagination = new Pagination(container, {
@@ -10,14 +10,13 @@ export const pagination = new Pagination(container, {
   itemsPerPage: 20,
   visiblePages: 9,
   page: 1,
-     firstItemClassName: 'tui-first-child',
-     lastItemClassName: 'tui-last-child',
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
 });
 
-
-pagination.on('afterMove', (event) => {
+pagination.on('afterMove', event => {
   const currentPage = event.page;
 
-  galleryUrl.innerHTML = "";
-     fetchPhotos(currentPage);
+  galleryUrl.innerHTML = '';
+  fetchPhotos(currentPage);
 });
