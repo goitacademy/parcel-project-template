@@ -3,7 +3,6 @@ import { pagination } from './pagination';
 
 const axios = require('axios').default;
 const galleryUrl = document.querySelector('.movies');
-console.log(galleryUrl);
 
 export default async function fetchPhotos() {
   try {
