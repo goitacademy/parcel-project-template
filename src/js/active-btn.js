@@ -1,8 +1,8 @@
-// сделать активной кнопки WATCHED и QUEUE в My library
-
+// получить ссылки на кнопки
 const libraryButtons = document.querySelectorAll('.btn-library');
 const modalButtons = document.querySelectorAll('.btn-in-modal');
 
+// сделать активной кнопки WATCHED или QUEUE в My library
 libraryButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     libraryButtons.forEach(btn => {
@@ -12,6 +12,7 @@ libraryButtons.forEach(btn => {
   });
 });
 
+// сделать активной кнопки ADD TO WATCHED или ADD TO QUEUE в модалке
 modalButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     modalButtons.forEach(btn => {
