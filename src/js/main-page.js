@@ -1,59 +1,56 @@
 import genres from './genres.json';
 import { pagination } from './pagination';
+import movieTemplate from '../templates/movie-card.hbs';
 
 const axios = require('axios').default;
 const galleryUrl = document.querySelector('.movies');
 
-export default async function fetchPhotos() {
+export default async function fetchMovieCards() {
   try {
     const page = pagination.getCurrentPage();
     const response = await axios.get(
       `https://api.themoviedb.org/3/trending/movie/week?api_key=eb0d0367818cd79735feb2881fbbeeec&page=${page}`,
     );
-    const photos = response.data.results;
+    const movieCards = response.data.results;
 
     const totalResults = await response.data.total_results;
     pagination.setTotalItems(totalResults);
-    renderImgCard(photos);
+    renderImgCard(movieCards);
   } catch (error) {
     console.error(error);
   }
 }
-fetchPhotos();
+fetchMovieCards();
 
-async function renderImgCard(photos) {
-  const markupList = photos
-    .map(photo => {
-      let movieDateRelease = '';
-      if (photo.release_date) {
-        movieDateRelease = photo.release_date.slice(0, 4);
-      }
+function dateRelease(movies) {
+    let movieDateRelease = '';
+      if (movies.release_date) {
+        movieDateRelease = movies.release_date.slice(0, 4);
+  }
+  return movieDateRelease;
+}
 
-      let genreText = [];
+function movieGenres(movies) {
+    let genreText = [];
       genres.map(genre => {
-        if (photo.genre_ids.includes(genre.id)) {
+        if (movies.genre_ids.includes(genre.id)) {
           genreText.push(genre.name);
         }
       });
       if (genreText.length > 3) {
         genreText.splice(2, genreText.length - 2, 'Other');
-      }
+  }
+  return genreText;
+}
 
-      return `<li class="movies__item" data-id="${photo.id}">
-  <img src='https://image.tmdb.org/t/p/original${photo.poster_path}' alt="${photo.original_title}" loading="lazy" width='274px' heigth='398px' />
-  <div class="info">
-    <p class="info-item">
-      <b>  ${photo.original_title}</b>
-    </p>
-    <p class="info-item">
-      <b>  ${genreText}</b>
-    </p>
-    <p class="info-item">
-      <b>  ${movieDateRelease} </b>
-    </p>
-    
-  </div>
-</li> `;
+async function renderImgCard(movies) {
+  const markupList = movies
+      .map(movie => {
+        movie.poster = movie.poster_path;
+        movie.name = movie.original_title;
+        movie.genre = movieGenres(movie);
+        movie.relise = dateRelease(movie);
+        return movieTemplate(movie);
     })
     .join('');
   galleryUrl.insertAdjacentHTML('beforeend', markupList);
