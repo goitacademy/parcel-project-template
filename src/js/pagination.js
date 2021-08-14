@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import fetchPhotos from './main-page';
+import fetchMovieCards from './main-page';
 
 const galleryUrl = document.querySelector('.movies');
 const container = document.getElementById('pagination');
@@ -18,5 +18,5 @@ pagination.on('afterMove', event => {
   const currentPage = event.page;
 
   galleryUrl.innerHTML = '';
-  fetchPhotos(currentPage);
+  fetchMovieCards(currentPage);
 });
