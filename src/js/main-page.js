@@ -39,10 +39,8 @@ async function renderImgCard(photos) {
         genreText.splice(2, genreText.length - 2, 'Other');
       }
 
-      return `<li class="movies__item" data-id="${photo - id}">
-  <img src='https://image.tmdb.org/t/p/original${photo.poster_path}' alt="${
-        photo.original_title
-      }" loading="lazy" width='274px' heigth='398px' />
+      return `<li class="movies__item" data-id="${photo.id}">
+  <img src='https://image.tmdb.org/t/p/original${photo.poster_path}' alt="${photo.original_title}" loading="lazy" width='274px' heigth='398px' />
   <div class="info">
     <p class="info-item">
       <b>  ${photo.original_title}</b>
