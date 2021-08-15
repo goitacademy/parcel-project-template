@@ -14,12 +14,10 @@ libraryButtons.forEach(btn => {
 
 // сделать активной кнопки ADD TO WATCHED или ADD TO QUEUE в модалке
 modalButtons.forEach(btn => {
-  btn.addEventListener('click', e => {
+  btn.addEventListener('click', () => {
     modalButtons.forEach(btn => {
       btn.classList.remove('btn--active');
     });
     btn.classList.add('btn--active');
-    const rr = e.target.dataset.func;
-    console.log(rr);
   });
 });

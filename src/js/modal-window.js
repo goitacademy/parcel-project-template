@@ -21,7 +21,7 @@ export default function modalWindow() {
   // реализация функции открытия модалки при клике по карточке фильма
   function modalOpen() {
     modalW.classList.add('is-open');
-    // document.body.classList.add('is-blocked'); // убирает скролл при открытой модалке
+    document.body.classList.add('is-blocked'); // убирает скролл при открытой модалке
 
     //слушатели для закрытия модалки
     closeBtn.addEventListener('click', modalClose);
@@ -32,7 +32,7 @@ export default function modalWindow() {
   // реализация закрытия модального окна
   function modalClose() {
     modalW.classList.remove('is-open');
-    // document.body.classList.remove('is-blocked');
+    document.body.classList.remove('is-blocked');
 
     //снимаем слушатели закрытия модалки
     closeBtn.removeEventListener('click', modalClose);
@@ -56,5 +56,3 @@ export default function modalWindow() {
     modalClose();
   }
 }
-
-// modalWindow();
