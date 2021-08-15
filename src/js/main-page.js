@@ -30,7 +30,7 @@ function dateRelease(movies) {
   return movieDateRelease;
 }
 
-function movieGenres(movies) {
+ function movieGenres(movies) {
     let genreText = [];
       genres.map(genre => {
         if (movies.genre_ids.includes(genre.id)) {
@@ -43,7 +43,7 @@ function movieGenres(movies) {
   return genreText;
 }
 
-async function renderImgCard(movies) {
+export async function renderImgCard(movies) {
   const markupList = movies
       .map(movie => {
         movie.poster = movie.poster_path;
