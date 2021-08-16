@@ -26,9 +26,6 @@ export default function modalWindow() {
 
     // открытие модалки при клике по карточке фильма
     modalOpen();
-
-    // возможность добавлять и удалять фильмы в свою библиотеку
-    myMovieLibrary();
   }
 
   // ====================================================================
@@ -72,7 +69,7 @@ export default function modalWindow() {
   }
 }
 
-// ================================================================================
+// ========================================= ЗАПРОС =======================================
 // эта функция делает запрос по ID за более детальной информацией о фильме
 async function fetchMovieByID(id) {
   try {
@@ -84,12 +81,15 @@ async function fetchMovieByID(id) {
     const movie = await movieResponse.data;
 
     modalContent.innerHTML = renderMovieModalCard(movie); //  рендерим разметку карточки фильма и вставляем в модалку
+
+    // возможность добавлять и удалять фильмы в свою библиотеку
+    myMovieLibrary();
   } catch (error) {
     console.error(error);
   }
 }
 
-// =================================================================================
+// ========================================= РЕНДЕРИНГ МОДАЛКИ ========================================
 // эта функция рендерит разметку карточки фильма в модалке
 function renderMovieModalCard(movie_obj) {
   // функция получения жанров фильма из детального запроса (немного отличается от получения жанров для карточек фильмов, так как жанры приходят с названиями уже)
@@ -135,4 +135,7 @@ function renderMovieModalCard(movie_obj) {
 // главная функция библиотеки, дает возможность добавлять и удалять фильмы в свою библиотеку
 function myMovieLibrary() {
   //получить ссылки на кнопки
+  const watchedBtn = document.querySelector('[data-category="watched"]');
+  const queueBtn = document.querySelector('[data-category="queue"]');
+  console.log('кнопки: ', watchedBtn, queueBtn);
 }
