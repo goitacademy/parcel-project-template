@@ -1,7 +1,7 @@
 import modalTemplate from '../templates/modal-card.hbs';
 const axios = require('axios').default;
 
-// главная функция для модалки
+// главная функция для модалки ================================================================================== //
 export default function modalWindow() {
   const movieCards = document.querySelectorAll('[data-id]');
   const modalW = document.querySelector('.js-modal');
@@ -18,12 +18,17 @@ export default function modalWindow() {
     event.preventDefault();
 
     const MOVIE_ID = event.currentTarget.dataset.id; // получить ID фильма из data-атрибута карточки фильма (<li data-id="">)
-    fetchMovieByID(MOVIE_ID); // делаем запрос по ID за более детальной информацией о фильме
+
+    // функция fetchMovieByID(MOVIE_ID) делает запрос по ID за более детальной информацией о фильме,
+    // получает обьект с детальной информацией
+    // рендерит разметку и вставляет её в модалку  (вся логика ниже)
+    fetchMovieByID(MOVIE_ID);
 
     // открытие модалки при клике по карточке фильма
     modalOpen();
   }
 
+  // ====================================================================
   // реализация функции открытия модалки при клике по карточке фильма
   function modalOpen() {
     modalW.classList.add('is-open');
@@ -35,7 +40,7 @@ export default function modalWindow() {
     overlay.addEventListener('click', onOverlayClick);
   }
 
-  // реализация закрытия модального окна
+  // реализация закрытия модального окна ==============================================
   function modalClose() {
     const modalContent = document.querySelector('.modal__content');
     modalW.classList.remove('is-open');
@@ -64,6 +69,7 @@ export default function modalWindow() {
   }
 }
 
+// ================================================================================
 // эта функция делает запрос по ID за более детальной информацией о фильме
 async function fetchMovieByID(id) {
   try {
@@ -80,6 +86,7 @@ async function fetchMovieByID(id) {
   }
 }
 
+// =================================================================================
 // эта функция рендерит разметку карточки фильма в модалке
 function renderMovieModalCard(movie_obj) {
   // функция получения жанров фильма из детального запроса (немного отличается от получения жанров для карточек фильмов, так как жанры приходят с названиями уже)
