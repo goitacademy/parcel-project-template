@@ -49,7 +49,6 @@ export default function modalWindow() {
   }
 
   // обработчик для реализации закрытия модалки при нажатии клавиши ESC
-  // и пролистывания изображений галереи в открытом модальном окне клавишами "влево" и "вправо".
   function onKeyPress(e) {
     if (e.code === 'Escape') {
       modalClose();
@@ -75,7 +74,7 @@ async function fetchMovieByID(id) {
     );
     const movie = await movieResponse.data;
 
-    modalContent.innerHTML = renderMovieModalCard(movie); //  рендерим разметку карточки фильма в модалке и вставляем в модалку
+    modalContent.innerHTML = renderMovieModalCard(movie); //  рендерим разметку карточки фильма и вставляем в модалку
   } catch (error) {
     console.error(error);
   }
