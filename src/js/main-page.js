@@ -1,6 +1,7 @@
 import genres from './genres.json';
 import { pagination } from './pagination';
 import movieTemplate from '../templates/movie-card.hbs';
+import modalWindow from './modal-window';
 
 const axios = require('axios').default;
 const galleryUrl = document.querySelector('.movies');
@@ -16,6 +17,7 @@ export default async function fetchMovieCards() {
     const totalResults = await response.data.total_results;
     pagination.setTotalItems(totalResults);
     renderImgCard(movieCards);
+    modalWindow();
   } catch (error) {
     console.error(error);
   }
