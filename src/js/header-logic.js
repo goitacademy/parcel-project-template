@@ -6,6 +6,7 @@ const refs = {
   searchForm: document.querySelector('.search-form'),
   libraryNavigation: document.querySelector('.library-navigation'),
   homeNavigatiomBtn: document.querySelector('#home-navigatiom-btn'),
+  errorNotification: document.querySelector('.error-message'),
 };
 
 refs.libraryNavigationBtn.addEventListener('click', onLibraryNavigationBtnClick);
@@ -26,3 +27,13 @@ function onMainHeaderNavigationClick() {
   refs.searchForm.classList.remove('is-hiden');
   refs.libraryNavigation.classList.add('is-hiden');
 }
+
+//Функция для отрисовки уведомления об ошибке поиска фильма
+function errorNotification(totalResults) {
+  if (totalResults === 0) {
+    refs.errorNotification.classList.remove('is-hiden');
+  } else {
+    refs.errorNotification.classList.add('is-hiden');
+  }
+}
+export { errorNotification };
