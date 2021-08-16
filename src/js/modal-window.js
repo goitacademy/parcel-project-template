@@ -20,7 +20,7 @@ export default function modalWindow() {
     const MOVIE_ID = event.currentTarget.dataset.id; // получить ID фильма из data-атрибута карточки фильма (<li data-id="">)
     fetchMovieByID(MOVIE_ID); // делаем запрос по ID за более детальной информацией о фильме
 
-    // открытие модалки при клике по элементу галереи
+    // открытие модалки при клике по карточке фильма
     modalOpen();
   }
 
