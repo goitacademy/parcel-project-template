@@ -26,6 +26,9 @@ export default function modalWindow() {
 
     // открытие модалки при клике по карточке фильма
     modalOpen();
+
+    // возможность добавлять и удалять фильмы в свою библиотеку
+    myMovieLibrary();
   }
 
   // ====================================================================
@@ -99,7 +102,22 @@ function renderMovieModalCard(movie_obj) {
       ? genres.splice(2, genres.length - 2, 'Other').join(' ')
       : genres.join(' ');
   }
-  const output_object = {
+  //функция, чтобы получить год выпуска фильма из свойства release_data
+  function dateRelease(movies) {
+    let movieDateRelease = '';
+    if (movies.release_date) {
+      movieDateRelease = movies.release_date.slice(0, 4);
+    }
+    return movieDateRelease;
+  }
+
+  // из полученного по запросу фильма формируем обьект из его свойств для 2ух целей:
+  // 1) из него заполняем шаблон на модалке
+  // 2) этот обьект сохраняется в localStorage, если пользователь сохраняет фильм, и
+  // потом из него заполняется шаблон карточек фильмов в библиотеке пользователя
+  const objectForRendering = {
+    id: movie_obj.id,
+    release_date: dateRelease(movie_obj),
     poster: movie_obj.poster_path,
     title: movie_obj.title,
     vote: movie_obj.vote_average,
@@ -109,6 +127,12 @@ function renderMovieModalCard(movie_obj) {
     genres: movieGenres(movie_obj),
     about: movie_obj.overview,
   };
-  const markup = modalTemplate(output_object);
+  const markup = modalTemplate(objectForRendering);
   return markup;
+}
+
+// ======================================== LIBRARY ===========================================
+// главная функция библиотеки, дает возможность добавлять и удалять фильмы в свою библиотеку
+function myMovieLibrary() {
+  //получить ссылки на кнопки
 }
