@@ -4,7 +4,7 @@ import movieTemplate from '../templates/movie-card.hbs';
 import modalWindow from './modal-window';
 
 const axios = require('axios').default;
-const galleryUrl = document.querySelector('.movies');
+const homeGalleryList = document.querySelector('.home-gallery');
 
 export default async function fetchMovieCards() {
   try {
@@ -55,5 +55,5 @@ export async function renderImgCard(movies) {
       return movieTemplate(movie);
     })
     .join('');
-  galleryUrl.insertAdjacentHTML('beforeend', markupList);
+  homeGalleryList.insertAdjacentHTML('beforeend', markupList);
 }

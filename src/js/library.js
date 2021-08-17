@@ -1,5 +1,10 @@
 import movieTemplate from '../templates/movie-card.hbs';
+import modalWindow from './modal-window';
 
+const watchedGalleryList = document.querySelector('.watched-gallery');
+let watchedArray = Array.isArray(JSON.parse(localStorage.getItem('watched')))
+  ? JSON.parse(localStorage.getItem('watched'))
+  : [];
 // export function libraryCheck(id) {
 //   const savedMovie = localStorage.getItem(id);
 //   if (savedMovie) {
@@ -8,13 +13,17 @@ import movieTemplate from '../templates/movie-card.hbs';
 // }
 
 export function watchedMovies() {
-  const galleryUrl = document.querySelector('.movies');
   // загрузить список просмотренных
-  let watchedArray = Array.isArray(JSON.parse(localStorage.getItem('watched')))
-    ? JSON.parse(localStorage.getItem('watched'))
-    : [];
-  const watchedMarkup = movieTemplate(watchedArray[0]);
-  galleryUrl.innerHTML = watchedMarkup;
+  //   let watchedArray = Array.isArray(JSON.parse(localStorage.getItem('watched')))
+  //     ? JSON.parse(localStorage.getItem('watched'))
+  //     : [];
+
+  const ArrayForRendering = watchedArray.map(el => Object.values(el));
+  const watchedMarkup = ArrayForRendering.flat()
+    .map(el => movieTemplate(el))
+    .join('');
+  watchedGalleryList.innerHTML = watchedMarkup;
+  console.log('это загрузка библиотеки');
 }
 
 // ============================================================================================
@@ -26,19 +35,23 @@ export function myMovieLibrary(movie_obj, id) {
   const watchedBtn = document.querySelector('[data-category="watched"]');
   const queueBtn = document.querySelector('[data-category="queue"]');
 
-  let watchedArray = Array.isArray(JSON.parse(localStorage.getItem('watched')))
-    ? JSON.parse(localStorage.getItem('watched'))
-    : [];
+  //   let watchedArray = Array.isArray(JSON.parse(localStorage.getItem('watched')))
+  //     ? JSON.parse(localStorage.getItem('watched'))
+  //     : [];
   let queueArray = [];
 
   watchedBtn.addEventListener('click', () => {
     console.log('кнопка ADD: ');
     addToWatched(watchedArray, id);
+    watchedMovies();
+    modalWindow();
   });
 
   queueBtn.addEventListener('click', () => {
     console.log('кнопка REMOVE: ');
     removeFromWatched(watchedArray, id, movie_obj);
+    watchedMovies();
+    modalWindow();
   });
   // добавить в WATCHED
   function addToWatched() {
@@ -59,11 +72,4 @@ export function myMovieLibrary(movie_obj, id) {
       }
     }
   }
-}
-
-//===================== рендер карточек из библиотеки ====================
-function renderMovieFromLibrary(movie_obj) {
-  const markup = movieTemplate(movie_obj);
-  // console.log(markup);
-  return markup;
 }

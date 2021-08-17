@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 import fetchMovieCards from './main-page';
 import { featchMovie } from './featch-movie';
 
-const galleryUrl = document.querySelector('.movies');
+const galleryUrl = document.querySelector('.home-gallery');
 const container = document.getElementById('pagination');
 
 export const pagination = new Pagination(container, {
@@ -18,7 +18,7 @@ pagination.on('afterMove', onPaginationClick);
 
 function onPaginationClick(event) {
   const currentPage = event.page;
-  galleryUrl.innerHTML = '';
+  // galleryUrl.innerHTML = '';
 
   if (featchMovie.query === '') {
     fetchMovieCards(currentPage);

@@ -1,6 +1,5 @@
 import modalTemplate from '../templates/modal-card.hbs';
-import movieTemplate from '../templates/movie-card.hbs';
-import myMovieLibrary from './library';
+import { myMovieLibrary } from './library';
 const axios = require('axios').default;
 
 // =============================== MODAL WINDOW ====================================== //

@@ -1,4 +1,5 @@
-import watchedMovies from 
+import { watchedMovies } from './library';
+import modalWindow from './modal-window';
 
 const refs = {
   header: document.querySelector('#header'),
@@ -9,6 +10,9 @@ const refs = {
   libraryNavigation: document.querySelector('.library-navigation'),
   homeNavigatiomBtn: document.querySelector('#home-navigatiom-btn'),
   errorNotification: document.querySelector('.error-message'),
+  homeGalleryList: document.querySelector('.home-gallery'),
+  watchedGalleryList: document.querySelector('.watched-gallery'),
+  queueGalleryList: document.querySelector('.queue-gallery'),
 };
 
 refs.libraryNavigationBtn.addEventListener('click', onLibraryNavigationBtnClick);
@@ -21,7 +25,9 @@ function onLibraryNavigationBtnClick() {
   refs.header.classList.remove('main-header-overlay');
   refs.header.classList.add('library-haeder-overlay');
   refs.libraryNavigation.classList.remove('is-hiden');
+  // refs.homeGalleryUrl
   watchedMovies();
+  modalWindow();
 }
 
 function onMainHeaderNavigationClick() {
@@ -30,13 +36,3 @@ function onMainHeaderNavigationClick() {
   refs.searchForm.classList.remove('is-hiden');
   refs.libraryNavigation.classList.add('is-hiden');
 }
-
-//Функция для отрисовки уведомления об ошибке поиска фильма
-function errorNotification(totalResults) {
-  if (totalResults === 0) {
-    refs.errorNotification.classList.remove('is-hiden');
-  } else {
-    refs.errorNotification.classList.add('is-hiden');
-  }
-}
-export { errorNotification };
