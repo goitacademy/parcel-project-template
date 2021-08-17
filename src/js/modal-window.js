@@ -78,20 +78,25 @@ async function fetchMovieByID(id) {
     const movieResponse = await axios.get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`,
     );
-    const movie = await movieResponse.data;
+    const movie = await movieResponse.data; //получили из бекенда обьект фильма
+    const objectMovie = getMovieObject(movie); //вытянули нужные свойства из полученого из бекенда обьекта
 
-    modalContent.innerHTML = renderMovieModalCard(movie); //  рендерим разметку карточки фильма и вставляем в модалку
+    modalContent.innerHTML = renderMovieModalCard(objectMovie); //  рендерим разметку карточки фильма и вставляем в модалку
 
     // возможность добавлять и удалять фильмы в свою библиотеку
-    myMovieLibrary();
+    myMovieLibrary(objectMovie);
   } catch (error) {
     console.error(error);
   }
 }
 
-// ========================================= РЕНДЕРИНГ МОДАЛКИ ========================================
-// эта функция рендерит разметку карточки фильма в модалке
-function renderMovieModalCard(movie_obj) {
+// ============= вытянуть нужные свойства из полученого из бекенда обьекта ====================
+function getMovieObject(movieFromBackend) {
+  // из полученного по запросу фильма формируем обьект из его свойств для 2ух целей:
+  // 1) из него заполняем шаблон на модалке
+  // 2) этот обьект сохраняется в localStorage, если пользователь сохраняет фильм, и
+  // потом из него заполняется шаблон карточек фильмов в библиотеке пользователя
+
   // функция получения жанров фильма из детального запроса (немного отличается от получения жанров для карточек фильмов, так как жанры приходят с названиями уже)
   function movieGenres(film) {
     const genres = [];
@@ -111,29 +116,30 @@ function renderMovieModalCard(movie_obj) {
     return movieDateRelease;
   }
 
-  // из полученного по запросу фильма формируем обьект из его свойств для 2ух целей:
-  // 1) из него заполняем шаблон на модалке
-  // 2) этот обьект сохраняется в localStorage, если пользователь сохраняет фильм, и
-  // потом из него заполняется шаблон карточек фильмов в библиотеке пользователя
-  const objectForRendering = {
-    id: movie_obj.id,
-    release_date: dateRelease(movie_obj),
-    poster: movie_obj.poster_path,
-    title: movie_obj.title,
-    vote: movie_obj.vote_average,
-    votes: movie_obj.vote_count,
-    popularity: movie_obj.popularity,
-    original_title: movie_obj.original_title,
-    genres: movieGenres(movie_obj),
-    about: movie_obj.overview,
+  const objectForRenderingAndSaveInLocalStorage = {
+    id: movieFromBackend.id,
+    release_date: dateRelease(movieFromBackend),
+    poster: movieFromBackend.poster_path,
+    title: movieFromBackend.title,
+    vote: movieFromBackend.vote_average,
+    votes: movieFromBackend.vote_count,
+    popularity: movieFromBackend.popularity,
+    original_title: movieFromBackend.original_title,
+    genres: movieGenres(movieFromBackend),
+    about: movieFromBackend.overview,
   };
-  const markup = modalTemplate(objectForRendering);
+  return objectForRenderingAndSaveInLocalStorage;
+}
+// =================================== РЕНДЕРИНГ МОДАЛКИ ========================================
+// эта функция рендерит разметку карточки фильма в модалке
+function renderMovieModalCard(movie_obj) {
+  const markup = modalTemplate(movie_obj);
   return markup;
 }
 
 // ======================================== LIBRARY ===========================================
 // главная функция библиотеки, дает возможность добавлять и удалять фильмы в свою библиотеку
-function myMovieLibrary() {
+function myMovieLibrary(movie_obj) {
   //получить ссылки на кнопки
   const watchedBtn = document.querySelector('[data-category="watched"]');
   const queueBtn = document.querySelector('[data-category="queue"]');
