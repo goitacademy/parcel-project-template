@@ -6,6 +6,7 @@ import modalWindow from './modal-window';
 
 const galleryUrl = document.querySelector('.movies');
 const inputUrl = document.querySelector('.film-search-input');
+const alert =  document.querySelector('.error-message');
 
 const DEBOUNCE_DELAY = 500;
 
@@ -21,11 +22,15 @@ class FeatchMovie {
         `https://api.themoviedb.org/3/search/movie?api_key=eb0d0367818cd79735feb2881fbbeeec&query=${this.name}&page=${this.page}`,
       );
       const movie = await response.data.results;
-
-      renderImgCard(movie);
+      if (movie.length > 0) {renderImgCard(movie);
       const totalResults = await response.data.total_results;
       pagination.setTotalItems(totalResults);
-      modalWindow();
+        modalWindow();
+        alert.classList.add('is-hiden');
+      } else {
+        alert.classList.remove('is-hiden');
+      }
+
     } catch (error) {
       console.error(error);
     }
