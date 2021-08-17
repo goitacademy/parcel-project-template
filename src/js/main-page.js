@@ -36,11 +36,11 @@ function movieGenres(movies) {
   let genreText = [];
   genres.map(genre => {
     if (movies.genre_ids.includes(genre.id)) {
-      genreText.push(genre.name);
+      genreText.push(` ${genre.name}`);
     }
   });
   if (genreText.length > 3) {
-    genreText.splice(2, genreText.length - 2, 'Other');
+    genreText.splice(2, genreText.length - 2, ' Other');
   }
   return genreText;
 }
