@@ -1,3 +1,5 @@
+import watchedMovies from 
+
 const refs = {
   header: document.querySelector('#header'),
   libraryNavigationBtn: document.querySelector('#library-navigation-btn'),
@@ -19,6 +21,7 @@ function onLibraryNavigationBtnClick() {
   refs.header.classList.remove('main-header-overlay');
   refs.header.classList.add('library-haeder-overlay');
   refs.libraryNavigation.classList.remove('is-hiden');
+  watchedMovies();
 }
 
 function onMainHeaderNavigationClick() {

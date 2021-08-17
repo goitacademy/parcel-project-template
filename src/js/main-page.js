@@ -51,7 +51,7 @@ export async function renderImgCard(movies) {
       movie.poster = movie.poster_path;
       movie.name = movie.original_title;
       movie.genre = movieGenres(movie);
-      movie.relise = dateRelease(movie);
+      movie.release = dateRelease(movie);
       return movieTemplate(movie);
     })
     .join('');

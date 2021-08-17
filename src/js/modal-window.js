@@ -1,7 +1,9 @@
 import modalTemplate from '../templates/modal-card.hbs';
+import movieTemplate from '../templates/movie-card.hbs';
+import myMovieLibrary from './library';
 const axios = require('axios').default;
 
-// главная функция для модалки ================================================================================== //
+// =============================== MODAL WINDOW ====================================== //
 export default function modalWindow() {
   const movieCards = document.querySelectorAll('[data-id]');
   const modalW = document.querySelector('.js-modal');
@@ -13,7 +15,7 @@ export default function modalWindow() {
     movie.addEventListener('click', onMovieClick);
   });
 
-  // обработчик клика по карточке фильма
+  // ===== обработчик клика по карточке фильма =====
   function onMovieClick(event) {
     event.preventDefault();
 
@@ -28,8 +30,7 @@ export default function modalWindow() {
     modalOpen();
   }
 
-  // ====================================================================
-  // реализация функции открытия модалки при клике по карточке фильма
+  // реализация открытия модалки при клике по карточке фильма ===================
   function modalOpen() {
     modalW.classList.add('is-open');
     document.body.classList.add('is-blocked'); // убирает скролл при открытой модалке
@@ -84,7 +85,7 @@ async function fetchMovieByID(id) {
     modalContent.innerHTML = renderMovieModalCard(objectMovie); //  рендерим разметку карточки фильма и вставляем в модалку
 
     // возможность добавлять и удалять фильмы в свою библиотеку
-    myMovieLibrary(objectMovie);
+    myMovieLibrary(objectMovie, id);
   } catch (error) {
     console.error(error);
   }
@@ -104,8 +105,8 @@ function getMovieObject(movieFromBackend) {
       genres.push(g.name);
     });
     return genres.length > 3
-      ? genres.splice(2, genres.length - 2, 'Other').join(' ')
-      : genres.join(' ');
+      ? genres.splice(2, genres.length - 2, 'Other').join(', ')
+      : genres.join(', ');
   }
   //функция, чтобы получить год выпуска фильма из свойства release_data
   function dateRelease(movies) {
@@ -118,14 +119,14 @@ function getMovieObject(movieFromBackend) {
 
   const objectForRenderingAndSaveInLocalStorage = {
     id: movieFromBackend.id,
-    release_date: dateRelease(movieFromBackend),
+    release: dateRelease(movieFromBackend),
     poster: movieFromBackend.poster_path,
     title: movieFromBackend.title,
     vote: movieFromBackend.vote_average,
     votes: movieFromBackend.vote_count,
     popularity: movieFromBackend.popularity,
-    original_title: movieFromBackend.original_title,
-    genres: movieGenres(movieFromBackend),
+    name: movieFromBackend.original_title,
+    genre: movieGenres(movieFromBackend),
     about: movieFromBackend.overview,
   };
   return objectForRenderingAndSaveInLocalStorage;
@@ -135,13 +136,4 @@ function getMovieObject(movieFromBackend) {
 function renderMovieModalCard(movie_obj) {
   const markup = modalTemplate(movie_obj);
   return markup;
-}
-
-// ======================================== LIBRARY ===========================================
-// главная функция библиотеки, дает возможность добавлять и удалять фильмы в свою библиотеку
-function myMovieLibrary(movie_obj) {
-  //получить ссылки на кнопки
-  const watchedBtn = document.querySelector('[data-category="watched"]');
-  const queueBtn = document.querySelector('[data-category="queue"]');
-  console.log('кнопки: ', watchedBtn, queueBtn);
 }
