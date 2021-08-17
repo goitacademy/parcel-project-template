@@ -14,6 +14,10 @@ const refs = {
   watchedGalleryList: document.querySelector('.watched-gallery'),
   queueGalleryList: document.querySelector('.queue-gallery'),
 };
+console.log(refs.searchForm);
+console.log(refs.homeGalleryList);
+console.log(refs.watchedGalleryList);
+console.log(refs.queueGalleryList);
 
 refs.libraryNavigationBtn.addEventListener('click', onLibraryNavigationBtnClick);
 refs.filmoteca.addEventListener('click', onMainHeaderNavigationClick);
@@ -25,7 +29,10 @@ function onLibraryNavigationBtnClick() {
   refs.header.classList.remove('main-header-overlay');
   refs.header.classList.add('library-haeder-overlay');
   refs.libraryNavigation.classList.remove('is-hiden');
-  // refs.homeGalleryUrl
+  console.log(refs.homeGalleryList);
+  refs.homeGalleryList.style.display = 'none';
+  // refs.watchedGalleryList.classList.remove('is-hiden');
+  // refs.queueGalleryList.classList.remove('is-hiden');
   watchedMovies();
   modalWindow();
 }

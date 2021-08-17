@@ -18,7 +18,7 @@ pagination.on('afterMove', onPaginationClick);
 
 function onPaginationClick(event) {
   const currentPage = event.page;
-  // galleryUrl.innerHTML = '';
+  homeGalleryList.innerHTML = '';
 
   if (featchMovie.query === '') {
     fetchMovieCards(currentPage);
