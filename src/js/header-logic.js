@@ -10,14 +10,14 @@ const refs = {
   libraryNavigation: document.querySelector('.library-navigation'),
   homeNavigatiomBtn: document.querySelector('#home-navigatiom-btn'),
   errorNotification: document.querySelector('.error-message'),
-  homeGalleryList: document.querySelector('.home-gallery'),
-  watchedGalleryList: document.querySelector('.watched-gallery'),
-  queueGalleryList: document.querySelector('.queue-gallery'),
+  // homeGalleryList: document.querySelector('.home-gallery'),
+  // watchedGalleryList: document.querySelector('.watched-gallery'),
+  // queueGalleryList: document.querySelector('.queue-gallery'),
 };
-console.log(refs.searchForm);
-console.log(refs.homeGalleryList);
-console.log(refs.watchedGalleryList);
-console.log(refs.queueGalleryList);
+// console.log(refs.searchForm);
+// console.log(refs.homeGalleryList);
+// console.log(refs.watchedGalleryList);
+// console.log(refs.queueGalleryList);
 
 refs.libraryNavigationBtn.addEventListener('click', onLibraryNavigationBtnClick);
 refs.filmoteca.addEventListener('click', onMainHeaderNavigationClick);
@@ -29,8 +29,8 @@ function onLibraryNavigationBtnClick() {
   refs.header.classList.remove('main-header-overlay');
   refs.header.classList.add('library-haeder-overlay');
   refs.libraryNavigation.classList.remove('is-hiden');
-  console.log(refs.homeGalleryList);
-  refs.homeGalleryList.style.display = 'none';
+  // console.log(refs.homeGalleryList);
+  // refs.homeGalleryList.classList.add('is-hiden');
   // refs.watchedGalleryList.classList.remove('is-hiden');
   // refs.queueGalleryList.classList.remove('is-hiden');
   watchedMovies();

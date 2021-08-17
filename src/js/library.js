@@ -1,28 +1,17 @@
 import movieTemplate from '../templates/movie-card.hbs';
 import modalWindow from './modal-window';
 
-const watchedGalleryList = document.querySelector('.watched-gallery');
+const homeGalleryList = document.querySelector('.home-gallery');
 let watchedArray = Array.isArray(JSON.parse(localStorage.getItem('watched')))
   ? JSON.parse(localStorage.getItem('watched'))
   : [];
-// export function libraryCheck(id) {
-//   const savedMovie = localStorage.getItem(id);
-//   if (savedMovie) {
-//     const markupLibrary = movieTemplate(JSON.parse(savedMovie));
-//   }
-// }
 
 export function watchedMovies() {
-  // загрузить список просмотренных
-  //   let watchedArray = Array.isArray(JSON.parse(localStorage.getItem('watched')))
-  //     ? JSON.parse(localStorage.getItem('watched'))
-  //     : [];
-
   const ArrayForRendering = watchedArray.map(el => Object.values(el));
   const watchedMarkup = ArrayForRendering.flat()
     .map(el => movieTemplate(el))
     .join('');
-  watchedGalleryList.innerHTML = watchedMarkup;
+  homeGalleryList.innerHTML = watchedMarkup;
   console.log('это загрузка библиотеки');
 }
 
