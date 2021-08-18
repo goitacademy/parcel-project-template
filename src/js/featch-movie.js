@@ -4,10 +4,10 @@ import { renderImgCard } from './main-page';
 import { pagination } from './pagination';
 import modalWindow from './modal-window';
 
-const galleryUrl = document.querySelector('.movies');
+
 const inputUrl = document.querySelector('#search-form');
 const alert =  document.querySelector('.error-message');
-
+const container = document.getElementById('pagination');
 
 class FeatchMovie {
   constructor() {
@@ -26,8 +26,10 @@ class FeatchMovie {
       pagination.setTotalItems(totalResults);
         modalWindow();
         alert.classList.add('is-hiden');
+        container.classList.remove('is-hiden');
       } else {
         alert.classList.remove('is-hiden');
+        container.classList.add('is-hiden');
       }
 
     } catch (error) {
