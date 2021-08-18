@@ -1,17 +1,27 @@
 import movieTemplate from '../templates/movie-card.hbs';
 import modalWindow from './modal-window';
+import getMoviesFromLocalStorage from './getMoviesListFromLocalStorage';
+import { buttonValues } from './modalButtonsValues';
 
-const homeGalleryList = document.querySelector('.home-gallery');
-let watchedArray = Array.isArray(JSON.parse(localStorage.getItem('watched')))
-  ? JSON.parse(localStorage.getItem('watched'))
-  : [];
+const watchedGalleryList = document.querySelector('.watched-gallery');
 
+// получить список фильмов из localStorsge
+export let watchedArray = getMoviesFromLocalStorage('watched');
+export let queueArray = getMoviesFromLocalStorage('queue');
+
+// ========== функция отображения вкладки WATCHED ======e====
 export function watchedMovies() {
   const ArrayForRendering = watchedArray.map(el => Object.values(el));
+  // выводим сообщение, если в библиотеке нет фильмов
+  if (!ArrayForRendering.length) {
+    watchedGalleryList.innerHTML = `<div style="display: block; width: 100%; min-height: 50px;">Список просмотренных фильмов пуст...</div>`;
+    return;
+  }
+  // если есть фильмы, создаём и рендерим разметку
   const watchedMarkup = ArrayForRendering.flat()
     .map(el => movieTemplate(el))
     .join('');
-  homeGalleryList.innerHTML = watchedMarkup;
+  watchedGalleryList.innerHTML = watchedMarkup;
   console.log('это загрузка библиотеки');
 }
 
@@ -19,16 +29,7 @@ export function watchedMovies() {
 // ========================================  L I B R A R Y  ===================================
 // ============================================================================================
 // главная функция библиотеки, дает возможность добавлять и удалять фильмы в свою библиотеку
-export function myMovieLibrary(movie_obj, id) {
-  //получить ссылки на кнопки
-  const watchedBtn = document.querySelector('[data-category="watched"]');
-  const queueBtn = document.querySelector('[data-category="queue"]');
-
-  //   let watchedArray = Array.isArray(JSON.parse(localStorage.getItem('watched')))
-  //     ? JSON.parse(localStorage.getItem('watched'))
-  //     : [];
-  let queueArray = [];
-
+export function myMovieLibrary(movie_obj, id, watchedBtn, queueBtn) {
   watchedBtn.addEventListener('click', () => {
     console.log('кнопка ADD: ');
     addToWatched(watchedArray, id);

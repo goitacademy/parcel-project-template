@@ -1,5 +1,8 @@
 import modalTemplate from '../templates/modal-card.hbs';
 import { myMovieLibrary } from './library';
+import { libraryWatchedCheck, libraryQueueCheck } from './libraryCheck';
+import { buttonValues } from './modalButtonsValues';
+
 const axios = require('axios').default;
 
 // =============================== MODAL WINDOW ====================================== //
@@ -20,10 +23,42 @@ export default function modalWindow() {
 
     const MOVIE_ID = event.currentTarget.dataset.id; // получить ID фильма из data-атрибута карточки фильма (<li data-id="">)
 
-    // функция fetchMovieByID(MOVIE_ID) делает запрос по ID за более детальной информацией о фильме,
-    // получает обьект с детальной информацией
-    // рендерит разметку и вставляет её в модалку  (вся логика ниже)
-    fetchMovieByID(MOVIE_ID);
+    // проверяем, есть ли такой фильм в библиотеке, чтобы не делать запрос на сервер лишний раз
+    // и чтобы правильно отрисовать содержимое кнопок
+    const movieWatchedObj = libraryWatchedCheck(MOVIE_ID);
+    const movieQueueObj = libraryQueueCheck(MOVIE_ID);
+
+    const objForRendering = movieWatchedObj || movieQueueObj;
+    if (objForRendering) {
+      const modalContent = document.querySelector('.modal__content');
+
+      modalContent.innerHTML = renderMovieModalCard(objForRendering); // рендерим модалку из полученого из localStorage фильма
+
+      // получить ссылки на кнопки
+      const watchedBtn = document.querySelector('[data-category="watched"]');
+      const queueBtn = document.querySelector('[data-category="queue"]');
+
+      // устанавливаем значения кнопок
+      if (movieWatchedObj) {
+        watchedBtn.innerHTML = buttonValues.watchedRemove;
+      } else {
+        watchedBtn.innerHTML = buttonValues.watchedAdd;
+      }
+
+      if (movieQueueObj) {
+        queueBtn.innerHTML = buttonValues.queueRemove;
+      } else {
+        queueBtn.innerHTML = buttonValues.queueAdd;
+      }
+
+      // возможность добавлять, удалять фильмы из библиотеки
+      myMovieLibrary(objForRendering, MOVIE_ID, watchedBtn, queueBtn);
+    } else {
+      // функция fetchMovieByID(MOVIE_ID) делает запрос по ID за более детальной информацией о фильме,
+      // получает обьект с детальной информацией
+      // рендерит разметку и вставляет её в модалку  (вся логика ниже)
+      fetchMovieByID(MOVIE_ID);
+    }
 
     // открытие модалки при клике по карточке фильма
     modalOpen();
@@ -83,8 +118,16 @@ async function fetchMovieByID(id) {
 
     modalContent.innerHTML = renderMovieModalCard(objectMovie); //  рендерим разметку карточки фильма и вставляем в модалку
 
+    // получить ссылки на кнопки
+    const watchedBtn = document.querySelector('[data-category="watched"]');
+    const queueBtn = document.querySelector('[data-category="queue"]');
+
+    // устанавливаем значения кнопок
+    watchedBtn.innerHTML = buttonValues.watchedAdd;
+    queueBtn.innerHTML = buttonValues.queueAdd;
+
     // возможность добавлять и удалять фильмы в свою библиотеку
-    myMovieLibrary(objectMovie, id);
+    myMovieLibrary(objectMovie, id, watchedBtn, queueBtn);
   } catch (error) {
     console.error(error);
   }
