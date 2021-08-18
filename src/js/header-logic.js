@@ -1,7 +1,7 @@
 import watchedMovies from './watchedMovies';
 import queueMovies from './queueMovies';
 import modalWindow from './modal-window';
-import { watchedArray, queueArray } from './library';
+import { newWatchedArray, newQueueArray, paginationWatched, paginationQueue } from './library';
 
 const refs = {
   header: document.querySelector('#header'),
@@ -17,6 +17,9 @@ const refs = {
   queueGalleryList: document.querySelector('.queue-gallery'),
   watchedButton: document.querySelector('.watched'),
   queueButton: document.querySelector('.queue'),
+  containerWatched: document.getElementById('pagination__watched'),
+  container: document.getElementById('pagination'),
+  containerQueue : document.getElementById('pagination__queue'),
 };
 
 refs.libraryNavigationBtn.addEventListener('click', onLibraryNavigationBtnClick);
@@ -38,8 +41,10 @@ function onLibraryNavigationBtnClick() {
   refs.watchedButton.classList.add('btn--active');
   refs.homeGalleryList.classList.add('is-hiden');
   refs.watchedGalleryList.classList.remove('is-hiden');
+  refs.containerWatched.classList.remove('is-hiden');
+  refs.container.classList.add('is-hiden');
   // refs.queueGalleryList.classList.remove('is-hiden');
-  watchedMovies(watchedArray);
+  watchedMovies(newWatchedArray[0]);
   modalWindow();
 }
 
@@ -53,6 +58,8 @@ function onMainHeaderNavigationClick() {
   refs.homeGalleryList.classList.remove('is-hiden');
   refs.watchedGalleryList.classList.add('is-hiden');
   refs.queueGalleryList.classList.add('is-hiden');
+  refs.containerWatched.classList.add('is-hiden');
+  refs.container.classList.remove('is-hiden');
 }
 
 function onWatchedBtnClick() {
@@ -60,9 +67,11 @@ function onWatchedBtnClick() {
   refs.watchedButton.classList.add('btn--active');
   refs.watchedGalleryList.classList.remove('is-hiden');
   refs.queueGalleryList.classList.add('is-hiden');
-
-  watchedMovies(watchedArray);
+  refs.containerWatched.classList.remove('is-hiden');
+  refs.containerQueue.classList.add('is-hiden');
+  watchedMovies(newWatchedArray[0]);
   modalWindow();
+  paginationWatched.movePageTo(1);
 }
 
 function onQueueBtnClick() {
@@ -70,7 +79,9 @@ function onQueueBtnClick() {
   refs.queueButton.classList.add('btn--active');
   refs.queueGalleryList.classList.remove('is-hiden');
   refs.watchedGalleryList.classList.add('is-hiden');
-
-  queueMovies(queueArray);
+  refs.containerWatched.classList.add('is-hiden');
+  refs.containerQueue.classList.remove('is-hiden');
+  queueMovies(newQueueArray[0]);
   modalWindow();
+  paginationQueue.movePageTo(1);
 }
