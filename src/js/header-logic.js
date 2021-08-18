@@ -1,5 +1,6 @@
-import { watchedMovies } from './library';
+import watchedMovies from './watchedMovies';
 import modalWindow from './modal-window';
+import { watchedArray, queueArray } from './library';
 
 const refs = {
   header: document.querySelector('#header'),
@@ -30,11 +31,10 @@ function onLibraryNavigationBtnClick() {
   refs.errorNotification.classList.add('is-hiden');
 
   refs.watchedButton.classList.add('btn--active');
-  console.log(refs.homeGalleryList);
   refs.homeGalleryList.classList.add('is-hiden');
   refs.watchedGalleryList.classList.remove('is-hiden');
   // refs.queueGalleryList.classList.remove('is-hiden');
-  watchedMovies();
+  watchedMovies(watchedArray);
   modalWindow();
 }
 
