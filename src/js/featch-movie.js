@@ -1,14 +1,13 @@
-let debounce = require('lodash.debounce');
+
 const axios = require('axios').default;
 import { renderImgCard } from './main-page';
 import { pagination } from './pagination';
 import modalWindow from './modal-window';
 
 const galleryUrl = document.querySelector('.movies');
-const inputUrl = document.querySelector('.film-search-input');
+const inputUrl = document.querySelector('#search-form');
 const alert =  document.querySelector('.error-message');
 
-const DEBOUNCE_DELAY = 500;
 
 class FeatchMovie {
   constructor() {
@@ -55,14 +54,14 @@ class FeatchMovie {
 
 export const featchMovie = new FeatchMovie();
 
-inputUrl.addEventListener('input', debounce(onUrlInput, DEBOUNCE_DELAY));
+inputUrl.addEventListener('submit', onUrlInput);
 
 function onUrlInput(e) {
   e.preventDefault();
-  if (e.target.value.trim() === '') {
+  if (e.currentTarget.elements.searchQuery.value.trim() === '') {
     return;
   }
-  featchMovie.query = e.target.value;
+  featchMovie.query = e.currentTarget.elements.searchQuery.value;
 
   pagination.movePageTo(1);
 }
