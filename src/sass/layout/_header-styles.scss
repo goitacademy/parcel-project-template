@@ -78,12 +78,12 @@ img {
 
 .search-icon {
   padding-bottom: 6px;
-  border-bottom: 0.5px solid #ffffff;
   width: 15px;
   height: 15px;
 }
 
 .search-form {
+  position: relative;
   padding: 20px;
   display: flex;
   align-items: flex-end;
@@ -128,9 +128,24 @@ img {
 }
 
 .input-search-button {
+  position: absolute;
+  left: 280px;
+  top: 20px;
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  z-index: 1;
   background: none;
   border: none;
+  @media screen and(min-width: 768px) and (max-width: 1023px) {
+    left: 535px;
+  }
+  @media screen and(min-width: 1024px) {
+    left: 660px;
+  }
 }
+
 .header-logo {
   width: 141px;
   height: 35px;
@@ -254,28 +269,23 @@ img {
   }
 }
 
-.main-header-home-anchor,
-.main-header-library-anchor {
+.active-page {
   display: inline-block;
   color: #ffffff;
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
 }
-.main-header-home-anchor::after,
-.main-header-library-anchor::after {
+.active-page::after {
   background-color: #ff6b08;
   display: block;
   content: '';
   height: 3px;
   border-radius: 2px;
-  width: 0%;
-  -webkit-transition: width 0.1s ease-in-out;
-  -moz--transition: width 0.1s ease-in-out;
-  transition: width 0.1s ease-in-out;
+  width: 100%;
 }
-a:hover:after,
-a:focus:after {
+
+a:active:after {
   width: 100%;
 }
 .error-message {
