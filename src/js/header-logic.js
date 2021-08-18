@@ -29,6 +29,8 @@ refs.queueButton.addEventListener('click', onQueueBtnClick);
 function onLibraryNavigationBtnClick() {
   refs.searchForm.classList.add('is-hiden');
   refs.header.classList.remove('main-header-overlay');
+  refs.homeNavigatiomBtn.classList.remove('active-page');
+  refs.libraryNavigationBtn.classList.add('active-page');
   refs.header.classList.add('library-haeder-overlay');
   refs.libraryNavigation.classList.remove('is-hiden');
   refs.errorNotification.classList.add('is-hiden');
@@ -46,7 +48,8 @@ function onMainHeaderNavigationClick() {
   refs.header.classList.add('main-header-overlay');
   refs.searchForm.classList.remove('is-hiden');
   refs.libraryNavigation.classList.add('is-hiden');
-
+  refs.libraryNavigationBtn.classList.remove('active-page');
+  refs.homeNavigatiomBtn.classList.add('active-page');
   refs.homeGalleryList.classList.remove('is-hiden');
   refs.watchedGalleryList.classList.add('is-hiden');
   refs.queueGalleryList.classList.add('is-hiden');
