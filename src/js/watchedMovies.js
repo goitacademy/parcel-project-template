@@ -7,7 +7,7 @@ export default function watchedMovies(arrFromLocalStorage) {
 
   // выводим сообщение, если в библиотеке нет фильмов
   if (!arrFromLocalStorage.length) {
-    watchedGalleryList.innerHTML = `<div style="display: block; width: 100%; min-height: 50px;">Список просмотренных фильмов пуст...</div>`;
+    watchedGalleryList.innerHTML = `<div style="display: block; width: 100%; min-height: 100px; background-color: pink; display:flex; align-items:center; justify-content:center;">Список просмотренных фильмов пуст...</div>`;
     return;
   }
   // если есть фильмы, создаём и рендерим разметку

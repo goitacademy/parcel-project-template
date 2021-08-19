@@ -7,7 +7,7 @@ export default function queueMovies(arrFromLocalStorage) {
 
   // выводим сообщение, если в библиотеке нет фильмов
   if (!arrFromLocalStorage.length) {
-    queueGalleryList.innerHTML = `<div style="display: block; width: 100%; min-height: 50px;">Список фильмов для просмотра пуст...</div>`;
+    queueGalleryList.innerHTML = `<div style="display: block; width: 100%; min-height: 100px; background-color: pink; display:flex; align-items:center; justify-content:center;">Список фильмов для просмотра пуст...</div>`;
     return;
   }
   // если есть фильмы, создаём и рендерим разметку
