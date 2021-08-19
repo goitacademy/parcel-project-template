@@ -11,6 +11,7 @@ export default function modalWindow() {
   const modalW = document.querySelector('.js-modal');
   const closeBtn = document.querySelector('button[data-action="close-modal"]');
   const overlay = document.querySelector('.modal__overlay');
+  const scrollTop = document.querySelector('#scrollTop');
 
   // добавляет слушатель клика по карточке фильма
   movieCards.forEach(movie => {
@@ -68,6 +69,7 @@ export default function modalWindow() {
   function modalOpen() {
     modalW.classList.add('is-open');
     document.body.classList.add('is-blocked'); // убирает скролл при открытой модалке
+    scrollTop.classList.add('visually-hidden');
 
     //слушатели для закрытия модалки
     closeBtn.addEventListener('click', modalClose);
@@ -80,6 +82,7 @@ export default function modalWindow() {
     const modalContent = document.querySelector('.modal__content');
     modalW.classList.remove('is-open');
     document.body.classList.remove('is-blocked');
+    scrollTop.classList.remove('visually-hidden');
     modalContent.innerHTML = '';
 
     //снимаем слушатели закрытия модалки

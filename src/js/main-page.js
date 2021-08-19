@@ -5,6 +5,9 @@ import modalWindow from './modal-window';
 
 const axios = require('axios').default;
 const homeGalleryList = document.querySelector('.home-gallery');
+const containerWatched = document.getElementById('pagination__watched');
+const containerQueue = document.getElementById('pagination__queue');
+
 
 export default async function fetchMovieCards() {
   try {
@@ -13,11 +16,14 @@ export default async function fetchMovieCards() {
       `https://api.themoviedb.org/3/trending/movie/week?api_key=eb0d0367818cd79735feb2881fbbeeec&page=${page}`,
     );
     const movieCards = response.data.results;
-
+    
     const totalResults = await response.data.total_results;
     pagination.setTotalItems(totalResults);
     renderImgCard(movieCards);
     modalWindow();
+
+    containerWatched.classList.add('is-hiden');
+    containerQueue.classList.add('is-hiden');
   } catch (error) {
     console.error(error);
   }
