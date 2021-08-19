@@ -52,7 +52,6 @@ export function myMovieLibrary(movie_obj, id, watchedBtn, queueBtn) {
 
   queueBtn.addEventListener('click', () => {
     const value = queueBtn.innerHTML.toLowerCase();
-    console.log(value);
     if (value == buttonValues.queueAdd) {
       queueBtn.innerHTML = buttonValues.queueRemove;
       addToQueue(queueArray, id);
@@ -74,11 +73,8 @@ export function myMovieLibrary(movie_obj, id, watchedBtn, queueBtn) {
     if (!watchedArray.some(el => Object.keys(el).includes(id))) {
       watchedArray.push({ [id]: movie_obj });
       localStorage.setItem('watched', JSON.stringify(watchedArray));
-    for (let i = 0; i <Math.ceil(watchedArray.length/size); i++){ 
-    newWatchedArray[i] = watchedArray.slice((i*size), (i*size) + size); 
-}
-}
-    console.log('добавили фильм');
+      createPagesElementsForLibrary(watchedArray, newWatchedArray);
+    }
     paginationWatched.reset(watchedArray.length);
   }
 
@@ -91,9 +87,7 @@ export function myMovieLibrary(movie_obj, id, watchedBtn, queueBtn) {
         localStorage.setItem('watched', JSON.stringify(watchedArray));
       }
     }
-    for (let i = 0; i <Math.ceil(watchedArray.length/size); i++){ 
-    newWatchedArray[i] = watchedArray.slice((i*size), (i*size) + size); 
-}
+    createPagesElementsForLibrary(watchedArray, newWatchedArray);
     paginationWatched.reset(watchedArray.length);
   }
 
@@ -103,10 +97,7 @@ export function myMovieLibrary(movie_obj, id, watchedBtn, queueBtn) {
     if (!queueArray.some(el => Object.keys(el).includes(id))) {
       queueArray.push({ [id]: movie_obj });
       localStorage.setItem('queue', JSON.stringify(queueArray));
-      for (let i = 0; i <Math.ceil(queueArray.length/size); i++){ 
-    newQueueArray[i] = queueArray.slice((i*size), (i*size) + size); 
-}
-
+      createPagesElementsForLibrary(queueArray, newQueueArray);
     }
     paginationQueue.reset(queueArray.length);
   }
@@ -121,31 +112,22 @@ export function myMovieLibrary(movie_obj, id, watchedBtn, queueBtn) {
       }
     }
     paginationQueue.reset(queueArray.length);
-for (let i = 0; i <Math.ceil(queueArray.length/size); i++){ 
-    newQueueArray[i] = queueArray.slice((i*size), (i*size) + size); 
-}
-
+    createPagesElementsForLibrary(queueArray, newQueueArray);
   }
 }
 paginationWatched.reset(watchedArray.length);
 paginationQueue.reset(queueArray.length);
 
 // Разбивка для Watched
-
-for (let i = 0; i < Math.ceil(watchedArray.length / size); i++) {
-  newWatchedArray[i] = watchedArray.slice(i * size, i * size + size);
-}
+createPagesElementsForLibrary(watchedArray, newWatchedArray);
 
 // Разбивка для Queue
-
-for (let i = 0; i < Math.ceil(queueArray.length / size); i++) {
-  newQueueArray[i] = queueArray.slice(i * size, i * size + size);
-}
+createPagesElementsForLibrary(queueArray, newQueueArray);
 
 paginationWatched.on('afterMove', onPaginationWatchedClick);
 
 function onPaginationWatchedClick(event) {
-window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
   const currentWatchedPage = event.page;
   watchedMovies(newWatchedArray[currentWatchedPage - 1]);
   modalWindow();
@@ -159,4 +141,16 @@ function onPaginationQueueClick(event) {
   const currentQueuePage = event.page;
   queueMovies(newQueueArray[currentQueuePage - 1]);
   modalWindow();
+}
+
+function createPagesElementsForLibrary(array, newArray) {
+  let size = 9;
+  if (!array.length) {
+    newArray[0] = [];
+    return;
+  }
+  for (let i = 0; i < Math.ceil(array.length / size); i++) {
+    newArray[i] = array.slice(i * size, i * size + size);
+  }
+  return newArray;
 }
