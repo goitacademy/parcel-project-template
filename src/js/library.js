@@ -8,6 +8,11 @@ import Pagination from 'tui-pagination';
 
 const containerWatched = document.getElementById('pagination__watched');
 const containerQueue = document.getElementById('pagination__queue');
+
+let size = 9;
+export let newWatchedArray = [];
+export let newQueueArray = [];
+
 // Пагинация дла Watched
 export const paginationWatched = new Pagination(containerWatched, {
   itemsPerPage: 9,
@@ -34,13 +39,13 @@ export function myMovieLibrary(movie_obj, id, watchedBtn, queueBtn) {
     if (value == buttonValues.watchedAdd) {
       watchedBtn.innerHTML = buttonValues.watchedRemove;
       addToWatched(watchedArray, id);
-      watchedMovies(watchedArray);
+      watchedMovies(newWatchedArray[0]);
       modalWindow();
     }
     if (value == buttonValues.watchedRemove) {
       watchedBtn.innerHTML = buttonValues.watchedAdd;
       removeFromWatched(watchedArray, id, movie_obj);
-      watchedMovies(watchedArray);
+      watchedMovies(newWatchedArray[0]);
       modalWindow();
     }
   });
@@ -51,13 +56,13 @@ export function myMovieLibrary(movie_obj, id, watchedBtn, queueBtn) {
     if (value == buttonValues.queueAdd) {
       queueBtn.innerHTML = buttonValues.queueRemove;
       addToQueue(queueArray, id);
-      queueMovies(queueArray);
+      queueMovies(newQueueArray[0]);
       modalWindow();
     }
     if (value == buttonValues.queueRemove) {
       queueBtn.innerHTML = buttonValues.queueAdd;
       removeFromQueue(queueArray, id, movie_obj);
-      queueMovies(queueArray);
+      queueMovies(newQueueArray[0]);
       modalWindow();
     }
   });
@@ -69,7 +74,10 @@ export function myMovieLibrary(movie_obj, id, watchedBtn, queueBtn) {
     if (!watchedArray.some(el => Object.keys(el).includes(id))) {
       watchedArray.push({ [id]: movie_obj });
       localStorage.setItem('watched', JSON.stringify(watchedArray));
-    }
+    for (let i = 0; i <Math.ceil(watchedArray.length/size); i++){ 
+    newWatchedArray[i] = watchedArray.slice((i*size), (i*size) + size); 
+}
+}
     console.log('добавили фильм');
     paginationWatched.reset(watchedArray.length);
   }
@@ -83,6 +91,9 @@ export function myMovieLibrary(movie_obj, id, watchedBtn, queueBtn) {
         localStorage.setItem('watched', JSON.stringify(watchedArray));
       }
     }
+    for (let i = 0; i <Math.ceil(watchedArray.length/size); i++){ 
+    newWatchedArray[i] = watchedArray.slice((i*size), (i*size) + size); 
+}
     paginationWatched.reset(watchedArray.length);
   }
 
@@ -92,6 +103,10 @@ export function myMovieLibrary(movie_obj, id, watchedBtn, queueBtn) {
     if (!queueArray.some(el => Object.keys(el).includes(id))) {
       queueArray.push({ [id]: movie_obj });
       localStorage.setItem('queue', JSON.stringify(queueArray));
+      for (let i = 0; i <Math.ceil(queueArray.length/size); i++){ 
+    newQueueArray[i] = queueArray.slice((i*size), (i*size) + size); 
+}
+
     }
     paginationQueue.reset(queueArray.length);
   }
@@ -106,6 +121,10 @@ export function myMovieLibrary(movie_obj, id, watchedBtn, queueBtn) {
       }
     }
     paginationQueue.reset(queueArray.length);
+for (let i = 0; i <Math.ceil(queueArray.length/size); i++){ 
+    newQueueArray[i] = queueArray.slice((i*size), (i*size) + size); 
+}
+
   }
 }
 paginationWatched.reset(watchedArray.length);
@@ -127,14 +146,7 @@ for (let i = 0; i < Math.ceil(queueArray.length / size); i++) {
 paginationWatched.on('afterMove', onPaginationWatchedClick);
 
 function onPaginationWatchedClick(event) {
-  let mask = document.querySelector('.mask');
-
-  mask.classList.remove('hide');
-  mask.style.display = 'flex';
-  setTimeout(() => {
-    mask.style.display = 'none';
-  }, 600);
-
+window.scrollTo(0, 0);
   const currentWatchedPage = event.page;
   watchedMovies(newWatchedArray[currentWatchedPage - 1]);
   modalWindow();
@@ -143,13 +155,7 @@ function onPaginationWatchedClick(event) {
 paginationQueue.on('afterMove', onPaginationQueueClick);
 
 function onPaginationQueueClick(event) {
-  let mask = document.querySelector('.mask');
-
-  mask.classList.remove('hide');
-  mask.style.display = 'flex';
-  setTimeout(() => {
-    mask.style.display = 'none';
-  }, 600);
+  window.scrollTo(0, 0);
 
   const currentQueuePage = event.page;
   queueMovies(newQueueArray[currentQueuePage - 1]);
