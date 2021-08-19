@@ -2,7 +2,6 @@ import watchedMovies from './watchedMovies';
 import queueMovies from './queueMovies';
 import modalWindow from './modal-window';
 import { newWatchedArray, newQueueArray, paginationWatched, paginationQueue } from './library';
-import fetchMovieCards from './main-page';
 
 const refs = {
   header: document.querySelector('#header'),
@@ -62,7 +61,6 @@ function onMainHeaderNavigationClick() {
   refs.containerWatched.classList.add('is-hiden');
   refs.container.classList.remove('is-hiden');
   // сссс
-  // fetchMovieCards();
   refs.queueButton.classList.remove('btn--active');
   refs.queueGalleryList.classList.add('is-hiden');
   refs.containerQueue.classList.add('is-hiden');
