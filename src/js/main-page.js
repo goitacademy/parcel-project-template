@@ -50,10 +50,21 @@ function movieGenres(movies) {
   return genreText;
 }
 
+function moviePoster(movies) {
+  let posterAlt = "";
+  if (movies.poster_path) {
+    posterAlt=`https://image.tmdb.org/t/p/original${movies.poster_path}`
+   
+  } else {
+    posterAlt='https://lh3.googleusercontent.com/proxy/JSkfV3nWf1GRKPX0AqB1CcpRxA8i7Izz6OPx4raPggPeiNi4vbVkHHC-9IwgfAKOKl_UGlHnp4iIfDiXArX-1wX2b18ukwp576M2253sDtEIFYt6qpCLZTFSMqweZd-pcpMUhfw';
+  }
+  return posterAlt;
+}
+
 export async function renderImgCard(movies) {
   const markupList = movies
     .map(movie => {
-      movie.poster = movie.poster_path;
+      movie.poster = moviePoster(movie);
       movie.name = movie.original_title;
       movie.genre = movieGenres(movie);
       movie.release = dateRelease(movie);
