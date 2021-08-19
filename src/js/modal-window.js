@@ -161,11 +161,22 @@ function getMovieObject(movieFromBackend) {
     }
     return movieDateRelease;
   }
+  // если не пришёл постер, - вставляем изображение-заглушку
+  function moviePoster(movies) {
+    let posterAlt = '';
+    if (movies.poster_path) {
+      posterAlt = `https://image.tmdb.org/t/p/original${movies.poster_path}`;
+    } else {
+      posterAlt =
+        'https://lh3.googleusercontent.com/proxy/JSkfV3nWf1GRKPX0AqB1CcpRxA8i7Izz6OPx4raPggPeiNi4vbVkHHC-9IwgfAKOKl_UGlHnp4iIfDiXArX-1wX2b18ukwp576M2253sDtEIFYt6qpCLZTFSMqweZd-pcpMUhfw';
+    }
+    return posterAlt;
+  }
 
   const objectForRenderingAndSaveInLocalStorage = {
     id: movieFromBackend.id,
     release: dateRelease(movieFromBackend),
-    poster: movieFromBackend.poster_path,
+    poster: moviePoster(movieFromBackend),
     title: movieFromBackend.title,
     vote: movieFromBackend.vote_average,
     votes: movieFromBackend.vote_count,
