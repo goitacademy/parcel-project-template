@@ -131,14 +131,13 @@ paginationWatched.reset(watchedArray.length);
 paginationQueue.reset(queueArray.length);
 
 // Разбивка для Watched
-let size = 9;
-export let newWatchedArray = [];
+
 for (let i = 0; i < Math.ceil(watchedArray.length / size); i++) {
   newWatchedArray[i] = watchedArray.slice(i * size, i * size + size);
 }
 
 // Разбивка для Queue
-export let newQueueArray = [];
+
 for (let i = 0; i < Math.ceil(queueArray.length / size); i++) {
   newQueueArray[i] = queueArray.slice(i * size, i * size + size);
 }
