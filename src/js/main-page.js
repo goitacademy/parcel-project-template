@@ -4,7 +4,9 @@ import movieTemplate from '../templates/movie-card.hbs';
 import modalWindow from './modal-window';
 
 const axios = require('axios').default;
-const galleryUrl = document.querySelector('.movies');
+const homeGalleryList = document.querySelector('.home-gallery');
+const containerWatched = document.getElementById('pagination__watched');
+const containerQueue = document.getElementById('pagination__queue');
 
 export default async function fetchMovieCards() {
   try {
@@ -18,6 +20,9 @@ export default async function fetchMovieCards() {
     pagination.setTotalItems(totalResults);
     renderImgCard(movieCards);
     modalWindow();
+
+    containerWatched.classList.add('is-hiden');
+    containerQueue.classList.add('is-hiden');
   } catch (error) {
     console.error(error);
   }
@@ -62,12 +67,9 @@ export async function renderImgCard(movies) {
       movie.poster = moviePoster(movie);
       movie.name = movie.original_title;
       movie.genre = movieGenres(movie);
-      movie.relise = dateRelease(movie);
-      console.log(movie);
+      movie.release = dateRelease(movie);
       return movieTemplate(movie);
-      
     })
     .join('');
-  galleryUrl.insertAdjacentHTML('beforeend', markupList);
-  
+  homeGalleryList.insertAdjacentHTML('beforeend', markupList);
 }
