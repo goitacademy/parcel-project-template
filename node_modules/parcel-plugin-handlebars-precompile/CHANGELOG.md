@@ -1,0 +1,52 @@
+# Changelog
+
+All notable changes to parcel-plugin-handlebars-precompile will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and parcel-plugin-handlebars-precompile adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## [1.0.2] - 2020-02-26
+
+### Fixed
+
+* Updated module dependencies to fix vulnerabilities reported by NPM audit
+
+## [1.0.1] - 2019-08-20
+
+### Fixed
+
+* Updated module dependencies to fix vulnerabilities reported by NPM audit
+
+### Note  
+- Fully compatible with `parcel-bundler@1.11.0`  
+- Partially compatible with `parcel-bundler@1.12.x` - source map generation must be disabled eg: `parcel build index.html --no-source-maps`
+
+## [1.0.0] - 2018-10-01
+
+### Changed
+
+* There is now exported only the template function for Handlebars.runtime
+* Hardcoded parcel-bundler dependency to 1.10.1
+* Hardcoded handlebars dependency to 4.0.12
+
+## [0.2.0] - 2018-06-19
+
+### Added
+
+* Add named export of handlebars template function
+* Add type definition for use with typescript
+
+### Changed
+
+* Hardcoded parcel dependency to 1.8.1
+
+## [0.1.1] - 2018-05-23
+
+### Added
+
+* Add github link to package.json
+* Add package files link to package.json
+
+## [0.1.0] - 2018-05-22
+
+Initial release

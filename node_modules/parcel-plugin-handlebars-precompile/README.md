@@ -1,0 +1,57 @@
+# parcel-plugin-handlebars-precompile
+Precompile handlebars templates into javascript allowing them to be imported as a regular javascript source.
+It is up to you how and when the template will be rendered.
+
+# Install
+
+```bash
+npm install --save-dev parcel-plugin-handlebars-precompile
+```
+
+#### NOTE to version 1.0.2  
+- Fully compatible with `parcel-bundler@1.11.0`.  
+- Partially compatible with `parcel-bundler@1.12.x`
+  > source map generation must be disabled eg: `parcel build index.html --no-source-maps`.  
+
+# Usage
+  
+Import your handlebars template:  
+
+```javascript
+// index.js
+import templateFunction from './template.hbs';
+document.body.innerHTML = templateFunction();
+```
+
+Import `index.js` from your `index.html` file:
+
+```html
+<!DOCTYPE html>
+<html>
+  <!-- index.html -->
+  ...
+  <body>
+    <script src="./index.js"></script>
+  </body>
+  ...
+</html>
+```
+
+Run the parcel bundler:  
+
+```bash
+parcel build index.html
+```
+
+With `parcel-bundler@1.12.x` run without sourcemap generation:
+```bash
+parcel index.html --no-source-maps
+```
+build:
+```bash
+parcel build index.html --no-source-maps
+```
+
+# Credits
+ - [Handlebars](https://handlebarsjs.com/) - A templates on steroids.
+ - [Parcel](https://parceljs.org/) - Zero configuration bundler.

@@ -1,0 +1,5 @@
+module.exports = bundler => {
+  // process handlebars files by .hbs and .handlebars extensions
+  bundler.addAssetType('.hbs', require.resolve('./handlebars-asset'));
+  bundler.addAssetType('.handlebars', require.resolve('./handlebars-asset'));
+};
