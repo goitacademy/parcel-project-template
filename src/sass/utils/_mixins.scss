@@ -1,0 +1,29 @@
+@mixin for-phone-only {
+  @media (min-width: 320px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 768px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1024px) { @content; }
+}
+
+
+///////////// Миксин для шрифтов 
+// Первым передаем значение line-height,
+// далее font-size, 
+// font-weight по умолчанию 400
+// font-family по умолчанию - 'Roboto', sans-serif
+
+// То есть, если жирность не отличается передаем только 2 значения:
+// @include font-DM-Sans (12, 16)
+
+// Если жирность отличается то 3 значения:
+// @include font-DM-Sans (12, 16, 500)
+
+@mixin font-DM-Sans ($lh, $fs, $fw:400, $ffamily: var(--main-font)){  
+  line-height: $lh/$fs;
+  font-size: $fs*1px; 
+  font-weight: $fw;     
+  font-family: $ffamily;  
+}
