@@ -1,5 +1,6 @@
 import './sass/main.scss';
 
+import createGalleryMarkup from './js/create-gallery-markup.js';
 import ApiService from './js/api-service.js';
 import showAllert from './js/show-allert.js';
 import modal from './js/modal.js';
@@ -161,3 +162,5 @@ apiService.getMovieByID(id).then(console.log);
 //     "vote_average": 7.5,
 //     "vote_count": 1341
 // }
+
+apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
