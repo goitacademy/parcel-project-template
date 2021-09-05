@@ -12,7 +12,7 @@ let inputQuery = '';
 
 console.log(refs.body)
 
-refs.searchForm.addEventListener('click', getinputQuery);
+refs.searchForm.addEventListener('submit', getinputQuery);
 window.addEventListener('keydown', clearInputEsc);
 //window.addEventListener('keydown', openEnter)
 //refs.body.addEventListener('click', clearInput);
@@ -21,9 +21,9 @@ window.addEventListener('keydown', clearInputEsc);
 function getinputQuery (event){
     event.preventDefault();
 
-    if (event.target !== document.querySelector('.search-icon')){
-    return;
-    }
+    // if (event.target !== document.querySelector('.search-icon')){
+    // return;
+    // }
     
     
     inputQuery = event.currentTarget.elements.input.value;
