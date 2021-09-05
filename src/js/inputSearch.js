@@ -26,6 +26,6 @@ function getinputQuery (event){
 }
 
 function findMovies(query) { 
-    apiService.findMovies(query).then(console.log).then(createGalleryMarkup).catch(showAllert);
+    apiService.findMovies(query).then(createGalleryMarkup).catch(showAllert);
 }
 
