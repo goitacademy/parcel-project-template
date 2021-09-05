@@ -8,5 +8,8 @@ export default function getRefs() {
     checkBox: document.getElementById('theme-switch-toggle'),
     backdrop: document.querySelector('[data-modal]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
+    ulTag: document.querySelector('.pagination_list'),
   };
 }
+
+
