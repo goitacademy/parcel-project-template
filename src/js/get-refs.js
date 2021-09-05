@@ -6,7 +6,7 @@ export default function getRefs() {
     movies: document.querySelector('.movies__colection'),
     containerEl: document.querySelector('.container-js'),
     checkBox: document.getElementById('theme-switch-toggle'),
-    backdrop: document.querySelector('[data-modal]'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
+    closeModalBtn: document.querySelector('.modal__close-btn'),
+    teamLink: document.querySelector('.team__link'),
   };
 }
