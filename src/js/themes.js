@@ -1,7 +1,5 @@
-const refs = {
-  containerEl: document.querySelector('.container-js'),
-  checkBox: document.getElementById('theme-switch-toggle'),
-};
+import getRefs from './get-refs';
+const refs = getRefs();
 
 const Theme = {
   LIGHT: 'light-theme',

@@ -1,10 +1,14 @@
 import './sass/main.scss';
+import modalTpl from './templates/modalTpl.hbs';
+document.body.insertAdjacentHTML('beforeend', modalTpl());
+import getRefs from './js/get-refs';
+const refs = getRefs();
 
 import createGalleryMarkup from './js/create-gallery-markup.js';
 import ApiService from './js/api-service.js';
 import showAllert from './js/show-allert.js';
 import './js/team-modal.js';
-import modal from './js/modal.js';
+import addToWatched from './js/addToWatched';
 import theme from './js/themes.js';
 import genres from './genres.json'; //массив жанров (объектов вида: { "id": 28, "name": "Action" })
 
@@ -166,3 +170,35 @@ apiService.getMovieByID(id).then(console.log);
 // }
 
 apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
+
+function openModal(evt) {
+  console.log(evt.target.classList);
+  if (!evt.target.classList.contains('video-card')) {
+    return;
+  }
+  document.body.classList.toggle('modal-open');
+  refs.backdrop.classList.toggle('is-hidden');
+  window.addEventListener('keydown', closeEscModal);
+}
+
+function closeOnBackdrop(event) {
+  if (event.target === event.currentTarget) {
+    closeModal(event);
+  }
+}
+
+function closeEscModal(event) {
+  const ESC_KEY_CODE = 'Escape';
+  if (event.code === ESC_KEY_CODE) {
+    closeModal();
+  }
+}
+
+function closeModal() {
+  refs.backdrop.classList.toggle('is-hidden');
+  window.removeEventListener('keydown', closeModal);
+}
+
+refs.movies.addEventListener('click', openModal);
+refs.closeModalBtn.addEventListener('click', closeModal);
+refs.backdrop.addEventListener('click', closeOnBackdrop);
