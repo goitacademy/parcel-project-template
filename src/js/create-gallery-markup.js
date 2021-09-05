@@ -5,6 +5,7 @@ const refs = getRefs();
 
 export default function createGalleryMarkup(data) {
   let cardList = [];
+
   cardList = data.map(card => {
     const genreList = [];
     card.genre_ids.forEach(id => {
@@ -18,6 +19,8 @@ export default function createGalleryMarkup(data) {
       backdrop_path: card.backdrop_path,
       poster_path: card.poster_path,
       original_title: card.original_title,
+      release_date: card.release_date.substring(0, 4),
+      vote_average: card.vote_average,
       genres: genreList.join(', '),
       id: card.id,
     };
