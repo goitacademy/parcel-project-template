@@ -7,6 +7,7 @@ const refs = getRefs();
 import createGalleryMarkup from './js/create-gallery-markup.js';
 import ApiService from './js/api-service.js';
 import showAllert from './js/show-allert.js';
+import './js/team-modal.js';
 import addToWatched from './js/addToWatched';
 import theme from './js/themes.js';
 import genres from './genres.json'; //массив жанров (объектов вида: { "id": 28, "name": "Action" })
