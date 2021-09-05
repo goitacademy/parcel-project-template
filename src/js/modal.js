@@ -37,4 +37,3 @@ function closeModal() {
   refs.backdrop.classList.toggle('is-hidden');
   window.removeEventListener('keydown', closeModal);
 }
-
