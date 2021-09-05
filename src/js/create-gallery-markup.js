@@ -1,5 +1,7 @@
 import renderCards from '../templates/gallery.hbs';
 import genres from '../genres.json';
+import getRefs from './get-refs';
+const refs = getRefs();
 
 export default function createGalleryMarkup(data) {
   let cardList = [];
@@ -20,5 +22,5 @@ export default function createGalleryMarkup(data) {
       id: card.id,
     };
   });
-  document.querySelector('.movies__colection').innerHTML = renderCards(cardList);
+  refs.movies.innerHTML = renderCards(cardList);
 }
