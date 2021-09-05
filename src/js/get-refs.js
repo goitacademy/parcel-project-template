@@ -8,5 +8,6 @@ export default function getRefs() {
     checkBox: document.getElementById('theme-switch-toggle'),
     closeModalBtn: document.querySelector('.modal__close-btn'),
     teamLink: document.querySelector('.team__link'),
+    searchForm: document.querySelector('.search-form'),
   };
 }
