@@ -8,6 +8,5 @@ export default function getRefs() {
     checkBox: document.getElementById('theme-switch-toggle'),
     backdrop: document.querySelector('[data-modal]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
-    modalOpen: document.querySelector('.modal-open'),
   };
 }

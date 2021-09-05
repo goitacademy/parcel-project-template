@@ -172,9 +172,9 @@ apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
 
 function openModal(evt) {
   console.log(evt.target.classList);
-  // if (!evt.target.classList.contains('movie-card')) {
-  //   return;
-  // }
+  if (!evt.target.classList.contains('video-card')) {
+    return;
+  }
   document.body.classList.toggle('modal-open');
   refs.backdrop.classList.toggle('is-hidden');
   window.addEventListener('keydown', closeEscModal);
@@ -198,6 +198,6 @@ function closeModal() {
   window.removeEventListener('keydown', closeModal);
 }
 
-refs.modalOpen.addEventListener('click', openModal);
+refs.movies.addEventListener('click', openModal);
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdrop.addEventListener('click', closeOnBackdrop);
