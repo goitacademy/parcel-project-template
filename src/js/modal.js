@@ -1,28 +1,18 @@
-// function openModal(evt) {
-//   if (!evt.target.classList.contains('movie-card')) {
-//     return;
-//   }
-//   document.body.classList.toggle('modal-open');
-//   refs.backdrop.classList.toggle('is-hidden');
-//   window.addEventListener('keydown', closeEscModal);
-// }
+import * as basicLightbox from './basicLightbox.min.js';
+import renderModalMarkup from '../templates/modalTpl.hbs';
+import getRefs from './get-refs';
+const refs = getRefs();
+const modal = basicLightbox.create(renderModalMarkup());
 
-// function closeOnBackdrop(event) {
-//   if (event.target === event.currentTarget) {
-//     closeModal(event);
-//   }
-// }
+export default function openModal(e) {
+  e.preventDefault();
 
-// function closeEscModal(event) {
-//   const ESC_KEY_CODE = 'Escape';
-//   if (event.code === ESC_KEY_CODE) {
-//     closeModal();
-//   }
-// }
-
-// function closeModal() {
-//   refs.backdrop.classList.toggle('is-hidden');
-//   window.removeEventListener('keydown', closeModal);
-// }
-
-// export { openModal, closeOnBackdrop, closeModal };
+  modal.show();
+  const modalWindow = document.querySelector('.modal');
+  const closeBtn = document.querySelector('.modal__close-btn');
+  document.onkeydown = evt => {
+    if (evt.code === 'Escape') modal.close();
+  };
+  modalWindow.openModal = () => modal.close();
+  closeBtn.addEventListener('click', (modalWindow.openModal = () => modal.close()));
+}
