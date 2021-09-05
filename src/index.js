@@ -6,11 +6,14 @@ import showAllert from './js/show-allert.js';
 import modal from './js/modal.js';
 import theme from './js/themes.js';
 import genres from './genres.json'; //массив жанров (объектов вида: { "id": 28, "name": "Action" })
+import inputSearch from './js/inputSearch';
+
+
 
 const API_KEY = 'ccfb7060bf1ddcafc35d65cbfee37150';
 
 //Создаём экземпляр класса, передаём ему в конструкторе свой api-key
-const apiService = new ApiService(API_KEY);
+export const apiService = new ApiService(API_KEY);
 
 //Получаем список популярных фильмов для первой страницы:
 apiService.getTrendingMovies().then(console.log);
