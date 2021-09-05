@@ -17,6 +17,7 @@ export default function createGalleryMarkup(data) {
       poster_path: card.poster_path,
       original_title: card.original_title,
       genres: genreList.join(', '),
+      id: card.id,
     };
   });
   document.querySelector('.movies__colection').innerHTML = renderCards(cardList);
