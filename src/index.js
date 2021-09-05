@@ -4,6 +4,7 @@ import createGalleryMarkup from './js/create-gallery-markup.js';
 import ApiService from './js/api-service.js';
 import showAllert from './js/show-allert.js';
 import modal from './js/modal.js';
+import theme from './js/themes.js';
 import genres from './genres.json'; //массив жанров (объектов вида: { "id": 28, "name": "Action" })
 
 const API_KEY = 'ccfb7060bf1ddcafc35d65cbfee37150';
