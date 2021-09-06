@@ -6,12 +6,12 @@ const refs = getRefs();
 
 let inputQuery = '';
 
-refs.searchForm.addEventListener('submit', getinputQuery);
+refs.searchForm.addEventListener('submit', getInputQuery);
 window.addEventListener('keydown', clearInputEsc);
 //window.addEventListener('keydown', openEnter)
 //refs.body.addEventListener('click', clearInput);
 
-function getinputQuery(event) {
+function getInputQuery(event) {
   event.preventDefault();
 
   inputQuery = event.currentTarget.elements.input.value;
