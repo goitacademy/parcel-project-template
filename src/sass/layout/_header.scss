@@ -1,23 +1,25 @@
 @media screen and (min-width: $mobile) {
   .header {
-    position: relative;
-    background: white;
+    position: fixed;
+    z-index: 6;
+    background: $dark-theme-color;
   }
 
   .menu-logo {
-    padding: 30px 0 0 0;
+    padding: 30px 0 30px 0;
   }
 
   .menu-logo .logo__text {
-    color: black;
+    color: $subtitle-light-theme-color;
   }
 
   .menu-logo .subtitle-logo {
-    color: black;
+    color: $subtitle-light-theme-color;
   }
 
   .is-open-bg-dark {
     background: rgba(17, 21, 24, 0.9);
+    height: 100vh;
   }
 
   .is-open-bg-dark .menu-logo .logo__text {
@@ -28,6 +30,10 @@
     color: $dark-theme-color;
   }
 
+  .is-open-bg-dark .tel-link-wrapper {
+    display: flex;
+    justify-content: center;
+  }
   .nav {
     position: relative;
   }
@@ -70,11 +76,25 @@
     display: block;
   }
 
+  .tel-link {
+    display: inline-block;
+    color: $accent-color;
+    font-size: 12px;
+    padding: 14px;
+    font-weight: 700;
+    border: 1px solid $accent-color;
+    text-transform: uppercase;
+  }
+
+  .tel-link-wrapper {
+    display: none;
+  }
+
   .navigation {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 50px;
+    padding-top: 20px;
     margin-bottom: 50px;
 
     &__item:not(:last-child) {
@@ -90,6 +110,21 @@
 }
 
 @media screen and (min-width: $tablet) {
+  .navigation__link {
+    font-size: 26px;
+  }
+
+  .tel-link-wrapper {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 100px;
+  }
+
+  .menu-button {
+    top: 40px;
+    right: 40px;
+  }
 }
 
 @media screen and (min-width: $desktop) {
