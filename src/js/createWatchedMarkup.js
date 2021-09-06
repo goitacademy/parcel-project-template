@@ -27,8 +27,8 @@ function createMarkup(dataArr) {
     data.genres.forEach(id => {
       const genreId = id.id;
       const genre = genres.find(genre => genre.id === genreId);
-      if (genre && genreList.length <= 3) {
-        if (genreList.length < 3) genreList.push(genre.name);
+      if (genre && genreList.length <= 2) {
+        if (genreList.length < 2) genreList.push(genre.name);
         else genreList[2] = 'others...';
       }
     });
