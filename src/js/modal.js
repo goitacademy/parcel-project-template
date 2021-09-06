@@ -10,7 +10,7 @@ import addToQueue from './addToQueue.js';
 
 const modal = basicLightbox.create('<div class="modal"></div>');
 
-let idQuery = '';
+export let idQuery = '';
 
 export default function openModal(e) {
   e.preventDefault();
