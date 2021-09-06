@@ -11,6 +11,7 @@ import './js/team-modal.js';
 import addToWatched from './js/addToWatched';
 import theme from './js/themes.js';
 import genres from './genres.json'; //массив жанров (объектов вида: { "id": 28, "name": "Action" })
+import flipThePages from './js/pagination.js';
 
 const API_KEY = 'ccfb7060bf1ddcafc35d65cbfee37150';
 
