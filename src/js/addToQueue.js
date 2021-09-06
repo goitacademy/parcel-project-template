@@ -1,9 +1,10 @@
 import { idQuery } from './modal';
-let queue = [];
+let queueArr = [];
 
 export default function addToQueue() {
-  if (queue.includes(idQuery)) {
+  if (queueArr.includes(idQuery)) {
     return;
   }
-  localStorage.setItem('Queue', queue.push(idQuery));
+  queueArr.push(idQuery);
+  localStorage.setItem('Queue', JSON.stringify(idQuery));
 }

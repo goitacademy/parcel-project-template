@@ -1,9 +1,10 @@
 import { idQuery } from './modal';
-let watched = [];
+let watchedArr = [];
 
 export default function addToWatched() {
-  if (watched.includes(idQuery)) {
+  if (watchedArr.includes(idQuery)) {
     return;
   }
-  localStorage.setItem('Watched', watched.push(idQuery));
+  watchedArr.push(idQuery);
+  localStorage.setItem('Watched', JSON.stringify(watchedArr));
 }
