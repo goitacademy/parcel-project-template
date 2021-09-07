@@ -7,6 +7,7 @@ import createGalleryMarkup from './js/create-gallery-markup.js';
 import ApiService from './js/api-service.js';
 import showAllert from './js/show-allert.js';
 import './js/team-modal.js';
+import './js/loader.js';
 import openModal from './js/modal';
 import addToWatched from './js/addToWatched';
 import theme from './js/themes.js';
