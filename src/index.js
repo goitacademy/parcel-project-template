@@ -12,6 +12,7 @@ import addToWatched from './js/addToWatched';
 import theme from './js/themes.js';
 import genres from './genres.json'; //массив жанров (объектов вида: { "id": 28, "name": "Action" })
 import inputSearch from './js/inputSearch';
+import library from './js/library';
 import libraryMarkup from './js/libraryMarkup';
 import createWatchedMarkup from './js/createWatchedMarkup';
 
