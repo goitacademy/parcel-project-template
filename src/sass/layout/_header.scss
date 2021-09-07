@@ -1,7 +1,7 @@
 @media screen and (min-width: $mobile) {
   .header {
     position: fixed;
-    z-index: 6;
+    z-index: 15;
     background: $dark-theme-color;
     width: 100%;
   }
@@ -108,6 +108,10 @@
       font-weight: 800;
       color: $dark-theme-color;
     }
+
+    &__link--active {
+      color: $accent-color;
+    }
   }
 }
 
@@ -157,12 +161,28 @@
       font-size: 14px;
       font-weight: 700;
       color: $text-color;
+      @include transition(color);
+    }
+
+    &__link:hover {
+      color: $accent-color;
+    }
+
+    &__link--active {
+      color: $accent-color;
     }
   }
 
   .tel-link {
     padding: 26px 24px;
     font-size: 14px;
+    @include transition(color);
+    @include transition(background-color);
+  }
+
+  .tel-link:hover {
+    background-color: $accent-color;
+    color: $dark-theme-color;
   }
 
   .tel-link-wrapper {
