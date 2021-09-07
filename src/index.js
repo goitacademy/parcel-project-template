@@ -13,6 +13,8 @@ import theme from './js/themes.js';
 import genres from './genres.json'; //массив жанров (объектов вида: { "id": 28, "name": "Action" })
 import inputSearch from './js/inputSearch';
 import library from './js/library';
+import libraryMarkup from './js/libraryMarkup';
+import createWatchedMarkup from './js/createWatchedMarkup';
 
 const API_KEY = 'ccfb7060bf1ddcafc35d65cbfee37150';
 
@@ -174,3 +176,4 @@ apiService.getMovieByID(id).then(console.log);
 apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
 
 refs.movies.addEventListener('click', openModal);
+refs.library.addEventListener('click', libraryMarkup);

@@ -1,9 +1,12 @@
-import showError from './show-allert.js';
+import showAllert from './show-allert.js';
 
 export default class ApiService {
   constructor(apiKey) {
+    this.query = '';
     this.apiKey = apiKey;
     this.page = 1;
+    this.totalItems = 1;
+    this.totalPages = 1;
   }
 
   async getTrendingMovies() {

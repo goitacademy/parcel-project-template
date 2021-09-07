@@ -9,6 +9,9 @@ export default function getRefs() {
     closeModalBtn: document.querySelector('.modal__close-btn'),
     teamLink: document.querySelector('.team__link'),
     searchForm: document.querySelector('.search-form'),
-    libraryLink:document.querySelector(".library")
+    libraryLink:document.querySelector(".library"),
+    modalWindow: document.querySelector('.modal'),
+    library: document.querySelector('.library'),
+    buttonsJs: document.querySelector('.buttons-js'),
   };
 }
