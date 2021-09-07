@@ -13,5 +13,6 @@ export default function getRefs() {
     library: document.querySelector('.library'),
     buttonsJs: document.querySelector('.buttons-js'),
     headerJs: document.querySelector('.header-js'),
+    headerLib: document.querySelector('.header'),
   };
 }
