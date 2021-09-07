@@ -18,5 +18,6 @@ export default function libraryMarkup(e) {
 }
 
 function onClickLibRender() {
-  getRefs().headerJs.innerHTML = createMarkupHeaderLib();
+  // getRefs().headerJs.innerHTML = createMarkupHeaderLib();
+  getRefs().headerLib.classList.replace('.header', '.header-bg-lib');
 }
