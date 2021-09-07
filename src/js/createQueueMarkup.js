@@ -1,5 +1,6 @@
 import { apiService } from '../index';
 import { createMarkup } from './createWatchedMarkup';
+import deleteFromList from './deleteFromList';
 
 import getRefs from './get-refs';
 const refs = getRefs();
