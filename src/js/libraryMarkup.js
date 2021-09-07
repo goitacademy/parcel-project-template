@@ -13,4 +13,6 @@ export default function libraryMarkup(e) {
 
   watchedLib.addEventListener('click', createWatchedMarkup);
   queueLib.addEventListener('click', createQueueMarkup);
+
+  createWatchedMarkup();
 }
