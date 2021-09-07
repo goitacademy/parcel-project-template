@@ -6,5 +6,5 @@ export default function addToQueue() {
     return;
   }
   queueArr.push(idQuery);
-  localStorage.setItem('Queue', JSON.stringify(idQuery));
+  localStorage.setItem('Queue', JSON.stringify(queueArr));
 }
