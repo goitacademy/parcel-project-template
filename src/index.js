@@ -15,7 +15,7 @@ import inputSearch from './js/inputSearch';
 import libraryMarkup from './js/libraryMarkup';
 import createWatchedMarkup from './js/createWatchedMarkup';
 
-const API_KEY = 'ccfb7060bf1ddcafc35d65cbfee37150';
+const API_KEY = '0e03d2359202713e59ab7c25960ab620';
 
 //Создаём экземпляр класса, передаём ему в конструкторе свой api-key
 export const apiService = new ApiService(API_KEY);

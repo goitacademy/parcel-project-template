@@ -1,7 +1,7 @@
-import renderCards from '../templates/gallery.hbs';
+import renderFilmsCards from '../templates/watchedAndQueueTpl.hbs';
 import { apiService } from '../index';
 import genres from '../genres.json';
-
+import deleteFromList from './deleteFromList';
 import getRefs from './get-refs';
 const refs = getRefs();
 
@@ -43,7 +43,8 @@ function createMarkup(dataArr) {
     });
   });
 
-  refs.movies.innerHTML = renderCards(watchedList);
+  refs.movies.innerHTML = renderFilmsCards(watchedList);
+  refs.movies.addEventListener('click', deleteFromList);
 }
 
 export { createMarkup };
