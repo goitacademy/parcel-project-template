@@ -8,11 +8,16 @@ const refs = getRefs();
 export default async function createWatchedMarkup() {
   let dataArr = [];
   const watchedArr = JSON.parse(localStorage.getItem('Watched'));
-  for (let i = 0; i < watchedArr.length; i++) {
-    const data = await apiService.getMovieByID(watchedArr[i]);
-    dataArr.push(data);
+  if (watchedArr === null) {
+    refs.movies.innerHTML = '';
+    return;
+  } else {
+    for (let i = 0; i < watchedArr.length; i++) {
+      const data = await apiService.getMovieByID(watchedArr[i]);
+      dataArr.push(data);
+    }
+    createMarkup(dataArr);
   }
-  createMarkup(dataArr);
 }
 
 function createMarkup(dataArr) {
