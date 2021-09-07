@@ -10,5 +10,7 @@ export default function getRefs() {
     teamLink: document.querySelector('.team__link'),
     searchForm: document.querySelector('.search-form'),
     modalWindow: document.querySelector('.modal'),
+    library: document.querySelector('.library'),
+    buttonsJs: document.querySelector('.buttons-js'),
   };
 }
