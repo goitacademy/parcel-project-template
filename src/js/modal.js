@@ -14,7 +14,6 @@ export let idQuery = '';
 
 export default function openModal(e) {
   e.preventDefault();
-  modal.show();
   document.onkeydown = evt => {
     if (evt.code === 'Escape') modal.close();
   };
@@ -26,6 +25,7 @@ function getMovieById(evt) {
   }
   idQuery = evt.target.dataset.source;
   console.log(idQuery);
+  modal.show();
   fetchMovies(idQuery);
 }
 
