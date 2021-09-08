@@ -1,9 +1,10 @@
 <button type='button' class='modal__close-btn'></button>
 {{#if poster_path}}
-<img 
-  class='gallery__video' 
-  src='https://image.tmdb.org/t/p/w300/{{poster_path}}' 
+<img
+  class='modal-card__img'
+  src='https://image.tmdb.org/t/p/w500{{poster_path}}'
   data-source='{{id}}' 
+  alt='{{title}}'
   onload="loader.onCardLoaded()"
   onerror="loader.onCardLoaded()"/>
 {{else}}
@@ -15,21 +16,39 @@
   onerror="loader.onCardLoaded()"/>
 {{/if}}
 <div class='modal-card__wrapper'>
-  <h2 class='modal-card__title'>{{title}}</h2>
-  <ul class='modal-card__list'>
-    <li class='modal-card__item'>Vote / Votes<span class='modal-card-data'>{{vote_average}}/{{vote_count}}</span></li>
-    <li class='modal-card__item'>Popularity<span class='modal-card-data'>{{popularity}}</span></li>
-    <li class='modal-card__item'>Original title<span class='modal-card-data'>{{original_title}}</span></li>
-    {{#if genres}}
-    <li class='modal-card__item'>Genre<span class='modal-card-data'>{{genres.name}}</span></li>
+    <h2 class='modal-card__title'>{{title}}</h2>
+    <div class="modal-card__stats-wrapper">
+      <div class="modal-card__stats-wrapper1">
+        <ul class='modal-card__list'>
+          <li class='modal-card__item'>Vote / Votes</li>
+          <li class='modal-card__item'>Popularity</li>
+          <li class='modal-card__item'>Original title</li>
+          <li class='modal-card__item'>
+             <p class="modal-card__genre-text"> Genre</p>   
+          </li>
+        </ul>
+      </div>
+      <div class="modal-card__stats-wrapper2">
+        <ul class='modal-card__list'>
+        <li class='modal-card__data'>
+          <span class="modal-card__data--vote">{{vote_average}}</span><span class='modal-card__item'> / </span><span  class="modal-card__data--vote modal-card__data--vote-count">{{vote_count}}</span>
+          </li>
+        <li class='modal-card__data'>{{popularity}}</li>
+        <li class='modal-card__data'>{{original_title}}</li>
+        {{#if genres}}
+        <li class='modal-card__item'>
+          <p class="movie-genre__text">{{#each genres}}
+            <span class="cardItem__genre-data">{{this.name}}</span>
+               {{/each}}</p>
+        </li>
+        {{/if}}  
+      </ul>
+      </div>
+    </div>
+    <p class="modal-card__description-title">ABOUT</p>
     <p class='modal-card__description'>{{overview}}</p>
-    {{/if}}    
-  </ul>
-  <div class='modal-card__btn'>
-    <button type='button' class='button-white button-white--modal watchedBtn-js'>add to Watched</button>
-    <button type='button' class='button-white button-white--modal queueBtn-js'>add to queue</button>
-  </div>
+    <div class='modal-card__btn'>
+      <button type='button' class='button-white button-white--modal watchedBtn-js'>add to Watched</button>
+      <button type='button' class='button-white button-white--modal queueBtn-js'>add to queue</button>
+    </div>
 </div>
-
-
-
