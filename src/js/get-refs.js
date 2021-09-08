@@ -7,8 +7,15 @@ export default function getRefs() {
     containerEl: document.querySelector('.container-js'),
     checkBox: document.getElementById('theme-switch-toggle'),
     backdrop: document.querySelector('[data-modal]'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
     ulTag: document.querySelector('.pagination_list'),
+    closeModalBtn: document.querySelector('.modal__close-btn'),
+    teamLink: document.querySelector('.team__link'),
+    searchForm: document.querySelector('.search-form'),
+    modalWindow: document.querySelector('.modal'),
+    library: document.querySelector('.library'),
+    buttonsJs: document.querySelector('.buttons-js'),
+    headerJs: document.querySelector('.header-js'),
+    headerLib: document.querySelector('.header'),
   };
 }
 

@@ -1,6 +1,5 @@
 import './sass/main.scss';
-import modalTpl from './templates/modalTpl.hbs';
-document.body.insertAdjacentHTML('beforeend', modalTpl());
+
 import getRefs from './js/get-refs';
 const refs = getRefs();
 
@@ -8,15 +7,19 @@ import createGalleryMarkup from './js/create-gallery-markup.js';
 import ApiService from './js/api-service.js';
 import showAllert from './js/show-allert.js';
 import './js/team-modal.js';
+import openModal from './js/modal';
 import addToWatched from './js/addToWatched';
 import theme from './js/themes.js';
 import genres from './genres.json'; //массив жанров (объектов вида: { "id": 28, "name": "Action" })
-import flipThePages from './js/pagination.js';
+import inputSearch from './js/inputSearch';
+import libraryMarkup from './js/libraryMarkup';
+import createWatchedMarkup from './js/createWatchedMarkup';
+import flipThePages from './js/pagination.js'
 
-const API_KEY = 'ccfb7060bf1ddcafc35d65cbfee37150';
+const API_KEY = '0e03d2359202713e59ab7c25960ab620';
 
 //Создаём экземпляр класса, передаём ему в конструкторе свой api-key
-const apiService = new ApiService(API_KEY);
+export const apiService = new ApiService(API_KEY);
 
 //Получаем список популярных фильмов для первой страницы:
 apiService.getTrendingMovies().then(console.log);
@@ -172,34 +175,5 @@ apiService.getMovieByID(id).then(console.log);
 
 apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
 
-function openModal(evt) {
-  console.log(evt.target.classList);
-  if (!evt.target.classList.contains('video-card')) {
-    return;
-  }
-  document.body.classList.toggle('modal-open');
-  refs.backdrop.classList.toggle('is-hidden');
-  window.addEventListener('keydown', closeEscModal);
-}
-
-function closeOnBackdrop(event) {
-  if (event.target === event.currentTarget) {
-    closeModal(event);
-  }
-}
-
-function closeEscModal(event) {
-  const ESC_KEY_CODE = 'Escape';
-  if (event.code === ESC_KEY_CODE) {
-    closeModal();
-  }
-}
-
-function closeModal() {
-  refs.backdrop.classList.toggle('is-hidden');
-  window.removeEventListener('keydown', closeModal);
-}
-
 refs.movies.addEventListener('click', openModal);
-refs.closeModalBtn.addEventListener('click', closeModal);
-refs.backdrop.addEventListener('click', closeOnBackdrop);
+refs.library.addEventListener('click', libraryMarkup);

@@ -1,10 +1,10 @@
 import * as basicLightbox from './basicLightbox.min.js';
 import renderTeamModalMarkup from '../templates/team-modal.hbs';
 import team from '../our-team.json';
+import getRefs from './get-refs';
+const refs = getRefs();
 
-const teamLink = document.querySelector('.team__link');
-
-teamLink.onclick = onClickTeam;
+refs.teamLink.onclick = onClickTeam;
 
 function onClickTeam(event) {
   event.preventDefault();

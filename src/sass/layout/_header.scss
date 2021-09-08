@@ -1,13 +1,25 @@
+.bg-header {
+  background-color: var(--main-black-color);
+}
+
+.navigation {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
 .header {
   background-color: var(--main-black-color);
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(../images/main-img-mob@1x.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/main-img-mob@2x.jpg);
@@ -23,6 +35,10 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/main-img-tab@2x.jpg);
   }
+  @media screen and (min-width: 1199px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/main-img-dt@1x.jpg);
+  }
   @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
     screen and (min-width: 1200px) and (min-resolution: 192dpi),
     screen and (min-width: 1200px) and (min-resolution: 2dppx) {
@@ -37,11 +53,13 @@
   }
 }
 
+.header > .container {
+  padding-top: 40px;
+  padding-bottom: 89px;
+}
+
 // logo
 .logo__common {
-  position: absolute;
-  top: 46px;
-
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: baseline;
@@ -69,7 +87,6 @@
   display: flex;
   justify-content: flex-end;
 
-  margin-bottom: 40px;
   @include Roboto(14, 12, 500);
   color: var(--main-white-color);
 }
@@ -126,6 +143,10 @@
   @media screen and (min-width: 768px) {
     right: 142px;
   }
+  @media screen and (min-width: 1024px) {
+    right: 275px;
+  }
+
   @media screen and (min-width: 1200px) {
     right: 273px;
   }
@@ -135,4 +156,12 @@
   border: transparent;
 
   color: var(--main-white-color);
+}
+
+.search-icon {
+  margin-right: 0px;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  z-index: 10;
 }
