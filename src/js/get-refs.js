@@ -2,7 +2,7 @@ export default function getRefs() {
   return {
     movies: document.querySelector('.movies__colection'),
     containerEl: document.querySelector('.container-js'),
-    checkBox: document.getElementById('theme-switch-toggle'),
+    checkBox: document.querySelector('.theme-switch__toggle'),
     ulTag: document.querySelector('.pagination_list'),
     teamLink: document.querySelector('.team__link'),
     searchForm: document.querySelector('.search-form'),
