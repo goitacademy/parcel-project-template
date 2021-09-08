@@ -6,6 +6,8 @@ export default function getRefs() {
     movies: document.querySelector('.movies__colection'),
     containerEl: document.querySelector('.container-js'),
     checkBox: document.getElementById('theme-switch-toggle'),
+    backdrop: document.querySelector('[data-modal]'),
+    ulTag: document.querySelector('.pagination_list'),
     closeModalBtn: document.querySelector('.modal__close-btn'),
     teamLink: document.querySelector('.team__link'),
     searchForm: document.querySelector('.search-form'),
@@ -16,3 +18,5 @@ export default function getRefs() {
     headerLib: document.querySelector('.header'),
   };
 }
+
+
