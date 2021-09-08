@@ -6,6 +6,7 @@ import getRefs from './get-refs';
 const refs = getRefs();
 
 export default async function createWatchedMarkup() {
+  changeActiveWachedBtn();
   let dataArr = [];
   const watchedArr = JSON.parse(localStorage.getItem('Watched'));
   if (watchedArr === null) {
@@ -45,6 +46,19 @@ function createMarkup(dataArr) {
 
   refs.movies.innerHTML = renderFilmsCards(watchedList);
   refs.movies.addEventListener('click', deleteFromList);
+}
+
+function changeActiveWachedBtn() {
+  const watchedBtn = document.getElementById('watched');
+  const queueBtn = document.getElementById('queue');
+
+  queueBtn.classList.replace('button-orange', 'button-white');
+  queueBtn.classList.remove('button-active');
+  // queueBtn.setAttribute("disabled", "false")
+
+  watchedBtn.classList.replace('button-white', 'button-orange');
+  watchedBtn.classList.add('button-active');
+  // watchedBtn.setAttribute("disabled", "true");
 }
 
 export { createMarkup };
