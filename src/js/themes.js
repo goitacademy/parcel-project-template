@@ -45,3 +45,5 @@ function checkThemeNow() {
       localStorage.setItem(STOREGE_KEY, Theme.LIGHT), refs.containerEl.classList.add(Theme.LIGHT);
   }
 }
+
+export { checkThemeNow, changeTheme };
