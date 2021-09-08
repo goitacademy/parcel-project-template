@@ -7,7 +7,7 @@ const refs = getRefs();
 let inputQuery = '';
 
 refs.searchForm.addEventListener('submit', getInputQuery);
-window.addEventListener('keydown', clearInputEsc);
+// window.addEventListener('keydown', clearInputEsc);
 //window.addEventListener('keydown', openEnter)
 //refs.body.addEventListener('click', clearInput);
 
@@ -22,12 +22,13 @@ function findMovies(query) {
   apiService.findMovies(query).then(createGalleryMarkup).catch(showAllert);
 }
 
-function clearInputEsc(event) {
-  event.preventDefault;
-  const ESC_KEY_CODE = 'Escape';
-  if (event.code === ESC_KEY_CODE) {
-    event.preventDefault;
-    inputQuery = '';
-    document.querySelector('.search-input').value = '';
-  }
-}
+// function clearInputEsc(event) {
+//   event.preventDefault;
+//   const ESC_KEY_CODE = 'Escape';
+//   if (event.code === ESC_KEY_CODE) {
+//     event.preventDefault;
+//     inputQuery = '';
+//     document.querySelector('.search-input').value = '';
+//   }
+// }
+
