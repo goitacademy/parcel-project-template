@@ -3,34 +3,28 @@
     <use href='../images/icons/close.svg'></use>
   </svg>
 </button>
-{{!-- <img
-  class='modal-card__img'
-  src='https://image.tmdb.org/t/p/w500{{poster_path}}'
-  alt='film poster'
-/> --}}
-  {{#if poster_path}}
-  <img class='gallery__video' src='https://image.tmdb.org/t/p/w300/{{poster_path}}' data-source='{{id}}' />
-  {{else}}
-  <img class='gallery__video' src='https://bookslibs.info/assets/general/images/no_poster.jpg' data-source='{{id}}' />
-  {{/if}}
+{{#if poster_path}}
+<img class='gallery__video' src='https://image.tmdb.org/t/p/w300/{{poster_path}}' data-source='{{id}}' />
+{{else}}
+<img class='gallery__video' src='https://bookslibs.info/assets/general/images/no_poster.jpg' data-source='{{id}}' />
+{{/if}}
 
 <div class='modal-card__wrapper'>
   <h2 class='modal-card__title'>{{title}}</h2>
   <ul class='modal-card__list'>
-    <li class='modal-card__item'>Vote / Votes<span
-        class='modal-card-data'
-      >{{vote_average}}/{{vote_count}}</span></li>
+    <li class='modal-card__item'>Vote / Votes<span class='modal-card-data'>{{vote_average}}/{{vote_count}}</span></li>
     <li class='modal-card__item'>Popularity<span class='modal-card-data'>{{popularity}}</span></li>
-    <li class='modal-card__item'>Original title<span
-        class='modal-card-data'
-      >{{original_title}}</span></li>
+    <li class='modal-card__item'>Original title<span class='modal-card-data'>{{original_title}}</span></li>
+    {{#if genres}}
     <li class='modal-card__item'>Genre<span class='modal-card-data'>{{genres.name}}</span></li>
+    <p class='modal-card__description'>{{overview}}</p>
+    {{/if}}    
   </ul>
-  <p class='modal-card__description'>{{overview}}</p>
   <div class='modal-card__btn'>
     <button type='button' class='button-orange watchedBtn-js'>add to Watched</button>
     <button type='button' class='button-white queueBtn-js'>add to queue</button>
   </div>
 </div>
+
 
 
