@@ -1,17 +1,37 @@
 import getRefs from './get-refs';
 const refs = getRefs();
 
-const loaderRef = document.querySelector('.loader');
+class Loader {
+  constructor(loaderRef) {
+    this.totalCards = 20;
+    this.loaderRef = loaderRef;
+    this.cards = 0;
+  }
 
-// export default function showLoader {
-//     const loaderRef = document.querySelector('.loader');
-// }
+  show(numberOfCardsToBeLoaded) {
+    this.totalCards = numberOfCardsToBeLoaded;
+    this.cards = 0;
+    this.loaderRef.classList.remove('visually-hidden');
+    this.loaderRef.classList.remove('hide');
+  }
 
-window.onload = function () {
-  setTimeout(() => {
-    loaderRef.classList.add('hide');
-  }, 500);
-  setTimeout(() => {
-    loaderRef.classList.add('visually-hidden');
-  }, 1000);
-};
+  onCardLoaded() {
+    this.cards += 1;
+    this.check();
+  }
+
+  check() {
+    if (this.cards === this.totalCards) {
+      this.hide();
+    }
+  }
+
+  hide() {
+    this.loaderRef.classList.add('hide');
+    setTimeout(() => {
+      this.loaderRef.classList.add('visually-hidden');
+    }, 500);
+  }
+}
+
+window.loader = new Loader(refs.loaderRef);
