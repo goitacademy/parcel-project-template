@@ -9,6 +9,7 @@ export default function getRefs() {
     modalWindow: document.querySelector('.modal'),
     library: document.querySelector('.library'),
     buttonsJs: document.querySelector('.buttons-js'),
+    loaderRef: document.querySelector('.loader'),
     headerCheck: document.querySelector('.check-header'),
     navHome: document.querySelector('.home'),
   };

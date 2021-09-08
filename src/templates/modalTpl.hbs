@@ -1,8 +1,18 @@
 <button type='button' class='modal__close-btn'></button>
 {{#if poster_path}}
-<img class='gallery__video' src='https://image.tmdb.org/t/p/w300/{{poster_path}}' data-source='{{id}}' />
+<img 
+  class='gallery__video' 
+  src='https://image.tmdb.org/t/p/w300/{{poster_path}}' 
+  data-source='{{id}}' 
+  onload="loader.onCardLoaded()"
+  onerror="loader.onCardLoaded()"/>
 {{else}}
-<img class='gallery__video' src='https://bookslibs.info/assets/general/images/no_poster.jpg' data-source='{{id}}' />
+<img 
+  class='gallery__video' 
+  src='https://bookslibs.info/assets/general/images/no_poster.jpg' 
+  data-source='{{id}}' 
+  onload="loader.onCardLoaded()"
+  onerror="loader.onCardLoaded()"/>
 {{/if}}
 <div class='modal-card__wrapper'>
   <h2 class='modal-card__title'>{{title}}</h2>
