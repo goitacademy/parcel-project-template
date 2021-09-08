@@ -14,9 +14,9 @@ export default function getRefs() {
     modalWindow: document.querySelector('.modal'),
     library: document.querySelector('.library'),
     buttonsJs: document.querySelector('.buttons-js'),
-    headerJs: document.querySelector('.header-js'),
+    headerCheck: document.querySelector('.check-header'),
     headerLib: document.querySelector('.header'),
+    navHome: document.querySelector('.home'),
+    navLibrary: document.querySelector('.library'),
   };
 }
-
-
