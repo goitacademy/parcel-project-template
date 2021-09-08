@@ -22,6 +22,6 @@ function chechHeader() {
   refs.headerCheck.classList.replace('header', 'header-bg-lib');
   if (refs.navHome.classList.contains('site-nav__link--current-page')) {
     refs.navHome.classList.remove('site-nav__link--current-page');
-    refs.navLibrary.classList.add('site-nav__link--current-page');
+    refs.library.classList.add('site-nav__link--current-page');
   }
 }
