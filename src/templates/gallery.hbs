@@ -2,11 +2,24 @@
   <li class='item' id='item-dt'>
     <a class='link' href='#'>
       <div class='video-card'>
-        <img
+        {{!-- <img
           class='gallery__video'
           src='https://image.tmdb.org/t/p/w300/{{poster_path}}'
           data-source='{{id}}'
+        /> --}}
+  {{#if poster_path}} 
+      <img 
+      class='gallery__video'
+          src='https://image.tmdb.org/t/p/w300/{{poster_path}}'
+          data-source='{{id}}'
         />
+  {{else}}
+      <img 
+      class='gallery__video'
+          src='https://bookslibs.info/assets/general/images/no_poster.jpg'
+          data-source='{{id}}'
+        />
+  {{/if}}
         <span class='video-rating'></span>
       </div>
       <h2 class='video-title' id='video-title-dt'>{{original_title}} </h2>

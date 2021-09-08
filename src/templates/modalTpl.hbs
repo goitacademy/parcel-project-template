@@ -3,11 +3,17 @@
     <use href='../images/icons/close.svg'></use>
   </svg>
 </button>
-<img
+{{!-- <img
   class='modal-card__img'
   src='https://image.tmdb.org/t/p/w500{{poster_path}}'
   alt='film poster'
-/>
+/> --}}
+  {{#if poster_path}}
+  <img class='gallery__video' src='https://image.tmdb.org/t/p/w300/{{poster_path}}' data-source='{{id}}' />
+  {{else}}
+  <img class='gallery__video' src='https://bookslibs.info/assets/general/images/no_poster.jpg' data-source='{{id}}' />
+  {{/if}}
+
 <div class='modal-card__wrapper'>
   <h2 class='modal-card__title'>{{title}}</h2>
   <ul class='modal-card__list'>
