@@ -2,7 +2,7 @@
 let watchedArr = JSON.parse(localStorage.getItem('Watched'));
 
 export default function deleteFromList(evt) {
-  if (!evt.target.classList.contains('delete-btn')) {
+  if (!evt.currentTarget.classList.contains('delete-btn')) {
     return;
   }
 
