@@ -4,9 +4,19 @@
     <button type='button' class='delete-btn'></button>
     <div class='video-card'>
       {{#if poster_path}}
-      <img class='gallery__video' src='https://image.tmdb.org/t/p/w300/{{poster_path}}' data-source='{{id}}'/>
+      <img 
+        class='gallery__video' 
+        src='https://image.tmdb.org/t/p/w300/{{poster_path}}' 
+        data-source='{{id}}'
+        onload="loader.onCardLoaded()"
+        onerror="loader.onCardLoaded()"/>
       {{else}}
-      <img class='gallery__video' src='https://bookslibs.info/assets/general/images/no_poster.jpg' data-source='{{id}}' />
+      <img 
+        class='gallery__video' 
+        src='https://bookslibs.info/assets/general/images/no_poster.jpg' 
+        data-source='{{id}}'
+        onload="loader.onCardLoaded()"
+        onerror="loader.onCardLoaded()" />
       {{/if}}
       <span class='video-rating'></span>
     </div>
