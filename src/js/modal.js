@@ -25,8 +25,8 @@ function getMovieById(evt) {
   }
   idQuery = evt.target.dataset.source;
   console.log(idQuery);
-  modal.show();
   fetchMovies(idQuery);
+  modal.show();
 }
 
 function fetchMovies(id) {
