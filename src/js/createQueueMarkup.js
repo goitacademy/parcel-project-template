@@ -18,4 +18,17 @@ export default async function createQueueMarkup() {
     }
     createMarkup(dataArr);
   }
+  changeActiveQueueBtn();
 }
+
+function changeActiveQueueBtn() {
+  const watchedBtn = document.getElementById('watched');
+  const queueBtn = document.getElementById('queue');
+
+  watchedBtn.classList.replace('button-orange', 'button-white');
+  watchedBtn.classList.remove('button-active');
+
+  queueBtn.classList.replace('button-white', 'button-orange');
+  queueBtn.classList.add('button-active');
+}
+
