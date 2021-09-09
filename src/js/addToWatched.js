@@ -1,7 +1,10 @@
 import { idQuery } from './modal';
+import toggleBtn from './chekLocalSt.js';
 let watchedArr = [];
 
-export default function addToWatched() {
+export default function addToWatched(event) { 
+  let eventBtn = event.target
+  console.log(eventBtn);
   if (watchedArr.includes(idQuery)) {
     return;
   }
@@ -16,6 +19,7 @@ export default function addToWatched() {
   if (filmsIdInLocalStorage.includes(idQuery)) {
     return;
   }
+  toggleBtn(eventBtn);
   watchedArr.push(idQuery);
   localStorage.setItem('Watched', JSON.stringify(watchedArr));
 }

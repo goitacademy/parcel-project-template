@@ -33,11 +33,11 @@ export default function checkLocalSt(idQuery, queueBtn, watchedBtn) {
     // console.log(queueBtn);
 
     
-    if (localStorageQueue === null) {
-        queueBtn.addEventListener('click', addToQueue);
-        watchedBtn.addEventListener('click', addToWatched);
-        return
-    }
+    // if (localStorageQueue === null) {
+    //     queueBtn.addEventListener('click', addToQueue);
+    //     watchedBtn.addEventListener('click', addToWatched);
+    //     return;
+    // }
 
     if (localStorageQueue.includes(idQuery)) {
         toggleBtn(queueBtn);
@@ -50,7 +50,6 @@ export default function checkLocalSt(idQuery, queueBtn, watchedBtn) {
 }
 
 export function toggleBtn(btn) {
-
     if (btn.classList.contains('queueBtn-js')) {
         if (btn.classList.contains('button-white')) {
             btn.classList.replace('button-white', 'button-orange');
