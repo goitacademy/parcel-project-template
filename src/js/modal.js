@@ -7,6 +7,7 @@ import showAllert from './show-allert';
 const refs = getRefs();
 import addToWatched from './addToWatched.js';
 import addToQueue from './addToQueue.js';
+import checkLocalSt from './chekLocalSt';
 import { checkThemeNow, changeTheme } from './themes.js';
 import {Theme} from './themes.js';
 
@@ -52,6 +53,7 @@ function showMarkup(data) {
   closeBtn.addEventListener('click', (modalWindow.openModal = () => modal.close()));
   watchedBtn.addEventListener('click', addToWatched);
   queueBtn.addEventListener('click', addToQueue);
+  checkLocalSt(idQuery, queueBtn, watchedBtn);
 }
 
 refs.movies.addEventListener('click', getMovieById);
