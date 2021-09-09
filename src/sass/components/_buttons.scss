@@ -35,11 +35,12 @@
   border: 1px solid #ff6b01;
 
   &:hover,
-  &:focus {
-    background-color: transparent;
+  &:focus
+  &:active {
+    background-color: #ff6b01;
+    border: 1px solid #ff6b01;
     color: #fff;
-    border: 1px solid #fff;
-  }
+    }
 }
 
 .button-white {
@@ -49,7 +50,8 @@
   border: 1px solid var(--main-white-color);
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     background-color: var(--background-accent);
     border: 1px solid var(--background-accent);
   }
@@ -57,16 +59,9 @@
 
 .button-active {
   @extend %button;
+  pointer-events: none;
   -webkit-box-shadow: 0px 8px 43px 0px rgba(255, 107, 1, 0.6);
   -moz-box-shadow: 0px 8px 43px 0px rgba(255, 107, 1, 0.6);
   box-shadow: 0px 8px 43px 0px rgba(255, 107, 1, 0.6);
   transition: -webkit-box-shadow 250ms var(--animation-timing-function);
-
-  &:hover,
-  &:focus {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    transition: -webkit-box-shadow 250ms var(--animation-timing-function);
-  }
 }

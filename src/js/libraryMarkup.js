@@ -16,6 +16,7 @@ export default function libraryMarkup(e) {
 
   createWatchedMarkup();
   chechHeader();
+  changeActiveQueueBtn();
 }
 
 function chechHeader() {
@@ -24,4 +25,15 @@ function chechHeader() {
     refs.navHome.classList.remove('site-nav__link--current-page');
     refs.library.classList.add('site-nav__link--current-page');
   }
+}
+
+function changeActiveQueueBtn() {
+  const watchedBtn = document.getElementById('watched');
+  const queueBtn = document.getElementById('queue');
+
+  queueBtn.classList.replace('button-orange', 'button-white');
+  queueBtn.classList.remove('button-active');
+
+  watchedBtn.classList.replace('button-white', 'button-orange');
+  watchedBtn.classList.add('button-active');
 }
