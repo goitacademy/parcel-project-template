@@ -36,30 +36,17 @@ export default function checkLocalSt(idQuery, queueBtn, watchedBtn) {
     if (localStorageQueue === null) {
         queueBtn.addEventListener('click', addToQueue);
         watchedBtn.addEventListener('click', addToWatched);
+        return
     }
+    
     if (localStorageQueue.includes(idQuery)) {
         toggleBtn(queueBtn);
     }
-        // queueBtn.classList.replace('button-white', 'button-orange');
-        // queueBtn.textContent = 'Delete from Query';
-        // queueBtn.addEventListener('click', deleteFromQueueList);
-
-
-    // } else {
-    //     queueBtn.addEventListener('click', addToQueue);
-        
-    // }
 
     if (localStorageWatched.includes(idQuery)) {
         toggleBtn(watchedBtn);
     }
-    //     watchedBtn.classList.replace('button-white', 'button-orange');
-    //     watchedBtn.textContent = 'Delete from Wathed';
-    //     watchedBtn.addEventListener('click', deleteFromWathedList);
-    // } else {
-    //     watchedBtn.addEventListener('click', addToWatched);
-        
-    // }
+
 }
 
 export function toggleBtn(btn) {
