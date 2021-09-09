@@ -15,7 +15,9 @@ class Pagination {
 
     if (page > 1) {
       //if page value is geater than 1 then add new li which is  the previous btn
-      liTag += `<li class="pagination_item btn_pgn" onclick="newPagination.createPagination(newPagination.totalPages, ${page - 1})"><span><i class="fas fa-arrow-left"></i></i></span></li>`;
+      liTag += `<li class="pagination_item btn_pgn" onclick="newPagination.createPagination(newPagination.totalPages, ${
+        page - 1
+      })"><span><i class="fas fa-arrow-left"></i></i></span></li>`;
     }
 
     if (page > 2) {
@@ -69,7 +71,9 @@ class Pagination {
     }
     if (page < totalPages) {
       //show the next button if the page value is less than totalPage(20)
-      liTag += `<li class="pagination_item btn_pgn" onclick="newPagination.createPagination(newPagination.totalPages, ${page + 1})"><span><i class="fas fa-arrow-right"></i></i></span></li>`;
+      liTag += `<li class="pagination_item btn_pgn" onclick="newPagination.createPagination(newPagination.totalPages, ${
+        page + 1
+      })"><span><i class="fas fa-arrow-right"></i></i></span></li>`;
     }
     refs.ulTag.innerHTML = liTag; //add li tag inside ul tag
     return liTag; //reurn the li tag
@@ -83,11 +87,8 @@ const newPagination = new Pagination();
 newPagination.createPagination(20, 1);
 window.newPagination = newPagination;
 
+//новый экземпляр
+// const newsPagination = new Pagination();
 
-
-  //новый экземпляр
-  // const newsPagination = new Pagination();
-
-
-    // //calling function with passing parameters and adding inside element which is ul tag
-    // refs.ulTag.innerHTML = createPagination(totalPages, page);
+// //calling function with passing parameters and adding inside element which is ul tag
+// refs.ulTag.innerHTML = createPagination(totalPages, page);
