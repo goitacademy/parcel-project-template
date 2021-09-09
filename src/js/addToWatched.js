@@ -1,5 +1,5 @@
 import { idQuery } from './modal';
-import toggleBtn from './chekLocalSt.js';
+import toggleBtn from './toggleBtn';
 let watchedArr = [];
 
 export default function addToWatched(event) { 
