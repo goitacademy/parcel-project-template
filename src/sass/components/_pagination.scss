@@ -1,53 +1,71 @@
-.pagination{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.pagination_list{
-    display: flex;
+.pagination_list {
+  display: flex;
+  &--library {
+    display: none;
+  }
 }
 
-
-.pagination_list li{
-    margin-left: 1px;
-    margin-right: 1px;
-    line-height: 40px;
-    text-align:center;
-    cursor: pointer;
-    transition: all 0,8s ease;
+.pagination_list li {
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0, 8s ease;
 }
-.pagination ul li.active{
-    background: #FF6B08;
+.pagination_item:not(:first-child) {
+  margin-left: 1.5px;
+}
+.pagination_item:not(:last-child) {
+  margin-right: 1.5px;
+}
+
+.pagination ul li.active {
+  background: #ff6b08;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.numb {
+  @include Roboto(16, 12, 500);
+  height: 40px;
+  width: 40px;
+  border-radius: 4px;
+  &:focus,
+  &:hover {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ff6b08;
     border-radius: 5px;
-    color: #FFFFFF;
+  }
 }
 
-.numb{
-    @include Roboto (16, 12, 500);
-    height: 40px;
-    width: 40px;
-
-    &:focus,
-    &:hover{
-        border-style: solid;
-        border-width: 1px;
-        border-color: #FF6B08;
-        border-radius: 5px;
-     
-    }
-    
+.btn_pgn {
+  &:focus,
+  &:hover {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #f7f7f7;
+  }
+  height: 40px;
+  width: 40px;
+  background: #f7f7f7;
+  border-radius: 5px;
 }
 
-.btn_pgn{
-    &:focus,
-    &:hover{
-        border-style: solid;
-        border-width: 1px;
-        border-color: #F7F7F7;
-    }
-    height: 40px;
-    width: 40px;
-    background: #F7F7F7;
-    border-radius: 5px;
+.dots:focus,
+.dots:hover {
+  cursor: default;
 }
 
+// // для темной темы, подставить через JS
+// .pagination_item {
+//   color: var(--main-white-color);
+//   background-color: #1f1f1f;
+// }
+// .dots {
+//   color: var(--main-white-color);
+// }

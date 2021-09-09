@@ -1,7 +1,7 @@
 import getRefs from './get-refs';
 const refs = getRefs();
 
-const Theme = {
+export const Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
 };

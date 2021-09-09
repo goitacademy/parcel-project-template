@@ -2,6 +2,7 @@ import renderFilmsCards from '../templates/watchedAndQueueTpl.hbs';
 import { apiService } from '../index';
 import genres from '../genres.json';
 import deleteFromWatchedList from './deleteFromWatchedList';
+import deleteFromQueueList from './deleteFromQueueList';
 import getRefs from './get-refs';
 const refs = getRefs();
 
@@ -58,6 +59,7 @@ function changeActiveWachedBtn() {
   watchedBtn.classList.replace('button-white', 'button-orange');
   watchedBtn.classList.add('button-active');
   // watchedBtn.setAttribute("disabled", "true");
+  refs.movies.removeEventListener('click', deleteFromQueueList);
 }
 
 export { createMarkup };
