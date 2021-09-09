@@ -1,6 +1,7 @@
 import createWatchedMarkup from './createWatchedMarkup.js';
 
 export default function deleteFromWathedList(evt) {
+  console.log("hi deleteFromWathedList")
   let watchedArr = JSON.parse(localStorage.getItem('Watched'));
   if (!evt.target.classList.contains('delete-btn')) {
     return;
