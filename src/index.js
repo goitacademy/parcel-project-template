@@ -179,3 +179,7 @@ apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
 
 refs.movies.addEventListener('click', openModal);
 refs.library.addEventListener('click', libraryMarkup);
+
+$.ready(function () {
+  $('.slider').slick();
+});
