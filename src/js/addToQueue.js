@@ -1,7 +1,9 @@
 import { idQuery } from './modal';
+import toggleBtn from './chekLocalSt.js';
 let queueArr = [];
 
 export default function addToQueue() {
+  
   if (queueArr.includes(idQuery)) {
     return;
   }
@@ -16,6 +18,7 @@ export default function addToQueue() {
   if (filmsIdInLocalStorage.includes(idQuery)) {
     return;
   }
+  
   queueArr.push(idQuery);
   localStorage.setItem('Queue', JSON.stringify(queueArr));
 }

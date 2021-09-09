@@ -29,8 +29,8 @@ import deleteFromWathedList from './deleteFromWatchedList.js';
 export default function checkLocalSt(idQuery, queueBtn, watchedBtn) {
     let localStorageQueue = JSON.parse(localStorage.getItem('Queue'));
     let localStorageWatched = JSON.parse(localStorage.getItem('Watched'));
-    console.log(localStorageQueue === null)
-    console.log(queueBtn);
+    // console.log(localStorageQueue === null)
+    // console.log(queueBtn);
 
     
     if (localStorageQueue === null) {
@@ -38,7 +38,7 @@ export default function checkLocalSt(idQuery, queueBtn, watchedBtn) {
         watchedBtn.addEventListener('click', addToWatched);
         return
     }
-    
+
     if (localStorageQueue.includes(idQuery)) {
         toggleBtn(queueBtn);
     }
