@@ -1,6 +1,7 @@
 import { apiService } from '../index';
 import { createMarkup } from './createWatchedMarkup';
-import deleteFromList from './deleteFromList';
+import deleteFromQueueList from './deleteFromQueueList';
+import renderFilmsCards from '../templates/watchedAndQueueTpl.hbs';
 
 import getRefs from './get-refs';
 const refs = getRefs();
@@ -16,6 +17,8 @@ export default async function createQueueMarkup() {
       const data = await apiService.getMovieByID(queueArr[i]);
       dataArr.push(data);
     }
-    createMarkup(dataArr);
+
+    refs.movies.innerHTML = renderFilmsCards(createMarkup(dataArr));
+    refs.movies.addEventListener('click', deleteFromQueueList);
   }
 }

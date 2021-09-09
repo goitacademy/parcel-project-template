@@ -1,7 +1,7 @@
 import renderFilmsCards from '../templates/watchedAndQueueTpl.hbs';
 import { apiService } from '../index';
 import genres from '../genres.json';
-import deleteFromList from './deleteFromList';
+import deleteFromWatchedList from './deleteFromWatchedList';
 import getRefs from './get-refs';
 const refs = getRefs();
 
@@ -16,12 +16,13 @@ export default async function createWatchedMarkup() {
       const data = await apiService.getMovieByID(watchedArr[i]);
       dataArr.push(data);
     }
-    createMarkup(dataArr);
+    refs.movies.innerHTML = renderFilmsCards(createMarkup(dataArr));
+    refs.movies.addEventListener('click', deleteFromWatchedList);
   }
 }
 
 function createMarkup(dataArr) {
-  let watchedList = [];
+  let list = [];
 
   dataArr.forEach(data => {
     const genreList = [];
@@ -33,7 +34,7 @@ function createMarkup(dataArr) {
         else genreList[2] = 'others...';
       }
     });
-    return watchedList.push({
+    return list.push({
       genres: genreList.join(', '),
       original_title: data.original_title,
       release_date: data.release_date.substring(0, 4),
@@ -42,9 +43,7 @@ function createMarkup(dataArr) {
       poster_path: data.poster_path,
     });
   });
-
-  refs.movies.innerHTML = renderFilmsCards(watchedList);
-  refs.movies.addEventListener('click', deleteFromList);
+  return list;
 }
 
 export { createMarkup };
