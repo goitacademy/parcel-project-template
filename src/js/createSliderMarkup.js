@@ -13,5 +13,5 @@ export default function createSliderMarkup(data) {
       id: card.id,
     };
   });
-  refs.sliderList.innerHTML = sliderTpl(cardList);
+  // refs.sliderList.innerHTML = sliderTpl(cardList);
 }
