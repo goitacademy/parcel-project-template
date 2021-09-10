@@ -58,4 +58,22 @@ export default class ApiService {
       showAllert('Error communicating with server');
     }
   }
+
+  async getTopMovies() {
+    loader.show(20);
+    try {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${this.apiKey}&language=en-US&page=1`,
+      );
+      const resultArr = (await data.json()).results;
+      if (resultArr.length === 0) {
+        showAllert('Nothing more found.');
+        loader.hide();
+      }
+      loader.totalCards = resultArr.length;
+      return resultArr;
+    } catch (err) {
+      showAllert('Error communicating with server');
+    }
+  }
 }

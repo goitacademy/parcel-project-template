@@ -174,7 +174,7 @@ apiService.getMovieByID(id).then(console.log);
 //     "vote_average": 7.5,
 //     "vote_count": 1341
 // }
-apiService.getTrendingMovies().then(createSliderMarkup).catch(console.log);
+apiService.getTopMovies().then(createSliderMarkup).catch(console.log);
 apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
 
 refs.movies.addEventListener('click', openModal);
