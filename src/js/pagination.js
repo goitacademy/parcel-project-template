@@ -89,17 +89,3 @@ export default class Pagination {
     return liTag; //reurn the li tag
   }
 }
-
-//1 Метод получения списка популярных фильмов для первой страницы:
-// apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
-// По запросу приходят 20 популярных фильмов за неделю, при том, что общее количество страниц 1000 ("total_pages":1000,"total_results":20000)
-// По этому нужно выводить, к примеру, 20 страниц фильмов,
-//а) рандомных популярных фильмов за неделю (это проще)
-//б) рейтинг ("popularity": значение ключа объекта) которых самый высокий
-// 1.1 nextPageBtn: document.querySelector('.next')
-// refs.nextPageBtn.addEventListener('click', getNext20Films );
-// function getNext20Films(event) {this.incrementPage();}
-// incrementPage(){ apiService.page += 1;}
-// 1.2 numbPageBtn: document.querySelector('.numb');
-// refs.numbPageBtn.addEventListener('click', getFilmsOnNumbPage());
-// getFilmsOnNumbPage(){if(newPagination.page == apiService.page ==){отрисовывать карточки с этими фильмами}}
