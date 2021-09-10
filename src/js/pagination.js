@@ -1,5 +1,7 @@
+import { apiService } from '../index';
 import getRefs from './get-refs';
 const refs = getRefs();
+
 
 class Pagination {
   constructor() {
@@ -15,7 +17,7 @@ class Pagination {
 
     if (page > 1) {
       //if page value is geater than 1 then add new li which is  the previous btn
-      liTag += `<li class="pagination_item btn_pgn" onclick="newPagination.createPagination(newPagination.totalPages, ${page - 1})"><span><i class="fas fa-arrow-left"></i></i></span></li>`;
+      liTag += `<li class="pagination_item btn_pgn next" onclick="newPagination.createPagination(newPagination.totalPages, ${page - 1})"><span><i class="fas fa-arrow-left"></i></i></span></li>`;
     }
 
     if (page > 2) {
@@ -69,7 +71,7 @@ class Pagination {
     }
     if (page < totalPages) {
       //show the next button if the page value is less than totalPage(20)
-      liTag += `<li class="pagination_item btn_pgn" onclick="newPagination.createPagination(newPagination.totalPages, ${page + 1})"><span><i class="fas fa-arrow-right"></i></i></span></li>`;
+      liTag += `<li class="pagination_item btn_pgn back" onclick="newPagination.createPagination(newPagination.totalPages, ${page + 1})"><span><i class="fas fa-arrow-right"></i></i></span></li>`;
     }
     refs.ulTag.innerHTML = liTag; //add li tag inside ul tag
     return liTag; //reurn the li tag
@@ -78,16 +80,20 @@ class Pagination {
 
 //новый экземпляр
 const newPagination = new Pagination();
-
-// //calling function with passing parameters and adding inside element which is ul tag
+//calling function with passing parameters and adding inside element which is ul tag
 newPagination.createPagination(20, 1);
 window.newPagination = newPagination;
 
-
-
-  //новый экземпляр
-  // const newsPagination = new Pagination();
-
-
-    // //calling function with passing parameters and adding inside element which is ul tag
-    // refs.ulTag.innerHTML = createPagination(totalPages, page);
+//1 Метод получения списка популярных фильмов для первой страницы:
+// apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
+// По запросу приходят 20 популярных фильмов за неделю, при том, что общее количество страниц 1000 ("total_pages":1000,"total_results":20000)
+// По этому нужно выводить, к примеру, 20 страниц фильмов,
+//а) рандомных популярных фильмов за неделю (это проще)
+//б) рейтинг ("popularity": значение ключа объекта) которых самый высокий
+// 1.1 nextPageBtn: document.querySelector('.next')
+// refs.nextPageBtn.addEventListener('click', getNext20Films );
+// function getNext20Films(event) {this.incrementPage();}
+// incrementPage(){ apiService.page += 1;}
+// 1.2 numbPageBtn: document.querySelector('.numb');
+// refs.numbPageBtn.addEventListener('click', getFilmsOnNumbPage());
+// getFilmsOnNumbPage(){if(newPagination.page == apiService.page ==){отрисовывать карточки с этими фильмами}}
