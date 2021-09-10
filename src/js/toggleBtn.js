@@ -1,7 +1,8 @@
 import addToWatched from './addToWatched.js';
 import addToQueue from './addToQueue.js';
-import deleteFromQueueList from './deleteFromQueueList.js';
-import deleteFromWathedList from './deleteFromWatchedList.js';
+import deleteIdFromQueueModal from './deleteIdFromQueueModal.js';
+import deleteIdFromWatchedModal from './deleteIdFromWatchedModal.js';
+
 
 
 export default function toggleBtn(btn) {
@@ -9,25 +10,25 @@ export default function toggleBtn(btn) {
     let callbackAdd = null;
     let callbackDelete = null;
 
-    if (btn.classList.contains('queueBtn-js')) {
+    if (btn.classList.contains('queueBtn-js')) { 
         localKay = 'Query';
         callbackAdd = addToQueue;
-        callbackDelete = deleteFromQueueList;
+        callbackDelete = deleteIdFromQueueModal;
     } else {
-        localKay = 'Wathed';
+        localKay = 'Watched';
         callbackAdd = addToWatched;
-        callbackDelete = deleteFromWathedList;
+        callbackDelete = deleteIdFromWatchedModal;
     }
 
-        if (btn.classList.contains('button-white')) {
-            btn.classList.replace('button-white', 'button-orange');
-            btn.textContent = `Delete from ${localKay}`;
-            btn.removeEventListener("click", callbackAdd);
-            btn.addEventListener('click', callbackDelete);
-        } else {
-            btn.classList.replace('button-orange', 'button-white');
-            btn.textContent = 'Add to Query';
-            btn.removeEventListener("click", callbackDelete);
-            btn.addEventListener('click', addToQueue);
-        }
+    if (btn.classList.contains('button-white')) {
+        btn.classList.replace('button-white', 'button-orange');
+        btn.textContent = `Delete from ${localKay}`;
+        btn.removeEventListener('click', callbackAdd);
+        btn.addEventListener('click', callbackDelete);
+    } else {
+        btn.classList.replace('button-orange', 'button-white');
+        btn.textContent = `Add to ${localKay}`;
+        btn.removeEventListener('click', callbackDelete);
+        btn.addEventListener('click', callbackAdd);
+    }
 }

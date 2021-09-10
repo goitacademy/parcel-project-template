@@ -1,5 +1,7 @@
 import showAllert from './show-allert.js';
 
+window.OPEN_NOW_FILM_ID = 'null';
+
 export default class ApiService {
   constructor(apiKey) {
     this.query = '';
@@ -54,6 +56,8 @@ export default class ApiService {
   }
 
   async getMovieByID(id) {
+    OPEN_NOW_FILM_ID = id;
+    console.log("FILM ID", OPEN_NOW_FILM_ID)
     loader.show(1);
     try {
       const data = await fetch(
@@ -65,3 +69,5 @@ export default class ApiService {
     }
   }
 }
+
+
