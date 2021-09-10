@@ -1,8 +1,7 @@
-addIdToLocalSt.js
-let openArr = '';
+let openFilmId = 'hi';
 export const OPEN_NOW = 'themeNow';
 
 export default function addIdToLocalSt(idQuery) {
-    openArr = idQuery;
-    localStorage.setItem('OpenNow', openArr);
+    openFilmId = idQuery;
+    localStorage.setItem('OpenNow', openFilmId);
 }

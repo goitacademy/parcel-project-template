@@ -1,8 +1,9 @@
 import addToWatched from './addToWatched.js';
 import addToQueue from './addToQueue.js';
-import deleteFromQueueList from './deleteFromQueueList.js';
+//import deleteFromQueueList from './deleteFromQueueList.js';
 //import deleteFromWathedList from './deleteFromWatchedList.js';
 import deleteIdFromQueueModal from './deleteIdFromLocalSt.js';
+import deleteIdFromWatchedModal from './deleteIdFromWatchedModal';
 
 
 
@@ -17,9 +18,9 @@ export default function toggleBtn(btn) {
         callbackAdd = addToQueue;
         callbackDelete = deleteIdFromQueueModal;
     } else {
-        localKay = 'Wathed';
+        localKay = 'Watched';
         callbackAdd = addToWatched;
-        callbackDelete = deleteFromQueueList;
+        callbackDelete = deleteIdFromWatchedModal;
     }
 
     if (btn.classList.contains('button-white')) {

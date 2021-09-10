@@ -11,15 +11,18 @@ import checkLocalSt from './chekLocalSt';
 import { checkThemeNow, changeTheme } from './themes.js';
 import { Theme } from './themes.js';
 import addIdToLocalSt from './addIdToLocalSt';
+import changeMarkup from './changeMarkup.js';
 
 const modal = basicLightbox.create('<div class="modal js-modal"></div>');
 
 export let idQuery = '';
+window.idFilm = null;
+console.log(idFilm);
 
 export default function openModal(e) {
   e.preventDefault();
   document.onkeydown = evt => {
-    if (evt.code === 'Escape') modal.close();
+    if (evt.code === 'Escape') modal.close(), changeMarkup();
   };
 }
 
@@ -32,7 +35,10 @@ function getMovieById(evt) {
   addIdToLocalSt(idQuery);
   fetchMovies(idQuery);
   modal.show();
+  return idFilm;
 }
+
+ 
 
 function fetchMovies(id) {
   apiService.getMovieByID(id).then(showMarkup).catch(showAllert);
@@ -52,7 +58,10 @@ function showMarkup(data) {
   const closeBtn = document.querySelector('.modal__close-btn');
   const watchedBtn = document.querySelector('.watchedBtn-js');
   const queueBtn = document.querySelector('.queueBtn-js');
-  closeBtn.addEventListener('click', (modalWindow.openModal = () => modal.close()));
+  closeBtn.addEventListener('click', (modalWindow.openModal = () => {
+    modal.close();
+    changeMarkup();
+  }));
   watchedBtn.addEventListener('click', addToWatched);
   queueBtn.addEventListener('click', addToQueue);
   checkLocalSt(idQuery, queueBtn, watchedBtn);

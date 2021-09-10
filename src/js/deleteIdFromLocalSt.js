@@ -12,7 +12,3 @@ export default function deleteIdFromQueueModal(evt) {
         toggleBtn(evt.target)
     }
 }
-
-// export function addIdToLSt(idQuery) {
-//     console.log(idQuery);
-// }
