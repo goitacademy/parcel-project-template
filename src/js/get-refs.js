@@ -4,6 +4,7 @@ export default function getRefs() {
     containerEl: document.querySelector('.container-js'),
     checkBox: document.querySelector('.theme-switch__toggle'),
     ulTag: document.querySelector('.pagination_list'),
+    pagination: document.querySelector('.pagination'),
     teamLink: document.querySelector('.team__link'),
     searchForm: document.querySelector('.search-form'),
     modalWindow: document.querySelector('.modal'),

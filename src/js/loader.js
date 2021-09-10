@@ -6,6 +6,7 @@ class Loader {
     this.totalCards = 20;
     this.loaderRef = loaderRef;
     this.cards = 0;
+    this.promise = null;
   }
 
   show(numberOfCardsToBeLoaded) {
@@ -31,6 +32,13 @@ class Loader {
     setTimeout(() => {
       this.loaderRef.classList.add('visually-hidden');
     }, 500);
+
+    //////////Если мы в галерее - показываем пагинацию
+    if (refs.library.classList.contains('site-nav__link--current-page')) {
+      refs.pagination.innerHTML = '';
+    } else {
+      window.newPagination.createPagination();
+    }
   }
 }
 
