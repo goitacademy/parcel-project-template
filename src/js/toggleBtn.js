@@ -4,7 +4,9 @@ import deleteFromQueueList from './deleteFromQueueList.js';
 import deleteFromWathedList from './deleteFromWatchedList.js';
 
 
+
 export default function toggleBtn(btn) {
+    console.log("hi")
     let localKay = '';
     let callbackAdd = null;
     let callbackDelete = null;
@@ -16,18 +18,18 @@ export default function toggleBtn(btn) {
     } else {
         localKay = 'Wathed';
         callbackAdd = addToWatched;
-        callbackDelete = deleteFromWathedList;
+        callbackDelete = deleteFromQueueList;
     }
 
-        if (btn.classList.contains('button-white')) {
-            btn.classList.replace('button-white', 'button-orange');
-            btn.textContent = `Delete from ${localKay}`;
-            btn.removeEventListener("click", callbackAdd);
-            btn.addEventListener('click', callbackDelete);
-        } else {
-            btn.classList.replace('button-orange', 'button-white');
-            btn.textContent = 'Add to Query';
-            btn.removeEventListener("click", callbackDelete);
-            btn.addEventListener('click', addToQueue);
-        }
+    if (btn.classList.contains('button-white')) {
+        btn.classList.replace('button-white', 'button-orange');
+        btn.textContent = `Delete from ${localKay}`;
+        btn.removeEventListener("click", callbackAdd);
+        btn.addEventListener('click', callbackDelete);
+    } else {
+        btn.classList.replace('button-orange', 'button-white');
+        btn.textContent = `Add to Query ${localKay}`;
+        btn.removeEventListener("click", callbackDelete);
+        btn.addEventListener('click', addToQueue);
+    }
 }
