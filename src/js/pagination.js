@@ -90,8 +90,6 @@ export default class Pagination {
   }
 }
 
-//новый экземпляр
-
 //1 Метод получения списка популярных фильмов для первой страницы:
 // apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
 // По запросу приходят 20 популярных фильмов за неделю, при том, что общее количество страниц 1000 ("total_pages":1000,"total_results":20000)

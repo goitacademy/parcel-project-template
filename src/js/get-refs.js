@@ -13,5 +13,9 @@ export default function getRefs() {
     loaderRef: document.querySelector('.loader'),
     headerCheck: document.querySelector('.check-header'),
     navHome: document.querySelector('.home'),
+    pagination: document.querySelector('.pagination'),
+    paginationList: document.querySelector('.pagination_list'),
+    loadMore: document.querySelector('.load-more'),
+    bodyRef: document.querySelector('body'),
   };
 }

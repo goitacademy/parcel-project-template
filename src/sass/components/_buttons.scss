@@ -8,7 +8,7 @@
 }
 
 .dark-theme {
-  background-color: rgb(31, 31, 31);
+  background-color: #000000;
 
   #item-dt {
     &:hover,
@@ -16,12 +16,17 @@
       box-shadow: 0px 1px 1px rgba(252, 252, 252, 0.12), 0px 4px 4px rgba(252, 250, 250, 0.06),
         1px 4px 6px rgba(255, 255, 255, 0.16);
       cursor: pointer;
-      transform: scale(1.1);
+      transform: scale(1.025);
       border-radius: 2px;
     }
   }
 
   #video-title-dt {
+    color: #fff;
+  }
+
+  #btn-dark-theme {
+    border-color: #fff;
     color: #fff;
   }
 }
@@ -35,10 +40,10 @@
   border: 1px solid #ff6b01;
 
   &:hover,
-  &:focus {
-    background-color: transparent;
+  &:focus &:active {
+    background-color: #ff6b01;
+    border: 1px solid #ff6b01;
     color: #fff;
-    border: 1px solid #fff;
   }
 }
 
@@ -49,7 +54,8 @@
   border: 1px solid var(--main-white-color);
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     background-color: var(--background-accent);
     border: 1px solid var(--background-accent);
   }
@@ -57,16 +63,9 @@
 
 .button-active {
   @extend %button;
+  pointer-events: none;
   -webkit-box-shadow: 0px 8px 43px 0px rgba(255, 107, 1, 0.6);
   -moz-box-shadow: 0px 8px 43px 0px rgba(255, 107, 1, 0.6);
   box-shadow: 0px 8px 43px 0px rgba(255, 107, 1, 0.6);
   transition: -webkit-box-shadow 250ms var(--animation-timing-function);
-
-  &:hover,
-  &:focus {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    transition: -webkit-box-shadow 250ms var(--animation-timing-function);
-  }
 }

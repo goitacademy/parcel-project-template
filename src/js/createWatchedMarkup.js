@@ -1,11 +1,13 @@
 import renderFilmsCards from '../templates/watchedAndQueueTpl.hbs';
 import { apiService } from '../index';
 import genres from '../genres.json';
-import deleteFromList from './deleteFromList';
+import deleteFromWatchedList from './deleteFromWatchedList';
+import deleteFromQueueList from './deleteFromQueueList';
 import getRefs from './get-refs';
 const refs = getRefs();
 
 export default async function createWatchedMarkup() {
+  changeActiveWachedBtn();
   let dataArr = [];
   const watchedArr = JSON.parse(localStorage.getItem('Watched'));
   if (watchedArr === null) {
@@ -16,12 +18,13 @@ export default async function createWatchedMarkup() {
       const data = await apiService.getMovieByID(watchedArr[i]);
       dataArr.push(data);
     }
-    createMarkup(dataArr);
+    refs.movies.innerHTML = renderFilmsCards(createMarkup(dataArr));
+    refs.movies.addEventListener('click', deleteFromWatchedList);
   }
 }
 
 function createMarkup(dataArr) {
-  let watchedList = [];
+  let list = [];
 
   dataArr.forEach(data => {
     const genreList = [];
@@ -33,7 +36,7 @@ function createMarkup(dataArr) {
         else genreList[2] = 'others...';
       }
     });
-    return watchedList.push({
+    return list.push({
       genres: genreList.join(', '),
       original_title: data.original_title,
       release_date: data.release_date.substring(0, 4),
@@ -42,9 +45,21 @@ function createMarkup(dataArr) {
       poster_path: data.poster_path,
     });
   });
+  return list;
+}
 
-  refs.movies.innerHTML = renderFilmsCards(watchedList);
-  refs.movies.addEventListener('click', deleteFromList);
+function changeActiveWachedBtn() {
+  const watchedBtn = document.getElementById('watched');
+  const queueBtn = document.getElementById('queue');
+
+  queueBtn.classList.replace('button-orange', 'button-white');
+  queueBtn.classList.remove('button-active');
+  // queueBtn.setAttribute("disabled", "false")
+
+  watchedBtn.classList.replace('button-white', 'button-orange');
+  watchedBtn.classList.add('button-active');
+  // watchedBtn.setAttribute("disabled", "true");
+  refs.movies.removeEventListener('click', deleteFromQueueList);
 }
 
 export { createMarkup };
