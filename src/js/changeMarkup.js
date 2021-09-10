@@ -1,3 +1,7 @@
+import createWatchedMarkup from './createWatchedMarkup.js';
+import createQueueMarkup from './createQueueMarkup.js';
+
+
 export default function changeMarkup() {
     if (!document.querySelector('.storage-button')) {
         return;
