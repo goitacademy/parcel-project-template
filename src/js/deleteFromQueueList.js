@@ -1,7 +1,6 @@
 import createQueueMarkup from './createQueueMarkup.js';
 
 export default function deleteFromQueueList(evt) {
-  console.log('Delete from Queue');
   let queueArr = JSON.parse(localStorage.getItem('Queue'));
   if (!evt.target.classList.contains('delete-btn')) {
     return;

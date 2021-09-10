@@ -1,10 +1,9 @@
 import { idQuery } from './modal';
+import toggleBtn from './toggleBtn.js';
 let queueArr = [];
 
-export default function addToQueue() {
-  if (queueArr.includes(idQuery)) {
-    return;
-  }
+export default function addToQueue(event) {
+  let eventBtn = event.target
   let filmsIdInLocalStorage = JSON.parse(localStorage.getItem('Queue'));
   if (filmsIdInLocalStorage !== []) {
     queueArr = filmsIdInLocalStorage;
@@ -16,6 +15,8 @@ export default function addToQueue() {
   if (filmsIdInLocalStorage.includes(idQuery)) {
     return;
   }
+  
   queueArr.push(idQuery);
   localStorage.setItem('Queue', JSON.stringify(queueArr));
+  toggleBtn(eventBtn);
 }
