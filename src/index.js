@@ -16,6 +16,7 @@ import inputSearch from './js/inputSearch';
 import libraryMarkup from './js/libraryMarkup';
 import createWatchedMarkup from './js/createWatchedMarkup';
 import flipThePages from './js/pagination.js';
+import createSliderMarkup from './js/createSliderMarkup';
 
 const API_KEY = '0e03d2359202713e59ab7c25960ab620';
 
@@ -173,7 +174,7 @@ apiService.getMovieByID(id).then(console.log);
 //     "vote_average": 7.5,
 //     "vote_count": 1341
 // }
-
+apiService.getTopMovies().then(createSliderMarkup).catch(console.log);
 apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
 
 refs.movies.addEventListener('click', openModal);
