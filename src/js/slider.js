@@ -1,7 +1,10 @@
 $('.slider').slick({
   infinite: false,
-  speed: 700,
-  slidesToShow: 9,
+  speed: 600,
+  slidesToShow: 5,
   slidesToScroll: 1,
+  centerMode: true,
   autoplay: true,
+  swipeToSlide: true,
+  initialSlide: 2,
 });
