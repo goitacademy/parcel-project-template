@@ -40,12 +40,10 @@ function fetchMovies(id) {
 function showMarkup(data) {
   const modalWindow = document.querySelector('.modal');
   modalWindow.innerHTML = renderModalMarkup(data);
-  console.log(refs.containerEl.classList.contains(Theme.DARK));
   if(refs.containerEl.classList.contains(Theme.DARK)) {
     modalWindow.classList.add(Theme.DARK);
   }
   else {
-    console.log(refs.containerEl.classList.contains(Theme.LIGHT));
     modalWindow.classList.replace(Theme.DARK, Theme.LIGHT);
     }
   const closeBtn = document.querySelector('.modal__close-btn');
