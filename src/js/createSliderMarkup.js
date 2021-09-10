@@ -54,4 +54,5 @@ export default async function createSliderMarkup(data) {
   id16.setAttribute('src', `${url}${cardList[16]}`);
   id17.setAttribute('src', `${url}${cardList[17]}`);
   id18.setAttribute('src', `${url}${cardList[18]}`);
+  id19.setAttribute('src', `${url}${cardList[19]}`);
 }

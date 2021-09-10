@@ -1,7 +1,7 @@
 $('.slider').slick({
   infinite: false,
   speed: 600,
-  slidesToShow: 5,
+  slidesToShow: 4,
   slidesToScroll: 1,
   centerMode: true,
   autoplay: true,
