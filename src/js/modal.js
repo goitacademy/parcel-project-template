@@ -10,14 +10,11 @@ import addToQueue from './addToQueue.js';
 import checkLocalSt from './chekLocalSt';
 import { checkThemeNow, changeTheme } from './themes.js';
 import { Theme } from './themes.js';
-import addIdToLocalSt from './addIdToLocalSt';
 import changeMarkup from './changeMarkup.js';
 
 const modal = basicLightbox.create('<div class="modal js-modal"></div>');
 
 export let idQuery = '';
-window.idFilm = null;
-console.log(idFilm);
 
 export default function openModal(e) {
   e.preventDefault();
@@ -32,13 +29,9 @@ function getMovieById(evt) {
   }
   idQuery = evt.target.dataset.source;
   console.log(idQuery);
-  addIdToLocalSt(idQuery);
   fetchMovies(idQuery);
   modal.show();
-  return idFilm;
-}
-
- 
+} 
 
 function fetchMovies(id) {
   apiService.getMovieByID(id).then(showMarkup).catch(showAllert);

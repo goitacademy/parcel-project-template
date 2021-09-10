@@ -1,14 +1,11 @@
 import addToWatched from './addToWatched.js';
 import addToQueue from './addToQueue.js';
-//import deleteFromQueueList from './deleteFromQueueList.js';
-//import deleteFromWathedList from './deleteFromWatchedList.js';
-import deleteIdFromQueueModal from './deleteIdFromLocalSt.js';
+import deleteIdFromQueueModal from './deleteIdFromQueueModal.js';
 import deleteIdFromWatchedModal from './deleteIdFromWatchedModal';
 
 
 
 export default function toggleBtn(btn) {
-    console.log("hi togle")
     let localKay = '';
     let callbackAdd = null;
     let callbackDelete = null;
