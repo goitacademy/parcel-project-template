@@ -4,8 +4,8 @@ export default function checkLocalSt(idQuery, queueBtn, watchedBtn) {
     let localStorageQueue = JSON.parse(localStorage.getItem('Queue'));
     let localStorageWatched = JSON.parse(localStorage.getItem('Watched'));
 
-    
-    if (localStorageQueue === null) {
+
+    if (localStorageQueue === null || localStorageWatched === null) {
         return;
     }
 

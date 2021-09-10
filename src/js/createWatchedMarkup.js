@@ -54,11 +54,9 @@ function changeActiveWachedBtn() {
 
   queueBtn.classList.replace('button-orange', 'button-white');
   queueBtn.classList.remove('button-active');
-  // queueBtn.setAttribute("disabled", "false")
 
   watchedBtn.classList.replace('button-white', 'button-orange');
   watchedBtn.classList.add('button-active');
-  // watchedBtn.setAttribute("disabled", "true");
   refs.movies.removeEventListener('click', deleteFromQueueList);
 }
 
