@@ -18,7 +18,7 @@ export let idQuery = '';
 export default function openModal(e) {
   e.preventDefault();
   document.onkeydown = evt => {
-    if (evt.code === 'Escape') modal.close();
+    if (evt.code === 'Escape') modal.close(bodyClassToggle());
   };
 }
 
@@ -38,7 +38,24 @@ function fetchMovies(id) {
 
 function showMarkup(data) {
   const modalWindow = document.querySelector('.modal');
-  modalWindow.innerHTML = renderModalMarkup(data);
+  if(modalWindow.innerHTML = renderModalMarkup(data)){
+    bodyClassToggle();
+  };
+  chechTheme(modalWindow);
+  const closeBtn = document.querySelector('.modal__close-btn');
+  const watchedBtn = document.querySelector('.watchedBtn-js');
+  const queueBtn = document.querySelector('.queueBtn-js');
+  closeBtn.addEventListener('click', (modalWindow.openModal = () => modal.close(
+    bodyClassToggle(),
+  )));
+  watchedBtn.addEventListener('click', addToWatched);
+  queueBtn.addEventListener('click', addToQueue);
+  checkLocalSt(idQuery, queueBtn, watchedBtn);
+}
+
+refs.movies.addEventListener('click', getMovieById);
+
+function chechTheme(modalWindow){
   console.log(refs.containerEl.classList.contains(Theme.DARK));
   if(refs.containerEl.classList.contains(Theme.DARK)) {
     modalWindow.classList.add(Theme.DARK);
@@ -47,13 +64,13 @@ function showMarkup(data) {
     console.log(refs.containerEl.classList.contains(Theme.LIGHT));
     modalWindow.classList.replace(Theme.DARK, Theme.LIGHT);
     }
-  const closeBtn = document.querySelector('.modal__close-btn');
-  const watchedBtn = document.querySelector('.watchedBtn-js');
-  const queueBtn = document.querySelector('.queueBtn-js');
-  closeBtn.addEventListener('click', (modalWindow.openModal = () => modal.close()));
-  watchedBtn.addEventListener('click', addToWatched);
-  queueBtn.addEventListener('click', addToQueue);
-  checkLocalSt(idQuery, queueBtn, watchedBtn);
 }
 
-refs.movies.addEventListener('click', getMovieById);
+function bodyClassToggle(){
+  const modalOpen = document.querySelector('.basicLightbox')
+  modalOpen.addEventListener('click', (e)=>{ if(e.target === e.currentTarget) {
+    refs.body.classList.toggle('hidden')
+  }})
+  refs.body.classList.toggle('hidden');
+}
+

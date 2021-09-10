@@ -15,5 +15,6 @@ export default function getRefs() {
     pagination: document.querySelector('.pagination'),
     paginationList: document.querySelector('.pagination_list'),
     loadMore: document.querySelector('.load-more'),
+    body: document.querySelector('body')
   };
 }
