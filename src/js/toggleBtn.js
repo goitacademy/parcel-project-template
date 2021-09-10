@@ -1,7 +1,7 @@
 import addToWatched from './addToWatched.js';
 import addToQueue from './addToQueue.js';
 import deleteIdFromQueueModal from './deleteIdFromQueueModal.js';
-import deleteIdFromWatchedModal from './deleteIdFromWatchedModal';
+import deleteIdFromWatchedModal from './deleteIdFromWatchedModal.js';
 
 
 
