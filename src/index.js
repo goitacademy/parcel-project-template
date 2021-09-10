@@ -24,7 +24,6 @@ import Pagination from './js/pagination.js';
 apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
 
 const newPagination = new Pagination(apiService);
-newPagination.createPagination(1);
 window.newPagination = newPagination;
 
 refs.movies.addEventListener('click', openModal);
