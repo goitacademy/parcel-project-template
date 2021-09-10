@@ -9,6 +9,11 @@ export default async function createSliderMarkup(data) {
   });
   const url = 'https://image.tmdb.org/t/p/w300/';
 
+  const arrowleft = document.querySelector('.slick-prev');
+  const arrowright = document.querySelector('.slick-next');
+  arrowleft.textContent = '‹';
+  arrowright.textContent = '›';
+
   const id0 = document.getElementById('0');
   const id1 = document.getElementById('1');
   const id2 = document.getElementById('2');
