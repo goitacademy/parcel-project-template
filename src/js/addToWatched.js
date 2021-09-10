@@ -4,7 +4,7 @@ let watchedArr = [];
 
 export default function addToWatched(event) { 
   let eventBtn = event.target
-  console.log(eventBtn);
+  // console.log(eventBtn);
   // if (watchedArr.includes(idQuery)) {
   //   return;
   // }

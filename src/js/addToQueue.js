@@ -4,7 +4,7 @@ let queueArr = [];
 
 export default function addToQueue(event) {
   let eventBtn = event.target
-  console.log('event from add',eventBtn);
+  // console.log('event from add',eventBtn);
   // if (queueArr.includes(idQuery)) {
   //   return;
   // }
