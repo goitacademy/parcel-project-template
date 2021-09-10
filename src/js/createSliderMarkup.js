@@ -1,11 +1,9 @@
-import sliderTpl from '../templates/sliderTpl';
-
 import getRefs from './get-refs';
 const refs = getRefs();
 
-export default function createSliderMarkup(data) {
+export default async function createSliderMarkup(data) {
   let cardList = [];
-
+  console.log(data);
   cardList = data.map(card => {
     return {
       backdrop_path: card.backdrop_path,
@@ -13,5 +11,6 @@ export default function createSliderMarkup(data) {
       id: card.id,
     };
   });
-  // refs.sliderList.innerHTML = sliderTpl(cardList);
+
+  // refs.sliderImg.setAttribute('src', `https://image.tmdb.org/t/p/w300/${cardList.poster_path}`);
 }

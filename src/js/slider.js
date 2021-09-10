@@ -1,3 +1,7 @@
+$('.slider').on('init', function (event, slick) {
+  console.log('init');
+});
+
 $('.slider').slick({
   //   dots: true,
   //   infinite: true,

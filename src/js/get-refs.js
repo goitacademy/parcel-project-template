@@ -15,6 +15,6 @@ export default function getRefs() {
     pagination: document.querySelector('.pagination'),
     paginationList: document.querySelector('.pagination_list'),
     loadMore: document.querySelector('.load-more'),
-    sliderList: document.querySelector('.slider'),
+    sliderImg: document.querySelector('.item__image'),
   };
 }
