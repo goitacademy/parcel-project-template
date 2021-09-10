@@ -4,10 +4,6 @@ let watchedArr = [];
 
 export default function addToWatched(event) { 
   let eventBtn = event.target
-  // console.log(eventBtn);
-  // if (watchedArr.includes(idQuery)) {
-  //   return;
-  // }
   let filmsIdInLocalStorage = JSON.parse(localStorage.getItem('Watched'));
   if (filmsIdInLocalStorage !== []) {
     watchedArr = filmsIdInLocalStorage;

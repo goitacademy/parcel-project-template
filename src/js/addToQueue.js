@@ -4,10 +4,6 @@ let queueArr = [];
 
 export default function addToQueue(event) {
   let eventBtn = event.target
-  // console.log('event from add',eventBtn);
-  // if (queueArr.includes(idQuery)) {
-  //   return;
-  // }
   let filmsIdInLocalStorage = JSON.parse(localStorage.getItem('Queue'));
   if (filmsIdInLocalStorage !== []) {
     queueArr = filmsIdInLocalStorage;
