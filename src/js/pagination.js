@@ -2,10 +2,9 @@ import { apiService } from '../index';
 import getRefs from './get-refs';
 const refs = getRefs();
 
-
 class Pagination {
   constructor() {
-    this.totalPages = 20;
+    this.totalPages = 2000;
     this.page = 1;
   }
 
@@ -17,7 +16,9 @@ class Pagination {
 
     if (page > 1) {
       //if page value is geater than 1 then add new li which is  the previous btn
-      liTag += `<li class="pagination_item btn_pgn next" onclick="newPagination.createPagination(newPagination.totalPages, ${page - 1})"><span><i class="fas fa-arrow-left"></i></i></span></li>`;
+      liTag += `<li class="pagination_item btn_pgn next" onclick="newPagination.createPagination(newPagination.totalPages, ${
+        page - 1
+      })"><span><i class="fas fa-arrow-left"></i></i></span></li>`;
     }
 
     if (page > 2) {
@@ -71,7 +72,9 @@ class Pagination {
     }
     if (page < totalPages) {
       //show the next button if the page value is less than totalPage(20)
-      liTag += `<li class="pagination_item btn_pgn back" onclick="newPagination.createPagination(newPagination.totalPages, ${page + 1})"><span><i class="fas fa-arrow-right"></i></i></span></li>`;
+      liTag += `<li class="pagination_item btn_pgn back" onclick="newPagination.createPagination(newPagination.totalPages, ${
+        page + 1
+      })"><span><i class="fas fa-arrow-right"></i></i></span></li>`;
     }
     refs.ulTag.innerHTML = liTag; //add li tag inside ul tag
     return liTag; //reurn the li tag
@@ -81,7 +84,7 @@ class Pagination {
 //новый экземпляр
 const newPagination = new Pagination();
 //calling function with passing parameters and adding inside element which is ul tag
-newPagination.createPagination(20, 1);
+newPagination.createPagination(2000, 1);
 window.newPagination = newPagination;
 
 //1 Метод получения списка популярных фильмов для первой страницы:

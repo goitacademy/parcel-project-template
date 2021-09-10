@@ -9,7 +9,7 @@ export default class ApiService {
     this.totalPages = 1;
   }
 
-  async getTrendingMovies() {
+  async getTrendingMovies(page = this.page) {
     loader.show(20);
     try {
       const data = await fetch(
@@ -27,13 +27,13 @@ export default class ApiService {
     }
   }
 
-  async findMovies(query) {
+  async findMovies(query, page = this.page) {
     const searchQuery = query.trim();
     if (searchQuery === '') throw 'Empty query!';
     loader.show(20);
     try {
       const data = await fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${searchQuery}&page=${this.page}`,
+        `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${searchQuery}&page=${page}`,
       );
       const resultArr = (await data.json()).results;
       if (resultArr.length === 0) {
