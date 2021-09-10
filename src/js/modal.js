@@ -9,7 +9,8 @@ import addToWatched from './addToWatched.js';
 import addToQueue from './addToQueue.js';
 import checkLocalSt from './chekLocalSt';
 import { checkThemeNow, changeTheme } from './themes.js';
-import {Theme} from './themes.js';
+import { Theme } from './themes.js';
+import addIdToLocalSt from './addIdToLocalSt';
 
 const modal = basicLightbox.create('<div class="modal js-modal"></div>');
 
@@ -28,6 +29,7 @@ function getMovieById(evt) {
   }
   idQuery = evt.target.dataset.source;
   console.log(idQuery);
+  addIdToLocalSt(idQuery);
   fetchMovies(idQuery);
   modal.show();
 }
