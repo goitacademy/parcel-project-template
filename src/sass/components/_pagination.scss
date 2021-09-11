@@ -1,68 +1,79 @@
-.pagination {
+.pagination{
   display: flex;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 767px){
+      padding-bottom: 40px;
+      }
+  padding-top: 0px;
+  padding-bottom: 50px;
 }
-.pagination_list {
+.pagination_list{
   display: flex;
-  &--library {
-    display: none;
-  }
 }
 
-.pagination_list li {
+.pagination_list li{
+  margin-left: 1px;
+  margin-right: 1px;
   line-height: 40px;
-  text-align: center;
+  text-align:center;
   cursor: pointer;
-  transition: all 0, 8s ease;
+  transition: all 0,8s var(--animation-timing-function);
 }
-.pagination_item:not(:first-child) {
-  margin-left: 1.5px;
-}
-.pagination_item:not(:last-child) {
-  margin-right: 1.5px;
-}
-
-.pagination ul li.active {
-  background: #ff6b08;
+.pagination ul li.active{
+  background: var(--text-color-accent);
   border-radius: 5px;
-  color: #ffffff;
+  color: var(--main-white-color);
 }
 
-.numb {
-  @include Roboto(16, 12, 500);
+.numb{
+  @include Roboto (16, 12, 500);
   height: 40px;
   width: 40px;
-  border-radius: 4px;
+
   &:focus,
-  &:hover {
-    border-style: solid;
-    border-width: 1px;
-    border-color: #ff6b08;
-    border-radius: 5px;
+  &:hover{
+      border-style: solid;
+      border-width: 1px;
+      border-color: var(--text-color-accent);
+      border-radius: 5px;
+   
   }
+  
 }
 
-.btn_pgn {
+.btn_pgn{
   &:focus,
-  &:hover {
-    border-style: solid;
-    border-width: 1px;
-    border-color: #f7f7f7;
+  &:hover{
+      border-style: solid;
+      border-width: 1px;
+      border-color: var(--pagination-btn-color);
   }
   height: 40px;
   width: 40px;
-  background: #f7f7f7;
+  background: var(--pagination-btn-color);
   border-radius: 5px;
 }
 
-.dots:focus,
-.dots:hover {
-  cursor: default;
+.dots{
+  @media screen and (max-width: 767px){
+  display: none;
+  }
+  &:focus,
+  &:hover {
+cursor: default;
 }
+}
+
+
+
+
+
+
 
 // // для темной темы, подставить через JS
 // .pagination_item {
+  // &
 //   color: var(--main-white-color);
 //   background-color: #1f1f1f;
 // }

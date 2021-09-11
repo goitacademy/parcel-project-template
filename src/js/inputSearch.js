@@ -16,7 +16,6 @@ function getInputQuery(event) {
 }
 
 function findMovies(query) {
+  window.newPagination.page = 1;
   apiService.findMovies(query).then(createGalleryMarkup).catch(showAllert);
 }
-
-

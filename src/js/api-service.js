@@ -11,13 +11,16 @@ export default class ApiService {
     this.totalPages = 1;
   }
 
-  async getTrendingMovies() {
+  async getTrendingMovies(page = this.page) {
+    this.query = '';
     loader.show(20);
     try {
       const data = await fetch(
-        `https://api.themoviedb.org/3/trending/movie/week?api_key=${this.apiKey}`,
+        `https://api.themoviedb.org/3/trending/movie/week?api_key=${this.apiKey}&page=${page}`,
       );
-      const resultArr = (await data.json()).results;
+      const serverAnswer = await data.json();
+      this.totalPages = serverAnswer.total_pages;
+      const resultArr = serverAnswer.results;
       if (resultArr.length === 0) {
         showAllert('Nothing more found.');
         loader.hide();
@@ -29,15 +32,18 @@ export default class ApiService {
     }
   }
 
-  async findMovies(query) {
+  async findMovies(query = this.query, page = this.page) {
     const searchQuery = query.trim();
     if (searchQuery === '') throw 'Empty query!';
+    this.query = searchQuery;
     loader.show(20);
     try {
       const data = await fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${searchQuery}&page=${this.page}`,
+        `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${searchQuery}&page=${page}`,
       );
-      const resultArr = (await data.json()).results;
+      const serverAnswer = await data.json();
+      this.totalPages = serverAnswer.total_pages;
+      const resultArr = serverAnswer.results;
       if (resultArr.length === 0) {
         showAllert('Nothing found. Please specify your request.');
         loader.hide();
