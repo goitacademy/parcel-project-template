@@ -1,5 +1,7 @@
 import showAllert from './show-allert.js';
 
+window.OPEN_NOW_FILM_ID = 'null';
+
 export default class ApiService {
   constructor(apiKey) {
     this.query = '';
@@ -48,6 +50,8 @@ export default class ApiService {
   }
 
   async getMovieByID(id) {
+    OPEN_NOW_FILM_ID = id;
+    console.log("FILM ID", OPEN_NOW_FILM_ID)
     loader.show(1);
     try {
       const data = await fetch(
@@ -58,4 +62,24 @@ export default class ApiService {
       showAllert('Error communicating with server');
     }
   }
+
+  async getTopMovies() {
+    loader.show(20);
+    try {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${this.apiKey}&language=en-US&page=1`,
+      );
+      const resultArr = (await data.json()).results;
+      if (resultArr.length === 0) {
+        showAllert('Nothing more found.');
+        loader.hide();
+      }
+      loader.totalCards = resultArr.length;
+      return resultArr;
+    } catch (err) {
+      showAllert('Error communicating with server');
+    }
+  }
 }
+
+

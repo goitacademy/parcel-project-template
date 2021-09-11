@@ -9,7 +9,8 @@ import addToWatched from './addToWatched.js';
 import addToQueue from './addToQueue.js';
 import checkLocalSt from './chekLocalSt';
 import { checkThemeNow, changeTheme } from './themes.js';
-import {Theme} from './themes.js';
+import { Theme } from './themes.js';
+import changeMarkup from './changeMarkup.js';
 
 const modal = basicLightbox.create('<div class="modal js-modal"></div>');
 
@@ -18,7 +19,7 @@ export let idQuery = '';
 export default function openModal(e) {
   e.preventDefault();
   document.onkeydown = evt => {
-    if (evt.code === 'Escape') modal.close(bodyClassToggle());
+    if (evt.code === 'Escape') modal.close(bodyClassToggle()), changeMarkup();
   };
 }
 
@@ -30,7 +31,7 @@ function getMovieById(evt) {
   console.log(idQuery);
   fetchMovies(idQuery);
   modal.show();
-}
+} 
 
 function fetchMovies(id) {
   apiService.getMovieByID(id).then(showMarkup).catch(showAllert);
@@ -39,8 +40,7 @@ function fetchMovies(id) {
 function showMarkup(data) {
   const modalWindow = document.querySelector('.modal');
   if(modalWindow.innerHTML = renderModalMarkup(data)){
-    bodyClassToggle();
-    
+    bodyClassToggle();  
   };
   // addGenreMarginTop();
   chechTheme(modalWindow);
@@ -48,7 +48,8 @@ function showMarkup(data) {
   const watchedBtn = document.querySelector('.watchedBtn-js');
   const queueBtn = document.querySelector('.queueBtn-js');
   closeBtn.addEventListener('click', (modalWindow.openModal = () => modal.close(
-    bodyClassToggle(),
+    modal.close(bodyClassToggle());
+    changeMarkup();
   )));
   watchedBtn.addEventListener('click', addToWatched);
   queueBtn.addEventListener('click', addToQueue);
@@ -63,7 +64,6 @@ function chechTheme(modalWindow){
     modalWindow.classList.add(Theme.DARK);
   }
   else {
-    console.log(refs.containerEl.classList.contains(Theme.LIGHT));
     modalWindow.classList.replace(Theme.DARK, Theme.LIGHT);
     }
 }
