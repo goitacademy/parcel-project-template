@@ -70,14 +70,14 @@ function chechTheme(modalWindow) {
 function bodyClassToggle() {
   const modalOpen = document.querySelector('.basicLightbox');
   modalOpen.addEventListener('click', onBackdropClick);
-  refs.body.classList.toggle('hidden');
+  refs.bodyRef.classList.toggle('hidden');
 }
 
 function onBackdropClick(e) {
   if (e.target !== e.currentTarget) {
     return;
   }
-  refs.body.classList.toggle('hidden');
+  refs.bodyRef.classList.toggle('hidden');
 }
 
 // function addGenreMarginTop() {
