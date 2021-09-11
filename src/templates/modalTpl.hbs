@@ -25,9 +25,6 @@
         <li class='modal-card__item'>Vote / Votes</li>
         <li class='modal-card__item'>Popularity</li>
         <li class='modal-card__item'>Original title</li>
-        <li class='modal-card__item'>
-          <p class='modal-card__genre-text'> Genre</p>
-        </li>
       </ul>
     </div>
     <div class='modal-card__stats-wrapper2'>
@@ -40,21 +37,27 @@
           >{{vote_count}}</span>
         </li>
         <li id='video-title-dt' class='modal-card__data'>{{popularity}}</li>
-        <li id='video-title-dt' class='modal-card__data'>{{original_title}}</li>
-        {{#if genres}}
-          <li class='modal-card__item'>
-            <p class='movie-genre__text'>{{#each genres}}
-                <span id='video-title-dt' class='cardItem__genre-data'>{{this.name}}</span>
-              {{/each}}</p>
-          </li>
-        {{/if}}
+        <li id='video-title-dt' class='modal-card__data modal-card__data-title'>{{original_title}}</li> 
       </ul>
     </div>
   </div>
+  <div class="genre__wrapper">
+    <p class='modal-card__item modal-card__item--genre'>Genre
+          {{!-- <p class='modal-card__genre-text'> </p> --}}
+    </p>
+    {{#if genres}}
+    <p class='modal-card__data-genre'>
+      {{#each genres}}
+      <span id='video-title-dt' class='cardItem__genre-data'>{{this.name}}</span>
+      {{/each}}
+    </p>
+    {{/if}}
+  </div>
+          
   <p id='video-title-dt' class='modal-card__description-title'>ABOUT</p>
   <p id='video-title-dt' class='modal-card__description'>{{overview}}</p>
   <div class='modal-card__btn'>
-    <button type='button' id='btn-dark-theme' class='button-white watchedBtn-js'>add to Watched</button>
-    <button type='button' id='btn-dark-theme' class='button-white queueBtn-js'>add to queue</button>
+    <button type='button' data-modal-btn id='btn-dark-theme' class='button-white watchedBtn-js'>add to Watched</button>
+    <button type='button' data-modal-btn id='btn-dark-theme' class='button-white queueBtn-js'>add to queue</button>
   </div>
 </div>

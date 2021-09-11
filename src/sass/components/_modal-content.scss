@@ -71,7 +71,6 @@ div.modal.dark-theme {
 .cardItem__genre-data {
     @include Roboto ($lh:16, $fs:12, $fw:500);
     color: var(--main-black-color);
-    
 }
 
 .modal-card__data--vote {
@@ -95,11 +94,6 @@ div.modal.dark-theme {
 .modal-card__stats-wrapper {
     display: flex;
     flex-direction: row;
-}
-
-.modal-card__stats-wrapper1 {
-    margin-right: 41px;
-    white-space: nowrap;
 }
 
 .modal-card__wrapper .button-white {
@@ -127,11 +121,16 @@ div.modal.dark-theme {
     margin-left: 15px;
 }
 
-// .modal-card__wrapper .button-orange:hover {
-//         color: #000000;
-//         border: 1px solid #000000;
-//         background-color: transparent;
-//     }
+.modal-card__wrapper .button-orange:hover,
+.modal-card__wrapper .button-orange:focus  {
+        color: #000000;
+        border: 1px solid #000000;
+        background-color: transparent;
+}
+
+.modal-card__item--genre {
+    margin-right: 76px;
+}
 
 @media screen and(max-width: 767px) {
     .modal-card__wrapper {
@@ -140,9 +139,32 @@ div.modal.dark-theme {
     div.modal {
         padding-top: 48px;
     }
+    [data-modal-btn] {
+        width: 113px;
+    }
+    .modal-card__stats-wrapper1 {
+        margin-right: 41px;
+        white-space: nowrap;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .button-white:not(:first-child) .modal-card__wrapper  {
+        margin-left: auto;
+    }
+
+    [data-modal-btn] {
+        width: 125px;
+    }
+    .modal-card__stats-wrapper1 {
+        margin-right: 40px;
+        white-space: nowrap;
+    }
+    
 }
 
 @include for-tablet-portrait-up {
+    
     .modal-card__img {
         width: 264px;
         height: 374px;
@@ -163,12 +185,15 @@ div.modal.dark-theme {
         width: 396px;
         height: 478px;
     }
-    
-    div.modal {
-        display: flex;
-        flex-direction: row;
-        padding-top: 50px;
-        padding-bottom:  40px;
-    
+    .modal-card__item--genre {
+        margin-right: 120px;
     }
+    
 }
+.genre__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-top: 10px;
+}
+
