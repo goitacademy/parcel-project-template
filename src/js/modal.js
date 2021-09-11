@@ -31,7 +31,7 @@ function getMovieById(evt) {
   console.log(idQuery);
   fetchMovies(idQuery);
   modal.show();
-} 
+}
 
 function fetchMovies(id) {
   apiService.getMovieByID(id).then(showMarkup).catch(showAllert);
@@ -39,18 +39,18 @@ function fetchMovies(id) {
 
 function showMarkup(data) {
   const modalWindow = document.querySelector('.modal');
-  if(modalWindow.innerHTML = renderModalMarkup(data)){
-    bodyClassToggle();  
-  };
+  if ((modalWindow.innerHTML = renderModalMarkup(data))) {
+    bodyClassToggle();
+  }
   // addGenreMarginTop();
   chechTheme(modalWindow);
   const closeBtn = document.querySelector('.modal__close-btn');
   const watchedBtn = document.querySelector('.watchedBtn-js');
   const queueBtn = document.querySelector('.queueBtn-js');
-  closeBtn.addEventListener('click', (modalWindow.openModal = () => modal.close(
-    modal.close(bodyClassToggle());
-    changeMarkup();
-  )));
+  closeBtn.addEventListener(
+    'click',
+    (modalWindow.openModal = () => modal.close(modal.close(bodyClassToggle()), changeMarkup())),
+  );
   watchedBtn.addEventListener('click', addToWatched);
   queueBtn.addEventListener('click', addToQueue);
   checkLocalSt(idQuery, queueBtn, watchedBtn);
@@ -58,32 +58,31 @@ function showMarkup(data) {
 
 refs.movies.addEventListener('click', getMovieById);
 
-function chechTheme(modalWindow){
+function chechTheme(modalWindow) {
   console.log(refs.containerEl.classList.contains(Theme.DARK));
-  if(refs.containerEl.classList.contains(Theme.DARK)) {
+  if (refs.containerEl.classList.contains(Theme.DARK)) {
     modalWindow.classList.add(Theme.DARK);
-  }
-  else {
+  } else {
     modalWindow.classList.replace(Theme.DARK, Theme.LIGHT);
-    }
+  }
 }
 
-function bodyClassToggle(){
-  const modalOpen = document.querySelector('.basicLightbox')
+function bodyClassToggle() {
+  const modalOpen = document.querySelector('.basicLightbox');
   modalOpen.addEventListener('click', onBackdropClick);
   refs.body.classList.toggle('hidden');
 }
 
 function onBackdropClick(e) {
-  if(e.target !== e.currentTarget) {
-  return;
-}
+  if (e.target !== e.currentTarget) {
+    return;
+  }
   refs.body.classList.toggle('hidden');
 }
 
 // function addGenreMarginTop() {
 // console.log(document.querySelector('.modal-card__data-title').getBoundingClientRect().height);
-// const {height: originalTitleHeight} = 
+// const {height: originalTitleHeight} =
 //   document.querySelector('.modal-card__data-title').getBoundingClientRect();
 //   const genreMarginTop = document.querySelector('.modal-card__item--genre');
 //   // console.log(genreMarginTop.offsetHeight);
