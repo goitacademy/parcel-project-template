@@ -57,7 +57,7 @@ export default class ApiService {
 
   async getMovieByID(id) {
     OPEN_NOW_FILM_ID = id;
-    console.log("FILM ID", OPEN_NOW_FILM_ID)
+    console.log('FILM ID', OPEN_NOW_FILM_ID);
     loader.show(1);
     try {
       const data = await fetch(
@@ -87,5 +87,3 @@ export default class ApiService {
     }
   }
 }
-
-
