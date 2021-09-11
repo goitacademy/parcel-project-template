@@ -11,6 +11,7 @@ export default class Pagination {
   }
 
   loadNewPage(page) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     this.page = page;
     if (this.apiService.query === '')
       this.apiService.getTrendingMovies(page).then(createGalleryMarkup).catch(showAllert);
