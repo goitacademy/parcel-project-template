@@ -12,10 +12,10 @@ import createGalleryMarkup from './js/create-gallery-markup.js';
 import showAllert from './js/show-allert.js';
 import './js/team-modal.js';
 import './js/loader.js';
-import openModal from './js/modal';
+import getMovieById from './js/modal';
 import addToWatched from './js/addToWatched';
 import theme from './js/themes.js';
-import genres from './genres.json'; //массив жанров (объектов вида: { "id": 28, "name": "Action" })
+import genres from './genres.json';
 import inputSearch from './js/inputSearch';
 import libraryMarkup from './js/libraryMarkup';
 import createWatchedMarkup from './js/createWatchedMarkup';
@@ -26,5 +26,5 @@ apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
 const newPagination = new Pagination(apiService);
 window.newPagination = newPagination;
 
-refs.movies.addEventListener('click', openModal);
 refs.library.addEventListener('click', libraryMarkup);
+refs.movies.addEventListener('click', getMovieById);

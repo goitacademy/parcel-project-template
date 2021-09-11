@@ -1,6 +1,5 @@
 import * as basicLightbox from './basicLightbox.min.js';
 import renderModalMarkup from '../templates/modalTpl.hbs';
-import gallery from '../templates/gallery.hbs';
 import { apiService } from '../index';
 import getRefs from './get-refs';
 import showAllert from './show-allert';
@@ -16,19 +15,11 @@ const modal = basicLightbox.create('<div class="modal js-modal"></div>');
 
 export let idQuery = '';
 
-export default function openModal(e) {
-  e.preventDefault();
-  document.onkeydown = evt => {
-    if (evt.code === 'Escape') modal.close(bodyClassToggle()), changeMarkup();
-  };
-}
-
-function getMovieById(evt) {
+export default function getMovieById(evt) {
   if (!evt.target.classList.contains('gallery__video')) {
     return;
   }
   idQuery = evt.target.dataset.source;
-  console.log(idQuery);
   fetchMovies(idQuery);
   modal.show();
 }
@@ -56,10 +47,7 @@ function showMarkup(data) {
   checkLocalSt(idQuery, queueBtn, watchedBtn);
 }
 
-refs.movies.addEventListener('click', getMovieById);
-
 function chechTheme(modalWindow) {
-  console.log(refs.containerEl.classList.contains(Theme.DARK));
   if (refs.containerEl.classList.contains(Theme.DARK)) {
     modalWindow.classList.add(Theme.DARK);
   } else {
