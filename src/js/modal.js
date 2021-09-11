@@ -40,7 +40,9 @@ function showMarkup(data) {
   const modalWindow = document.querySelector('.modal');
   if(modalWindow.innerHTML = renderModalMarkup(data)){
     bodyClassToggle();
+    
   };
+  // addGenreMarginTop();
   chechTheme(modalWindow);
   const closeBtn = document.querySelector('.modal__close-btn');
   const watchedBtn = document.querySelector('.watchedBtn-js');
@@ -78,3 +80,12 @@ function onBackdropClick(e) {
 }
   refs.body.classList.toggle('hidden');
 }
+
+// function addGenreMarginTop() {
+// console.log(document.querySelector('.modal-card__data-title').getBoundingClientRect().height);
+// const {height: originalTitleHeight} = 
+//   document.querySelector('.modal-card__data-title').getBoundingClientRect();
+//   const genreMarginTop = document.querySelector('.modal-card__item--genre');
+//   // console.log(genreMarginTop.offsetHeight);
+//   genreMarginTop.style.marginTop =`${originalTitleHeight+10}px`;
+//   }
