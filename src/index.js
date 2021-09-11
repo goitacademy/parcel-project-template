@@ -20,9 +20,7 @@ import inputSearch from './js/inputSearch';
 import libraryMarkup from './js/libraryMarkup';
 import createWatchedMarkup from './js/createWatchedMarkup';
 import Pagination from './js/pagination.js';
-import createSliderMarkup from './js/createSliderMarkup';
 
-// apiService.getTopMovies().then(createSliderMarkup).catch(console.log);
 apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
 
 const newPagination = new Pagination(apiService);
