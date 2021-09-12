@@ -1,8 +1,7 @@
 import Glide from '@glidejs/glide';
-import * as basicLightbox from './basicLightbox.min.js';
 import sliderTpl from '../templates/sliderTpl.hbs';
 import getRefs from './get-refs';
-import { fetchMovies, bodyClassToggle } from './modal';
+import { fetchMovies, modal } from './modal';
 
 const refs = getRefs();
 const glide = new Glide('.slider', {
@@ -21,7 +20,7 @@ getTopMovies();
 glide.mount();
 
 function getTopMovies() {
-  const url = `https://api.themoviedb.org/3/trending/all/day?api_key=0e03d2359202713e59ab7c25960ab620`;
+  const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=0e03d2359202713e59ab7c25960ab620&language=en-US&page=1`;
   return fetch(url)
     .then(response => response.json())
     .then(({ results }) => {
@@ -36,7 +35,6 @@ function renderSliderMarkup(articles) {
   document.querySelector('.glide__slides').addEventListener('click', openModalSlider);
 }
 
-const modal = basicLightbox.create('<div class="modal js-modal"></div>');
 let idQuery = '';
 
 function openModalSlider(e) {

@@ -82,4 +82,4 @@ function onBackdropClick(e) {
   refs.bodyRef.classList.toggle('hidden');
 }
 
-export { fetchMovies, onBackdropClick };
+export { fetchMovies, modal };
