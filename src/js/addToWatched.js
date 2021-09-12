@@ -19,4 +19,5 @@ export default function addToWatched(e) {
 
   watchedArr.push(filmId);
   localStorage.setItem('Watched', JSON.stringify(watchedArr));
+  toggleBtn(eventBtn);
 }

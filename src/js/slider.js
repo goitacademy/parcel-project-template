@@ -51,7 +51,6 @@ function openModalSlider(e) {
     return;
   }
   idQuery = e.target.dataset.source;
-  console.log(idQuery);
   fetchMovies(idQuery);
   modal.show();
 }
