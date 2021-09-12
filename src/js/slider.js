@@ -2,7 +2,6 @@ import Glide from '@glidejs/glide';
 import * as basicLightbox from './basicLightbox.min.js';
 import sliderTpl from '../templates/sliderTpl.hbs';
 import getRefs from './get-refs';
-import changeMarkup from './changeMarkup.js';
 import { fetchMovies, bodyClassToggle } from './modal';
 
 const refs = getRefs();
@@ -44,7 +43,7 @@ function openModalSlider(e) {
   e.preventDefault();
   document.onkeydown = e => {
     if (e.code === 'Escape') {
-      modal.close(bodyClassToggle()), changeMarkup();
+      modal.close();
     }
   };
   if (!e.target.classList.contains('slider__image')) {
