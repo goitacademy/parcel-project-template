@@ -10,6 +10,7 @@ import checkLocalSt from './chekLocalSt';
 import { checkThemeNow, changeTheme } from './themes.js';
 import { Theme } from './themes.js';
 import changeMarkup from './changeMarkup.js';
+import showTrailer from './showTrailer.js';
 
 const modal = basicLightbox.create('<div class="modal js-modal"></div>');
 
@@ -18,7 +19,8 @@ export let idQuery = '';
 export default function openModal(e) {
   e.preventDefault();
   document.onkeydown = evt => {
-    if (evt.code === 'Escape') modal.close(bodyClassToggle()), changeMarkup();
+    if (evt.code === 'Escape' && !document.querySelector('.modal__video'))
+      modal.close(bodyClassToggle()), changeMarkup();
   };
 }
 
@@ -47,6 +49,9 @@ function showMarkup(data) {
   const closeBtn = document.querySelector('.modal__close-btn');
   const watchedBtn = document.querySelector('.watchedBtn-js');
   const queueBtn = document.querySelector('.queueBtn-js');
+  const videoBtnRef = document.querySelector('.video-js');
+
+  videoBtnRef.onclick = showTrailer;
   closeBtn.addEventListener(
     'click',
     (modalWindow.openModal = () => modal.close(modal.close(bodyClassToggle()), changeMarkup())),

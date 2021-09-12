@@ -58,13 +58,23 @@ export default class ApiService {
 
   async getMovieByID(id) {
     OPEN_NOW_FILM_ID = id;
-    console.log('FILM ID', OPEN_NOW_FILM_ID);
     loader.show(1);
     try {
       const data = await fetch(
         `https://api.themoviedb.org/3/movie/${id}?api_key=${this.apiKey}&language=en-US`,
       );
       return await data.json();
+    } catch (err) {
+      showAllert('Error communicating with server');
+    }
+  }
+
+  async getTrailerKeyByMovieId(id) {
+    try {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${this.apiKey}&language=en-US`,
+      );
+      return (await data.json()).results.find(item => item.name.includes('Official Trailer'))?.key;
     } catch (err) {
       showAllert('Error communicating with server');
     }
