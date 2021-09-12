@@ -21,6 +21,7 @@ import libraryMarkup from './js/libraryMarkup';
 import createWatchedMarkup from './js/createWatchedMarkup';
 import Pagination from './js/pagination.js';
 import slider from './js/slider';
+import scrollbtn from './js/arrowTop';
 
 apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
 
