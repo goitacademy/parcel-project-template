@@ -16,6 +16,7 @@ import inputSearch from './js/inputSearch';
 import libraryMarkup from './js/libraryMarkup';
 import createWatchedMarkup from './js/createWatchedMarkup';
 import flipThePages from './js/pagination.js';
+import scrollbtn from './js/arrowTop';
 
 const API_KEY = '0e03d2359202713e59ab7c25960ab620';
 
