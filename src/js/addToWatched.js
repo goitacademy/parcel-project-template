@@ -2,8 +2,9 @@ import { idQuery } from './modal';
 import toggleBtn from './toggleBtn';
 let watchedArr = [];
 
-export default function addToWatched(event) {
-  let eventBtn = event.target;
+export default function addToWatched(e) {
+  let eventBtn = e.target;
+  let filmId = e.target.dataset.id;
   let filmsIdInLocalStorage = JSON.parse(localStorage.getItem('Watched'));
   if (filmsIdInLocalStorage !== []) {
     watchedArr = filmsIdInLocalStorage;
@@ -12,10 +13,10 @@ export default function addToWatched(event) {
     filmsIdInLocalStorage = [];
     watchedArr = filmsIdInLocalStorage;
   }
-  if (filmsIdInLocalStorage.includes(idQuery)) {
+  if (filmsIdInLocalStorage.includes(filmId)) {
     return;
   }
-  toggleBtn(eventBtn);
-  watchedArr.push(idQuery);
+
+  watchedArr.push(filmId);
   localStorage.setItem('Watched', JSON.stringify(watchedArr));
 }

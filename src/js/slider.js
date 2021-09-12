@@ -43,12 +43,15 @@ let idQuery = '';
 function openModalSlider(e) {
   e.preventDefault();
   document.onkeydown = e => {
-    if (e.code === 'Escape') modal.close(bodyClassToggle()), changeMarkup();
+    if (e.code === 'Escape') {
+      modal.close(bodyClassToggle()), changeMarkup();
+    }
   };
   if (!e.target.classList.contains('slider__image')) {
     return;
   }
   idQuery = e.target.dataset.source;
+  console.log(idQuery);
   fetchMovies(idQuery);
   modal.show();
 }
