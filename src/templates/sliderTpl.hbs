@@ -8,16 +8,28 @@
       </button>
 
     </div> --}}
-
     <a class='link' href='#'>
-      <img
-        class='slider__image'
-        src='https://image.tmdb.org/t/p/w500{{poster_path}}'
-        alt='{{title}} {{name}}'
-        data-id='{{id}}'
-        onerror="this.onerror=null;this.src='https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-';"
-      />
-    </a>
+      {{#if poster_path}}
+        <img
+          class='slider__image'
+          src='https://image.tmdb.org/t/p/w300/{{poster_path}}'
+          data-source='{{id}}'
+          alt='{{title}} {{name}}'
+          onload='loader.onCardLoaded()'
+          ,
+          onerror='loader.onCardLoaded()'
+        />
+      {{else}}
+        <img
+          class='slider__image'
+          src='https://bookslibs.info/assets/general/images/no_poster.jpg'
+          data-source='{{id}}'
+          alt='{{title}} {{name}}'
+          onload='loader.onCardLoaded()'
+          ,
+          onerror='loader.onCardLoaded()'
+        />
+      {{/if}}
     {{!-- <span class='rating-slider'>{{vote_average}}</span> --}}
   </li>
 {{/each}}

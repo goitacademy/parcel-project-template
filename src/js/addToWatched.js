@@ -2,8 +2,8 @@ import { idQuery } from './modal';
 import toggleBtn from './toggleBtn';
 let watchedArr = [];
 
-export default function addToWatched(event) { 
-  let eventBtn = event.target
+export default function addToWatched(event) {
+  let eventBtn = event.target;
   let filmsIdInLocalStorage = JSON.parse(localStorage.getItem('Watched'));
   if (filmsIdInLocalStorage !== []) {
     watchedArr = filmsIdInLocalStorage;

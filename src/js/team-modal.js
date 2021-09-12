@@ -11,7 +11,7 @@ function onClickTeam(event) {
   event.preventDefault();
   modal = basicLightbox.create(renderTeamModalMarkup(team));
   modal.show();
-  // refs.containerEl
+
   refs.bodyRef.style.overflow = 'hidden';
   const teamModal = document.querySelector('.basicLightbox');
   document.querySelector('.basicLightbox__placeholder').classList.add('team__placeholder');

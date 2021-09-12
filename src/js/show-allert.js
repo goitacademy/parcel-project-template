@@ -5,9 +5,9 @@ import '@pnotify/core/dist/BrightTheme.css';
 export default showAllert;
 
 function showAllert(error) {
-    alert({
-        text: error,
-        type: 'error',
-        delay: 3000,
-    });
+  alert({
+    text: error,
+    type: 'error',
+    delay: 2500,
+  });
 }
