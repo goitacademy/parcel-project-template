@@ -2,6 +2,7 @@ import Glide from '@glidejs/glide';
 import sliderTpl from '../templates/sliderTpl.hbs';
 import getRefs from './get-refs';
 import { fetchMovies, modal } from './modal';
+import changeMarkup from './changeMarkup.js';
 
 const refs = getRefs();
 const glide = new Glide('.slider', {
@@ -42,6 +43,7 @@ function openModalSlider(e) {
   document.onkeydown = e => {
     if (e.code === 'Escape') {
       modal.close();
+      changeMarkup();
     }
   };
   if (!e.target.classList.contains('slider__image')) {

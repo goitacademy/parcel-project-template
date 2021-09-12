@@ -38,3 +38,7 @@ function changeActiveQueueBtn() {
   watchedBtn.classList.replace('button-white', 'button-orange');
   watchedBtn.classList.add('button-active');
 }
+
+function backdrop() {
+  document.querySelector('');
+}
