@@ -18,7 +18,6 @@ export default function libraryMarkup(e) {
   chechHeader();
   changeActiveQueueBtn();
   refs.pagination.classList.add('load-more');
-  refs.paginationList.classList.replace('pagination_list', 'pagination_list--library');
 }
 
 function chechHeader() {

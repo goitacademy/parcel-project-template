@@ -1,13 +1,24 @@
+import createGalleryMarkup from './create-gallery-markup.js';
+import showAllert from './show-allert.js';
 import getRefs from './get-refs';
 const refs = getRefs();
 
-class Pagination {
-  constructor() {
-    this.totalPages = 20;
+export default class Pagination {
+  constructor(apiService) {
+    this.totalPages = 2000;
     this.page = 1;
+    this.apiService = apiService;
   }
 
-  createPagination(totalPages, page) {
+  loadNewPage(page) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.page = page;
+    if (this.apiService.query === '')
+      this.apiService.getTrendingMovies(page).then(createGalleryMarkup).catch(showAllert);
+    else this.apiService.findMovies(undefined, page).then(createGalleryMarkup).catch(showAllert);
+  }
+
+  createPagination(page = this.page, totalPages = this.apiService.totalPages) {
     let liTag = '';
     let activeLi;
     let beforePage = page - 1; // 5-1=4
@@ -15,14 +26,14 @@ class Pagination {
 
     if (page > 1) {
       //if page value is geater than 1 then add new li which is  the previous btn
-      liTag += `<li class="pagination_item btn_pgn" onclick="newPagination.createPagination(newPagination.totalPages, ${
+      liTag += `<li class="pagination_item btn_pgn next" onclick="newPagination.loadNewPage(${
         page - 1
       })"><span><i class="fas fa-arrow-left"></i></i></span></li>`;
     }
 
     if (page > 2) {
       //if page value is less than 2 then add 1 after the previous button
-      liTag += `<li class="pagination_item first numb" onclick="newPagination.createPagination(newPagination.totalPages, 1)"><span>1</span></li>`;
+      liTag += `<li class="pagination_item first numb" onclick="newPagination.loadNewPage(1)"><span>1</span></li>`;
       if (page > 3) {
         //if page value is greater than 3 then add this (...) after the first li or page
         liTag += `<li class="dots"><span>...</span></li>`;
@@ -58,7 +69,7 @@ class Pagination {
         activeLi = '';
       }
 
-      liTag += `<li class="pagination_item numb ${activeLi}" onclick="newPagination.createPagination(newPagination.totalPages, ${plength})"><span>${plength}</span></li>`;
+      liTag += `<li class="pagination_item numb ${activeLi}" onclick="newPagination.loadNewPage(${plength})"><span>${plength}</span></li>`;
     }
 
     if (page < totalPages - 1) {
@@ -67,11 +78,11 @@ class Pagination {
         //if page value is less than totalPage value by -2 then add this (...) before the last li or page
         liTag += `<li class="dots"><span>...</span></li>`;
       }
-      liTag += `<li class="pagination_item last numb" onclick="newPagination.createPagination(newPagination.totalPages, ${totalPages})"><span>${totalPages}</span></li>`;
+      liTag += `<li class="pagination_item last numb" onclick="newPagination.loadNewPage(${totalPages})"><span>${totalPages}</span></li>`;
     }
     if (page < totalPages) {
       //show the next button if the page value is less than totalPage(20)
-      liTag += `<li class="pagination_item btn_pgn" onclick="newPagination.createPagination(newPagination.totalPages, ${
+      liTag += `<li class="pagination_item btn_pgn back" onclick="newPagination.loadNewPage(${
         page + 1
       })"><span><i class="fas fa-arrow-right"></i></i></span></li>`;
     }
@@ -79,16 +90,3 @@ class Pagination {
     return liTag; //reurn the li tag
   }
 }
-
-//новый экземпляр
-const newPagination = new Pagination();
-
-// //calling function with passing parameters and adding inside element which is ul tag
-newPagination.createPagination(20, 1);
-window.newPagination = newPagination;
-
-//новый экземпляр
-// const newsPagination = new Pagination();
-
-// //calling function with passing parameters and adding inside element which is ul tag
-// refs.ulTag.innerHTML = createPagination(totalPages, page);

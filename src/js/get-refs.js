@@ -4,6 +4,7 @@ export default function getRefs() {
     containerEl: document.querySelector('.container-js'),
     checkBox: document.querySelector('.theme-switch__toggle'),
     ulTag: document.querySelector('.pagination_list'),
+    pagination: document.querySelector('.pagination'),
     teamLink: document.querySelector('.team__link'),
     searchForm: document.querySelector('.search-form'),
     modalWindow: document.querySelector('.modal'),
@@ -12,8 +13,7 @@ export default function getRefs() {
     loaderRef: document.querySelector('.loader'),
     headerCheck: document.querySelector('.check-header'),
     navHome: document.querySelector('.home'),
-    pagination: document.querySelector('.pagination'),
-    paginationList: document.querySelector('.pagination_list'),
-    loadMore: document.querySelector('.load-more'),
+    bodyRef: document.querySelector('body'),
+    slider: document.querySelector('.slider-js'),
   };
 }
