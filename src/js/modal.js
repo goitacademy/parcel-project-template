@@ -50,7 +50,7 @@ function showMarkup(data) {
   const watchedBtn = document.querySelector('.watchedBtn-js');
   const queueBtn = document.querySelector('.queueBtn-js');
   const videoBtnRef = document.querySelector('.video-js');
-
+  
   videoBtnRef.onclick = showTrailer;
   closeBtn.addEventListener(
     'click',
@@ -58,7 +58,7 @@ function showMarkup(data) {
   );
   watchedBtn.addEventListener('click', addToWatched);
   queueBtn.addEventListener('click', addToQueue);
-  checkLocalSt(idQuery, queueBtn, watchedBtn);
+  checkLocalSt(queueBtn, watchedBtn);
 }
 
 function chechTheme(modalWindow) {
