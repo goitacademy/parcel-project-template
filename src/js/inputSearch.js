@@ -4,6 +4,7 @@ import showAllert from './show-allert';
 import getRefs from './get-refs';
 const refs = getRefs();
 
+
 let inputQuery = '';
 
 refs.searchForm.addEventListener('submit', getInputQuery);
