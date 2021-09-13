@@ -9,6 +9,7 @@ export default class ApiService {
     this.page = 1;
     this.totalItems = 1;
     this.totalPages = 1;
+    this.genres = '';
   }
 
   async getTrendingMovies(page = this.page) {
@@ -75,6 +76,19 @@ export default class ApiService {
         `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${this.apiKey}&language=en-US`,
       );
       return (await data.json()).results.find(item => item.name.includes('Official Trailer'))?.key;
+    } catch (err) {
+      showAllert('Error communicating with server');
+    }
+  }
+
+  async fetchMoviesByGenre(genreId = this.genres) {
+    this.query = '';
+
+    try {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&with_genres=${genreId}&page=${this.page}`,
+      );
+      return (await data.json()).results;
     } catch (err) {
       showAllert('Error communicating with server');
     }
