@@ -21,7 +21,7 @@ import libraryMarkup from './js/libraryMarkup';
 import createWatchedMarkup from './js/createWatchedMarkup';
 import Pagination from './js/pagination.js';
 import slider from './js/slider';
-import openGanresList from './js/genres'
+import openGanresList from './js/genres.js'
 import scrollbtn from './js/arrowTop';
 
 
