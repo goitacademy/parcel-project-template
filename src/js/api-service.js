@@ -36,7 +36,7 @@ export default class ApiService {
 
   async findMovies(query = this.query, page = this.page) {
     const searchQuery = query.trim();
-    if (searchQuery === '') throw 'Empty query!';
+    if (searchQuery === '') throw 'Empty query! Please enter film name.';
     this.query = searchQuery;
     loader.show(20);
     try {
