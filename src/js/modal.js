@@ -80,6 +80,7 @@ function onBackdropClick(e) {
     return;
   }
   refs.bodyRef.classList.toggle('hidden');
+  changeMarkup();
 }
 
 export { fetchMovies, modal };
