@@ -1,6 +1,5 @@
 import getRefs from './get-refs';
 import genres from '../genres.json';
-//import genresMarkup from '../templates/genres.hbs';
 import { apiService } from '../index';
 import createGalleryMarkup from './create-gallery-markup';
 
@@ -10,11 +9,19 @@ const genresList = ["Comedy","Drama", "History","Family","Horror" ]
 
 export default function openGanresList(event) {
     event.preventDefault();
-    // console.log(refs.genresList);
-    // refs.genresList.classList.add('site-nav__link--current-page');
-    // const dropdownContent = document.querySelector('.dropdown-content');
-    // dropdownContent.classList.toggle('show')
+    removeCurentPage();
+    refs.buttonsJs.innerHTML = '';
+    const dropdownContent = document.querySelector('.dropdown-content');
+    dropdownContent.classList.toggle('show')
     refs.genresDropdown.addEventListener('click', createGanreMarkup);
+}
+
+function removeCurentPage() {
+    if (refs.navHome.classList.contains('site-nav__link--current-page') || refs.library.classList.contains('site-nav__link--current-page')) {
+        refs.navHome.classList.remove('site-nav__link--current-page');
+        refs.library.classList.remove('site-nav__link--current-page')
+        refs.genresList.classList.add('site-nav__link--current-page');
+      } 
 }
 
 
@@ -23,6 +30,25 @@ function createGanreMarkup(event) {
     let genreName = event.target.textContent;
     console.log(genres);
     getGanreId(genreName);
+    createGanreTitle(genreName);
+}
+
+function createGanreTitle(genreName){
+    
+    console.log(document.querySelector('.genreTitle'))
+    const genreNameEl = document.createElement("h3");
+
+    
+    if(document.querySelector('.genreTitle')){
+        document.querySelector('.genreTitle').remove();
+    }
+    genreNameEl.textContent = genreName;
+    genreNameEl.classList.add("genreTitle");
+    console.log(genreNameEl); // <h1>This is a heading</h1>
+    let containerEl = document.querySelector('.container');
+    console.log(containerEl);
+    containerEl.append(genreNameEl);
+    console.log(document.querySelector('.genreTitle'))
 }
 
 function getGanreId(genreName) {
@@ -37,6 +63,8 @@ function getGanreId(genreName) {
 function fetchMoviesByGenfes(id) {
     apiService.fetchMoviesByGenre(id).then(createGalleryMarkup).catch(console.log);
 }
+
+
 
 
 

@@ -16,6 +16,6 @@ export default function getRefs() {
     bodyRef: document.querySelector('body'),
     slider: document.querySelector('.slider-js'),
     genresList: document.querySelector('.dropdown'),
-    genresDropdown: document.querySelector('.dropdown-content')
+    genresDropdown: document.querySelector('.submenu')
   };
 }
