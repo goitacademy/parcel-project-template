@@ -75,7 +75,7 @@ export default class ApiService {
       const data = await fetch(
         `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${this.apiKey}&language=en-US`,
       );
-      return (await data.json()).results.find(item => item.name.includes('Official Trailer'))?.key;
+      return (await data.json()).results[0]?.key;
     } catch (err) {
       showAllert('Error communicating with server');
     }
