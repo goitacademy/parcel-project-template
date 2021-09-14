@@ -8,8 +8,8 @@ const refs = getRefs();
 
 export default function libraryMarkup(e) {
   e.preventDefault();
-  document.querySelector('.genreTitle').remove();
   refs.buttonsJs.innerHTML = createMarkupHeaderLib();
+  document.querySelector('.genreTitle').remove();
   const watchedLib = document.getElementById('watched');
   const queueLib = document.getElementById('queue');
 
