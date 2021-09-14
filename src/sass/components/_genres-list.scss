@@ -1,34 +1,3 @@
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    top: 20px;    
-}
-
-
-.show {
-    display: block;
-    opacity: 1;
-    transition: opacity 1250ms linear;
-}
-
-.genres-item{
-    line-height: 1.3;
-    font-size: 12px;
-    font-weight: 400;
-    font-family: var(--main-font);
-    color: var(--main-white-color);
-    padding-top: 5px;
-    padding-bottom: 5px;
-    
-}
-
 .genres-link:after {
     display:block;
     content: '';
@@ -40,4 +9,62 @@
 .genres-link:hover:after { 
     transform: scaleX(1); 
 }
+ 
+ .topmenu a {
+    text-decoration: none;
+    display: block;
+    transition: .4s ease-in-out;
+ }
+
+ .submenu li a {
+    font-size: 12px;
+    color: #fff;
+ }
+ 
+ @media(max-width: 599px) {
+    .topmenu>li>a {
+       padding: 15px 20px;
+    }
+    .submenu li a {
+       padding: 10px 20px;
+       margin: 0 20px;
+    }
+ }
+ 
+ @media(min-width: 600px) {
+    .topmenu {
+       width: 100%;
+       display: flex;
+       justify-content: center;
+    }
+    .topmenu>li {
+       position: relative;
+    }
+
+    .topmenu>li:last-child:after {
+       background: none;
+       box-shadow: none;
+    }
+
+    .submenu {
+       position: absolute;
+       left: 50%;
+       top: 150%;
+       margin-left: -22px;
+       z-index: 5;
+       visibility: hidden;
+       opacity: 0;
+       transform: scale(.8);
+       transition: .4s ease-in-out;
+    }
+    .topmenu>li:hover .submenu {
+       visibility: visible;
+       opacity: 1;
+       transform: scale(1);
+    }
+    .submenu li a {
+        text-align: center;
+        padding: 7px 0;
+    }
+ }
 

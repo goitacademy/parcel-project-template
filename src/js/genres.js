@@ -10,10 +10,10 @@ const genresList = ["Comedy","Drama", "History","Family","Horror" ]
 
 export default function openGanresList(event) {
     event.preventDefault();
-    console.log(refs.genresList);
-    refs.genresList.classList.add('site-nav__link--current-page');
-    const dropdownContent = document.querySelector('.dropdown-content');
-    dropdownContent.classList.toggle('show')
+    // console.log(refs.genresList);
+    // refs.genresList.classList.add('site-nav__link--current-page');
+    // const dropdownContent = document.querySelector('.dropdown-content');
+    // dropdownContent.classList.toggle('show')
     refs.genresDropdown.addEventListener('click', createGanreMarkup);
 }
 
