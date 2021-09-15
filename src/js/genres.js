@@ -9,8 +9,6 @@ const genresList = ['Comedy', 'Drama', 'History', 'Family', 'Horror'];
 
 export default function openGanresList(event) {
   event.preventDefault();
-  removeCurentPage();
-  refs.buttonsJs.innerHTML = '';
   const dropdownContent = document.querySelector('.dropdown-content');
   dropdownContent.classList.toggle('show');
   refs.genresDropdown.addEventListener('click', createGanreMarkup);
@@ -39,6 +37,8 @@ function createGanreMarkup(event) {
   if (event.target.classList.contains('submenu')) {
     return;
   }
+  removeCurentPage();
+  refs.buttonsJs.innerHTML = '';
   let genreName = event.target.textContent;
   getGanreId(genreName);
   createGanreTitle(genreName);

@@ -18,7 +18,6 @@ export default async function createQueueMarkup() {
       const data = await apiService.getMovieByID(queueArr[i]);
       dataArr.push(data);
     }
-
     refs.movies.innerHTML = renderFilmsCards(createMarkup(dataArr));
     refs.movies.addEventListener('click', deleteFromQueueList);
   }
