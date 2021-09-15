@@ -4,7 +4,6 @@ import showAllert from './show-allert';
 import getRefs from './get-refs';
 const refs = getRefs();
 
-
 let inputQuery = '';
 
 refs.searchForm.addEventListener('submit', getInputQuery);
@@ -17,6 +16,6 @@ function getInputQuery(event) {
 }
 
 function findMovies(query) {
-  window.newPagination.page = 1;
+  apiService.page = 1;
   apiService.findMovies(query).then(createGalleryMarkup).catch(showAllert);
 }

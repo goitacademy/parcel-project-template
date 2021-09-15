@@ -13,12 +13,17 @@ export default class Pagination {
   loadNewPage(page) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     this.page = page;
-    if (this.apiService.query === '')
-      this.apiService.getTrendingMovies(page).then(createGalleryMarkup).catch(showAllert);
-    else this.apiService.findMovies(undefined, page).then(createGalleryMarkup).catch(showAllert);
+    if (this.apiService.query !== '')
+      this.apiService.findMovies(undefined, page).then(createGalleryMarkup).catch(showAllert);
+    else if (this.apiService.genre)
+      this.apiService
+        .fetchMoviesByGenre(undefined, page)
+        .then(createGalleryMarkup)
+        .catch(showAllert);
+    else this.apiService.getTrendingMovies(page).then(createGalleryMarkup).catch(showAllert);
   }
 
-  createPagination(page = this.page, totalPages = this.apiService.totalPages) {
+  createPagination(page = this.apiService.page, totalPages = this.apiService.totalPages) {
     let liTag = '';
     let activeLi;
     let beforePage = page - 1; // 5-1=4
