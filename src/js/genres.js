@@ -14,6 +14,14 @@ export default function openGanresList(event) {
   const dropdownContent = document.querySelector('.dropdown-content');
   dropdownContent.classList.toggle('show');
   refs.genresDropdown.addEventListener('click', createGanreMarkup);
+  document.addEventListener('click', closeSubMenu);
+}
+
+function closeSubMenu(event) {
+  if (event.target.classList.contains('dropdown__menu')) return;
+  const dropdownContent = document.querySelector('.dropdown-content');
+  dropdownContent.classList.remove('show');
+  document.removeEventListener('click', closeSubMenu);
 }
 
 function removeCurentPage() {
@@ -28,18 +36,15 @@ function removeCurentPage() {
 }
 
 function createGanreMarkup(event) {
-  console.log(event.target);
   if (event.target.classList.contains('submenu')) {
     return;
   }
   let genreName = event.target.textContent;
-  console.log(genres);
   getGanreId(genreName);
   createGanreTitle(genreName);
 }
 
 function createGanreTitle(genreName) {
-  console.log(document.querySelector('.genreTitle'));
   const genreNameEl = document.createElement('h3');
 
   if (document.querySelector('.genreTitle')) {
@@ -47,17 +52,13 @@ function createGanreTitle(genreName) {
   }
   genreNameEl.textContent = genreName;
   genreNameEl.classList.add('genreTitle');
-  console.log(genreNameEl);
   let containerEl = document.querySelector('.container');
-  console.log(containerEl);
   containerEl.append(genreNameEl);
-  console.log(document.querySelector('.genreTitle'));
 }
 
 function getGanreId(genreName) {
   genres.map(ganre => {
     if (genreName === ganre.name) {
-      console.log(ganre.id);
       fetchMoviesByGenfes(ganre.id);
     }
   });
