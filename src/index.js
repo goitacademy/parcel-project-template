@@ -12,6 +12,7 @@ import './js/loader.js';
 import './js/inputSearch';
 import './js/slider';
 import './js/arrowTop';
+import showAllert from './js/show-allert';
 import openModal from './js/modal';
 import createGalleryMarkup from './js/create-gallery-markup.js';
 import libraryMarkup from './js/libraryMarkup';
@@ -20,7 +21,7 @@ import slider from './js/slider';
 import openGanresList from './js/genres.js';
 import scrollbtn from './js/arrowTop';
 
-apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
+apiService.getTrendingMovies().then(createGalleryMarkup).catch(showAllert);
 
 const newPagination = new Pagination(apiService);
 window.newPagination = newPagination;
