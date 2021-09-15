@@ -9,7 +9,11 @@ const refs = getRefs();
 export default function libraryMarkup(e) {
   e.preventDefault();
   refs.buttonsJs.innerHTML = createMarkupHeaderLib();
-  document.querySelector('.genreTitle').remove();
+
+  if(document.querySelector('.genreTitle')){
+    document.querySelector('.genreTitle').remove();
+  } 
+  
   const watchedLib = document.getElementById('watched');
   const queueLib = document.getElementById('queue');
 

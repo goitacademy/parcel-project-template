@@ -27,6 +27,9 @@ function removeCurentPage() {
 
 function createGanreMarkup(event) {    
     console.log(event.target);
+    if(event.target.classList.contains('submenu')){
+        return
+    }
     let genreName = event.target.textContent;
     console.log(genres);
     getGanreId(genreName);
@@ -44,7 +47,7 @@ function createGanreTitle(genreName){
     }
     genreNameEl.textContent = genreName;
     genreNameEl.classList.add("genreTitle");
-    console.log(genreNameEl); // <h1>This is a heading</h1>
+    console.log(genreNameEl); 
     let containerEl = document.querySelector('.container');
     console.log(containerEl);
     containerEl.append(genreNameEl);
