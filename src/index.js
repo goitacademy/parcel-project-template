@@ -20,7 +20,6 @@ import Pagination from './js/pagination.js';
 import slider from './js/slider';
 import openGanresList from './js/genres.js';
 import scrollbtn from './js/arrowTop';
-import showAllert from './js/show-allert';
 
 apiService.getTrendingMovies().then(createGalleryMarkup).catch(showAllert);
 
