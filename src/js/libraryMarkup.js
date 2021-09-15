@@ -24,6 +24,7 @@ export default function libraryMarkup(e) {
   chechHeader();
   changeActiveQueueBtn();
   refs.pagination.classList.add('load-more');
+  document.querySelector('.bg-header').classList.add('lib-bg');
 }
 
 export function chechHeader() {
