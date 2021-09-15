@@ -12,6 +12,7 @@ import './js/loader.js';
 import './js/inputSearch';
 import './js/slider';
 import './js/arrowTop';
+import showAllert from './js/show-allert';
 import openModal from './js/modal';
 import createGalleryMarkup from './js/create-gallery-markup.js';
 import libraryMarkup from './js/libraryMarkup';
