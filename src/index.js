@@ -16,6 +16,9 @@ import openModal from './js/modal';
 import createGalleryMarkup from './js/create-gallery-markup.js';
 import libraryMarkup from './js/libraryMarkup';
 import Pagination from './js/pagination.js';
+import slider from './js/slider';
+import openGanresList from './js/genres.js';
+import scrollbtn from './js/arrowTop';
 
 apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
 
@@ -23,4 +26,5 @@ const newPagination = new Pagination(apiService);
 window.newPagination = newPagination;
 
 refs.library.addEventListener('click', libraryMarkup);
+refs.genresList.addEventListener('click', openGanresList);
 refs.movies.addEventListener('click', openModal);
