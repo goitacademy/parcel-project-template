@@ -38,7 +38,7 @@ export default class ApiService {
 
   async findMovies(query = this.query, page = this.page) {
     const searchQuery = query.trim();
-    if (searchQuery === '') throw 'Empty query!';
+    if (searchQuery === '') throw 'Empty query! Please enter film name.';
     this.query = searchQuery;
     this.genre = null;
     this.page = page;
@@ -79,7 +79,7 @@ export default class ApiService {
       const data = await fetch(
         `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${this.apiKey}&language=en-US`,
       );
-      return (await data.json()).results.find(item => item.name.includes('Official Trailer'))?.key;
+      return (await data.json()).results[0]?.key;
     } catch (err) {
       showAllert('Error communicating with server');
     }

@@ -7,23 +7,18 @@ const API_KEY = '0e03d2359202713e59ab7c25960ab620';
 import ApiService from './js/api-service.js';
 export const apiService = new ApiService(API_KEY);
 
-import createGalleryMarkup from './js/create-gallery-markup.js';
-
-import showAllert from './js/show-allert.js';
 import './js/team-modal.js';
 import './js/loader.js';
+import './js/inputSearch';
+import './js/slider';
+import './js/arrowTop';
 import openModal from './js/modal';
-import addToWatched from './js/addToWatched';
-import theme from './js/themes.js';
-import genres from './genres.json';
-import inputSearch from './js/inputSearch';
+import createGalleryMarkup from './js/create-gallery-markup.js';
 import libraryMarkup from './js/libraryMarkup';
-import createWatchedMarkup from './js/createWatchedMarkup';
 import Pagination from './js/pagination.js';
 import slider from './js/slider';
-import openGanresList from './js/genres.js'
+import openGanresList from './js/genres.js';
 import scrollbtn from './js/arrowTop';
-
 
 apiService.getTrendingMovies().then(createGalleryMarkup).catch(console.log);
 

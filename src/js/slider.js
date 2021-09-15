@@ -14,7 +14,9 @@ const glide = new Glide('.slider', {
   hoverpause: true,
   bound: true,
   gap: 0,
-  perTouch: 3,
+  perTouch: 5,
+  dragThreshold: 80,
+  swipeThreshold: 40,
 });
 
 getTopMovies();
