@@ -27,5 +27,5 @@ const newPagination = new Pagination(apiService);
 window.newPagination = newPagination;
 
 refs.library.addEventListener('click', libraryMarkup);
-refs.genresList.addEventListener('click', openGanresList);
+jQuery(refs.genresList).hover(openGanresList);
 refs.movies.addEventListener('click', openModal);
