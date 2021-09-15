@@ -35,8 +35,9 @@ class Loader {
 
     //////////Если мы в галерее - показываем пагинацию
     if (refs.library.classList.contains('site-nav__link--current-page')) {
-      refs.pagination.innerHTML = '';
+      refs.ulTag.innerHTML = '';
     } else {
+      refs.pagination.classList.remove('load-more');
       window.newPagination.createPagination();
     }
   }
