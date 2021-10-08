@@ -1,3 +1,15 @@
+# Ключ API (v3 auth)
+
+98387aa57f28e0e3eee6fec2a9b53ef3
+
+# Пример API-запроса
+
+https://api.themoviedb.org/3/movie/550?api_key=98387aa57f28e0e3eee6fec2a9b53ef3
+
+# Ключ доступа к API (v4 auth)
+
+eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ODM4N2FhNTdmMjhlMGUzZWVlNmZlYzJhOWI1M2VmMyIsInN1YiI6IjYxNWY3MTA5ZWIxNGZhMDAyYTdmMTE0MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.S9Xd0Cc3jFFFQ7AFvVw9rCOLfnQuDZGEIP82LTufYp8
+
 # Parcel boilerplate
 
 ## Скрытые файлы
