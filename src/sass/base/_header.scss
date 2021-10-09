@@ -2,6 +2,8 @@
 .container {
   width: 100%;
   padding: 0 20px;
+  margin: 0;
+
   @media screen and (min-width: 320px) {
     width: 320px;
     margin-left: auto;
@@ -9,6 +11,7 @@
   }
 
   @media screen and (min-width: 768px) {
+    padding: 0 30px;
     width: 768px;
   }
 
@@ -20,12 +23,14 @@
 //background for header
 
 .header {
-  padding: 40px;
+  padding-top: 40px;
   min-height: 230px;
+
   background-image: url('../images/header/background/mobile/mobile-bg1x.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
   @media screen and (min-width: 768px) {
     background-image: url('../images/header/background/tablet/tablet-bg1x.jpg');
   }
@@ -62,7 +67,9 @@
 }
 
 .logo__icon {
-  margin-right: 10px;
+  @media screen and (min-width: 767px) {
+    margin-right: 10px;
+  }
 }
 
 .link__current::after {
@@ -109,8 +116,8 @@
   position: relative;
 }
 
-.site-nav__item:first-child {
-  margin-right: 40px;
+.site-nav__item:last-child {
+  margin-left: 40px;
 }
 
 // form-style
@@ -139,6 +146,9 @@
   width: 100%;
   margin-bottom: 22px;
 
+  @media screen and (min-width: 320px) {
+    width: 280px;
+  }
   @media screen and (min-width: 768px) {
     width: 336px;
   }
@@ -149,10 +159,15 @@
 }
 
 .search__icon {
-  position: absolute;
-  top: 0;
-  transform: translateX(-20px) translateY(25%);
-  fill: var(--second-color);
+  opacity: 0;
+
+  @media screen and (min-width: 767px) {
+    fill: var(--second-color);
+    position: absolute;
+    top: 0;
+    transform: translateX(-20px) translateY(25%);
+    opacity: 1;
+  }
 }
 
 .form-btn {
