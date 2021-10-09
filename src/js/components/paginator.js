@@ -40,6 +40,10 @@ export default class Paginator {
     this.pagination.on('beforeMove', this.#onPageClick);
   }
 
+  set totalResults(newTotalResults) {
+    this.pagination.reset(newTotalResults);
+  }
+
   get onPageClick() {
     return this.#onPageClick;
   }
