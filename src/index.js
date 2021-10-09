@@ -4,4 +4,3 @@ import Paginator from './js/components/paginator';
 window.paginator = new Paginator({ totalResults: 5000, onPageClick: console.log });
 
 paginator.show();
-console.log(paginator);
