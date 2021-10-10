@@ -1,4 +1,7 @@
 import './sass/main.scss';
+
+import './js/site-nav.js';
+
 import Paginator from './js/components/paginator';
 
 window.paginator = new Paginator({ totalResults: 5000, onPageClick: console.log });
