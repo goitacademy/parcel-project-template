@@ -1,8 +1,9 @@
 import './sass/main.scss';
-
-import './js/site-nav.js';
 import refs from './js/refs';
 const { homeLink } = refs;
+
+import './js/site-nav.js';
+import './js/page-render.js';
 
 import Paginator from './js/components/paginator';
 import Trending from './js/components/trending';

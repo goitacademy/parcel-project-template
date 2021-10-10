@@ -5,4 +5,7 @@ export default {
   searchForm: document.querySelector('.header-form'),
   homeLink: document.getElementById('home'),
   libraryLink: document.getElementById('library'),
+  list: document.querySelector('#card-set-js'),
+  input: document.querySelector('#search-input'),
+  notifyEr: document.querySelector('#input-error'),
 };
