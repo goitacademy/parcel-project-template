@@ -1,8 +1,6 @@
-const header = document.querySelector('header');
-const btnBox = document.querySelector('.buttons-box');
-const searchForm = document.querySelector('.header-form');
-const homeLink = document.getElementById('home');
-const libraryLink = document.getElementById('library');
+import refs from '../js/refs.js';
+
+const { libraryLink, header, btnBox, searchForm, homeLink } = refs;
 
 libraryLink.addEventListener('click', addLibraryClass);
 homeLink.addEventListener('click', addHomeClass);
