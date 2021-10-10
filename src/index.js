@@ -1,6 +1,7 @@
 import './sass/main.scss';
 
 import './js/site-nav.js';
+import './js/page-render.js';
 
 import Paginator from './js/components/paginator';
 
