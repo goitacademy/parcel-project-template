@@ -10,8 +10,8 @@ export default class Paginator {
   #totalResults;
   #isShown;
 
-  constructor(options) {
-    const { totalResults, onPageClick } = options;
+  constructor(options = {}) {
+    const { totalResults = 0, onPageClick = console.log } = options;
     this.#onPageClick = onPageClick;
     this.#totalResults = totalResults;
     this.#isShown = false;
