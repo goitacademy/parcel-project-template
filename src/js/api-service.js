@@ -1,5 +1,5 @@
 export default  {
-    API_KEY: 'f6fab6ea4000c88b7ccf1769aeb3013f',
+    API_KEY: '98387aa57f28e0e3eee6fec2a9b53ef3',
     page: 1,
 
 async fetchDataDb(query) {

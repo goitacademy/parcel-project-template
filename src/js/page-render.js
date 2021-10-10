@@ -1,11 +1,13 @@
 import _debounce from 'debounce';
+import validator from 'validator';
+import cardHbs from '../templates/oneMovieCard.hbs';
 import genres from '../js/components/genre-array.js';
 import refs from '../js/refs.js';
-import cardHbs from '../templates/oneMovieCard.hbs';
-import validator from 'validator';
 import serviceApi from './api-service.js';
 
 const { list, input, notifyEr } = refs;
+
+
 
 input.addEventListener(
   'input',
@@ -53,7 +55,6 @@ const updateMovieGenres = movie => {
       .join(', '),
   };
 };
-console.log(genres);
 
 function render(query) {
   serviceApi
@@ -67,10 +68,12 @@ function render(query) {
       return showArrayElement;
     })
       .then(elem => {
-        console.log(elem)
       const mappedMovies = elem.map(updateMovieGenres);
-      console.log('mappedMovies:', mappedMovies);
+        console.log('mappedMovies:', mappedMovies);  
+        
       const render = cardHbs(mappedMovies);
       list.insertAdjacentHTML('beforeend', render);
     });
 }
+
+
