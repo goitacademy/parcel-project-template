@@ -7,8 +7,6 @@ import serviceApi from './api-service.js';
 
 const { list, input, notifyEr } = refs;
 
-
-
 input.addEventListener(
   'input',
   _debounce(e => {
@@ -63,17 +61,13 @@ function render(query) {
       const showArrayElement = param.results;
       if (showArrayElement.length == 0) {
         notifyEr.classList.remove('hide');
-        list.innerHTML = ' ';
+        list.innerHTML = '';
       }
       return showArrayElement;
     })
-      .then(elem => {
+    .then(elem => {
       const mappedMovies = elem.map(updateMovieGenres);
-        console.log('mappedMovies:', mappedMovies);  
-        
       const render = cardHbs(mappedMovies);
       list.insertAdjacentHTML('beforeend', render);
     });
 }
-
-
