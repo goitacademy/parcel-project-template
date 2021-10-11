@@ -1,6 +1,7 @@
 import './sass/main.scss';
 
-import './js/footer'
+
+
 
 import './js/site-nav.js';
 
@@ -13,3 +14,7 @@ const trending = new Trending();
 
 document.addEventListener('DOMContentLoaded', trending.onHomePageLoaded.bind(trending));
 
+import './js/page-render.js';
+import './js/trending';
+import './js/site-nav.js';
+import './js/footer'

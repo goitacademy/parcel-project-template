@@ -38,6 +38,7 @@ export default class Paginator {
     //ditry hack to remove all existing event listeners
     this.pagination.events.beforeMove = [];
     this.pagination.on('beforeMove', this.#onPageClick);
+    
   }
 
   set totalResults(newTotalResults) {
