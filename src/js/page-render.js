@@ -7,6 +7,8 @@ import serviceApi from './api-service.js';
 
 const { list, input, notifyEr } = refs;
 
+let searchQuery = '';
+
 input.addEventListener(
   'input',
   _debounce(e => {
@@ -15,6 +17,7 @@ input.addEventListener(
     notifyEr.classList.add('hide');
     list.innerHTML = ' ';
     if (!validateQueryValue) {
+      searchQuery = queryValue;
       render(queryValue);
     }
   }, 300),
@@ -54,20 +57,58 @@ const updateMovieGenres = movie => {
   };
 };
 
-function render(query) {
+const fetchNewPagefromSearch = event => {
+  serviceApi.changePage(event.page);
   serviceApi
-    .fetchDataDb(query)
+    .fetchDataDb(searchQuery)
     .then(param => {
+      const totalResults = param.total_results;
       const showArrayElement = param.results;
       if (showArrayElement.length == 0) {
         notifyEr.classList.remove('hide');
         list.innerHTML = '';
       }
-      return showArrayElement;
+      return { showArrayElement, totalResults };
     })
     .then(elem => {
-      const mappedMovies = elem.map(updateMovieGenres);
+      const { showArrayElement, totalResults } = elem;
+      const mappedMovies = showArrayElement.map(updateMovieGenres);
       const render = cardHbs(mappedMovies);
-      list.insertAdjacentHTML('beforeend', render);
+
+      console.log('New elements fetched', showArrayElement);
+
+      if (!window.paginator.isShown) {
+        window.paginator.show();
+      }
+      list.innerHTML = render;
+    });
+
+  console.log('Search result triggered', event);
+};
+
+function render(query) {
+  serviceApi
+    .fetchDataDb(query)
+    .then(param => {
+      const totalResults = param.total_results;
+      const showArrayElement = param.results;
+      if (showArrayElement.length == 0) {
+        notifyEr.classList.remove('hide');
+        list.innerHTML = '';
+      }
+      return { showArrayElement, totalResults };
+    })
+    .then(elem => {
+      const { showArrayElement, totalResults } = elem;
+      const mappedMovies = showArrayElement.map(updateMovieGenres);
+      const render = cardHbs(mappedMovies);
+
+      window.paginator.onPageClick = fetchNewPagefromSearch;
+      window.paginator.totalResults = totalResults;
+
+      if (!window.paginator.isShown) {
+        window.paginator.show();
+      }
+      list.innerHTML = render;
     });
 }
