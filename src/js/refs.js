@@ -14,4 +14,5 @@ export default {
   btnBox: document.querySelector('.buttons-box'),
   searchForm: document.querySelector('.header-form'),
   homeLink: document.getElementById('home'),
+  searchHeadIcon: document.querySelector('.search__icon'),
 };

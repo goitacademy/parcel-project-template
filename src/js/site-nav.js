@@ -10,8 +10,8 @@ function addLibraryClass(e) {
   const elem = e.target;
   homeLink.classList.remove('link__current');
   elem.classList.add('link__current');
-  searchForm.classList.add('form-none');
-  btnBox.classList.remove('buttons-none');
+  searchForm.classList.add('hide');
+  btnBox.classList.remove('hide');
 }
 
 function addHomeClass(e) {
@@ -19,6 +19,6 @@ function addHomeClass(e) {
   const elem = e.target;
   libraryLink.classList.remove('link__current');
   elem.classList.add('link__current');
-  searchForm.classList.remove('form-none');
-  btnBox.classList.add('buttons-none');
+  searchForm.classList.remove('hide');
+  btnBox.classList.add('hide');
 }
