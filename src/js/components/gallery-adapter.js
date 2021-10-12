@@ -6,10 +6,15 @@ const { list: gallery } = refs;
 
 const mapGenre = genreId => {
   const foundGenre = genres.find(genre => genre.id === genreId);
-  if (foundGenre) {
-    return foundGenre.name;
+  return foundGenre ? foundGenre.name : '';
+};
+
+export const getMovieGenres = movie => {
+  if (!movie?.genre_ids?.length) {
+    return ['Other'];
   }
-  return '';
+
+  return movie.genre_ids.map(mapGenre).filter(genre => genre !== '');
 };
 
 const addMappedGenres = movie => {
@@ -47,4 +52,13 @@ export const drawCards = movies => {
 
   const cards = galleryTmpl(enrichedMovies);
   gallery.innerHTML = cards;
+};
+
+export const scrollToTop = () => {
+  const firstItemIndex = 0;
+  const firstGalleryCard = gallery.children.item(firstItemIndex);
+  firstGalleryCard.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
 };
