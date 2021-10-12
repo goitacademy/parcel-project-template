@@ -5,7 +5,7 @@ import genres from '../js/components/genre-array.js';
 import refs from '../js/refs.js';
 import serviceApi from './api-service.js';
 
-const { list, input, notifyEr } = refs;
+const { list, input, notifyEr, searchHeadIcon } = refs;
 
 let searchQuery = '';
 
@@ -15,6 +15,7 @@ input.addEventListener(
     const queryValue = e.target.value.trim(' ');
     const validateQueryValue = validator.isEmpty(queryValue);
     notifyEr.classList.add('hide');
+    searchHeadIcon.classList.remove('hideInMobile'); 
     list.innerHTML = ' ';
     if (!validateQueryValue) {
       searchQuery = queryValue;
@@ -66,6 +67,7 @@ const fetchNewPagefromSearch = event => {
       const showArrayElement = param.results;
       if (showArrayElement.length == 0) {
         notifyEr.classList.remove('hide');
+        searchHeadIcon.classList.add('hideInMobile');
         list.innerHTML = '';
       }
       return { showArrayElement, totalResults };
@@ -94,6 +96,7 @@ function render(query) {
       const showArrayElement = param.results;
       if (showArrayElement.length == 0) {
         notifyEr.classList.remove('hide');
+       searchHeadIcon.classList.add('hideInMobile'); 
         list.innerHTML = '';
       }
       return { showArrayElement, totalResults };
