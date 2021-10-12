@@ -1,5 +1,5 @@
 import TrendingAPI from '../utils/trending-api';
-import { drawCards } from './gallery-adapter';
+import { drawCards, scrollToTop } from './gallery-adapter';
 
 export default class Trending {
   constructor() {
@@ -29,6 +29,7 @@ export default class Trending {
     try {
       const { results } = await this.trendingAPI.getMovies(event);
       drawCards(results);
+      scrollToTop();
     } catch (error) {
       console.error(error);
     }
