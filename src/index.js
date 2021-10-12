@@ -5,6 +5,10 @@ import './sass/main.scss';
 
 import './js/site-nav.js';
 
+import './js/page-render.js';
+import './js/displayUserLibrary.js';
+
+
 import Paginator from './js/components/paginator';
 import Trending from './js/components/trending';
 

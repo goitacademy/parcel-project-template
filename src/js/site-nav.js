@@ -1,5 +1,6 @@
-import refs from './refs';
-const { header, btnBox, searchForm, homeLink, libraryLink } = refs;
+import refs from '../js/refs.js';
+
+const { libraryLink, header, btnBox, searchForm, homeLink } = refs;
 
 libraryLink.addEventListener('click', addLibraryClass);
 homeLink.addEventListener('click', addHomeClass);
