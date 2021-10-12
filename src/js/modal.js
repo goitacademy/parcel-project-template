@@ -16,18 +16,22 @@ function openModal(e) {
       const modal = new renderModalClass(data);
       modal.showModal();
 
+      body.classList.toggle('modal-open');
+
       body.addEventListener('keydown', closeModalByKey);
       body.addEventListener('click', closeModalByClick);
       function closeModalByKey(e) {
         if (e.code === 'Escape') {
           modal.closeModal();
+          body.classList.toggle('modal-open');
           body.removeEventListener('keydown', closeModalByKey);
         }
       }
 
       function closeModalByClick(e) {
-        if (e.target.classList.contains('modal__icon')) {
+        if (e.target.classList.contains('modal__button-close')) {
           modal.closeModal();
+          body.classList.toggle('modal-open');
           body.removeEventListener('click', closeModalByClick);
         }
       }

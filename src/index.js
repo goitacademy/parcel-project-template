@@ -6,3 +6,4 @@ import './js/trending';
 import './js/site-nav.js';
 import './js/footer';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import './js/modal.js';
