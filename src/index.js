@@ -5,3 +5,4 @@ import './js/search-renderer.js';
 import './js/trending';
 import './js/site-nav.js';
 import './js/footer';
+import 'basiclightbox/dist/basicLightbox.min.css';

@@ -1,0 +1,50 @@
+<div class="modal">
+    <button class="modal__button-close">
+        <svg class="modal__icon" width="30px" height="30px">
+            <use href="./images/icons/close.svg"></use>
+        </svg>
+    </button>
+    <div class="modal_wrap">
+        <img src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt="film" class="modal_img" />
+        <div class="modal_inner">
+            <h2 class="modal_title">{{title}}</h2>
+            <table class="modal_table">
+                <tbody>
+                    <tr class="modal_item">
+                        <td class="modal_subtitle">Vote / Votes</td>
+                        <td class="modal_text">
+                            <span class="modal_inner-rating">{{vote_average}}</span> /
+                            <span class="modal_inner-votes">{{vote_count}}</span>
+                        </td>
+                    </tr>
+                    <tr class="modal_item">
+                        <td class="modal_subtitle">Popularity</td>
+                        <td class="modal_text">{{popularity}}</td>
+                    </tr>
+                    <tr class="modal_item">
+                        <td class="modal_subtitle">Original Title</td>
+                        <td class="modal_text">{{title}}</td>
+                    </tr>
+                    <tr class="modal_item">
+                        <td class="modal_subtitle">Genre</td>
+                        <td class="modal_text">
+                          {{#each genres}} 
+                            <span class="modal_genres">
+                                {{#with this}}
+                                 {{name}}
+                                {{/with}}
+                            </span> 
+                          {{/each}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="modal_caption">About</h3>
+            <p class="modal_desc">{{overview}}</p>
+            <ul class="modal_list-button">
+                <li class="modal_item-button"><button class="modal_button">add to watched</button></li>
+                <li class="modal_item-button"><button class="modal_button">add to queue</button></li>
+            </ul>
+        </div>
+    </div>
+</div>

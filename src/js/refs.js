@@ -15,4 +15,9 @@ export default {
   searchForm: document.querySelector('.header-form'),
   homeLink: document.getElementById('home'),
   searchHeadIcon: document.querySelector('.search__icon'),
+  teamModal: document.querySelector('#team'),
+  developers: document.querySelector('.developers'),
+  btnCloseModal: document.querySelector('[data-action="close-developers"]'),
+  body: document.querySelector('body'),
+  btnClose: document.querySelector('.modal__button-close'),
 };
