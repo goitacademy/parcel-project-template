@@ -1,23 +1,20 @@
 {{#each this}}
 <li class='movie__list-item card-set__item' data-id={{id}}>
-    <div class='movie__one-card'>
-        <div class='movie__thumb'>
-            <div class='movie__thumb-img'>
-                {{#if poster_path}}
-                <img class='movie__img' src='https://image.tmdb.org/t/p/w500/{{poster_path}}' alt={{title}} id='{{id}}' data-sourse="{{id}}" />
-                {{else}}
-                <img class='movie__img' src='' alt={{title}} id='{{id}}' data-sourse="{{id}}"/>
-                {{/if}}
-           </div>
-            <div class='movie__title-thumb'>
-                <h4 class='movie__title'>{{title}}</h4>
-                <div class='movie__box-description'>
-                    <p class="genres">{{mappedGenres}}</p>
-                    <p class="date">{{release_date}}</p>
-                    <p class='movie__description'>{{overview}}
-                        <span class='movie__average'>{{vote_average}}</span>
-                    </p> 
-                </div>
+    <div class='movie__thumb'>
+        <div class='movie__thumb-img'>
+            {{#if poster_path}}
+            <img class='movie__img' src='https://image.tmdb.org/t/p/w500/{{poster_path}}' alt={{title}} id='{{id}}' data-sourse="{{id}}" />
+            {{else}}
+            <img class='movie__img' src='' alt={{title}} id='{{id}}' data-sourse="{{id}}"/>
+            {{/if}}
+        </div>
+        <div class='movie__title-thumb'>
+            <h3 class='movie__title'>{{title}}</h3>
+            <div class='movie__box-description'>
+                <p class="movie__genres">{{mappedGenres}}</p>
+                <p class="movie__date">{{release_date}}</p>
+                <p class='movie__description hidden'>{{overview}}</p>
+                <div class='movie__average hidden'>{{vote_average}}</div>
             </div>
         </div>
     </div>
