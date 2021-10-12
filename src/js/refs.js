@@ -8,4 +8,7 @@ export default {
   list: document.querySelector('#card-set-js'),
   input: document.querySelector('#search-input'),
   notifyEr: document.querySelector('#input-error'),
+  teamModal: document.querySelector('#team'),
+  developers: document.querySelector('.developers'),
+  btnCloseModal: document.querySelector('[data-action="close-developers"]')
 };

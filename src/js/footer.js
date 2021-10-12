@@ -1,21 +1,9 @@
-const team = document.querySelector('#team');
-const developers = document.querySelector('.developers');
-const btnCloseModal = document.querySelector('[data-action="close-developers"]');
+import getModalRefs from "./modal_refs";
+import refs from "./refs";
 
-team.addEventListener('click', onOpenModalFooter);
+const {teamModal, btnCloseModal, developers} = refs;
+const {onOpenModal, onCloseModalClick} = getModalRefs(developers);
+
+teamModal.addEventListener('click', onOpenModal);
 btnCloseModal.addEventListener('click', onCloseModalClick);
 
-function onOpenModalFooter() {
-  developers.classList.add('is-open');
-  window.addEventListener('keydown', onEscKeyPress);
-}
-
-function onCloseModalClick(e) {
-  developers.classList.remove('is-open');
-}
-
-function onEscKeyPress(e) {
-  if (e.code === 'Escape') {
-    onCloseModalClick();
-  }
-}
