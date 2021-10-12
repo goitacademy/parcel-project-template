@@ -15,4 +15,5 @@ export default {
   searchForm: document.querySelector('.header-form'),
   homeLink: document.getElementById('home'),
   searchHeadIcon: document.querySelector('.search__icon'),
+  buttonScrollToUp: document.querySelector('#btn-scroll-up')
 };
