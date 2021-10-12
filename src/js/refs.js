@@ -14,4 +14,5 @@ export default {
   teamModal: document.querySelector('#team'),
   developers: document.querySelector('.developers'),
   btnCloseModal: document.querySelector('[data-action="close-developers"]'),
+  body: document.querySelector('body'),
 };
