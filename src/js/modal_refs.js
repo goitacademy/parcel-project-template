@@ -6,6 +6,7 @@ export default function (modal) {
       
       function onCloseModalClick(e) {
         modal.classList.remove('is-open');
+        window.removeEventListener('keydown', onEscKeyPress);
       }
       
       function onEscKeyPress(e) {
