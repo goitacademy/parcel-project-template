@@ -16,4 +16,7 @@ export default {
   homeLink: document.getElementById('home'),
   searchHeadIcon: document.querySelector('.search__icon'),
   buttonScrollToUp: document.querySelector('#btn-scroll-up')
+  teamModal: document.querySelector('#team'),
+  developers: document.querySelector('.developers'),
+  btnCloseModal: document.querySelector('[data-action="close-developers"]')
 };
