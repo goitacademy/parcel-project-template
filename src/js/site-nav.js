@@ -1,5 +1,6 @@
-import refs from './refs';
-const { header, btnBox, searchForm, homeLink, libraryLink } = refs;
+import refs from '../js/refs.js';
+
+const { libraryLink, header, btnBox, searchForm, homeLink } = refs;
 
 libraryLink.addEventListener('click', addLibraryClass);
 homeLink.addEventListener('click', addHomeClass);
@@ -9,8 +10,8 @@ function addLibraryClass(e) {
   const elem = e.target;
   homeLink.classList.remove('link__current');
   elem.classList.add('link__current');
-  searchForm.classList.add('form-none');
-  btnBox.classList.remove('buttons-none');
+  searchForm.classList.add('hide');
+  btnBox.classList.remove('hide');
 }
 
 function addHomeClass(e) {
@@ -18,6 +19,6 @@ function addHomeClass(e) {
   const elem = e.target;
   libraryLink.classList.remove('link__current');
   elem.classList.add('link__current');
-  searchForm.classList.remove('form-none');
-  btnBox.classList.add('buttons-none');
+  searchForm.classList.remove('hide');
+  btnBox.classList.add('hide');
 }

@@ -1,4 +1,5 @@
 import TrendingAPI from '../utils/trending-api';
+import { drawCards } from './gallery-adapter';
 
 export default class Trending {
   constructor() {
@@ -17,9 +18,7 @@ export default class Trending {
   async onHomePageLoaded() {
     try {
       const { total_results, results } = await this.trendingAPI.getMovies();
-      /*Mock draw results on main gage  ----------------*/
-      console.log(`Popular results. On home page loaded`, results);
-      /* ----------- mock end --------------------------*/
+      drawCards(results);
       this.bindPaginatorToTrending(total_results);
     } catch (error) {
       console.error(error);
@@ -29,9 +28,7 @@ export default class Trending {
   async onPageClicked(event) {
     try {
       const { results } = await this.trendingAPI.getMovies(event);
-      /*Mock draw results on main gage  ----------------*/
-      console.log(`Popular results. On paginator clicked page ${event?.page}`, results);
-      /* ----------- mock end --------------------------*/
+      drawCards(results);
     } catch (error) {
       console.error(error);
     }
