@@ -1,9 +1,9 @@
 import * as basicLightbox from 'basiclightbox';
-import createModalMarkup from '../templates/oneMovieModal.hbs';
+import modalTemplate from '../templates/oneMovieModal.hbs';
 
 export default class Modal {
   constructor(data) {
-    this.instance = basicLightbox.create(createModalMarkup(data));
+    this.instance = basicLightbox.create(modalTemplate(data));
   }
 
   showModal() {

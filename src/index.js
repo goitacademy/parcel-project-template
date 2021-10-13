@@ -6,10 +6,5 @@ import './js/trending';
 import './js/site-nav.js';
 import './js/footer';
 import './js/components/button-scroll.js';
-<<<<<<< Updated upstream
 import 'basiclightbox/dist/basicLightbox.min.css';
 import './js/modal.js';
-=======
-import './js/'
-
->>>>>>> Stashed changes
