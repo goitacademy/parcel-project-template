@@ -1,29 +1,19 @@
 {{#each this}}
-  <li class='movie__list-item card-set__item' data-id={{id}}>
-    <div class='movie__thumb'>
-      <div class='movie__thumb-img'>
-        
-          <img
-            class='movie__img'
-            {{#if poster_path}}
-            src='https://image.tmdb.org/t/p/w500{{poster_path}}'
-            {{else}}
-            src="No-Movies-For-Two-Years.jpg"
-            {{/if}}
-            alt='{{title}}'
-            id='{{id}}'
-            data-sourse='{{id}}'
-          />    
-      </div>
-      <div class='movie__title-thumb'>
-        <h3 class='movie__title'>{{title}}</h3>
-        <div class='movie__box-description'>
-          <p class='movie__genres'>{{mappedGenres}}</p>
-          <p class='movie__date'>{{year}}</p>
-          <p class='movie__description hidden'>{{overview}}</p>
-          <div class='movie__average hidden'>{{vote_average}}</div>
+    <li class='movie__list-item card-set__item' data-id={{id}}>
+        <div class='movie__thumb'>
+            <div class='movie__thumb-img'>
+                <img class='movie__img' {{#if poster_path}} src='https://image.tmdb.org/t/p/w500{{poster_path}}' {{else}}
+                    src="no-poster.png" {{/if}} alt='{{title}}' id='{{id}}' data-sourse='{{id}}' />
+            </div>
+            <div class='movie__title-thumb'>
+                <h3 class='movie__title'>{{title}}</h3>
+                <div class='movie__box-description'>
+                    <p class='movie__genres'>{{mappedGenres}}</p>
+                    <p class='movie__date'>{{year}}</p>
+                    <p class='movie__description hidden'>{{overview}}</p>
+                    <div class='movie__average hidden'>{{vote_average}}</div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </li>
+    </li>
 {{/each}}
