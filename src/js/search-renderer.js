@@ -1,10 +1,13 @@
 import _debounce from 'debounce';
 import validator from 'validator';
 import refs from './refs.js';
-import serviceApi from './api-service.js';
+import serviceApi from './utils/api-service.js';
+import trending from './components/trending.js';
 import { drawCards, scrollToTop } from './components/gallery-adapter';
 
 const { list, input, notifyEr, searchHeadIcon } = refs;
+
+const Trending = new trending();
 
 let searchQuery = '';
 
@@ -19,6 +22,8 @@ input.addEventListener(
     if (!validateQueryValue) {
       searchQuery = queryValue;
       render(queryValue);
+    } else {
+      Trending.onHomePageLoaded();
     }
   }, 300),
 );
