@@ -6,5 +6,8 @@ import './js/trending';
 import './js/site-nav.js';
 import './js/footer';
 import './js/components/button-scroll.js';
+
 import 'basiclightbox/dist/basicLightbox.min.css';
 import './js/modal.js';
+
+import './js/components/theme-change'
