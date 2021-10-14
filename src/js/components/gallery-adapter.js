@@ -1,5 +1,5 @@
 import genres from './genre-array';
-import galleryTmpl from '../../templates/oneMovieCard.hbs';
+import galleryTmpl from '../../templates/one-movie-card.hbs';
 
 import refs from '../refs';
 const { list: gallery } = refs;
