@@ -1,4 +1,4 @@
-import renderModalClass from './renderModalClass.js';
+import renderModalClass from './render-modal-class.js';
 import apiService from './utils/api-service-modal.js';
 import refs from './refs.js';
 

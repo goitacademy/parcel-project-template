@@ -1,5 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
-import modalTemplate from '../templates/oneMovieModal.hbs';
+import modalTemplate from '../templates/one-movie-modal.hbs';
 
 export default class Modal {
   constructor(data) {
