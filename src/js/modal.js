@@ -36,7 +36,7 @@ function openModal(e) {
       function closeModalByClick(e) {
         if (
           e.target.classList.contains('modal__button-close') ||
-          e.target.classList.contains('basicLightbox__placeholder')
+          e.target.classList.contains('basicLightbox')
         ) {
           modal.closeModal();
           body.classList.remove('modal-open');
