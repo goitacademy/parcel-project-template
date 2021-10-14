@@ -7,12 +7,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms var(--transition-timing-function),
-    visibility 250ms var(--transition-timing-function);
+  transition: transform 250ms var(--transition-timing-function);
 
   padding: 50px 20px 40px;
+  max-height: calc(100vh - 20px);
 
-  max-height: 100vh;
   overflow-y: auto;
 
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -22,7 +21,7 @@
   background-color: var(--second-color);
 
   @media screen and (max-width: 479px) {
-    position: relative;
+    width: calc(100vw - 20px);
     max-width: 440px;
   }
 
@@ -46,6 +45,8 @@
   top: 10px;
   right: 10px;
 
+  cursor: pointer;
+
   width: 30px;
   height: 30px;
 
@@ -62,24 +63,16 @@
 }
 
 .modal_wrap {
-  @media screen and (max-width: 767px) {
-    margin: 0 auto;
-    max-width: 350px;
-  }
+  width: 100%;
+
   @media screen and (min-width: 768px) {
     display: flex;
   }
 }
 
-.modal_img {
-  display: block;
-
+.modal_thumb {
   margin-bottom: 30px;
-
-  width: 100%;
-  height: auto;
-
-  text-align: center;
+  // max-width: 440;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0px;
@@ -92,6 +85,15 @@
     width: 396px;
     height: 594px;
   }
+}
+
+.modal_img {
+  height: 100%;
+  width: 100%;
+
+  border-radius: 5px;
+
+  object-fit: cover;
 }
 
 .modal_inner {
@@ -162,26 +164,28 @@
 }
 
 .modal_inner-rating {
-  display: inline-block;
-  padding: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   width: 36px;
   height: 16px;
 
   border-radius: 5px;
-  text-align: center;
 
   color: var(--second-color);
   background-color: var(--accent-color);
 }
 
 .modal_inner-votes {
-  display: inline-block;
-  padding: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   width: 36px;
   height: 16px;
 
   border-radius: 5px;
-  text-align: center;
 
   background-color: var(--footer-background);
 }
@@ -233,6 +237,8 @@
 
   border: 1px solid var(--primary-color);
   border-radius: 5px;
+
+  cursor: pointer;
 
   font-weight: 500;
   font-size: 12px;
