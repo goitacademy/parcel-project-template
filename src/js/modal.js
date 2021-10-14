@@ -11,6 +11,7 @@ function openModal(e) {
     const id = e.target.dataset.sourse;
 
     apiService.fetchMovie(id).then(data => {
+      console.log(data);
       if (data.genres.length === 0) {
         data.genre = 'Other';
       } else {
