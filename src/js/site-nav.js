@@ -1,6 +1,6 @@
 import refs from '../js/refs.js';
 
-const { libraryLink, header, btnBox, searchForm, homeLink } = refs;
+const { libraryLink, header, btnBox, searchForm, homeLink, input } = refs;
 
 libraryLink.addEventListener('click', addLibraryClass);
 homeLink.addEventListener('click', addHomeClass);
@@ -21,4 +21,5 @@ function addHomeClass(e) {
   elem.classList.add('link__current');
   searchForm.classList.remove('hide');
   btnBox.classList.add('hide');
+  input.value = ''
 }
