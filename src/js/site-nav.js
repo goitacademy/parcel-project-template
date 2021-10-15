@@ -12,6 +12,7 @@ function addLibraryClass(e) {
   elem.classList.add('link__current');
   searchForm.classList.add('hide');
   btnBox.classList.remove('hide');
+  input.value = ''
 }
 
 function addHomeClass(e) {
