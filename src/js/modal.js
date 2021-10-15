@@ -11,7 +11,6 @@ function openModal(e) {
     const id = e.target.dataset.sourse;
 
     apiService.fetchMovie(id).then(data => {
-      console.log(data);
       if (data.genres.length === 0) {
         data.genre = 'Other';
       } else {
@@ -29,8 +28,7 @@ function openModal(e) {
       function closeModalByKey(e) {
         if (e.code === 'Escape') {
           modal.closeModal();
-          body.classList.remove('modal-open');
-          body.removeEventListener('keydown', closeModalByKey);
+          removeModalOpenAndEventListeners();
         }
       }
 
@@ -40,9 +38,14 @@ function openModal(e) {
           e.target.classList.contains('basicLightbox')
         ) {
           modal.closeModal();
-          body.classList.remove('modal-open');
-          body.removeEventListener('click', closeModalByClick);
+          removeModalOpenAndEventListeners();
         }
+      }
+
+      function removeModalOpenAndEventListeners() {
+        body.classList.remove('modal-open');
+        body.removeEventListener('click', closeModalByClick);
+        body.removeEventListener('keydown', closeModalByKey);
       }
     });
   }
