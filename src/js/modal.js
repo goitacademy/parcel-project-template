@@ -51,32 +51,51 @@ localStorage.setItem('idModal', id);
   }
 }
 
-body.addEventListener('click', buttonListener);
+const nameArray = {
+  watched: [],
+  quequ: [],
+  
+  arrayPresence() {
+    if (localStorage.getItem('watched') === null) {
+      localStorage.setItem('watched', JSON.stringify(this.watched));
+      localStorage.setItem('quequ', JSON.stringify(this.quequ));
+    }
+  },
 
-function buttonListener(e) {
+  buttonListener(e) {
+    nameArray.arrayPresence();
+
     if (e.target.nodeName === 'BUTTON') {
       const btnEl = e.target;
-      btnEl.dataset.data = getId();
- 
-      if (e.target.id === 'toWatch') {
-   console.log( btnEl.dataset.data);
-        localStorage.setItem('watched', getId())
-        localStorage.removeItem('quequ')
-  }
-      if (e.target.id === 'toQuequ') {
-    console.log( btnEl.dataset.data);
-        localStorage.setItem('quequ', getId());
-        localStorage.removeItem('watched')
-  }
-  }
-  
-}
-function getId() {
-  const id = localStorage.getItem('idModal');
-  return id;
-}
+      btnEl.dataset.data = nameArray.getId();
 
-const i = localStorage.getItem('watched');
-const y = localStorage.getItem('toQuequ');
-console.log('watched', i);
-console.log('toQuequ', y);
+      if (e.target.id === 'toWatch') {
+        if (!localStorage.getItem('watched').includes(nameArray.getId())) {
+          let getItemArray = localStorage.getItem('watched');
+          getItemArray = JSON.parse(getItemArray);
+          getItemArray.push(btnEl.dataset.data);
+          localStorage.setItem('watched', JSON.stringify(getItemArray));
+        } else {
+          alert('This added movie, choose another ');
+        }
+      }
+
+      if (e.target.id === 'toQuequ') {
+        if (!localStorage.getItem('quequ').includes(nameArray.getId())) {
+          let getItemQuequ = localStorage.getItem('quequ');
+          getItemQuequ = JSON.parse(getItemQuequ);
+          getItemQuequ.push(btnEl.dataset.data);
+          localStorage.setItem('quequ', JSON.stringify(getItemQuequ));
+        } else {
+          alert('This added movie, choose another');
+        }
+      }
+    }
+  },
+  getId() {
+    const id = localStorage.getItem('idModal');
+    return id;
+  },
+};
+
+body.addEventListener('click', nameArray.buttonListener);
