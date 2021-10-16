@@ -11,5 +11,3 @@ const spiner = {
         console.log(hide);
     }
 }
-
-spiner.show(); 
