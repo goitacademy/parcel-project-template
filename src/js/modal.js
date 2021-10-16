@@ -2,14 +2,17 @@ import renderModalClass from './render-modal-class.js';
 import apiService from './utils/api-service-modal.js';
 import refs from './refs.js';
 
-const { list, body } = refs;
+const { list, body} = refs;
+
 
 list.addEventListener('click', openModal);
 
 function openModal(e) {
+  
   if (e.target.nodeName === 'IMG') {
     const id = e.target.dataset.sourse;
-localStorage.setItem('idModal', id);
+    localStorage.setItem('idModal', id);
+
     apiService.fetchMovie(id).then(data => {
       if (data.genres.length === 0) {
         data.genre = 'Other';
@@ -51,51 +54,54 @@ localStorage.setItem('idModal', id);
   }
 }
 
-const nameArray = {
+// ADD TO LS
+const addFilmsToLSbyButtonClick = {
   watched: [],
-  quequ: [],
+  queue: [],
+  id: 0,
   
-  arrayPresence() {
-    if (localStorage.getItem('watched') === null) {
+  checkLStoEmpty() {
+    if (localStorage.getItem('watched') === null || localStorage.getItem('queue') === null ) {
       localStorage.setItem('watched', JSON.stringify(this.watched));
-      localStorage.setItem('quequ', JSON.stringify(this.quequ));
+      localStorage.setItem('queue', JSON.stringify(this.queue));
     }
   },
-
+  
+  getId() {
+    return localStorage.getItem('idModal');
+  },
+  
   buttonListener(e) {
-    nameArray.arrayPresence();
+    addFilmsToLSbyButtonClick.checkLStoEmpty();
 
     if (e.target.nodeName === 'BUTTON') {
       const btnEl = e.target;
-      btnEl.dataset.data = nameArray.getId();
+      btnEl.dataset.data = addFilmsToLSbyButtonClick.getId();
+      this.id = btnEl.dataset.data;
 
       if (e.target.id === 'toWatch') {
-        if (!localStorage.getItem('watched').includes(nameArray.getId())) {
-          let getItemArray = localStorage.getItem('watched');
-          getItemArray = JSON.parse(getItemArray);
-          getItemArray.push(btnEl.dataset.data);
-          localStorage.setItem('watched', JSON.stringify(getItemArray));
+        if (!localStorage.getItem('watched').includes(addFilmsToLSbyButtonClick.getId())) {
+          let getItemWatched = localStorage.getItem('watched');
+          getItemWatched = JSON.parse(getItemWatched);
+          getItemWatched.push(this.id);
+          localStorage.setItem('watched', JSON.stringify(getItemWatched));
         } else {
           alert('This added movie, choose another ');
         }
       }
 
-      if (e.target.id === 'toQuequ') {
-        if (!localStorage.getItem('quequ').includes(nameArray.getId())) {
-          let getItemQuequ = localStorage.getItem('quequ');
-          getItemQuequ = JSON.parse(getItemQuequ);
-          getItemQuequ.push(btnEl.dataset.data);
-          localStorage.setItem('quequ', JSON.stringify(getItemQuequ));
+      if (e.target.id === 'toQueue') {
+        if (!localStorage.getItem('queue').includes(addFilmsToLSbyButtonClick.getId())) {
+          let getItemQueue = localStorage.getItem('queue');
+          getItemQueue = JSON.parse(getItemQueue);
+          getItemQueue.push(this.id);
+          localStorage.setItem('queue', JSON.stringify(getItemQueue));
         } else {
           alert('This added movie, choose another');
         }
       }
     }
   },
-  getId() {
-    const id = localStorage.getItem('idModal');
-    return id;
-  },
 };
 
-body.addEventListener('click', nameArray.buttonListener);
+body.addEventListener('click', addFilmsToLSbyButtonClick.buttonListener);

@@ -46,6 +46,7 @@ function getFilmsFromLocalStorage(typeFilms) {
         } else {
             watched = JSON.parse(watched);
         }
+        console.log(watched);
         return watched;
     } else if (typeFilms === 'queue') {
         let queue = localStorage.getItem('queue');
@@ -55,6 +56,7 @@ function getFilmsFromLocalStorage(typeFilms) {
         } else {
             queue = JSON.parse(queue);
         }
+        console.log(queue);
         return queue;
     }
   }
