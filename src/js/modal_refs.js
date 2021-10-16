@@ -32,8 +32,8 @@ export default function (body) {
 
     function removeModalOpenAndEventListeners() {
       body.classList.remove('developers-open');
-      window.removeEventListener('click', closeModalByClick);
-      window.removeEventListener('keydown', closeModalByKey);
+      window.removeEventListener('click', onCloseModalClick);
+      window.removeEventListener('keydown', onEscKeyPress);
     }
   }
 
