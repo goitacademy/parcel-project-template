@@ -42,21 +42,19 @@ export function getFilmsFromLocalStorage(typeFilms) {
         let watched = localStorage.getItem('watched');
         if (watched === null) {
             watched = [];
-            console.log('watched', watched);
         } else {
             watched = JSON.parse(watched);
         }
-        console.log(watched);
+        console.log('watched', watched);
         return watched;
     } else if (typeFilms === 'queue') {
         let queue = localStorage.getItem('queue');
         if (queue === null) {
             queue = [];
-            console.log('queue', queue);
         } else {
             queue = JSON.parse(queue);
         }
-        console.log(queue);
+        console.log('queue', queue);
         return queue;
     }
 }

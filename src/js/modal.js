@@ -92,8 +92,22 @@ const addFilmsToLSbyButtonClick = {
           btnWatched.textContent = 'Remove';
         } else {
           alert('Are you realy want to delete this film from Watched-list?');
+          let getItemWatched = localStorage.getItem('watched');
+          getItemWatched = JSON.parse(getItemWatched);
+          console.log(getItemWatched);
+          if (getItemWatched.includes(this.id)) {
+            console.log('ok')
+            let index = getItemWatched.indexOf(this.id)
+            console.log(index)
+            getItemWatched.splice(index, 1);
+            console.log(getItemWatched)
+            localStorage.setItem('watched', JSON.stringify(getItemWatched));
+          } else {
+            console.log('false')
+          }
           btnWatched.classList.remove('modal_btn_active'); 
           btnWatched.textContent = `ADD TO WATCHED`;
+
         }
       }
 
@@ -117,21 +131,6 @@ const addFilmsToLSbyButtonClick = {
 
 body.addEventListener('click', addFilmsToLSbyButtonClick.buttonListener);
 
-
-// const checkFilmInLS = function () {
-//   const check = function (param) {
-//       let cardID = document.querySelector("[data-id='id']").id;
-//       console.log(cardID)
-//     let stack = getFilmsFromLocalStorage(param);
-//     const stackId = stack.map(film => film.id);
-//     if (stackId.includes(Number(cardID))) {
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   };
-
-//   console.log(checkFilmInLS())
 
 
 // if (e.target.textContent === 'MY LIBRARY') {
