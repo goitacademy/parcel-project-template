@@ -37,7 +37,7 @@ function onClickButtonChangeCurrentButton() {
 }
 
 //funtction to det list of films from LocalStorage with parametr watched/queue
-function getFilmsFromLocalStorage(typeFilms) {
+export function getFilmsFromLocalStorage(typeFilms) {
     if (typeFilms === 'watched') {
         let watched = localStorage.getItem('watched');
         if (watched === null) {
@@ -59,4 +59,4 @@ function getFilmsFromLocalStorage(typeFilms) {
         console.log(queue);
         return queue;
     }
-  }
+}
