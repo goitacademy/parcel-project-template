@@ -10,8 +10,10 @@ list.addEventListener('click', openModal);
 function openModal(e) {
   if (e.target.nodeName === 'IMG') {
     const id = e.target.dataset.sourse;
-localStorage.setItem('idModal', id);
+    console.log(id);
+    localStorage.setItem('idModal', id);
     apiService.fetchMovie(id).then(data => {
+      console.log(data);
       if (data.genres.length === 0) {
         data.genre = 'Other';
       } else {
@@ -57,22 +59,21 @@ localStorage.setItem('idModal', id);
 body.addEventListener('click', buttonListener);
 
 function buttonListener(e) {
-    if (e.target.nodeName === 'BUTTON') {
-      const btnEl = e.target;
-      btnEl.dataset.data = getId();
- 
-      if (e.target.id === 'toWatch') {
-   console.log( btnEl.dataset.data);
-        localStorage.setItem('watched', getId())
-        localStorage.removeItem('quequ')
+  if (e.target.nodeName === 'BUTTON') {
+    const btnEl = e.target;
+    btnEl.dataset.data = getId();
+
+    if (e.target.id === 'toWatch') {
+      console.log(btnEl.dataset.data);
+      localStorage.setItem('watched', getId());
+      localStorage.removeItem('quequ');
+    }
+    if (e.target.id === 'toQuequ') {
+      console.log(btnEl.dataset.data);
+      localStorage.setItem('quequ', getId());
+      localStorage.removeItem('watched');
+    }
   }
-      if (e.target.id === 'toQuequ') {
-    console.log( btnEl.dataset.data);
-        localStorage.setItem('quequ', getId());
-        localStorage.removeItem('watched')
-  }
-  }
-  
 }
 function getId() {
   const id = localStorage.getItem('idModal');
