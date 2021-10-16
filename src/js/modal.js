@@ -1,15 +1,13 @@
 import renderModalClass from './render-modal-class.js';
 import apiService from './utils/api-service-modal.js';
 import refs from './refs.js';
-import getFilmsFromLocalStorage from './displayUserLibrary.js'
+import getFilmsFromLocalStorage from './displayUserLibrary.js';
 
-const { list, body} = refs;
-
+const { list, body } = refs;
 
 list.addEventListener('click', openModal);
 
 function openModal(e) {
-  
   if (e.target.nodeName === 'IMG') {
     const id = e.target.dataset.sourse;
     localStorage.setItem('idModal', id);
@@ -60,18 +58,18 @@ const addFilmsToLSbyButtonClick = {
   watched: [],
   queue: [],
   id: 0,
-  
+
   checkLStoEmpty() {
-    if (localStorage.getItem('watched') === null || localStorage.getItem('queue') === null ) {
+    if (localStorage.getItem('watched') === null || localStorage.getItem('queue') === null) {
       localStorage.setItem('watched', JSON.stringify(this.watched));
       localStorage.setItem('queue', JSON.stringify(this.queue));
     }
   },
-  
+
   getId() {
     return localStorage.getItem('idModal');
   },
-  
+
   buttonListener(e) {
     addFilmsToLSbyButtonClick.checkLStoEmpty();
 
@@ -81,14 +79,14 @@ const addFilmsToLSbyButtonClick = {
       this.id = btnEl.dataset.data;
       const btnWatched = document.getElementById('toWatch');
       const btnQueue = document.getElementById('toQueue');
-      
+
       if (e.target.id === 'toWatch') {
         if (!localStorage.getItem('watched').includes(addFilmsToLSbyButtonClick.getId())) {
           let getItemWatched = localStorage.getItem('watched');
           getItemWatched = JSON.parse(getItemWatched);
           getItemWatched.push(this.id);
           localStorage.setItem('watched', JSON.stringify(getItemWatched));
-          btnWatched.classList.add('modal_btn_active'); 
+          btnWatched.classList.add('modal_btn_active');
           btnWatched.textContent = 'Remove';
         } else {
           alert('Are you realy want to delete this film from Watched-list?');
@@ -101,7 +99,6 @@ const addFilmsToLSbyButtonClick = {
           
           btnWatched.classList.remove('modal_btn_active'); 
           btnWatched.textContent = `ADD TO WATCHED`;
-
         }
       }
 
@@ -111,7 +108,7 @@ const addFilmsToLSbyButtonClick = {
           getItemQueue = JSON.parse(getItemQueue);
           getItemQueue.push(this.id);
           localStorage.setItem('queue', JSON.stringify(getItemQueue));
-          btnQueue.classList.add('modal_btn_active'); 
+          btnQueue.classList.add('modal_btn_active');
           btnQueue.textContent = 'Remove';
         } else {
           alert('Are you realy want to delete this film from Queue-list?');
@@ -132,11 +129,9 @@ const addFilmsToLSbyButtonClick = {
 
 body.addEventListener('click', addFilmsToLSbyButtonClick.buttonListener);
 
-
-
 // if (e.target.textContent === 'MY LIBRARY') {
 //   render library default watched
-    // getFilmsFromLocalStorage('watched')
+// getFilmsFromLocalStorage('watched')
 // }
 // if (e.target.dataset.index === 'btn-to-wached') {
 //   // ADD TO WATCHED
