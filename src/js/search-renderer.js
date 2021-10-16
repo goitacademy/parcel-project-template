@@ -47,14 +47,10 @@ const fetchNewPagefromSearch = event => {
       drawCards(showArrayElement);
       scrollToTop();
 
-      console.log('New elements fetched', showArrayElement);
-
       if (!window.paginator.isShown) {
         window.paginator.show();
       }
     });
-
-  console.log('Search result triggered', event);
 };
 
 function render(query) {

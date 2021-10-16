@@ -10,7 +10,7 @@ list.addEventListener('click', openModal);
 function openModal(e) {
   if (e.target.nodeName === 'IMG') {
     const id = e.target.dataset.sourse;
-
+localStorage.setItem('idModal', id);
     apiService.fetchMovie(id).then(data => {
       if (data.genres.length === 0) {
         data.genre = 'Other';
@@ -31,8 +31,7 @@ function openModal(e) {
       function closeModalByKey(e) {
         if (e.code === 'Escape') {
           modal.closeModal();
-          body.classList.remove('modal-open');
-          body.removeEventListener('keydown', closeModalByKey);
+          removeModalOpenAndEventListeners();
         }
       }
 
@@ -42,10 +41,45 @@ function openModal(e) {
           e.target.classList.contains('basicLightbox')
         ) {
           modal.closeModal();
-          body.classList.remove('modal-open');
-          body.removeEventListener('click', closeModalByClick);
+          removeModalOpenAndEventListeners();
         }
+      }
+
+      function removeModalOpenAndEventListeners() {
+        body.classList.remove('modal-open');
+        body.removeEventListener('click', closeModalByClick);
+        body.removeEventListener('keydown', closeModalByKey);
       }
     });
   }
 }
+
+body.addEventListener('click', buttonListener);
+
+function buttonListener(e) {
+    if (e.target.nodeName === 'BUTTON') {
+      const btnEl = e.target;
+      btnEl.dataset.data = getId();
+ 
+      if (e.target.id === 'toWatch') {
+   console.log( btnEl.dataset.data);
+        localStorage.setItem('watched', getId())
+        localStorage.removeItem('quequ')
+  }
+      if (e.target.id === 'toQuequ') {
+    console.log( btnEl.dataset.data);
+        localStorage.setItem('quequ', getId());
+        localStorage.removeItem('watched')
+  }
+  }
+  
+}
+function getId() {
+  const id = localStorage.getItem('idModal');
+  return id;
+}
+
+const i = localStorage.getItem('watched');
+const y = localStorage.getItem('toQuequ');
+console.log('watched', i);
+console.log('toQuequ', y);
