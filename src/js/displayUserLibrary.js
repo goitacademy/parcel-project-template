@@ -1,6 +1,9 @@
 import refs from '../js/refs.js';
+import apiService from './utils/api-service.js'
+import { drawCards, scrollToTop } from './components/gallery-adapter';
+import gallary from '..//templates/one-movie-card.hbs'
 
-const { dinamicButtons} = refs;
+const { dinamicButtons, list} = refs;
 
 const displayUserLibrary = function () {
 
@@ -56,3 +59,21 @@ export function getFilmsFromLocalStorage(typeFilms) {
         return queue;
     }
 }
+
+
+
+const w = 'watched';
+
+function render (){
+    const array = getFilmsFromLocalStorage(w);
+    apiService.fetchMoviesByIds(array).then(data => {
+        // drawCards(data)
+        console.log(data)
+        const card = gallary(data);
+list.innerHTML = card;
+console.log(card)
+    })
+
+}
+
+render()
