@@ -10,10 +10,8 @@ list.addEventListener('click', openModal);
 function openModal(e) {
   if (e.target.nodeName === 'IMG') {
     const id = e.target.dataset.sourse;
-    console.log(id);
     localStorage.setItem('idModal', id);
     apiService.fetchMovie(id).then(data => {
-      console.log(data);
       if (data.genres.length === 0) {
         data.genre = 'Other';
       } else {
