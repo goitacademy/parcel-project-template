@@ -1,7 +1,7 @@
 import refs from '../refs.js';
 const { spinerContainer } = refs;
 
-const spiner = {
+export const spiner = {
     show() {
          spinerContainer.classList.remove("hidden");
          console.log(show);
