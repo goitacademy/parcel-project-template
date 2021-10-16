@@ -92,19 +92,13 @@ const addFilmsToLSbyButtonClick = {
           btnWatched.textContent = 'Remove';
         } else {
           alert('Are you realy want to delete this film from Watched-list?');
+
           let getItemWatched = localStorage.getItem('watched');
           getItemWatched = JSON.parse(getItemWatched);
-          console.log(getItemWatched);
-          if (getItemWatched.includes(this.id)) {
-            console.log('ok')
-            let index = getItemWatched.indexOf(this.id)
-            console.log(index)
-            getItemWatched.splice(index, 1);
-            console.log(getItemWatched)
-            localStorage.setItem('watched', JSON.stringify(getItemWatched));
-          } else {
-            console.log('false')
-          }
+          let index = getItemWatched.indexOf(this.id)
+          getItemWatched.splice(index, 1);
+          localStorage.setItem('watched', JSON.stringify(getItemWatched));
+          
           btnWatched.classList.remove('modal_btn_active'); 
           btnWatched.textContent = `ADD TO WATCHED`;
 
@@ -121,6 +115,13 @@ const addFilmsToLSbyButtonClick = {
           btnQueue.textContent = 'Remove';
         } else {
           alert('Are you realy want to delete this film from Queue-list?');
+
+          let getItemQueue = localStorage.getItem('queue');
+          getItemQueue = JSON.parse(getItemQueue);
+          let index = getItemQueue.indexOf(this.id)
+          getItemQueue.splice(index, 1);
+          localStorage.setItem('queue', JSON.stringify(getItemQueue));
+
           btnQueue.classList.remove('modal_btn_active'); 
           btnQueue.textContent = `ADD TO QUEUE`;
         }
