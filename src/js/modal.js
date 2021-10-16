@@ -1,5 +1,6 @@
 import renderModalClass from './render-modal-class.js';
 import apiService from './utils/api-service-modal.js';
+import movieModalTemplate from '../templates/one-movie-modal.hbs';
 import refs from './refs.js';
 
 const { list, body } = refs;
@@ -11,14 +12,15 @@ function openModal(e) {
     const id = e.target.dataset.sourse;
 
     apiService.fetchMovie(id).then(data => {
-      console.log(data);
       if (data.genres.length === 0) {
         data.genre = 'Other';
       } else {
         data.genre = data.genres.map(genre => genre.name).join(', ');
       }
 
-      const modal = new renderModalClass(data);
+      let modalTemplate = movieModalTemplate(data);
+
+      const modal = new renderModalClass(modalTemplate);
       modal.showModal();
 
       body.classList.add('modal-open');

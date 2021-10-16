@@ -8,7 +8,6 @@ export default {
       const response = await fetch(
         `${this.BASE_URL}${this.TRENDING_ENDPOINT}${id}?api_key=${this.API_KEY}`,
       );
-      console.log(response);
       const data = await response.json();
       return data;
     } catch (error) {
