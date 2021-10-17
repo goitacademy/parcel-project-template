@@ -1,4 +1,5 @@
 import refs from '../js/refs.js';
+import {spiner} from './utils/rainbow-spiner.js'
 
 import apiService from './utils/api-service.js'
 
@@ -11,8 +12,14 @@ const arrayLsQueue = 'queue';
 
 const displayUserLibrary = function () {
   onClickButtonChangeCurrentButton();
-watchedButton.classList.add('btn-active');
-queueButton.classList.add('btn-disable');
+
+  watchedButton.classList.add('btn-active');
+  queueButton.classList.add('btn-disable');
+
+  // spiner.show();
+  //default display watched
+  getFilmsFromLocalStorage('watched');
+  // spiner.hide();
 };
 
 displayUserLibrary();

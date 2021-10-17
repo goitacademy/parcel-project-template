@@ -1,5 +1,6 @@
 import renderModalClass from './render-modal-class.js';
 import apiService from './utils/api-service-modal.js';
+import movieModalTemplate from '../templates/one-movie-modal.hbs';
 import refs from './refs.js';
 import getFilmsFromLocalStorage from './displayUserLibrary.js';
 
@@ -20,7 +21,9 @@ function openModal(e) {
         data.genre = data.genres.map(genre => genre.name).join(', ');
       }
 
-      const modal = new renderModalClass(data);
+      let modalTemplate = movieModalTemplate(data);
+
+      const modal = new renderModalClass(modalTemplate);
       modal.showModal();
       body.classList.add('modal-open');
 
@@ -140,18 +143,3 @@ const addFilmsToLSbyButtonClick = {
 };
 
 body.addEventListener('click', addFilmsToLSbyButtonClick.buttonListener);
-
-// if (e.target.textContent === 'MY LIBRARY') {
-//   render library default watched
-// getFilmsFromLocalStorage('watched')
-// }
-// if (e.target.dataset.index === 'btn-to-wached') {
-//   // ADD TO WATCHED
-// // checkFilmInLS();
-//   push id to LS WATCHED
-// }
-// if (e.target.dataset.index === 'btn-to-queue') {
-// // // ADD TO QUEUE
-// // checkFilmInLS();
-//   push id to LS QUEUE
-// }
