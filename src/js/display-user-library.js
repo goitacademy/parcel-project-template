@@ -11,15 +11,11 @@ const arrayLsWatched = 'watched';
 const arrayLsQueue = 'queue';
 
 const displayUserLibrary = function () {
-  onClickButtonChangeCurrentButton();
-
+  //default display watched
   watchedButton.classList.add('btn-active');
   queueButton.classList.add('btn-disable');
-
-  // spiner.show();
-  //default display watched
   getFilmsFromLocalStorage('watched');
-  // spiner.hide();
+  onClickButtonChangeCurrentButton();
 };
 
 displayUserLibrary();
@@ -67,25 +63,27 @@ export function getFilmsFromLocalStorage(typeFilms) {
 function render(e) {
     renderList('watched');
 dinamicButtons.addEventListener('click', e => {
-    let type = 'watched';
+  let type = 'watched';
   if  (e.target.id === 'watched'){
-    type ='watched';
-renderList(type);
+    type = 'watched';
+    renderList(type);
   }
   if  (e.target.id === 'queue'){
- type = 'queue';
- renderList(type);
-    }  
+    type = 'queue';
+    renderList(type);
+  }
+  
 });
 }
 
 libraryLink.addEventListener('click', render);
 
 function renderList(e) {
-    library.innerHTML = ' ';
-    const array = getFilmsFromLocalStorage(e);
-    apiService.fetchMoviesByIds(array).then(data => {
-        const card = galleryLib(data);
-library.innerHTML = card;
+  library.innerHTML = ' ';
+
+  const array = getFilmsFromLocalStorage(e);
+  apiService.fetchMoviesByIds(array).then(data => {
+      const card = galleryLib(data);
+      library.innerHTML = card;
     })
 }
