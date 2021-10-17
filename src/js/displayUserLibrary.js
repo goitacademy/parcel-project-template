@@ -6,28 +6,30 @@ import galleryLib from '..//templates/one-movie-card-lib.hbs'
 
 const { queueButton, watchedButton, dinamicButtons, list:library, libraryLink, homeLink} = refs;
 
+const arrayLsWatched = 'watched';
+const arrayLsQueue = 'queue';
+
 const displayUserLibrary = function () {
   onClickButtonChangeCurrentButton();
 watchedButton.classList.add('btn-active');
 queueButton.classList.add('btn-disable');
 };
-const arrayLsWatched = 'watched';
-const arrayLsQueue = 'queue';
+
 displayUserLibrary();
 
 //function to display current button in myLibrary
 function onClickButtonChangeCurrentButton() {
   dinamicButtons.addEventListener('click', e => {
-    // const watchedButton = document.getElementById('watched');
-    // const queueButton = document.getElementById('queue');
     if (e.target.textContent === 'WATCHED') {
         queueButton.classList.replace('btn-active', 'btn-disable');
         watchedButton.classList.replace('btn-disable', 'btn-active');
+        
         getFilmsFromLocalStorage('watched');
         render(arrayLsWatched);
     } else if (e.target.textContent === 'QUEUE') {
         watchedButton.classList.replace('btn-active', 'btn-disable');
         queueButton.classList.replace('btn-disable', 'btn-active');
+
         getFilmsFromLocalStorage('queue');
         render(arrayLsQueue);
     }
