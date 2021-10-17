@@ -15,4 +15,5 @@ export default {
   btnCloseModal: document.querySelector('.developers__button'),
   body: document.querySelector('body'),
   switch: document.querySelector('.theme-switch__toggle'),
+  spinerContainer: document.querySelector('.spiner-js'),
 };

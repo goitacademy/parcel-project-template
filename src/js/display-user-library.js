@@ -1,4 +1,5 @@
 import refs from '../js/refs.js';
+import {spiner} from './utils/rainbow-spiner.js'
 
 const { dinamicButtons} = refs;
 
@@ -7,10 +8,10 @@ const displayUserLibrary = function () {
   onClickButtonChangeCurrentButton();
     document.getElementById('watched').classList.add('btn-active');
     document.getElementById('queue').classList.add('btn-disable');
-//   //---------there will be spiner start
+    // spiner.show();
 //   //default display watched
     getFilmsFromLocalStorage('watched');
-//   //---------there will be spiner stop
+    // spiner.hide();
 };
 
 displayUserLibrary();
