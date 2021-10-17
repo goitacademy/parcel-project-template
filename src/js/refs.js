@@ -15,5 +15,7 @@ export default {
   developers: document.querySelector('.developers'),
   btnCloseModal: document.querySelector('[data-action="close-developers"]'),
   body: document.querySelector('body'),
-  switch: document.querySelector('.theme-switch__toggle')
+  switch: document.querySelector('.theme-switch__toggle'),
+  watchedButton : document.getElementById('watched'),
+  queueButton : document.getElementById('queue'),
 };
