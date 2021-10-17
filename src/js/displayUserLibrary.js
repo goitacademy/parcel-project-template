@@ -1,9 +1,9 @@
 import refs from '../js/refs.js';
 import apiService from './utils/api-service.js'
 import { drawCards, scrollToTop } from './components/gallery-adapter';
-import gallary from '..//templates/one-movie-card.hbs'
+import gellary from '..//templates/one-movie-card.hbs'
 
-const { dinamicButtons, list} = refs;
+const { dinamicButtons, list:library, libraryLink, homeLink} = refs;
 
 const displayUserLibrary = function () {
 
@@ -60,20 +60,27 @@ export function getFilmsFromLocalStorage(typeFilms) {
     }
 }
 
-
-
-const w = 'watched';
-
-function render (){
-    const array = getFilmsFromLocalStorage(w);
-    apiService.fetchMoviesByIds(array).then(data => {
-        // drawCards(data)
-        console.log(data)
-        const card = gallary(data);
-list.innerHTML = card;
-console.log(card)
-    })
-
+function render(e) {
+    renderList('watched');
+dinamicButtons.addEventListener('click', e => {
+    let type = 'watched';
+  if  (e.target.id === 'watched'){
+    type ='watched';
+renderList(type);
+  }
+  if  (e.target.id === 'queue'){
+ type = 'queue';
+ renderList(type);
+    }  
+});
 }
-
-render()
+// homeLink.addEventListener('click', ((e) => console.log(e.target)));
+libraryLink.addEventListener('click', render);
+function renderList(e) {
+    library.innerHTML = ' ';
+    const array = getFilmsFromLocalStorage(e);
+    apiService.fetchMoviesByIds(array).then(data => {
+        const card = gellary(data);
+library.innerHTML = card;
+    })
+}
