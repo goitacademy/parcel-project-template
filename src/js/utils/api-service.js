@@ -10,10 +10,10 @@ const api = {
         `${BASE_URL}/${SEARCH_ENDPOINT}?api_key=${API_KEY}&language=en-US-ru&query=${query}&page=${this.page}`,
       );
       const data = await response.json();
-      console.log(data);
+      
       return data;
     } catch (error) {
-      console.log('ошибка', error);
+      alert (error)
     }
   },
 
