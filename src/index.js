@@ -1,6 +1,6 @@
 import './sass/main.scss';
 
-import './js/displayUserLibrary.js';
+import './js/display-user-library.js';
 import './js/search-renderer.js';
 import './js/trending';
 import './js/site-nav.js';
@@ -13,3 +13,4 @@ import './js/modal.js';
 import './js/components/theme-change'
 
 import './js/utils/rainbow-spiner';
+

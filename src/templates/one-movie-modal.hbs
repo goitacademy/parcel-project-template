@@ -1,17 +1,18 @@
-<div class="modal">
+<div class="modal" data-id={{id}}>
 
-    <button class="modal__button-close"></button>
+    <button class="modal__button-close">&#10006;</button>
 
     <div class="modal_wrap">
 
-        <img class="modal_img"
-        {{#if poster_path}}
-        src='https://image.tmdb.org/t/p/w500/{{poster_path}}'
-        {{else}}
-        src="No-Movies-For-Two-Years.jpg"
-        {{/if}}
-        alt="{{title}}" 
-        />
+        <div class="modal_thumb">
+            <img class="modal_img" 
+            {{#if poster_path}} 
+            src='https://image.tmdb.org/t/p/w500{{poster_path}}' 
+            {{else}}
+            src="no-poster.png" 
+            {{/if}} 
+            alt="{{title}}" />
+        </div>
 
         <div class="modal_inner">
 
@@ -46,8 +47,8 @@
             <p class="modal_desc">{{overview}}</p>
             
             <ul class="modal_list-button">
-                <li class="modal_item-button"><button class="modal_button">add to watched</button></li>
-                <li class="modal_item-button"><button class="modal_button">add to queue</button></li>
+            <li class="modal_item-button"><button id="toWatch" class="modal_button">add to watched</button></li>
+            <li class="modal_item-button"><button id="toQuequ" class="modal_button">add to queue</button></li>
             </ul>
         </div>
     </div>

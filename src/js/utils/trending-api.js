@@ -1,6 +1,5 @@
-const BASE_URL = 'https://api.themoviedb.org/3';
-const TRENDING_ENDPOINT = 'trending/movie/day';
-const API_KEY = '98387aa57f28e0e3eee6fec2a9b53ef3';
+import apiConst from './api-const';
+const { BASE_URL, TRENDING_ENDPOINT, API_KEY } = apiConst;
 
 export default class TrendingAPI {
   constructor() {}

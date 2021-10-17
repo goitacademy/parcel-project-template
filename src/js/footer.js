@@ -1,9 +1,7 @@
-import getModalRefs from "./modal_refs";
-import refs from "./refs";
+import getModalRefs from './modal_refs';
+import refs from './refs';
 
-const {teamModal, btnCloseModal, developers} = refs;
-const {onOpenModal, onCloseModalClick} = getModalRefs(developers);
+const { teamModal, body } = refs;
+const { onOpenModal } = getModalRefs(body);
 
 teamModal.addEventListener('click', onOpenModal);
-btnCloseModal.addEventListener('click', onCloseModalClick);
-

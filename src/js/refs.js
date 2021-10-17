@@ -12,9 +12,8 @@ export default {
   searchHeadIcon: document.querySelector('.search__icon'),
   buttonScrollToUp: document.querySelector('#btn-scroll-up'),
   teamModal: document.querySelector('#team'),
-  developers: document.querySelector('.developers'),
-  btnCloseModal: document.querySelector('[data-action="close-developers"]'),
+  btnCloseModal: document.querySelector('.developers__button'),
   body: document.querySelector('body'),
   switch: document.querySelector('.theme-switch__toggle'),
-  spinerContainer: document.querySelector('.spiner-js')
+  spinerContainer: document.querySelector('.spiner-js'),
 };
