@@ -1,6 +1,17 @@
 .contacts-section {
     padding-top: 60px;
     padding-bottom: 40px;
+    background: linear-gradient(to top,$background-contacts-primary 76%,$background-contacts-secondary 24%);
+    @media screen and (min-width: 768px) {
+         padding-top: 80px;
+         padding-bottom: 40px;
+         background: linear-gradient(to top, $background-contacts-primary 49%, $background-contacts-secondary 51%);
+    }
+    @media screen and (min-width: 1200px) {
+             padding-top: 120px;
+             padding-bottom: 121px;
+            background: linear-gradient(to top, $background-contacts-primary 77%, $background-contacts-secondary 23%);
+    }
 
     /* Класс скрывает семантический заголовок*/
     &__title.never {
@@ -30,64 +41,172 @@
         border-radius: 4px;
 
         margin-bottom: 20px;
+
+        @media screen and (min-width: 768px) {
+            font-size: 16px;
+            line-height: 1.88;
+            margin-bottom: 32px;
+
+            padding-left: 16px;
+            padding-right: 16px;
+        }
     }
      
     &__text.food {
         background-color:$products3-background-color;
+        padding-left: 28px;
+        padding-right: 28px;
+        @media screen and (min-width: 768px) {
+            padding-left: 17px;
+            padding-right: 17px;
+            }
+
     }
 
-    &__list {
-        border-radius: 24px;
-        text-align: left;
-        min-width: 280px;
-
-        font-size: 12px;
-        font-weight: 500;
-
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-     
-    &__list:not(:last-child) {
+ 
+    &__item__container:not(:last-child) {
         margin-bottom: 20px;
     }
 
-    &__list__button {
-        padding-top: 32px;
+    &__list__container {
+        z-index: 100;
+        @media screen and (min-width: 768px) {
+            display: flex;
+            margin: -16px;
+        }
     }
 
-    &__list__location::after {
-        content:'';
-        display: block;
+    &__item__container {
+        width: 100%;
+        background-color: $white-color;
+        border-radius: 24px;
+        text-align: left;
+        min-width: 280px;
+    
+        font-size: 12px;
+        font-weight: 500;
+    
+        padding-top: 40px;
+        padding-bottom: 40px;
+        padding-left: 32px;
+        padding-right: 32px;
+    
+        box-shadow: $box-shadow;
+        @media screen and (min-width: 768px) {
+            min-width: 224px;
+            flex-basis: calc((100% - 4 * 16px)/3);
+            margin: 16px;
+
+            font-size: 14px;
+            line-height: 1.86;
+        }
+    }
+    &__list__button {
+        padding-top: 32px;
+        @media screen and (min-width: 768px) {
+            padding-top: 60px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__list__location {
         border-bottom:1px solid $complementary-color;
     }
     &__list__time {
+        line-height: 1.83;
         padding-top: 24px;
         padding-bottom: 24px;
+        border-bottom: 1px solid $complementary-color;
+        @media screen and (min-width: 768px) {
+            font-size: 14px;
+            line-height: 1.86;
+
+            padding-top: 32px;
+            padding-bottom: 32px;
+        }
+        @media screen and (min-width: 1200px) {
+            font-size: 16px;
+            line-height: 1.88;
+        }
+    }
+    &__list__contacts {
+        line-height: 1.5;
+        padding-top: 24px;
+        @media screen and (min-width: 768px) {
+            font-size: 14px;
+            line-height: 1.86px;
+
+            padding-top: 32px;
+        }
+         @media screen and (min-width: 1200px) {
+            font-size: 16px;
+            line-height: 1.81;
+                }
+
+    }
+    &__link__contacts{
+        color: $primary-text-color;
     }
     &__item__location {
         margin-bottom: 8px;
+        @media screen and (min-width: 768px) and (max-width: 1199px) {
+            margin-bottom: 12px;
+        }
+        @media screen and (min-width: 1200px) {
+            font-size: 16px;
+            line-height: 1.88;
+        }
     }
     &__item__about {
+        color:$primary-text-color;
         line-height: 1.5;
-        margin-bottom: 32px;
+        margin-bottom: 24px;
         padding-right:37px;
+        @media screen and (min-width: 768px) {
+            padding-right: 0px;
+            font-size: 14px;
+            line-height: 1.64;
+            margin-bottom: 32px;
+            }
+        @media screen and (min-width: 1200px) {
+            font-size: 16px;
+            line-height: 1.81;
+            padding-right: 46px;
+        }
     }
     &__item__day {
         color: $black-color;
-        line-height: 1.83;
         margin-bottom: 11px;
+        @media screen and (min-width: 1200px) {
+           margin-bottom: 15px;
+        }
     }
     &__item__time:not(:last-child) {
         margin-bottom: 8px;
+        @media screen and (min-width: 768px) {
+            margin-bottom: 12px;
+        }
     }
     &__item__time {
-        line-height: 1.83;
         color: $text-decoration-color;
     }
 
-    &__item__contacts_tel {
-        margin-bottom: 7px;
+    &__item__contacts__post {
+        display: block;
+        margin-top: 7px;
+        @media screen and (min-width: 768px) {
+            margin-top: 20px;
+            }
+        @media screen and (min-width: 1200px) {
+            margin-top: 10px;
+            }
+    }
+}
+.contacts-section__link__contacts.link {
+    &:hover,
+    &:focus {
+        color: $title-text-color;
     }
 }
 .contacts-section__button__location  {
@@ -103,7 +222,23 @@
     
     padding-top: 14px;
     padding-bottom: 14px;
+    padding-left: 17px;
+    padding-right: 18px;
     margin-bottom: 10px;
+    
+    @media screen and (min-width: 768px) {
+        padding-left: 30px;
+        margin-right: 15px;
+    }
+    @media screen and (min-width: 768px) {
+        padding-left: 35px;
+        margin-right: 12px;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+    background-color:$primary-focus-color ;
+    }
 }
 
 .contacts-section__button__franchise {
@@ -119,4 +254,17 @@
 
     padding-top: 14px;
     padding-bottom: 14px;
+
+    &:hover,
+    &:focus {
+        background-color:$second-focus-color;
+    }
+
+    @media screen and (min-width: 768px) {
+        padding-left: 38px;
+        }
+    
+        @media screen and (min-width: 768px) {
+        padding-left: 36px;
+        }
 }
