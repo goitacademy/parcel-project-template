@@ -76,13 +76,11 @@
 
 .about__section {
   @media screen and (min-width: 768px) {
-    // width: 768px;
     display: flex;
     margin-left: 0px;
   }
 
   @media screen and (min-width: 1200px) {
-    // width: 768px;
     display: flex;
     margin-left: 0px;
     padding-bottom: 60px;
@@ -190,11 +188,13 @@
 
   @media screen and (min-width: 768px) {
     margin-top: 40px;
+    margin-bottom: 60px;
     font-size: 16px;
     line-height: 1.31;
   }
 
   @media screen and (min-width: 1200px) {
+    margin-bottom: 40px;
   }
 }
 
@@ -215,6 +215,9 @@
 }
 
 //Модальное окно
+// body.modal-open {
+//   overflow-y: hidden;
+// }
 
 .backdrop {
   width: 100%;
@@ -224,6 +227,7 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
+  z-index: 7;
 }
 
 .modal {
@@ -231,19 +235,18 @@
   background-color: $white-color;
   top: 50%;
   left: 50%;
-  width: 92%;
-  height: 609px;
+  width: 80%;
+  height: 80%;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   transform: translate(-50%, -50%);
 
   @media screen and (min-width: 480px) {
-    width: 450px;
+    width: 60%;
   }
   @media screen and (min-width: 1200px) {
-    width: 528px;
-    height: 581px;
+    width: 40%;
   }
 }
 
@@ -252,24 +255,71 @@
   height: 100%;
 }
 
-.form-text {
+.form__text {
   display: block;
   margin: 40px 40px 12px;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 35px;
   line-height: 1.5;
   color: $title-text-color;
   text-align: center;
-
-  @media screen and (min-width: 1200px) {
-    line-height: 1.17;
-  }
 }
 
-// .subtitle {
-//   display: block;
-//   margin-top: 10px;
-//   font-size: 12px;
-//   line-height: 1.17;
-//   color: $primary-text-color;
+.form__subtitle {
+  display: block;
+  margin-top: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 20px;
+  line-height: 1.17;
+  text-align: center;
+  color: $black-color;
+}
+
+//кнопка Модального окна
+
+.close-button {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.close-icon:hover {
+  fill: $title-text-color;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+// .submit {
+//   padding: 10px 55px;
+//   margin: 31px 125px 40px 125px;
+//   width: 200px;
+//   height: 50px;
+//   font-weight: 700;
+//   font-size: 16px;
+//   line-height: 1.88;
+//   color: $white-color;
+//   background-color: $text-decoration-color;
+//   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+//   border-radius: 4px;
+//   border: 1px solid transparent;
+
+//   &:hover {
+//     color: $white-color;
+//     background-color: #188ce8;
+//   }
+
+//   @media screen and (min-width: 1200px) {
+//     margin: 30px 164px 40px 164px;
+//   }
 // }
