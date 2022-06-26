@@ -10,12 +10,18 @@
 .customer__container {
   position: relative;
   color: $black-color;
-  max-width: 926px;
+  max-width: 480px;
   position: relative;
   background-color: $reviews-background-color;
   z-index: -3;
   margin-left: auto;
   margin-right: auto;
+  @media screen and (min-width: 768px) {
+    max-width: 620px;
+  }
+  @media screen and (min-width: 1200px) {
+    max-width: 968px;
+  }
 }
 .customer__img {
   margin-left: auto;
@@ -117,6 +123,12 @@
   margin: 0 auto;
   position: relative;
   width: 100%;
+  @media screen and (min-width: 767px) {
+    height: 400px;
+  }
+  @media screen and (min-width: 1200px) {
+    height: 340px;
+  }
 }
 
 .slider {
@@ -150,40 +162,55 @@
 
 .wrapper .controls {
   left: 50%;
-
-  margin-left: -98px;
+  transform: translateX(-50%);
   position: absolute;
 }
 
 .wrapper label {
   cursor: pointer;
   display: inline-block;
-  height: 8px;
-  margin: 25px 12px 0 16px;
+  height: 12px;
+  margin-top: 16px;
   position: relative;
-  width: 8px;
-  border-radius: 50%;
+  width: 12px;
+  // border-radius: 50%;
+  background-image: url(../images/icons/dots.svg);
   transition: background ease-in-out 0.5s;
+  background-repeat: no-repeat;
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
+  }
+}
+.wrapper label:not(:last-child) {
+  margin-right: 18px;
+}
+.wrapper label:checked {
+  display: none;
 }
 
 .wrapper label:hover,
 #slide1:checked ~ .controls label:nth-of-type(1),
 #slide2:checked ~ .controls label:nth-of-type(2),
 #slide3:checked ~ .controls label:nth-of-type(3) {
-  background: #ddd;
+  background-image: url(../images/icons/icon-home.svg);
+  z-index: 10;
 }
 
-.wrapper label:after {
-  border: 2px solid #ddd;
-  content: ' ';
-  display: block;
-  height: 12px;
-  left: -4px;
-  position: absolute;
-  top: -4px;
-  width: 12px;
-  border-radius: 50%;
-}
+// .wrapper label:after {
+//   background-image: url(../images/icons/icon-home.svg);
+//   background-repeat: no-repeat;
+//   border-radius: 50%;
+//   content: ' ';
+//   display: block;
+//   height: 12px;
+//   left: 0;
+//   position: absolute;
+//   top: 0;
+//   width: 12px;
+//   z-index: -1;
+//   // background-image: url(../images/icons/icon-home.svg);
+// }
+
 .wrapper {
   margin-left: auto;
   margin-right: auto;
