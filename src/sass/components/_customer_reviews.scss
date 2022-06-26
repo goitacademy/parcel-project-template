@@ -1,49 +1,89 @@
-.customer_container {
-
-  color: $black-color;
-  max-width: 480px;
+.customer {
+  position: relative;
+  padding-bottom: 120px;
 }
-.customer_img {
+
+.container__customer__review {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 32px;
 }
-.element_before{
-
-z-index: -10;
-}
-.customer_title {
+.customer__container {
   position: relative;
+  color: $black-color;
+  max-width: 926px;
+  position: relative;
+  background-color: $reviews-background-color;
+  z-index: -3;
+  margin-left: auto;
+  margin-right: auto;
+}
+.customer__img {
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 32px;
+}
+.element__before {
+  z-index: -10;
+}
+.customer__item {
+  text-align: center;
+}
+.customer__title {
   font-family: $primary-font;
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.86;
-  background-color: $reviews-background-color;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 20px;
+  line-height: 2.5;
+  padding-top: 43px;
+  padding-left: 65px;
+  padding-right: 58px;
   padding-bottom: 20px;
-  margin-bottom: 16px;
+  margin-bottom: 26px;
+  text-decoration: underline 1px solid $complementary-color;
+  text-underline-offset: 8px;
+  @media screen and (min-width: 768px) {
+    padding-top: 37px;
+    padding-left: 51px;
+    padding-right: 55px;
+    padding-bottom: 44px;
+    line-height: 2.14;
+  }
+  @media screen and (min-width: 1200px) {
+    padding-top: 47px;
+    padding-left: 109px;
+    padding-right: 109px;
+    padding-bottom: 39px;
+    line-height: 1.81;
+  }
 }
-.customer_title::before {
-    position: absolute;
-    content: "";
-    background-image: url(../images/icons/“.svg);
-    background-size: 54px 40px;
-    fill: #000;
-    height: 54px;
+.customer__title::before {
+  position: absolute;
+  content: '';
+  background-image: url(../images/icons/“.svg);
+  background-size: 54px 40px;
+  fill: #000;
+  height: 54px;
+  width: 60px;
+  display: block;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  top: 34px;
+  left: 50px;
+  z-index: -1;
+  @media screen and (min-width: 768px) {
+    top: 20px;
+    left: 6px;
+    height: 40px;
     width: 60px;
-    display: block;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    top: 0;
-    left:32px;
-    z-index: 1;
+  }
+  @media screen and (min-width: 1200px) {
+    top: 32px;
+    left: 72px;
+  }
 }
-.pagination{
+.pagination {
   margin-bottom: 16px;
 }
-.customer_text {
+.customer__text {
   font-family: $primary-font;
   font-weight: 500;
   font-size: 20px;
@@ -51,8 +91,8 @@ z-index: -10;
   margin-bottom: 16px;
 }
 
-.customer_text::before {
-  content: "";
+.customer__text::before {
+  content: '';
   display: block;
   background-image: url(../images/icons/icon-threedots.svg);
   background-size: 32px 4px;
@@ -61,13 +101,90 @@ z-index: -10;
   height: 4px;
 }
 
-.customer__list__svg{
+.customer__list__svg {
   display: flex;
   justify-content: center;
 }
-.customer__item__svg:not(:last-child){
+.customer__item__svg:not(:last-child) {
   margin-right: 18px;
 }
-.icon-threedots-white{
+.icon-threedots-white {
   fill: $reviews2-icon-color;
+}
+
+.wrapper {
+  height: 530px;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+.slider {
+  height: inherit;
+  overflow: hidden;
+  position: relative;
+  width: inherit;
+}
+
+.slides {
+  height: inherit;
+  opacity: 0;
+  position: absolute;
+  width: inherit;
+  z-index: 0;
+  transform: scale(1.5);
+  transition: transform ease-in-out 0.5s, opacity ease-in-out 0.5s;
+}
+
+#slide1:checked ~ .slider > .slide1,
+#slide2:checked ~ .slider > .slide2,
+#slide3:checked ~ .slider > .slide3 {
+  opacity: 1;
+  z-index: 1;
+  transform: scale(1);
+}
+
+.wrapper > input {
+  display: none;
+}
+
+.wrapper .controls {
+  left: 50%;
+
+  margin-left: -98px;
+  position: absolute;
+}
+
+.wrapper label {
+  cursor: pointer;
+  display: inline-block;
+  height: 8px;
+  margin: 25px 12px 0 16px;
+  position: relative;
+  width: 8px;
+  border-radius: 50%;
+  transition: background ease-in-out 0.5s;
+}
+
+.wrapper label:hover,
+#slide1:checked ~ .controls label:nth-of-type(1),
+#slide2:checked ~ .controls label:nth-of-type(2),
+#slide3:checked ~ .controls label:nth-of-type(3) {
+  background: #ddd;
+}
+
+.wrapper label:after {
+  border: 2px solid #ddd;
+  content: ' ';
+  display: block;
+  height: 12px;
+  left: -4px;
+  position: absolute;
+  top: -4px;
+  width: 12px;
+  border-radius: 50%;
+}
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
 }
