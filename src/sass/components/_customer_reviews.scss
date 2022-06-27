@@ -13,7 +13,7 @@
   max-width: 480px;
   position: relative;
   background-color: $reviews-background-color;
-  z-index: -3;
+  z-index: 0;
   margin-left: auto;
   margin-right: auto;
   @media screen and (min-width: 768px) {
@@ -27,9 +27,6 @@
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 32px;
-}
-.element__before {
-  z-index: -10;
 }
 .customer__item {
   text-align: center;
@@ -119,32 +116,26 @@
 }
 
 .wrapper {
-  height: 530px;
   margin: 0 auto;
   position: relative;
   width: 100%;
-  @media screen and (min-width: 767px) {
-    height: 400px;
-  }
-  @media screen and (min-width: 1200px) {
-    height: 340px;
-  }
 }
 
 .slider {
   height: inherit;
   position: relative;
   width: inherit;
+  // overflow: hidden;
 }
 
 .slides {
-  height: inherit;
-  opacity: 0;
-  position: absolute;
+  // height: inherit;
+  opacity: 1;
+  // position: absolute;
   width: inherit;
-  z-index: 0;
-  transform: scale(1.5);
-  transition: transform ease-in-out 0.5s, opacity ease-in-out 0.5s;
+  // z-index: 0;
+  transform: scale(0.5);
+  transition: transform ease-in-out 0.7s, opacity ease-in-out 0.5s;
 }
 
 #slide1:checked ~ .slider > .slide1,
@@ -153,6 +144,22 @@
   opacity: 1;
   z-index: 1;
   transform: scale(1);
+}
+#slide2:checked ~ .slider > .slide1 {
+  opacity: 0;
+}
+#slide3:checked ~ .slider > .slide2 {
+  opacity: 0;
+}
+#slide3:checked ~ .slider > .slide1 {
+  opacity: 0;
+}
+.slide2,
+.slide3 {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .wrapper > input {
@@ -183,9 +190,9 @@
 .wrapper label:not(:last-child) {
   margin-right: 18px;
 }
-.wrapper label:checked {
-  display: none;
-}
+// .wrapper label:checked {
+//   display: none;
+// }
 
 #slide1:checked ~ .controls label:nth-of-type(1),
 #slide2:checked ~ .controls label:nth-of-type(2),
