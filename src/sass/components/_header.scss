@@ -32,6 +32,7 @@
     position: relative;
     display: flex;
     margin-bottom: 130px;
+    min-width: 250px;
 
     @media screen and (min-width: 768px) {
         margin-bottom: 20px;
@@ -63,7 +64,7 @@
     margin: 0px;
     padding: 0px;
     top: 27px;
-    right: 0px;
+    right: -30px;
     background-color: transparent;
     border: none;
     z-index: 101;
@@ -72,7 +73,6 @@
     top: 46px;
     right: 184px;}
     
-
     @media screen and (min-width: 1200px) {
         display: none;
     }
@@ -93,10 +93,10 @@
 
 .header-hero__btn-menu.is-open .header-hero__icon-close {
     opacity: 1;
-    position: fixed;
+    position: absolute;
     @media screen and (max-width: 767px){
-    top: 20px;
-    right: 145px;
+    top: 0px;
+    right: 60px;
     transform: translateX(0px);
     transition-property:  transform;
     transition-duration: 250ms;
@@ -104,8 +104,8 @@
     }
     @media screen and (min-width: 768px) 
     and (max-width: 1199px) {
-    top: 25px;
-    right: 535px;
+    top: -25px;
+    right: -170px;
     transform: translateX(0px);
     transition-property: transform;
     transition-duration: 250ms;
@@ -122,47 +122,48 @@
     opacity: 0;
    
     &.is-open {
-            opacity: 1;
-            display: block;
-            transform: translateX(0px); 
-        }
+        opacity: 1;
+        overflow: hidden;
+        transform: translateX(-80px);
+        transition-property: opacity, transform;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -8px 0px 20px rgba(0, 0, 0, 0.25);
+        
+    }
 
     @media screen and (max-width: 767px) {
-        position: fixed;
+        position: absolute;
         list-style: none;
         text-align: left;
         top: 0px;
-        right: 125px;
+        right: -70px;
         width: 250px;
         height: 502px;
         padding-left: 20px;
+        padding-right: 20px;
         padding-top: 60px;
         background-color: #E17992;
         z-index: 100;
         transform: translateX(-250px);
-        transition-property: opacity, transform;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        
     }
 
     @media screen and (min-width: 768px)
     and (max-width: 1199px) {
-        position: fixed;
+        position: absolute;
         list-style: none;
         text-align: left;
         padding-left: 20px;
+        padding-right: 20px;
         padding-top: 54px;
         width: 254px;
         height: 1020px;
         top: 0px;
-        right: 500px;
+        right: -100px;
         background-color: #E17992;
         z-index: 100;
         transform: translateX(-250px);
-        transition-property: opacity, transform;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        
         
     }
 
@@ -211,7 +212,6 @@
 }
 
 .header-hero__btn {
-
     height: 44px;
     font-family: $primary-font;
     font-weight: 700;
@@ -243,6 +243,7 @@
     }
 
 }
+
 
 .btn-mobail {
     @media screen and (min-width: 1200px) {
