@@ -76,13 +76,11 @@
 
 .about__section {
   @media screen and (min-width: 768px) {
-    // width: 768px;
     display: flex;
     margin-left: 0px;
   }
 
   @media screen and (min-width: 1200px) {
-    // width: 768px;
     display: flex;
     margin-left: 0px;
     padding-bottom: 60px;
@@ -190,11 +188,13 @@
 
   @media screen and (min-width: 768px) {
     margin-top: 40px;
+    margin-bottom: 60px;
     font-size: 16px;
     line-height: 1.31;
   }
 
   @media screen and (min-width: 1200px) {
+    margin-bottom: 40px;
   }
 }
 
@@ -224,26 +224,26 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
+  z-index: 7;
 }
 
 .modal {
   position: absolute;
-  background-color: $white-color;
+  background-color: $reviews-background-color;
   top: 50%;
   left: 50%;
-  width: 92%;
-  height: 609px;
+  width: 80%;
+  height: 80%;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   transform: translate(-50%, -50%);
 
   @media screen and (min-width: 480px) {
-    width: 450px;
+    width: 60%;
   }
   @media screen and (min-width: 1200px) {
-    width: 528px;
-    height: 581px;
+    width: 40%;
   }
 }
 
@@ -252,24 +252,93 @@
   height: 100%;
 }
 
-.form-text {
+.form__text {
   display: block;
-  margin: 40px 40px 12px;
+  text-align: center;
+  border: 1px solid transparent;
+  background-color: $background-contacts-secondary;
+  margin: 40px 0 12px;
+  font-family: 'Titan One';
   font-weight: 700;
   font-size: 20px;
   line-height: 1.5;
   color: $title-text-color;
+}
+
+.form__subtitle--first,
+.form__subtitle--second,
+.form__subtitle--third {
+  display: block;
   text-align: center;
+  margin-top: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 15px;
+  line-height: 1.17;
+  color: $black-color;
+}
+
+.modal {
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media screen and (max-width: 767px) {
+    background-image: url('../images/about/about-2_sm.png');
+    background-position: 0 150px;
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url('../images/about/about-2_lg.png');
+    background-position: 0 150px;
+  }
 
   @media screen and (min-width: 1200px) {
-    line-height: 1.17;
+    background-image: url('../images/about/about-2_lg.png');
+    background-position: 0 150px;
   }
 }
 
-// .subtitle {
-//   display: block;
-//   margin-top: 10px;
-//   font-size: 12px;
-//   line-height: 1.17;
-//   color: $primary-text-color;
-// }
+@media screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  .modal {
+    @media screen and (max-width: 767px) {
+      background-image: url('../images/about/about-2_sm@2x.png');
+      background-position: 0 150px;
+    }
+
+    @media screen and (min-width: 768px) {
+      background-image: url('../images/about/about-2_lg@2x.png');
+      background-position: 0 150px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      background-image: url('../images/about/about-2_lg@2x.png');
+      background-position: 0 150px;
+    }
+  }
+}
+
+//кнопка Модального окна
+
+.close-button {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.close-icon:hover {
+  fill: $title-text-color;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
