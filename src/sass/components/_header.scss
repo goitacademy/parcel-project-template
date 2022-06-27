@@ -1,3 +1,6 @@
+.header-hero {
+    background-color: #FFB8CA;
+}
 .header-hero__section {
     position: relative;
     display: flex;
@@ -6,6 +9,8 @@
         width: 704px;
         padding-top: 32px;
     }
+
+    
 
     @media screen and (min-width: 1200px){
     padding-top: 0px;
@@ -49,25 +54,56 @@
 
 .header-hero__btn-menu.is-open .header-hero__icon-close {
     display: block;
-
 }
 
 .header-hero__btn-menu.is-open .header-hero__icon-burger {
     display: none;
-
 }
 
 
-
 .header-hero__menu {
-    display: flex;
-
-    @media screen and (max-width: 1199px) {
-            display: none;
+    display: none;
+        
+    &.is-open {
+            display: block; 
         }
 
+    @media screen and (max-width: 767px) {
+        
+        position: absolute;
+        list-style: none;
+        text-align: left;
+        top: 0px;
+        left: 0px;
+        width: 250px;
+        height: 502px;
+        padding-left: 20px;
+        padding-top: 60px;
+        background-color: #E17992;
+        z-index: 1;
+        
+        
+        
+        
+    }
 
+    @media screen and (min-width: 768px)
+    and (max-width: 1199px) {
+        
+        position: absolute;
+        list-style: none;
+        text-align: left;
+        padding-left: 20px;
+        padding-top: 54px;
+        width: 254px;
+        height: 1020px;
+        background-color: #E17992;
+        z-index: 1;
+        
+    }
+    
     @media screen and (min-width: 1200px) {
+    display: flex;
     margin-left: 128px;
     margin-bottom: 0px;
     
@@ -77,15 +113,23 @@
 
 .header-hero__list {
     text-decoration: none;
+    
+    @media screen and (max-width: 1199px) {
+    & .header-hero__item + .header-hero__item {
+            margin-top: 23px;
+        }
+     
+    }
+
+    @media screen and (min-width: 1200px) {
     display: flex;
     padding-top: 52px;
 
-    & .header-hero__item+.header-hero__item {
+    & .header-hero__item + .header-hero__item {
         margin-left: 35px;
     }
 }
-
-.header-hero__item {}
+}
 
 .header-hero__link {
     font-weight: 700;
@@ -97,13 +141,12 @@
 
 }
 
-.header-hero--red {
+.header-hero__link--red {
     color: $title-text-color;
 }
 
 .header-hero__btn {
-    position: relative;
-    width: 159px;
+    
     height: 44px;
     font-family: $primary-font;
     font-weight: 700;
@@ -118,18 +161,42 @@
     fill: $title-text-color;
 
     @media screen and (max-width: 767px) {
-        display: none;
+        width: 209px;
+        margin-bottom: 32px;
     }
 
     @media screen and (min-width: 768px) {
-        margin-left: 345px;
+        width: 186px;
+        margin-left: 14px;
+        margin-bottom: 33px;
     }
 
     @media screen and (min-width: 1200px) {
+        width: 159px;
         margin-top: 40px;
         margin-left: 141px;
     }
 
+}
+
+.btn-mobail {
+@media screen and (min-width: 1200px) {
+    display: none;
+}
+}
+
+.btn-desctop {
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+    @media screen and (min-width: 768px)
+    and (max-width: 1199px) {
+        margin-left: 345px;
+    }
+}
+
+.header-hero__btn-svg {
+    fill: $title-text-color;
 }
 
 
