@@ -1,8 +1,11 @@
 .products {
     text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .products__text {
+
     margin-bottom: 15px;
 
     @media screen and (min-width: 768px) and (max-width: 1199px) {
@@ -18,6 +21,7 @@
         line-height: 1.13;
     }
 
+    font-family: $second-font;
     text-transform: uppercase;
     font-size: 18px;
     line-height: 1.15;
@@ -43,6 +47,7 @@
         line-height: 1.14;
     }
 
+    font-family: $second-font;
     text-transform: uppercase;
 
     // font-weight: 900;
@@ -66,7 +71,13 @@
     // height: 629px;
     position: relative;
 
+    // text-align: center;
 
+    @media screen and (max-width: 767px) {
+        max-width: 480px;
+        margin-right: auto;
+        margin-left: auto;
+    }
 
     @media screen and (min-width: 768px) and (max-width: 1199px) {
         width: calc((100% - 2 * 16px) / 3);
@@ -121,13 +132,42 @@
 
 }
 
+.products-list__item:nth-child(2) .products-list__container {
+    background-color: $products2-background-color;
+}
+
+.products-list__item:last-child .products-list__container {
+    background-color: $products3-background-color;
+}
+
+
+
 .products-list__item::after {
+    // content: " ";
+    // background-position: center;
+
     // background-image: url(../images/products/products-1_sm.png);
 
-    // background-size: auto, auto;
+    // @media screen and (min-width: 768px) {
+    //     background-size: 280px, 280px;
+    // }
+
+
+    // @media (min-device-pixel-ratio: 2),
+    // (min-resolution: 192dpi),
+    // (min-resolution: 2dppx) {
+    //     background-image: url(../images/products/products-1_sm@2x.png);
+    // }
 
 
     content: url(../images/products/products-1_sm.png);
+    background-size: 280px 280px;
+
+    // @media (min-device-pixel-ratio: 2),
+    // (min-resolution: 192dpi),
+    // (min-resolution: 2dppx) {
+    //     content: url(../images/products/products-1_sm@2x.png);
+    // }
 
     position: absolute;
     top: -140px;
@@ -175,6 +215,8 @@
 
 
 .products-list__title {
+    font-family: $second-font;
+    font-weight: 400;
     font-size: 20px;
     line-height: 1.15;
 
@@ -193,10 +235,19 @@
     height: 6px;
 
     background-image: url(../images/products/elipses.png);
-
+    background-size: 26px 6px;
     // @media screen and(min-resolution:2dppx) {
     //     background-image: url(../images/products/elipses@2x.png);
+    // }
 
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        background-image: url(../images/products/elipses@2x.png);
+    }
+
+    // @media screen (-webkit-min-device-pixel-ratio: 2) and screen and(min-resolution:2dppx) {
+    //     background-image: url(../images/products/elipses@2x.png);
     // }
 
 
@@ -215,6 +266,8 @@
 
 .products-list__text {
     margin-bottom: 32px;
+
+    // font-family: $primary-font;
     font-weight: 700;
     font-size: 14px;
     line-height: 1.52;
