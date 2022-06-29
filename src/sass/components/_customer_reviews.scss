@@ -7,11 +7,11 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 .customer__container {
   position: relative;
   color: $black-color;
   max-width: 480px;
-  position: relative;
   background-color: $reviews-background-color;
   z-index: 0;
   margin-left: auto;
@@ -35,14 +35,17 @@
   font-family: $primary-font;
   font-weight: 500;
   font-size: 16px;
-  line-height: 2.5;
+  line-height: 2;
   padding-top: 43px;
   padding-left: 65px;
   padding-right: 58px;
   padding-bottom: 20px;
   margin-bottom: 26px;
-  text-decoration: underline 1px solid $complementary-color;
-  text-underline-offset: 8px;
+  letter-spacing: 0.04em;
+  // text-decoration: underline 1px solid $complementary-color;
+  // text-underline-offset: 8px;
+  // background-image: url( repeating-linear-gradient);
+
   @media screen and (min-width: 768px) {
     padding-top: 37px;
     padding-left: 51px;
@@ -56,6 +59,57 @@
     padding-right: 109px;
     padding-bottom: 39px;
     line-height: 1.81;
+  }
+}
+.customer__text__comment::after {
+  position: absolute;
+  content: '';
+  top: 50px;
+  left: 0;
+
+  background-image: repeating-linear-gradient(
+    to bottom,
+    $complementary-color,
+    $complementary-color 1px,
+
+    rgba(0, 0, 0, 0) 1px,
+
+    rgba(0, 0, 0, 0) 32px
+  );
+  width: 100%;
+  height: 100%;
+  background-position: center bottom 2px;
+  background-size: calc(100% - 100px) 100%;
+  background-repeat: no-repeat;
+
+  z-index: -2;
+  @media screen and (min-width: 768px) {
+    background-size: calc(100% - 100px) 100%;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      $complementary-color,
+      $complementary-color 1px,
+
+      rgba(0, 0, 0, 0) 1px,
+
+      rgba(0, 0, 0, 0) 32px
+    );
+    top: 48px;
+    left: 0;
+  }
+  @media screen and (min-width: 1200px) {
+    background-size: calc(100% - 100px) 100%;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      $complementary-color,
+      $complementary-color 1px,
+
+      rgba(0, 0, 0, 0) 1px,
+
+      rgba(0, 0, 0, 0) 32px
+    );
+    top: 48px;
+    left: 0;
   }
 }
 .customer__text__comment::before {
@@ -193,7 +247,9 @@
 // .wrapper label:checked {
 //   display: none;
 // }
-
+.wrapper label:hover {
+  background-image: url(../images/icons/dotsred.svg);
+}
 #slide1:checked ~ .controls label:nth-of-type(1),
 #slide2:checked ~ .controls label:nth-of-type(2),
 #slide3:checked ~ .controls label:nth-of-type(3) {
@@ -219,4 +275,14 @@
 .wrapper {
   margin-left: auto;
   margin-right: auto;
+}
+
+.customer__img:hover {
+  transform: scale(1.2);
+  transition-duration: 500ms;
+  transition: ease-in-out 300ms;
+}
+.customer__img {
+  transition-duration: 500ms;
+  transition: ease-in-out 300ms;
 }
