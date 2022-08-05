@@ -8,7 +8,7 @@ const forTextAreamRef = document.querySelector('.feedback-form textarea');
 const STORAGE_KEY = 'feedback-form-state';
 //
 const formData = {};
-//получаем значения с инпут, приводим к строке, записываем в local storage
+//получаем введенные данные, приводим к строке, записываем в local storage
 function onFormInput(e) {
   formData[e.target.name] = e.target.value;
   console.log(formData);
