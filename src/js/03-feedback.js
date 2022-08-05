@@ -1,12 +1,12 @@
-import { throttle } from "lodash";
-const formRef = document.querySelector(".feedback-form");
-const forSubmitmRef = document.querySelector("form.feedback-form");
-const forInputmRef = document.querySelector(".feedback-form input");
-const forTextAreamRef = document.querySelector(".feedback-form textarea");
-const STORAGE_KEY = "feedback-form-state";
+import throttle from 'lodash.throttle';
+const formRef = document.querySelector('.feedback-form');
+const forSubmitmRef = document.querySelector('form.feedback-form');
+const forInputmRef = document.querySelector('.feedback-form input');
+const forTextAreamRef = document.querySelector('.feedback-form textarea');
+const STORAGE_KEY = 'feedback-form-state';
 
-forSubmitmRef.addEventListener("submit", onFormSubmit);
-formRef.addEventListener("input", throttle(onFormInput, 500));
+forSubmitmRef.addEventListener('submit', onFormSubmit);
+formRef.addEventListener('input', throttle(onFormInput, 500));
 pastFormInput();
 const formData = {};
 
