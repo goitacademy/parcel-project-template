@@ -11,5 +11,4 @@ function onPlay({ seconds }) {
 player.on('timeupdate', throttle(onPlay, 1000));
 const savedSettings = localStorage.getItem('videoplayer-current-time');
 const parsedSettings = JSON.parse(savedSettings);
-console.log(parsedSettings);
 player.setCurrentTime(parsedSettings);
