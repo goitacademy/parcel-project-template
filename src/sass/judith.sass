@@ -1,17 +1,33 @@
 @import './_variables'
 *
+    box-sizing: border-box
     text-decoration: none
-    margin: auto
+    margin: 0
+    padding: 0
 
 body
+
     font-family: 'DM Sans', sans-serif
     font-family: 'Titan One', cursive
+
 header
     height: 664px
-    background-color: $pink1
+    background: linear-gradient(145deg,$pink1,#7c1d3d)
+    background-size: 300% 200%
+    position: relative
+    animation: BgGradient 6s ease infinite
+@keyframes BgGradient
+    0%
+
+        background-position: 0% 50%
+    50%
+        background-position: 100% 50%
+    100%
+        background-position: 0% 50%
+
 .nav
     display: flex
-    justify-content: center
+    justify-content: space-around
     &__elipse
         position: absolute
         margin-top: 75px
@@ -24,6 +40,8 @@ header
     &__link
         margin-top: 54px
         color: $whithe
+    &__link:hover
+        color: $pink2
     &__link--2
         margin-top: 54px
     &__button
@@ -43,6 +61,7 @@ header
         color: $pink2
     &__svg
         margin-left: 12px
+
 .ice
     position: absolute
     margin-left: 750px
@@ -147,3 +166,25 @@ header
 
     &__svg
         margin-top: 20px
+/* bubbles */
+.bubbles
+    &__bubble
+        width: 100px
+        height: 100px
+        border-radius: 50px
+        background-color: $whithe
+        opacity: .5
+        position: absolute
+        bottom: 0
+        animation-name: flotar
+        animation-duration: 2s
+        animation-iteration-count: infinite
+        animation-direction: alternate
+
+@keyframes flotar
+    0%
+        transform: translate(-90%)
+    25%
+        transform: translateX(0%) translateY()70%
+    100%
+        transform: translateX(100%) translateY(-500%)

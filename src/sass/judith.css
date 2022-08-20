@@ -1,6 +1,8 @@
 * {
+  box-sizing: border-box;
   text-decoration: none;
-  margin: auto;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -10,12 +12,39 @@ body {
 
 header {
   height: 664px;
-  background-color: #FFB8CA;
+  background: linear-gradient(145deg, #FFB8CA, #7c1d3d);
+  background-size: 300% 200%;
+  position: relative;
+  -webkit-animation: BgGradient 6s ease infinite;
+          animation: BgGradient 6s ease infinite;
 }
 
+@-webkit-keyframes BgGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes BgGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 .nav__elipse {
   position: absolute;
@@ -32,6 +61,9 @@ header {
 .nav__link {
   margin-top: 54px;
   color: #FFFFFF;
+}
+.nav__link:hover {
+  color: #D41443;
 }
 .nav__link--2 {
   margin-top: 54px;
@@ -175,4 +207,47 @@ header {
 }
 .group-2__svg {
   margin-top: 20px;
+}
+
+/* bubbles */
+.bubbles__bubble {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  opacity: 0.5;
+  position: absolute;
+  bottom: 0;
+  -webkit-animation-name: flotar;
+          animation-name: flotar;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes flotar {
+  0% {
+    transform: translate(-90%);
+  }
+  25% {
+    transform: translateX(0%) translateY() 70%;
+  }
+  100% {
+    transform: translateX(100%) translateY(-500%);
+  }
+}
+
+@keyframes flotar {
+  0% {
+    transform: translate(-90%);
+  }
+  25% {
+    transform: translateX(0%) translateY() 70%;
+  }
+  100% {
+    transform: translateX(100%) translateY(-500%);
+  }
 }/*# sourceMappingURL=judith.css.map */
