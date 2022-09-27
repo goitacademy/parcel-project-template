@@ -1,10 +1,10 @@
 
 // ===>>  БУДЕМ НАСТРАИВАТЬ ПОЗЖЕ 
 
-import CocktailAPI from './getCoctailOption';
+import CocktailAPI from '../js/getCocktailOption';
 
-// import { includes } from 'lodash';
-// const favorite = new CocktailAPI();
+import { includes } from 'lodash';
+const favorite = new CocktailAPI();
 
 let cocktail = {
   idDrink: '',
