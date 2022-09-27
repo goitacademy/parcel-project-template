@@ -10,6 +10,7 @@ import './js/theme-change';
 import './index';
 
 import './js/getCocktailOption';
+import './js/getRandomCoctails';
 
 import './js/searchByInput';
 import './js/searchByLetter';
