@@ -1,3 +1,5 @@
+// import './sass/index.scss'
+
 import './js/render';
 import './js/close_modal-coctails';
 import './js/close_modal-components';
