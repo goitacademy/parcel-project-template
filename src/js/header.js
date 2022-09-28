@@ -8,8 +8,8 @@ const navMobileRef = document.querySelector('.nav__links--mobil');
 
 burgerBtnRef.addEventListener('click', removeIsHiden);
 crossBtnRef.addEventListener('click', addIsHiden);
-favoriteDeskRef.addEventListener('click', toggleIsHidenn);
-favoriteMobilRef.addEventListener('click', toggleIsHiden);
+favoriteMobilRef.addEventListener('click', mobilNavHide);
+favoriteDeskRef.addEventListener('click', desktopNavHide);
 
 function removeIsHiden(evt) {
   mobilMenuRef.classList.remove('is-hidden');
@@ -18,9 +18,27 @@ function removeIsHiden(evt) {
 function addIsHiden(evt) {
   mobilMenuRef.classList.add('is-hidden');
 }
-function toggleIsHiden(evt) {
-  navMobileRef.classList.toggle('is-hidden');
+
+function mobilNavHide(evt) {
+  toggleClassIsHiden(navMobileRef);
 }
-function toggleIsHidenn(evt) {
-  navDeskRef.classList.toggle('is-hidden');
+function desktopNavHide(evt) {
+  toggleClassIsHiden(navDeskRef);
 }
+function toggleClassIsHiden(element) {
+  element.classList.toggle('is-hidden');
+}
+
+document.addEventListener('click', function (event) {
+  if (
+    window.matchMedia('(min-width: 1280px)').matches &&
+    !favoriteDeskRef.contains(event.target)
+  ) {
+    navDeskRef.classList.add('is-hidden');
+  } else if (
+    window.matchMedia('(max-width: 1279px)').matches &&
+    !favoriteMobilRef.contains(event.target)
+  ) {
+    navMobileRef.classList.add('is-hidden');
+  }
+});
