@@ -1,6 +1,6 @@
 // // import axios from 'axios';
 
-// const BASE_URL = 'https://www.thecocktaildb.com/api/json/v1/1/';
+const BASE_URL = 'https://www.thecocktaildb.com/api/json/v1/1/';
 
 // export default class CocktailAPI {
 //   KEY = 'cocktails';
@@ -21,7 +21,7 @@
 // }
 // //   ===>>> by Name
 
-//   async getCocktailByName() {
+  //   async getCocktailByName() {
 //     try {
 //       return await axios(`${BASE_URL}search.php?s=${this.searchQuery}`);
 //     } catch (error) {
@@ -51,62 +51,65 @@
 
 // //   =====>>> by Ingredients
 
-//   async getCocktailByIngredient(ingredients) {
-//     try {
-//       return await axios(
-//         `${BASE_URL}search.php?i=${ingredients || this.ingredients}`
-//       );
-//     } catch (error) {
-//       throw new Error(error.message);
-//     }
-//   }
+  //   =====>>> by Ingredients
 
-//   async getIngredientById(iid) {
-//     try {
-//       return await axios(`${BASE_URL}lookup.php?iid=${iid || this.iid}`);
-//     } catch (error) {
-//       throw new Error(error.message);
-//     }
-//   }
+  async getCocktailByIngredient(ingredients) {
+    try {
+      return await axios(
+        `${BASE_URL}search.php?i=${ingredients || this.ingredients}`
+      );
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
 
-//   async getRandomCocktail() {
-//     try {
-//       let arr = [];
-//       for (let i = 0; i < 9; i += 1) {
-//         const cocktail = axios(BASE_URL + 'random.php');
-//         arr.push(cocktail);
-//       }
+  async getIngredientById(iid) {
+    try {
+      return await axios(`${BASE_URL}lookup.php?iid=${iid || this.iid}`);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
 
-//       const promise = await Promise.all(arr).then(response => {
-//         return response;
-//       });
-//       return promise;
-//     } catch (error) {
-//       throw new Error(error);
-//     }
-//   }
+  async getRandomCocktail() {
+    try {
+      let arr = [];
+      for (let i = 0; i < 9; i += 1) {
+        const cocktail = axios(BASE_URL + 'random.php');
+        arr.push(cocktail);
+      }
 
-//   incrementPage() {
-//     this.page += 1;
-//   }
+      const promise = await Promise.all(arr).then(response => {
+        return response;
+      });
+      return promise;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 
-//   resetPage() {
-//     this.page = 1;
-//   }
+  incrementPage() {
+    this.page += 1;
+  }
 
-//   get query() {
-//     return this.searchQuery;
-//   }
+  resetPage() {
+    this.page = 1;
+  }
 
-//   set query(newQuery) {
-//     this.searchQuery = newQuery;
-//   }
+  get query() {
+    return this.searchQuery;
+  }
 
-//   addFavoriteDrinkById(idDrink) {
-//     this.favoriteDrinks.push(idDrink);
-//   }
+  set query(newQuery) {
+    this.searchQuery = newQuery;
+  }
 
-//   removeFavoriteDrinkById(idDrink) {
-//     this.favoriteDrinks = this.favoriteDrinks.filter(data => data !== idDrink);
-//   }
-// }
+  addFavoriteDrinkById(idDrink) {
+    this.favoriteDrinks.push(idDrink);
+  }
+
+  removeFavoriteDrinkById(idDrink) {
+    this.favoriteDrinks = this.favoriteDrinks.filter(data => data !== idDrink);
+  }
+}
+
