@@ -9,6 +9,7 @@
   padding-bottom: 30px;
 }
 .header__container {
+  position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -20,15 +21,18 @@
 
 .header__burger {
   display: block;
-  width: 30px;
-  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 47px;
+  height: 39px;
   border: none;
   background-color: transparent;
 }
 .header__cross {
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 47px;
+  height: 39px;
   border: none;
   background-color: transparent;
   position: absolute;
@@ -150,14 +154,21 @@ input:checked + .slider:before {
 }
 .form__btn {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 1px;
   left: 1px;
   height: 38px;
   width: 40px;
+  fill: #fd5103;
   border: none;
   border-right: 1px solid #fd5103;
   border-radius: 4px 0px 0px 4px / 5px 0px 0px 4px;
   background-color: #fcfcfc;
+}
+.header__nav--desktop {
+  display: none;
 }
 .header__nav {
   position: relative;
@@ -175,15 +186,40 @@ input:checked + .slider:before {
   line-height: 0.86;
   color: #000000;
 }
+
 .header__nav--desktop {
   display: none;
 }
 .nav__links {
   position: absolute;
   bottom: 0;
+  min-width: 213px;
   transform: translateY(100%);
   border: 1px solid #fd5103;
   border-radius: 4px;
+}
+.nav__links--desktop {
+  transform: translate(69%, 100%);
+}
+.nav__menu {
+  display: flex;
+}
+.nav__item--top {
+  padding: 12px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: 0.02em;
+}
+.nav__item--bottom {
+  background-color: #fd5103;
+  color: #fff;
+  padding: 12px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: 0.02em;
+  border: 1px solid #fd5103;
 }
 
 .header__light {
@@ -211,8 +247,13 @@ input:checked + .slider:before {
   }
 }
 @media screen and (min-width: 768px) {
+  .header__mobil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .header__form--tablet {
-    margin-left: 260px;
+    margin-left: 200px;
     display: block;
     position: relative;
   }
@@ -220,7 +261,9 @@ input:checked + .slider:before {
     display: none;
   }
   .header__logo--mobil {
-    display: inline;
+    display: block;
+    position: absolute;
+    left: 20px;
   }
   .form__input {
     background-color: #fff;
@@ -228,8 +271,11 @@ input:checked + .slider:before {
   .form__btn {
     background-color: #fff;
   }
+  .header__switcher {
+    padding-top: 10px;
+  }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .header__logo--mobil {
     display: none;
   }
