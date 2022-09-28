@@ -4,10 +4,10 @@
   text-align: center;
   padding-top: 20px;
   padding-bottom: 10px;
-  width: 320px;
+  width: 100%;
 
   @media screen and (min-width: 480px) {
-    width: 480;
+    width: 480px;
   }
 
   @media screen and (min-width: 768px) {
@@ -24,7 +24,9 @@
 }
 
 .gallery__cards {
+  position: relative;
   padding: 0;
+  width: 100%;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -66,7 +68,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 280px;
+  width: 100%;
   border: 1px solid #fd5103;
   border-radius: 14px;
 
@@ -127,12 +129,18 @@
   }
 }
 
+.btn__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .gallery__btn-load-more {
   padding: 0;
   width: 108px;
   height: 39px;
 
-  margin-right: 20px;
+  margin-right: 10px;
   border: none;
   background: #fe7031;
   border-radius: 4px;
@@ -149,7 +157,7 @@
   @media screen and (min-width: 768px) {
     width: 160px;
     height: 48px;
-    margin-right: 12px;
+    margin-right: 10px;
 
     font-size: 20px;
     line-height: 1.2;
@@ -162,6 +170,11 @@
 }
 
 .gallery__btn-add-to-fav {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   padding: 0;
   width: 110px;
   height: 39px;
@@ -174,6 +187,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
+  text-transform: uppercase;
   letter-spacing: 0.02em;
   color: #fd5103;
 
@@ -190,6 +204,63 @@
   }
 }
 
-.icon-modal-cocktail {
+.btn__svg-fav {
+  fill: #fe7031;
+}
+// ======= PRELOADER =======
+
+.preloader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  /* фоновый цвет */
+  z-index: 1001;
+}
+
+.preloader__image {
+  position: absolute;
+  top: 50%;
+  left: 61%;
+  // transform: translateX(-50%);
   fill: #fd5103;
+  width: 70px;
+  height: 70px;
+  margin-top: -70px;
+  margin-left: -70px;
+  text-align: center;
+  animation: preloader-rotate 2s infinite linear;
+
+  @media screen and (min-width: 480px) {
+    left: 58%;
+  }
+
+  @media screen and (min-width: 768px) {
+    left: 50%;
+    width: 150px;
+    height: 150px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    left: 47%;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loaded_hiding .preloader {
+  transition: 0.3s opacity;
+  opacity: 0;
+}
+
+.loaded .preloader {
+  display: none;
 }
