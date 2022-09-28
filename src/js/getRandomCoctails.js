@@ -4,6 +4,7 @@ import * as icons from '../img/sprite.svg';
 
 const cocktailsList = document.querySelector('.gallery__cards');
 const preloader = document.querySelector('.preloader');
+const section = document.querySelector('.section-gallery');
 
 createCardsListMarkup();
 
@@ -60,6 +61,7 @@ function createCardMarkup({ strDrinkThumb, strDrink }) {
 
   cocktailsList.insertAdjacentHTML('beforeend', markup);
   preloader.classList.add('visually-hidden');
+  section.classList.remove('gallery__helper');
 }
 
 // window.onload = function () {
