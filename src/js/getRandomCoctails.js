@@ -1,6 +1,6 @@
 import axios from 'axios';
 // import { getRandomCocktail } from './getCocktailOption';
-import * as icons from './img/sprite.svg';
+import * as icons from '../img/sprite.svg';
 
 const cocktailsList = document.querySelector('.gallery__cards');
 const preloader = document.querySelector('.preloader');
