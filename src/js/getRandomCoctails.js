@@ -1,6 +1,7 @@
 import axios from 'axios';
 // import { getRandomCocktail } from './getCocktailOption';
-import * as icons from '../img/sprite.svg';
+// import * as icons from '../img/sprite.svg';
+import item from '../img/sprite.svg';
 
 const cocktailsList = document.querySelector('.gallery__cards');
 const preloader = document.querySelector('.preloader');
@@ -19,7 +20,6 @@ async function fetchRandomCockteil(n) {
     const randomDrinks = await Promise.all(arr).then(r => {
       return r;
     });
-    // console.log('randomDrinks', randomDrinks);
     randomDrinks.forEach(drink => {
       let data = drink.data.drinks[0];
       createCardMarkup(data);
@@ -52,9 +52,9 @@ function createCardMarkup({ strDrinkThumb, strDrink }) {
      <h3 class='gallery__card-name'>${strDrink}</h3>
      <div class='btn__box'>
      <button type='button' class='gallery__btn-load-more' data-open='open-modal-description'>Learn more</button>
-      <button type='button' class='gallery__btn-add-to-fav' data-add='add-to-fav'>Add to<svg width="25px" height="25px" class="btn__svg-fav">
-      <use  href='${icons}/#icon-heart'></use>
-    </svg></button>
+      <button type='button' class='gallery__btn-add-to-fav' data-add='add-to-fav'>Add to<svg width="18" height="18" class="btn__svg-fav">
+     <use href="${item}#icon-heart"></use>
+   </svg></button>
       </div>
      </div>
      </li>`;
@@ -63,7 +63,3 @@ function createCardMarkup({ strDrinkThumb, strDrink }) {
   preloader.classList.add('visually-hidden');
   section.classList.remove('gallery__helper');
 }
-
-// window.onload = function () {
-//   preloader.classList.add('visually-hidden');
-// };
