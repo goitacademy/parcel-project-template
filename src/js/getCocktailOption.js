@@ -1,55 +1,53 @@
-// // import axios from 'axios';
+import axios from 'axios';
 
 const BASE_URL = 'https://www.thecocktaildb.com/api/json/v1/1/';
 
-// export default class CocktailAPI {
-//   KEY = 'cocktails';
-//   INGREDIENTS = 'ingredients';
-//   constructor() {
-//     this.iid = [];
-//     this.name = '';
-//     this.letter = '';
-//     this.page = 1;
-//     this.drinks = '';
-//     this.searchQuery = '';
-//     this.category = '';
-//     this.drinks = '';
-//     this.ingredients = [];
-//     this.favoriteDrinks = [];
-//     this.favoriteIngredients = [];
-//   }
-// }
-// //   ===>>> by Name
+export default class CocktailAPI {
+  KEY = 'cocktails';
+  INGREDIENTS = 'ingredients';
+  constructor() {
+    this.iid = [];
+    this.name = '';
+    this.letter = '';
+    this.page = 1;
+    this.drinks = '';
+    this.searchQuery = '';
+    this.category = '';
+    this.drinks = '';
+    this.ingredients = [];
+    this.favoriteDrinks = [];
+    this.favoriteIngredients = [];
+  }
 
-  //   async getCocktailByName() {
-//     try {
-//       return await axios(`${BASE_URL}search.php?s=${this.searchQuery}`);
-//     } catch (error) {
-//       throw new Error(error.message);
-//     }
-//   }
+  //   ===>>> by Name
 
-// //  ====>> by Letter
+  async getCocktailByName() {
+    try {
+      return await axios(`${BASE_URL}search.php?s=${this.searchQuery}`);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
 
-// async function getCocktailByLetter() {
-//     try {
-//       return await axios(`${BASE_URL}search.php?f=${this.letter}`);
-//     } catch (error) {
-//       alert(error);
-//     }
-//   }
+  //  ====>> by Letter
 
-// //   ====>> by ID
+  async getCocktailByLetter() {
+    try {
+      return await axios(`${BASE_URL}search.php?f=${this.letter}`);
+    } catch (error) {
+      alert(error);
+    }
+  }
 
-//   async getCocktailsId(id) {
-//     try {
-//       return await axios(`${BASE_URL}lookup.php?i=${id || this.id}`);
-//     } catch (error) {
-//       throw new Error(error.message);
-//     }
-//   }
+  //   ====>> by ID
 
-// //   =====>>> by Ingredients
+  async getCocktailsId(id) {
+    try {
+      return await axios(`${BASE_URL}lookup.php?i=${id || this.id}`);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
 
   //   =====>>> by Ingredients
 
@@ -112,4 +110,3 @@ const BASE_URL = 'https://www.thecocktaildb.com/api/json/v1/1/';
     this.favoriteDrinks = this.favoriteDrinks.filter(data => data !== idDrink);
   }
 }
-
