@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { forEach, forEachRight } from 'lodash';
+// import { forEach, forEachRight } from 'lodash';
 // window.onscroll = function () {
 //   return false;
 // };
@@ -40,7 +40,7 @@ getIngridient();
 let a = [];
 
 async function check(element) {
-  marcup(element, a);
+  await marcup(element, a);
   await element.map(e => {
     for (let key in e) {
       if (e[key] === null) {
@@ -54,14 +54,12 @@ async function check(element) {
 console.log('a', a);
 
 async function marcup(data, a) {
-  for (const key of a) {
-    console.log(' key', key);
-    await data.map(([key]) => {
-      data[key];
-      console.log('key', key);
-    });
-  }
-  console.log('data', data);
+  console.log('a3333', a);
+  a.forEach(element => {
+    console.log(element);
+  });
+  // console.log('a2', a);
+  // console.log('data', data);
 }
 
 // const { strABV, strDescription, strType, strIngredient, strAlcohol } = data;
