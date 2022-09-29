@@ -44,6 +44,7 @@ async function getCocktailByLetter (letter) {
 console.log(BASE_URL);
 
 const keyboardItemEl = document.querySelector('[data-action="keyboard"]')
+const titleRef = document.querySelector('.gallery__title');
 let letter = '';
 
 keyboardItemEl.addEventListener('click', onLetterClick);
@@ -54,6 +55,7 @@ function onLetterClick(event) {
     letter = (event.target.dataset.id)
     
     console.log(letter);
+    // letter.classList.add('keyboard--item--black')
    
     cocktailData(letter);
 
@@ -112,13 +114,11 @@ async function cocktailData(letter) {
       
         const markupDrink = await drinksLetterCocktail(data.drinks);
         console.log(markupDrink)
-
-     
      
         const drinkU = await cocktailMarkupList(markupDrink);
 
         cocktailsList.innerHTML = await drinkU.join('');
-        
+        titleRef.textContent = 'Searching results';
         } catch (error) {
          
         };
