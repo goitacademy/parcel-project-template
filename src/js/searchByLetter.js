@@ -106,7 +106,8 @@ async function cocktailData(letter) {
          if (!data?.drinks) {
         console.log (data)
         
-            removeMarkup(cocktailsList);
+             removeMarkup(cocktailsList);
+             titleRef.textContent = "Sorry, we didn't find any cocktail for you"
             sorryText()
             Notiflix.Notify.failure('Unfortunately, such a cocktail is not available.');
               throw new Error(response);
@@ -125,8 +126,7 @@ async function cocktailData(letter) {
     };
 
 function sorryText() {
-    const markup = `<h2>
-    Sorry, we didn't find any cocktail for you</h2>
+    const markup = `
     <picture>
 
         <source srcset="./img/pictures/desktop/empty_page_345x380.png" media="(min-width:1280px)" />
@@ -138,7 +138,7 @@ function sorryText() {
         <source srcset="./img/pictures/mobile/empty_page_280x308.png" media="(min-width:480px)" />
         <source srcset="./img/pictures/mobile/empty_page_560x617@2x.png" media="(min-width:480px)" />
             
-    <img class="hero__" src="./img/pictures/desktop/empty_page_345x380.png" alt="Sorry image" />
+    <img class="sorry__card" src="./img/pictures/desktop/empty_page_345x380.png" alt="Apologise card" />
     </picture>
     `;
 
