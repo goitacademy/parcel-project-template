@@ -51,9 +51,7 @@ export function createCardMarkup({ strDrinkThumb, strDrink }) {
      <h3 class='gallery__card-name'>${strDrink}</h3>
      <div class='btn__box'>
      <button type='button' class='gallery__btn-load-more' data-open='open-modal-description'>Learn more</button>
-      <button type='button' class='gallery__btn-add-to-fav' data-add='add-to-fav'>Add to<svg width="18" height="18" class="btn__svg-fav">
-
-   </svg></button>
+      <button type='button' class='gallery__btn-add-to-fav' data-add='add-to-fav'>Add to</button>
       </div>
      </div>
      </li>`;
