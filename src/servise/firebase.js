@@ -6,7 +6,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { getDatabase } from 'firebase/database';
+import { getDatabase, push, ref, set } from 'firebase/database';
 
 import { firebaseConfig } from '../config/firebase-config';
 import { userIn } from '../js/authorization-button';
@@ -49,10 +49,6 @@ onAuthStateChanged(auth, user => {
   }
 });
 
-// export function writeUserData(userId, name, email, imageUrl) {
-//   push(ref(db, 'users/' + userId), {
-//     username: name,
-//     email: email,
-//     profile_picture: imageUrl,
-//   });
-// }
+export function writeUserData(data = {}) {
+  push(ref(database, 'cards'), data);
+}

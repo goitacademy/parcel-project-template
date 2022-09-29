@@ -20,7 +20,6 @@ async function fetchRandomCockteil(n) {
     const randomDrinks = await Promise.all(arr).then(r => {
       return r;
     });
-    console.log('random', randomDrinks);
     let cocktailsUnique = randomDrinks.reduce(
       (acc, cocktail) => {
         if (acc.map[cocktail.data.drinks[0].idDrink]) return acc;
@@ -33,9 +32,9 @@ async function fetchRandomCockteil(n) {
         cocktailsUnique: [],
       }
     ).cocktailsUnique;
-    console.log('unique', cocktailsUnique);
     cocktailsUnique.forEach(drink => {
       let data = drink.data.drinks[0];
+      console.log('data', data);
       createCardMarkup(data);
     });
   } catch (error) {
@@ -59,14 +58,14 @@ function createCardsListMarkup(data) {
   }
 }
 
-export function createCardMarkup({ strDrinkThumb, strDrink }) {
+export function createCardMarkup({ strDrinkThumb, strDrink, idDrink }) {
   const markup = `<li class='gallery__card'>
      <img src=${strDrinkThumb} alt=${strDrink} class='gallery__card-img'>
      <div class='gallery__card_thumb'>
      <h3 class='gallery__card-name'>${strDrink}</h3>
      <div class='btn__box'>
      <button type='button' class='gallery__btn-load-more' data-open='open-modal-description'>Learn more</button>
-      <button type='button' class='gallery__btn-add-to-fav' data-add='add-to-fav'>Add to</button>
+    <button type='button' class='gallery__btn-add-to-fav' data-add='add-to-fav' data-cocktaileId='${idDrink}'>Add to</button>
       </div>
      </div>
      </li>`;
