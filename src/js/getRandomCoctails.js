@@ -7,6 +7,7 @@ const preloader = document.querySelector('.preloader');
 const section = document.querySelector('.section-gallery');
 
 createCardsListMarkup();
+addUniqueCardMarkup();
 
 async function fetchRandomCockteil(n) {
   try {
@@ -19,7 +20,21 @@ async function fetchRandomCockteil(n) {
     const randomDrinks = await Promise.all(arr).then(r => {
       return r;
     });
-    randomDrinks.forEach(drink => {
+    console.log('random', randomDrinks);
+    let cocktailsUnique = randomDrinks.reduce(
+      (acc, cocktail) => {
+        if (acc.map[cocktail.data.drinks[0].idDrink]) return acc;
+        acc.map[cocktail.data.drinks[0].idDrink] = true;
+        acc.cocktailsUnique.push(cocktail);
+        return acc;
+      },
+      {
+        map: {},
+        cocktailsUnique: [],
+      }
+    ).cocktailsUnique;
+    console.log('unique', cocktailsUnique);
+    cocktailsUnique.forEach(drink => {
       let data = drink.data.drinks[0];
       createCardMarkup(data);
     });
@@ -28,7 +43,7 @@ async function fetchRandomCockteil(n) {
   }
 }
 
-function createCardsListMarkup() {
+function createCardsListMarkup(data) {
   if (document.documentElement.clientWidth >= 1280) {
     fetchRandomCockteil(9);
   } else if (
@@ -59,4 +74,28 @@ function createCardMarkup({ strDrinkThumb, strDrink }) {
   cocktailsList.insertAdjacentHTML('beforeend', markup);
   preloader.classList.add('visually-hidden');
   section.classList.remove('gallery__helper');
+}
+
+function addUniqueCardMarkup() {
+  setTimeout(() => {
+    console.log(cocktailsList.children.length);
+    if (
+      document.documentElement.clientWidth >= 1280 &&
+      cocktailsList.children.length < 9
+    ) {
+      fetchRandomCockteil(9 - cocktailsList.children.length);
+    } else if (
+      document.documentElement.clientWidth >= 768 &&
+      document.documentElement.clientWidth < 1280 &&
+      cocktailsList.children.length < 6
+    ) {
+      fetchRandomCockteil(6 - cocktailsList.children.length);
+    } else if (
+      document.documentElement.clientWidth > 0 &&
+      document.documentElement.clientWidth < 768 &&
+      cocktailsList.children.length < 3
+    ) {
+      fetchRandomCockteil(3 - cocktailsList.children.length);
+    }
+  }, 1000);
 }
