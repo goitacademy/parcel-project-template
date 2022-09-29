@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { signUp, quitAcc } from '../servise/firebase';
 const signupButtonRef = document.querySelectorAll('.signup__btn');
 signupButtonRef.forEach(button =>

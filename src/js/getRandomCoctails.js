@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { wrireRemovetCoctaileFunction } from '../coctails';
 // import { getRandomCocktail } from './getCocktailOption';
 // import * as icons from '../img/sprite.svg';
 
@@ -6,7 +7,7 @@ export const cocktailsList = document.querySelector('.gallery__cards');
 export const preloader = document.querySelector('.preloader');
 export const section = document.querySelector('.section-gallery');
 
-createCardsListMarkup();
+// createCardsListMarkup();
 addUniqueCardMarkup();
 
 async function fetchRandomCockteil(n) {
@@ -34,9 +35,9 @@ async function fetchRandomCockteil(n) {
     ).cocktailsUnique;
     cocktailsUnique.forEach(drink => {
       let data = drink.data.drinks[0];
-      console.log('data', data);
       createCardMarkup(data);
     });
+    wrireRemovetCoctaileFunction();
   } catch (error) {
     throw new Error(error);
   }
@@ -73,11 +74,12 @@ export function createCardMarkup({ strDrinkThumb, strDrink, idDrink }) {
   cocktailsList.insertAdjacentHTML('beforeend', markup);
   preloader.classList.add('visually-hidden');
   section.classList.remove('gallery__helper');
+  wrireRemovetCoctaileFunction();
 }
 
 function addUniqueCardMarkup() {
   setTimeout(() => {
-    console.log(cocktailsList.children.length);
+    // console.log(cocktailsList.children.length);
     if (
       document.documentElement.clientWidth >= 1280 &&
       cocktailsList.children.length < 9

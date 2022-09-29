@@ -6,7 +6,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { getDatabase, push, ref, set } from 'firebase/database';
+import { getDatabase, set, ref, onValue, remove } from 'firebase/database';
 
 import { firebaseConfig } from '../config/firebase-config';
 import { userIn } from '../js/authorization-button';
@@ -43,12 +43,34 @@ export const quitAcc = () => {
 
 onAuthStateChanged(auth, user => {
   userIn('enable');
-  console.log(user);
   if (!user) {
     userIn('disable');
   }
 });
 
-export function writeUserData(data = {}) {
-  push(ref(database, 'cards'), data);
+export function writeUserCoctaile(userId, data = {}) {
+  set(ref(database, 'coctailes/' + userId), data);
 }
+export function removeUserCoctaile(userId, data = {}) {
+  remove(ref(database, 'coctailes/' + userId), data);
+}
+
+export function writeUseringridients(data = {}) {
+  set(ref(database, 'ingridients'), data);
+}
+onValue(ref(database, 'coctailes'), snapshot => {
+  const data = snapshot.val();
+  if (data) {
+    const favoriteCoctailesRawArr = Object.values(data);
+    // console.log(favoriteCoctailesRawArr);
+    const favoriteCoctailesArr = favoriteCoctailesRawArr.map(
+      id => id.cockteileId
+    );
+    console.log('favoriteCoctailesArr', favoriteCoctailesArr);
+  }
+  // favoriteCoctailesArr.forEach(id => {
+  //   const button = document.querySelector(`[data-cocktaileId='${id}']`);
+  //   // button.classList.add('btn__svg-fav');
+  //   console.log(button);
+  // });
+});
