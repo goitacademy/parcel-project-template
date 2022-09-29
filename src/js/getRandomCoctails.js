@@ -2,9 +2,9 @@ import axios from 'axios';
 // import { getRandomCocktail } from './getCocktailOption';
 // import * as icons from '../img/sprite.svg';
 
-const cocktailsList = document.querySelector('.gallery__cards');
-const preloader = document.querySelector('.preloader');
-const section = document.querySelector('.section-gallery');
+export const cocktailsList = document.querySelector('.gallery__cards');
+export const preloader = document.querySelector('.preloader');
+export const section = document.querySelector('.section-gallery');
 
 createCardsListMarkup();
 
@@ -28,7 +28,7 @@ async function fetchRandomCockteil(n) {
   }
 }
 
-function createCardsListMarkup() {
+export function createCardsListMarkup() {
   if (document.documentElement.clientWidth >= 1280) {
     fetchRandomCockteil(9);
   } else if (
@@ -44,7 +44,7 @@ function createCardsListMarkup() {
   }
 }
 
-function createCardMarkup({ strDrinkThumb, strDrink }) {
+export function createCardMarkup({ strDrinkThumb, strDrink }) {
   const markup = `<li class='gallery__card'>
      <img src=${strDrinkThumb} alt=${strDrink} class='gallery__card-img'>
      <div class='gallery__card_thumb'>
