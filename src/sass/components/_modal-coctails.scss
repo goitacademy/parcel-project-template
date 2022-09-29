@@ -7,6 +7,7 @@
     overflow-y: scroll;
     // left: 0;
 }
+
 .backdrop.is-hidden .modal {
     transform: translate(-50%, -50%) scale(0.9);
 }
@@ -15,9 +16,7 @@
     visibility: hidden;
     opacity: 0%;
     pointer-events: none;
-
 }
-
 
 .modal__cocktail {
     background: #fff;
@@ -31,20 +30,18 @@
     transform: translate(-50%, -50%);
     box-shadow: 0 1px 3px #0000001f, 0 1px 1px #00000024, 0 2px 1px #0003;
     min-width: 320px;
+    height: 90vh;
     // height: 956px;
-    
     padding-top: 40px;
     padding-bottom: 40px;
     padding-left: 20px;
     padding-right: 20px;
+
     @media screen and (min-width: 768px) {
-        width: 822px;
-        height: 598px;
-
+        width: 720px;
+        height: 90vh;
         padding-right: 32px;
-        padding-left: 32px;
     }
-
 }
 
 .image__wrap {
@@ -53,12 +50,15 @@
     border-radius: 4px;
     margin-bottom: 22px;
 
-    @media (min-width: 768px)  {
+    @media (min-width: 768px) {
+        margin-top: -40px;
+        margin-left: -20px;
+        margin-right: 32px;
+        order: 1;
         width: 288px;
         height: 320px;
     }
 }
-
 
 .btn--close {
     fill: #202025;
@@ -81,10 +81,25 @@
     font-weight: 900;
     font-size: 32px;
     line-height: 1.18;
-    text-align:left;
+    text-align: left;
     letter-spacing: 0.03em;
     color: #202025;
-    
+
+    &.cocktail__name--big {
+        display: none;
+
+        @media (min-width: 768px) {
+            display: block;
+        }
+    }
+
+    ;
+
+    &.cocktail__name--mobile {
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
 }
 
 .cocktail__title {
@@ -98,9 +113,10 @@
     letter-spacing: 0.03em;
     color: #202025;
 }
+
 .ingredient,
 .recipe__text {
-   font-family: 'Poppins';
+    font-family: 'Poppins';
     font-style: normal;
     margin-bottom: 32px;
     font-weight: 400;
@@ -110,8 +126,9 @@
     letter-spacing: 0.03em;
     color: #5F6775;
 }
+
 .recipe__title {
-   font-family: 'Poppins';
+    font-family: 'Poppins';
     font-style: normal;
     margin-bottom: 8px;
     font-weight: 600;
@@ -120,7 +137,6 @@
     text-align: left;
     letter-spacing: 0.03em;
     color: #000917;
-
 }
 
 .cocktail__text {
@@ -149,40 +165,94 @@
     border: transparent;
     border-radius: 4px;
     text-align: center;
- 
-    
-    
 }
 
 .ingredient__accent {
-    color:#000917;
+    color: #000917;
 }
 
 .cocktail__modal-btn {
+
     @media (min-width: 768px) {
         justify-content: flex-end;
         margin-bottom: 28px;
         margin-right: 28px;
         display: flex;
-
+        order: 4;
     }
+}
+
+.cocktail__modal-btn::hover {
+    color: #FD5103;
+    background-color: #fff;
+    border: #FD5103;
 }
 
 .instraction__wrap {
     @media (min-width: 768px) {
-           margin-left: 28px;
-            
-    
-        }
+        margin-left: 28px;
+        order: 3;
+    }
 }
 
-
+.modal__form {
+    @media (min-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
 
 .ingredients__wraper {
     @media (min-width: 768px) {
-           display: flex;
-    
-    
-        }
+        display: flex;
+        order: 2;
+    }
 }
 
+.modal__cocktail {
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        transform: translateX(-5px);
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color:#FD5103;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #FD5103;
+    }
+
+    background: #fff;
+    overflow: overlay;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 1px 3px #0000001f,
+    0 1px 1px #00000024,
+    0 2px 1px #0003;
+    min-width: 320px;
+    height: 90vh;
+    // height: 956px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @media screen and (min-width: 768px) {
+        width: 720px;
+        height: 90vh;
+        padding-right: 32px;
+    }
+}
