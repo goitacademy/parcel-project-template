@@ -49,9 +49,8 @@ onAuthStateChanged(auth, user => {
   }
 });
 
-// function writeUserData(userId, name, email, imageUrl) {
-//   const db = getDatabase();
-//   set(ref(db, 'users/' + userId), {
+// export function writeUserData(userId, name, email, imageUrl) {
+//   push(ref(db, 'users/' + userId), {
 //     username: name,
 //     email: email,
 //     profile_picture: imageUrl,
