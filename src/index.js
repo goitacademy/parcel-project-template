@@ -5,6 +5,7 @@ import './js/close_modal-coctails';
 import './js/close_modal-components';
 
 import './js/header';
+import './js/authorization-button';
 
 import './js/theme-change';
 import './index';
@@ -12,7 +13,6 @@ import './index';
 import './js/getCocktailOption';
 
 import './js/getRandomCoctails';
-
 
 import './js/searchByInput';
 import './js/searchByLetter';
