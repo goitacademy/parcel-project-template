@@ -22,6 +22,8 @@ import './js/render-markup-option';
 import './js/modal_markup';
 import './js/localstorage';
 
+import './js/whynot';
+
 import './js/scroll';
 
 import './js/pagination';
