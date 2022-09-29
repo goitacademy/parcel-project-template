@@ -1,5 +1,5 @@
 // import { BASE_URL, getCocktailByLette } from './getCocktailOption';
-// import { picture } from '../img/pictures/desktop/empty_page_345x380.png';
+import  picture  from '../img/pictures/desktop/empty_page_345x380.png';
 import {cocktailsList, createCardsListMarkup, preloader, section} from './getRandomCoctails'
 import Notiflix from 'notiflix';
 
@@ -138,8 +138,9 @@ function sorryText() {
         <source srcset="./img/pictures/mobile/empty_page_280x308.png" media="(min-width:480px)" />
         <source srcset="./img/pictures/mobile/empty_page_560x617@2x.png" media="(min-width:480px)" />
             
-    <img class="hero__" src="./img/pictures/desktop/empty_page_345x380.png" alt="Sorry image" />
-    </picture>`;
+    <img class="hero__" src="${picture}" alt="Sorry image" />
+    </picture>
+    `;
 
     cocktailsList.innerHTML = markup;
 }
