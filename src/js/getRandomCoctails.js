@@ -2,9 +2,9 @@ import axios from 'axios';
 // import { getRandomCocktail } from './getCocktailOption';
 // import * as icons from '../img/sprite.svg';
 
-const cocktailsList = document.querySelector('.gallery__cards');
-const preloader = document.querySelector('.preloader');
-const section = document.querySelector('.section-gallery');
+export const cocktailsList = document.querySelector('.gallery__cards');
+export const preloader = document.querySelector('.preloader');
+export const section = document.querySelector('.section-gallery');
 
 createCardsListMarkup();
 
@@ -44,16 +44,14 @@ function createCardsListMarkup() {
   }
 }
 
-function createCardMarkup({ strDrinkThumb, strDrink }) {
+export function createCardMarkup({ strDrinkThumb, strDrink }) {
   const markup = `<li class='gallery__card'>
      <img src=${strDrinkThumb} alt=${strDrink} class='gallery__card-img'>
      <div class='gallery__card_thumb'>
      <h3 class='gallery__card-name'>${strDrink}</h3>
      <div class='btn__box'>
      <button type='button' class='gallery__btn-load-more' data-open='open-modal-description'>Learn more</button>
-      <button type='button' class='gallery__btn-add-to-fav' data-add='add-to-fav'>Add to<svg width="18" height="18" class="btn__svg-fav">
-
-   </svg></button>
+      <button type='button' class='gallery__btn-add-to-fav' data-add='add-to-fav'>Add to</button>
       </div>
      </div>
      </li>`;
