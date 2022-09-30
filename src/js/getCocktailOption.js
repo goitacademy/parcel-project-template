@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 
 const BASE_URL = 'https://www.thecocktaildb.com/api/json/v1/1/';
 
@@ -19,7 +19,7 @@ export default class CocktailAPI {
     this.favoriteIngredients = [];
   }
 
-//   ===>>> by Name
+  //   ===>>> by Name
 
   async getCocktailByName() {
     try {
@@ -29,7 +29,7 @@ export default class CocktailAPI {
     }
   }
 
-//  ====>> by Letter
+  //  ====>> by Letter
 
   async getCocktailByLetter() {
     try {
@@ -39,7 +39,7 @@ export default class CocktailAPI {
     }
   }
 
-//   ====>> by ID
+  //   ====>> by ID
 
   async getCocktailsId(id) {
     try {
@@ -49,7 +49,7 @@ export default class CocktailAPI {
     }
   }
 
-//   =====>>> by Ingredients
+  //   =====>>> by Ingredients
 
   async getCocktailByIngredient(ingredients) {
     try {
