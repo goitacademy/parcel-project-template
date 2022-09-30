@@ -31,20 +31,20 @@ async function getCocktailByLetter (letter) {
     try {
         const response = await axios(`${BASE_URL}search.php?f=${letter}`);
         if (!response.data) {
-            console.log (response)
+            console.log(response);
             throw new Error(response);
         }
         return response.data;
     } catch (error) {
-       
       Notiflix.Notify.failure('Ooops, error!');
     }
 }
 
 console.log(BASE_URL);
 
-const keyboardItemEl = document.querySelector('[data-action="keyboard"]')
+const keyboardItemEl = document.querySelector('[data-action="keyboard"]');
 const titleRef = document.querySelector('.gallery__title');
+const sorryCardEl = document.querySelector('.sorry__card');
 let letter = '';
 
 keyboardItemEl.addEventListener('click', onLetterClick);
@@ -52,7 +52,7 @@ keyboardItemEl.addEventListener('click', onLetterClick);
 function onLetterClick(event) {
     event.preventDefault();
 
-    letter = (event.target.dataset.id)
+    letter = (event.target.dataset.id);
     
     console.log(letter);
     // letter.classList.add('keyboard--item--black')
@@ -107,8 +107,9 @@ async function cocktailData(letter) {
         console.log (data)
         
              removeMarkup(cocktailsList);
-             titleRef.textContent = "Sorry, we didn't find any cocktail for you"
-            sorryText()
+            //  titleRef.textContent = "Sorry, we didn't find any cocktail for you"
+             removeMarkup(titleRef);
+             sorryText()
             Notiflix.Notify.failure('Unfortunately, such a cocktail is not available.');
               throw new Error(response);
         }
@@ -126,23 +127,8 @@ async function cocktailData(letter) {
     };
 
 function sorryText() {
-    const markup = `
-    <picture>
-
-        <source srcset="./img/pictures/desktop/empty_page_345x380.png" media="(min-width:1280px)" />
-        <source srcset="./img/pictures/desktop/empty_page_690x760@2x.png" media="(min-width:1280px)" />
-            
-        <source srcset="./img/pictures/tablet/empty_page_345x381.png" media="(min-width:768px)" />
-        <source srcset="./img/pictures/tablet/empty_page_690x762@2x.png" media="(min-width:768px)" />
-            
-        <source srcset="./img/pictures/mobile/empty_page_280x308.png" media="(min-width:480px)" />
-        <source srcset="./img/pictures/mobile/empty_page_560x617@2x.png" media="(min-width:480px)" />
-            
-    <img class="sorry__card" src="./img/pictures/desktop/empty_page_345x380.png" alt="Apologise card" />
-    </picture>
-    `;
-
-    cocktailsList.innerHTML = markup;
+    removeMarkup(cocktailsList);
+    sorryCardEl.classList.remove('visually-hidden');
 }
 
 function removeMarkup(element) {
