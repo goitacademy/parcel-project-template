@@ -1,9 +1,13 @@
 import axios from 'axios';
 
+import { wrireRemovetCoctaileFunction } from '../coctails';
+
+
 export const cocktailsList = document.querySelector('.gallery__cards');
 export const preloader = document.querySelector('.preloader');
 export const section = document.querySelector('.section-gallery');
 const width = document.documentElement.clientWidth;
+
 
 let randomDrinks = [];
 
@@ -16,6 +20,8 @@ async function fetchRandomCockteil(n) {
         )
       );
     }
+    wrireRemovetCoctaileFunction();
+
   } catch (error) {
     throw new Error(error);
   }
@@ -56,19 +62,22 @@ if (width >= 1280) {
   fetchRandomCockteil(3);
 }
 
-export function createCardMarkup({ strDrinkThumb, strDrink }) {
+export function createCardMarkup({ strDrinkThumb, strDrink, idDrink }) {
   const markup = `<li class='gallery__card'>
-    <img src=${strDrinkThumb} alt=${strDrink} class='gallery__card-img'>
-    <div class='gallery__card_thumb'>
-    <h3 class='gallery__card-name'>${strDrink}</h3>
-    <div class='btn__box'>
-    <button type='button' class='gallery__btn-load-more' data-open='open-modal-description'>Learn more</button>
-     <button type='button' class='gallery__btn-add-to-fav' data-add='add-to-fav'>Add to</button>
+
+     <img src=${strDrinkThumb} alt=${strDrink} class='gallery__card-img'>
+     <div class='gallery__card_thumb'>
+     <h3 class='gallery__card-name'>${strDrink}</h3>
+     <div class='btn__box'>
+     <button type='button' class='gallery__btn-load-more' data-open='open-modal-description'>Learn more</button>
+    <button type='button' class='gallery__btn-add-to-fav' data-add='add-to-fav' data-cocktaileId='${idDrink}'>Add to</button>
+      </div>
      </div>
-    </div>
     </li>`;
 
   cocktailsList.insertAdjacentHTML('beforeend', markup);
   preloader.classList.add('visually-hidden');
   section.classList.remove('gallery__helper');
+  wrireRemovetCoctaileFunction();
 }
+
