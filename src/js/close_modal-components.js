@@ -87,7 +87,6 @@ async function getIngridient() {
     'https://www.thecocktaildb.com/api/json/v1/1/search.php?i=cola'
   )
     .catch(function (error) {
-      // обработка ошибки
       console.log(error);
     })
     .then(({ data: { ingredients } }) => {
@@ -133,18 +132,6 @@ async function marcup(data) {
     .join('');
 }
 
-// <h2 class="description__title">Campari</h2>
-// <h3 class="description__category">Liqueur</h3>
-// <p class="description__characteristic">
-//   <span class="description__span">Campari</span>
-// </p>
-// <ul class="description__item">
-//   <li class="description__list"><span class="description__accent">&#10038</span> Type: Bitters</li>
-//   <li class="description__list"><span class="description__accent">&#10038</span> Country of origin: Italy</li>
-//   <li class="description__list"><span class="description__accent">&#10038</span> Alcohol by volume: 20.5–28.5%</li>
-//   <li class="description__list"><span class="description__accent">&#10038</span> Flavour: Bitter, spicy and sweet</li>
-// </ul>
-
 {
   /* <ul class="description__item">
   <li class="description__list">
@@ -157,10 +144,3 @@ async function marcup(data) {
   </li>
 </ul>; */
 }
-
-// strABV: '40';
-// ('li>3');
-// strAlcohol: 'Yes';
-// strDescription: 'Vodka is a '; /// p
-// strIngredient: 'Vodka';
-// strType: 'Vodka';
