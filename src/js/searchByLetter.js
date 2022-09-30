@@ -44,7 +44,7 @@ console.log(BASE_URL);
 
 const keyboardItemEl = document.querySelector('[data-action="keyboard"]');
 const titleRef = document.querySelector('.gallery__title');
-const sorryCardEl = document.querySelector('.sorry__card');
+const sorryCardEl = document.querySelector('.sorry-card');
 
 let letter = '';
 
@@ -101,14 +101,14 @@ async function drinksLetterCocktail(arr) {
 async function cocktailData(letter) {
 
     try {
+        titleRef.classList.remove('visually-hidden');
         sorryCardEl.classList.add('visually-hidden');
          const data = await getCocktailByLetter(letter);
          if (!data?.drinks) {
         console.log (data)
         
              removeMarkup(cocktailsList);
-            //  titleRef.textContent = "Sorry, we didn't find any cocktail for you"
-             removeMarkup(titleRef);
+             titleRef.classList.add('visually-hidden');
              sorryText()
             Notiflix.Notify.failure('Unfortunately, such a cocktail is not available.');
               throw new Error(response);
