@@ -20,25 +20,23 @@ async function showModal(e) {
   document.body.classList.add('disable-scroll');
 
   const closeBtn = modalAnc.querySelector('.btn--close');
+  const addFavBtn = modalAnc.querySelector('.modal__btnJS');
+
+  addFavBtn.focus();
   wrireRemovetCoctaileFunction('.modal__btnJS');
   document.addEventListener('keydown', closeMoreModalByKeyboard);
   closeBtn.addEventListener('click', closeMoreModal);
 }
 
 function closeMoreModalByKeyboard(e) {
-  e.preventDefault();
   if (e.code === 'Escape') {
-    console.log(e.code);
     document.querySelector('.backdrop__cocktail').remove();
     document.body.classList.remove('disable-scroll');
-  } else {
-    return;
   }
 }
 
 function closeMoreModal(e) {
-  e.currentTarget.closest('.backdrop__cocktail');
-  e?.currentTarget.closest('.backdrop__cocktail').remove();
+  e.currentTarget.closest('.backdrop__cocktail').remove();
   document.body.classList.remove('disable-scroll');
 }
 
@@ -66,7 +64,7 @@ function objToString(obj) {
     .join('');
   return `<div class="backdrop__cocktail" data-modal>
   <div class="modal__cocktail">
-    <button type="button" class="btn--close" data-modal="close-cocktail">
+    <button type="button" autofocus class="btn--close" data-modal="close-cocktail">
     </button>
     <h2 class="cocktail__name cocktail__name--mobile">${strDrink}</h2>
     <div class="modal__form">
