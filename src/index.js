@@ -27,3 +27,10 @@ import './js/whynot';
 import './js/scroll';
 
 import './js/pagination';
+
+import './config/firebase-config';
+import './servise/firebase';
+import './js/authorization-button';
+import './coctails';
+
+import './js/fav-coctails';
