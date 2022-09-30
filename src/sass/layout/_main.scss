@@ -6,7 +6,7 @@
   padding-top: 20px;
   padding-bottom: 10px;
   width: 100%;
-  height: 500px;
+  min-height: 500px;
 
   @media screen and (min-width: 480px) {
     width: 480px;
@@ -51,13 +51,16 @@
 
 .gallery__title {
   margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 493px;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
   font-size: 22px;
   line-height: 1.91;
   text-align: center;
-  color: #202025;
+  color: inherit;
 
   @media screen and (min-width: 480px) {
     font-size: 27px;
@@ -82,6 +85,13 @@
   width: 100%;
   border: 1px solid #fd5103;
   border-radius: 14px;
+  transition-property: scale(1);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   @media screen and (min-width: 480px) {
     width: 300px;
@@ -126,7 +136,7 @@
   font-size: 26px;
   line-height: 1.62;
   text-align: center;
-  color: #202025;
+  color: inherit;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 25px;
@@ -165,6 +175,18 @@
   letter-spacing: 0.02em;
 
   color: #ffffff;
+
+  transition-property: background-color color border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: transparent;
+    border: 1px solid #fd5103;
+    border-radius: 4px;
+    color: #fd5103;
+  }
+
   @media screen and (min-width: 768px) {
     width: 160px;
     height: 48px;
@@ -182,14 +204,20 @@
 
 .gallery__btn-add-to-fav {
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  text-align: center;
+  // justify-content: center;
+  // align-items: center;
+  // gap: 10px;
 
-  padding: 0;
+  padding: 0 30px 0 0;
   width: 110px;
   height: 39px;
-  background: #ffffff;
+  background: transparent;
+  background-image: url('../img/heart-empty.png');
+  background-repeat: no-repeat;
+  background-position: 74px 10px;
+  background-size: 18px 16px;
   border: 1px solid #fd5103;
   border-radius: 4px;
 
@@ -202,22 +230,35 @@
   letter-spacing: 0.02em;
   color: #fd5103;
 
+  transition-property: background-color background-image;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background-image: url('../img/heart-orng.png');
+    background-color: #fd520317;
+  }
+
   @media screen and (min-width: 768px) {
     width: 123px;
     height: 48px;
-
+    background-position: 88px 13px;
+    background-size: 20px 18px;
     font-size: 20px;
     line-height: 1.2;
   }
 
   @media screen and (min-width: 1200px) {
     width: 141px;
+    background-position: 100px 14px;
   }
 }
 
 .btn__svg-fav {
-  fill: #fe7031;
+  background-image: url('../img/heart-orng.png');
+  background-color: #fd520317;
 }
+
 // ======= PRELOADER =======
 
 .preloader {
