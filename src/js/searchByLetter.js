@@ -102,6 +102,7 @@ async function drinksLetterCocktail(arr) {
 async function cocktailData(letter) {
 
     try {
+        sorryCardEl.classList.add('visually-hidden');
          const data = await getCocktailByLetter(letter);
          if (!data?.drinks) {
         console.log (data)
