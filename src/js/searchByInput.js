@@ -16,10 +16,18 @@ let dataFromInput = '';
 // ============================================
 function onFormSubmit(evt) {
   evt.preventDefault();
+  if (
+    window.location.href.includes('ingredients') ||
+    window.location.href.includes('coctails')
+  ) {
+    window.location.href = '../index.html';
+  }
   cocktailsList.innerHTML = '';
   dataFromInput = evt.target.input.value.trim();
 
   fetchCockteilByName(dataFromInput);
+
+  titleRef.scrollIntoView(true);
 }
 // ============================================
 
