@@ -8,7 +8,6 @@ export const preloader = document.querySelector('.preloader');
 export const section = document.querySelector('.section-gallery');
 const width = document.documentElement.clientWidth;
 
-
 let randomDrinks = [];
 
 async function fetchRandomCockteil(n) {
@@ -28,6 +27,7 @@ async function fetchRandomCockteil(n) {
 
   getUniqueObj();
 }
+
 
 function getUniqueObj() {
   const cocktailsUnique = randomDrinks.reduce(
@@ -63,6 +63,7 @@ if (width >= 1280) {
 }
 
 export function createCardMarkup({ strDrinkThumb, strDrink, idDrink }) {
+
   const markup = `<li class='gallery__card'>
 
      <img src=${strDrinkThumb} alt=${strDrink} class='gallery__card-img'>
