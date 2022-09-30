@@ -52,11 +52,14 @@ keyboardItemEl.addEventListener('click', onLetterClick);
 
 function onLetterClick(event) {
     event.preventDefault();
+    console.dir (event)
 
     letter = (event.target.dataset.id);
-    
-    console.log(letter);
-    // letter.classList.add('keyboard--item--black')
+    let pickedItem = event.target;
+  
+    // console.log (letter)
+    pickedItem.classList.add('keyboard--item---black')
+    // pickedItem.style.color = '#202025';
    
     cocktailData(letter);
 
@@ -103,9 +106,9 @@ async function cocktailData(letter) {
     try {
         titleRef.classList.remove('visually-hidden');
         sorryCardEl.classList.add('visually-hidden');
-         const data = await getCocktailByLetter(letter);
+        const data = await getCocktailByLetter(letter);
+
          if (!data?.drinks) {
-        console.log (data)
         
              removeMarkup(cocktailsList);
              titleRef.classList.add('visually-hidden');
@@ -121,6 +124,7 @@ async function cocktailData(letter) {
 
         cocktailsList.innerHTML = await drinkU.join('');
         titleRef.textContent = 'Searching results';
+
         } catch (error) {
          
         };
