@@ -8,7 +8,7 @@ export const preloader = document.querySelector('.preloader');
 export const section = document.querySelector('.section-gallery');
 
 // createCardsListMarkup();
-addUniqueCardMarkup();
+addUniqueCardMarkup(); 
 
 async function fetchRandomCockteil(n) {
   try {
@@ -43,7 +43,9 @@ async function fetchRandomCockteil(n) {
   }
 }
 
+
 function createCardsListMarkup(data) {
+
   if (document.documentElement.clientWidth >= 1280) {
     fetchRandomCockteil(9);
   } else if (
@@ -60,6 +62,7 @@ function createCardsListMarkup(data) {
 }
 
 export function createCardMarkup({ strDrinkThumb, strDrink, idDrink }) {
+
   const markup = `<li class='gallery__card'>
      <img src=${strDrinkThumb} alt=${strDrink} class='gallery__card-img'>
      <div class='gallery__card_thumb'>
