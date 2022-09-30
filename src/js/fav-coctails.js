@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { removeUserCoctaile } from '../servise/firebase';
 
-// document.body.addEventListener('DOMContentload', parseFavCoctails);
-
 const favCoctailesList = document.querySelector('.favorite__coctails');
 
 export async function parseFavCoctails(array) {
