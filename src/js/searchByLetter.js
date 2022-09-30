@@ -56,9 +56,11 @@ function onLetterClick(event) {
 
     letter = (event.target.dataset.id);
     let pickedItem = event.target;
-  
+    // if (pickedItem.style.color='#5f6775') {
+	// 	pickedItem.style.color='#202025';
+	// }
     // console.log (letter)
-    pickedItem.classList.add('keyboard--item---black')
+    // pickedItem.classList.add('keyboard--item---black')
     // pickedItem.style.color = '#202025';
    
     cocktailData(letter);
@@ -138,3 +140,20 @@ function sorryText() {
 function removeMarkup(element) {
     element.innerHTML = '';
 };
+
+    //****** */ CUSTOM KEYBOARD   ********????
+
+
+const customKeyboard = document.querySelector('.custom-select');
+
+customKeyboard.addEventListener('input', onInput);
+
+function onInput(event) {
+    event.preventDefault();
+    console.dir(event.target.title);
+    letter = (event.target.title);
+   
+    cocktailData(letter);
+}
+
+
