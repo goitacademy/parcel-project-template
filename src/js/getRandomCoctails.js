@@ -82,19 +82,19 @@ function addUniqueCardMarkup() {
     // console.log(cocktailsList.children.length);
     if (
       document.documentElement.clientWidth >= 1280 &&
-      cocktailsList.children.length < 9
+      cocktailsList?.children.length < 9
     ) {
       fetchRandomCockteil(9 - cocktailsList.children.length);
     } else if (
       document.documentElement.clientWidth >= 768 &&
       document.documentElement.clientWidth < 1280 &&
-      cocktailsList.children.length < 6
+      cocktailsList?.children.length < 6
     ) {
       fetchRandomCockteil(6 - cocktailsList.children.length);
     } else if (
       document.documentElement.clientWidth > 0 &&
       document.documentElement.clientWidth < 768 &&
-      cocktailsList.children.length < 3
+      cocktailsList?.children.length < 3
     ) {
       fetchRandomCockteil(3 - cocktailsList.children.length);
     }

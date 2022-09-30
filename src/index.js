@@ -30,3 +30,5 @@ import './config/firebase-config';
 import './servise/firebase';
 import './js/authorization-button';
 import './coctails';
+
+import './js/fav-coctails';

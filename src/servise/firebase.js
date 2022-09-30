@@ -10,6 +10,7 @@ import { getDatabase, set, ref, onValue, remove } from 'firebase/database';
 
 import { firebaseConfig } from '../config/firebase-config';
 import { userIn } from '../js/authorization-button';
+import { parseFavCoctails } from '../js/fav-coctails';
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -66,11 +67,6 @@ onValue(ref(database, 'coctailes'), snapshot => {
     const favoriteCoctailesArr = favoriteCoctailesRawArr.map(
       id => id.cockteileId
     );
-    console.log('favoriteCoctailesArr', favoriteCoctailesArr);
+    parseFavCoctails(favoriteCoctailesArr);
   }
-  // favoriteCoctailesArr.forEach(id => {
-  //   const button = document.querySelector(`[data-cocktaileId='${id}']`);
-  //   // button.classList.add('btn__svg-fav');
-  //   console.log(button);
-  // });
 });
