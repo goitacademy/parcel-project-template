@@ -6,6 +6,9 @@ import {
   preloader,
   section,
 } from './getRandomCoctails';
+import { wrireRemovetCoctaileFunction } from '../coctails';
+import { openCoctaileInfoModal } from './modal-coctails';
+
 import Notiflix from 'notiflix';
 
 import axios from 'axios';
@@ -60,19 +63,18 @@ function onLetterClick(event) {
 
   console.log(letter);
   // letter.classList.add('keyboard--item--black')
-
   cocktailData(letter);
 }
 
 async function cocktailMarkupList(arr) {
-  return arr.map(({ strDrinkThumb, strDrink }) => {
+  return arr.map(({ strDrinkThumb, strDrink, idDrink }) => {
     const markup = `<li class='gallery__card'>
      <img src=${strDrinkThumb} alt=${strDrink} class='gallery__card-img'>
      <div class='gallery__card_thumb'>
      <h3 class='gallery__card-name'>${strDrink}</h3>
      <div class='btn__box'>
-     <button type='button' class='gallery__btn-load-more' data-open='open-modal-description'>Learn more</button>
-      <button type='button' class='gallery__btn-add-to-fav' data-add='add-to-fav'>Add to</button>
+     <button type='button' class='gallery__btn-load-more' data-open='open-modal-description' data-moreId='${idDrink}'>Learn more</button>
+      <button type='button' class='gallery__btn-add-to-fav' data-add='add-to-fav' data-cocktaileId='${idDrink}'>Add to</button>
       </div>
      </div>
      </li>`;
@@ -120,6 +122,8 @@ async function cocktailData(letter) {
 
     cocktailsList.innerHTML = await drinkU.join('');
     titleRef.textContent = 'Searching results';
+    wrireRemovetCoctaileFunction('[data-cocktaileId]');
+    openCoctaileInfoModal('[data-moreId]');
   } catch (error) {}
 }
 
