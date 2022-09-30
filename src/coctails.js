@@ -4,13 +4,22 @@ async function addToFav(e) {
   const btn = e.target;
   const cockteileId = btn.dataset.cocktaileid;
   writeUserCoctaile(cockteileId, { cockteileId });
-  btn.textContent = 'Remove';
+  if (btn.textContent === 'Add to favorite') {
+    btn.textContent = 'Remove from favorite';
+  } else {
+    btn.textContent = 'Remove';
+  }
   btn.classList.add('btn__svg-fav');
   btn.addEventListener(
     'click',
     () => {
       removeUserCoctaile(cockteileId, { cockteileId });
-      btn.textContent = 'add to';
+      if (btn.textContent === 'Remove from favorite') {
+        btn.textContent = 'Add to favorite';
+      } else {
+        btn.textContent = 'Add to';
+      }
+
       btn.classList.remove('btn__svg-fav');
       btn.addEventListener('click', addToFav, { once: true });
     },
@@ -18,8 +27,8 @@ async function addToFav(e) {
   );
 }
 
-export function wrireRemovetCoctaileFunction() {
-  const favoriteBtn = document.querySelectorAll('[data-cocktaileId]');
+export function wrireRemovetCoctaileFunction(selector) {
+  const favoriteBtn = document.querySelectorAll(selector);
   favoriteBtn.forEach(btn =>
     btn.addEventListener('click', addToFav, {
       once: true,

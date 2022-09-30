@@ -19,8 +19,7 @@ async function fetchRandomCockteil(n) {
         )
       );
     }
-    wrireRemovetCoctaileFunction();
-    openCoctaileInfoModal();
+    openCoctaileInfoModal('[data-moreId]');
   } catch (error) {
     throw new Error(error);
   }
@@ -77,6 +76,6 @@ export function createCardMarkup({ strDrinkThumb, strDrink, idDrink }) {
   cocktailsList.insertAdjacentHTML('beforeend', markup);
   preloader.classList.add('visually-hidden');
   section.classList.remove('gallery__helper');
-  wrireRemovetCoctaileFunction();
-  openCoctaileInfoModal();
+  wrireRemovetCoctaileFunction('[data-cocktaileId]');
+  openCoctaileInfoModal('[data-moreId]');
 }

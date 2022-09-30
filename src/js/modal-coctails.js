@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { toNumber } from 'lodash';
+import { wrireRemovetCoctaileFunction } from '../coctails';
+
 export function openCoctaileInfoModal() {
   const favoriteBtn = document.querySelectorAll('[data-moreId]');
   favoriteBtn.forEach(btn => btn.addEventListener('click', showModal));
@@ -14,36 +15,48 @@ async function showModal(e) {
   );
   const dataObj = await response.data.drinks[0];
   const markupString = await objToString(dataObj);
-  console.log(dataObj);
 
   modalAnc.insertAdjacentHTML('beforeend', markupString);
-  const closeBtn = modalAnc.querySelector('.btn--close');
   document.body.classList.add('disable-scroll');
-  closeBtn.addEventListener('click', e => {
-    e.currentTarget.closest('.backdrop__cocktail').remove();
-    document.body.classList.remove('disable-scroll');
-  });
+
+  const closeBtn = modalAnc.querySelector('.btn--close');
+  const addFavBtn = modalAnc.querySelector('.modal__btnJS');
+
+  addFavBtn.focus();
+  wrireRemovetCoctaileFunction('.modal__btnJS');
+  document.addEventListener('keydown', closeMoreModalByKeyboard);
+  closeBtn.addEventListener('click', closeMoreModal);
 }
+
+function closeMoreModalByKeyboard(e) {
+  if (e.code === 'Escape') {
+    document.querySelector('.backdrop__cocktail').remove();
+    document.body.classList.remove('disable-scroll');
+  }
+}
+
+function closeMoreModal(e) {
+  e.currentTarget.closest('.backdrop__cocktail').remove();
+  document.body.classList.remove('disable-scroll');
+}
+
 function objToString(obj) {
-  const { strDrink, strInstructions, strDrinkThumb } = obj;
+  const { strDrink, strInstructions, strDrinkThumb, idDrink } = obj;
   const array = Object.keys(obj);
   const filterArray = array
     .filter(key => !isNaN(+key[key.length - 1]))
     .map(key => obj[key])
     .filter(data => data);
-
   const ingridients = [];
-
   for (let i = 0; i < filterArray.length / 2; i++) {
     ingridients.push([filterArray[i], filterArray[filterArray.length - 1 - i]]);
   }
-
   const stringLi = ingridients
     .map(([ingridient, amount]) => {
-      return `<li class="ingredient__item">
+      return `<li class="ingredient__item" data-ingridientname='${ingridient}'>
               <span class="ingredient__accent">✶</span>
               <span>${amount}</span>
-              <a class="link ingredient-link" data-type="" data-name="Ice"
+              <a class="link ingredient-link"
                 >${ingridient}</a
               >
             </li>`;
@@ -51,7 +64,7 @@ function objToString(obj) {
     .join('');
   return `<div class="backdrop__cocktail" data-modal>
   <div class="modal__cocktail">
-    <button type="button" class="btn--close" data-modal="close-cocktail">
+    <button type="button" autofocus class="btn--close" data-modal="close-cocktail">
     </button>
     <h2 class="cocktail__name cocktail__name--mobile">${strDrink}</h2>
     <div class="modal__form">
@@ -74,7 +87,7 @@ function objToString(obj) {
         </div>
       </div>
       <div class="cocktail__modal-btn">
-        <button type="button" class="modal__btn">Add to favorite</button>
+        <button type="button" class="modal__btn modal__btnJS" data-cocktaileid='${idDrink}'>Add to favorite</button>
       </div>
     </div>
   </div>
