@@ -115,7 +115,7 @@ async function marcup(data) {
       }
       if (strDescription) {
         string += `<p class="description__characteristic">
-      ${strDescription.substring(0, 400)}
+      ${strDescription.substring(0, 404)}
     </p>`;
       }
       if (strType) {
