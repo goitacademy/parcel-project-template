@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { mobilMenuRef } from './header';
+
 import {
   createCardMarkup,
   cocktailsList,
@@ -16,6 +18,7 @@ let dataFromInput = '';
 // ============================================
 function onFormSubmit(evt) {
   evt.preventDefault();
+  mobilMenuRef.classList.add('is-hidden');
   if (
     window.location.href.includes('ingredients') ||
     window.location.href.includes('coctails')

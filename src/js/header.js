@@ -1,6 +1,6 @@
 const burgerBtnRef = document.querySelector('.header__burger');
 const crossBtnRef = document.querySelector('.header__cross');
-const mobilMenuRef = document.querySelector('.header__mobil');
+export const mobilMenuRef = document.querySelector('.header__mobil');
 const favoriteDeskRef = document.querySelector('.js-nav__link--desk');
 const favoriteMobilRef = document.querySelector('.js-nav__link--mobil');
 const navDeskRef = document.querySelector('.nav__links--desktop');
