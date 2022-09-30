@@ -1,14 +1,28 @@
-(() => {
-  const refs = {
-    // openModalBtn: document.querySelector("[data-modal-open]"),
-    closeModalBtn: document.querySelector("[data-modal-close]"),
-    modal: document.querySelector("[data-modal]"),
-  };
+import { writeUserCoctaile, removeUserCoctaile } from './servise/firebase.js';
 
-//   refs.openModalBtn.addEventListener("click", toggleModal);
-  refs.closeModalBtn.addEventListener("click", toggleModal);
+async function addToFav(e) {
+  const btn = e.target;
+  const cockteileId = btn.dataset.cocktaileid;
+  writeUserCoctaile(cockteileId, { cockteileId });
+  btn.textContent = 'Remove';
+  btn.classList.add('btn__svg-fav');
+  btn.addEventListener(
+    'click',
+    () => {
+      removeUserCoctaile(cockteileId, { cockteileId });
+      btn.textContent = 'add to';
+      btn.classList.remove('btn__svg-fav');
+      btn.addEventListener('click', addToFav, { once: true });
+    },
+    { once: true }
+  );
+}
 
-  function toggleModal() {
-    refs.modal.classList.toggle("is-hidden");
-  }
-})();
+export function wrireRemovetCoctaileFunction() {
+  const favoriteBtn = document.querySelectorAll('[data-cocktaileId]');
+  favoriteBtn.forEach(btn =>
+    btn.addEventListener('click', addToFav, {
+      once: true,
+    })
+  );
+}
