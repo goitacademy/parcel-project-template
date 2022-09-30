@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { wrireRemovetCoctaileFunction } from '../coctails';
 
-export function openCoctaileInfoModal() {
-  const favoriteBtn = document.querySelectorAll('[data-moreId]');
+export function openCoctaileInfoModal(selector) {
+  const favoriteBtn = document.querySelectorAll(selector);
   favoriteBtn.forEach(btn => btn.addEventListener('click', showModal));
 }
 
@@ -21,11 +21,21 @@ async function showModal(e) {
 
   const closeBtn = modalAnc.querySelector('.btn--close');
   const addFavBtn = modalAnc.querySelector('.modal__btnJS');
+  const backdrop = modalAnc.querySelector('.backdrop__cocktail');
+
+  backdrop.addEventListener('click', closeBybackdrop);
 
   addFavBtn.focus();
   wrireRemovetCoctaileFunction('.modal__btnJS');
   document.addEventListener('keydown', closeMoreModalByKeyboard);
   closeBtn.addEventListener('click', closeMoreModal);
+}
+
+function closeBybackdrop(e) {
+  if (e.currentTarget === e.target) {
+    e.target.remove();
+    document.body.classList.remove('disable-scroll');
+  }
 }
 
 function closeMoreModalByKeyboard(e) {

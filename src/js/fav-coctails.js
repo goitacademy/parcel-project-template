@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { removeUserCoctaile } from '../servise/firebase';
+import { openCoctaileInfoModal } from './modal-coctails';
 
 const favCoctailesList = document.querySelector('.favorite__coctails');
 
@@ -17,6 +18,7 @@ export async function parseFavCoctails(array) {
       favCoctailesList.innerHTML = htmlStringMarkup;
       removeFromFav();
     }
+    openCoctaileInfoModal('.gallery__btn-load-more');
   }
 }
 
@@ -26,7 +28,7 @@ function getHtmlString({ idDrink, strDrinkThumb, strDrink }) {
      <div class='gallery__card_thumb'>
      <h3 class='gallery__card-name'>${strDrink}</h3>
      <div class='btn__box'>
-     <button type='button' class='gallery__btn-load-more' data-open='open-modal-description'>Learn more</button>
+     <button type='button' class='gallery__btn-load-more' data-moreid='${idDrink}'>Learn more</button>
     <button type='button' class='gallery__btn-add-to-fav' data-add='add-to-fav' data-cocktaileId='${idDrink}'>Remove</button>
       </div>
      </div>
