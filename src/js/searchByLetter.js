@@ -165,7 +165,7 @@ async function cocktailData(letter) {
         } catch (error) {
          
         };
-    };
+    }
 
 function sorryText() {
     removeMarkup(cocktailsList);
@@ -201,7 +201,7 @@ function onInput(event) {
     wrireRemovetCoctaileFunction('[data-cocktaileId]');
     openCoctaileInfoModal('[data-moreId]');
   } catch (error) {}
-}
+
 
 function sorryText() {
   const markup = `
