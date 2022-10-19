@@ -1,52 +1,53 @@
 # Parcel template
 
-Этот проект был создан при помощи Parcel. Для знакомства и настройки
-дополнительных возможностей [обратись к документации](https://parceljs.org/).
+Este proyecto fue creado con Parcel. [Consulte la documentación](https://parceljs.org/).
+para conocer y personalizar las funciones adicionales.
 
-## Подготовка нового проекта
+## Preparación de un nuevo proyecto
 
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Склонируй этот репозиторий.
-3. Измени имя папки с `parcel-project-template` на имя своего проекта.
-4. Создай новый пустой репозиторий на GitHub.
-5. Открой проект в VSCode, запусти терминал и свяжи проект с GitHub-репозиторием
-   [по инструкции](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
-6. Установи зависимости проекта в терминале командой `npm install` .
-7. Запусти режим разработки, выполнив команду `npm start`.
-8. Перейди в браузере по адресу [http://localhost:1234](http://localhost:1234).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
+1. Asegúrate de que la versión LTS de Node.js está instalada en tu equipo.
+   [Descárgala e instálala](https://nodejs.org/en/) si es necesario.
+2. Clona este repositorio.
+3. Cambie el nombre de la carpeta con `parcel-project-template` por el nombre de tu proyecto.
+4. Crea un nuevo repositorio vacío en GitHub.
+5. Abre el proyecto en VSCode, ejecuta el terminal y enlaza el proyecto con el repositorio de GitHub
+   [según las instrucciones](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
+6. Instala las dependencias del proyecto en el terminal con el comando `npm install`.
+7. Inicia el modo de desarrollo, ejecutando el comando `npm start`.
+8. Ve a la dirección [http://localhost:1234](http://localhost:1234) en tu navegador.
+   Esta página se recargará automáticamente después de guardar los cambios en los 
+   archivos del proyecto.
 
-## Файлы и папки
+## Archivos y carpetas
 
-- Все паршалы файлов стилей должны лежать в папке `src/sass` и импортироваться в
-  файлы стилей страниц. Например, для `index.html` файл стилей называется
-  `index.scss`.
-- Изображения добавляй в папку `src/images`. Сборщик оптимизирует их, но только
-  при деплое продакшн версии проекта. Все это происходит в облаке, чтобы не
-  нагружать твой компьютер, так как на слабых машинах это может занять много
-  времени.
+- Todos los partials de los archivos de estilo deben estar en la carpeta `src/sass`
+  y ser importados en los archivos de estilos de la página. Por ejemplo, para
+ `index.html` el archivo de estilos se llama `index.scss`.
+- Añade las imágenes a la carpeta `src/images`. El ensamblador las optimizará, 
+  pero sólo cuando se cargue la versión de producción del proyecto. Todo esto
+  se hace en la nube, para no sobrecargar tu ordenador, ya que puede tardar 
+  mucho en máquinas poco potentes.
 
-## Деплой
+## Deploy
 
-Для настройки деплоя проекта необходимо выполнить несколько дополнительных шагов
-по настройке твоего репозитория. Зайди во вкладку `Settings` и в подсекции
-`Actions` выбери выбери пункт `General`.
+Para configurar un proyecto para ser implementado, hay algunos pasos adicionales 
+para configurar tu repositorio. Ve a la pestaña `Settings` y en la subsección
+`Actions`, selecciona la opción `General`.
 
 ![GitHub actions settings](./assets/actions-config-step-1.png)
 
-Пролистай страницу до последней секции, в которой убедись что выбраны опции как
-на следующем изображении и нажми `Save`. Без этих настроек у сборки будет
-недостаточно прав для автоматизации процесса деплоя.
+Baja hasta la última sección, asegurándote de que las opciones esten seleccionadas
+como en la siguiente imagen, y haz clic en `Save`. Sin estas opciones, la compilación
+no tendrá suficientes permisos para automatizar el proceso de implementación.
 
 ![GitHub actions settings](./assets/actions-config-step-2.png)
 
-Продакшн версия проекта будет автоматически собираться и деплоиться на GitHub
-Pages, в ветку `gh-pages`, каждый раз когда обновляется ветка `main`. Например,
-после прямого пуша или принятого пул-реквеста. Для этого необходимо в файле
-`package.json` отредактировать поле `homepage` и скрипт `build`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
+La versión de producción del proyecto se compilará e implementará automáticamente 
+en GitHub Pages, en la rama `gh-pages`, cada vez que se actualice la rama `main`.
+Por ejemplo, después de un push directo o de un pool request aceptado. Para
+ello, edita el campo `homepage` y el script `build` en el archivo `package.json`,
+sustituyendo `your_username` y `your_repo_name` por los tuyos propios, y envía
+los cambios a GitHub.
 
 ```json
 "homepage": "https://your_username.github.io/your_repo_name/",
@@ -55,45 +56,45 @@ Pages, в ветку `gh-pages`, каждый раз когда обновляе
 },
 ```
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
+A continuación, hay que ir a la configuración del repositorio de GitHub 
+(`Settings` > `Pages`) y seleccionar que la versión de producción de los archivos
+se distribuya desde la carpeta `/root` de la rama `gh-pages`, si no se hizo automáticamente.
 
 ![GitHub Pages settings](./assets/repo-settings.png)
 
-### Статус деплоя
+### Estado del deploy
 
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
+El estado del deploy del último commit se indica con un icono junto a su identificador.
 
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
+- **Color amarillo** - el proyecto se está compilando y desplegando.
+- **Color verde** - el deploy se completó con éxito.
+- **Color rojo** - Se ha producido un error durante el linting, la compilación o el deploy.
 
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
+Se puede ver información de estado más detallada haciendo clic en el icono y 
+en el enlace `Details` de la ventana desplegable.
 
 ![Deployment status](./assets/status.png)
 
-### Живая страница
+### Página activa
 
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
+Después de un tiempo, normalmente un par de minutos, la página activa se puede
+ver en la dirección especificada en la propiedad `homepage`. Por ejemplo, aquí
+está el enlace a la versión activa de este repositorio.
 [https://goitacademy.github.io/parcel-project-template](https://goitacademy.github.io/parcel-project-template).
 
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` или скрипта `build` в
-файле `package.json`.
+Si se abre una página en blanco, asegúrese de que no haya errores en la pestaña
+`Console` relacionados con rutas incorrectas a los archivos CSS y JS del proyecto (**404**).
+Lo más probable es que tenga un valor incorrecto para la propiedad `homepage` o el 
+script `build` en el archivo `package.json`.
 
-## Как это работает
+## ¿Cómo funciona?
 
 ![How it works](./assets/how-it-works.png)
 
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+1. Después de cada push a la rama `main` del repositorio GitHub, se ejecuta un 
+   script especial (GitHub Action) del archivo `.github/workflows/deploy.yml`.
+2. Todos los archivos del repositorio se copian en el servidor, donde el 
+   proyecto se inicializa y se compila antes de ser desplegado.
+3. Si todos los pasos tienen éxito, la versión de producción compilada de los
+   archivos del proyecto se envía a la rama `gh-pages`. De lo contrario, el
+   registro de ejecución del script indicará cuál es el problema.
