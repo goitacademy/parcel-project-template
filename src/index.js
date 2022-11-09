@@ -1,6 +1,5 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import debounce from 'lodash';
 import Notiflix from 'notiflix';
 
 const input = document.querySelector('.search_input');
