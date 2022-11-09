@@ -77,7 +77,7 @@ inputBtn.addEventListener('click', async event => {
     const total = await array.totalHits;
 
     if (total > 0) {
-      Notiflix.Notify.success(`Hooray! We found ${total} images.`);
+      Notiflix.Notify.success(`Hooray! :) We found ${total} images.`);
     }
     if (total === 0) {
       throw new Error();
@@ -87,7 +87,7 @@ inputBtn.addEventListener('click', async event => {
   } catch (error) {
     gallery.innerHTML = '';
     Notiflix.Notify.failure(
-      'Sorry, there are no images matching your search query. Please try again.'
+      'Sorry, there are no images matching your search query. Please try again! :)'
     );
   }
 });
