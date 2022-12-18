@@ -1,0 +1,71 @@
+{
+  "name": "@parcel/css",
+  "version": "1.9.0",
+  "license": "MPL-2.0",
+  "description": "A CSS parser, transformer, and minifier written in Rust",
+  "main": "node/index.js",
+  "types": "node/index.d.ts",
+  "targets": {
+    "main": false,
+    "types": false
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/parcel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/parcel-bundler/parcel-css.git"
+  },
+  "engines": {
+    "node": ">= 12.0.0"
+  },
+  "napi": {
+    "name": "parcel-css"
+  },
+  "files": [
+    "node/*.js",
+    "node/*.d.ts",
+    "node/*.flow"
+  ],
+  "dependencies": {
+    "detect-libc": "^1.0.3"
+  },
+  "devDependencies": {
+    "@mdn/browser-compat-data": "^4.1.12",
+    "@napi-rs/cli": "^2.6.2",
+    "autoprefixer": "^10.4.4",
+    "caniuse-lite": "^1.0.30001319",
+    "cssnano": "^5.0.8",
+    "esbuild": "^0.13.10",
+    "jest-diff": "^27.4.2",
+    "node-fetch": "^3.1.0",
+    "parcel": "^2.0.1",
+    "postcss": "^8.3.11",
+    "puppeteer": "^12.0.1"
+  },
+  "scripts": {
+    "build": "node scripts/build.js && node scripts/build-flow.js",
+    "build-release": "node scripts/build.js --release && node scripts/build-flow.js",
+    "prepublishOnly": "node scripts/build-flow.js",
+    "wasm:build": "wasm-pack build node --target nodejs",
+    "wasm:build-release": "wasm-pack build node --target nodejs --release",
+    "wasm-browser:build": "wasm-pack build node --target web",
+    "wasm-browser:build-release": "wasm-pack build node --target web --release",
+    "playground:start": "parcel playground/index.html",
+    "playground:build": "yarn wasm-browser:build-release && parcel build playground/index.html"
+  },
+  "optionalDependencies": {
+    "@parcel/css-darwin-x64": "1.9.0",
+    "@parcel/css-linux-x64-gnu": "1.9.0",
+    "@parcel/css-win32-x64-msvc": "1.9.0",
+    "@parcel/css-darwin-arm64": "1.9.0",
+    "@parcel/css-linux-arm64-gnu": "1.9.0",
+    "@parcel/css-linux-arm-gnueabihf": "1.9.0",
+    "@parcel/css-linux-arm64-musl": "1.9.0",
+    "@parcel/css-linux-x64-musl": "1.9.0"
+  }
+}
