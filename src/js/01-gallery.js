@@ -26,7 +26,6 @@ function createImageGallery(galleryItems) {
     />
   </a>
 </div>`
-
     })
         .join("")
 }
