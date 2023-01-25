@@ -36,15 +36,9 @@ const options = {
 
 ////////////////////////
 flatpickr(dateChoiseUrl, options);
-// dateChoiseUrl.addEventListener('input', () => {
-//   // if (dateChoiseUrl.value) {
-//   //   btnStart.disabled = false;
-//   // }
-// });
-////////////////////////////////
+
 btnStart.addEventListener('click', () => {
   const date = new Date(dateChoiseUrl.value);
-
   const timerId = setInterval(() => {
     const diff = date.getTime() - Date.now();
     convertMs(diff);
@@ -55,16 +49,12 @@ btnStart.addEventListener('click', () => {
       Notiflix.Notify.success('Timer ready to start new time');
     }
   }, 0);
-
-  // dateChoiseUrl.disabled = true;
-
   btnStart.disabled = dateChoiseUrl.disabled = true;
 });
 
 ////////////////////////////////
 function convertMs(ms) {
   // Number of milliseconds per unit of time
-
   const second = 1000;
   const minute = second * 60;
   const hour = minute * 60;
@@ -91,8 +81,4 @@ function convertMs(ms) {
   )} hours  ${addLeadingZero(minutes)} minutes  ${addLeadingZero(
     seconds
   )} seconds`);
-}
-
-function stopTimer() {
-  clearInterval(timerId);
 }
