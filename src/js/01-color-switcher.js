@@ -1,9 +1,11 @@
 const btnStartRef = document.querySelector('[data-start]');
 const btnStopRef = document.querySelector('[data-stop]');
 const bodyRef = document.querySelector('body');
+let timerId = null;
 
-btnStartRef.addEventListener('click', event => {
-  const timerId = setInterval(() => {
+btnStartRef.addEventListener('click', () => {
+  bodyRef.style.backgroundColor = getRandomHexColor();
+  timerId = setInterval(() => {
     bodyRef.style.backgroundColor = getRandomHexColor();
     console.log('Color: ' + bodyRef.style.backgroundColor);
   }, 1000);
