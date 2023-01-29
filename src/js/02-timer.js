@@ -6,17 +6,18 @@ const bodyUrl = document.querySelector('body');
 const dateChoiseUrl = bodyUrl.querySelector('#datetime-picker');
 const btnStart = bodyUrl.querySelector('[data-start]');
 const timerUrl = bodyUrl.querySelector('.timer');
+btnStart.disabled = true;
 ////////////////////////////////
 const options = {
   enableTime: true,
   time_24hr: true,
-  // defaultDate: new Date(),
+  defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
     // console.log(selectedDates[0]);
     const date = new Date(dateChoiseUrl.value);
     if (date.getTime() <= Date.now()) {
-      btnStart.disabled = true;
+      // btnStart.disabled = true;
       dateChoiseUrl.style.color = 'red';
 
       setTimeout(
