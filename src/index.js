@@ -1,2 +1,1 @@
-//testing branch
-//test
+"use strict";
