@@ -22,26 +22,23 @@ const galaryElem = galleryItems
     )
     .join("");
     
-gallery.innerHTML = galaryElem;
 
-gallery.addEventListener('click', e => {
-    e.preventDefault();
-    if (e.target.nodeName !== 'IMG') {
-		return
-	}
+    const clickContainer = (e) => {
+        e.preventDefault();
+      
+        if (e.target.classList.contains("gallery")) return;
+        const source = e.target.dataset.source;
+      
+        const instance = basicLightbox.create(`
+          <div class="modal">
+              <img src="${source}"width="800" height="600">
+              
+          </div>`);
+      
+        instance.show();
+      };
+      
+      galleryContainer.addEventListener("click", clickContainer);
 
-    const selectedImage = e.target.getAttribute('data-source')
 
-    const instance = basicLightbox.create(`
-    <img src="${selectedImage}" width="800" height="600">
-`)
-
-instance.show()
-    
-    gallery.addEventListener('keydown', e => {
-		if (e.key === 'Escape') {
-			instance.close()
-		}
-	})
-})
 console.log(galleryItems);
