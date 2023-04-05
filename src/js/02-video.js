@@ -11,6 +11,4 @@ const videoTime = setInterval(() => {
 
 player
   .setCurrentTime(localStorage.getItem('currentTime'))
-  .then(function (seconds) {
-    // seconds = the actual time that the player seeked to
-  });
+  .then(function (seconds) {});

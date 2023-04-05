@@ -30,5 +30,5 @@ lightbox.on('show.simplelightbox', function () {
   console.log('test');
 });
 lightbox.on('error.simplelightbox', function (e) {
-  console.log(e); // some usefull information
+  console.log(e);
 });
