@@ -1,0 +1,479 @@
+.hero-container {
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero-container {
+    max-width: 1200px;
+  }
+}
+
+/* Header section */
+.header {
+  position: relative;
+
+  &__inner {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 199;
+  }
+  &__nav {
+    display: none;
+  }
+  .button--nav {
+    color: var(--brand-color);
+    margin-left: auto;
+    background-color: transparent;
+    border: 0;
+  }
+  .nav--icon {
+    display: block;
+    fill: currentColor;
+    width: 20px;
+    height: 12px;
+  }
+  &__button {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding-top: 32px;
+    &__button {
+      display: block;
+      margin-left: 32px;
+      border: none;
+      border-radius: 22px;
+      background-color: var(--white-color);
+      color: var(--brand-color);
+      font-size: 16px !important;
+      padding: 12px 37.23px !important;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      &__icon {
+        width: 8px;
+        height: 16px;
+        margin-left: 12px;
+      }
+      &:hover {
+        transform: translateY(-15px);
+        font-weight: 700;
+        transition: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .button--nav {
+    display: none;
+  }
+
+  .header__nav {
+    display: flex;
+    gap: 35px;
+    position: relative;
+
+    a {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.31;
+      color: var(--white-color);
+      &:hover {
+        color: var(--brand-color);
+      }
+    }
+  }
+}
+
+/* Hero section */
+
+.hero {
+  background: linear-gradient(126deg, #ffb8ca, #9f465b, #f6a7bb, #af6678);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  width: 100%;
+  height: 502px;
+  padding-top: 8px;
+  position: relative;
+  overflow: hidden;
+  &__circle {
+    width: 346px;
+    height: 344px;
+    border-radius: 50%;
+    background-color: var(--secondary1-color);
+    position: absolute;
+    bottom: 75px;
+    right: -60px;
+    z-index: 2;
+  }
+  &__photo {
+    width: 171px;
+    height: 410px;
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    right: 32px;
+    background-image: url("../images/hero-header/hero__icecream.png");
+  }
+  &__inner {
+    width: 100%;
+    height: calc(100% - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+    &__list {
+      display: flex;
+      gap: 8px;
+    }
+  }
+  .hero__inner--left {
+    z-index: 4;
+  }
+  .hero__inner--right {
+    z-index: 4;
+  }
+  &__inner--left--div {
+    display: none;
+  }
+  &__inner--right {
+    display: none;
+  }
+  &__title {
+    font-family: "Titan One";
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #ffffff;
+    z-index: 9999;
+    max-width: 218px;
+  }
+  &__title--span {
+    color: var(--brand-color);
+    font-size: 48px;
+  }
+}
+
+.hero__inner {
+  .button--red {
+    margin-top: 20px;
+    background-color: var(--brand-color);
+    color: var(--white-color);
+    z-index: 999;
+    border: none;
+    border-radius: 20px;
+    font-size: 8px;
+    line-height: 1.25;
+    padding: 8px 16px;
+    &:hover {
+      transform: translateY(-15px);
+      font-weight: 700;
+      transition: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    & > a {
+      text-decoration: none;
+      color: var(--white-color);
+    }
+  }
+  .button--white {
+    margin-top: 20px;
+    background-color: var(--white-color);
+    color: var(--brand-color);
+    z-index: 999;
+    border: none;
+    border-radius: 20px;
+    font-size: 8px;
+    line-height: 1.25;
+    padding: 8px 16px;
+    &:hover {
+      transform: translateY(-15px);
+      font-weight: 700;
+      transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+}
+
+.hero__about {
+  height: 350px;
+  .hero__title {
+  }
+  .hero__circle {
+    width: 250px;
+    height: 250px;
+    bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero__about {
+    height: 350px !important;
+    .hero__inner {
+      height: 150px;
+    }
+    .hero__circle {
+      width: 250px;
+      height: 250px;
+      bottom: 0px;
+      right: 250px;
+    }
+    .hero__title {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero__inner--left--img {
+      position: absolute;
+      left: 100px;
+      bottom: -50px;
+    }
+  }
+
+  .hero {
+    height: 416px;
+    &__inner {
+      flex-direction: row;
+      justify-content: space-between;
+      height: 310px;
+      margin-top: 20px;
+      position: relative;
+      .button--red {
+        margin-top: 0px;
+      }
+      .button--white {
+        margin-top: 0px;
+      }
+    }
+    &__circle {
+      width: 335px;
+      height: 333px;
+      bottom: 40px;
+      right: 185px;
+    }
+    &__photo {
+      width: 143px;
+      height: 336px;
+      bottom: 0;
+      right: 303px;
+      background-image: url("../images/hero-header/ice-cream336.png");
+    }
+    &__inner--left {
+      max-width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    &__title {
+      font-size: 22px;
+      max-width: 162px;
+    }
+    &__title--span {
+      font-size: 32px;
+    }
+  }
+
+  /* Hero inner left */
+  .hero__inner--left--div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .hero__inner--text {
+      color: var(--white-color);
+      font-size: 8px;
+      line-height: 1.5;
+      max-width: 114px;
+    }
+    .hero__inner--icon {
+      width: 10px;
+      height: 10px;
+    }
+    .hero__inner--link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: var(--white-color);
+      &:hover {
+        transform: rotate(90deg) scale(1.5);
+        transition: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    }
+    .hero__inner--left--img {
+      width: 152px;
+      height: 154px;
+      background-image: url("../images/hero-header/milk.png");
+      background-repeat: no-repeat;
+    }
+  }
+  // Hero inner right
+  .hero__inner--right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+  }
+  .hero__inner--right--div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+  }
+  .hero__inner--number {
+    font-family: "Titan One";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.14;
+    text-align: right;
+    letter-spacing: 0.04em;
+    color: var(--brand-color);
+    z-index: 2;
+  }
+  .hero__inner--fresh {
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 1.25;
+    text-align: right;
+    color: var(--white-color);
+  }
+  .hero__circle--small {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--white-color);
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    z-index: -1;
+  }
+  .hero__right--image {
+    width: 190px;
+    height: 150px;
+    background-image: url("../images/hero-header/lick190.png");
+    margin-top: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero {
+    height: 664px;
+    &__title {
+      margin-top: 60px;
+      max-width: 277px;
+      font-size: 38px;
+      line-height: 1.15;
+    }
+    &__title--span {
+      font-size: 48px;
+    }
+    &__inner {
+      height: calc(100% - 37px - 68px);
+    }
+    &__circle {
+      width: 534px;
+      height: 534px;
+      bottom: 77px;
+      right: 165px;
+    }
+    &__photo {
+      width: 236px;
+      height: 557px;
+      bottom: 0;
+      right: 368px;
+      background-image: url("../images/hero-header/icecream236.png");
+    }
+  }
+  .hero__inner {
+    .button--red,
+    .button--white {
+      font-size: 16px;
+      line-height: 1.31;
+      padding: 11px 24px;
+    }
+  }
+  .hero__inner--left--div {
+    div {
+      gap: 20px;
+    }
+    .hero__inner--text {
+      font-size: 14px;
+      line-height: 1.4;
+      max-width: 200px;
+    }
+    .hero__inner--left--img {
+      width: 213px;
+      height: 216px;
+      background-image: url("../images/hero-header/milk213.png");
+      background-repeat: no-repeat;
+    }
+    .hero__inner--link {
+      width: 26px;
+      height: 26px;
+    }
+    .hero__inner--icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .hero__inner--right {
+    margin-top: 72px;
+    gap: 18px;
+  }
+  .hero__inner--right--div {
+    position: relative;
+  }
+  .hero__inner--number {
+    font-size: 46px;
+    line-height: 1.14;
+    z-index: 2;
+  }
+  .hero__inner--fresh {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+  .hero__circle--small {
+    width: 30px;
+    height: 30px;
+    top: -10px;
+    right: -10px;
+  }
+  .hero__right--image {
+    width: 304px;
+    height: 241px;
+    background-image: url("../images/hero-header/lick304.png");
+    margin-top: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hide--button {
+    display: none;
+  }
+}
