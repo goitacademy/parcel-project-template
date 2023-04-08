@@ -2,24 +2,25 @@
 
 .customer-review {
   &__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding-top: 120px;
-    padding-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-top: 120px;
+  padding-bottom: 120px;
   }
   &__rev {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
+     
   }
   &__rev-container {
     padding: 32px 74px 31px 72px;
     background: #fafafa;
     width: 968px;
     position: relative;
-    transition: box-shadow 150ms var(--primary-cubic-bezier);
+    transition: box-shadow 150ms $main-transition-timing-function;
       &:hover,
       &:focus {
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
@@ -37,8 +38,6 @@
     color: $blackColor;
     z-index: 1;
    
-    // background-image: repeating-linear-gradient(#E1E1E1 0, #E1E1E1 1px, transparent 0, transparent 30px);
-   
     &::before {
       position: absolute;
       content: '';
@@ -51,26 +50,23 @@
          
     }
   }
-
-  &__name {
+  
+  &__name-place {
     font-weight: 500;
     font-size: 20px;
     line-height: 186%;
     text-align: center;
     color: $blackColor;
     position: relative;
-
+   
     &::before {
         content: '. . .';
-        position: absolute;
-        top: 0;
-        left: 33%;
-        bottom: 10px;
+        color: #c7133e;
         font-size: 40px;
-        height: 5px;
-        line-height: 0;
-        color: #C7133E;
-      }
+        position: absolute;
+        bottom: 48px;
+        right: 48%;
+    }
   }
 
   &__photo {
@@ -84,17 +80,111 @@
 }
 
 .customer-reviews__line {
-    display: block;
+    width: 85%;
+    height: 42%;
+    background-image: repeating-linear-gradient(#e1e1e1 0 1px, #fafafa 0 31px);
     position: absolute;
     top: 74px;
-    left: 10%;
-    width: 80%;
-    height: 70%;
-    background-image: repeating-linear-gradient(#E1E1E1 0, #E1E1E1 1px, transparent 0, transparent 31px);
-    margin-right: auto;
-    margin-left: auto;
 }
+
   
+@media screen and (min-width: 768px) {
+    }
+  
+  @media screen and (min-width: 480) {
+    .customer-review {
+        &__container {
+            width: 968px;
+        }
+    }
+    .customer-review {
+      
+      &__rev {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+         
+      }
+      &__rev-container {
+        padding: 32px 74px 31px 72px;
+        background: #fafafa;
+        width: 968px;
+        position: relative;
+        transition: box-shadow 150ms $main-transition-timing-function;
+          &:hover,
+          &:focus {
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+          }
+       
+    }
+      &__review {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 186%;
+        text-align: center;
+        letter-spacing: 0.04em;
+        position: relative;
+        padding: 15px 35px 8px 37px;
+        color: $blackColor;
+        z-index: 1;
+       
+        &::before {
+          position: absolute;
+          content: '';
+          left: 0;
+          top: 0;
+          background-image: url(../images/quotes.svg);
+          height: 40px;
+          width: 54px; 
+          z-index: -1;
+             
+        }
+      }
+      
+      &__name-place {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 186%;
+        text-align: center;
+        color: $blackColor;
+        position: relative;
+       
+        &::before {
+            content: '. . .';
+            color: #c7133e;
+            font-size: 40px;
+            position: absolute;
+            bottom: 48px;
+            right: 48%;
+        }
+      }
+    
+      &__photo {
+        transition: transform .3s;
+        &:hover,
+          &:focus {
+            transform: scale(1.25);
+          }
+      }
+    
+    }
+    
+    .customer-reviews__line {
+        width: 85%;
+        height: 42%;
+        background-image: repeating-linear-gradient(#e1e1e1 0 1px, #fafafa 0 31px);
+        position: absolute;
+        top: 74px;
+    }
+
+
+  }
+
+     
+    
+    
+
+
 //   .slider-wrapper {
 //     margin: 1rem;
 //     position: relative;
