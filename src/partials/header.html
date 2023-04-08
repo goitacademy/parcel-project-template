@@ -18,11 +18,16 @@
             <a href="#" class="nav__link">Our products</a>
           </li>
           <li class="nav__item">
-            <a href="#" class="nav__link">Our products</a>
+            <a href="#" class="nav__link">Contact</a>
           </li>
         </ul>
       </nav>
-      <button type="button" class="nav__button nav__button--desktop">
+      <button
+        class="nav__button nav__button--desktop"
+        aria-expanded="false"
+        type="button"
+        data-modal-open
+      >
         Buy now
         <svg width="4px" height="8px" class="nav__icon">
           <use href="./images/icons.svg#icon-button"></use>
@@ -109,7 +114,12 @@
     </svg>
   </button>
 
-  <button type="button" class="mobile-button">
+  <button
+    class="mobile-button"
+    aria-expanded="false"
+    type="button"
+    data-modal-open
+  >
     Buy now
     <svg width="4px" height="8px" class="nav__icon">
       <use href="./images/icons.svg#icon-button"></use>
@@ -134,3 +144,53 @@
     </li>
   </ul>
 </div>
+
+<!-- modal form -->
+<div class="modal modal--hidden" data-modal>
+  <div class="modal__request-services">
+    <button type="button" class="modal__close-button" data-modal-close>
+      <svg width="11px" height="11px" >
+        <use href="./images/icons.svg#icon-close-mobile-menu" class="modal__icon"></use>
+      </svg>
+    </button>
+    <h2 class="modal__title">What would you like to order?</h2>
+    <form name="request-services-form" class="modal-form">
+        <div class="modal-form__products">
+      <label class="modal-form__label modal-form__label--position-modifier"
+        ><img src="./images/modal-photo-1.png" alt="ice cream">
+        <input type="number" name="ice-cream-quantity" class="modal-form__input modal-form__input--order-modifier"  value="0" step="1"/>
+        
+        </svg>
+      </label>
+      <label class="modal-form__label modal-form__label--position-modifier">
+        <img src="./images/modal-photo-2.png" alt="coffee">
+        <input type="number" name="coffee-quantity" class="modal-form__input modal-form__input--order-modifier" value="0" step="1"/>
+        
+        </svg>
+      </label>
+      <label class="modal-form__label modal-form__label--position-modifier"
+        ><img src="./images/modal-photo-3.png" alt="milkshake">
+        <input type="number" name="milkshake-quantity" class="modal-form__input modal-form__input--order-modifier" value="0" step=""/>
+        </div>
+       <div class="modal-form__contacts">
+      </label>
+      <label class="modal-form__label"
+        >Name*
+        <input type="text" name="name" class="modal-form__input" required>
+      </label>
+      <label class="modal-form__label"
+        >Email*
+        <input type="email" name="email" class="modal-form__input" required>
+      </label>
+      <label class="modal-form__label"
+        >Address*
+        <input type="text" name="address" class="modal-form__input" required>
+      </label>
+      
+     
+      <button type="submit" class="modal-form__button">Send</button>
+      </div>
+    </form>
+  </div>
+</div>
+

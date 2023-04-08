@@ -62,10 +62,17 @@
     border: none;
     color: #ffffff;
     padding: 6px 15px;
+    &:hover {
+      cursor: pointer;
+      background-color: #bb0c37;
+    }
     &--modifier {
       background-color: $white-color;
       color: $primary-color;
       padding: 7px 15px;
+      &:hover {
+        background-color: #ecebeb;
+      }
     }
     &:hover {
       cursor: pointer;
@@ -121,13 +128,13 @@
   padding: 0;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1279px) {
   .menu {
     display: none;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .menu-toggle {
     display: none;
   }
@@ -194,6 +201,10 @@
   position: absolute;
   top: 58px;
   left: 58px;
+  &:hover {
+    cursor: pointer;
+    background-color: #ecebeb;
+  }
 }
 .mobile-close {
   background-color: transparent;
@@ -216,6 +227,10 @@
   }
   .nav__button--desktop {
     display: inline-block;
+    &:hover {
+      cursor: pointer;
+      background-color: #ecebeb;
+    }
   }
   .nav-bar {
     display: flex;
@@ -369,9 +384,9 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .container {
-    max-width: 1200px;
+    max-width: 1280px;
     height: 664px;
   }
 
@@ -469,5 +484,248 @@
       width: 26px;
       height: 26px;
     }
+  }
+  .ice-cream-container {
+    width: 236px;
+    height: 557px;
+    background: transparent url(../images/ice-cream-D.png);
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    top: 108px;
+    left: 315px;
+  }
+  .left-list__photo-container {
+    width: 213px;
+    height: 216px;
+    background: transparent url(../images/milk-container-D.png);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+  }
+  .so-tasty-container {
+    width: 304px;
+    height: 241px;
+    background: transparent url(../images/so-tasty-D.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    position: absolute;
+    right: 32px;
+    bottom: 1px;
+  }
+}
+
+// modal styles
+.modal {
+  display: flex;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 20;
+  transition: opacity 1000ms ease;
+
+  &__request-services {
+    position: absolute;
+    width: 528px;
+    height: 581px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    z-index: 30;
+    background: darkslateblue;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+
+  &--hidden {
+    display: none;
+    opacity: 0;
+  }
+  &__title {
+    font-family: 'Titan One';
+    font-style: normal;
+    font-weight: $font-weight-400;
+    font-size: 27px;
+    line-height: 1.13;
+    letter-spacing: 0.04em;
+    color: $secondary-color;
+    margin: 0;
+    text-align: center;
+    padding-top: 20px;
+  }
+  &__close-button {
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: none;
+  }
+}
+
+.modal-form {
+  &__products {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &__input {
+    width: 430px;
+    outline: none;
+    font-weight: $font-weight-500;
+    font-size: $font-size-14;
+    line-height: 1.92;
+    letter-spacing: 0.04em;
+    color: $gray-color;
+    &--order-modifier {
+      width: 50px;
+    }
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0px 1px 3px $primary-color;
+    }
+  }
+  &__label {
+    &--position-modifier {
+      align-items: center;
+      gap: 15px;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 34px;
+
+    letter-spacing: 0.04em;
+
+    color: $secondary-color;
+  }
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+
+    display: flex;
+    align-items: flex-start;
+    padding-top: 20px;
+    padding-left: 50px;
+    gap: 15px;
+  }
+  &__button {
+    align-self: center;
+    padding: 10px 40px;
+    background-color: $primary-color;
+    font-weight: $font-weight-400;
+    font-size: $font-size-14;
+    line-height: 1.28;
+    border-radius: 22px;
+    border: none;
+
+    text-align: center;
+
+    color: $white-color;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-device-pixel-ratio: 2),
+  screen and (max-width: 767px) and (min-resolution: 192dpi),
+  screen and (max-width: 767px) and (min-resolution: 2dppx) {
+  .ice-cream-container {
+    width: 171px;
+    height: 410px;
+    background: transparent url(../images/ice-cream-M@2x.png);
+    position: absolute;
+    position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    right: 32px;
+    top: 92px;
+  }
+}
+
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 768px) and (min-resolution: 192dpi),
+  screen and (min-width: 768px) and (min-resolution: 2dppx) {
+  .ice-cream-container {
+    width: 143px;
+    height: 336px;
+    background: transparent url(../images/ice-cream-T@2x.png);
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    left: 100px;
+    top: 80px;
+  }
+  .left-list__photo-container {
+    width: 152px;
+    height: 154px;
+    background: transparent url(../images/milk-container-T@2x.png);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+  }
+  .so-tasty-container {
+    width: 190px;
+    height: 150px;
+    background: transparent url(../images/so-tasty-T@2x.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    position: absolute;
+    right: 32px;
+    bottom: 1px;
+  }
+}
+
+@media screen and (min-width: 1280px) and (min-device-pixel-ratio: 2),
+  screen and (min-width: 1280px) and (min-resolution: 192dpi),
+  screen and (min-width: 1280px) and (min-resolution: 2dppx) {
+  .ice-cream-container {
+    width: 236px;
+    height: 557px;
+    background: transparent url(../images/ice-cream-D@2x.png);
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    top: 108px;
+    left: 315px;
+  }
+  .left-list__photo-container {
+    width: 213px;
+    height: 216px;
+    background: transparent url(../images/milk-container-D@2x.png);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+  }
+  .so-tasty-container {
+    width: 304px;
+    height: 241px;
+    background: transparent url(../images/so-tasty-D@2x.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    position: absolute;
+    right: 32px;
+    bottom: 1px;
   }
 }
