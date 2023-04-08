@@ -1,3 +1,24 @@
+h1,
+h2 {
+  margin: 0;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: none;
+}
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
 .header-container {
   background-color: $hero-background-color;
   position: relative;
@@ -33,7 +54,6 @@
     width: 218px;
     padding-left: 20px;
     padding-top: 194px;
-    margin: 0;
   }
   &__span {
     color: $primary-color;
@@ -42,9 +62,6 @@
 }
 
 .hero-grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   gap: 8px;
   padding-left: 20px;
@@ -59,12 +76,16 @@
     text-align: center;
     background: $primary-color;
     border-radius: 20px;
-    border: none;
     color: #ffffff;
     padding: 6px 15px;
     &:hover {
       cursor: pointer;
       background-color: #bb0c37;
+      transform: scale(1.1);
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 1000ms;
+      box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+        0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
     }
     &--modifier {
       background-color: $white-color;
@@ -73,9 +94,6 @@
       &:hover {
         background-color: #ecebeb;
       }
-    }
-    &:hover {
-      cursor: pointer;
     }
   }
 }
@@ -113,7 +131,6 @@
   background-size: cover;
   background-position: center;
   margin: 0 auto;
-
   right: 32px;
   top: 92px;
 }
@@ -126,6 +143,12 @@
   border: none;
   width: 20px;
   padding: 0;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 1000ms;
+  }
 }
 
 @media (max-width: 1279px) {
@@ -157,10 +180,7 @@
   transform: translateY(0);
 }
 .mobile-menu {
-  list-style: none;
   padding-top: 135px;
-  padding-left: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
 
@@ -176,7 +196,6 @@
     line-height: 1.28;
     align-items: center;
     color: $white-color;
-    text-decoration: none;
     padding-left: 20px;
     &:hover {
       color: $primary-color;
@@ -187,7 +206,6 @@
 .mobile-button {
   background: $white-color;
   border-radius: 22px;
-  border: none;
   font-weight: $font-weight-700;
   font-size: $font-size-16;
   line-height: 1.31;
@@ -204,6 +222,11 @@
   &:hover {
     cursor: pointer;
     background-color: #ecebeb;
+    transform: scale(1.1);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 1000ms;
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+      0px 2px 2px rgba(0, 0, 0, 0.12);
   }
 }
 .mobile-close {
@@ -212,14 +235,137 @@
   position: absolute;
   top: 20px;
   right: 32px;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 1000ms;
+  }
+}
+.modal {
+  display: flex;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1111;
+  transition: opacity 1000ms ease;
+
+  &__request-services {
+    position: absolute;
+    width: 300px;
+    height: 581px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    z-index: 30;
+    background: darkslateblue;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+
+  &--hidden {
+    display: none;
+    opacity: 0;
+  }
+  &__title {
+    font-family: 'Titan One';
+    font-style: normal;
+    font-weight: $font-weight-400;
+    font-size: 27px;
+    line-height: 1.13;
+    letter-spacing: 0.04em;
+    color: $secondary-color;
+    text-align: center;
+    padding-top: 20px;
+  }
+  &__close-button {
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: none;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 1000ms;
+    }
+  }
+}
+
+.modal-form {
+  &__products {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &__input {
+    width: 250px;
+    outline: none;
+    font-weight: $font-weight-500;
+    font-size: $font-size-14;
+    line-height: 1.92;
+    letter-spacing: 0.04em;
+    color: $gray-color;
+    &--order-modifier {
+      width: 50px;
+    }
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0px 1px 3px $primary-color;
+    }
+  }
+  &__label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 34px;
+    letter-spacing: 0.04em;
+    color: $secondary-color;
+    &--position-modifier {
+      align-items: center;
+      gap: 15px;
+    }
+  }
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 20px;
+    padding-left: 25px;
+    gap: 15px;
+  }
+  &__button {
+    align-self: center;
+    padding: 10px 40px;
+    background-color: $primary-color;
+    font-weight: $font-weight-400;
+    font-size: $font-size-14;
+    line-height: 1.28;
+    border-radius: 22px;
+    text-align: center;
+    color: $white-color;
+    &:hover {
+      transform: scale(1.1);
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 1000ms;
+      cursor: pointer;
+      box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+        0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
     height: 416px;
-    margin: 0 auto;
-    position: relative;
   }
   .mobile-menu-button {
     top: 46px;
@@ -230,6 +376,11 @@
     &:hover {
       cursor: pointer;
       background-color: #ecebeb;
+      transform: scale(1.1);
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 1000ms;
+      box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+        0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
     }
   }
   .nav-bar {
@@ -242,7 +393,6 @@
     align-self: center;
     background: $white-color;
     border-radius: 22px;
-    border: none;
     font-weight: $font-weight-700;
     font-size: $font-size-16;
     line-height: 1.31;
@@ -260,6 +410,7 @@
       padding-top: 20px;
     }
   }
+
   .big-circle {
     left: 248px;
     top: 43px;
@@ -268,11 +419,6 @@
     width: 143px;
     height: 336px;
     background: transparent url(../images/ice-cream-T.png);
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-
     left: 100px;
     top: 80px;
   }
@@ -280,9 +426,6 @@
   .locations {
     display: flex;
     flex-direction: column;
-    margin: 0;
-    list-style: none;
-    padding: 0;
     position: absolute;
     top: 94px;
     right: 42px;
@@ -298,7 +441,6 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: $primary-color;
-      margin: 0;
       z-index: 1;
     }
     &__name {
@@ -307,16 +449,12 @@
       font-size: 8px;
       line-height: 1.25;
       text-align: right;
-      margin: 0;
       color: $white-color;
       padding-bottom: 17px;
     }
   }
   .left-list {
     display: flex;
-    padding: 0;
-    margin: 0;
-    list-style: none;
     padding-left: 32px;
     position: absolute;
     top: 246px;
@@ -325,7 +463,6 @@
       width: 152px;
       height: 154px;
       background: transparent url(../images/milk-container-T.png);
-
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -344,22 +481,35 @@
       font-size: 8px;
       line-height: 1.5;
       color: $white-color;
-      margin: 0;
       padding-top: 40px;
     }
     &__icon {
       border-radius: 50%;
       width: 18px;
       height: 18px;
+      &:hover {
+        cursor: pointer;
+        transform: rotate(-90deg);
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 1000ms;
+        box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+          0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+      }
     }
   }
+
+  #myDIV {
+    width: 200px;
+    font-size: 14px;
+    line-height: 1.42;
+    color: $white-color;
+    display: none;
+  }
+
   .decorations {
     display: flex;
     gap: 44px;
     flex-direction: column;
-    list-style: none;
-    padding: 0;
-    margin: 0;
     position: absolute;
     top: 92px;
     right: 32px;
@@ -382,6 +532,21 @@
     right: 32px;
     bottom: 1px;
   }
+  .modal {
+    &__request-services {
+      width: 450px;
+      height: 581px;
+    }
+  }
+  .modal-form__input {
+    width: 350px;
+    &--order-modifier {
+      width: 50px;
+    }
+  }
+  .modal-form__contacts {
+    padding-left: 50px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -393,16 +558,12 @@
   .nav {
     display: flex;
     &__grid {
-      list-style: none;
-      padding: 0;
-      margin: 0;
       display: flex;
       gap: 35px;
       align-items: center;
       z-index: 5;
     }
     &__link {
-      text-decoration: none;
       font-weight: $font-weight-700;
       font-size: $font-size-16;
       line-height: 1.31;
@@ -443,7 +604,6 @@
     width: 534px;
     height: 534px;
     top: 54px;
-
     left: 510px;
   }
   .locations {
@@ -485,15 +645,22 @@
       height: 26px;
     }
   }
+  .modal {
+    &__request-services {
+      width: 528px;
+      height: 581px;
+    }
+  }
+  .modal-form__input {
+    width: 450px;
+    &--order-modifier {
+      width: 50px;
+    }
+  }
   .ice-cream-container {
     width: 236px;
     height: 557px;
     background: transparent url(../images/ice-cream-D.png);
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-
     top: 108px;
     left: 315px;
   }
@@ -501,155 +668,25 @@
     width: 213px;
     height: 216px;
     background: transparent url(../images/milk-container-D.png);
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    margin: 0;
   }
   .so-tasty-container {
     width: 304px;
     height: 241px;
     background: transparent url(../images/so-tasty-D.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    margin: 0;
-    position: absolute;
     right: 32px;
-    bottom: 1px;
   }
 }
 
 // modal styles
-.modal {
-  display: flex;
-  background: rgba(0, 0, 0, 0.3);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 20;
-  transition: opacity 1000ms ease;
-
-  &__request-services {
-    position: absolute;
-    width: 528px;
-    height: 581px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    z-index: 30;
-    background: darkslateblue;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-      0px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-  }
-
-  &--hidden {
-    display: none;
-    opacity: 0;
-  }
-  &__title {
-    font-family: 'Titan One';
-    font-style: normal;
-    font-weight: $font-weight-400;
-    font-size: 27px;
-    line-height: 1.13;
-    letter-spacing: 0.04em;
-    color: $secondary-color;
-    margin: 0;
-    text-align: center;
-    padding-top: 20px;
-  }
-  &__close-button {
-    background-color: transparent;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    border: none;
-  }
-}
-
-.modal-form {
-  &__products {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  &__input {
-    width: 430px;
-    outline: none;
-    font-weight: $font-weight-500;
-    font-size: $font-size-14;
-    line-height: 1.92;
-    letter-spacing: 0.04em;
-    color: $gray-color;
-    &--order-modifier {
-      width: 50px;
-    }
-    &:focus {
-      border-color: $primary-color;
-      box-shadow: 0px 1px 3px $primary-color;
-    }
-  }
-  &__label {
-    &--position-modifier {
-      align-items: center;
-      gap: 15px;
-    }
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 34px;
-
-    letter-spacing: 0.04em;
-
-    color: $secondary-color;
-  }
-  &__contacts {
-    display: flex;
-    flex-direction: column;
-
-    display: flex;
-    align-items: flex-start;
-    padding-top: 20px;
-    padding-left: 50px;
-    gap: 15px;
-  }
-  &__button {
-    align-self: center;
-    padding: 10px 40px;
-    background-color: $primary-color;
-    font-weight: $font-weight-400;
-    font-size: $font-size-14;
-    line-height: 1.28;
-    border-radius: 22px;
-    border: none;
-
-    text-align: center;
-
-    color: $white-color;
-  }
-}
 
 @media screen and (max-width: 767px) and (min-device-pixel-ratio: 2),
   screen and (max-width: 767px) and (min-resolution: 192dpi),
   screen and (max-width: 767px) and (min-resolution: 2dppx) {
   .ice-cream-container {
-    width: 171px;
-    height: 410px;
     background: transparent url(../images/ice-cream-M@2x.png);
-    position: absolute;
-    position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    right: 32px;
-    top: 92px;
   }
 }
 
@@ -657,37 +694,22 @@
   screen and (min-width: 768px) and (min-resolution: 192dpi),
   screen and (min-width: 768px) and (min-resolution: 2dppx) {
   .ice-cream-container {
-    width: 143px;
-    height: 336px;
     background: transparent url(../images/ice-cream-T@2x.png);
-    position: absolute;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    left: 100px;
-    top: 80px;
   }
   .left-list__photo-container {
-    width: 152px;
-    height: 154px;
     background: transparent url(../images/milk-container-T@2x.png);
-
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    margin: 0;
   }
   .so-tasty-container {
-    width: 190px;
-    height: 150px;
     background: transparent url(../images/so-tasty-T@2x.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    margin: 0;
-    position: absolute;
-    right: 32px;
-    bottom: 1px;
   }
 }
 
@@ -695,37 +717,21 @@
   screen and (min-width: 1280px) and (min-resolution: 192dpi),
   screen and (min-width: 1280px) and (min-resolution: 2dppx) {
   .ice-cream-container {
-    width: 236px;
-    height: 557px;
     background: transparent url(../images/ice-cream-D@2x.png);
-    position: absolute;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
-    top: 108px;
-    left: 315px;
   }
   .left-list__photo-container {
-    width: 213px;
-    height: 216px;
     background: transparent url(../images/milk-container-D@2x.png);
-
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    margin: 0;
   }
   .so-tasty-container {
-    width: 304px;
-    height: 241px;
     background: transparent url(../images/so-tasty-D@2x.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    margin: 0;
-    position: absolute;
-    right: 32px;
-    bottom: 1px;
   }
 }
