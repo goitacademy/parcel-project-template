@@ -1,35 +1,32 @@
 @import 'src/sass/utils/_vars.scss';
 
-.container-customer {
-  width: 100%;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  // padding-left: 20px;
-  // padding-right: 20px;
-}
 .customer-review {
   &__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding-top: 120px;
-    padding-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-top: 120px;
+  padding-bottom: 120px;
   }
   &__rev {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    width: 85%;
+     
   }
   &__rev-container {
     padding: 32px 74px 31px 72px;
     background: #fafafa;
-    margin-bottom: 16px;
+    width: 968px;
     position: relative;
-    
-  }
+    transition: box-shadow 150ms $main-transition-timing-function;
+      &:hover,
+      &:focus {
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+   
+}
   &__review {
     font-weight: 500;
     font-size: 16px;
@@ -40,20 +37,20 @@
     padding: 15px 35px 8px 37px;
     color: $blackColor;
     z-index: 1;
-
+   
     &::before {
       position: absolute;
       content: '';
-      left: 6%;
-      top: 15%;
+      left: 0;
+      top: 0;
       background-image: url(../images/quotes.svg);
-      height: 14%;
-      width: 15%;
+      height: 40px;
+      width: 54px; 
       z-index: -1;
-      background-repeat: no-repeat;
+         
     }
   }
-
+  
   &__name-place {
     font-weight: 500;
     font-size: 20px;
@@ -61,48 +58,65 @@
     text-align: center;
     color: $blackColor;
     position: relative;
-
+   
     &::before {
-      content: '. . .';
-      color: #c7133e;
-      font-size: 40px;
-      position: absolute;
-      bottom: 48px;
-      right: 48%;
+        content: '. . .';
+        color: #c7133e;
+        font-size: 40px;
+        position: absolute;
+        bottom: 48px;
+        right: 48%;
     }
   }
 
   &__photo {
-    transition: transform 0.3s;
+    transition: transform .3s;
     &:hover,
-    &:focus {
-      transform: scale(1.25);
-    }
+      &:focus {
+        transform: scale(1.25);
+      }
   }
+
 }
 
 .customer-reviews__line {
-  width: 81%;
-  height: 75%;
-  background-image: repeating-linear-gradient(#e1e1e1 0 1px, #fafafa 0 31px);
-  position: absolute;
-  top: 58px;
-  left: 10%;
+    width: 85%;
+    height: 42%;
+    background-image: repeating-linear-gradient(#e1e1e1 0 1px, #fafafa 0 31px);
+    position: absolute;
+    top: 74px;
 }
 
+  
 @media screen and (min-width: 768px) {
-}
-
-@media screen and (min-width: 1280) {
-  .customer-review {
-    &__container {
-      width: 968px;
     }
+  
+  @media screen and (min-width: 480) {
+    .customer-review {
+        &__container {
+            width: 968px;
+        }
+    }
+    .customer-review {
+      
       &__rev {
         display: flex;
         flex-direction: column;
         gap: 24px;
+         
       }
+      &__rev-container {
+        padding: 32px 74px 31px 72px;
+        background: #fafafa;
+        width: 968px;
+        position: relative;
+        transition: box-shadow 150ms $main-transition-timing-function;
+          &:hover,
+          &:focus {
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+          }
+       
+    }
       &__review {
         font-weight: 500;
         font-size: 16px;
@@ -113,7 +127,7 @@
         padding: 15px 35px 8px 37px;
         color: $blackColor;
         z-index: 1;
-    
+       
         &::before {
           position: absolute;
           content: '';
@@ -121,44 +135,62 @@
           top: 0;
           background-image: url(../images/quotes.svg);
           height: 40px;
-          width: 54px;
+          width: 54px; 
           z-index: -1;
+             
         }
       }
-      &__rev-container {
-        padding: 32px 74px 31px 72px;
-        background: #fafafa;
-        width: 968px;
+      
+      &__name-place {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 186%;
+        text-align: center;
+        color: $blackColor;
         position: relative;
-        transition: box-shadow 150ms $main-transition-timing-function;
+       
+        &::before {
+            content: '. . .';
+            color: #c7133e;
+            font-size: 40px;
+            position: absolute;
+            bottom: 48px;
+            right: 48%;
+        }
+      }
+    
+      &__photo {
+        transition: transform .3s;
         &:hover,
-    &:focus {
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+          &:focus {
+            transform: scale(1.25);
+          }
+      }
+    
     }
-      }
-      }
-      .customer-reviews__line {
+    
+    .customer-reviews__line {
         width: 85%;
         height: 42%;
         background-image: repeating-linear-gradient(#e1e1e1 0 1px, #fafafa 0 31px);
         position: absolute;
         top: 74px;
-      }
-      .container-customer {
-        width: auto;
-        height:auto;
-        margin-left: auto;
-        margin-right: auto;}
-       
+    }
 
-}
+
+  }
+
+     
+    
+    
+
 
 //   .slider-wrapper {
 //     margin: 1rem;
 //     position: relative;
 //     overflow: hidden;
 //   }
-
+  
 //   .slides-container {
 //     height: calc(100vh - 2rem);
 //     width: 100%;
@@ -170,7 +202,7 @@
 //     padding: 0;
 //     transition: all .15s cubic-bezier(.07,.95,0,1);
 //   }
-
+  
 //   .slide-arrow {
 //     position: absolute;
 //     display: flex;
@@ -187,35 +219,40 @@
 //     opacity: 2;
 //     transition: opacity 100ms;
 //   }
-
+  
 //   .slide-arrow:hover,
 //   .slide-arrow:focus {
 //     opacity: 1;
 //   }
-
+  
 //   #slide-arrow-prev {
 //     left: 0;
 //     padding-left: 0.25rem;
 //     border-radius: 0 2rem 2rem 0;
 //   }
-
+  
 //   #slide-arrow-next {
 //     right: 0;
 //     padding-left: 0.75rem;
 //     border-radius: 2rem 0 0 2rem;
 //   }
-
+  
 //   .slide {
 //     width: 20%;
 //     height: 50%;
 //     flex: 1 0 100%;
 //     transition: all .15s cubic-bezier(.07,.95,0,1);
 // }
+  
+
 
 //   .slide:nth-child(1) {
 //     opacity:1;
 //   }
-
+  
 //   .slide:nth-child(2) {
 //     opacity:1;
 //   }
+  
+  
+  
