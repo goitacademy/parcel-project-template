@@ -18,7 +18,76 @@ a {
 p {
   margin: 0;
 }
+// Animation styles
 
+.stripe {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    background: repeating-linear-gradient(
+      45deg,
+      $color1 25%,
+      $color1 50%,
+      $color2 50%,
+      $color2 75%
+    );
+    background-size: 100px 100px;
+    animation: stripeBackgroundPosition $duration linear infinite;
+    z-index: 1;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% + $stripe-size);
+    height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      $color2 25%,
+      $color2 50%,
+      $color1 50%,
+      $color1 75%
+    );
+    background-size: $stripe-size $stripe-size;
+    animation: stripeTransform $duration linear infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes stripeTransform {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc($stripe-size * -1));
+  }
+}
+
+@keyframes stripeBackgroundPosition {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: calc($stripe-size * -1) 0;
+  }
+}
+// Mobile Styles
 .header-container {
   background-color: $hero-background-color;
   position: relative;
@@ -138,7 +207,7 @@ p {
   right: 32px;
   top: 92px;
 }
-
+// Mobile Menu Styles
 .mobile-menu-button {
   position: absolute;
   top: 27px;
@@ -234,6 +303,7 @@ p {
     transition-duration: 1000ms;
   }
 }
+// Modal Styles
 .modal {
   display: flex;
   background: rgba(0, 0, 0, 0.3);
@@ -355,6 +425,7 @@ p {
   }
 }
 
+// Tablet Styles
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
@@ -527,7 +598,7 @@ p {
   }
   .modal {
     &__request-services {
-      top: 65%;
+      top: 85%;
       width: 450px;
       height: 581px;
     }
@@ -543,6 +614,7 @@ p {
   }
 }
 
+// Desktop Styles
 @media screen and (min-width: 1280px) {
   .container {
     max-width: 1280px;
@@ -683,7 +755,7 @@ p {
   }
 }
 
-// modal styles
+// Responsive background images for retina display
 
 @media screen and (max-width: 767px) and (min-device-pixel-ratio: 2),
   screen and (max-width: 767px) and (min-resolution: 192dpi),
