@@ -27,11 +27,9 @@ p {
 }
 
 .p-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 60px;
+  height: 1053px;
+  margin: 0 auto;
+  max-width: 1280px;
 }
 
 .p-titles {
@@ -41,29 +39,29 @@ p {
   align-items: center;
   margin-top: 60px;
   margin-bottom: 20px;
-}
 
-.p-titles__paragraph {
-  font-weight: $font-weight-400;
-  color: $secondary-color;
-  font-family: 'Titan One';
-  font-size: $font-size-30;
-  line-height: 34px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding-bottom: 18px;
-}
+  &__paragraph {
+    font-weight: $font-weight-400;
+    color: $secondary-color;
+    font-family: 'Titan One';
+    font-size: $font-size-30;
+    line-height: 34px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding-bottom: 18px;
+  }
 
-.p-titles__heading {
-  font-family: 'Titan One';
-  font-weight: var(--font-weight-400);
-  font-size: $font-size-58;
-  line-height: 66px;
-  text-align: center;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: $primary-color;
-  padding-bottom: 20px;
+  &__heading {
+    font-family: 'Titan One';
+    font-weight: var(--font-weight-400);
+    font-size: $font-size-58;
+    line-height: 66px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $primary-color;
+    padding-bottom: 20px;
+  }
 }
 
 /** Products drinks grid **/
@@ -76,78 +74,75 @@ p {
 
 .products {
   position: relative;
+  height: 0;
 
-  .products__image {
-    position: relative;
+  &__img-container {
+    &::before {
+      content: '';
+      background-image: url('/src/images/products-imgs/home-pic1.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
+      width: 368px;
+      height: 394px;
+    }
+
+    &2::before {
+      content: '';
+      background-image: url('/src/images/products-imgs/home-pic2.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
+      width: 368px;
+      height: 394px;
+    }
+    &3::before {
+      content: '';
+      background-image: url('/src/images/products-imgs/home-pic3.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
+      width: 368px;
+      height: 394px;
+    }
   }
 
-  .products__wrapper1 {
+  &__wrapper1,
+  &__wrapper2,
+  &__wrapper3 {
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 368px;
+    height: 535px;
+    top: 264px;
+    z-index: -1;
+    padding-top: 154px;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      transition-duration: 0.5s;
+      transition-timing-function: ease-in-out;
+      transition-property: box-shadow;
+    }
+  }
+
+  &__wrapper1 {
     background-color: #ffb8ca;
-    border-radius: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    width: 368px;
-    height: 535px;
-    top: 264px;
-    z-index: -1;
-    padding-top: 154px;
-    cursor: pointer;
-
-    &:hover {
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-      transition-duration: 0.5s;
-      transition-timing-function: ease-in-out;
-      transition-property: box-shadow;
-    }
   }
 
-  .products__wrapper2 {
+  &__wrapper2 {
     background-color: $brown-color;
-    border-radius: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    width: 368px;
-    height: 535px;
-    top: 264px;
-    z-index: -1;
-    padding-top: 154px;
-    cursor: pointer;
-
-    &:hover {
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-      transition-duration: 0.5s;
-      transition-timing-function: ease-in-out;
-      transition-property: box-shadow;
-    }
   }
 
-  .products__wrapper3 {
+  &__wrapper3 {
     background-color: $green-color;
-    border-radius: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    width: 368px;
-    height: 535px;
-    top: 264px;
-    z-index: -1;
-    padding-top: 154px;
-    cursor: pointer;
-
-    &:hover {
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-      transition-duration: 0.5s;
-      transition-timing-function: ease-in-out;
-      transition-property: box-shadow;
-    }
   }
 
-  .products__subtitle {
+  &__subtitle {
     font-family: 'Titan One';
     font-weight: $font-weight-400;
     font-size: $font-size-30;
@@ -159,13 +154,13 @@ p {
     margin-bottom: 32px;
   }
 
-  .products__svg {
+  &__svg {
     display: flex;
     gap: 4px;
     margin-bottom: 12px;
   }
 
-  .products__text {
+  &__text {
     width: 240px;
     font-weight: var(--font-weight-700);
     font-size: var(--font-size-14);
@@ -176,7 +171,7 @@ p {
     margin-bottom: 12px;
   }
 
-  .products__arrow {
+  &__arrow {
     background-color: $white-color;
     border-radius: 50%;
     align-self: center;
@@ -188,85 +183,91 @@ p {
       transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
+}
 
-  /** Products-responsive **/
+/** Products-responsive **/
 
-  // For tablets
-  @media only screen and (min-width: 768px) and (max-width: 1279px) {
-    .p-titles__heading {
-      font-size: 48px;
-      line-height: 55px;
-      letter-spacing: 0.04em;
-    }
-    .p-titles__paragraph {
-      font-size: 26px;
-      line-height: 30px;
-    }
-    .p-grid {
-      margin-right: 32px;
-      gap: 16px;
-    }
-    .products__image {
-      width: 224px;
-      height: 473px;
-      top: -250px;
-      padding-top: 220px;
-    }
-    .products__wrapper1 {
-      width: 224px;
-      height: 473px;
-      top: 250px;
-      z-index: -1;
-      padding-top: 154px;
-      left: 0;
-      right: 0;
-      bottom: 20px;
-      margin: auto;
-    }
-    .products__wrapper2 {
-      width: 224px;
-      height: 473px;
-      top: 250px;
-      z-index: -1;
-      padding-top: 154px;
-      left: 0;
-      right: 0;
-      bottom: 20px;
-      margin: auto;
-    }
-    .products__wrapper3 {
-      width: 224px;
-      height: 473px;
-      top: 250px;
-      z-index: -1;
-      padding-top: 154px;
-      left: 0;
-      right: 0;
-      bottom: 20px;
-      margin: auto;
-    }
-    .products__subtitle {
-      margin-top: -12px;
-      font-size: $font-size-20;
-      line-height: 23px;
-      letter-spacing: 0.04em;
-    }
-    .products__svg {
-      margin-top: -12px;
-      margin-bottom: 0px;
-    }
-    .products__text {
-      width: 160px;
-      height: 150px;
-    }
-    .products__arrow {
-      margin-top: 40px;
-    }
+// For tablets
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .p-section {
+    max-width: 768px;
+  }
+  .p-titles__heading {
+    font-size: 48px;
+    line-height: 55px;
+    letter-spacing: 0.04em;
+  }
+  .p-titles__paragraph {
+    font-size: 26px;
+    line-height: 30px;
+  }
+  .p-grid {
+    margin-right: 32px;
+    gap: 16px;
+  }
+  .products__image {
+    width: 224px;
+    height: 473px;
+    padding-top: 220px;
+  }
+  .products__wrapper1 {
+    width: 224px;
+    height: 473px;
+    top: 250px;
+    z-index: -1;
+    padding-top: 154px;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    margin: auto;
+  }
+  .products__wrapper2 {
+    width: 224px;
+    height: 473px;
+    top: 250px;
+    z-index: -1;
+    padding-top: 154px;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    margin: auto;
+  }
+  .products__wrapper3 {
+    width: 224px;
+    height: 473px;
+    top: 250px;
+    z-index: -1;
+    padding-top: 154px;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    margin: auto;
+  }
+  .products__subtitle {
+    margin-top: -12px;
+    font-size: $font-size-20;
+    line-height: 23px;
+    letter-spacing: 0.04em;
+  }
+  .products__svg {
+    margin-top: -12px;
+    margin-bottom: 0px;
+  }
+  .products__text {
+    width: 160px;
+    height: 150px;
+  }
+  .products__arrow {
+    margin-top: 40px;
   }
 }
 
 // For mobile devices
 @media only screen and (max-width: 767px) {
+  .p-section {
+    max-width: 320px;
+    margin: 0 auto;
+  }
   .p-titles__heading {
     font-size: 34px;
     line-height: 39px;
