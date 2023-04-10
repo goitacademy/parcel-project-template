@@ -6,8 +6,10 @@
 }
 
 .contacts-list {
+  gap: 20px;
+  display: flex;
+  align-items: center;
   margin-bottom: 32px;
-
   &__item-product {
     font-family: 'DM Sans', sans-serif;
     color: #ffffff;
@@ -33,16 +35,13 @@
     margin-bottom: 20px;
   }
   &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     background: #ffffff;
     box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
     border-radius: 24px;
     padding: 40px 32px;
-    width: 440px;
-    margin-right: auto;
-    margin-left: auto;
-    &:not(:last-child) {
-      margin-bottom: 20px;
-    }
   }
   &__item-text {
     font-family: 'DM Sans', sans-serif;
@@ -97,68 +96,47 @@
     color: #d41443;
   }
 }
-
-@media screen and (min-width: 768px) {
-  .contacts {
-    padding-top: 80px;
-  }
-
+@media screen and (max-width: 759px) {
   .contacts-list {
-    margin-bottom: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 20px;
   }
-
-  .contacts-list__item:not(:last-child) {
-    margin-bottom: 0px;
-    margin-right: 32px;
+  .contacts-list__item {
+    width: 280px;
+    height: 412px;
   }
-
-  .contacts-list__item-foodtruck {
-    width: 138px;
-    height: 28px;
-    margin-bottom: 32px;
+  .contacts-list-btn {
+    flex-direction: column;
   }
-  .contacts-list__item-cafe {
-    width: 73px;
-    height: 28px;
-    margin-bottom: 32px;
-  }
-
-  .contacts-list__item-text {
-    padding-bottom: 32px;
-  }
-
-  .contacts-list__item-program-list {
-    margin-bottom: 32px;
-    padding-bottom: 32px;
-  }
-
-  .contacts-list__item-program-time {
-    margin-bottom: 12px;
-  }
-  .contacts-list__item-town {
-    margin-bottom: 12px;
-  }
-
-  .contacts-list__item-location {
-    margin-bottom: 32px;
+  .footer__copyright-text {
+    width: 150px;
   }
 }
-
+@media screen and (min-width: 760px) {
+  .contacts-list {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .contacts-list__item {
+    width: 224px;
+    height: 528px;
+  }
+  .contacts-list-btn {
+    gap: 15px;
+  }
+}
 @media screen and (min-width: 1280px) {
-  .contacts {
-    padding-top: 120px;
-    padding-bottom: 121px;
+  .contacts-list {
+    padding-left: 16px;
+    padding-right: 16px;
+    justify-content: space-around;
   }
-
-  .contacts-list__item-cafe {
-    width: 75px;
+  .contacts-list__item {
+    width: 368px;
+    height: 538px;
   }
-
-  .contacts-list__item-town {
-    margin-bottom: 8px;
+  .contacts-list-btn {
+    gap: 12px;
   }
 }
 //button
@@ -167,7 +145,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
 .contacts-list-btn__item {
@@ -188,15 +165,6 @@
   padding-right: 17px;
   width: 162px;
   height: 44px;
-}
-
-.contacts-list-btn__location-icon {
-  width: 8px;
-  height: 10px;
-  margin-left: 8px;
-  align-items: center;
-  justify-content: center;
-  fill: black;
 }
 
 .contacts-list-btn__item-franchise {
