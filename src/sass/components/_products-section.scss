@@ -1,4 +1,5 @@
 @import 'src/sass/utils/_vars.scss';
+@import 'src/sass/utils/_keyframes.scss';
 .container--modif {
   display: flex;
   flex-direction: column;
@@ -20,11 +21,7 @@
     text-transform: uppercase;
     color: $secondaryColor;
     padding-bottom: 32px;
-    transition: transform 250ms $main-transition-timing-function;
-    &:focus {
-      transform: scale(1.25);
     }
-  }
   &__title {
     font-family: $secondFamily;
     font-size: 34px;
@@ -34,10 +31,7 @@
     text-transform: uppercase;
     color: $primaryColor;
     margin-bottom: 148px;
-    transition: transform, 250ms $main-transition-timing-function;
-    &:focus {
-      transform: scale(1.25);
-    }
+   
   }
   &__list {
     display: flex;
@@ -48,7 +42,6 @@
     border-radius: 24px;
     background-color: #f0d1a5;
     position: relative;
-    max-width: 440px;
     transition: transform 250ms $main-transition-timing-function;
     &:focus {
       transform: scale(1.05);
@@ -67,18 +60,12 @@
     }
     &:first-child {
       background-color: $primaryBackgroundColor;
-      transition: transform 250ms $main-transition-timing-function;
-      &:focus {
-        transform: scale(1.05);
-      }
-    }
+     }
+
     &:last-child {
       background-color: #c2e297;
-      transition: transform 250ms $main-transition-timing-function;
-      &:focus {
-        transform: scale(1.05);
-      }
-    }
+     }
+
     &:first-child::before {
       content: '';
       display: block;
@@ -98,12 +85,9 @@
       background-image: url(/src/images/milkshakes-m.png);
     }
   }
-  .arrow-button:hover {
-    background-color: $primaryColor;
+  .arrow-button:hover,
+  .arrow-button:focus {
     cursor: pointer;
-    & svg {
-      fill: $whiteColor;
-    }
   }
 }
 @media screen and (min-device-pixel-ratio: 2),
@@ -182,26 +166,19 @@
 
 @media screen and (min-width: 768px) {
   .products {
+      padding-left: 32px;
+      padding-right: 32px;
+
     &__list {
       gap: 16px;
       flex-direction: row;
     }
     &__label {
       padding-bottom: 18px;
-      transition: transform 250ms $main-transition-timing-function;
-      &:hover,
-      &:focus {
-        transform: scale(1.25);
-      }
-    }
+     }
     &__title {
       margin-bottom: 158px;
-      transition: transform 250ms $main-transition-timing-function;
-      &:hover,
-      &:focus {
-        transform: scale(1.25);
-      }
-    }
+     }
     &__list-item {
       width: auto;
       transition: transform box-shadow 250ms $main-transition-timing-function;
