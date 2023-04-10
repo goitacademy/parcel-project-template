@@ -1,31 +1,39 @@
+// general style
 h3,
 p {
   margin: 0px;
 }
+
 * {
   margin-block-start: 0px;
   margin-block-end: 0px;
 }
+
 img {
   background-size: cover;
   margin: 0px;
 }
+
 .gallery {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  max-width: 320px;
+  height: 1045px;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  padding-bottom: 240px;
+  position: relative;
 }
 
+// gallery style
 .gallery-container {
   display: flex;
   z-index: 99;
   justify-content: center;
   align-items: center;
   gap: 2.5px;
+  position: absolute;
+  bottom: 936px;
 
   &__box {
     display: flex;
@@ -33,25 +41,41 @@ img {
     flex-direction: column;
   }
   &__picture {
+    border-radius: $font-size-20;
     display: flex;
+    &--modifier {
+      width: 50%;
+    }
+  }
+  &__picture:hover {
+    transform: scale(1.5);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 2000ms;
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+      0px 2px 2px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
   }
 }
 
+// testimonial style
 .testimonials-container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: $font-size-16;
   align-items: center;
+  position: absolute;
+  bottom: 362px;
   &__person {
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: $font-weight-500;
+    font-size: $font-size-14;
     line-height: 186%;
     text-align: center;
-    color: #000000;
+    color: $black-color;
   }
   &__dot {
     display: flex;
     gap: 10px;
+    margin-bottom: $font-size-16;
   }
   &__item {
     width: 4px;
@@ -60,8 +84,17 @@ img {
     background-color: red;
   }
   &__picture {
-    margin-bottom: 16px;
+    margin-bottom: $font-size-16;
+    border-radius: 50%;
   }
+}
+.testimonials-container__picture:hover {
+  transform: scale(1.5);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 2000ms;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
 }
 .testimonials {
   background-color: #fafafa;
@@ -69,21 +102,31 @@ img {
   position: relative;
   flex-direction: column;
   padding: 43px 58px 26px 65px;
+  margin-bottom: $font-size-16;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50px;
+    top: 5px;
+    width: 54px;
+    height: 40px;
+    background-image: url('../images/before-item.png');
+  }
 
   &__text {
     z-index: 1;
-    font-weight: 500;
-    font-size: 12px;
+    font-weight: $font-weight-500;
+    font-size: $font-size-12;
     line-height: 255%;
     text-align: center;
-    color: #000000;
+    color: $black-color;
     width: 157px;
   }
 
   &__svg {
     position: absolute;
     left: 54px;
-    top: 30px;
+    top: $font-size-30;
   }
 }
 
@@ -99,23 +142,22 @@ img {
 .radio-button {
   display: flex;
   flex-direction: row;
-  gap: 12px;
+  gap: $font-size-12;
 
   &__container {
     position: relative;
-
-    &__input {
-      opacity: 0;
-      height: 12px;
-      width: 12px;
-    }
+  }
+  &__input {
+    opacity: 0;
+    height: $font-size-12;
+    width: $font-size-12;
   }
 }
 
 .checkmark {
   position: absolute;
-  width: 12px;
-  height: 12px;
+  width: $font-size-12;
+  height: $font-size-12;
   border-radius: 50%;
   background-color: #d9d9d9;
   top: 0;
@@ -130,39 +172,82 @@ img {
   width: 12.4px;
   height: 11.84px;
 }
+
 .radio-button__container input:checked ~ .checkmark .checkmark__svg,
 .radio-button__container input:checked ~ .checkmark {
-  background-color: white;
+  background: none;
   opacity: 1;
 }
 
+// js style
+.my-slides {
+  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: $font-size-16;
+  color: white;
+  font-weight: bold;
+  font-size: $font-size-18;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+// querry for tablet
 @media screen and (min-width: 768px) {
+  .gallery {
+    max-width: 768px;
+    height: 940px;
+  }
   .gallery-container {
     gap: 6.07px;
+    bottom: 800px;
     &__box {
       gap: 4.54px;
     }
   }
-  .testimonials-container {
-    gap: 0px;
 
+  .testimonials-container {
+    gap: 32px;
+    bottom: 379px;
     &__picture {
-      margin-bottom: 20px;
+      margin-bottom: $font-size-20;
     }
     &__dot {
-      margin-bottom: 16px;
-    }
-    &__person {
-      margin-bottom: 32px;
+      margin-bottom: $font-size-16;
     }
   }
   .testimonials {
     background: rgba(250, 250, 250, 0.4);
     margin-bottom: 4px;
     padding: 37px 55.18px 44px 50.71px;
+    &::before {
+      left: 2px;
+      top: 28px;
+    }
     &__text {
       width: 514.12px;
-      font-size: 14px;
+      font-size: $font-size-14;
       line-height: 216%;
       text-align: center;
       letter-spacing: 0.04em;
@@ -179,31 +264,40 @@ img {
     left: 5px;
   }
 }
+
+// querry for desktop
 @media screen and (min-width: 1280px) {
   .gallery {
-    gap: 120px;
+    max-width: 1280px;
+    height: 1030px;
   }
   .gallery-container {
+    bottom: 689px;
     gap: 8px;
     &__box {
       gap: 7.98px;
     }
   }
   .testimonials-container {
-    gap: 16px;
+    bottom: 219px;
     &__picture {
-      margin: 0px;
+      margin-bottom: $font-size-16;
     }
     &__person {
-      margin-bottom: 16px;
+      margin-bottom: 0px;
     }
   }
   .testimonials {
     background: #fafafa;
-    padding: 47px 109px 39px 109px;
+    padding: 47px 109px 40px;
+    margin-bottom: $font-size-16;
+    &::before {
+      left: 72px;
+      top: 36px;
+    }
     &__text {
-      font-weight: 500;
-      font-size: 16px;
+      font-weight: $font-weight-500;
+      font-size: $font-size-16;
       line-height: 186%;
       text-align: center;
       letter-spacing: 0.04em;
@@ -217,7 +311,7 @@ img {
   .repeted-line {
     width: 86%;
     height: 27%;
-    top: 77px;
+    top: 79px;
     left: 65px;
   }
 }
