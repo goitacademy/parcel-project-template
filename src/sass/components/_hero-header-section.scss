@@ -2,6 +2,12 @@
 
 /*Header*/
 
+header {
+  background-color: $primaryBackgroundColor;
+}
+ 
+
+
 .nav-list {
   display: none;
 }
@@ -17,6 +23,11 @@
 }
 
 .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
 &__logo {
   display: block;
   height: 50px;
@@ -25,7 +36,6 @@
 
 // Hero
 .hero {
-  background-color: $primaryBackgroundColor;
   
   &__pictures-milk,
   &__pictures-eat {
@@ -94,12 +104,8 @@
   .btn-burger {
     display: none;
 }
-.header {
-  padding-top: 37px;
-  padding-bottom: 37px;
-      position: absolute;
-    z-index: 100;
-}
+
+
 .nav {
   &__list {
     display: flex;
@@ -145,6 +151,11 @@ transition: background-color 250ms $main-transition-timing-function;
 
 // Hero
  
+.hero-section {
+  position: relative;
+ 
+
+}
 
 .hero {
   position: relative;
@@ -202,10 +213,8 @@ color: $primaryColor;
     margin-bottom: 20px;
   }
   &__number-list {
-    padding-top: 156px;
-     &:not(:last-child) {
-      margin-bottom: 18px;
-  }
+    padding-bottom: 156px;
+    
   }
 &__title{
   display: flex;
@@ -217,9 +226,8 @@ color: $primaryColor;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    padding-top: 147px;
-    margin-bottom: 108px;
-    padding-left: 16px;
+  
+    
   }
   
   &__number-list-text{
@@ -227,6 +235,8 @@ color: $primaryColor;
     line-height: 18px;
     text-align: right;
     color: $whiteColor;
+    display: flex;
+    flex-direction: column;
   }
   &__number-list-nr{
     font-family: 'Titan One';
@@ -236,12 +246,17 @@ text-align: right;
 letter-spacing: 0.04em;
 text-transform: uppercase;
 color:$primaryColor;
-&::after {
+display: flex;
+flex-direction: column;
+&::before {
 content: "";
 width: 30px;
 height: 30px;
-
-background: $whiteColor;}
+background: $whiteColor;
+border-radius: 50%;
+position: absolute;
+right: 0;
+}
 
   }
 &__pictures-eat {
@@ -261,12 +276,18 @@ background: $whiteColor;}
     position: absolute;
      bottom: 0;
       right: 328px;
+      &::before {
+        content: "";
+        background-image: url(../images/circle.png);
+        background-repeat: no-repeat;
+        background-position:  top 100% right 37%, top 40% right 25%; 
+        z-index: 100;
+      }
 }
 
 &__pictures-milk {
  position: absolute;
-  left:16px;
-  bottom: 60px;
+   bottom: 60px;
   padding: 0;
         
 }
