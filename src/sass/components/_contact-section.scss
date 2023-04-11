@@ -1,15 +1,20 @@
 @import 'src/sass/utils/_vars.scss';
 .contacts {
   padding-top: 60px;
-  padding-bottom: 60px;
   background-image: linear-gradient($whiteColor 20%, #fff5f6 20%);
+}
+.contacts-container {
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: center;
+    display: flex;
+    width: auto;
 }
 
 .contacts-list {
-  gap: 20px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 32px;
+   display: flex;
+ 
+  
   &__item-product {
     color: $whiteColor;
   }
@@ -32,7 +37,13 @@
   }
   &__item {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;.contacts-list-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      padding-top: 60px;
+    }
     justify-content: space-around;
     background: $whiteColor;
     box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
@@ -81,55 +92,25 @@
     color: $primaryColor;
   }
 }
-@media screen and (max-width: 759px) {
   .contacts-list {
     flex-direction: column;
     gap: 20px;
   }
   .contacts-list__item {
     width: 280px;
-    height: 412px;
+    
   }
-  .contacts-list-btn {
-    flex-direction: column;
-  }
-  .footer__copyright-text {
+   .footer__copyright-text {
     width: 150px;
   }
-}
-@media screen and (min-width: 760px) {
-  .contacts-list {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-  .contacts-list__item {
-    width: 224px;
-    height: 528px;
-  }
-  .contacts-list-btn {
-    gap: 15px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .contacts-list {
-    padding-left: 16px;
-    padding-right: 16px;
-    justify-content: space-around;
-  }
-  .contacts-list__item {
-    width: 368px;
-    height: 538px;
-  }
-  .contacts-list-btn {
-    gap: 12px;
-  }
-}
 //button
 
 .contacts-list-btn {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  padding-top: 60px;
 }
 
 .contacts-list-btn__item {
@@ -137,43 +118,92 @@
 }
 
 .contacts-list-btn__item-locations {
-  background: #d41342;
+  background: $primaryColor;
   border-radius: 22px;
   font-size: 16px;
   font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 12px 16px;
   color: $whiteColor;
-  padding-left: 17px;
-  padding-right: 17px;
-  width: 162px;
-  height: 44px;
-}
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+ }
+ 
 
 .contacts-list-btn__item-franchise {
   background: $whiteColor;
   border-radius: 22px;
   font-size: 16px;
   font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: $primaryColor;
-  padding-left: 32px;
-  padding-right: 32px;
-  width: 161px;
-  height: 44px;
+  padding: 10px 35px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
     background-color: #ecebeb;
+    cursor: pointer;
   }
 }
 
-.contacts-list-btn__franchise-icon {
+.contacts-list-btn__franchise-icon,
+.contacts-list-btn__locations-icon {
   width: 8px;
   height: 10px;
   margin-left: 8px;
   align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .contacts-list {
+    padding-left: 16px;
+    padding-right: 16px;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-bottom: 40px;
+}
+.contacts-list-btn__item-locations {
+    padding: 10px 35px;}
+
+    .contacts-list-btn__item-franchise {
+      padding: 12px 32px;}
+
+  .contacts-list__item {
+    width: 224px;
+    height: 528px;
+  }
+
+  .contacts-list-btn {
+    gap: 15px;
+    flex-direction: row;
+  }
+  
+}
+
+@media screen and (min-width: 1280px) {
+   
+  .contacts-list-btn__item-locations {
+        padding: 10px 35px;}
+
+
+.contacts-list-btn__item-franchise {
+    padding: 10px 32px;}
+  
+  .contacts-list {
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .contacts-list__item {
+    width: 368px;
+    height: 538px;
+  }
+  .contacts-list-btn {
+   flex-direction: row;
+   gap: 12px;
+  }
+  
 }
