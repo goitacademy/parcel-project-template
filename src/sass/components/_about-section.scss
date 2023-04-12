@@ -3,20 +3,21 @@
 @import 'src/sass/utils/_keyframes.scss';
 
 .about-section {
-display: flex;
-flex-direction: column;
-align-items: center;
-padding-left: 20px;
-padding-right: 20px;
-} 
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.name-wrapper{
-  width:200px;
+.name-wrapper {
+  width: 200px;
   gap: 15px;
   display: flex;
   flex-direction: column;
+  padding-bottom: 32px;
 }
- 
+
 @media screen and (min-device-pixel-ratio: 2),
   screen and (min-resolution: 192dpi),
   screen and (min-resolution: 2dppx) {
@@ -28,15 +29,15 @@ padding-right: 20px;
 @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2),
   screen and (min-width: 1200px) and (min-resolution: 192dpi),
   screen and (min-width: 1200px) and (min-resolution: 2dppx) {
-    .about__main {
-      background-image: url(../images/sectionbg.png);
-    }
+  .about__main {
+    background-image: url(../images/sectionbg.png);
+  }
 }
 
 .about {
   background-color: $secondBackgroundColor;
   padding-top: 60px;
-  padding-left: 20px;
+  display: flex;
   &__label {
     font-family: $secondFamily;
     text-align: center;
@@ -56,8 +57,9 @@ padding-right: 20px;
     line-height: 39px;
     color: $primaryColor;
   }
-    &__picture {
-    display: block;
+  &__picture {
+    display: flex;
+    justify-content: center;
     margin-bottom: 40px;
   }
 
@@ -66,26 +68,26 @@ padding-right: 20px;
   }
 
   &__content {
-       font-weight: 500;
+    font-weight: 500;
     font-size: 12px;
-    max-width: 220px;
     line-height: 162%;
     background-image: url(../images/sectionbg1ph.png);
-  background-repeat: no-repeat;
-  background-position: left;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   &__content-text {
     color: $blackColor;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     letter-spacing: normal;
-    width: 100%;
+    max-width: 220px;
   }
 
   &__content-additional {
     color: $mainBrownColor;
     margin-bottom: 20px;
     letter-spacing: normal;
+    max-width: 220px;
 
     & span {
       display: block;
@@ -128,10 +130,23 @@ padding-right: 20px;
 }
 
 @media screen and (min-width: 768px) {
-  .about {
-    display: block;
-    justify-content: center;
+  .name-wrapper {
+    width: 430px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+  }
+  .about-section {
     padding-left: 32px;
+    padding-right: 34px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about {
+    display: flex;
+    justify-content: space-evenly;
     &__label {
       font-weight: 400;
       font-size: 26px;
@@ -141,13 +156,12 @@ padding-right: 20px;
       font-weight: 400;
       font-size: 48px;
       line-height: 55px;
-      padding-bottom: 40px;
       padding-top: 16px;
     }
     &__main {
       display: flex;
       background-color: #fff5f6;
-      
+      width: 100%;
     }
 
     &__picture {
@@ -161,18 +175,22 @@ padding-right: 20px;
     }
 
     &__content {
-       font-weight: 500;
+      font-weight: 500;
       font-size: 14px;
       list-style: 25px;
-      max-width: 334px;
+      background-image: none;
+      line-height: 176%;
     }
 
     &__content-text {
-      margin-bottom: 20px;
+      margin-bottom: 40px;
+      max-width: 334px;
     }
 
     &__content-additional {
+      max-width: 334px;
       letter-spacing: 0.04em;
+      margin-bottom: 40px;
       & span {
         display: block;
         margin-top: 20px;
@@ -182,18 +200,38 @@ padding-right: 20px;
 }
 
 @media screen and (min-width: 1280px) {
-  
   .milk-shake:hover {
     animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   }
-  .about {
+  .about-section {
     padding-left: 0px;
+    padding-right: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+  .name-wrapper {
+    width: 534px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 60px;
+  }
+  .about {
     &__main {
       padding-left: 16px;
       padding-bottom: 20px;
       display: flex;
       background-image: url(../images/sectionbg.png);
       background-repeat: no-repeat;
+    }
+    &__label {
+      font-size: 30px;
+      line-height: 34px;
+    }
+    &__title {
+      font-weight: 400;
+      font-size: 58px;
+      line-height: 66px;
     }
 
     &__picture {
@@ -210,7 +248,6 @@ padding-right: 20px;
       font-weight: 500;
       font-size: 16px;
       list-style: 28px;
-      max-width: 463px;
       margin-right: 121px;
       padding-top: 90px;
       background-image: none;
@@ -219,12 +256,14 @@ padding-right: 20px;
     &__content-text {
       margin-bottom: 32px;
       letter-spacing: 0.04em;
+      max-width: 463px;
     }
 
     &__content-additional {
       letter-spacing: 0.04em;
       margin-bottom: 40px;
       font-size: 14px;
+      max-width: 463px;
 
       & span {
         display: block;
