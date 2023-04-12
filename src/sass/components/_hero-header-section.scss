@@ -2,6 +2,17 @@
 
 /*Header*/
 
+.container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 480px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 6px;
+}
+
 .btn-nav {
   display: none;
 }
@@ -14,30 +25,16 @@ header {
   display: none;
 }
 
-.container-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 6px;
-}
-
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-
-&__logo {
-  display: block;
-  height: 50px;
+  &__logo {
+    display: block;
+    height: 50px;
+  }
 }
-}
-
-
-
 
 // Hero
 
@@ -45,1204 +42,528 @@ header {
   position: relative;
   &__title {
     font-family: 'Titan One';
-font-size: 38px;
-line-height: 44px;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: $whiteColor;}
-&__title-second {
-font-size: 58px;
-line-height: 44px;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: $primaryColor;
-
+    font-size: 26px;
+line-height: 30px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $whiteColor;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
   }
-&__btn {
-  display: flex;
-  gap: 12px;
-
-}
-  &__btn-type-first {
-    font-size: 14px;
-    line-height: 18px;
+  &__title-second {
+    font-size: 48px;
+    line-height: 46px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $primaryColor;
+  }
+  &__btn {
+    display: flex;
+    gap: 12px;
+  }
+  &__btn-type-first,
+  &__btn-type-second {
+    font-size: 8px;
+    line-height: 10px;
     color: $whiteColor;
     background: $primaryColor;
     border-radius: 20px;
     border: none;
-    padding: 11px 23px;
+    padding: 8px 15px;
     cursor: pointer;
   }
   &__btn-type-second {
-    font-size: 14px;
-    line-height: 18px;
-    color: $primaryColor;
     background: $whiteColor;
-    border-radius: 20px;
-    border: none;
-    padding: 11px 23px;
-  
+    color: $primaryColor;
   }
-  &__about-milk{
-    
-    padding-bottom: 84px;
-    width: 470px;
-    padding-left: 286px;
-    
-  }
-  &__about-milk-details {
-     font-size: 14px;
-    line-height: 140%;
-    color: $whiteColor;
-    margin-bottom: 20px;
-  }
-  &__number-list {
-    padding-bottom: 156px;
-    
-  }
-&__title{
-  display: flex;
-  flex-direction: column;
-  width: 277px;
-}
 
-  &__title-container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  
-    
+  &__about-milk {
+    display: none;
   }
-  
-  &__number-list-text{
-     font-size: 14px;
-    line-height: 18px;
-    text-align: right;
-    color: $whiteColor;
-    display: flex;
-    flex-direction: column;
+  &__pictures {
+    z-index: 3;
+    &::after {
+      content: '';
+      background-color: #ffa5ba;
+      z-index:2;
+      border-radius: 50%;
+      position: absolute;
+      width: 346px;
+      height: 344px;
+      bottom: 80px;
+    right: 10px;
+    }
   }
-  &__number-list-nr{
-    font-family: 'Titan One';
-font-size: 46px;
-line-height: 53px;
-text-align: right;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color:$primaryColor;
-display: flex;
-flex-direction: column;
-}
-}
-
-
-
-
-.hero {
-  
   &__pictures-milk,
   &__pictures-eat {
     display: none;
+  }
 
-&__pictures-ice {
-  position: absolute;
-  bottom: 0;
-  left: 117px;
-  z-index: -1;
-  
-}
-
-  &__picture::after {
-    content: "";
-    width: 346px;
-    height: 344px;
-    border-radius: 50%;
-    background-color: $secondaryColor;
-    display: block;
+  &__pictures-ice {
     position: absolute;
-    z-index: -2;
-    top: 83px;
-    left: 36px;}
+    width: 171px;
+    bottom: 0;
+    z-index: 5;
+    right: 100px;
+  }
+  
+  &__number-list {
+    display: none;
+  }
+   &__title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 7;
+    position: relative;
+    left: 20%;
+   }
 }
-
+.hero-section {
+    padding-top: 120px;
+  padding-bottom: 158px;
 }
  
 
 @media screen and (min-width: 768px) {
+  .btn-nav {
+    background: $whiteColor;
+    border-radius: 22px;
+    padding: 10px 37px;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $primaryColor;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color 250ms $main-transition-timing-function;
+    &:hover {
+      background-color: #ecebeb;
+    }
+  }
+
+  .hero__pictures-milk,
+  .hero__pictures-eat {
+    display: block;
+  }
+
+  .btn-wrapper {
+    display: flex;
+    gap: 32px;
+  }
+  .arrow-button--mod {
+    width: 18px;
+    height: 18px;
+  }
+  .arrow-button__svg {
+    width: 11px;
+  }
   .header {
     padding-top: 32px;
+  }
+  .hero-section {
+    padding:0 32px;
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 20px;
+
+      padding-bottom: 20px;
+    }
+  }
+
+.container-header {
+  padding-left: 32px;
+  padding-right: 32px;
+  min-width: 786px;
 }
-.btn-burger {
-  margin-left: auto;
-  margin-right: 32px;
-}
- 
 .hero {
   position: relative;
+  &__about-milk {
+    z-index: 3;
+    padding-bottom: 35px;
+    padding-left: 155px;
+    position: relative;
+    padding-top: 35px;
+    display: block;
+    
+  }
+
   &__title {
     font-family: 'Titan One';
-font-size: 38px;
-line-height: 44px;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: $whiteColor;}
-&__title-second {
-font-size: 58px;
-line-height: 44px;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: $primaryColor;
-
+    font-size: 22px;
+    line-height: 25px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $whiteColor;
   }
-&__btn {
-  display: flex;
-  gap: 12px;
+  &__title-second {
+    font-size: 34px;
+    line-height: 30px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $primaryColor;
+  }
 
-}
+  &__btn {
+    display: flex;
+    gap: 12px;
+  }
   &__btn-type-first {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 8px;
+    line-height: 10px;
     color: $whiteColor;
     background: $primaryColor;
     border-radius: 20px;
     border: none;
-    padding: 11px 23px;
+    padding: 10px 17px;
     cursor: pointer;
   }
   &__btn-type-second {
-    font-size: 14px;
-    line-height: 18px;
     color: $primaryColor;
     background: $whiteColor;
+    font-size: 8px;
+    line-height: 10px;
     border-radius: 20px;
     border: none;
-    padding: 11px 23px;
-  
+    padding: 10px 17px;
+    cursor: pointer;
   }
-  &__about-milk{
-    
-    padding-bottom: 84px;
-    width: 470px;
-    padding-left: 286px;
-    
-  }
+
   &__about-milk-details {
-     font-size: 14px;
-    line-height: 140%;
+    font-size: 8px;
+    line-height: 150%;
     color: $whiteColor;
     margin-bottom: 20px;
+    width: 115px;
   }
-  &__number-list {
-    padding-bottom: 156px;
-    
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
   }
-&__title{
-  display: flex;
-  flex-direction: column;
-  width: 277px;
-}
 
   &__title-container {
     display: flex;
     flex-direction: column;
     gap: 24px;
-  
-    
+    padding-top: 10px;
+    position: relative;
+    left: 0;
   }
-  
-  &__number-list-text{
-     font-size: 14px;
-    line-height: 18px;
+  &__number-list {
+    display: block;
+  }
+  &__number-list-text {
+    font-size: 8px;
+    line-height: 10px;
     text-align: right;
     color: $whiteColor;
     display: flex;
     flex-direction: column;
   }
-  &__number-list-nr{
+  &__number-list-nr {
     font-family: 'Titan One';
-font-size: 46px;
-line-height: 53px;
-text-align: right;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color:$primaryColor;
-display: flex;
-flex-direction: column;
-} }
+    font-size: 28px;
+    line-height: 32px;
+    text-align: right;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $primaryColor;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
 
-.btn-nav {
-  background: $whiteColor;
-  border-radius: 22px;
-  padding: 10px 37px;
-  border: none;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 21px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: $primaryColor;
-  gap: 12px;
-  cursor: pointer;
-  transition: background-color 250ms $main-transition-timing-function;
-  &:hover {
-    background-color: #ECEBEB;
+    &::after {
+      content: '';
+      z-index: -1;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 29px;
+      right: -5px;
+      width: 16px;
+      height: 16px;
+    }
   }
+  &__pictures-eat {
+    position: absolute;
+    right: 32px;
+    bottom: 0;
+    height: 150px;
+    z-index: 3;
   }
-  .hero__pictures-milk,
-  .hero__pictures-eat {
-      display: block;
+
+  &__pictures-ice {
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+    width: 143px;
+    right: 304px;
   }
-  
+
+  &__pictures-milk {
+    position: absolute;
+    bottom: 16px;
+    width: 152px;
+  }
+
+  &__pictures {
+    z-index: 1;
+    &::after {
+      content: '';
+      background-color: #ffa5ba;
+      z-index: 2;
+      border-radius: 50%;
+      position: absolute;
+      width: 335px;
+      height: 335px;
+      bottom: 35px;
+      right: 189px;
+    }
+  }
+}
 }
 
 @media screen and (min-width: 1280px) {
-  .btn-burger {
-    display: none;
-}
-.container-header {
-  width: 1280px;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-.nav {
-  display: flex;
-   &__list {
+  .btn-nav {
+    background: $whiteColor;
+    border-radius: 22px;
+    padding: 10px 37px;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
     display: flex;
-    justify-content: center;
-  }
-&__list-link {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 21px;
-  color: $whiteColor;
-  text-decoration: none;
-  transition: color 250ms $main-transition-timing-function;
-  cursor: pointer;
-   
-  &:hover {
+    align-items: center;
+    text-align: center;
     color: $primaryColor;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color 250ms $main-transition-timing-function;
+    &:hover {
+      background-color: #ecebeb;
+    }
   }
-}
-  &__list-item:not(:last-child) {
+  .hero__pictures-milk,
+  .hero__pictures-eat {
+    display: block;
+  }
+  .arrow-button--mod {
+    width: 26px;
+    height: 26px;
+  }
+
+  .container-header {
+    min-width: 1280px;
+    padding-left: 16px;
+    padding-right: 16px;
+    z-index: 3;
+  }
+  .nav {
+    display: flex;
+    &__list {
+      display: flex;
+      justify-content: center;
+    }
+    &__list-link {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 21px;
+      color: $whiteColor;
+      text-decoration: none;
+      transition: color 250ms $main-transition-timing-function;
+      cursor: pointer;
+
+      &:hover {
+        color: $primaryColor;
+      }
+    }
+    &__list-item:not(:last-child) {
       margin-right: 35px;
     }
-}
-
-.btn-nav {
-background: $whiteColor;
-border-radius: 22px;
-padding: 10px 37px;
-border: none;
-font-weight: 700;
-font-size: 16px;
-line-height: 21px;
-display: flex;
-align-items: center;
-text-align: center;
-color: $primaryColor;
-gap: 12px;
-cursor: pointer;
-transition: background-color 250ms $main-transition-timing-function;
-&:hover {
-  background-color: #ECEBEB;
-}
-}
-
-// Hero
- 
-.hero-section {
-  position: relative;
- 
-
-}
-
-.hero {
-  position: relative;
-  &__title {
-    font-family: 'Titan One';
-font-size: 38px;
-line-height: 44px;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: $whiteColor;}
-&__title-second {
-font-size: 58px;
-line-height: 44px;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: $primaryColor;
-
   }
-&__btn {
-  display: flex;
-  gap: 12px;
 
-}
-  &__btn-type-first {
-    font-size: 14px;
-    line-height: 18px;
-    color: $whiteColor;
-    background: $primaryColor;
-    border-radius: 20px;
-    border: none;
-    padding: 11px 23px;
-    cursor: pointer;
-  }
-  &__btn-type-second {
-    font-size: 14px;
-    line-height: 18px;
-    color: $primaryColor;
+  .btn-nav {
     background: $whiteColor;
-    border-radius: 20px;
+    border-radius: 22px;
+    padding: 10px 37px;
     border: none;
-    padding: 11px 23px;
-  
-  }
-  &__about-milk{
-    
-    padding-bottom: 84px;
-    width: 470px;
-    padding-left: 286px;
-    
-  }
-  &__about-milk-details {
-     font-size: 14px;
-    line-height: 140%;
-    color: $whiteColor;
-    margin-bottom: 20px;
-  }
-  &__number-list {
-    padding-bottom: 156px;
-    
-  }
-&__title{
-  display: flex;
-  flex-direction: column;
-  width: 277px;
-}
-
-  &__title-container {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
     display: flex;
-    flex-direction: column;
-    gap: 24px;
-  
-    
+    align-items: center;
+    text-align: center;
+    color: $primaryColor;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color 250ms $main-transition-timing-function;
+    &:hover {
+      background-color: #ecebeb;
+    }
   }
-  
-  &__number-list-text{
-     font-size: 14px;
-    line-height: 18px;
-    text-align: right;
-    color: $whiteColor;
-    display: flex;
-    flex-direction: column;
+
+  // Hero
+
+  .hero-section {
+    position: relative;
+    padding : 0 16px 40px;
+ 
+    &__wrapper {
+      padding-top: 60px;
+      padding-bottom: 40px;
+      padding-right: 16px;
+    }
   }
-  &__number-list-nr{
-    font-family: 'Titan One';
-font-size: 46px;
-line-height: 53px;
-text-align: right;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color:$primaryColor;
-display: flex;
-flex-direction: column;
-}
 
-  &__pictures-eat {
-   
-  padding-right: 16px;
-  right: 0;
-  left: auto;
-  
-  position: absolute;
-         
-        bottom: 0;
-        
-        z-index: 1;
-}
+  .hero {
+    position: relative;
+    &__title {
+      font-family: 'Titan One';
+      font-size: 38px;
+      line-height: 44px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: $whiteColor;
+    }
+    &__title-second {
+      font-size: 58px;
+      line-height: 44px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: $primaryColor;
+    }
+    &__btn {
+      display: flex;
+      gap: 12px;
+    }
+    &__btn-type-first {
+      font-size: 14px;
+      line-height: 18px;
+      color: $whiteColor;
+      background: $primaryColor;
+      border-radius: 20px;
+      border: none;
+      padding: 11px 23px;
+      cursor: pointer;
+    }
+    &__btn-type-second {
+      font-size: 14px;
+      line-height: 18px;
+      color: $primaryColor;
+      background: $whiteColor;
+      border-radius: 20px;
+      border: none;
+      padding: 11px 23px;
+    }
+    &__about-milk {
+      width: 470px;
+      padding-bottom: 53px;
+      padding-left: 230px;
+      display: block;
+    }
+    &__about-milk-details {
+      font-size: 14px;
+      line-height: 140%;
+      color: $whiteColor;
+      margin-bottom: 20px;
+      width: 200px;
+    }
+    &__title {
+      display: flex;
+      flex-direction: column;
+      width: 277px;
+    }
 
-&__pictures-ice {
-    position: absolute;
-     bottom: 0;
-      right: 328px;
-      &::before {
-        content: "";
-        background-image: url(../images/circle.png);
-        background-repeat: no-repeat;
-        background-position:  top 100% right 37%, top 40% right 25%; 
-        z-index: 100;
+    &__title-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      left: 0;
+    }
+
+    &__number-list-text {
+      font-size: 14px;
+      line-height: 18px;
+      text-align: right;
+      color: $whiteColor;
+      display: flex;
+      flex-direction: column;
+    }
+    &__number-list-nr {
+      font-family: 'Titan One';
+      font-size: 46px;
+      line-height: 53px;
+      text-align: right;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: $primaryColor;
+      display: flex;
+      flex-direction: column;
+      z-index: 3;
+      position: relative;
+      &::after {
+        content: '';
+        z-index: -1;
+        background-color: #fff;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        right: -15px;
+        bottom: 42px;
+        width: 30px;
+        height: 30px;
       }
-}
+    }
 
-&__pictures-milk {
- position: absolute;
-   bottom: 60px;
-  padding: 0;
-        
-}
+    &__pictures-eat {
+      padding-right: 16px;
+      right: 0;
+      left: auto;
+      width: 304px;
+      position: absolute;
 
+      bottom: 0;
+      height: 241px;
+      z-index: 3;
+    }
 
-  &__picture {
-    &::after {
-         position: absolute;
+    &__pictures-ice {
+      position: absolute;
+      bottom: 0;
+      right: 328px;
+      z-index: 3;
+      width: 236px;
+    }
+
+    &__pictures-milk {
+      position: absolute;
+      bottom: 60px;
+      width: 213px;
+    }
+
+    &__pictures {
+      z-index: 1;
+      &::after {
+        content: '';
+        background-color: #ffa5ba;
+        z-index: 2;
+        border-radius: 50%;
+        position: absolute;
         width: 534px;
         height: 534px;
-        top: 54px;
-       left: 519px;
+        bottom: 72px;
+        right: 139px;
+      }
     }
   }
 }
-}
-
-
-
-
-// @media screen and (min-width: 1280px) {
-//   .header {
-//     background-color: $primaryBackgroundColor;
-//   }
-
-//   .container-header {
-//     width: 1280px;
-//     margin: auto;
-//     height: 664px;
-//   }
-
-//   .header-nav {
-//     display: flex;
-//     margin: auto;
-//     align-items: center;
-//     width: 1280px;
-//     padding-top: 37px;
-//     margin-top: 0;
-//     margin-bottom: 0;
-//     padding-left: 16px;
-//     padding-right: 16px;
-//   }
-//   .nav {
-//     &__list {
-//       display: flex;
-//       padding: 0;
-//       gap: 35px;
-//     }
-
-//     &__list-item {
-//       line-height: 21px;
-//       letter-spacing: 0em;
-//       text-align: left;
-//       text-decoration: none;
-//       color: $whiteColor;
-//       font-size: 16px;
-//       font-weight: 700;
-//       z-index: 5;
-//       position: relative;
-//     }
-
-//     &__list-item:hover {
-//       color: $primaryColor;
-//       transition: $main-transition-timing-function;
-//     }
-//   }
-
-//   .header-logo {
-//     margin-right: 128px;
-//   }
-
-//   .btn-nav {
-//     height: 44px;
-//     width: 159px;
-//     border-radius: 22px;
-//     border: 0px;
-//     font-family: DM Sans;
-//     font-size: 16px;
-//     font-weight: 700;
-//     line-height: 21px;
-//     letter-spacing: 0em;
-//     text-align: center;
-//     color: $primaryColor;
-//     margin-left: 141px;
-
-//     &:hover {
-//       background-color: #ecebeb;
-//       cursor: pointer;
-//       transition: $main-transition-timing-function;
-//     }
-
-//     &__svg {
-//       margin-left: 12px;
-//     }
-//   }
-
-//   .hero {
-//     width: 1280px;
-//     margin: auto;
-//     margin-top: 0;
-//     margin-bottom: 0;
-//     padding-right: 16px;
-//     padding-left: 16px;
-//   }
-
-//   .hero-group {
-//     display: flex;
-//   }
-
-
-//   .hero-btn {
-//     display: flex;
-//     margin-top: 24px;
-
-//     &__list {
-//       display: flex;
-//       gap: 12px;
-//       padding: 0;
-//       margin: 0;
-//     }
-
-//     &__list-first {
-//       height: 40px;
-//       width: 107px;
-//       border-radius: 20px;
-//       border: 0;
-//       color: $primaryColor;
-//       font-family: DM Sans;
-//       font-size: 14px;
-//       font-weight: 400;
-//       line-height: 18px;
-//       letter-spacing: 0em;
-//       text-align: center;
-//     }
-//     &__list-first:hover {
-//       background-color: $primaryColor;
-//       cursor: pointer;
-//       color: $whiteColor;
-//       transition: $main-transition-timing-function;
-//     }
-
-//     &__list-second {
-//       height: 40px;
-//       width: 138px;
-//       border-radius: 20px;
-//       border: 0;
-//       color: $primaryColor;
-//       font-family: DM Sans;
-//       font-size: 14px;
-//       font-weight: 400;
-//       line-height: 18px;
-//       letter-spacing: 0em;
-//       text-align: center;
-//     }
-
-//     &__list-second:hover {
-//       background-color: $primaryColor;
-//       cursor: pointer;
-//       color: $whiteColor;
-//       transition: $main-transition-timing-function;
-//     }
-//   }
-
-//   .hero-number {
-//     display: flex;
-
-//     &__list {
-//       display: flex;
-//       flex-direction: column;
-//       padding: 0;
-//       margin: 0;
-//       margin-left: 819px;
-//       margin-top: 72px;
-//     }
-
-//     &__list-nr {
-//       font-family: Titan One;
-//       font-size: 46px;
-//       font-weight: 400;
-//       line-height: 53px;
-//       letter-spacing: 0.04em;
-//       text-align: right;
-//       color: $primaryColor;
-//     }
-
-//     &__list-text {
-//       font-family: DM Sans;
-//       font-size: 14px;
-//       font-weight: 400;
-//       line-height: 18px;
-//       letter-spacing: 0em;
-//       text-align: right;
-//       color: $whiteColor;
-//       height: 18px;
-//       width: 74px;
-//       border-radius: nullpx;
-//     }
-//   }
-
-//   .hero-milk {
-//     display: flex;
-//     flex-direction: column;
-
-//     &__paragraf {
-//       height: 78px;
-//       width: 200px;
-//       border-radius: nullpx;
-//       font-size: 14px;
-//       font-weight: 400;
-//       line-height: 20px;
-//       letter-spacing: 0em;
-//       text-align: left;
-//       color: $whiteColor;
-//       margin-top: 94px;
-//       margin-bottom: 0;
-//     }
-//   }
-
-//   .hero-btn-milk {
-//     height: 26px;
-//     width: 26px;
-//     border-radius: 50%;
-//     border: 0;
-//     display: flex;
-//   }
-
-//   .arrow-button-mod {
-//     margin-left: 0;
-//   }
-
-//   .arrow-button:hover {
-//     background-color: $primaryColor;
-//     cursor: pointer;
-//     & svg {
-//       fill: $whiteColor;
-//       transform: rotate(90deg);
-//     }
-//   }
-
-//   .hero-btn-milk-mod {
-//     padding-top: 20px;
-//   }
-
-//   .hero-milk-cont {
-//     display: flex;
-//     width: 413px;
-//     margin: 0;
-
-//     &__image-mod {
-//       height: 216px;
-//       width: 213px;
-//       border-radius: 0px;
-//       margin-top: 40px;
-//     }
-//   }
-
-//   .ice-cup {
-//     margin-left: 676px;
-//     top: 108px;
-//     position: absolute;
-//     z-index: 5;
-
-//     &__image {
-//       height: 557px;
-//       width: 236px;
-//       border-radius: 0px;
-//     }
-//   }
-
-//   .eat-ice {
-//     position: absolute;
-//     margin-left: 920px;
-//     top: 423px;
-//     z-index: 5;
-
-//     &__image {
-//       height: 241px;
-//       width: 304px;
-//       border-radius: 0px;
-//     }
-//   }
-
-//   .hero-eclips {
-//     height: 534px;
-//     width: 534px;
-//     margin-left: 557px;
-//     top: 54px;
-//     border-radius: 50%;
-//     background-color: $secondaryColor;
-//     position: absolute;
-//   }
-// }
-
-// /*Tableta*/
-
-// @media screen and (min-width: 768px) {
-//   .header {
-//     background-color: $primaryBackgroundColor;
-//   }
-//   .container-header {
-//     height: 416px;
-//     margin: 0 auto;
-//   }
-
-//   .header-nav {
-//     width: 1280px;
-//     margin: 0 auto;
-//     padding-top: 32px;
-//     padding-left: 32px;
-//     padding-right: 16px;
-//     display: flex;
-//   }
-
-//   .header-logo {
-//     margin-right: 128px;
-//   }
-
-//   .nav {
-//     visibility: hidden;
-//   }
-
-//   .btn-nav {
-//     height: 44px;
-//     width: 159px;
-//     border-radius: 22px;
-//     border: 0px;
-//     font-family: DM Sans;
-//     font-size: 16px;
-//     font-weight: 700;
-//     line-height: 21px;
-//     letter-spacing: 0em;
-//     text-align: center;
-//     color: $primaryColor;
-//     margin-left: 141px;
-
-//     &:hover {
-//       background-color: #ecebeb;
-//       cursor: pointer;
-//       transition: $main-transition-timing-function;
-//     }
-
-//     &__svg {
-//       margin-left: 12px;
-//     }
-//   }
-
-//   .hero {
-//     width: 1280px;
-//     margin: auto;
-//     margin-top: 0;
-//     margin-bottom: 0;
-//     padding-right: 16px;
-//     padding-left: 32px;
-//   }
-
-//   .hero-group {
-//     display: flex;
-//   }
-
-//   .hero-title {
-//     height: 80px;
-//     width: 162px;
-//     border-radius: nullpx;
-//     font-family: Titan One;
-//     font-weight: 400;
-//     letter-spacing: 0.04em;
-//     text-align: left;
-//     cursor: pointer;
-//     margin-top: -9.7px;
-
-//     &__first {
-//       font-size: 20px;
-
-//       color: $whiteColor;
-//     }
-//     &__second {
-//       font-size: 20px;
-
-//       color: $whiteColor;
-//     }
-
-//     &__last {
-//       font-size: 28px;
-
-//       color: $primaryColor;
-//     }
-//   }
-
-//   .hero-btn {
-//     display: flex;
-//     margin-top: 24px;
-
-//     &__list {
-//       display: flex;
-//       gap: 12px;
-//       padding: 0;
-//       margin: 0;
-//       margin-top: -3.7px;
-//     }
-
-//     &__list-first {
-//       height: 24px;
-//       width: 62.39999771118164px;
-//       border-radius: 20px;
-//       border: 0;
-//       color: $primaryColor;
-//       font-family: DM Sans;
-//       font-size: 8px;
-//       font-weight: 400;
-//       line-height: 10px;
-//       letter-spacing: 0em;
-//       text-align: center;
-//     }
-//     &__list-first:hover {
-//       background-color: $primaryColor;
-//       cursor: pointer;
-//       color: $whiteColor;
-//       transition: $main-transition-timing-function;
-//     }
-
-//     &__list-second {
-//       height: 24px;
-//       width: 82.79999542236328px;
-//       border-radius: nullpx;
-//       border-radius: 20px;
-//       border: 0;
-//       color: $primaryColor;
-//       font-family: DM Sans;
-//       font-size: 8px;
-//       font-weight: 400;
-//       line-height: 10px;
-//       letter-spacing: 0em;
-//       text-align: center;
-//     }
-
-//     &__list-second:hover {
-//       background-color: $primaryColor;
-//       cursor: pointer;
-//       color: $whiteColor;
-//       transition: $main-transition-timing-function;
-//     }
-//   }
-
-//   .hero-number {
-//     display: flex;
-
-//     &__list {
-//       display: flex;
-//       flex-direction: column;
-//       padding: 0;
-//       margin: 0;
-//       margin-left: 499px;
-//       margin-top: -21.5px;
-//     }
-
-//     &__list-nr {
-//       height: 32px;
-//       width: 33px;
-//       left: 693px;
-//       top: 94px;
-//       border-radius: nullpx;
-//       font-family: Titan One;
-//       font-size: 28px;
-//       font-weight: 400;
-//       line-height: 32px;
-//       letter-spacing: 0.04em;
-//       text-align: right;
-
-//       color: $primaryColor;
-//     }
-
-//     &__list-text {
-//       font-family: DM Sans;
-//       font-size: 14px;
-//       font-weight: 400;
-//       line-height: 18px;
-//       letter-spacing: 0em;
-//       text-align: right;
-//       color: $whiteColor;
-//       height: 18px;
-//       width: 74px;
-//       border-radius: nullpx;
-//     }
-//   }
-
-//   .hero-milk {
-//     display: flex;
-//     flex-direction: column;
-
-//     &__paragraf {
-//       height: 48px;
-//       width: 114px;
-//       border-radius: nullpx;
-//       text-align: left;
-//       color: $whiteColor;
-//       font-family: DM Sans;
-//       font-size: 8px;
-//       font-weight: 400;
-//       line-height: 12px;
-//       letter-spacing: 0em;
-//       text-align: left;
-//       margin-top: 61px;
-//     }
-//   }
-
-//   .hero-btn-milk {
-//     height: 26px;
-//     width: 26px;
-//     border-radius: 50%;
-//     border: 0;
-//     display: flex;
-//   }
-
-//   .arrow-button-mod {
-//     margin-left: 0;
-//   }
-
-//   .arrow-button:hover {
-//     background-color: $primaryColor;
-//     cursor: pointer;
-//     & svg {
-//       fill: $whiteColor;
-//       transform: rotate(90deg);
-//     }
-//   }
-
-//   .hero-btn-milk-mod {
-//     padding-top: 20px;
-
-//     &__svg {
-//       width: 25px;
-//       height: 25px;
-//     }
-//   }
-
-//   .hero-milk-cont {
-//     display: flex;
-//     width: 413px;
-//     margin: 0;
-
-//     &__image-mod {
-//       height: 154px;
-//       width: 152px;
-//       border-radius: 0px;
-//       margin-top: 20px;
-//     }
-//   }
-
-//   .ice-cup {
-//     z-index: 5;
-//     margin-left: 322px;
-//     position: absolute;
-//     top: 80px;
-
-//     &__image {
-//       height: 336px;
-//       width: 143px;
-//       border-radius: 0px;
-//     }
-//   }
-
-//   .eat-ice {
-//     position: absolute;
-//     margin-left: 546px;
-//     top: 265px;
-//     z-index: 5;
-
-//     &__image {
-//       height: 150px;
-//       width: 190px;
-//       left: 546px;
-//       top: 265px;
-//       border-radius: 0px;
-//     }
-//   }
-
-//   .hero-eclips {
-//     height: 333px;
-//     width: 335px;
-//     left: 248px;
-//     top: 43px;
-//     border-radius: 50%;
-//     background-color: $secondaryColor;
-//     position: absolute;
-//   }
-// }
-
-// /*Mobil*/
-
-// @media screen and (min-width: 320px) and (max-width: 768px) {
-//   .header {
-//     background-color: $primaryBackgroundColor;
-//   }
-//   .container-header {
-//     height: 502px;
-//   }
-
-//   .header-nav {
-//     width: 1280px;
-//     margin: 0 auto;
-//     padding-left: 20px;
-//     padding-right: 20px;
-//     display: flex;
-//     padding-top: 8px;
-//   }
-
-//   .header-logo {
-//     margin-right: 128px;
-//   }
-
-//   // .nav {
-//   //   visibility: hidden;
-//   // }
-
-//   // .btn-nav {
-//   //   visibility: hidden;
-//   // }
-
-//   .hero {
-//     width: 1280px;
-//     margin: auto;
-//     margin-top: 0;
-//     margin-bottom: 0;
-//     padding-left: 20px;
-//     padding-right: 20px;
-//   }
-
-//   .hero-group {
-//     display: flex;
-//   }
-
-//   .hero-title {
-//     height: 106px;
-//     width: 218px;
-//     border-radius: nullpx;
-//     font-family: Titan One;
-//     font-weight: 400;
-//     letter-spacing: 0.04em;
-//     text-align: left;
-//     cursor: pointer;
-//     margin-top: 105.5px;
-//     z-index: 100;
-//     position: relative;
-
-//     &__first {
-//       font-size: 26px;
-//       line-height: 30px;
-//       color: $whiteColor;
-//     }
-//     &__second {
-//       font-size: 26px;
-//       line-height: 30px;
-//       color: $whiteColor;
-//     }
-
-//     &__last {
-//       font-size: 48px;
-//       line-height: 46px;
-//       color: $primaryColor;
-//     }
-//   }
-
-//   .hero-btn {
-//     display: flex;
-//     margin-top: 24px;
-
-//     &__list {
-//       display: flex;
-//       gap: 12px;
-//       padding: 0;
-//       margin: 0;
-//       margin-top: -3.7px;
-//       z-index: 100;
-//     }
-
-//     &__list-first {
-//       height: 24px;
-//       width: 61.20000076293945px;
-//       border-radius: nullpx;
-//       border-radius: 20px;
-//       border: 0;
-//       color: $primaryColor;
-//       font-size: 8px;
-//       line-height: 10px;
-//       letter-spacing: 0em;
-//       text-align: center;
-//     }
-//     &__list-first:hover {
-//       background-color: $primaryColor;
-//       cursor: pointer;
-//       color: $whiteColor;
-//       transition: $main-transition-timing-function;
-//     }
-
-//     &__list-second {
-//       height: 24px;
-//       width: 82.79999542236328px;
-//       border-radius: nullpx;
-//       border-radius: 20px;
-//       border: 0;
-//       color: $primaryColor;
-//       font-family: DM Sans;
-//       font-size: 8px;
-//       font-weight: 400;
-//       line-height: 10px;
-//       letter-spacing: 0em;
-//       text-align: center;
-//     }
-
-//     &__list-second:hover {
-//       background-color: $primaryColor;
-//       cursor: pointer;
-//       color: $whiteColor;
-//       transition: $main-transition-timing-function;
-//     }
-//   }
-
-//   // .hero-number {
-//   //   visibility: hidden;
-//   // }
-
-//   // .hero-milk {
-//   //   visibility: hidden;
-//   // }
-
-//   // .hero-btn-milk {
-//   //   visibility: hidden;
-//   // }
-
-//   // .arrow-button-mod {
-//   //   visibility: hidden;
-//   // }
-
-//   // .hero-milk-cont {
-//   //   visibility: hidden;
-//   // }
-
-//   .ice-cup {
-//     z-index: 5;
-//     margin-left: 117px;
-//     position: absolute;
-//     top: 92px;
-
-//     &__image {
-//       height: 410px;
-//       width: 171px;
-
-//       border-radius: 0px;
-//     }
-//   }
-
-//   // .eat-ice {
-//   //   visibility: hidden;
-//   // }
-
-//   .hero-eclips {
-//     height: 344px;
-//     width: 346px;
-//     top: 83px;
-//     border-radius: 0px;
-//     margin-left: 36px;
-//     top: 83px;
-//     border-radius: 50%;
-//     background-color: $secondaryColor;
-//     position: absolute;
-//   }
-// }
