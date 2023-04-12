@@ -14,7 +14,11 @@
     background-image: url("../images/header/header-icecream@2x.jpg"), url("../images/header/header-elipse@2x.png");
   }
 }
+.menu-container {
+  display: none;
+}
   .header {
+    position: relative;
     display: flex;
     align-items: center;
     padding-top: 37px;
@@ -71,7 +75,7 @@
     &__menu-btn {
       background-color: transparent;
       border:none;
-      visibility: hidden;
+      display:none;
     }
   }
 
@@ -105,6 +109,7 @@
     }
   
     &__btn {
+      color:#ffffff;
       display: flex;
       align-items: center;
       text-align: center;
@@ -115,6 +120,7 @@
     }
   
     &__btn--white {
+      color:#D41443;
       background: #ffffff;
       &:hover,
       &:focus {
@@ -181,8 +187,6 @@
     }
    }
   }
-  
-  
   .sell-point {
     list-style: none;
     display: flex;
@@ -221,11 +225,8 @@
       margin: 0;
     }
   }
-@media (max-width: 768px) and (min-width: 320px) {
-.no-display{
- display:none;
-  }
-  .header-section {
+@media (max-width: 768px) and (min-width: 321px) {
+   .header-section {
     padding: 0 16px;
     background: #ffb8ca;
     background-repeat: no-repeat;
@@ -233,7 +234,6 @@
     background-position:  top 50% right 57%, top 60% right 43%;
     padding: 0 32px;
   }
-  
   @media (min-device-pixel-ratio: 2),
   (-webkit-min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
@@ -243,18 +243,25 @@
     background-image: url("../images/header/header-icecream-t@2x.png"), url("../images/header/elipse-t@2x.png");
   }
 }
-.header {
-&__menu-btn {
-  visibility: inherit;
-  margin-right: -270px;
+.no-display{
+  display:none;
 }
-&__btn-icon {
+.menu-toggle,
+.menu-container {
+    visibility: inherit; 
+} 
+.header {
+  &__menu-btn {
+  display: initial;
+  margin-right: -270px;
+  }
+  &__btn-icon {
   margin-left: 10px;
   }
   &__buy-btn {
     padding-right: 37px;
   }
-  }
+}
 .hero{
   padding: 0 0 16px 0;
   align-items: center;
@@ -284,8 +291,8 @@
   }
   &__text {
     margin-top: 61px;
-  font-size: 8px;
-  line-height: 150%;
+    font-size: 8px;
+    line-height: 150%;
   }
   &__img {
     width: 152px;
@@ -303,7 +310,6 @@
   }
   &__item {
     position: relative;
-    
   }
   &__icon {
     width: 16px;
@@ -311,5 +317,50 @@
     top:-3px;
     right:0;
   }
+}
+}
+@media (max-width: 320px) {
+  .header-section {
+    padding: 0 16px;
+    background: #ffb8ca;
+    background-repeat: no-repeat;
+    background-image:  url("../images/header/icecream-m.png"), url("../images/header/elipse-m.png");
+    background-position:  top 95% right 30%, top 60% right 0%;
+    padding: 8px 20px 0 20px;
+  }
+  @media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .header-section {
+    background-position:  top 95% right 30%, top 60% right 0%;
+    background-image: url("../images/header/icecream-m@2x.png") 171px, url("../images/header/elipse-m@2x.png");
+  }
+}
+.header {
+  padding: 0;
+}
+.hero{
+    padding: 151px 0 158px 0;
+    &__title{
+      font-size: 26px;
+      line-height: 30px;
+    }
+  &__img,
+    .sell-point,
+    .info{
+    display:none;
+  }
+} 
+.no-display {
+  display: none;
+}
+.header{
+  &__buy-btn{
+    display: none;
+  }
+}
+.menu-toggle {
+  visibility: inherit;
 }
 }
