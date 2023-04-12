@@ -53,12 +53,6 @@
     justify-content: center;
     align-items: center;
   }
-  .contact--second-title {
-    background-color: $green-color;
-    width: 138px;
-    height: 28px;
-  }
-
   &__subtitle {
     font-family: 'DM Sans';
     font-style: normal;
@@ -82,6 +76,12 @@
     padding-bottom: 24px;
   }
 }
+.contact--second-title {
+  background-color: $green-color;
+  width: 138px;
+  height: 28px;
+}
+
 .time-schedule {
   border-bottom: 1px solid #e1e1e1;
   padding-bottom: 24px;
@@ -96,7 +96,7 @@
     color: $black-color;
     padding-top: 24px;
   }
-  .time-schedule--days2 {
+  &--days2 {
     padding-top: 8px;
   }
   &__hours {
@@ -171,14 +171,15 @@
     gap: 8px;
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
       0px 2px 2px rgba(0, 0, 0, 0.12);
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 1000ms;
+    }
   }
-  &__items:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 1000ms;
-  }
-  .buttons--second {
+
+  &--second {
     background-color: $white-color;
     color: $primary-color;
     width: 161px;
@@ -209,7 +210,7 @@
     width: 232px;
     height: 42px;
   }
-  .footer-title--second {
+  &--second {
     font-size: 34px;
     line-height: 39px;
     letter-spacing: 0.04em;
@@ -265,13 +266,13 @@
     justify-content: center;
     align-items: center;
     fill: $white-color;
-  }
-  &__items:hover {
-    background-color: $primary-color;
-    transform: translateY(-10px);
-    cursor: pointer;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 500ms;
+    &:hover {
+      background-color: $primary-color;
+      transform: translateY(-10px);
+      cursor: pointer;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 500ms;
+    }
   }
 }
 .copyright-section {
@@ -293,26 +294,27 @@
     height: 42px;
     padding-left: 70px;
     padding-right: 70px;
-  }
-  &__text:hover {
-    color: $primary-color;
-    transform: scale(0.9);
-    cursor: pointer;
-    transition-duration: 500ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover {
+      color: $primary-color;
+      transform: scale(0.9);
+      cursor: pointer;
+      transition-duration: 500ms;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
   }
 }
 
 /*Modala*/
-.modal {
+.modal-footer-1 {
   background: rgba(0, 0, 0, 0.2);
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   z-index: 99;
   display: flex;
   justify-content: center;
   align-items: center;
+  top: 3040px;
 
   &__button {
     display: flex;
@@ -328,17 +330,17 @@
     position: relative;
     left: 275px;
     bottom: 73px;
-  }
-  &__button:hover {
-    background-color: $secondary-color;
-    cursor: pointer;
+    &:hover {
+      background-color: $secondary-color;
+      cursor: pointer;
+    }
   }
 
   &__svg {
     fill: $secondary-color;
-  }
-  &__svg:hover {
-    fill: $white-color;
+    &:hover {
+      fill: $white-color;
+    }
   }
 
   &__title {
@@ -350,7 +352,7 @@
     padding: 20px 20px 14px;
   }
 }
-.modal__inner {
+.modal-footer-1__inner {
   width: 300px;
   height: 500px;
   background: #ffffff;
@@ -381,18 +383,16 @@
     padding-left: 42px;
     outline: none;
     cursor: pointer;
+    &:focus {
+      border: 1px solid $secondary-color;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      color: $primary-color;
+    }
+    &:hover {
+      border: 1px solid $secondary-color;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
   }
-
-  &__input:focus {
-    border: 1px solid $secondary-color;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    color: $primary-color;
-  }
-  &__input:hover {
-    border: 1px solid $secondary-color;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
   &__items {
     display: flex;
     flex-direction: column;
@@ -414,15 +414,15 @@
     letter-spacing: 0.01em;
     outline: none;
     cursor: pointer;
-  }
-  &__text-area:focus {
-    border: 1px solid $secondary-color;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  &__text-area:hover {
-    border: 1px solid $secondary-color;
-    color: $primary-color;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    &:focus {
+      border: 1px solid $secondary-color;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    &:hover {
+      border: 1px solid $secondary-color;
+      color: $primary-color;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
   }
 }
 .button-footer {
@@ -445,30 +445,31 @@
   padding: 0;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-}
-.button-footer:hover {
-  background-color: $secondary-color;
-  color: $white-color;
-  transform: scale(1.25);
-  animation-duration: 3s;
-  border: none;
+  &:hover {
+    background-color: $secondary-color;
+    color: $white-color;
+    transform: scale(1.25);
+    animation-duration: 3s;
+    border: none;
+  }
 }
 
-.is-hidden {
-  visibility: hidden;
+.footer-is-hidden {
+  display: none;
   opacity: 0;
 }
 
 /*Modala-2*/
 .modal-2 {
   background: rgba(0, 0, 0, 0.2);
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   z-index: 99;
   display: flex;
   justify-content: center;
   align-items: center;
+  top: 3240px;
 
   &__inner {
     width: 300px;
@@ -539,10 +540,10 @@
     margin-bottom: 30px;
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
       0px 2px 2px rgba(0, 0, 0, 0.12);
-  }
-  &__button:hover {
-    transform: scale(1.2);
-    transition-duration: 1s;
+    &:hover {
+      transform: scale(1.2);
+      transition-duration: 1s;
+    }
   }
 
   &__btn-text {
@@ -603,10 +604,11 @@
     &__hours {
       font-size: $font-size-14;
     }
+    &--days2 {
+      padding-top: 12px;
+    }
   }
-  .time-schedule--days2 {
-    padding-top: 12px;
-  }
+
   .contacts-list {
     padding-top: 12px;
     font-size: $font-size-14;
@@ -624,7 +626,7 @@
       width: 191.45px;
       gap: 13.4px;
     }
-    .buttons--second {
+    &--second {
       width: 174.05px;
       gap: 13.17px;
     }
@@ -639,7 +641,7 @@
       height: 57px;
     }
 
-    .footer-title--second {
+    &--second {
       width: 340px;
       height: 110px;
       font-size: 48px;
@@ -674,7 +676,7 @@
       height: 26px;
     }
   }
-  .modal {
+  .modal-footer-1 {
     &__inner {
       width: 450px;
       height: 609px;
@@ -776,7 +778,7 @@
       width: 198px;
       gap: 13.62px;
     }
-    .buttons--second {
+    &--second {
       width: 168px;
       gap: 12.71px;
     }
@@ -793,7 +795,7 @@
       padding-bottom: 60px;
       padding-left: 16px;
     }
-    .footer-title--second {
+    &--second {
       width: 474px;
       height: 66px;
       font-size: $font-size-58;
@@ -815,7 +817,7 @@
   .copyright-section {
     padding-top: 7px;
   }
-  .modal {
+  .modal-footer-1 {
     &__button {
       left: 475px;
     }
