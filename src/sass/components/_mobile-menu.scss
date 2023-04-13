@@ -1,26 +1,32 @@
 .btn-nav--mod {
-  width: 186px;
-  height: 44px;
   display: flex;
   background: $whiteColor;
   border-radius: 22px;
+  padding: 10px 50px;
   border: none;
   font-weight: 700;
   font-size: 16px;
+  line-height: 21px;
+  display: flex;
   align-items: center;
-  text-align: center;
-  justify-content: center;
   color: $primaryColor;
+  justify-content: center;
+  gap: 20px;
+
   cursor: pointer;
   transition: background-color 250ms $main-transition-timing-function;
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: #ecebeb;
   }
 }
 
+.btn-nav__svg {
+  width: 8px;
+  height: 10px;
+}
+
 .menu-toggle {
-  min-height: 40px;
-  min-width: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,172 +35,80 @@
   border: none;
   outline: none;
 }
-.menu-container {
+
+.mobile-menu {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
+  right: 0;
+  width: 80%;
   height: 100vh;
   padding: 32px;
   z-index: 999;
   background: #e17992;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08),
     0px 1px 3px rgba(0, 0, 0, 0.16);
-  transform: translateX(100%);
-  transition: transform 250ms var(--main-transition-timing-function);
+  transform: translateX(200%);
+  transition: transform 250ms $main-transition-timing-function;
   display: flex;
   flex-direction: column;
+  padding-top: 60px;
 
   & .menu-toggle {
     position: absolute;
     top: 16px;
     right: 16px;
-    color: var(--white-color);
-  }
-}
-
-.menu-container.is-open {
-  transform: translateX(0);
-}
-
-.menu--mod {
-  font-size: 40px;
-  line-height: 47px;
-  color: #212121;
-
-  &:focus,
-  &:hover {
-    color: var(--blue-color);
-
-.menu-toggle {
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-
-    cursor: pointer;
-  }
-}
-
-.menu-media {
-  display: flex;
-  gap: 10px;
-}
-
-.media--mod {
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  letter-spacing: 0.02em;
-  color: var(--blue-color);
-}
-
-.line {
-  width: 22px;
-  height: 0px;
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  transform: rotate(90deg);
-}
-
-.menu-list {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  padding-bottom: 64px;
-  &--mod {
-    flex-grow: 1;
+    color: $whiteColor;
   }
 
-  &__phone {
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 34px;
-    line-height: 40px;
-    color: var(--blue-color);
-  }
-  &__mail {
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 28px;
-    color: var(--main-grey-color);
-  }
-}
-
-@media (min-width: 768px) {
-  .menu-toggle {
-    display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .menu {
-    display: none;
-  }
-}
-.mobile-menu {
   &__list {
     display: flex;
     flex-direction: column;
+    padding-top: 30px;
+  }
 
-    padding-top: 20px;
+  &__item {
+    border-bottom: 1px solid #e18298;
+
+    &:nth-child(1) {
+      border-top: 1px solid #e18298;
+    }
   }
 
   &__link {
-    padding-top: 11px;
-    padding-bottom: 11px;
     text-decoration: none;
     font-weight: 700;
     font-size: 14px;
     line-height: 18px;
-    display: flex;
-    align-items: center;
-    color: #ffffff;
+    color: $whiteColor;
+    display: block;
+    padding-left: 20px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+
+    transition: color 250ms $main-transition-timing-function;
+
+    &:hover,
     &:focus {
-      color: #d41443;
+      color: $primaryColor;
     }
   }
 }
-.mobile-menu__item::after {
-  content: '';
-  position: absolute;
-  display: block;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  border-radius: 1px;
-  background-color: #e1e1e1;
+
+.mobile-menu.is-open {
+  transform: translateX(0);
 }
 
-    gap: 32px;
-    padding-bottom: 64px;
-    &--mod {
-      flex-grow: 1;
-    }
-  
-    &__phone {
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 34px;
-      line-height: 40px;
-      color: var(--blue-color);
-    }
-    &__mail {
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 24px;
-      line-height: 28px;
-      color: var(--main-grey-color);
-    }
+@media (min-width: 768px) {
+  .menu {
+    display: none;
   }
-  
-   
-
-  
-  @media screen and (min-width: 1280px) {
-    .menu-toggle {
-      display: none;
-    }
+  .mobile-menu {
+    width: 50%;
   }
+}
 
+@media screen and (min-width: 1280px) {
+  .menu-toggle {
+    display: none;
+  }
+}
