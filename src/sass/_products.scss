@@ -1,0 +1,340 @@
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+button {
+  border: none;
+}
+a {
+  text-decoration: none;
+}
+p {
+  margin: 0;
+}
+
+.products-unstyled-list {
+  list-style: none;
+}
+
+.p-section {
+  height: 1053px;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.p-titles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 20px;
+
+  &__paragraph {
+    font-weight: $font-weight-400;
+    color: $secondary-color;
+    font-family: 'Titan One';
+    font-size: $font-size-30;
+    line-height: 34px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding-bottom: 18px;
+  }
+
+  &__heading {
+    font-family: 'Titan One';
+    font-weight: var(--font-weight-400);
+    font-size: $font-size-58;
+    line-height: 66px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $primary-color;
+    padding-bottom: 20px;
+  }
+}
+
+/** Products drinks grid **/
+.p-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: center;
+  margin-bottom: 60px;
+  height: 796px;
+}
+
+.products {
+  position: relative;
+  height: 796px;
+
+  &__img-container {
+    &::before {
+      content: '';
+      background-image: url('/src/images/products-imgs/home-pic1.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
+      width: 368px;
+      height: 394px;
+    }
+
+    &2::before {
+      content: '';
+      background-image: url('/src/images/products-imgs/home-pic2.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
+      width: 368px;
+      height: 394px;
+    }
+    &3::before {
+      content: '';
+      background-image: url('/src/images/products-imgs/home-pic3.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
+      width: 368px;
+      height: 394px;
+    }
+  }
+
+  &__wrapper1,
+  &__wrapper2,
+  &__wrapper3 {
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 368px;
+    height: 535px;
+    top: 264px;
+    z-index: -1;
+    padding-top: 154px;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      transition-duration: 0.5s;
+      transition-timing-function: ease-in-out;
+      transition-property: box-shadow;
+    }
+  }
+
+  &__wrapper1 {
+    background-color: $hero-background-color;
+  }
+
+  &__wrapper2 {
+    background-color: $brown-color;
+  }
+
+  &__wrapper3 {
+    background-color: $green-color;
+  }
+
+  &__subtitle {
+    font-family: 'Titan One';
+    font-weight: $font-weight-400;
+    font-size: $font-size-30;
+    line-height: 23px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $white-color;
+    margin-bottom: 32px;
+  }
+
+  &__svg {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  &__text {
+    width: 240px;
+    font-weight: var(--font-weight-700);
+    font-size: var(--font-size-14);
+    line-height: 176%;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: $white-color;
+    margin-bottom: 12px;
+  }
+
+  &__arrow {
+    background-color: $white-color;
+    border-radius: 50%;
+    align-self: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    &:hover {
+      background-color: $secondary-color;
+      transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+}
+
+/** Products-responsive **/
+
+// For tablets
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .p-section {
+    max-width: 768px;
+    height: 854px;
+  }
+  .p-titles__heading {
+    font-size: 48px;
+    line-height: 55px;
+    letter-spacing: 0.04em;
+  }
+  .p-titles__paragraph {
+    font-size: 26px;
+    line-height: 30px;
+  }
+  .p-grid {
+    margin-right: 32px;
+    gap: 16px;
+  }
+
+  .products {
+    padding-bottom: 20px;
+
+    &__img-container {
+      &::before {
+        content: '';
+        background-image: url('/src/images/products-imgs/home-pic1-tableta.png');
+        width: 224px;
+        height: 224px;
+      }
+
+      &2::before {
+        content: '';
+        background-image: url('/src/images/products-imgs/home-pic2-tableta.png');
+        width: 224px;
+        height: 224px;
+      }
+      &3::before {
+        content: '';
+        background-image: url('/src/images/products-imgs/home-pic3-tableta.png');
+        width: 224px;
+        height: 224px;
+      }
+    }
+
+    &__wrapper1,
+    &__wrapper2,
+    &__wrapper3 {
+      width: 224px;
+      height: 473px;
+      top: 135px;
+    }
+
+    &__subtitle {
+      margin-top: -32px;
+      font-size: $font-size-20;
+      line-height: 23px;
+      letter-spacing: 0.04em;
+    }
+
+    &__text {
+      width: 160px;
+      height: 150px;
+    }
+
+    &__arrow {
+      margin-top: 40px;
+    }
+  }
+}
+
+// For mobile devices
+@media only screen and (max-width: 767px) {
+  .p-section {
+    max-width: 320px;
+    margin: 0 auto;
+    height: 2087px;
+    // height: 2087px;
+  }
+  .p-titles {
+    margin-bottom: 50px;
+    &__heading {
+      font-size: 34px;
+      line-height: 39px;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+    &__paragraph {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+  .p-grid {
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    grid-row-gap: 355px;
+    height: 1398px;
+  }
+
+  .products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    &__img-container {
+      &::before {
+        content: '';
+        background-image: url('/src/images/products-imgs/home-pic1-mobil.png');
+        width: 280px;
+        height: 280px;
+      }
+
+      &2::before {
+        content: '';
+        background-image: url('/src/images/products-imgs/home-pic2-mobil.png');
+        width: 280px;
+        height: 280px;
+      }
+      &3::before {
+        content: '';
+        background-image: url('/src/images/products-imgs/home-pic3-mobil.png');
+        width: 280px;
+        height: 280px;
+      }
+    }
+
+    &__wrapper1,
+    &__wrapper2,
+    &__wrapper3 {
+      width: 280px;
+      height: 489px;
+      position: static;
+      position: absolute;
+      top: 145px;
+    }
+
+    &__subtitle {
+      font-size: $font-size-20;
+      line-height: 23px;
+      letter-spacing: 0.04em;
+    }
+
+    &__text {
+      font-size: $font-size-16;
+    }
+  }
+}
