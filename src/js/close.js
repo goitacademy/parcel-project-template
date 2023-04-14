@@ -10,7 +10,6 @@ mobileMenuLinks.forEach(link => {
     if (modal.classList.contains('is-open')) {
       // Close the modal window
       modal.classList.remove('is-open');
-      // Add any additional code to go to the link's destination page
     }
   });
 });
