@@ -1,131 +1,160 @@
+@import 'src/sass/utils/_vars.scss';
+
 .modal {
   background: rgba(0, 0, 0, 0.2);
   position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 99;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
   display: flex;
+
   justify-content: center;
-  align-content: center;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  &__inner-div {
+  align-items: center;
+  transition: opacity 2s $main-transition-timing-function,
+    transform 2s $main-transition-timing-function;
+
+  &__inner {
     position: absolute;
     width: 528px;
     height: 581px;
-    top: 0px;
     background: $whiteColor;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
       0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
   }
-  &__button {
-    position: relative;
-    left: 490px;
-    box-sizing: border-box;
+
+  &__btn {
+    background: $whiteColor;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    top: 12px;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    margin-top: 8px;
+    margin-right: 8px;
+    cursor: pointer;
     width: 30px;
     height: 30px;
-    background: $whiteColor;
-    border-radius: 50%;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
+
+    border: none;
+
+    & svg {
+      display: flex;
+    }
+
+    & svg:hover,
+    & svg:active,
+    & svg:focus {
+      fill: $primaryColor;
+      transition: fill 250ms $main-transition-timing-function;
+    }
   }
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-left: 40px;
-    padding-right: 40px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.16;
-    letter-spacing: 0.01em;
-    color: #757575;
-  }
+
   &__title {
     font-family: 'Titan One';
-    line-height: 1.14;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 34px;
     text-align: center;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: $secondaryColor;
-    font-size: 36px;
-    margin-bottom: 25px;
-    padding-left: 60px;
-    padding-right: 40px;
+
+    color: #ffa5ba;
+
     padding-top: 40px;
+    padding-bottom: 12px;
   }
-  &__title-last {
-    color: $primaryColor;
+  &__title-second {
+    font-family: 'Titan One';
+    font-size: 30px;
+    line-height: 66px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    color: #d41443;
   }
-}
-.button__icon {
-  fill: black;
-  position: absolute;
-  left: 22.22%;
-  right: 16.67%;
-  top: 16.67%;
-  bottom: 22.22%;
-}
-.is-hidden {
-  visibility: hidden;
-  opacity: 0;
 }
 
-.form-item {
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0, 1);
+}
+
+.form {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  position: relative;
-  &__input {
-    height: 40px;
-    border: 1px solid rgba(33, 33, 33, 0.2);
-    border-radius: 4px;
-    background: #fff5f6;
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    padding-left: 12px;
-  }
-  &__textarea {
-    height: 120px;
-    resize: none;
-    border: 1px solid rgba(33, 33, 33, 0.2);
-    border-radius: 4px;
-    font-family: 'Roboto';
-    font-style: normal;
-    padding: 12px 16px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.14;
+  align-items: center;
+  gap: 8px;
+
+  &__item {
+    font-size: 12px;
+    line-height: 14px;
     letter-spacing: 0.01em;
-    color: rgba(117, 117, 117, 0.5);
-    background: #fff5f6;
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color: $primaryColor;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    & svg {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+    }
+
+    & input,
+    & textarea {
+      border: 1px solid rgba(33, 33, 33, 0.2);
+      border-radius: 4px;
+      background: transparent;
+      width: 448px;
+
+      &:focus,
+      &:focus {
+        border-color: $primaryColor;
+        outline: none;
+        transition: border-color 250ms $main-transition-timing-function;
+        cursor: pointer;
+      }
+
+      &:focus + svg {
+        fill: $primaryColor;
+        transition: fill 250ms $main-transition-timing-function;
+        cursor: pointer;
+      }
+    }
+
+    & input {
+      margin-top: 4px;
+      height: 40px;
+      padding-left: 30px;
+    }
+
+    & textarea {
+      margin-top: 4px;
+      padding: 12px 16px;
+
+      &::placeholder {
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0.01em;
+        color: $secondaryColor;
+      }
+    }
+  }
+
+  & input[type='checkbox']:checked + .form__checkbox {
+    background-color: $primaryColor;
+    border-color: $primaryColor;
+  }
+
+  & input[type='checkbox'] {
+    display: none;
   }
 }
 
-.form__button {
-  width: 200px;
-  height: 50px;
-  background: $primaryColor;
-  border-radius: 22px;
-  padding: 10px 37px;
-  border: none;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 21px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  color: $whiteColor;
-  gap: 12px;
-  margin-left: 25%;
-  margin-top: 25px;
-  cursor: pointer;
-  transition: background-color 250ms $main-transition-timing-function;
-  &:hover {
-    background-color: #ecebeb;
-  }
+.btn-nav--modal {
+  background: $secondaryColor;
 }
