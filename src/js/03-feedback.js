@@ -1,9 +1,8 @@
 import throttle from 'lodash.throttle';
 
-
 const LOCAL_KEY = 'feedback-form-state';
 
-form = document.querySelector('.feedback-form');
+const form = document.querySelector('.feedback-form');
 
 form.addEventListener('input', throttle(onInputData, 500));
 form.addEventListener('submit', onFormSubmit);
@@ -32,7 +31,7 @@ function onFormSubmit(e) {
     return alert('Please fill in all the fields!');
   }
 
-//   localStorage.removeItem(LOCAL_KEY);
+  //   localStorage.removeItem(LOCAL_KEY);
   e.currentTarget.reset();
   dataForm = {};
 }
