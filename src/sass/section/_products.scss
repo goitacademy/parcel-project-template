@@ -1,7 +1,9 @@
+/* Stiluri pentru mobil*/
+
 .products {
   display: flex;
   gap: 20px;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
   margin: 0 28px;
   &__card-set {
@@ -11,14 +13,14 @@
     list-style-type: none;
     background: var(--products-card-bg-color);
     border-radius: 24px;
-    width: 368px;
+    width: 280px;
     padding-left: 32px;
     padding-right: 32px;
     padding-top: 165px;
     padding-bottom: 60px;
   }
   &__pic {
-    width: 368px;
+    width: 280px;
     background-color: transparent;
     position: relative;
     left: 0;
@@ -34,21 +36,42 @@
     color: var(--item-text-color);
     padding-bottom: 32px;
   }
-  &__item--modified::after {
-    content: '';
-    display: inline-block;
-    background: var(--item-modified-color);
-    height: 6px;
-    width: 6px;
-    border-radius: 50%;
-    vertical-align: middle;
-    margin: 32px 0;
-  }
 }
-
 .arrow {
   border-radius: 50%;
   background-color: transparent;
+}
+
+/* Stiluri pentru tableta*/
+
+@media screen and (min-width: $mobile-breakpoint) {
+  .products {
+    display: flex;
+    flex-direction: row;
+    &__card-set {
+      display: flex;
+      flex-direction: column;
+      width: 224px;
+    }
+    &__pic {
+      width: 224px;
+    }
+  }
+}
+
+@media screen and (min-width: $tablet-breakpoint) {
+  .products {
+    display: flex;
+    flex-direction: row;
+    &__card-set {
+      display: flex;
+      flex-direction: column;
+      width: 368px;
+    }
+    &__pic {
+      width: 368px;
+    }
+  }
 }
 
 /*Modal*/
