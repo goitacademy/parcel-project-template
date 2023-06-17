@@ -1,8 +1,7 @@
 .products {
-  width: 1200px;
+  margin: 0 auto;
 }
 .products-container {
-  display: flex;
   width: 1200px;
   padding: 60px 16px;
 }
@@ -33,6 +32,7 @@
 }
 .products__grid {
   display: flex;
+  flex-direction: row;
   gap: 32px;
 }
 
@@ -125,8 +125,9 @@
 .is-hidden {
   visibility: hidden;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1199px) {
   .products-container {
+    padding: 60px 32px;
     width: 768px;
   }
   .products__subheading {
@@ -151,11 +152,10 @@
     line-height: 176%;
   }
 }
-@media screen and (min-width: 320px) {
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .products-container {
-    width: 320px;
-    display: flex;
-    flex-direction: column;
+    padding: 60px 20px;
   }
   .products__subheading {
     font-size: 18px;
@@ -167,8 +167,14 @@
     line-height: 39px;
     margin-bottom: 8px;
   }
+  .products__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
   .ice-coffee-img {
-    margin-top: -200px;
+    margin-top: -250px;
   }
   .products__title {
     margin-top: 20px;
