@@ -12,7 +12,6 @@
     refs.modal.classList.toggle('is-hidden');
   }
 })();
-
 (() => {
   const refs = {
     openModalBtn: document.querySelector('[data-modal-open-pic2]'),
@@ -27,7 +26,6 @@
     refs.modal.classList.toggle('is-hidden');
   }
 })();
-
 (() => {
   const refs = {
     openModalBtn: document.querySelector('[data-modal-open-pic3]'),
