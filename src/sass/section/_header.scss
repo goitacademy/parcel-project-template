@@ -3,6 +3,7 @@
   --text-font-family: 'DM Sans', sans-serif;
   --text-title-hero: 'Titan One', cursive;
   --text-color-light: #ffff;
+  --transition-effect: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .body {
   font-family: var(--text-font-family);
@@ -58,10 +59,12 @@ h1 {
   &:hover,
   &:focus {
     color: #d41443;
+    transition: color var(--transition-effect);
   }
 }
 .header__link--active {
   color: #d41443;
+  transition: color var(--transition-effect);
 }
 .header__list {
   display: flex;
@@ -84,6 +87,8 @@ h1 {
   &:focus {
     background: #ffffff;
     color: #d41443;
+    transition: color var(--transition-effect),
+      background var(--transition-effect);
   }
 }
 /*hero*/
@@ -155,6 +160,7 @@ h1 {
   &:focus {
     background: #ffffff;
     color: #d41443;
+    transition: color var(--transition-effect);
   }
 }
 .hero__button--about {
@@ -179,6 +185,8 @@ h1 {
   &:focus {
     background: #ffffff;
     color: #d41443;
+    transition: color var(--transition-effect),
+      background var(--transition-effect);
   }
 }
 .hero__indulge-section {
@@ -255,7 +263,6 @@ h1 {
   background: #fff;
   width: 50%;
   margin: 0 auto;
-  height: 100%vh;
   position: absolute;
   z-index: 11;
   top: 100px;
@@ -263,7 +270,7 @@ h1 {
 .close-btn {
   background: #ffff;
   border: 1px solid #d41443;
-  color: #ffff;
+  color: #d41443;
   cursor: pointer;
   outline: none;
   position: absolute;
@@ -274,11 +281,11 @@ h1 {
 .close-btn:hover,
 .close-btn:focus {
   background: #d41443;
+  color: #fff;
 }
 
 /*Formular*/
 .form--modal {
-  padding: 11px 40px 40px 40px;
   margin-top: 0em;
 }
 .form__title {
@@ -287,17 +294,7 @@ h1 {
   font-size: 20px;
   line-height: 1.15;
   letter-spacing: 0.03em;
-  color: #212121;
-  margin-bottom: 26px;
-  text-align: center;
-}
-.form__title {
-  width: 100%;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.15;
-  letter-spacing: 0.03em;
-  color: #212121;
+  color: #d41342;
   margin-bottom: 26px;
   text-align: center;
 }
@@ -316,7 +313,9 @@ h1 {
 }
 .form__group-options {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
 
   & > *:nth-child(1) {
     font-family: 'DM Sans';
@@ -326,6 +325,19 @@ h1 {
     letter-spacing: 0.01em;
     color: #757575;
   }
+}
+.form__group-option {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form__label {
+  font-family: 'DM Sans';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: #757575;
 }
 
 .form__input {
@@ -342,20 +354,47 @@ h1 {
     border-color: #d41443;
     fill: #d41443;
     outline: none;
+    transition: border-color var(--transition-effect),
+      fill var(--transition-effect), outline var(--transition-effect);
   }
   &:focus ~ .form__icon,
   &:hover ~ .form__icon {
     fill: #d41443;
     border-color: #d41443;
+    transition: border-color var(--transition-effect),
+      border-color var(--transition-effect);
   }
 }
-.form__input--quantity {
-  width: 100px;
+.form__input--date {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  color: #757575;
 }
+.form__placeholder {
+  color: #757575;
+
+  &:focus,
+  &:hover {
+    border-color: #d41443;
+    transition: border-color var(--transition-effect);
+  }
+}
+.form__input--checkmark {
+  &:focus,
+  &:checked:focus {
+    outline: 1px solid #d41443;
+    cursor: pointer;
+  }
+}
+
 .form-controls {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .form__icon {
   position: absolute;
@@ -386,10 +425,13 @@ h1 {
 
   &:hover,
   &:focus {
-    background: #188ce8;
+    background: #d41443;
+    color: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     cursor: pointer;
-    transition: background var(--transition);
+    transition: background var(--transition-effect),
+      color var(--transition-effect), cursor var(--transition-effect),
+      box-shadow var(--transition-effect);
   }
 }
 
@@ -417,8 +459,6 @@ h1 {
   top: 27px;
   border: none;
   cursor: pointer;
-  left: 280px;
-  top: 27px;
 }
 .menu-close {
   background: transparent;
@@ -432,6 +472,7 @@ h1 {
   :focus {
     stroke: #d41443;
     fill: #d41443;
+    transition: stroke var(--transition-effect), fill var(--transition-effect);
   }
 }
 .button--mobile {
@@ -456,6 +497,8 @@ h1 {
   &:focus {
     background: #ffffff;
     color: #d41443;
+    transition: color var(--transition-effect),
+      background var(--transition-effect);
   }
 }
 .mobile-menu__list {
@@ -481,6 +524,7 @@ h1 {
   &:hover,
   &:focus {
     color: #d41443;
+    transition: color var(--transition-effect);
   }
 }
 .header__btn--tablet {
@@ -533,6 +577,7 @@ h1 {
     :focus {
       stroke: #d41443;
       fill: #d41443;
+      transition: stroke var(--transition-effect), fill var(--transition-effect);
     }
   }
 
@@ -551,6 +596,8 @@ h1 {
     &:focus {
       background: #ffffff;
       color: #d41443;
+      transition: color var(--transition-effect),
+        background var(--transition-effect);
     }
   }
   .hero__title {
@@ -637,7 +684,7 @@ h1 {
   .hero__icon-arrow {
     width: 18px;
     height: 18px;
-    fill: #d41443;
+    border-radius: 50%;
   }
 
   .header__btn--tablet {
@@ -836,5 +883,9 @@ h1 {
   }
   .header__btn--tablet {
     display: none;
+  }
+  .form__group-option {
+    flex-direction: row;
+    gap: 50px;
   }
 }
