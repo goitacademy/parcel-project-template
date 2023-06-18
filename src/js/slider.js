@@ -1,10 +1,10 @@
 // import Swiper JS
-import Swiper from 'swiper';
+// import Swiper from 'swiper';
 // import Swiper styles
-import 'swiper/swiper-bundle.css';
+// import 'swiper/swiper-bundle.css';
 
 // core version + navigation, pagination modules:
-import SwiperCore, { Navigation, Pagination } from 'swiper/core';
+// import SwiperCore, { Navigation, Pagination } from 'swiper/core';
 
 // configure Swiper to use modules
 SwiperCore.use([Navigation, Pagination]);
