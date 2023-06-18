@@ -1,12 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .products {
+  background: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  max-width: 2000px;
   margin: 0 auto;
 }
 .products-container {
-  width: 1200px;
+  margin: 0 auto;
+  width: 100%;
   padding: 60px 16px;
 }
 .products__subheading {
-  text-align: center;
+  margin-bottom: 16px;
   font-family: 'Titan One';
   font-style: normal;
   font-weight: 400;
@@ -18,14 +27,13 @@
   color: #ffa5ba;
 }
 .products__heading {
-  padding-bottom: 280px;
+  padding-bottom: 281px;
   text-align: center;
   font-family: 'Titan One';
   font-style: normal;
   font-weight: 400;
   font-size: 58px;
   line-height: 66px;
-  text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #d41443;
@@ -37,18 +45,32 @@
 }
 
 .products__item {
+  position: relative;
+  flex-basis: 100%;
+
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+
+  border-radius: 24px;
+
+  text-align: center;
+  position: relative;
+  transition: 0.5s;
   list-style-type: none;
   background: #ffb8ca;
   border-radius: 24px;
 }
 .ice-cream-img {
+  width: 100%;
   justify-content: center;
   display: flex;
   margin-top: -250px;
 }
 .ice-cream-img::before {
-  content: url(./images/home-pic1_360.png);
-  display: flex;
+  content: url(../images/home-pic1_360.png);
+  width: 100%;
+  display: block;
 }
 .ice-coffee--background {
   background-color: #f0d1a5;
@@ -59,8 +81,9 @@
   margin-top: -250px;
 }
 .ice-coffee-img::before {
-  content: url(./images/home-pic2_360.png);
-  display: flex;
+  content: url(../images/home-pic2_360.png);
+  width: 100%;
+  display: block;
 }
 .milkshake--background {
   background-color: #c2e297;
@@ -71,8 +94,9 @@
   margin-top: -250px;
 }
 .milkshake-img::before {
-  content: url(./images/home-pic3_360.png);
-  display: flex;
+  content: url(../images/home-pic3_360.png);
+  width: 100%;
+  display: block;
 }
 .is-hidden {
   visibility: hidden;
@@ -116,19 +140,23 @@
   border: 0;
   background-color: #ffb8ca;
 }
+.products__button::after {
+  content: url(../images/arrow-right_4_360.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .products--color-orange {
   background-color: #f0d1a5;
 }
 .products--color-green {
   background-color: #c2e297;
 }
-.is-hidden {
-  visibility: hidden;
-}
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
   .products-container {
     padding: 60px 32px;
     width: 768px;
+    margin: 0% auto;
   }
   .products__subheading {
     font-size: 26px;
@@ -140,8 +168,15 @@
     line-height: 55px;
     margin-bottom: 20px;
   }
+  .ice-cream-img::before {
+    .ice-cream-img::before {
+      content: url(../images/home-pic1_360.png);
+      width: 100%;
+      display: block;
+    }
+  }
   .products__grid {
-    gap: 16px;
+    width: 240px;
   }
   .products__title {
     font-size: 20px;
@@ -153,8 +188,9 @@
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media only screen and (min-width: 320px) and (max-width: 767px) {
   .products-container {
+    width: 320px;
     padding: 60px 20px;
   }
   .products__subheading {
