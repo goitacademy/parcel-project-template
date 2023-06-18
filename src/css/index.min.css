@@ -19,10 +19,10 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 480px;
   margin: 0 auto;
-  padding-top: 61px;
-  padding-bottom: 62px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   background-color: var(--container-bg-color);
 }
 .container__label {
@@ -35,6 +35,16 @@
   padding-top: 61px;
 }
 
+@media screen and (min-width: 480px) {
+  .container {
+    max-width: 768px; /* Maximul pentru tableta */
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 1280px; /* Maximul pentru desktop */
+  }
+}
 body {
   font-family: var(--products-text-font-family);
   font-style: normal;
@@ -63,10 +73,11 @@ h2 {
   color: var(--h2-products-color);
 }
 
+/* Stiluri pentru mobil*/
 .products {
   display: flex;
   gap: 20px;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
   margin: 0 28px;
 }
@@ -77,17 +88,17 @@ h2 {
   list-style-type: none;
   background: var(--products-card-bg-color);
   border-radius: 24px;
-  width: 368px;
+  width: 280px;
   padding-left: 32px;
   padding-right: 32px;
   padding-top: 165px;
   padding-bottom: 60px;
 }
 .products__pic {
-  width: 368px;
+  width: 280px;
   background-color: transparent;
   position: relative;
-  left: 0;
+  left: 30px;
   top: 120px;
 }
 .products__item-text {
@@ -100,8 +111,7 @@ h2 {
   color: var(--item-text-color);
   padding-bottom: 32px;
 }
-.products__item--modified::after {
-  content: "";
+.products__item-points {
   display: inline-block;
   background: var(--item-modified-color);
   height: 6px;
@@ -116,6 +126,35 @@ h2 {
   background-color: transparent;
 }
 
+/* Stiluri pentru tableta*/
+@media screen and (min-width: 480px) {
+  .products {
+    display: flex;
+    flex-direction: row;
+  }
+  .products__card-set {
+    display: flex;
+    flex-direction: column;
+    width: 224px;
+  }
+  .products__pic {
+    width: 224px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .products {
+    display: flex;
+    flex-direction: row;
+  }
+  .products__card-set {
+    display: flex;
+    flex-direction: column;
+    width: 368px;
+  }
+  .products__pic {
+    width: 368px;
+  }
+}
 /*Modal*/
 .modal {
   position: fixed;
