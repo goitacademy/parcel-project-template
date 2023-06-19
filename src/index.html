@@ -4,20 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modals</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="stylesheet" href="./css/main.min.css" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
     <header class="global-header">
-      <div class="container">
-        <div class="continut-header">Aceasta este partea de Header</div>
+      <div class="container container--header">
+        <div>Aceasta este partea de Header</div>
       </div>
     </header>
     <main class="global-main">
       <div class="container">
-        <section class="sectiunea-1">
+        <section>
           Aici este vorba de o sectiune din body
         </section>
 
@@ -26,7 +24,7 @@
         <button data-modal-open="3">Open Modal 3</button>
       </div>
     </main>
-    <footer class="nu-vrea">
+    <footer class="global-footer">
       <div class="container">
         <section class="continut-footer">Aceasta este partea de footer</section>
       </div>
@@ -36,22 +34,22 @@
 
     <div data-modal="1" class="backdrop is-hidden">
       <div class="modal">
-        <button data-modal-close="1" class="close-btn">
-          <svg>
+        <button data-modal-close="1" class="modal__close-btn">
+          <svg class="icon">
             <use href="./images/icons.svg#close-black"></use>
           </svg>
         </button>
-        <div>
-          <p class="form-heading">Place Your Order</p>
-          <p class="form-sub-heading">Select Products</p>
+        <div class="modal__heading">
+          <p class="modal--heading">Place Your Order</p>
+          <p class="modal--sub-heading">Select Products</p>
         </div>
-        <div class="select-products">
-          <ul class="products">
-            <li class="products-item">
+        <div class="modal__products">
+          <ul class="modal__products-list">
+            <li class="modal__products-list__items">
               <img src="./images/ice-cream.png" alt="Icecream" />
-              <label class="select-qty">
+              <label class="modal__products-list__items--qty">
                 <input
-                  class="input"
+                  class="modal__products-list__items--qty--input"
                   id="qty"
                   name="qty"
                   type="number"
@@ -59,11 +57,11 @@
                 />
               </label>
             </li>
-            <li class="products-item">
+            <li class="modal__products-list__items">
               <img src="./images/ice-coffe.png" alt="Coffe" />
-              <label class="select-qty">
+              <label class="modal__products-list__items--qty">
                 <input
-                  class="input"
+                  class="modal__products-list__items--qty--input"
                   id="qty"
                   name="qty"
                   type="number"
@@ -71,11 +69,11 @@
                 />
               </label>
             </li>
-            <li class="products-item">
+            <li class="modal__products-list__items">
               <img src="./images/milkshakes.png" alt="Milkshakes" />
-              <label class="select-qty">
+              <label class="modal__products-list__items--qty">
                 <input
-                  class="input"
+                  class="modal__products-list__items--qty--input"
                   id="qty"
                   name="qty"
                   type="number"
@@ -87,43 +85,42 @@
         </div>
 
         <!--Forms-->
-
-        <form class="form">
-          <div class="form-sub-heading">Delivery Adress</div>
-          <label class="form-group">
-            <span>Name</span>
-            <input class="input" id="name" name="name" type="text" />
-            <svg class="form-svg">
+        <form class="modal__forms">
+          <div class="modal--sub-heading">Delivery Adress</div>
+          <label class="modal__forms--form-group">
+            <span class="modal__forms--form-group__selctor">Name</span>
+            <input class="modal__forms--form-group__input" id="name" name="name" type="text" />
+            <svg class="icon--adress">
               <use href="./images/icons.svg#person"></use>
             </svg>
           </label>
 
-          <label class="form-group">
-            <span>Telephone</span>
-            <input class="input" id="phone" name="phone" type="tel" />
-            <svg class="form-svg">
+          <label class="modal__forms--form-group">
+            <span class="modal__forms--form-group__selctor">Telephone</span>
+            <input class="modal__forms--form-group__input" id="phone" name="phone" type="tel" />
+            <svg class="icon--adress">
               <use href="./images/icons.svg#phone"></use>
             </svg>
           </label>
 
-          <label class="form-group">
-            <span>E-mail</span>
-            <input class="input" id="mail" name="mail" type="email" />
-            <svg class="form-svg">
+          <label class="modal__forms--form-group">
+            <span class="modal__forms--form-group__selctor">E-mail</span>
+            <input class="modal__forms--form-group__input" id="mail" name="mail" type="email" />
+            <svg class="icon--adress">
               <use href="./images/icons.svg#mail-envelope"></use>
             </svg>
           </label>
 
-          <label class="form-group">
-            <span>Delivery Adress</span>
-            <input class="input" id="mail" name="mail" type="email" />
-            <svg class="form-svg">
+          <label class="modal__forms--form-group">
+            <span class="modal__forms--form-group__selctor">Delivery Adress</span>
+            <input class="modal__forms--form-group__input" id="mail" name="mail" type="email" />
+            <svg class="icon--adress">
               <use href="./images/icons.svg#home"></use>
             </svg>
           </label>
 
-          <div class="form-controls">
-            <button type="submit" class="btn-submit">Place Order</button>
+          <div class="modal__form-controls">
+            <button type="submit" class="modal__form-controls--btn-submit-1">Place Order</button>
           </div>
         </form>
       </div>
@@ -132,33 +129,33 @@
     <!--Modal 2-->
 
     <div data-modal="2" class="backdrop is-hidden">
-      <div class="modal2">
-        <button data-modal-close="2" class="close-btn2">
-          <svg>
+      <div class="modal-2">
+        <button data-modal-close="2" class="modal-2-3__close-btn">
+          <svg class="icon">
             <use href="./images/icons.svg#close-black"></use>
           </svg>
         </button>
 
         <!--Forms-->
 
-        <form class="form">
-          <div class="form-heading2">You can find us here...</div>
-          <div class="google-map">
-            <iframe
+        <form class="modal__forms">
+          <div class="modal__form-heading-2-3">You can find us here...</div>
+          <div class="modal__forms__google-map">
+            <iframe class="modal__forms__google-map--position"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44362.9183831503!2d26.028606646471747!3d44.44468562041407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1f8a7a474a76b%3A0x73ae1ee6c9d7301f!2sDelicii%20Gelato!5e0!3m2!1sen!2sro!4v1686854559333!5m2!1sen!2sro"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-          <div class="location">
+          <div class="modal__forms--location">
             Strada Constantin D. Aricescu 65, București 014192
           </div>
 
-          <div class="form-controls">
+          <div class="modal__form-controls">
             <button
               onclick="window.location.href='https://goo.gl/maps/L5PfrozZqUgs9ydo6';"
               type="submit"
-              class="btn-submit2"
+              class="modal__form-controls--btn-submit"
             >
               Open in Google Map
             </button>
@@ -170,59 +167,59 @@
     <!--Modal 3-->
 
     <div data-modal="3" class="backdrop is-hidden">
-      <div class="modal3">
-        <button data-modal-close="3" class="close-btn2">
-          <svg>
+      <div class="modal-3">
+        <button data-modal-close="3" class="modal-2-3__close-btn">
+          <svg class="icon">
             <use href="./images/icons.svg#close-black"></use>
           </svg>
         </button>
 
         <!--Forms-->
 
-        <form class="form">
-          <div class="form-heading2">
+        <form class="modal__forms">
+          <div class="modal__form-heading-2-3">
             Leave your details and we'll call you back
           </div>
-          <label class="form-group3">
-            <span>Name</span>
-            <input class="input" id="name" name="name" type="text" />
-            <svg class="form-svg">
+          <label class="modal__forms__form-group-3">
+            <span class="modal__forms__form-group-3--selctor">Name</span>
+            <input class="modal__forms__form-group-3--input" id="name" name="name" type="text" />
+            <svg class="icon--adress">
               <use href="./images/icons.svg#person"></use>
             </svg>
           </label>
 
-          <label class="form-group3">
-            <span>Telephone</span>
-            <input class="input" id="phone" name="phone" type="tel" />
-            <svg class="form-svg">
+          <label class="modal__forms__form-group-3">
+            <span class="modal__forms__form-group-3--selctor">Telephone</span>
+            <input class="modal__forms__form-group-3--input" id="phone" name="phone" type="tel" />
+            <svg class="icon--adress">
               <use href="./images/icons.svg#phone"></use>
             </svg>
           </label>
 
-          <label class="form-group3">
-            <span>E-mail</span>
-            <input class="input" id="mail" name="mail" type="email" />
-            <svg class="form-svg">
+          <label class="modal__forms__form-group-3">
+            <span class="modal__forms__form-group-3--selctor">E-mail</span>
+            <input class="modal__forms__form-group-3--input" id="mail" name="mail" type="email" />
+            <svg class="icon--adress">
               <use href="./images/icons.svg#mail-envelope"></use>
             </svg>
           </label>
 
-          <label class="form-textarea">
-            <span>Comments</span>
+          <label class="modal__form-textarea">
+            <span class="modal__form-textarea--selector">Comments</span>
             <textarea
               name="comments"
-              class="textarea"
+              class="modal__form-textarea--input"
               placeholder="Enter the text...."
             ></textarea>
           </label>
 
-          <div class="form-controls">
-            <button class="btn-submit2">Send</button>
+          <div class="modal__form-controls">
+            <button class="modal__form-controls--btn-submit">Send</button>
           </div>
         </form>
       </div>
     </div>
 
-    <script src="./index.js"></script>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
