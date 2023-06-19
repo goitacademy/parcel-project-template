@@ -11,3 +11,4 @@
     aboutModalRef.classList.toggle('is-hidden');
   });
 })();
+
