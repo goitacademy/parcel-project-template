@@ -1,24 +1,19 @@
 <section class="about" id="about">
-  <div class="container">
+  <div class="about__container">
     <p class="about__lable">Tradition and love</p>
     <h2 class="about__title">how it’s made?</h2>
     <div class="about__main">
       <div class="about__main-image">
         <picture>
-          <source
+          <source 
+            media="(max-width:767px)"
             srcset="
               images/mobile/bg-cow-m.png    1x,
               images/mobile/bg-cow-m@2x.png 2x
             "
           />
 
-          <img
-            class="about__image"
-            src="./images/mobile/bg-cow-m.png"
-            alt="cow"
-          />
-
-          <source
+          <source 
             media="(min-width:768px)"
             srcset="
               images/tablet/bg-cow-t.png    1x,
@@ -26,12 +21,17 @@
             "
           />
 
-          <source
+          <source 
             media="(min-width:1280px)"
             srcset="
               images/desktop/bg-cow-d.png    1x,
               images/desktop/bg-cow-d@2x.png 2x
             "
+          />
+          <img
+            class="about__image"
+            src="./images/mobile/bg-cow-m.png"
+            alt="cow"
           />
         </picture>
       </div>
@@ -48,17 +48,18 @@
           of coffee and 23 milkshakes.
         </p>
 
-        <button data-modal-open class="about__button" type="button">
+        <button class="button--modal" type="button" data-about-modal-open>
           Read more >
         </button>
       </div>
     </div>
   </div>
+  
 </section>
 <!--MODAL about-->
-<div class="modal is-hidden" data-modal>
+<div class="modal--about is-hidden" data-about-modal>
   <div class="modal__content">
-    <button class="modal__close-btn" data-modal-close>&times;</button>
+    <button type="button" class="button button--close" data-about-modal-close>&times;</button>
     <form class="modal__form">
       <h4 class="modal__form-title">IceCream Made</h4>
 
@@ -76,10 +77,12 @@
         machine without being allowed to harden
       </p>
     </form>
+    </div>
   </div>
 </div>
-
 <script src="./js/modal.js" type="text/javascript"></script>
 <script>
-  feather.replace();
+  if (feather) {
+    feather.replace();
+  }
 </script>
