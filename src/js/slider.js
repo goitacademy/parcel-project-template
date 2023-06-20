@@ -1,12 +1,14 @@
-// https://swiperjs.com/get-started
+//  // Version 1
+// let swiper = new Swiper(".swiper-container", {
+//     navigation: {
+//       nextEl: ".swiper-button-next",
+//       prevEl: ".swiper-button-prev",
+//     },
+//   });
 
-import Swiper from 'swiper';
-import 'swiper/swiper-bundle.css';
-import SwiperCore, { Navigation, Pagination } from 'swiper/core';
 
 
-SwiperCore.use([Navigation, Pagination]);
-
+// Version 2
 var swiper = new Swiper('.swiper-container', {
   spaceBetween: 30,
   effect: 'fade',
