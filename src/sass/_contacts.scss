@@ -1,57 +1,31 @@
-// General styles
+@import "./utils/defaultStyles";
+@import "./utils/container";
+@import "./utils/section";
+@import "./utils/var";
 
-$mobile-breakpoint: 480px;
-$tablet-breakpoint: 768px;
-$desktop-breakpoint: 1200px;
-
-.container {
-  width: 100%;
-  padding: 0 20px;
-}
-
-@media screen and (min-width: $tablet-breakpoint) {
-  .container {
-    padding: 0 16px;
-  }
-}
-
-@media screen and (min-width: $desktop-breakpoint) {
-  .container {
-    margin: 0 auto;
-    width: 1200px;
-  }
-}
-
-.section__subheading,
-.section__heading,
-.products__title {
-  font-family: 'Titan One';
-  letter-spacing: 0.04em;
-  line-height: 1.145;
-  text-align: center;
-  text-transform: capitalize;
-}
-
-.section {
-  &__subheading {
-    color: #ffa5ba;
-    font-size: 18px;
-  }
-
-  &__heading {
-    color: #d41443;
-    font-size: 34px;
-    letter-spacing: 4%;
-    margin-top: 18px;
-  }
-}
+@import "./modalContacts";
 
 // CONTACTS SECTION
 
 .section--contacts {
-  padding: 40px 0;
+  padding: 30px 0;
   background-image: linear-gradient(#ffffff 0 20%, #fff5f6 20% 100%);
 }
+
+@media screen and (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+  .section--contacts {
+    padding: 40px 0;
+    background-image: linear-gradient(#ffffff 0 45%, #fff5f6 20% 100%);
+  }
+}
+
+@media screen and (min-width: $desktop-breakpoint) {
+  .section--contacts {
+    padding: 60px 0;
+    background-image: linear-gradient(#ffffff 0 20%, #fff5f6 20% 100%);
+  }
+}
+
 .section__header--contacts {
   display: none;
 }
@@ -74,7 +48,7 @@ $desktop-breakpoint: 1200px;
   background-color: #ffffff;
   border-radius: 24px;
   box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 12px;
   font-weight: 500;
   padding: 40px 32px;
@@ -113,6 +87,7 @@ $desktop-breakpoint: 1200px;
 
 @media screen and (min-width: $tablet-breakpoint) {
   .locations__type {
+    font-size: 16px;
     height: 28px;
     line-height: 28px;
   }
@@ -137,27 +112,67 @@ $desktop-breakpoint: 1200px;
   line-height: 1.86;
 }
 
-.locations__city,
-.locations-phone {
-  margin-top: 32px;
+.locations__city {
+  margin-top: 20px;
 }
+
+@media screen and (min-width: $tablet-breakpoint) {
+  .locations__city {
+    margin-top: 32px;
+  }
+}
+
 .locations__description {
-  letter-spacing: 0.04em;
   margin-top: 8px;
 }
+
+@media screen and (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+  .locations__description {
+    margin-top: 12px;
+  }
+}
+
 .locations__weekend-opening-hours {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .spacer {
   border-top: 1px solid #e1e1e1;
-  margin: 32px 0 31px;
+  margin: 24px 0 23px;
+}
+
+@media screen and (min-width: $tablet-breakpoint) {
+  .locations__weekend-opening-hours {
+    margin-top: 12px;
+  }
+  .spacer {
+    margin: 32px 0 31px;
+  }
 }
 
 .button-list {
   gap: 14.5px;
-  margin-top: 60px;
+  margin-top: 32px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: $tablet-breakpoint) {
+  .button-list {
+    flex-direction: row;
+    gap: 14.5px;
+    margin-top: 60px;
+  }
+}
+
+@media screen and (min-width: $desktop-breakpoint) {
+  .button-list {
+    gap: 12px;
+  }
 }
 
 .button-our-locations,
@@ -165,13 +180,13 @@ $desktop-breakpoint: 1200px;
   border-radius: 26px;
   border: none;
   cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 1.3;
-  width: 174.05px;
   height: 44px;
   text-align: center;
+  width: 174.05px;
 }
 
 .button-our-locations {
@@ -182,4 +197,5 @@ $desktop-breakpoint: 1200px;
 .button-franchise {
   background-color: #ffffff;
   color: #d41443;
+  // margin-left: 12px;
 }
