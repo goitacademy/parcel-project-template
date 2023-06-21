@@ -128,7 +128,7 @@
 .hero__img-center {
   position: absolute;
   top: 94px;
-  right: 32px;
+  right: 60px;
 
   animation-name: appearance;
   animation-duration: 4s;
@@ -143,13 +143,13 @@
 @media screen and (min-width: 768px) {
   .hero__img-center {
     top: 82px;
-    right: 247px;
+    right: 300px;
   }
 }
 @media screen and (min-width: 1280px) {
   .hero__img-center {
     top: 108px;
-    right: 450px;
+    right: 650px;
   }
 }
 .hero__ellipse {
@@ -242,8 +242,8 @@
 
   &:hover,
   &:focus {
-    background-color: #ecebeb;
     background-color: var(--accent-color);
+    fill: #fff;
   }
 }
 .hero__btn:hover .hero__btn-icon,
@@ -378,17 +378,20 @@
   background-color: rgba(0, 0, 0, 0.06);
   transition: all 250ms linear;
   z-index: 300;
-
+  
   & .modal {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 310px;
+    width: 450px;
     height: 570px;
+    overflow-x: hidden;
+    overflow-y: scroll;
     border-radius: 4px;
-    background-color: #c59191;
-    padding: 40px;
+    border:solid 2px #d41443;
+    background-color: #FFF5F6;
+    padding: 80px;
   }
 
   & .modal__close-btn {
@@ -398,19 +401,20 @@
     position: absolute;
     top: 8px;
     right: 8px;
-    width: 30px;
-    height: 30px;
-    // background: var(--main-background-color);
+    width: 27px;
+    height: 27px;
+    background: transparent;
     border: 1px solid rgba(238, 9, 9, 0.761);
     border-radius: 50%;
     cursor: pointer;
+    
+    fill: var(--accent-color);
   }
-
-  & .modal__icon-close-btn {
-    width: 18px;
-    height: 18px;
-    fill: #d41443;
-  }
+   
+  .modal__close-btn:hover {
+    border: 1px solid #d41443;
+    background-color: #d41443;
+    fill: #fff;}
 
   &.is-hidden {
     opacity: 0;
@@ -421,8 +425,8 @@
   & .modal-form {
     display: flex;
     flex-direction: column;
-    padding: 0px;
-    margin: 0px;
+    // padding: 0px;
+    // margin: 0px;
   }
 
   & .modal-form__title {
@@ -439,7 +443,7 @@
   & .modal-form__lable-name {
     font-family: var(--primary-font);
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 14px;
     line-height: 1.16;
     letter-spacing: 0.01em;
@@ -470,7 +474,6 @@
   & .modal-form__message {
     width: 100%;
     height: 120px;
-    // border: 1px solid #dd230f;
     border-radius: 4px;
     padding: 12px 16px;
     resize: none;
@@ -507,7 +510,9 @@
     letter-spacing: 0.03em;
     color: #dd230f;
     margin-top: 5px;
+    margin-bottom: 10px;
   }
+  
   & .modal-form__contract-description {
     font-family: var(--primary-font);
     font-style: normal;
@@ -520,22 +525,4 @@
     color: var(--accent-text-color);
   }
 
-  & .modal-form__btn-submit {
-    width: 200px;
-    height: 28px;
-    background: #5c0c03;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    border: none;
-    font-family: var(--primary-font);
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 1.2;
-    letter-spacing: 0.06em;
-    color: #d41443;
-    cursor: pointer;
-    align-self: center;
-    margin-top: 10px;
-  }
 }
