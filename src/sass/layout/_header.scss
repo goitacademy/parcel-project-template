@@ -1,0 +1,382 @@
+.header {
+  background-color: #ffb8ca;
+  position: absolute;
+  width: 100%;
+}
+.header__container {
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+  z-index: 2;
+}
+@media screen and (min-width: 768px) {
+  .header__container {
+    padding-top: 37px;
+    padding-bottom: 37px;
+
+    justify-content: start;
+  }
+}
+.burger-btn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+.burger-btn__icon {
+ width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 67px;
+    left: 390px;
+}
+
+@media screen and (min-width: 768px) {
+  .burger-btn {
+    margin-left: auto;
+    margin-right: 30px;
+    position: relative;
+    z-index: 5;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .burger-btn {
+    display: none;
+  }
+}
+// modal
+.modal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  padding: 0;
+  border: none;
+
+  min-width: 160px;
+  height: 44px;
+
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+
+  cursor: pointer;
+  background-color: #fff;
+  color: var(--accent-color);
+  border-radius: 22px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: #ecebeb;
+  }
+}
+.modal-btn__icon {
+  width: 6px;
+  height: 10px;
+  margin-left: 12px;
+}
+@media screen and (max-width: 767px) {
+  .modal-btn {
+    display: none;
+  
+  }
+}
+@media screen and (min-width: 1280px) {
+  .modal-btn {
+    margin-left:141px;
+  }
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.nav-list {
+  display: flex;
+}
+@media screen and (max-width: 1279px) {
+  .nav-list {
+    display: none;
+  }
+}
+.nav-list__item:not(:last-child) {
+  margin-right: 35px;
+}
+
+@media screen and (min-width: 1280px) {
+  .logo-img {
+    position: absolute;
+    width:199px;
+    height: 50px;
+  }
+  .nav-list {
+    padding-left: 235px;
+  }
+}
+.nav-list__link {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+
+  color: #fff;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+}
+.nav-list__link_current {
+  color: var(--accent-color);
+}
+
+// mobile-menu
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  max-width: 320px;
+  height: 100vh;
+  transform: translateX(500%);
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+  background-color: #e17992;
+
+  transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+}
+.is-open {
+  transform: translateX(0);
+}
+@media screen and (min-width: 768px) {
+  .mobile-menu {
+    width: 254px;
+    margin: 0;
+    left: auto;
+
+    box-shadow: -21px 0px 13px 0px rgba(214, 22, 51, 0.31);
+  }
+  .is-open {
+    top: 0;
+    bottom: auto;
+    left: auto;
+    right: 0;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+.mobile-menu__close-btn {
+  position: absolute;
+  top: 23px;
+  right: 28px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+.mobile-menu__close-btn-icon {
+  width: 14px;
+  height: 14px;
+}
+.mobile-menu__modal-btn {
+  margin-bottom: 32px;
+
+  min-width: 209px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background-color: #fff;
+  border-radius: 22px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+
+  align-self: center;
+  color: #d41443;
+}
+.mobile-menu__modal-btn-icon {
+  width: 6px;
+  height: 10px;
+  margin-left: 12px;
+}
+.mobile-nav {
+  background-clip: border-box;
+  padding-left: 21px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(250, 250, 250, 0.4),
+    rgba(250, 250, 250, 0.4) 1px,
+    #e17992 1px,
+    #e17992 42px
+  );
+}
+
+.mobile-nav__item:not(:last-child) {
+  margin-bottom: 22px;
+}
+.mobile-nav__link {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+
+  color: #fff;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+}
+.mobile-nav__link_current {
+  color: var(--accent-color);
+}
+
+.form-modal {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.form-modal__label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+.form-modal__input {
+  font-family: DM Sans;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #ffb8ca;
+}
+.form-modal_btn {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 160px;
+  height: 44px;
+  border-radius: 22px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.form-modal_btn:hover,
+.form-modal_btn:focus {
+  cursor: pointer;
+  color: #d41443;
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+// <header class="header">
+//   <div class="container header__container">
+//     <!-- navigation -->
+//     <nav class="nav">
+//       <svg class="logo-img">
+//         <use href="images/sprite/logo/symbol-defs.svg#icon-logo"></use>
+//       </svg>
+//       <ul class="nav-list list">
+//         <li class="nav-list__item">
+//           <a
+//             class="nav-list__link nav-list__link_current link"
+//             href="./index.html"
+//             >Home</a
+//           >
+//         </li>
+//         <li class="nav-list__item">
+//           <a class="nav-list__link link" href="#customer-reviews">About us</a>
+//         </li>
+//         <li class="nav-list__item">
+//           <a class="nav-list__link link" href="#about">How it`s made?</a>
+//         </li>
+//         <li class="nav-list__item">
+//           <a class="nav-list__link link" href="#products">Our products</a>
+//         </li>
+//         <li class="nav-list__item">
+//           <a class="nav-list__link link" href="#contacts">Contact</a>
+//         </li>
+//       </ul>
+//     </nav>
+//     <!-- modal  -->
+//     <button class="burger-btn" type="button" data-menu-button>
+//       <svg class="burger-btn__icon">
+//         <use href="/src/images/sprite/sprite.svg#icon-burger"></use>
+//       </svg>
+//     </button>
+//     <button class="modal-btn" type="button" data-buynow-btn-open>
+//       Buy now
+//       <svg class="modal-btn__icon">
+//         <use href="/src/images/sprite/sprite.svg#icon-arrow"></use>
+//       </svg>
+//     </button>
+//   </div>
+//   <div class="mobile-menu" data-menu>
+//     <button class="mobile-menu__close-btn" type="button" data-menu-close>
+//       <svg class="mobile-menu__close-btn-icon">
+//         <use href="/src/images/sprite/sprite.svg#icon-close-btn"></use>
+//       </svg>
+//     </button>
+//     <button
+//       class="mobile-menu__modal-btn"
+//       type="button"
+//       data-buynow-btn-open-mobile
+//     >
+//       Buy now
+//       <svg class="mobile-menu__modal-btn-icon">
+//         <use href="/src/images/sprite/sprite.svg#icon-arrow"></use>
+//       </svg>
+//     </button>
+//     <!-- mobile menu -->
+//     <ul class="mobile-nav list">
+//       <li class="mobile-nav__item">
+//         <a
+//           class="mobile-nav__link mobile-nav__link_current link"
+//           href="./index.html"
+//           >Home</a
+//         >
+//       </li>
+//       <li class="mobile-nav__item">
+//         <a class="mobile-nav__link link" href="#customer-reviews">About us</a>
+//       </li>
+//       <li class="mobile-nav__item">
+//         <a class="mobile-nav__link link" href="#about">How it's made?</a>
+//       </li>
+//       <li class="mobile-nav__item">
+//         <a class="mobile-nav__link link" href="#products">Our products</a>
+//       </li>
+//       <li class="mobile-nav__item">
+//         <a class="mobile-nav__link link" href="#contacts">Contact</a>
+//       </li>
+//     </ul>
+//   </div>
+// </header>
+
+
