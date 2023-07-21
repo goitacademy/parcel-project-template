@@ -16,12 +16,21 @@
     padding-top: 32px;
   }
 }
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  margin-left: 7px;
+}
 .days-cards {
   display: flex;
   overflow: hidden;
   gap: 17px;
-  padding-left: 25px;
-  flex-wrap: wrap;
+  align-self: baseline;
+  padding-left: 21px;
+  transition: all 1s ease-in-out;
 }
 .card {
   width: 65px;
@@ -103,6 +112,9 @@
   padding-top: 20px;
   gap: 25px;
   padding-bottom: 20px;
+
+  align-self: baseline;
+  transition: all 1s ease-in-out;
 }
 .more-info {
   width: 120px;
@@ -113,7 +125,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  margin-left: 5px;
+
   &:hover {
     background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
@@ -160,6 +172,19 @@
   }
 }
 
+.buttons-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  gap: 50px;
+}
+.arrow {
+  fill: rgba(255, 255, 255, 1);
+  &:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+}
 @media screen and (min-width: 768px) {
   .days-cards {
     padding-left: 40px;
@@ -220,11 +245,14 @@
   .more-info-container {
     gap: 16px;
     padding-bottom: 20px;
-    margin-left: 5px;
+
     padding-top: 0;
   }
   .more-info__temperature {
     font-size: $font-size-18;
+  }
+  .buttons-container {
+    display: none;
   }
 }
 
@@ -290,4 +318,7 @@
       font-size: 25px;
     }
   }
+}
+.hidden {
+  display: none;
 }
