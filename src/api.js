@@ -30,7 +30,6 @@ export default {
           .then(response => response.json())
           .then(data => {
             this.city = data[0].name;
-
             return this.city;
           })
           .catch(err => {
