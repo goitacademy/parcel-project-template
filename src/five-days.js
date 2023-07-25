@@ -28,7 +28,7 @@ const city = 'Bucuresti';
 sectionTitle.textContent = city;
 //url pentru a afla coordonatele orasului din input(doar trebuie modificat pe linia 22)
 const urlForCoordinates = () => {
-  return `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIKEY}`;
+  return `http://api.openweathermap.org/geo/1.0/reverse?q=${city}&appid=${APIKEY}`;
 };
 //aflare coordonate
 const cityCoordinates = async () => {
