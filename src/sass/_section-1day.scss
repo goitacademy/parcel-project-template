@@ -1,61 +1,38 @@
-* {
-  margin: 0px;
-  padding: 0px;
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-}
+@import './variables';
 
 .allday-wheather {
-  width: 411px;
-  height: 289px;
-  flex-shrink: 0;
-  border-radius: 34px 0px 0px 34px;
   background: #102136;
   box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.6);
-  position: fixed;
-  right: 0px;
-  top: 252px;
 }
 
 .current-wheather-icon {
-  margin-left: 193px;
-  margin-top: 35px;
-  color: white;
+  color: $white-color;
 }
 
 .current-wheather-city {
   display: flex;
-  width: 158px;
-  height: 26px;
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
-  color: #767d85;
+  color: $gray-color;
   text-align: center;
-  font-family: Lato;
+  font-family: $main-font;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-top: 28px;
-  margin-left: 120px;
 }
 
 .today-weather {
   display: flex;
-  // width: 181px;
-  // height: 96px;
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
   &__current {
-    color: #fff;
+    color: $white-color;
     color: red;
     text-align: center;
-    font-family: Lato;
+    font-family: $main-font;
     font-size: 90px;
     font-style: normal;
     font-weight: 300;
@@ -66,8 +43,6 @@
 
 .today-weather-minmax {
   display: flex;
-  margin-left: 127px;
-  margin-top: -8px;
 }
 
 .today-minmax__p {
@@ -77,9 +52,9 @@
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
-  color: #767d85;
+  color: $gray-color;
   text-align: center;
-  font-family: Lato;
+  font-family: $main-font;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -102,7 +77,7 @@
   justify-content: center;
   color: green;
   text-align: center;
-  font-family: Lato;
+  font-family: $main-font;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -112,10 +87,7 @@
 .button-list {
   display: flex;
   gap: 32px;
-  margin-top: 39px;
-  position: relative;
-  top: 550px;
-  left: 365px;
+  position: absolute;
 }
 
 .btn-today,
@@ -132,22 +104,24 @@
   border-radius: 20px;
   background: #fff;
 }
+.btn-5days {
+  background: rgba(255, 255, 255, 0.5);
+}
 
 @media screen and (max-width: 767px) {
   .container {
-    max-width: 320px;
+    width: 320px;
     margin: 0 auto;
   }
 
   .allday-wheather {
     width: 280px;
     height: 193px;
-    flex-shrink: 0;
     border-radius: 34px;
-    top: 165px;
     position: relative;
-    left: 15px;
-    right: 10px;
+    top: 165px;
+    left: 20px;
+    right: 12px;
   }
 
   .current-wheather-icon {
@@ -157,9 +131,9 @@
     margin-top: 20px;
   }
   .current-wheather-city {
+    margin-top: 15px;
+    margin-left: -2px;
     font-size: 16px;
-    margin-left: 61px;
-    margin-top: 10px;
   }
 
   .today-weather {
@@ -190,15 +164,72 @@
   }
 
   .button-list {
+    position: initial;
     gap: 18px;
-    margin-left: 22px;
     margin-top: 193px;
-    position: inherit;
+    margin-left: 25px;
   }
 
   .btn-today,
   .btn-5days {
     width: 126px;
     gap: 10px;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .allday-wheather {
+    width: 680px;
+    height: 289px;
+    border-radius: 34px;
+    right: 44px;
+    box-shadow: 0 8px 43px #10213699;
+    position: absolute;
+    top: 258px;
+  }
+
+  .current-wheather-icon {
+    margin-left: 320px;
+    margin-top: 32px;
+  }
+  .current-wheather-city {
+    margin-top: 26px;
+  }
+  .today-weather-minmax {
+    margin-left: 260px;
+  }
+  .button-list {
+    position: absolute;
+    top: 580px;
+    left: 180px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .allday-wheather {
+    width: 411px;
+    height: 289px;
+    border-radius: 34px 0px 0px 34px;
+    position: absolute;
+    right: 0px;
+    top: 252px;
+  }
+  .current-wheather-icon {
+    margin-left: 193px;
+    margin-top: 35px;
+  }
+  .current-wheather-city {
+    width: 158px;
+    height: 26px;
+    margin-top: 28px;
+    margin-left: 120px;
+  }
+  .today-weather-minmax {
+    margin-top: -8px;
+    margin-left: 127px;
+  }
+  .button-list {
+    position: absolute;
+    top: 565px;
+    left: 870px;
   }
 }
