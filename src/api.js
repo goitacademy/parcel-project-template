@@ -1,6 +1,6 @@
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=072ec51636e5141423703ba32d12100f&units=metric&lang=en&q=';
-const baseUrlForFiveDayWeather =
+const baseUrlForForecast =
   'https://api.openweathermap.org/data/2.5/forecast?APPID=072ec51636e5141423703ba32d12100f&units=metric&lang=en&q=';
 
 const APIKEY = '072ec51636e5141423703ba32d12100f'; // Cheia de API de la OpenWeatherMap
@@ -38,6 +38,27 @@ export default {
       })
       .catch(error => {
         throw error;
+      });
+  },
+
+  getWeatherForToday(city) {
+    fetch(baseUrlForTodayWeather + city)
+      .then(res => {
+        if (res.status === 404) {
+          PNotify.error({
+            title: 'NOTICE!',
+            text: "The city can't be found!",
+          });
+        }
+        return res.json();
+      })
+      .then(data => {
+        this.today = data;
+        this.blockSection = 'today';
+        console.log(this.today);
+      })
+      .catch(err => {
+        console.error(`Request error`);
       });
   },
 };
