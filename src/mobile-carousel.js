@@ -9,8 +9,9 @@ arrowLeft.addEventListener('click', carouselLeft);
 
 function carouselRight() {
   moreDaysCards.style.transform = 'translateX(-41%)';
-  moreInfoCards.style.transform = 'translateX(-52%)';
+  moreInfoCards.style.transform = 'translateX(-29%)';
 }
+
 function carouselLeft() {
   moreDaysCards.style.transform = 'translateX(0%)';
   moreInfoCards.style.transform = 'translateX(0%)';
