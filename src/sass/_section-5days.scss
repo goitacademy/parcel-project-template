@@ -1,57 +1,174 @@
+.city {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  &__name {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: $white-color;
+  }
+}
 .five-days {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   background: linear-gradient(
     0.56deg,
     #000000 -13.48%,
     rgba(0, 0, 0, 0) 78.75%
   );
-  position: absolute;
   color: $white-color;
   box-shadow: 0px 8px 43px 0px #10213699;
   border-radius: 34px;
   opacity: 55%;
+  width: 280px;
+  padding: 20px;
+  margin: 0 auto;
   &__info {
     list-style: none;
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 15px;
     align-items: center;
-    padding: 40px 131px;
+    width: 100%;
+    padding: 32px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__day {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  &__date {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  &__temperature {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+  }
+  &__button {
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 700;
+    opacity: 30%;
+    text-align: center;
+    text-decoration: underline;
+    display: block;
+    border-bottom: 1px solid black;
+    background-color: transparent;
   }
 }
-.hide-on-mobile {
+
+.temperature-min,
+.temperature-max {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-size: 12px;
+  }
+
+  &__value {
+    font-size: 14px;
+  }
+}
+.show-more {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  &__right {
+    opacity: 50%;
+    background-color: transparent;
+  }
+  &__left {
+    opacity: 50%;
+    rotate: -180°;
+    background-color: transparent;
+  }
+  &__icon {
+    transform: scale(-1, 1);
+    transform-origin: 50% 50%;
+  }
+}
+
+.show-on-click {
+  display: block;
+}
+
+.hide-on-click {
   display: none;
 }
 @media screen and (min-width: 768px) {
-  .five-days {
+  .city {
+    &__name {
+      font-size: 28px;
+      letter-spacing: 4%;
+    }
   }
-  .show-on-mobile {
-    display: block;
+  .five-days {
+    width: 70%;
+    padding: 20px;
+    &__info {
+      flex-direction: row;
+      gap: 15px;
+      align-items: center;
+      padding: 32px;
+    }
+    &__item {
+      display: flex;
+      flex-direction: column;
+      width: 62px;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__day {
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    &__date {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    &__temperature {
+      display: flex;
+      gap: 10px;
+      flex-direction: row;
+    }
+    &__button {
+      font-size: 14px;
+      line-height: 1.2;
+      font-weight: 700;
+      opacity: 30%;
+    }
   }
 }
 
 @media screen and (min-width: 1280px) {
+  .city {
+    padding-bottom: 32px;
+  }
   .five-days {
-    display: flex;
-    flex-direction: row;
-    background: linear-gradient(
-      0.56deg,
-      #000000 -13.48%,
-      rgba(0, 0, 0, 0) 78.75%
-    );
-    position: absolute;
-    left: 16px;
-    color: $white-color;
-    box-shadow: 0px 8px 43px 0px #10213699;
-    border-radius: 34px;
-    opacity: 55%;
+    width: 80%;
     &__info {
       list-style: none;
       display: flex;
       flex-direction: row;
       gap: 20px;
-      align-items: center;
+      justify-content: space-around;
       padding: 40px 131px;
     }
 
