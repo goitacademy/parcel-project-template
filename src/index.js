@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
-import "./quotes"
+import "./quotes";
+import "./background";
 
 function animateSquares() {
   const cubeFirst = document.querySelector('.cube-first');
