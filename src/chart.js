@@ -107,7 +107,7 @@ async function generateWeatherChart() {
   const weatherData = await getWeatherData();
   const humidityData = await getHumidityData();
   const windData = await getWindData();
-  const atmosphereData = await getAtmosphereData();
+  // const atmosphereData = await getAtmosphereData();
   if (weatherData) {
     const ctx = document.getElementById('myChart').getContext('2d');
     new Chart(ctx, {
@@ -136,13 +136,13 @@ async function generateWeatherChart() {
             borderWidth: 2,
             fill: false,
           },
-          {
-            label: 'Atmosphere pressure',
-            data: atmosphereData.atmosphereData,
-            borderColor: 'yellow',
-            borderWidth: 2,
-            fill: false,
-          },
+          // {
+          //   label: 'Atmosphere pressure',
+          //   data: atmosphereData.atmosphereData,
+          //   borderColor: 'yellow',
+          //   borderWidth: 2,
+          //   fill: false,
+          // },
         ],
       },
       options: {
