@@ -1,3 +1,9 @@
+function toggleDataset(chart, datasetIndex) {
+  chart.data.datasets[datasetIndex].hidden =
+    !chart.data.datasets[datasetIndex].hidden;
+  chart.update();
+}
+
 async function getWeatherData() {
   const API_KEY = 'eeffed10f27ca7ccae26c84b46ee1ea8';
   const city = 'Bucharest';
@@ -107,7 +113,7 @@ async function generateWeatherChart() {
   const weatherData = await getWeatherData();
   const humidityData = await getHumidityData();
   const windData = await getWindData();
-  // const atmosphereData = await getAtmosphereData();
+  const atmosphereData = await getAtmosphereData();
   if (weatherData) {
     const ctx = document.getElementById('myChart').getContext('2d');
     new Chart(ctx, {
@@ -118,31 +124,31 @@ async function generateWeatherChart() {
           {
             label: 'Temperature',
             data: weatherData.weatherData,
-            borderColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 107, 9)',
             borderWidth: 2,
             fill: false,
           },
           {
             label: 'Humidity',
             data: humidityData.humidityData,
-            borderColor: 'rgb(54, 162, 235)',
+            borderColor: 'rgb(9, 6, 235)',
             borderWidth: 2,
             fill: false,
           },
           {
             label: 'Wind Speed',
             data: windData.windData,
-            borderColor: 'red',
+            borderColor: 'rgb(234, 154, 5)',
             borderWidth: 2,
             fill: false,
           },
-          // {
-          //   label: 'Atmosphere pressure',
-          //   data: atmosphereData.atmosphereData,
-          //   borderColor: 'yellow',
-          //   borderWidth: 2,
-          //   fill: false,
-          // },
+          {
+            label: 'Atmosphere pressure',
+            data: atmosphereData.atmosphereData,
+            borderColor: 'rgb(6, 120, 6)',
+            borderWidth: 2,
+            fill: false,
+          },
         ],
       },
       options: {
@@ -166,6 +172,12 @@ async function generateWeatherChart() {
           },
         },
       },
+    });
+    myChart.onClick((e, activeElements) => {
+      if (activeElements.length > 0) {
+        const datasetIndex = activeElements[0].index;
+        toggleDataset(myChart, datasetIndex);
+      }
     });
   }
 }
