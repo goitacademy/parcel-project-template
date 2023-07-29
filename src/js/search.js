@@ -101,8 +101,7 @@ function setFavoritesList() {
     button.value = favorite;
     button.addEventListener('click', handleDeleteEvent);
     button.classList.add('close-button');
-    button.innerHTML =
-      '<svg width="20px" height="20px"><use xlink:href="./images/sprite.svg#icon-close-black"></use></svg>';
+
     li.appendChild(city);
     li.appendChild(button);
 
