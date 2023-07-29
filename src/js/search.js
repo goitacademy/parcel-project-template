@@ -91,19 +91,20 @@ function setFavoritesList() {
     const favorite = shownFavorites[index];
 
     const li = document.createElement('li');
-    li.style = 'display:flex;';
-
+    li.classList.add('favorites-list');
     const city = document.createElement('button');
     city.value = favorite;
     city.innerHTML = favorite;
     city.addEventListener('click', handleSelectFavorite);
+    city.classList.add('favorite-button');
     const button = document.createElement('button');
     button.value = favorite;
     button.addEventListener('click', handleDeleteEvent);
+    button.classList.add('close-button');
 
-    button.innerHTML = 'x';
     li.appendChild(city);
     li.appendChild(button);
+
     favoritesList.appendChild(li);
   }
 
