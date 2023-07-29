@@ -1,5 +1,5 @@
 import axios from 'axios';
-import './api';
+import { fetchCurrentWeather } from './api.js';
 
 const city = 'Paris';
 const temperatureElement = document.querySelector('.today-weather__current');
@@ -9,29 +9,43 @@ const minTemperatureElement = document.querySelector(
 const maxTemperatureElement = document.querySelector(
   '.today-minmax__maxdegree'
 );
+const weatherIconElement = document.querySelector('.current-wheather-icon');
+const cityElement = document.querySelector('.current-wheather-city');
 
-function updateWeatherData(data) {
-  const currentTemperature = data.main.temp;
-  const minTemperature = data.main.temp_min;
-  const maxTemperature = data.main.temp_max;
-
-  temperatureElement.textContent = `${currentTemperature} °C`;
-  minTemperatureElement.textContent = `${minTemperature} °C`;
-  maxTemperatureElement.textContent = `${maxTemperature} °C`;
+function roundToInteger(number) {
+  return parseInt(number, 10);
 }
 
-async function fetchWeatherData() {
-  try {
-    const temperatureUnit = 'metric';
-    const queryString = `${ENDPOINT}/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${temperatureUnit}`;
-    const response = await axios.get(queryString);
-    updateWeatherData(response.data);
-  } catch (error) {
-    console.error('Error fetching weather data:', error);
-    temperatureElement.textContent = 'Error fetching weather data';
+function updateWeatherData(data) {
+  const currentTemperature = roundToInteger(data.main.temp);
+  const minTemperature = roundToInteger(data.main.temp_min);
+  const maxTemperature = roundToInteger(data.main.temp_max);
+  const weatherIcon = data.weather[0].icon;
+  const cityName = data.name;
+
+  temperatureElement.textContent = `${currentTemperature}°`;
+  minTemperatureElement.textContent = `${minTemperature}°`;
+  maxTemperatureElement.textContent = `${maxTemperature}°`;
+
+  if (weatherIconElement) {
+    const iconUrl = `https://openweathermap.org/img/w/${weatherIcon}.png`;
+    weatherIconElement.setAttribute('src', iconUrl);
+  }
+
+  if (cityElement) {
+    cityElement.textContent = cityName;
   }
 }
 
+//  *Va rula dupa ce DOM-ul este incarcat
 document.addEventListener('DOMContentLoaded', () => {
-  fetchWeatherData();
+  const temperatureUnit = 'metric';
+  fetchCurrentWeather(city, temperatureUnit)
+    .then(weatherData => {
+      updateWeatherData(weatherData);
+    })
+    .catch(error => {
+      console.error('Error fetching weather data:', error);
+      temperatureElement.textContent = 'Error fetching weather data';
+    });
 });
