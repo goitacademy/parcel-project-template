@@ -1,3 +1,5 @@
+// Functie ce ascunde axa y din tabel
+
 function toggleDataset(chart, datasetIndex) {
   chart.data.datasets[datasetIndex].hidden =
     !chart.data.datasets[datasetIndex].hidden;
