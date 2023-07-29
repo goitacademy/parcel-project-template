@@ -91,19 +91,21 @@ function setFavoritesList() {
     const favorite = shownFavorites[index];
 
     const li = document.createElement('li');
-    li.style = 'display:flex;';
-
+    li.classList.add('favorites-list');
     const city = document.createElement('button');
     city.value = favorite;
     city.innerHTML = favorite;
     city.addEventListener('click', handleSelectFavorite);
+    city.classList.add('favorite-button');
     const button = document.createElement('button');
     button.value = favorite;
     button.addEventListener('click', handleDeleteEvent);
-
-    button.innerHTML = 'x';
+    button.classList.add('close-button');
+    button.innerHTML =
+      '<svg width="20px" height="20px"><use xlink:href="./images/sprite.svg#icon-close-black"></use></svg>';
     li.appendChild(city);
     li.appendChild(button);
+
     favoritesList.appendChild(li);
   }
 
