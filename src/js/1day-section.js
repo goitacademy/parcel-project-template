@@ -49,4 +49,5 @@ export function updateCurrentWeather(city) {
       console.error('Error fetching weather data:', error);
       temperatureElement.textContent = 'Error fetching weather data';
     });
-}
+});
+
