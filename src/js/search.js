@@ -1,3 +1,7 @@
+import { updateCityImage } from './section-main';
+
+import { updateCurrentWeather } from './1day-section';
+
 const form = document.querySelector('.js-form');
 const input = document.getElementsByName('query')[0];
 const favoritesList = document.querySelector('.js-slider-list');
@@ -5,20 +9,15 @@ const addButton = document.querySelector('#js-btnAdd');
 const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
 
+handleSelectedFavorite('Paris');
 let shownFavorites = [];
 getInitialShownFavorites();
 setFavoritesList();
 
-function shoulShowNavigation() {
-  const favorites = JSON.parse(localStorage.getItem('cities'));
-
-  return favorites !== null && favorites.length > 4;
-}
-
-form.addEventListener('submit', event => {
+form.addEventListener('submit', async event => {
   event.preventDefault();
   const city = input.value;
-  alert(`add api call here for ${city}`);
+  handleSelectedFavorite(city);
 });
 
 addButton.addEventListener('click', () => {
@@ -111,10 +110,14 @@ function setFavoritesList() {
   setNavigationVisibility();
 }
 
+async function handleSelectedFavorite(city) {
+  await updateCityImage(city);
+  updateCurrentWeather(city);
+}
+
 function handleSelectFavorite(event) {
   const value = event.target.value;
-  //todo: add api call here
-  //alert(`Add api call here for ${value}`);
+  handleSelectedFavorite(value);
 }
 
 function handleDeleteEvent(event) {
