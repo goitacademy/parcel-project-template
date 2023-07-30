@@ -93,23 +93,27 @@ setInterval(updateClock, 1000);
 
 //Functie care afla locatia
 function getCurrentLocationCoord() {
-  return new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(resolve, reject);
-  })
-    .then(location => {
-      const url = makeUrlForDetectedCityFromCurrentCoord(
-        location.coords.latitude,
-        location.coords.longitude
-      );
-      return fetch(url);
+  if ('geolocation' in navigator) {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
     })
-    .then(response => response.json())
-    .then(data => {
-      weatherData.city = data[0].name;
-    })
-    .catch(err => {
-      throw err;
-    });
+      .then(location => {
+        const url = makeUrlForDetectedCityFromCurrentCoord(
+          location.coords.latitude,
+          location.coords.longitude
+        );
+        return fetch(url);
+      })
+      .then(response => response.json())
+      .then(data => {
+        weatherData.city = data[0].name;
+      })
+      .catch(err => {
+        throw err;
+      });
+  } else {
+    return Promise.reject('Geolocația nu este suportată de acest browser.');
+  }
 }
 
 //Functie care preia datele despre vreme
