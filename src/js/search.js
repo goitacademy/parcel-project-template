@@ -5,15 +5,17 @@ const weatherApiKey = 'ce00f040ffac93595679fb6c48728697';
 const backgroundApiKey = '38102784-37e9ad2cc652dbc0da2d9323c';
 const form = document.querySelector('.form');
 const weatherIcon = document.querySelector('.weather-icon');
-async function getWeather(name) {
+export default async function getWeather(name) {
   const geoCodingResponse = await axios.get(
     `https://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=${weatherApiKey}`
   );
   const lat = geoCodingResponse.data[0].lat;
   const lon = geoCodingResponse.data[0].lon;
+
   const weatherResponse = await axios.get(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`
   );
+
   return weatherResponse.data;
 }
 function getRandomInt(max) {

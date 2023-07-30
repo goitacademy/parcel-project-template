@@ -1,6 +1,10 @@
+import getWeather from './search';
+import api from './search';
 const dayRef = document.querySelector('.time-day');
 const monthRef = document.querySelector('.month');
 const timeRef = document.querySelector('.hour');
+const sunriseTime = document.querySelector('.sunrise-time');
+const sunsetTime = document.querySelector('.sunset-time');
 
 const moment = require('moment-timezone');
 
@@ -47,15 +51,13 @@ function pad(value) {
   return String(value).padStart(2, '0');
 }
 
-const sunriseTime = document.querySelector('.sunrise-time');
-const sunsetTime = document.querySelector('.sunset-time');
-
 function addZero(i) {
   if (i < 10) {
     i = '0' + i;
   }
   return i;
 }
+
 constsunTime = (sunrise, sunset) => {
   const daterise = new Date(sunrise * 1000);
   const sunrisechange = moment(daterise).utcOffset(oneDayData.timezone / 60);
@@ -73,7 +75,7 @@ constsunTime = (sunrise, sunset) => {
 
 let oneDayData = {};
 
-export default function timeForToday(data) {
-  oneDayData = data.city;
-  sunTime(oneDayData.sunrise, oneDayData.sunset);
+function renderOneDayWeather(data) {
+  oneDayData = data.name;
+  renderSunTime(oneDayData.sunrise, oneDayData.sunset);
 }
