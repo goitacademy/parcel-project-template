@@ -1,4 +1,4 @@
-//import axios from 'axios';//
+import axios from 'axios'; //
 const ENDPOINT = 'https://api.openweathermap.org';
 const API_KEY = 'd52884a2e04f7a405073b1f70d08c546';
 export async function fetchForecast(query, temperatureUnit) {
