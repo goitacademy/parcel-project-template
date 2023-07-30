@@ -25,6 +25,7 @@ const sunset = document.getElementById('sunset');
 const sunrise = document.getElementById('sunrise');
 const sunDetails = document.querySelector('.sun-details');
 const sunLine = document.querySelector('.line-sun');
+const degreeSymbol = document.querySelector('.degree-symbol');
 
 const weatherInfo = document.querySelector('.weather-info__weather');
 
@@ -130,9 +131,9 @@ function getWeatherForToday() {
       return res.json();
     })
     .then(data => {
-      weatherData.currentTemp = Math.round(data.main.temp);
-      weatherData.todayMax = Math.round(data.main.temp_max);
-      weatherData.todayMin = Math.round(data.main.temp_min);
+      weatherData.currentTemp = Math.round(data.main.temp) + '°';
+      weatherData.todayMax = Math.round(data.main.temp_max) + '°';
+      weatherData.todayMin = Math.round(data.main.temp_min) + '°';
       weatherData.sunRise = decodeTime(data.sys.sunrise);
       weatherData.sunSunset = decodeTime(data.sys.sunset);
       weatherData.icon = data.weather[0].icon;
