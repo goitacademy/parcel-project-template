@@ -15,7 +15,6 @@ const cityElement = document.querySelector('.current-wheather-city');
 function roundToInteger(number) {
   return parseInt(number, 10);
 }
-
 function updateWeatherData(data) {
   const currentTemperature = roundToInteger(data.main.temp);
   const minTemperature = roundToInteger(data.main.temp_min);
