@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { fetchCurrentWeather } from './api.js';
 
-const city = 'Paris';
+const city = '';
 const temperatureElement = document.querySelector('.today-weather__current');
 const minTemperatureElement = document.querySelector(
   '.today-minmax__mindegree'
@@ -37,10 +37,38 @@ function updateWeatherData(data) {
   }
 }
 
+function fetchWeatherData(city, temperatureUnit) {
+  return fetchCurrentWeather(city, temperatureUnit);
+}
+
 //  *Va rula dupa ce DOM-ul este incarcat
+
 document.addEventListener('DOMContentLoaded', () => {
+  const searchForm = document.querySelector('.search-location__form');
+  const cityInput = document.querySelector('.search-location__form input');
+
+  searchForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const city = cityInput.value.trim();
+    if (city === '') {
+      alert('Please enter a city name.');
+      return;
+    }
+
+    const temperatureUnit = 'metric';
+    fetchWeatherData(city, temperatureUnit)
+      .then(weatherData => {
+        updateWeatherData(weatherData);
+      })
+      .catch(error => {
+        console.error('Error fetching weather data:', error);
+        temperatureElement.textContent = 'Error fetching weather data';
+      });
+  });
+
+  const defaultCity = 'Paris';
   const temperatureUnit = 'metric';
-  fetchCurrentWeather(city, temperatureUnit)
+  fetchWeatherData(defaultCity, temperatureUnit)
     .then(weatherData => {
       updateWeatherData(weatherData);
     })
