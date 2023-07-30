@@ -1,7 +1,5 @@
-import axios from 'axios';
 import { fetchCurrentWeather } from './api.js';
 
-const city = 'Paris';
 const temperatureElement = document.querySelector('.today-weather__current');
 const minTemperatureElement = document.querySelector(
   '.today-minmax__mindegree'
@@ -37,8 +35,7 @@ function updateWeatherData(data) {
   }
 }
 
-//  *Va rula dupa ce DOM-ul este incarcat
-document.addEventListener('DOMContentLoaded', () => {
+export function updateCurrentWeather(city) {
   const temperatureUnit = 'metric';
   fetchCurrentWeather(city, temperatureUnit)
     .then(weatherData => {
@@ -48,4 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error fetching weather data:', error);
       temperatureElement.textContent = 'Error fetching weather data';
     });
-});
+}
