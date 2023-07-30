@@ -64,7 +64,7 @@ const weatherData = {
 
 //Functie care afla data curenta
 const formatDate = () => {
-  const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const monthNames = [
     'January',
     'February',
