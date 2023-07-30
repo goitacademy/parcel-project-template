@@ -1,5 +1,6 @@
 import { fetchCurrentWeather } from './api.js';
 
+const city = '';
 const temperatureElement = document.querySelector('.today-weather__current');
 const minTemperatureElement = document.querySelector(
   '.today-minmax__mindegree'
@@ -13,7 +14,6 @@ const cityElement = document.querySelector('.current-wheather-city');
 function roundToInteger(number) {
   return parseInt(number, 10);
 }
-
 function updateWeatherData(data) {
   const currentTemperature = roundToInteger(data.main.temp);
   const minTemperature = roundToInteger(data.main.temp_min);
@@ -35,9 +35,38 @@ function updateWeatherData(data) {
   }
 }
 
-export function updateCurrentWeather(city) {
+function fetchWeatherData(city, temperatureUnit) {
+  return fetchCurrentWeather(city, temperatureUnit);
+}
+
+//  *Va rula dupa ce DOM-ul este incarcat
+
+document.addEventListener('DOMContentLoaded', () => {
+  const searchForm = document.querySelector('.search-location__form');
+  const cityInput = document.querySelector('.search-location__form input');
+
+  searchForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const city = cityInput.value.trim();
+    if (city === '') {
+      alert('Please enter a city name.');
+      return;
+    }
+
+    const temperatureUnit = 'metric';
+    fetchWeatherData(city, temperatureUnit)
+      .then(weatherData => {
+        updateWeatherData(weatherData);
+      })
+      .catch(error => {
+        console.error('Error fetching weather data:', error);
+        temperatureElement.textContent = 'Error fetching weather data';
+      });
+  });
+
+  const defaultCity = 'Paris';
   const temperatureUnit = 'metric';
-  fetchCurrentWeather(city, temperatureUnit)
+  fetchWeatherData(defaultCity, temperatureUnit)
     .then(weatherData => {
       updateWeatherData(weatherData);
     })
@@ -45,4 +74,4 @@ export function updateCurrentWeather(city) {
       console.error('Error fetching weather data:', error);
       temperatureElement.textContent = 'Error fetching weather data';
     });
-}
+});
