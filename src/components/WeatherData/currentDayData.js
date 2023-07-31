@@ -111,7 +111,6 @@ function getCurrentLocationCoord() {
       .then(response => response.json())
       .then(data => {
         weatherData.city = data[0].name;
-        weatherData.country = data[0].country;
       })
       .catch(err => {
         throw err;
@@ -126,10 +125,10 @@ function getWeatherForToday() {
   return fetch(baseUrlForTodayWeather + weatherData.city)
     .then(res => {
       if (res.status === 404) {
-        PNotify.error({
-          title: 'NOTICE!',
-          text: "The city can't be found!",
+        Notify.failure("The city can't be found or is misspelling!", {
+          position: 'center-center',
         });
+
         throw new Error('City not found');
       }
       return res.json();
@@ -141,6 +140,7 @@ function getWeatherForToday() {
       weatherData.sunRise = decodeTime(data.sys.sunrise);
       weatherData.sunSunset = decodeTime(data.sys.sunset);
       weatherData.icon = data.weather[0].icon;
+      weatherData.country = data.sys.country;
     })
     .catch(err => {
       console.error(`Request error: ${err.message}`);
@@ -195,6 +195,7 @@ function renderWeatherDataForToday() {
     weatherInfo.prepend(weatherType);
   }
 }
+
 async function getWeather() {
   await getCurrentLocationCoord();
   const data = await getWeatherForToday();
@@ -202,4 +203,36 @@ async function getWeather() {
   renderWeatherDataForToday();
 }
 
+async function getWeatherForSearchedCity() {
+  const data = await getWeatherForToday();
+
+  renderWeatherDataForToday();
+}
+
 getWeather();
+
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+const searchForm = document.querySelector('#search-form');
+const searchInput = document.querySelector('#search-input');
+
+searchForm.addEventListener('submit', submitForm);
+
+function submitForm(event) {
+  event.preventDefault();
+
+  if (searchInput.value === '') {
+    Notify.info('Enter the city name, please!', {
+      position: 'center-center',
+    });
+    return;
+  }
+  // //    afisare oras ales + functie modificare background cu orasul ales - in caz ca nu exista poze sa se afiseze peisaje cu cerul??
+  //     // daca este accesat butonul today  - accesare functie pt today
+  //     // daca este accesat butonul fivedays - accesare functie five days
+
+  weatherData.city = searchInput.value;
+  console.info(weatherData.city);
+
+  getWeatherForSearchedCity();
+}
