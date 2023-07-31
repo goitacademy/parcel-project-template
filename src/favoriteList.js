@@ -6,7 +6,7 @@
 // functie afisare date la click pe oras favorit
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import api from './api';
+ 
 
 const favoriteCity = document.querySelector('.search-form__favourite');
 const searchCity = document.querySelector('#search-input');
