@@ -111,7 +111,6 @@ function getCurrentLocationCoord() {
       .then(response => response.json())
       .then(data => {
         weatherData.city = data[0].name;
-        weatherData.country = data[0].country;
       })
       .catch(err => {
         throw err;
@@ -141,6 +140,7 @@ function getWeatherForToday() {
       weatherData.sunRise = decodeTime(data.sys.sunrise);
       weatherData.sunSunset = decodeTime(data.sys.sunset);
       weatherData.icon = data.weather[0].icon;
+      weatherData.country = data.sys.country;
     })
     .catch(err => {
       console.error(`Request error: ${err.message}`);
