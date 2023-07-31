@@ -121,13 +121,11 @@ function getCurrentLocationCoord() {
   }
 }
 
-
 //Functie care preia datele despre vreme
 function getWeatherForToday() {
   return fetch(baseUrlForTodayWeather + weatherData.city)
     .then(res => {
       if (res.status === 404) {
-
         Notify.failure("The city can't be found or is misspelling!", {
           position: 'center-center',
         });
@@ -137,7 +135,6 @@ function getWeatherForToday() {
       return res.json();
     })
     .then(data => {
-
       weatherData.currentTemp = Math.round(data.main.temp) + '°';
       weatherData.todayMax = Math.round(data.main.temp_max) + '°';
       weatherData.todayMin = Math.round(data.main.temp_min) + '°';
@@ -207,32 +204,36 @@ async function getWeather() {
   renderWeatherDataForToday();
 }
 
-getWeather();
+async function getWeatherForSearchedCity() {
+  const data = await getWeatherForToday();
 
+  renderWeatherDataForToday();
+}
+
+getWeather();
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-
-const searchForm = document.querySelector('#search-form');  
+const searchForm = document.querySelector('#search-form');
 const searchInput = document.querySelector('#search-input');
 
 searchForm.addEventListener('submit', submitForm);
- 
+
 function submitForm(event) {
   event.preventDefault();
- 
+
   if (searchInput.value === '') {
     Notify.info('Enter the city name, please!', {
-        position: 'center-center',
-      });
+      position: 'center-center',
+    });
     return;
   }
-// //    afisare oras ales + functie modificare background cu orasul ales - in caz ca nu exista poze sa se afiseze peisaje cu cerul??
-//     // daca este accesat butonul today  - accesare functie pt today
-//     // daca este accesat butonul fivedays - accesare functie five days
+  // //    afisare oras ales + functie modificare background cu orasul ales - in caz ca nu exista poze sa se afiseze peisaje cu cerul??
+  //     // daca este accesat butonul today  - accesare functie pt today
+  //     // daca este accesat butonul fivedays - accesare functie five days
 
-  weatherData.city = searchInput.value ;
+  weatherData.city = searchInput.value;
   console.info(weatherData.city);
 
-  getWeather();
+  getWeatherForSearchedCity();
 }
