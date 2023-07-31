@@ -1,4 +1,3 @@
-import getWeather from './search';
 import api from './search';
 import moment from 'moment-timezone';
 const dayRef = document.querySelector('.time-day');
@@ -7,7 +6,8 @@ const timeRef = document.querySelector('.hour');
 const sunriseTime = document.querySelector('.sunrise-time');
 const sunsetTime = document.querySelector('.sunset-time');
 
-const moment = require('moment-timezone');
+var moment = require('moment-timezone');
+moment().tz('America/Los_Angeles').format();
 
 const nth = function (d) {
   if (d > 3 && d < 21) return 'th';
