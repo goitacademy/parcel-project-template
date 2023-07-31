@@ -37,10 +37,10 @@ weatherType.innerHTML = `${thunderStorm}`;
 weatherInfo.prepend(weatherType);
 
 const sunsetSvgElement = document.createElement('div');
-sunsetSvgElement.innerHTML = `<svg class="sun-svg" width="20" height="20" class="card__icon" viewBox="0 0 32 32">${sunsetSvg}</svg>`;
+sunsetSvgElement.innerHTML = `<svg class="sun-svg" width="20" height="20" class="card__icon" viewBox="0 0 32 32" fill="#FF6B09">${sunsetSvg}</svg>`;
 
 const sunriseSvgElement = document.createElement('div');
-sunriseSvgElement.innerHTML = `<svg class="sun-svg" width="20" height="20" viewBox="0 0 32 32">${sunriseSvg}</svg>`;
+sunriseSvgElement.innerHTML = `<svg class="sun-svg" width="20" height="20" viewBox="0 0 32 32" fill="#FF6B09">${sunriseSvg}</svg>`;
 
 sunDetails.prepend(sunriseSvgElement);
 sunLine.prepend(sunsetSvgElement);
