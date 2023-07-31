@@ -171,7 +171,7 @@ function renderWeatherDataForToday() {
   sunrise.innerHTML = weatherData.sunRise;
   sunset.innerHTML = weatherData.sunSunset;
   currentMonth.innerHTML = weatherData.currentMonth;
-  cityText.textContent = `${weatherData.city}, ${weatherData.country}`;
+  cityText.innerHTML = `<b>${weatherData.city}, ${weatherData.country}</b>`;
 
   if (weatherData.icon === '01d' || weatherData.icon === '01n') {
     weatherType.innerHTML = `<svg width="35" height="35" viewBox="0 0 32 32">${sunSvg}</svg>`;
