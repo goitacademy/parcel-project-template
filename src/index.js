@@ -6,4 +6,4 @@ import './js/1day-section';
 import './js/section-main';
 import './js/five-days';
 import './js/chart';
-
+import './js/more-info';
