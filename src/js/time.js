@@ -1,4 +1,3 @@
-import api from './search';
 import moment from 'moment-timezone';
 const dayRef = document.querySelector('.time-day');
 const monthRef = document.querySelector('.month');
@@ -97,3 +96,5 @@ function renderOneDayWeather(data) {
     console.error('Invalid data object.');
   }
 }
+
+// export functie care populeaza widget
