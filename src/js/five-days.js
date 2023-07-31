@@ -4,17 +4,21 @@ import {
   fetchCurrentWeather,
 } from './api';
 import './search';
+import { createMarkup } from './create-markup';
 const temperatureUnit = 'metric';
 const input = document.querySelector('.js-form input[name="query"]');
 const form = document.querySelector('.js-form');
 const city = document.querySelector('.city__name');
 const icon = document.querySelector('.five-days__icon use');
+
 form.addEventListener('submit', fetchForecast5Day);
+let forecastDataGlobal = '';
 async function fetchForecast5Day(e) {
   e.preventDefault();
   try {
     const forecastData = await fetchForecast(input.value, temperatureUnit);
     city.textContent = forecastData.city.name;
+    forecastDataGlobal.textContent = forecastData.city.name;
     const dailyData = getDailyData(forecastData);
     updateForecast(dailyData);
   } catch (error) {
@@ -22,18 +26,27 @@ async function fetchForecast5Day(e) {
   }
 }
 function getDailyData(forecastData) {
-  return forecastData.list.filter(
-    (item, index, self) =>
-      index ===
-      self.findIndex(
-        t =>
-          new Date(t.dt * 1000).getDay() === new Date(item.dt * 1000).getDay()
-      )
-  );
+  const groupedByDate = forecastData.list.reduce((groups, item) => {
+    const date = new Date(item.dt * 1000);
+    const dateKey = `${date.getFullYear()}-${
+      date.getMonth() + 1
+    }-${date.getDate()}`;
+
+    if (!groups[dateKey]) {
+      groups[dateKey] = [];
+    }
+
+    groups[dateKey].push(item);
+
+    return groups;
+  }, {});
+
+  return Object.values(groupedByDate);
 }
 function updateForecast(dailyData) {
   for (let i = 0; i < 5; i++) {
-    const forecastItem = dailyData[i];
+    // Select the first forecast record for the day
+    const forecastItem = dailyData[i][0];
     const dateItem = new Date(forecastItem.dt * 1000);
 
     const item = document.querySelector(`.five-days__item:nth-child(${i + 1})`);
@@ -48,8 +61,11 @@ function updateForecast(dailyData) {
       day: '2-digit',
       month: 'short',
     });
-    tempMin.textContent = Math.round(forecastItem.main.temp_min);
-    tempMax.textContent = Math.round(forecastItem.main.temp_max);
+
+    // Calculate the min and max temperatures for the day
+    const temperatures = dailyData[i].map(data => data.main.temp);
+    tempMin.textContent = Math.round(Math.min(...temperatures));
+    tempMax.textContent = Math.round(Math.max(...temperatures));
 
     const weatherIconName = getWeatherIcon(
       forecastItem.weather[0].main.toLowerCase()
@@ -57,7 +73,7 @@ function updateForecast(dailyData) {
     icon.setAttribute('href', `./images/sprite.svg#${weatherIconName}`);
   }
 }
-function getWeatherIcon(weatherCondition) {
+export function getWeatherIcon(weatherCondition) {
   switch (weatherCondition) {
     case 'clear':
       return 'icon-sun';
