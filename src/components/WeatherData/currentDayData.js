@@ -5,6 +5,7 @@ import {
   updateClock,
   rain,
   rainNight,
+  thunderStorm,
 } from './utilsforCurrentDay';
 import {
   snowSvg,
@@ -30,7 +31,7 @@ const degreeSymbol = document.querySelector('.degree-symbol');
 const weatherInfo = document.querySelector('.weather-info__weather');
 
 const weatherType = document.createElement('div');
-weatherType.innerHTML = `<svg class="sun-svg" width="35" height="35" viewBox="0 0 32 32">${cloudySvg}</svg>`;
+weatherType.innerHTML = `${thunderStorm}`;
 
 weatherInfo.prepend(weatherType);
 
@@ -175,7 +176,6 @@ function renderWeatherDataForToday() {
     weatherInfo.prepend(weatherType);
   } else if (weatherData.icon === '03d') {
     weatherType.innerHTML = `<svg  width="35" height="35" viewBox="0 0 32 32">${cloudySvg}</svg>`;
-
     weatherInfo.prepend(weatherType);
   } else if (weatherData.icon === '13d') {
     weatherType.innerHTML = `<svg width="35" height="35" viewBox="0 0 32 32">${snowSvg}</svg>`;
