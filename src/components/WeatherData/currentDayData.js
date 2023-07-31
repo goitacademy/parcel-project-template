@@ -27,6 +27,7 @@ const sunrise = document.getElementById('sunrise');
 const sunDetails = document.querySelector('.sun-details');
 const sunLine = document.querySelector('.line-sun');
 const degreeSymbol = document.querySelector('.degree-symbol');
+const cityText = document.getElementById('city');
 
 const weatherInfo = document.querySelector('.weather-info__weather');
 
@@ -53,6 +54,7 @@ const makeUrlForDetectedCityFromCurrentCoord = (latitude, longitude) => {
 
 const weatherData = {
   city: 'Bucharest',
+  country: '',
   currentTemp: '',
   todayMax: '',
   todayMin: '',
@@ -109,6 +111,7 @@ function getCurrentLocationCoord() {
       .then(response => response.json())
       .then(data => {
         weatherData.city = data[0].name;
+        weatherData.country = data[0].country;
       })
       .catch(err => {
         throw err;
@@ -165,6 +168,7 @@ function renderWeatherDataForToday() {
   sunrise.innerHTML = weatherData.sunRise;
   sunset.innerHTML = weatherData.sunSunset;
   currentMonth.innerHTML = weatherData.currentMonth;
+  cityText.textContent = `${weatherData.city}, ${weatherData.country}`;
 
   if (weatherData.icon === '01d' || weatherData.icon === '01n') {
     weatherType.innerHTML = `<svg width="35" height="35" viewBox="0 0 32 32">${sunSvg}</svg>`;
