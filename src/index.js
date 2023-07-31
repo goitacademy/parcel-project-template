@@ -15,11 +15,14 @@ form.addEventListener('submit', async event => {
   const {
     elements: { search },
   } = event.currentTarget;
-
+  
+  const data = await getWeather(search.value);
+  updateWidget(data);
+  
   itemsSearch.push(search.value);
   addLocalStorage(itemsSearch);
 
-  // folosesc functia din wighet js
+ 
 
   form.reset();
 });

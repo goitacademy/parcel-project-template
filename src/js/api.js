@@ -15,7 +15,7 @@ async function getWeather(name) {
   const lon = geoCodingResponse.data[0].lon;
 
   const weatherResponse = await axios.get(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`
   );
 
   return weatherResponse.data;
