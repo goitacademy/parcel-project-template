@@ -1,4 +1,3 @@
-import getWeather from './search';
 import api from './search';
 import moment from 'moment-timezone';
 const dayRef = document.querySelector('.time-day');
@@ -7,7 +6,8 @@ const timeRef = document.querySelector('.hour');
 const sunriseTime = document.querySelector('.sunrise-time');
 const sunsetTime = document.querySelector('.sunset-time');
 
-const moment = require('moment-timezone');
+var moment = require('moment-timezone');
+moment().tz('America/Los_Angeles').format();
 
 const nth = function (d) {
   if (d > 3 && d < 21) return 'th';
@@ -59,7 +59,7 @@ function addZero(i) {
   return i;
 }
 
-constsunTime = (sunrise, sunset) => {
+const sunTime = (sunrise, sunset) => {
   const daterise = new Date(sunrise * 1000);
   const sunrisechange = moment(daterise).utcOffset(oneDayData.timezone / 60);
 
@@ -76,7 +76,24 @@ constsunTime = (sunrise, sunset) => {
 
 let oneDayData = {};
 
+// function renderOneDayWeather(data) {
+//   oneDayData = data.name;
+//   sunTime(oneDayData.sunrise, oneDayData.sunset);
+// }
 function renderOneDayWeather(data) {
-  oneDayData = data.name;
-  renderSunTime(oneDayData.sunrise, oneDayData.sunset);
+  if (
+    data.hasOwnProperty('name') &&
+    data.hasOwnProperty('sunrise') &&
+    data.hasOwnProperty('sunset') &&
+    data.hasOwnProperty('timezone')
+  ) {
+    oneDayData.name = data.name;
+    oneDayData.sunrise = data.sunrise;
+    oneDayData.sunset = data.sunset;
+    oneDayData.timezone = data.timezone;
+
+    sunTime(oneDayData.sunrise, oneDayData.sunset);
+  } else {
+    console.error('Invalid data object.');
+  }
 }
