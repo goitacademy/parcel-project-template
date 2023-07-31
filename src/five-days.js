@@ -23,12 +23,8 @@ const urlForFiveDaysWeather = (lat, lon) => {
   return `https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&appid=${APIKEY}&units=metric&lang=en`;
 };
 
-const urlForCityForecast = city => {
-  return `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric &appid=${APIKEY}`;
-};
-
 //de modificat city cu orasul din input
-const city = 'Bucuresti';
+let city = 'Bucuresti';
 sectionTitle.textContent = city;
 //url pentru a afla coordonatele orasului din input(doar trebuie modificat pe linia 22)
 const urlForCoordinates = () => {
@@ -78,7 +74,7 @@ getWeatherData();
 
 //functie pentru popularea cardurilor more-info
 const getMoreInfoData = async () => {
-  const { lat, lon } = await cityCoordinates();
+  const { lat, lon } = await searchedCityCoordinates();
   const response = await fetch(urlForFiveDaysWeather(lat, lon));
   const weather = await response.json();
 
@@ -89,6 +85,7 @@ const getMoreInfoData = async () => {
   const dataForDay = moreInfo[selectedDay];
   createMoreInfoMarkup(dataForDay, moreInfoContainer, iconMapping);
 };
+
 //event listener pentru a afla pe care buton "more-info" s-a dat click pentru a arata informatii pentru ziua relevanta
 cardsList.addEventListener('click', event => {
   if (event.target.classList.contains('card__button')) {
@@ -146,6 +143,7 @@ function submitForm(event) {
   // //    afisare oras ales + functie modificare background cu orasul ales - in caz ca nu exista poze sa se afiseze peisaje cu cerul??
   //     // daca este accesat butonul today  - accesare functie pt today
   //     // daca este accesat butonul fivedays - accesare functie five days
-
+  sectionTitle.textContent = searchInput.value;
+  city = searchInput.value;
   getCityForecastData();
 }
