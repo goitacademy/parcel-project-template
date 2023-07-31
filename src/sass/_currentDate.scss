@@ -1,16 +1,18 @@
+$current-text-color: #102136;
+
 .current-date-container {
   display: flex;
   justify-content: center;
   border-radius: 34px;
   margin-top: 32px;
+
   .date-info {
     width: 276px;
     height: 184px;
     display: flex;
     gap: 16px;
     flex-direction: column;
-    background-color: #102136;
-    opacity: 60%;
+    background-color: rgba($current-text-color, 0.6); // Opacitatea dorită (60%)
     justify-content: center;
     align-items: center;
     border-radius: 34px;
@@ -30,6 +32,7 @@
       flex-direction: column;
       gap: 16px;
       align-items: center;
+
       .time {
         display: flex;
         flex-direction: row;
@@ -54,10 +57,27 @@
           color: $main-text-color;
           font-weight: $font-weight-400;
         }
-        .line {
-          border: 1px solid #ffffff;
-        }
       }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(
+        $current-text-color,
+        0.6
+      ); // Opacitatea dorită (60%)
+      border-radius: 34px;
+      z-index: -1;
+    }
+
+    h3 {
+      opacity: 1; // Textul va avea opacitatea completă
+      // Restul stilurilor pentru text...
     }
   }
 }
@@ -82,6 +102,7 @@
     box-shadow: 0px 8px 42px 0px rgba(0, 0, 0, 0.75);
   }
 }
+
 .buttons__active {
   opacity: 1 !important;
 }
@@ -137,10 +158,14 @@
 
 @media screen and (min-width: 1280px) {
   .current-date-container {
+    margin-top: 0px;
     .date-info {
       width: 624px;
       height: 264px;
       align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
 
       &__date {
         margin-left: 16px;
