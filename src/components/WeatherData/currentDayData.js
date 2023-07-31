@@ -6,6 +6,7 @@ import {
   rain,
   rainNight,
   thunderStorm,
+  getNumberEnding,
 } from './utilsforCurrentDay';
 import {
   snowSvg,
@@ -156,7 +157,9 @@ function decodeTime(time) {
 }
 
 const DayContent = `
-<h3>${weatherData.currentDayNumber}<sup class="exponent">th</sup> ${weatherData.currentDay}</h3>
+<h3>${weatherData.currentDayNumber}<sup class="exponent">${getNumberEnding(
+  weatherData.currentDayNumber
+)}</sup> ${weatherData.currentDay}</h3>
 `;
 
 //Functie care afiseaza datele in DOM
