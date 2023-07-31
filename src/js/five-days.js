@@ -4,7 +4,6 @@ import {
   fetchCurrentWeather,
 } from './api';
 import './search';
-import { createMarkup } from './create-markup';
 const temperatureUnit = 'metric';
 const input = document.querySelector('.js-form input[name="query"]');
 const form = document.querySelector('.js-form');
@@ -12,13 +11,12 @@ const city = document.querySelector('.city__name');
 const icon = document.querySelector('.five-days__icon use');
 
 form.addEventListener('submit', fetchForecast5Day);
-let forecastDataGlobal = '';
+
 async function fetchForecast5Day(e) {
   e.preventDefault();
   try {
     const forecastData = await fetchForecast(input.value, temperatureUnit);
     city.textContent = forecastData.city.name;
-    forecastDataGlobal.textContent = forecastData.city.name;
     const dailyData = getDailyData(forecastData);
     updateForecast(dailyData);
   } catch (error) {
