@@ -6,7 +6,6 @@ const backgroundApiKey = '38102784-37e9ad2cc652dbc0da2d9323c';
 const form = document.querySelector('.form');
 
 const weatherIcon = document.querySelector('.weather-icon');
-export default async function getWeather(name) {
 
 
 async function getWeather(name) {
@@ -40,9 +39,7 @@ form.addEventListener('submit', async event => {
     elements: { search },
   } = event.currentTarget;
   const data = await getWeather(search.value);
-  console.log(search.value);
-  console.log(data);
-  itemsSearch.push(search.value);
+  
   document.querySelector('.city').innerHTML = data.name;
   document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + '°C';
   document.querySelector('.min').innerHTML =
@@ -52,6 +49,9 @@ form.addEventListener('submit', async event => {
   const largeImage = await getCityImage(search.value);
   document.querySelector('body').style.backgroundImage = `url(${largeImage})`;
   form.reset();
+  console.log(search.value);
+  console.log(data);
+  itemsSearch.push(search.value);
   console.log(itemsSearch);
   addLocalStorage(itemsSearch);
 });
@@ -88,20 +88,22 @@ window.addEventListener('load', () => {
   console.log(itemsSearch);
 });
 
-/*  removeItem = () => {
-  window.parentNode.removeItem('wordLocalStorage');
-};
+// /*  removeItem = () => {
+//   window.parentNode.removeItem('wordLocalStorage');
+// };
 
-cityCloseBtn.addEventListener('click', removeItem);  */
+// cityCloseBtn.addEventListener('click', removeItem);  */
 
-/* cityDiv.addEventListener('click', async e => {
-  e.preventDefault();
-  console.log(itemsSearch);
-  addLocalStorage(itemsSearch);
-});
- */
-/* slide.addEventListener('click', e => {
-  e.preventDefault();
-  console.log('ce faci');
-});
- */
+// /* cityDiv.addEventListener('click', async e => {
+//   e.preventDefault();
+//   console.log(itemsSearch);
+//   addLocalStorage(itemsSearch);
+// });
+//  */
+// /* slide.addEventListener('click', e => {
+//   e.preventDefault();
+//   console.log('ce faci');
+// });
+//  */
+
+export default getWeather(name); 

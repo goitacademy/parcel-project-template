@@ -1,5 +1,6 @@
 import getWeather from './search';
 import api from './search';
+import moment from 'moment-timezone';
 const dayRef = document.querySelector('.time-day');
 const monthRef = document.querySelector('.month');
 const timeRef = document.querySelector('.hour');
