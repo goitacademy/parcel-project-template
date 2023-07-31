@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 import "./quotes";
 import "./background";
 import "./favoriteList";
+ 
 
 function animateSquares() {
   const cubeFirst = document.querySelector('.cube-first');

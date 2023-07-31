@@ -48,25 +48,6 @@ function addFavouritesListItems() {
 
   // daca lista depaseste marimea containerului ul afiseaza butoanele
 
-//   let containerWidth = document.documentElement.clientWidth;
-//   let lenghtListChild = favouritesList.children.length;
-//   favoriteButton++;
-//   if (favoriteButton > lenghtListChild - 3 && containerWidth < 770) {
-//     nextButton.hidden = true;
-//   } else if (
-//     favoriteButton > lenghtListChild - 5 &&
-//     clientcontainerWidth > 771
-//   ) {
-//     nextButton.hidden = true;
-//   }
-
-//   prevButton.hidden = false;
-//   chosenFavoritesCities.forEach(li => {
-//     li.style.transform += 'translateX(-113px)';
-//     li.style.transitionDuration = 500 + 'ms';
-//   });
-}
-
 // functie sageata next
 nextButton.addEventListener('click', onClickNextBtn);
 function onClickNextBtn(event) {
@@ -77,32 +58,5 @@ function onClickNextBtn(event) {
 prevButton.addEventListener('click', onClickPrevBtn);
 function onClickPrevBtn(event) {
     favouritesList.scrollLeft -= favouritesList.clientWidth * 0.2;
-
-
-
-//   favoriteButton--;
-//   prevButton.hidden = favoriteButton < 1;
-//   nextButton.hidden = false;
-//   chosenFavoritesCities.forEach(li => {
-//     li.style.transform += 'translateX(113px)';
-//     li.style.transitionDuration = 500 + 'ms';
-//   });
 }
-
-
-
-// Alegere orase favorite
-let city = searchCity;
-function onClickFavorites() {
-  city = input.value;
-  if (city.length >= 1) {
-    favouritesList.innerHTML = '';
-    setDataInLS(city);
-    getDataFromLS();
-    checkQtyLi();
-  } else {
-    Notify.info('Enter city, please!', {
-      position: 'center-center',
-    });
-  }
 }
