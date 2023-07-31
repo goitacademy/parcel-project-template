@@ -1,11 +1,3 @@
-// Functie ce ascunde axa y din tabel
-
-function toggleDataset(chart, datasetIndex) {
-  chart.data.datasets[datasetIndex].hidden =
-    !chart.data.datasets[datasetIndex].hidden;
-  chart.update();
-}
-
 async function getWeatherData() {
   const API_KEY = 'eeffed10f27ca7ccae26c84b46ee1ea8';
   const city = 'Bucharest';
@@ -174,12 +166,6 @@ async function generateWeatherChart() {
           },
         },
       },
-    });
-    myChart.onClick((e, activeElements) => {
-      if (activeElements.length > 0) {
-        const datasetIndex = activeElements[0].index;
-        toggleDataset(myChart, datasetIndex);
-      }
     });
   }
 }
