@@ -10,10 +10,10 @@ async function getWeatherData() {
     );
 
     const weatherData = response.data.list
-      .slice(0, 5)
+      .slice(0, 8)
       .map(item => item.main.temp);
     const labels = response.data.list
-      .slice(0, 5)
+      .slice(0, 8)
       .map(item => new Date(item.dt * 1000).toLocaleDateString());
 
     return { weatherData, labels };
@@ -35,10 +35,10 @@ async function getHumidityData() {
     );
 
     const humidityData = response.data.list
-      .slice(0, 5)
+      .slice(0, 8)
       .map(item => item.main.humidity);
     const labels = response.data.list
-      .slice(0, 5)
+      .slice(0, 8)
       .map(item => new Date(item.dt * 1000).toLocaleDateString());
 
     return { humidityData, labels };
@@ -60,10 +60,10 @@ async function getWindData() {
     );
 
     const windData = response.data.list
-      .slice(0, 5)
+      .slice(0, 8)
       .map(item => item.wind.speed);
     const labels = response.data.list
-      .slice(0, 5)
+      .slice(0, 8)
       .map(item => new Date(item.dt * 1000).toLocaleDateString());
 
     return { windData, labels };
@@ -85,10 +85,10 @@ async function getAtmosphereData() {
     );
 
     const atmosphereData = response.data.list
-      .slice(0, 5)
+      .slice(0, 8)
       .map(item => item.main.pressure);
     const labels = response.data.list
-      .slice(0, 5)
+      .slice(0, 8)
       .map(item => new Date(item.dt * 1000).toLocaleDateString());
 
     return { atmosphereData, labels };
@@ -146,22 +146,23 @@ async function generateWeatherChart() {
         ],
       },
       options: {
+        responsive: true,
         scales: {
           x: {
             grid: {
-              color: 'rgb(80, 80, 80)',
+              color: 'rgb(100, 100, 100)',
             },
             ticks: {
-              color: 'rgb(80, 80, 80)',
+              color: 'rgb(100, 100, 100)',
             },
           },
           y: {
             beginAtZero: true,
             grid: {
-              color: 'rgb(80, 80, 80)',
+              color: 'rgb(100, 100, 100)',
             },
             ticks: {
-              color: 'rgb(80, 80, 80)',
+              color: 'rgb(100, 100, 100)',
             },
           },
         },
