@@ -6,6 +6,7 @@ import {
   rain,
   rainNight,
   thunderStorm,
+  getNumberEnding,
 } from './utilsforCurrentDay';
 import {
   snowSvg,
@@ -37,10 +38,10 @@ weatherType.innerHTML = `${thunderStorm}`;
 weatherInfo.prepend(weatherType);
 
 const sunsetSvgElement = document.createElement('div');
-sunsetSvgElement.innerHTML = `<svg class="sun-svg" width="20" height="20" class="card__icon" viewBox="0 0 32 32">${sunsetSvg}</svg>`;
+sunsetSvgElement.innerHTML = `<svg class="sun-svg" width="20" height="20" class="card__icon" viewBox="0 0 32 32" fill="#FF6B09">${sunsetSvg}</svg>`;
 
 const sunriseSvgElement = document.createElement('div');
-sunriseSvgElement.innerHTML = `<svg class="sun-svg" width="20" height="20" viewBox="0 0 32 32">${sunriseSvg}</svg>`;
+sunriseSvgElement.innerHTML = `<svg class="sun-svg" width="20" height="20" viewBox="0 0 32 32" fill="#FF6B09">${sunriseSvg}</svg>`;
 
 sunDetails.prepend(sunriseSvgElement);
 sunLine.prepend(sunsetSvgElement);
@@ -156,7 +157,9 @@ function decodeTime(time) {
 }
 
 const DayContent = `
-<h3>${weatherData.currentDayNumber}<sup class="exponent">th</sup> ${weatherData.currentDay}</h3>
+<h3>${weatherData.currentDayNumber}<sup class="exponent">${getNumberEnding(
+  weatherData.currentDayNumber
+)}</sup> ${weatherData.currentDay}</h3>
 `;
 
 //Functie care afiseaza datele in DOM
@@ -168,7 +171,7 @@ function renderWeatherDataForToday() {
   sunrise.innerHTML = weatherData.sunRise;
   sunset.innerHTML = weatherData.sunSunset;
   currentMonth.innerHTML = weatherData.currentMonth;
-  cityText.textContent = `${weatherData.city}, ${weatherData.country}`;
+  cityText.innerHTML = `<b>${weatherData.city}, ${weatherData.country}</b>`;
 
   if (weatherData.icon === '01d' || weatherData.icon === '01n') {
     weatherType.innerHTML = `<svg width="35" height="35" viewBox="0 0 32 32">${sunSvg}</svg>`;
