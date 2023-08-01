@@ -7,3 +7,4 @@ import './js/section-main';
 import './js/five-days';
 import './js/chart';
 import './js/more-info';
+import './js/scroll-moreinfo';

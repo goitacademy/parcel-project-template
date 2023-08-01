@@ -11,12 +11,21 @@ export function createMarkup(markup) {
         </p>
         <ul class="more-info__data">
           <li class="data__pressure">
+            <svg class="more-info__icon" width="20" height="20">
+              <use href="./images/sprite.svg#icon-barometer"></use>
+            </svg>
             <span>${pressure} hPa</span>
           </li>
           <li class="data__humidity">
+            <svg class="more-info__icon" width="20" height="20">
+              <use href="./images/sprite.svg#icon-humidity"></use>
+            </svg>
             <span>${humidity}%</span>
           </li>
           <li class="data__wint">
+            <svg class="more-info__icon" width="20" height="20">
+              <use href="./images/sprite.svg#icon-wind"></use>
+            </svg>
             <span>${wint} m/s</span>
           </li>
         </ul>
