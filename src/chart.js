@@ -172,3 +172,32 @@ async function generateWeatherChart() {
 }
 
 generateWeatherChart();
+
+const chartCanvas = document.getElementById('myChart');
+const toggleButton = document.getElementById('chartButton');
+
+window.addEventListener('load', function () {
+  const buttonState = localStorage.getItem('buttonState');
+  if (buttonState) {
+    if (buttonState === 'visible') {
+      chartCanvas.style.display = 'block';
+      toggleButton.innerText = 'Hide Content';
+    } else {
+      chartCanvas.style.display = 'none';
+      toggleButton.innerText = 'Unhide Content';
+    }
+  }
+});
+
+toggleButton.addEventListener('click', function (event) {
+  event.preventDefault();
+  if (chartCanvas.style.display === 'none') {
+    chartCanvas.style.display = 'block';
+    toggleButton.innerText = 'Hide Content';
+    localStorage.setItem('buttonState', 'visible');
+  } else {
+    chartCanvas.style.display = 'none';
+    toggleButton.innerText = 'Unhide Content';
+    localStorage.setItem('buttonState', 'hidden');
+  }
+});
