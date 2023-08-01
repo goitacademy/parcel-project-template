@@ -13,6 +13,7 @@ async function getWeather(name) {
   );
   const lat = geoCodingResponse.data[0].lat;
   const lon = geoCodingResponse.data[0].lon;
+  const country = geoCodingResponse.data[0].country;
 
   const weatherResponse = await axios.get(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`
