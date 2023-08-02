@@ -1,14 +1,193 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
-  </head>
-  <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IceCream</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Titan+One&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Titan+One&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="./sass/index.scss"/>
+</head>
+<body>
+  <!--ModalSection-->
+  <div class="about-modal about-modal-is-hidden" data-modal>
+    <div class="about-modal-inner-div">
+      <button data-modal-close class="about-modal-button close-button">
+        <svg width="15" height="15">
+          <use href="images/icons-svg.svg#icon-close"></use>
+        </svg>
+      </button>
+      <p class="description">Ice cream is a frozen dessert, typically made from milk or cream and flavoured with a
+        sweetener, either sugar or an alternative, and a spice, such as cocoa or vanilla, or with fruit such as
+        strawberries or peaches. It can also be made by whisking a flavored cream base and liquid nitrogen together.
+        Food coloring is sometimes added, in addition to stabilizers. The mixture is cooled below the freezing point of
+        water and stirred to incorporate air spaces and to prevent detectable ice crystals from forming. The result is a
+        smooth, semi-solid foam that is solid at very low temperatures (below 2 °C or 35 °F). It becomes more malleable
+        as its temperature increases.</p>
+    </div>
+  </div>
+  <!--mobile-menu-->
+  <div class="menu-container js-menu-container nav-menu" id="mobile-menu">
+    <button class="menu-toggle js-close-menu nav-menu__btn">
+      <svg class="nav-menu__close-icon" width="20" height="32">
+          <use href="./images/icons-svg.svg#icon-close"></use> 
+      </svg>
+    </button>
+    <button data-modal-open class="buy-modal-button button nav-menu__buy-btn" type="button">
+      Buy now
+      <svg class="nav-menu__btn-icon" width="8" height="8">
+        <use href="./images/header/icons.svg#icon-btn-arrow"></use>
+      </svg>
+    </button>
+    <nav>
+      <ul class="nav-menu__list mobile-menu">
+        <li><a class="nav-menu__item" href="#home">Home</a></li>
+        <li><a class="nav-menu__item" href="#about">About us</a></li>
+        <li><a class="nav-menu__item" href="#advantages">How it’s made?</a></li>
+        <li><a class="nav-menu__item" href="#products">Our products</a></li>
+        <li><a class="nav-menu__item" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+  <!--Buy-now-modal-->
+  <div class="buy-modal buy-modal-is-hidden" data-modal >
+  <div class="buy-modal-inner-div">
+    <button data-modal-close class="buy-modal-button buy-modal__btn" type="button">
+        <svg class="buy-modal__close-icon" width="12" height="12">
+            <use href="./images/icons-svg.svg#icon-close"></use> 
+        </svg>
+    </button>
+      <h1 class="buy-modal__title"><span class="buy-modal__title--red">Buy </span>Now</h1>
+      <ul class="buy-modal__grid">
+        <li class="buy-modal__card">
+          <img class="buy-modal__img" 
+              srcset="./images/header/buy-icecream.png 1x, ./images/header/buy-icecream@2x.png"
+              src="./images/header/buy-icecream.png" 
+              alt="icecrem-balls" 
+              width="107">
+          <p class="buy-modal__text">250 g</p>
+          <label  class="buy-modal__order-label">
+            <input class="buy-modal__order-input" type="number" name="height" min="0" max="200" step="1" value="0" />
+          </label>
+        </li>
+        <li class="buy-modal__card">
+            <img class="buy-modal__img buy-modal__img--coffe-color" 
+                srcset="./images/header/buy-icecoffe.png 1x, ./images/header/buy-icecoffe@2x.png"
+                src="./images/header/buy-icecoffe.png" 
+                alt="icecrem-balls" 
+                width="107">
+            <p class="buy-modal__text">200 ml</p>
+            <label  class="buy-modal__order-label">
+              <input class="buy-modal__order-input" type="number" name="height" min="0" max="200" step="1" value="0" />
+            </label>
+        </li>
+        <li class="buy-modal__card">
+          <img class="buy-modal__img buy-modal__img--green-color" 
+              srcset="./images/header/buy-milkshake.png 1x, ./images/header/buy-milkshake@2x.png"
+              src="./images/header/buy-milkshake.png" 
+              alt="icecrem-balls" 
+              width="107">
+          <p class="buy-modal__text">200 ml</p>
+          <label  class="buy-modal__order-label">
+            <input class="buy-modal__order-input" type="number" name="height" min="0" max="200" step="1" value="0" />
+          </label>
+        </li>
+      </ul>
+        <form class="buy-modal__form">
+          <label class="buy-modal__label">
+            Name
+            <svg  class="buy-modal__icon" width="20" height="14">
+              <use href="./images/header/icons.svg#icon-name"></use>
+            </svg>
+            <input class="buy-modal__input" type="text" name="name" pattern="[a-zA-Zа-яА-Я]+" minlength="2" required>
+          </label>
+          <label class="buy-modal__label">
+            E-mail
+            <svg class="buy-modal__icon" width="18" height="16">
+              <use href="./images/header/icons.svg#icon-envelope"></use>
+            </svg>
+            <input class="buy-modal__input"  type="email" name="email" required>
+          </label>
+          <label class="buy-modal__label">
+            Phone number
+            <svg class="buy-modal__icon" width="22" height="16">
+              <use href="./images/header/icons.svg#icon-telephone"></use>
+            </svg>
+            <input class="buy-modal__input"  type="number" name="phone" autocomplete="off">
+          </label>
+          <label class="buy-modal__label">
+            Leave a comment
+            <textarea class="buy-modal__textarea" name="comment" placeholder="text"></textarea>
+          </label>
+        </form>
+    <button class="buy-modal__submit-btn" type="submit">Send</button>
+  </div>
+  </div>
+
+</div>
+  <!--Locations Modal-->
+<div class="about-modal about-modal-is-hidden" data-modal>
+    <div class="about-modal-inner-div">
+      <button data-modal-close class="about-modal-button close-button">
+        <svg width="15" height="15">
+          <use href="images/icons-svg.svg#icon-close"></use>
+        </svg>
+      </button>
+      <p class="description">Ice cream is a frozen dessert, typically made from milk or cream and flavoured with a
+        sweetener, either sugar or an alternative, and a spice, such as cocoa or vanilla, or with fruit such as
+        strawberries or peaches. It can also be made by whisking a flavored cream base and liquid nitrogen together.
+        Food coloring is sometimes added, in addition to stabilizers. The mixture is cooled below the freezing point of
+        water and stirred to incorporate air spaces and to prevent detectable ice crystals from forming. The result is a
+        smooth, semi-solid foam that is solid at very low temperatures (below 2 °C or 35 °F). It becomes more malleable
+        as its temperature increases.</p>
+    </div>
+  </div>
+  <!-- Locations Modal -->
+  <div class="modal-locations location-is-hidden" data-modal>
+    <div class="modal-locations__inside">
+      <button class="modal-locations__button location-button" data-modal-close>
+        <svg>
+          <use href="./images/icons-svg.svg#icon-x-altx-alt"></use>
+        </svg>
+      </button>
+      <div class="container-modal">
+        <svg class="container-modal__svg" fill="crimson">
+          <use href="./images/icons-svg.svg#icon-icecream"></use>
+        </svg>
+      </div>
+      <h2 class="modal-locations__title"> OUR LOCATIONS</h2>
+      <iframe class="frame-locations"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.6851669235175!2d1.4026918508752027!3d38.88544437947223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x129945cd5c67f891%3A0xbf31e71e9658c299!2sUshua%C3%AFa%20Ibiza!5e0!3m2!1sen!2sus!4v1680960232562!5m2!1sen!2sus"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <form class="frame-locations__form" target="_blank"
+        action="https://www.google.com/maps/place/Ushua%C3%AFa+Ibiza/@38.8854444,1.4026919,17z/data=!3m1!4b1!4m6!3m5!1s0x129945cd5c67f891:0xbf31e71e9658c299!8m2!3d38.8854444!4d1.4048859!16s%2Fm%2F0lkntjz?">
+        <button class="frame-locations__button" type="submit">Open map</button>
+    </div>
+  </div>
+  <main>
+    <include src="./partials/header-hero.html"></include>
+    <include src="./partials/products.html"></include>
+    <include src="./partials/about-advantages.html"></include>
+    <include src="./partials/gallery.html"></include>
+    <include src="./partials/swiper.html"></include>
+    <include src="./partials/locations.html"></include>
+    <include src="./partials/footer.html"></include>
+  </main>
+  <script src="./js/products.js"></script>
+  <script src="./js/about-modal.js"></script>
+  <script src="./js/buy-modal.js"></script>
+  <script src="./js/locationsModals.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="./js/swipe.js"></script>
+  <script src="./js/mobile-menu.js"></script>
+</body>
 </html>
