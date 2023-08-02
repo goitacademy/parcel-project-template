@@ -7,6 +7,7 @@ const temperatureUnit = 'metric';
 const moreInfoElement = document.querySelector('.more-info');
 let fiveDayData = {};
 let moreInfoData = {};
+let selectedCity = '';
 let markup = [
   {
     time: '00:00',
@@ -96,24 +97,34 @@ function getThreeHourlyData(forecastData, day) {
 
   return data;
 }
+const updateSelectedCity = city => {
+  selectedCity = city;
+  // you might also want to clear previous results
+  moreInfoElement.innerHTML = '';
+};
+
 const moreInfo = async event => {
   event.preventDefault();
   const day = parseInt(event.target.getAttribute('data-day'));
   try {
-    fiveDayData = await fetchForecast(input.value, temperatureUnit);
-    console.log(fiveDayData);
+    fiveDayData = await fetchForecast(selectedCity, temperatureUnit);
     if (fiveDayData) {
       moreInfoData = getThreeHourlyData(fiveDayData, day);
-      console.log(moreInfoData);
       const dayData = moreInfoData;
       const markup = createMarkup(dayData);
-      console.log(markup);
       moreInfoElement.innerHTML = markup;
     }
   } catch (error) {
     console.error('Error while fetching weather data: ', error);
   }
 };
+
+buttons.forEach(button => {
+  button.addEventListener('click', moreInfo);
+});
+
+// export this function so you can call it from other modules
+export { updateSelectedCity };
 buttons.forEach(button => {
   button.addEventListener('click', moreInfo);
 });

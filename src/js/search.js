@@ -1,6 +1,7 @@
 import { updateCityImage } from './section-main';
-
+import { fetchAndUpdateForecast } from './five-days';
 import { updateCurrentWeather } from './1day-section';
+import { updateSelectedCity } from './more-info';
 
 const form = document.querySelector('.js-form');
 const input = document.getElementsByName('query')[0];
@@ -118,6 +119,8 @@ async function handleSelectedFavorite(city) {
 function handleSelectFavorite(event) {
   const value = event.target.value;
   handleSelectedFavorite(value);
+  fetchAndUpdateForecast(value);
+  updateSelectedCity(value);
 }
 
 function handleDeleteEvent(event) {

@@ -4,6 +4,7 @@ import {
   fetchCurrentWeather,
 } from './api';
 import './search';
+import { handleSelectedFavorite } from './search';
 const temperatureUnit = 'metric';
 const input = document.querySelector('.js-form input[name="query"]');
 const form = document.querySelector('.js-form');
@@ -71,6 +72,23 @@ function updateForecast(dailyData) {
     icon.setAttribute('href', `./images/sprite.svg#${weatherIconName}`);
   }
 }
+export async function fetchAndUpdateForecast(cityName) {
+  try {
+    const forecastData = await fetchForecast(cityName, temperatureUnit);
+    city.textContent = forecastData.city.name;
+    const dailyData = getDailyData(forecastData);
+    updateForecast(dailyData);
+  } catch (error) {
+    console.error('Error while fetching weather data: ', error);
+  }
+}
+
+async function handleFavoriteSelection(event) {
+  const value = event.target.value;
+  handleSelectedFavorite(value);
+  await fetchAndUpdateForecast(value);
+}
+city.addEventListener('click', handleFavoriteSelection);
 export function getWeatherIcon(weatherCondition) {
   switch (weatherCondition) {
     case 'clear':
