@@ -2,8 +2,6 @@
   display: flex;
   justify-content: center;
   padding-bottom: 20px;
-  position: absolute;
-  top: 250px;
   left: 135px;
   &__name {
     font-size: 18px;
@@ -24,7 +22,7 @@
   width: 280px;
   padding: 20px;
   margin: 0 auto 30px;
-  position: absolute;
+
   top: 244px;
   left: 20px;
   &__info {
@@ -48,11 +46,13 @@
     font-size: 12px;
     line-height: 1.2;
     color: hsla(0, 0%, 100%, 0.541);
+    text-transform: capitalize;
   }
 
   &__date {
     font-size: 16px;
     line-height: 1.2;
+    text-transform: capitalize;
   }
 
   &__temperature {
@@ -103,7 +103,6 @@
     opacity: 50%;
     background-color: transparent;
     border: none;
-    display: block;
   }
   &__left {
     opacity: 50%;
@@ -129,7 +128,7 @@
   flex-direction: row;
   align-items: center;
   width: 280px;
-  justify-content: space-around;
+  justify-content: flex-start;
   padding-bottom: 20px;
   overflow-x: auto;
   &__list {
@@ -192,7 +191,7 @@
 @media screen and (min-width: 768px) {
   .city {
     position: absolute;
-    top: 577px;
+    top: 630px;
     left: 350px;
     &__name {
       font-size: 28px;
@@ -202,7 +201,9 @@
   .five-days {
     width: 704px;
     padding: 20px;
-    top: 641px;
+    position: absolute;
+    top: 681px;
+    overflow-x: hidden;
 
     &__info {
       flex-direction: row;
@@ -257,20 +258,26 @@
   .show-more__right {
     position: absolute;
     left: 668px;
-    top: 520px;
+    top: 550px;
     border: 1.5px solid#ffffff33;
     border-radius: 100%;
     background: #ffffff33;
   }
+  .more-info {
+    overflow-x: hidden;
+
+    width: 704px;
+  }
 }
+
 @media screen and (min-width: 1280px) {
   .city {
-    top: 443px;
+    top: 143px;
     left: 600px;
   }
   .five-days {
     width: 1248px;
-    top: 515px;
+    top: 215px;
     &__info {
       list-style: none;
       display: flex;
@@ -325,27 +332,21 @@
       font-size: 25px;
     }
   }
-}
-.temperature-min::after {
-  border: 1px, solid;
-  content: '';
-  border-color: $white-color;
-  border-width: 46px;
-  opacity: 20%;
-}
-.more-info {
-  width: 1248px;
-  padding-bottom: 20px;
 
-  &__list {
-    gap: 10px;
-  }
-  &__item {
-    padding: 15px 20px;
-    gap: 10px;
-  }
-  &__temp {
-    font-size: 25px;
+  .more-info {
+    width: 1248px;
+    justify-content: space-around;
+
+    &__list {
+      gap: 10px;
+    }
+    &__item {
+      padding: 15px 20px;
+      gap: 10px;
+    }
+    &__temp {
+      font-size: 25px;
+    }
   }
   .show-more__right {
     display: none;
