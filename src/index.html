@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/index.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <div class="backgroundImage">
-      <div class="container">
-        <form class="search-form" id="search-form">
-          <svg class="search-form__location" height="22" width="22">
-            <use href="./assets/icons/symbol-defs.svg#icon-icon-location"></use>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/index.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="backgroundImage">
+    <div class="container">
+      <form class="search-form" id="search-form">
+        <svg class="search-form__location" height="22" width="22">
+          <use href="./assets/icons/symbol-defs.svg#icon-icon-location"></use>
+        </svg>
+
+        <input id="search-input" type="text" value="" name="city" placeholder="Enter the city" />
+        <button class="search-form__favourite" type="button">
+          <svg class="favourite-icon" height="22" width="22">
+            <use href="./assets/icons/symbol-defs.svg#icon-star"></use>
           </svg>
-          <input
-            id="search-input"
-            type="text"
-            value=""
-            name="city"
-            placeholder="Enter the city"
-          />
-          <button class="search-form__favourite" type="button">
-            <svg class="favourite-icon" height="22" width="22">
-              <use href="./assets/icons/symbol-defs.svg#icon-star"></use>
-            </svg>
-          </button>
-        </form>
-        <div class="cube-first"></div>
-        <div class="cube-second"></div>
-        <include src="./partials/today.html"></include>
-        <include src="./partials/five-days.html"></include>
-        <include src="./partials/chart.html"></include>
+        </button>
+      </form>
+      <div class="favourites">
+        <button class="list-button favourite-prev"></button>
+        <ul class="favourites-list"></ul>
+        <button class="list-button favourite-next"></button>
       </div>
-      <script src="./index.js" type="module"></script>
-      <script src="./mobile-carousel.js" type="module"></script>
-      <script src="./five-days.js" type="module"></script>
-      <script src="./chart.js" type="module"></script>
+      <div class="cube-first"></div>
+      <div class="cube-second"></div>
+      <include src="./partials/today.html"></include>
+      <include src="./partials/five-days.html"></include>
+      <include src="./partials/chart.html"></include>
     </div>
-  </body>
+  </div>
+  <script src="./index.js" type="module"></script>
+  <script src="./mobile-carousel.js" type="module"></script>
+  <script src="./five-days.js" type="module"></script>
+  <script src="./components/WeatherData/currentDayData.js" type="module"></script>
+
+  <script src="./components/Buttons/buttons.js" type="module"></script>
+  <script src="./chart.js" type="module"></script>
+  </div>
+</body>
+
 </html>
