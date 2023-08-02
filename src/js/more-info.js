@@ -106,6 +106,10 @@ const updateSelectedCity = city => {
 const moreInfo = async event => {
   event.preventDefault();
   const day = parseInt(event.target.getAttribute('data-day'));
+  if (!selectedCity) {
+    console.error('City name is not defined or is empty');
+    return;
+  }
   try {
     fiveDayData = await fetchForecast(selectedCity, temperatureUnit);
     if (fiveDayData) {
