@@ -1,6 +1,7 @@
 import './js/widget';
 import './js/time';
 import './js/citat';
+import './js/chart';
 
 import { getCityImage, getWeather } from './js/api';
 import { getLocalStorage, addLocalStorage } from './js/utils';
