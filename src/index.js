@@ -1,6 +1,7 @@
 import './js/widget';
 import './js/time';
 import './js/citat';
+import './js/chart';
 
 import { getCityImage, getWeather } from './js/api';
 import {
@@ -9,7 +10,9 @@ import {
   removeFromLocalStorage,
 } from './js/utils';
 import { addBackgroundImage, updateWidget } from './js/widget';
+
 import { createCityElement } from './js/searchBar';
+import { sunTime } from './js/time';
 
 const form = document.querySelector('.form');
 const cityContainer = document.querySelector('.slider');
@@ -33,14 +36,19 @@ form.addEventListener('submit', async event => {
 
   addLocalStorage(itemsSearch);
 
-  createCityElement(citySearch.id, citySearch.city);
 
+  createCityElement(citySearch.id, citySearch.city);
+  getWeather(search.value).then(data =>
+    sunTime(data.city.sunrise, data.city.sunset, data.city.timezone)
+  );
+  // setInterval(() => getDateFromInputCity(), 1000);
   form.reset();
 });
 
 //! load cand se incarca pagina
 window.addEventListener('load', () => {
   itemsSearch = getLocalStorage() === null ? [] : getLocalStorage();
+
 
   // folosesc functia din wiget.js cu ultimul element din localStorage
   // itemsSearch[itemsSearch.length - 1];
@@ -50,9 +58,20 @@ window.addEventListener('load', () => {
       addBackgroundImage(data)
     );
 
+
+  if (itemsSearch != null) {
+    getCityImage(itemsSearch[itemsSearch.length - 1].city).then(data =>
+      addBackgroundImage(data)
+    );
+
     getWeather(itemsSearch[itemsSearch.length - 1].city).then(data =>
       updateWidget(data)
     );
+    getWeather(itemsSearch[itemsSearch.length - 1].city).then(
+      // data => console.log(data)
+      sunTime(data.city.sunrise, data.city.sunset, data.city.timezone)
+    );
+    // setInterval(() => getDateFromInputCity(data.timezone), 1000);
 
     // createCityElement(itemsSearch);
     itemsSearch.map(data => createCityElement(data.id, data.city));
@@ -60,6 +79,9 @@ window.addEventListener('load', () => {
   } else {
     getCityImage('Cluj').then(data => addBackgroundImage(data));
     getWeather('Cluj').then(data => updateWidget(data));
+    getWeather('Cluj').then(data =>
+      sunTime(data.sys.sunrise, data.sys.sunset, data.timezone)
+    );
     // wiget.js cu un oras random
   }
 });
