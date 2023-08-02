@@ -24,15 +24,29 @@ const urlForFiveDaysWeather = (lat, lon) => {
 };
 
 //de modificat city cu orasul din input
-const city = 'Bucuresti';
+let city = 'Bucuresti';
 sectionTitle.textContent = city;
 //url pentru a afla coordonatele orasului din input(doar trebuie modificat pe linia 22)
 const urlForCoordinates = () => {
   return `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIKEY}`;
 };
+
+const urlForCoordinatesForSearchedCity = city => {
+  return `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIKEY}`;
+};
+
 //aflare coordonate
 const cityCoordinates = async () => {
   const response = await fetch(urlForCoordinates());
+  const data = await response.json();
+  const coordinates = { lat: data[0].lat, lon: data[0].lon };
+  return coordinates;
+};
+
+const searchedCityCoordinates = async () => {
+  const response = await fetch(
+    urlForCoordinatesForSearchedCity(searchInput.value)
+  );
   const data = await response.json();
   const coordinates = { lat: data[0].lat, lon: data[0].lon };
   return coordinates;
@@ -57,9 +71,10 @@ const getWeatherData = async () => {
 };
 
 getWeatherData();
+
 //functie pentru popularea cardurilor more-info
 const getMoreInfoData = async () => {
-  const { lat, lon } = await cityCoordinates();
+  const { lat, lon } = await searchedCityCoordinates();
   const response = await fetch(urlForFiveDaysWeather(lat, lon));
   const weather = await response.json();
 
@@ -70,6 +85,7 @@ const getMoreInfoData = async () => {
   const dataForDay = moreInfo[selectedDay];
   createMoreInfoMarkup(dataForDay, moreInfoContainer, iconMapping);
 };
+
 //event listener pentru a afla pe care buton "more-info" s-a dat click pentru a arata informatii pentru ziua relevanta
 cardsList.addEventListener('click', event => {
   if (event.target.classList.contains('card__button')) {
@@ -89,3 +105,45 @@ cardsList.addEventListener('click', event => {
     }
   }
 });
+
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+const searchForm = document.querySelector('#search-form');
+const searchInput = document.querySelector('#search-input');
+
+const getCityForecastData = async city => {
+  const { lat, lon } = await searchedCityCoordinates();
+  const response = await fetch(urlForFiveDaysWeather(lat, lon));
+  const weather = await response.json();
+  const dailyData = [];
+  weather.list.forEach(item => {
+    getDailyData(item, dailyData);
+  });
+  cardsList.innerHTML = '';
+  dailyData.forEach((item, index) => {
+    //aceasta conditie este pentru a elimina ziua curenta, deja este vizibila pe homepage
+    if (index === 0) {
+      return;
+    }
+    createCardsMarkup(item, cardsList, iconMapping);
+  });
+};
+
+searchForm.addEventListener('submit', submitForm);
+
+function submitForm(event) {
+  event.preventDefault();
+
+  if (searchInput.value === '') {
+    Notify.info('Enter the city name, please!', {
+      position: 'center-center',
+    });
+    return;
+  }
+  // //    afisare oras ales + functie modificare background cu orasul ales - in caz ca nu exista poze sa se afiseze peisaje cu cerul??
+  //     // daca este accesat butonul today  - accesare functie pt today
+  //     // daca este accesat butonul fivedays - accesare functie five days
+  sectionTitle.textContent = searchInput.value;
+  city = searchInput.value;
+  getCityForecastData();
+}

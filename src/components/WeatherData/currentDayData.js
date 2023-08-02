@@ -6,6 +6,7 @@ import {
   rain,
   rainNight,
   thunderStorm,
+  getNumberEnding,
 } from './utilsforCurrentDay';
 import {
   snowSvg,
@@ -37,10 +38,10 @@ weatherType.innerHTML = `${thunderStorm}`;
 weatherInfo.prepend(weatherType);
 
 const sunsetSvgElement = document.createElement('div');
-sunsetSvgElement.innerHTML = `<svg class="sun-svg" width="20" height="20" class="card__icon" viewBox="0 0 32 32">${sunsetSvg}</svg>`;
+sunsetSvgElement.innerHTML = `<svg class="sun-svg" width="20" height="20" class="card__icon" viewBox="0 0 32 32" fill="#FF6B09">${sunsetSvg}</svg>`;
 
 const sunriseSvgElement = document.createElement('div');
-sunriseSvgElement.innerHTML = `<svg class="sun-svg" width="20" height="20" viewBox="0 0 32 32">${sunriseSvg}</svg>`;
+sunriseSvgElement.innerHTML = `<svg class="sun-svg" width="20" height="20" viewBox="0 0 32 32" fill="#FF6B09">${sunriseSvg}</svg>`;
 
 sunDetails.prepend(sunriseSvgElement);
 sunLine.prepend(sunsetSvgElement);
@@ -156,7 +157,9 @@ function decodeTime(time) {
 }
 
 const DayContent = `
-<h3>${weatherData.currentDayNumber}<sup class="exponent">th</sup> ${weatherData.currentDay}</h3>
+<h3>${weatherData.currentDayNumber}<sup class="exponent">${getNumberEnding(
+  weatherData.currentDayNumber
+)}</sup> ${weatherData.currentDay}</h3>
 `;
 
 //Functie care afiseaza datele in DOM
@@ -168,7 +171,7 @@ function renderWeatherDataForToday() {
   sunrise.innerHTML = weatherData.sunRise;
   sunset.innerHTML = weatherData.sunSunset;
   currentMonth.innerHTML = weatherData.currentMonth;
-  cityText.textContent = `${weatherData.city}, ${weatherData.country}`;
+  cityText.innerHTML = `<b>${weatherData.city}, ${weatherData.country}</b>`;
 
   if (weatherData.icon === '01d' || weatherData.icon === '01n') {
     weatherType.innerHTML = `<svg width="35" height="35" viewBox="0 0 32 32">${sunSvg}</svg>`;
@@ -230,9 +233,32 @@ function submitForm(event) {
   // //    afisare oras ales + functie modificare background cu orasul ales - in caz ca nu exista poze sa se afiseze peisaje cu cerul??
   //     // daca este accesat butonul today  - accesare functie pt today
   //     // daca este accesat butonul fivedays - accesare functie five days
+  //  stergere eveniment la o noua cautare
 
   weatherData.city = searchInput.value;
-  console.info(weatherData.city);
-
+  
+  getCityBackground(searchInput.value);
   getWeatherForSearchedCity();
+   
 }
+
+function getCityBackground(cityName)  {
+  const URL = 'https://pixabay.com/api/';
+  const KEY = '&key=38046505-5b9e748b87046ce765cd21b85';
+  const requestParameters = `?image_type=photo&category=travel&orientation=horizontal&q=${cityName}&page=1&per_page=40`;
+  const bg = document.querySelector('.backgroundImage');
+  fetch(URL + requestParameters + KEY, {
+    method: 'GET',
+  })
+    .then(res => res.json())
+    .then(image => {
+      console.log(image);
+      const randomImg = Math.floor(Math.random() * image.hits.length);
+      const img = image.hits[randomImg].largeImageURL;      
+      bg.style.backgroundImage = `url(${img})`;
+    });
+}
+
+   
+
+ 
