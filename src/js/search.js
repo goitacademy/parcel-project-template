@@ -111,16 +111,16 @@ function setFavoritesList() {
   setNavigationVisibility();
 }
 
-async function handleSelectedFavorite(city) {
+export async function handleSelectedFavorite(city) {
   await updateCityImage(city);
   updateCurrentWeather(city);
+  updateSelectedCity(city);
 }
 
 function handleSelectFavorite(event) {
   const value = event.target.value;
   handleSelectedFavorite(value);
   fetchAndUpdateForecast(value);
-  updateSelectedCity(value);
 }
 
 function handleDeleteEvent(event) {

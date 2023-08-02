@@ -3,7 +3,6 @@ import {
   fetchForecastByGeolocation,
   fetchCurrentWeather,
 } from './api';
-import './search';
 import { handleSelectedFavorite } from './search';
 const temperatureUnit = 'metric';
 const input = document.querySelector('.js-form input[name="query"]');
