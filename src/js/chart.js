@@ -63,6 +63,19 @@ document.addEventListener('DOMContentLoaded', () => {
       data: {
         labels: labels,
         datasets: [
+          // {
+          //   label: 'AVERAGE: ',
+          //   data: '',
+          //   fill: false,
+          //   color: 'gray',
+          //   textAlign: 'left',
+          //   font: {
+          //     family: 'Lato',
+          //     size: 14,
+          //     style: 'normal',
+          //     weight: 400,
+          //   },
+          // },
           {
             label: '- Temperature, C°',
             data: temperatures,
@@ -96,17 +109,40 @@ document.addEventListener('DOMContentLoaded', () => {
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        interaction: {
+          mode: 'nearest',
+          axis: 'xy',
+        },
         scales: {
           x: {
+            ticks: {
+              autoSkip: false,
+              minRotation: 0,
+            },
             display: true,
             grid: {
               display: true,
+              color: 'rgba(118, 119, 121, 0.5)',
             },
           },
           y: {
             display: true,
             grid: {
               display: true,
+              color: 'rgba(118, 119, 121, 0.5)',
+            },
+            title: {
+              display: true,
+              text: 'Value of Indicators',
+              color: 'gray',
+              textAlign: 'center',
+              font: {
+                family: 'Lato',
+                size: 14,
+                style: 'normal',
+                weight: 400,
+                fillOpacity: 0.3,
+              },
             },
           },
         },
