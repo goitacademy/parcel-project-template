@@ -1,7 +1,8 @@
 import { updateCityImage } from './section-main';
-
+import { fetchAndUpdateForecast } from './five-days';
 import { updateCurrentWeather } from './1day-section';
 import { updateCurrentDate } from './section-date';
+import { updateSelectedCity } from './more-info';
 
 const form = document.querySelector('.js-form');
 const input = document.getElementsByName('query')[0];
@@ -111,15 +112,17 @@ function setFavoritesList() {
   setNavigationVisibility();
 }
 
-async function handleSelectedFavorite(city) {
+export async function handleSelectedFavorite(city) {
   await updateCityImage(city);
   updateCurrentWeather(city);
   updateCurrentDate(city);
+  updateSelectedCity(city);
 }
 
 function handleSelectFavorite(event) {
   const value = event.target.value;
   handleSelectedFavorite(value);
+  fetchAndUpdateForecast(value);
 }
 
 function handleDeleteEvent(event) {
