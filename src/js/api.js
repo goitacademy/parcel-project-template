@@ -23,7 +23,6 @@ async function getWeather(name) {
 }
 
 async function getCityImage(name) {
-  
   const imageResponse = await axios.get(
     `https://pixabay.com/api/?key=${backgroundApiKey}&q=${name}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=1`
   );
