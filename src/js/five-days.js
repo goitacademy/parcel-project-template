@@ -102,3 +102,4 @@ export function getWeatherIcon(weatherCondition) {
       return 'icon-default';
   }
 }
+fetchAndUpdateForecast('Paris');
