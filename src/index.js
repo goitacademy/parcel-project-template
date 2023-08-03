@@ -57,19 +57,15 @@ window.addEventListener('load', () => {
 
   // folosesc functia din wiget.js cu ultimul element din localStorage
   // itemsSearch[itemsSearch.length - 1];
-  console.log(itemsSearch);
-  if (itemsSearch.length !== 0) {
-    getCityImage(itemsSearch[itemsSearch.length - 1].city).then(data =>
-      addBackgroundImage(data)
-    );
-  }
+ 
+
 
   if (itemsSearch.length !== 0) {
     getCityImage(itemsSearch[itemsSearch.length - 1].city).then(data =>
       addBackgroundImage(data)
     );
 
-    getWeather(itemsSearch[itemsSearch.length - 1]).then(data => {
+    getWeather(itemsSearch[itemsSearch.length - 1].city).then(data => {
       updateWidget(data);
       sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
     });
