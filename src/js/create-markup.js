@@ -9,23 +9,14 @@ export function createMarkup(markup) {
           <img src="${weatherIconUrl}" alt="Weather icon" class="more-info__icon">
           <span>${temperature}°C</span>
         </p>
-        <ul class="more-info__data">
+        <ul class="forecast-info__details-item forecast-info__details-item--barometer unstyled-list">
           <li class="data__pressure">
-            <svg class="more-info__icon" width="20" height="20">
-              <use href="./images/sprite.svg#icon-barometer"></use>
-            </svg>
             <span>${pressure} hPa</span>
           </li>
-          <li class="data__humidity">
-            <svg class="more-info__icon" width="20" height="20">
-              <use href="./images/sprite.svg#icon-humidity"></use>
-            </svg>
+          <li class="forecast-info__details-item forecast-info__details-item--humidity unstyled-list">
             <span>${humidity}%</span>
           </li>
-          <li class="data__wint">
-            <svg class="more-info__icon" width="20" height="20">
-              <use href="./images/sprite.svg#icon-wind"></use>
-            </svg>
+          <li class="forecast-info__details-item forecast-info__details-item--wind unstyled-list">
             <span>${wint} m/s</span>
           </li>
         </ul>
