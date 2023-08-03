@@ -39,8 +39,11 @@ form.addEventListener('submit', async event => {
 
 
   createCityElement(citySearch.id, citySearch.city);
-  getWeather(search.value).then(data =>
-    sunTime(data.city.sunrise, data.city.sunset, data.city.timezone)
+  getWeather(search.value).then(data => {
+    createChart(data);
+    sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
+  }
+    
   );
   // setInterval(() => getDateFromInputCity(), 1000);
   form.reset();
@@ -59,17 +62,17 @@ window.addEventListener('load', () => {
       addBackgroundImage(data))};
 
 
-  if (itemsSearch != null) {
+  if (itemsSearch.length !== 0) {
     getCityImage(itemsSearch[itemsSearch.length - 1].city).then(data =>
       addBackgroundImage(data));
 
-    getWeather(itemsSearch[itemsSearch.length - 1]).then(data =>
-      updateWidget(data)
+    getWeather(itemsSearch[itemsSearch.length - 1]).then(data =>{
+      updateWidget(data);
+      sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
+    }
+      
     );
-    getWeather(itemsSearch[itemsSearch.length - 1]).then(
-      // data => console.log(data)
-      sunTime(data.city.sunrise, data.city.sunset, data.city.timezone)
-    );
+    
     // setInterval(() => getDateFromInputCity(data.timezone), 1000);
 
     // createCityElement(itemsSearch);
@@ -77,11 +80,12 @@ window.addEventListener('load', () => {
     // folosesc functia din wiget.js cu ultimul element din localStorage
   } else {
     getCityImage('Cluj').then(data => addBackgroundImage(data));
-    getWeather('Cluj').then(data => updateWidget(data));
-    getWeather('Cluj').then(data =>
-      sunTime(data.sys.sunrise, data.sys.sunset, data.timezone)
-    );
-    // wiget.js cu un oras random
+    getWeather('Cluj').then(data => {
+      updateWidget(data);
+      createChart(data);
+      sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
+    });
+    
   }
 });
 
