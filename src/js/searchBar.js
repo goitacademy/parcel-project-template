@@ -1,8 +1,10 @@
 //Slider
 const cityContainer = document.querySelector('.slider');
-const createCityElement = name => {
+
+const createCityElement = (id, name) => {
   let cityDiv = document.createElement('div');
   cityDiv.className = 'slide';
+  cityDiv.dataset.id = id;
   const cityName = document.createElement('h2');
   cityName.className = 'city-name';
   const cityCloseBtn = document.createElement('button');
@@ -12,3 +14,5 @@ const createCityElement = name => {
   cityDiv.append(cityName, cityCloseBtn);
   cityContainer.appendChild(cityDiv);
 };
+
+export { createCityElement };
