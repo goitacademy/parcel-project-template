@@ -74,6 +74,19 @@ getWeatherData();
 
 //functie pentru popularea cardurilor more-info
 const getMoreInfoData = async () => {
+  const { lat, lon } = await cityCoordinates();
+  const response = await fetch(urlForFiveDaysWeather(lat, lon));
+  const weather = await response.json();
+
+  const moreInfo = [];
+  weather.list.forEach(item => {
+    moreInfoData(item, moreInfo);
+  });
+  const dataForDay = moreInfo[selectedDay];
+  createMoreInfoMarkup(dataForDay, moreInfoContainer, iconMapping);
+};
+
+const getMoreInfoDataForSearchedCity = async () => {
   const { lat, lon } = await searchedCityCoordinates();
   const response = await fetch(urlForFiveDaysWeather(lat, lon));
   const weather = await response.json();
