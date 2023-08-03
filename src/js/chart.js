@@ -23,7 +23,7 @@ const plugin = {
   };
 
 function createChart(data){
-    for (i = 0; i < data.list.length; i++) {
+    for (let i = 0; i < data.list.length; i++) {
         labels.add(moment(data.list[i].dt_txt).format('DD-MMM-YYYY'));
         temperature.push(Math.round(data.list[i].main.temp));
         humidity.push(Math.round(data.list[i].main.humidity));
