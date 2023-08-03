@@ -1,6 +1,12 @@
 import { Chart } from "chart.js/auto";
+import moment from "moment";
 
-const labels = ['A', 'B', 'C', 'D', 'E'];
+let labels = new Set();
+let temperature = [];
+let humidity = [];
+let windSpeed = [];
+let atmospherePressure = [];
+
 const chartSection = document.querySelector('.chart-section');
 const ctx = document.querySelector('#myChart').getContext('2d');
 
@@ -15,53 +21,62 @@ const plugin = {
       ctx.restore();
     }
   };
-  
-const myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: labels,
-        datasets: [{
-          label: 'Temperature, °C',
-          data: [65, 59, 80, 81, 56, 55, 40],
-          fill: false,
-          borderColor: 'rgb(75, 192, 192)',
-          tension: 0.1
+
+function createChart(data){
+    for (i = 0; i < data.list.length; i++) {
+        labels.add(moment(data.list[i].dt_txt).format('DD-MMM-YYYY'));
+        temperature.push(Math.round(data.list[i].main.temp));
+        humidity.push(Math.round(data.list[i].main.humidity));
+        windSpeed.push(Math.round(data.list[i].wind.speed));
+        atmospherePressure.push(Math.round(data.list[i].main.pressure));
+    }
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [...labels],
+            datasets: [
+            {
+                label: 'Temperature, °C',
+                data: temperature,
+                fill: false,
+                borderColor: 'orange',
+                
+            },
+            {
+                label: 'Humidity, %',
+                data: humidity,
+                fill: false,
+                borderColor: 'grey',
+                
+            },
+            {
+                label: 'Wind speed, m/s',
+                data: windSpeed,
+                fill: false,
+                borderColor: 'blue',
+                
+            },
+            {
+                label: 'Atmosphere pressure, m/m',
+                data: atmospherePressure,
+                fill: false,
+                borderColor: 'lightblue',
+                
+            }]
         },
-        {
-            label: 'Humidity, %',
-            data: [5, 7, 8, 81, 6, 33, 44],
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0.1
+        options: {
+            layout: {
+                padding : '10px',
+            },
+            plugins: {
+            customCanvasBackgroundColor: {
+                color: 'transparent',
+            }
+            }
         },
-        {
-            label: 'Wind speed, m/s',
-            data: [7, 9, 23, 61, 1, 43, 34],
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0.1
-        },
-        {
-            label: 'Atmosphere pressure, m/m',
-            data: [25, 37, 48, 71, 56, 33, 44],
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0.1
-        }]
-    },
-    options: {
-        layout: {
-            padding : '10px',
-        },
-        plugins: {
-          customCanvasBackgroundColor: {
-            color: 'transparent',
-          }
-        }
-      },
-      plugins: [plugin],
-    
-});
+        plugins: [plugin],
+    });
+}
 
 const showChartBtn = document.querySelector('.showChart')
 const hideChartBtn = document.querySelector('.hideChart');
@@ -77,3 +92,5 @@ hideChartBtn.addEventListener('click',() => {
     showChartBtn.classList.remove('hidden');
     hideChartBtn.classList.add('hidden');
 });
+
+export { createChart };

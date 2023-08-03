@@ -1,9 +1,13 @@
 import moment from 'moment-timezone';
+
+
 const dayRef = document.querySelector('.time-day');
 const monthRef = document.querySelector('.month');
 const timeRef = document.querySelector('.hour');
 const sunriseTime = document.querySelector('.sunrise-time');
 const sunsetTime = document.querySelector('.sunset-time');
+
+let oneDayData = {};
 
 var moment = require('moment-timezone');
 moment().tz('America/Los_Angeles').format();
@@ -75,7 +79,7 @@ const sunTime = (sunrise, sunset, timezone) => {
   sunsetTime.textContent = sunsetHours + ':' + sunsetMinutes;
 };
 
-let oneDayData = {};
+
 
 // export functie care populeaza widget
 export { sunTime };

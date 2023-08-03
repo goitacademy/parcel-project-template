@@ -6,6 +6,7 @@ import './js/chart';
 import { getCityImage, getWeather } from './js/api';
 import { getLocalStorage, addLocalStorage } from './js/utils';
 import { addBackgroundImage, updateWidget } from './js/widget';
+import { createChart } from './js/chart';
 import { sunTime } from './js/time';
 
 const form = document.querySelector('.form');
@@ -45,22 +46,21 @@ window.addEventListener('load', () => {
       addBackgroundImage(data)
     );
 
-    getWeather(itemsSearch[itemsSearch.length - 1]).then(data =>
+    getWeather(itemsSearch[itemsSearch.length - 1]).then(data =>{
       updateWidget(data)
-    );
-    getWeather(itemsSearch[itemsSearch.length - 1]).then(
-      // data => console.log(data)
+      
       sunTime(data.city.sunrise, data.city.sunset, data.city.timezone)
-    );
+    });
     // setInterval(() => getDateFromInputCity(data.timezone), 1000);
 
     // folosesc functia din wiget.js cu ultimul element din localStorage
   } else {
     getCityImage('Cluj').then(data => addBackgroundImage(data));
-    getWeather('Cluj').then(data => updateWidget(data));
-    getWeather('Cluj').then(data =>
-      sunTime(data.sys.sunrise, data.sys.sunset, data.timezone)
-    );
+    getWeather('Cluj').then(data => {
+      updateWidget(data);
+      createChart(data);
+      sunTime(data.city.sunrise, data.city.sunset, data.city.timezone)
+  });
     // wiget.js cu un oras random
   }
 });
