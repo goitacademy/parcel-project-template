@@ -71,7 +71,6 @@ const nth = function (d) {
 };
 // functie care face update la sunrise/sunset
 const sunTime = (sunrise, sunset, timezone) => {
-  let oneDayData = {};
   const daterise = new Date(sunrise * 1000);
   const sunrisechange = moment(daterise).utcOffset(timezone / 60);
 
@@ -87,4 +86,4 @@ const sunTime = (sunrise, sunset, timezone) => {
 };
 
 // export functie care populeaza widget
-export { sunTime, updateTime, setInterval };
+export { sunTime };
