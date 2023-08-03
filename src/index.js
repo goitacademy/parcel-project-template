@@ -13,7 +13,7 @@ import { addBackgroundImage, updateWidget } from './js/widget';
 import { createChart } from './js/chart';
 
 import { createCityElement } from './js/searchBar';
-import { sunTime, updateTime, setInterval, intervalId } from './js/time';
+import { sunTime } from './js/time';
 
 const form = document.querySelector('.form');
 const cityContainer = document.querySelector('.slider');
