@@ -13,7 +13,7 @@ import { addBackgroundImage, updateWidget } from './js/widget';
 import { createChart } from './js/chart';
 
 import { createCityElement } from './js/searchBar';
-import { sunTime } from './js/time';
+import { sunTime, updateTime, setInterval, intervalId } from './js/time';
 
 const form = document.querySelector('.form');
 const cityContainer = document.querySelector('.slider');
@@ -37,15 +37,17 @@ form.addEventListener('submit', async event => {
 
   addLocalStorage(itemsSearch);
 
-
   createCityElement(citySearch.id, citySearch.city);
   getWeather(search.value).then(data => {
     createChart(data);
     sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
-  }
-    
-  );
-  // setInterval(() => getDateFromInputCity(), 1000);
+  });
+  // functie care face update la ora
+  clearInterval(intervalId);
+  const cityIntervalId = setInterval(() => {
+    updateTime(data.city.sunrise, data.city.timezone);
+  }, 1000);
+
   form.reset();
 });
 
@@ -53,26 +55,25 @@ form.addEventListener('submit', async event => {
 window.addEventListener('load', () => {
   itemsSearch = getLocalStorage() === null ? [] : getLocalStorage();
 
-
   // folosesc functia din wiget.js cu ultimul element din localStorage
   // itemsSearch[itemsSearch.length - 1];
   console.log(itemsSearch);
   if (itemsSearch.length !== 0) {
     getCityImage(itemsSearch[itemsSearch.length - 1].city).then(data =>
-      addBackgroundImage(data))};
-
+      addBackgroundImage(data)
+    );
+  }
 
   if (itemsSearch.length !== 0) {
     getCityImage(itemsSearch[itemsSearch.length - 1].city).then(data =>
-      addBackgroundImage(data));
+      addBackgroundImage(data)
+    );
 
-    getWeather(itemsSearch[itemsSearch.length - 1]).then(data =>{
+    getWeather(itemsSearch[itemsSearch.length - 1]).then(data => {
       updateWidget(data);
       sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
-    }
-      
-    );
-    
+    });
+
     // setInterval(() => getDateFromInputCity(data.timezone), 1000);
 
     // createCityElement(itemsSearch);
@@ -85,7 +86,6 @@ window.addEventListener('load', () => {
       createChart(data);
       sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
     });
-    
   }
 });
 
