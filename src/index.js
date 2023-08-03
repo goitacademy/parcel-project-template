@@ -13,7 +13,7 @@ import { addBackgroundImage, updateWidget } from './js/widget';
 import { createChart } from './js/chart';
 
 import { createCityElement } from './js/searchBar';
-import { sunTime, updateTime, setInterval, intervalId } from './js/time';
+import { sunTime } from './js/time';
 
 const form = document.querySelector('.form');
 const cityContainer = document.querySelector('.slider');
@@ -43,10 +43,10 @@ form.addEventListener('submit', async event => {
     sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
   });
   // functie care face update la ora
-  clearInterval(intervalId);
-  const cityIntervalId = setInterval(() => {
-    updateTime(data.city.sunrise, data.city.timezone);
-  }, 1000);
+  // clearInterval(intervalId);
+  // const cityIntervalId = setInterval(() => {
+  //   updateTime(data.city.sunrise, data.city.timezone);
+  // }, 1000);
 
   form.reset();
 });
@@ -57,8 +57,6 @@ window.addEventListener('load', () => {
 
   // folosesc functia din wiget.js cu ultimul element din localStorage
   // itemsSearch[itemsSearch.length - 1];
- 
-
 
   if (itemsSearch.length !== 0) {
     getCityImage(itemsSearch[itemsSearch.length - 1].city).then(data =>

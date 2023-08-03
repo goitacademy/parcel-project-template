@@ -6,22 +6,23 @@ const timeRef = document.querySelector('.hour');
 const sunriseTime = document.querySelector('.sunrise-time');
 const sunsetTime = document.querySelector('.sunset-time');
 
-let oneDayData = { timezone: -new Date().getTimezoneOffset() };
+// let oneDayData = { timezone: -new Date().getTimezoneOffset() };
+let oneDayData = {};
+// // functie care face update la ora
+// function updateTime(cityHour, timezone) {
+//   const date = new Date(cityHour);
+//   const changeDate = moment(date).utcOffset(timezone / 60);
 
-// functie care face update la ora
-function updateTime(cityHour, timezone) {
-  const date = new Date(cityHour);
-  const changeDate = moment(date).utcOffset(timezone / 60);
-
-  timeRef.textContent =
-    pad(changeDate.hours()) +
-    ':' +
-    pad(changeDate.minutes()) +
-    ':' +
-    pad(changeDate.seconds());
-}
-export const intervalId = setInterval(() => {
+//   timeRef.textContent =
+//     pad(changeDate.hours()) +
+//     ':' +
+//     pad(changeDate.minutes()) +
+//     ':' +
+//     pad(changeDate.seconds());
+// }
+const intervalId = setInterval(() => {
   const date = new Date();
+  // let oneDayData = { timezone: -new Date().getTimezoneOffset() };
   const changeDate = moment(date).utcOffset(oneDayData.timezone / 60);
 
   const dayNow = date.getDate();
@@ -85,4 +86,4 @@ const sunTime = (sunrise, sunset, timezone) => {
 };
 
 // export functie care populeaza widget
-export { sunTime, updateTime, setInterval };
+export { sunTime };
