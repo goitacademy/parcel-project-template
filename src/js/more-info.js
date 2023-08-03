@@ -97,11 +97,11 @@ function getThreeHourlyData(forecastData, day) {
 
   return data;
 }
-const updateSelectedCity = city => {
+function updateSelectedCity(city) {
   selectedCity = city;
   // you might also want to clear previous results
   moreInfoElement.innerHTML = '';
-};
+}
 
 const moreInfo = async event => {
   event.preventDefault();
