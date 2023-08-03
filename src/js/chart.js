@@ -1,6 +1,9 @@
 import Chart from 'chart.js/auto';
 import { fetchForecast } from './api';
 
+const favoritesList = document.querySelector('.js-slider-list');
+let temperatureUnit = 'metric';
+
 document.addEventListener('DOMContentLoaded', () => {
   const chartSection = document.querySelector('.chart');
   const hideChartButton = document.querySelector('.hide-chart-button__btn');
@@ -39,6 +42,40 @@ document.addEventListener('DOMContentLoaded', () => {
             new Date(t.dt * 1000).getDay() === new Date(item.dt * 1000).getDay()
         )
     );
+  }
+
+  async function fetchAndRenderFavoriteChart(city) {
+    try {
+      const forecastData = await fetchForecast(city, temperatureUnit);
+      city.textContent = forecastData.city.name;
+      const dailyData = getDailyData(forecastData);
+      renderChart(dailyData);
+    } catch (error) {
+      console.error('Error while fetching weather data: ', error);
+    }
+  }
+
+  favoritesList.addEventListener('click', event => {
+    if (event.target.classList.contains('favorite-button')) {
+      const city = event.target.value;
+      handleSelectedFavorite(city, temperatureUnit);
+      fetchAndRenderFavoriteChart(city, temperatureUnit);
+    }
+  });
+
+  async function handleSelectedFavorite(city) {
+    try {
+      const forecastData = await fetchForecast(city, temperatureUnit);
+      city.textContent = forecastData.city.name;
+      const dailyData = getDailyData(forecastData);
+      renderChart(dailyData);
+    } catch (error) {
+      console.error('Error while fetching weather data: ', error);
+    }
+  }
+
+  function handleSelectedFavorite(city, temperatureUnit) {
+    fetchAndRenderFavoriteChart(city, temperatureUnit);
   }
 
   function renderChart(dailyData) {
@@ -147,6 +184,11 @@ document.addEventListener('DOMContentLoaded', () => {
           },
         },
       },
+    });
+
+    city.addEventListener('click', () => {
+      const favoriteCity = city.textContent;
+      handleSelectedFavorite(favoriteCity);
     });
   }
 });
