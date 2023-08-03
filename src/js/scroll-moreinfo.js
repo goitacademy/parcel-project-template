@@ -1,16 +1,13 @@
-//const moreInfoButton = document.querySelector('.show-more__right');
+const btnMoreInfo = document.querySelector('.five-days__info');
+const btnShowRight = document.querySelector('.show-more__right');
+if (window.innerWidth >= 768) {
+  btnShowRight.classList.add('is-hidden');
+}
 
-// Ascunde sau afiseaza butonul in functie de latimea ecranului
-//function handleResize() {
-// if (window.innerWidth >= 768) {
-//   moreInfoButton.style.display = 'block';
-//} else {
-//  moreInfoButton.style.display = 'none';
-// }
-//}
-
-// Ascunde sau afiseaza butonul la incarcarea paginii
-//handleResize();
-
-// Ascunde sau afiseaza butonul atunci cand se schimba latimea ecranului
-//window.addEventListener('resize', handleResize);
+btnMoreInfo.addEventListener('click', () => {
+  if (window.innerWidth >= 768) {
+    btnShowRight.classList.remove('is-hidden');
+  } else {
+    btnShowRight.classList.add('is-hidden');
+  }
+});
