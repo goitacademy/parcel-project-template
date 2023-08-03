@@ -55,22 +55,18 @@ window.addEventListener('load', () => {
   console.log(itemsSearch);
   if (itemsSearch.length !== 0) {
     getCityImage(itemsSearch[itemsSearch.length - 1].city).then(data =>
-      addBackgroundImage(data)
-    );
+      addBackgroundImage(data))};
 
 
   if (itemsSearch != null) {
     getCityImage(itemsSearch[itemsSearch.length - 1].city).then(data =>
-      addBackgroundImage(data)
-    );
+      addBackgroundImage(data));
 
     getWeather(itemsSearch[itemsSearch.length - 1].city).then(data =>
-      updateWidget(data)
-    );
+      updateWidget(data));
     getWeather(itemsSearch[itemsSearch.length - 1].city).then(
       // data => console.log(data)
-      sunTime(data.city.sunrise, data.city.sunset, data.city.timezone)
-    );
+      sunTime(data.city.sunrise, data.city.sunset, data.city.timezone));
     // setInterval(() => getDateFromInputCity(data.timezone), 1000);
 
     // createCityElement(itemsSearch);
@@ -80,8 +76,7 @@ window.addEventListener('load', () => {
     getCityImage('Cluj').then(data => addBackgroundImage(data));
     getWeather('Cluj').then(data => updateWidget(data));
     getWeather('Cluj').then(data =>
-      sunTime(data.sys.sunrise, data.sys.sunset, data.timezone)
-    );
+      sunTime(data.sys.sunrise, data.sys.sunset, data.timezone));
     // wiget.js cu un oras random
   }
 });
