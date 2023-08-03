@@ -1,6 +1,7 @@
 import { updateCityImage } from './section-main';
 import { fetchAndUpdateForecast } from './five-days';
 import { updateCurrentWeather } from './1day-section';
+import { updateCurrentDate } from './section-date';
 import { updateSelectedCity } from './more-info';
 
 const form = document.querySelector('.js-form');
@@ -114,6 +115,7 @@ function setFavoritesList() {
 export async function handleSelectedFavorite(city) {
   await updateCityImage(city);
   updateCurrentWeather(city);
+  updateCurrentDate(city);
   updateSelectedCity(city);
 }
 
