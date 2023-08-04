@@ -66,6 +66,7 @@ window.addEventListener('load', () => {
 
     getWeather(itemsSearch[itemsSearch.length - 1].city).then(data => {
       updateWidget(data);
+      createChart(data);
       sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
     });
 
