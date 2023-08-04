@@ -10,19 +10,7 @@ function updateWidget(data) {
   document.querySelector('.max').innerHTML =
     'max ' + Math.round(data.list[0].main.temp_max) + '°C';
 
-
-  if(data.list[0].weather[0].main == "Clouds"){
-    widgetIcon.src = "/src/images/001-cloudy.png";
-  }
-  else if(data.list[0].weather[0].main == "Clear"){
-    widgetIcon.src = "/src/images/002-sun.png";
-  }
-  else if(data.list[0].weather[0].main == "Rain"){
-    widgetIcon.src = "/src/images/011-rain.png";
-  }
-  else if(data.list[0].weather[0].main == "Snow"){
-    widgetIcon.src = "/src/images/006-snow.png";
-  }
+    widgetIcon.src = `https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
 }
 
 // functie
