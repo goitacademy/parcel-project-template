@@ -20,6 +20,16 @@ const cityContainer = document.querySelector('.slider');
 
 let itemsSearch = [];
 
+/**
+ * functie care updateaza componentele la schimbarea orasului
+ * @param {*} data 
+ */
+function changeCity(data) {
+  updateWidget(data);
+  createChart(data);
+  sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
+}
+
 //! form aici (eventListener)
 form.addEventListener('submit', async event => {
   event.preventDefault();
@@ -28,7 +38,8 @@ form.addEventListener('submit', async event => {
   } = event.currentTarget;
 
   const data = await getWeather(search.value);
-  updateWidget(data);
+  changeCity(data);
+
   const backgroundImage = await getCityImage(search.value);
   addBackgroundImage(backgroundImage);
 
@@ -38,11 +49,7 @@ form.addEventListener('submit', async event => {
   addLocalStorage(itemsSearch);
 
   createCityElement(citySearch.id, citySearch.city);
-  getWeather(search.value).then(data => {
-    // console.log(data);
-    createChart(data);
-    sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
-  });
+  
   // functie care face update la ora
   // clearInterval(intervalId);
   // const cityIntervalId = setInterval(() => {
@@ -65,9 +72,7 @@ window.addEventListener('load', () => {
     );
 
     getWeather(itemsSearch[itemsSearch.length - 1].city).then(data => {
-      updateWidget(data);
-      createChart(data);
-      sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
+      changeCity(data);
     });
 
     // setInterval(() => getDateFromInputCity(data.timezone), 1000);
@@ -78,9 +83,7 @@ window.addEventListener('load', () => {
   } else {
     getCityImage('Cluj').then(data => addBackgroundImage(data));
     getWeather('Cluj').then(data => {
-      updateWidget(data);
-      createChart(data);
-      sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
+      changeCity(data);
     });
   }
 });
@@ -97,7 +100,7 @@ cityContainer.addEventListener('click', async event => {
   if (event.target.tagName === 'H2') {
     const searchValue = event.target.innerText;
     const data = await getWeather(searchValue);
-    updateWidget(data);
+    changeCity(data);
     const backgroundImage = await getCityImage(searchValue);
     addBackgroundImage(backgroundImage);
   }
