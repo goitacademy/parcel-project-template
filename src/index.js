@@ -13,7 +13,7 @@ import { addBackgroundImage, updateWidget } from './js/widget';
 import { createChart } from './js/chart';
 
 import { createCityElement } from './js/searchBar';
-import { sunTime } from './js/time';
+import { sunTime, setInterval, updateTime, intervalId } from './js/time';
 
 const form = document.querySelector('.form');
 const cityContainer = document.querySelector('.slider');
@@ -39,14 +39,15 @@ form.addEventListener('submit', async event => {
 
   createCityElement(citySearch.id, citySearch.city);
   getWeather(search.value).then(data => {
+    console.log(data);
     createChart(data);
     sunTime(data.city.sunrise, data.city.sunset, data.city.timezone);
   });
   // functie care face update la ora
-  // clearInterval(intervalId);
-  // const cityIntervalId = setInterval(() => {
-  //   updateTime(data.city.sunrise, data.city.timezone);
-  // }, 1000);
+  clearInterval(intervalId);
+  const cityIntervalId = setInterval(() => {
+    updateTime(data.list.dt);
+  }, 1000);
 
   form.reset();
 });
