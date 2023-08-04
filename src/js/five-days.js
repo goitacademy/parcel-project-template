@@ -8,7 +8,6 @@ const temperatureUnit = 'metric';
 const input = document.querySelector('.js-form input[name="query"]');
 const form = document.querySelector('.js-form');
 const city = document.querySelector('.city__name');
-const icon = document.querySelector('.five-days__icon use');
 
 form.addEventListener('submit', fetchForecast5Day);
 
@@ -51,7 +50,7 @@ function updateForecast(dailyData) {
     const date = item.querySelector('.five-days__date');
     const tempMin = item.querySelector('.temperature-min__value');
     const tempMax = item.querySelector('.temperature-max__value');
-    const icon = item.querySelector('.five-days__icon use');
+    const icon = item.querySelector('.five-days__icon');
 
     day.textContent = dateItem.toLocaleString('default', { weekday: 'long' });
     date.textContent = dateItem.toLocaleString('default', {
@@ -62,10 +61,7 @@ function updateForecast(dailyData) {
     tempMin.textContent = Math.round(Math.min(...temperatures));
     tempMax.textContent = Math.round(Math.max(...temperatures));
 
-    const weatherIconName = getWeatherIcon(
-      forecastItem.weather[0].main.toLowerCase()
-    );
-    icon.setAttribute('href', `./images/sprite.svg#${weatherIconName}`);
+    icon.src = `http://openweathermap.org/img/w/${forecastItem.weather[0].icon}.png`;
   }
 }
 export async function fetchAndUpdateForecast(cityName) {
@@ -85,18 +81,5 @@ async function handleFavoriteSelection(event) {
   await fetchAndUpdateForecast(value);
 }
 city.addEventListener('click', handleFavoriteSelection);
-export function getWeatherIcon(weatherCondition) {
-  switch (weatherCondition) {
-    case 'clear':
-      return 'icon-sun';
-    case 'clouds':
-      return 'icon-cloudy';
-    case 'rain':
-      return 'icon-rain';
-    case 'snow':
-      return 'icon-snow';
-    default:
-      return 'icon-default';
-  }
-}
+
 fetchAndUpdateForecast('Paris');
