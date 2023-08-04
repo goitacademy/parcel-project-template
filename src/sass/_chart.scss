@@ -1,0 +1,111 @@
+#myChart {
+  background-color: $background;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  background-color: $background;
+  padding: 0px 20px 20px 20px;
+  border-radius: 40px;
+  margin-top: 50px;
+}
+
+.chart-content {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  background: #1e1e24;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0px;
+}
+
+@media (min-width: 768px) {
+  .chart-container {
+    width: 768px;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+  #myChart {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .chart-container {
+    width: 1280px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+  #myChart {
+    max-width: 100%;
+  }
+}
+
+$speed: 0.5s;
+
+.btn-flip {
+  opacity: 1;
+  outline: 0;
+  color: $background;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+
+  &:hover {
+    &:after {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+    }
+
+    &:before {
+      opacity: 0;
+      transform: translateY(50%) rotateX(90deg);
+    }
+  }
+
+  &:after {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: #323237;
+    display: block;
+    transition: $speed;
+    position: absolute;
+    background: #adadaf;
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+    border-color: #adadaf;
+  }
+
+  &:before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: #adadaf;
+    border-color: #adadaf;
+    display: block;
+    padding: 0 30px;
+    line-height: 40px;
+    transition: $speed;
+    position: relative;
+    background: #323237;
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+  }
+}
