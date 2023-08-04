@@ -6,20 +6,20 @@ const timeRef = document.querySelector('.hour');
 const sunriseTime = document.querySelector('.sunrise-time');
 const sunsetTime = document.querySelector('.sunset-time');
 
-// let oneDayData = { timezone: -new Date().getTimezoneOffset() };
-let oneDayData = {};
+let oneDayData = { timezone: -new Date().getTimezoneOffset() };
+// let oneDayData = {};
 // // functie care face update la ora
-// function updateTime(cityHour, timezone) {
-//   const date = new Date(cityHour);
-//   const changeDate = moment(date).utcOffset(timezone / 60);
+function updateTime(cityHour, timezone) {
+  const date = new Date(cityHour);
+  const changeDate = moment(date).utcOffset(timezone / 60);
 
-//   timeRef.textContent =
-//     pad(changeDate.hours()) +
-//     ':' +
-//     pad(changeDate.minutes()) +
-//     ':' +
-//     pad(changeDate.seconds());
-// }
+  timeRef.textContent =
+    pad(changeDate.hours()) +
+    ':' +
+    pad(changeDate.minutes()) +
+    ':' +
+    pad(changeDate.seconds());
+}
 const intervalId = setInterval(() => {
   const date = new Date();
   // let oneDayData = { timezone: -new Date().getTimezoneOffset() };
@@ -86,4 +86,4 @@ const sunTime = (sunrise, sunset, timezone) => {
 };
 
 // export functie care populeaza widget
-export { sunTime };
+export { sunTime, setInterval, updateTime, intervalId };
