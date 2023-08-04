@@ -43,7 +43,6 @@ function getDailyData(forecastData) {
 }
 function updateForecast(dailyData) {
   for (let i = 0; i < 5; i++) {
-    // Select the first forecast record for the day
     const forecastItem = dailyData[i][0];
     const dateItem = new Date(forecastItem.dt * 1000);
 
@@ -59,8 +58,6 @@ function updateForecast(dailyData) {
       day: '2-digit',
       month: 'short',
     });
-
-    // Calculate the min and max temperatures for the day
     const temperatures = dailyData[i].map(data => data.main.temp);
     tempMin.textContent = Math.round(Math.min(...temperatures));
     tempMax.textContent = Math.round(Math.max(...temperatures));

@@ -77,7 +77,6 @@ let markup = [
 createMarkup(markup);
 
 function getThreeHourlyData(forecastData, day) {
-  // Calculate start and end indices for the selected day
   const startIndex = (day - 1) * 8;
   const endIndex = startIndex + 8;
 
@@ -99,7 +98,6 @@ function getThreeHourlyData(forecastData, day) {
 }
 function updateSelectedCity(city) {
   selectedCity = city;
-  // you might also want to clear previous results
   moreInfoElement.innerHTML = '';
 }
 
@@ -126,8 +124,6 @@ const moreInfo = async event => {
 buttons.forEach(button => {
   button.addEventListener('click', moreInfo);
 });
-
-// export this function so you can call it from other modules
 export { updateSelectedCity };
 buttons.forEach(button => {
   button.addEventListener('click', moreInfo);
