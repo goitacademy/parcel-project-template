@@ -85,7 +85,6 @@ window.addEventListener('load', () => {
 
 //! incarca orasul cand apesi pe cityDiv
 cityContainer.addEventListener('click', async event => {
-  console.log(event.target.tagName);
 
   const uniqId = event.target.parentElement.dataset.id;
 
