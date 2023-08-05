@@ -74,8 +74,6 @@ const renderMoreInfo = target => {
     moreInfoBlock.appendChild(listItem); // Append each forecast item directly to moreInfoBlock
   });
 
-  moreInfoBlock.appendChild(timeWeather);
-
   console.log('Rendered more info:', currentMoreInfo.forecast);
 };
 
