@@ -1,4 +1,4 @@
-//import Chart from 'chart.js/auto';
+import Chart from 'chart.js/auto';
 import { fetchForecast } from './api';
 
 const favoritesList = document.querySelector('.js-slider-list');
