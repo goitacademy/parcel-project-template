@@ -17,14 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const temperatureUnit = 'metric';
   const input = document.querySelector('.js-form input[name="query"]');
   const form = document.querySelector('.js-form');
-  const city = document.querySelector('.city__name');
+  const cityElement = document.querySelector('.city__name');
   form.addEventListener('submit', fetchAndRenderChart);
 
   async function fetchAndRenderChart(e) {
     e.preventDefault();
     console.log('Form submitted');
     try {
-      const forecastData = await fetchForecast(input.value, temperatureUnit);
+      const city = input.value;
+      const forecastData = await fetchForecast(city, temperatureUnit);
       city.textContent = forecastData.city.name;
       const dailyData = getDailyData(forecastData);
       renderChart(dailyData);
@@ -100,19 +101,19 @@ document.addEventListener('DOMContentLoaded', () => {
       data: {
         labels: labels,
         datasets: [
-          // {
-          //   label: 'AVERAGE: ',
-          //   data: '',
-          //   fill: false,
-          //   color: 'gray',
-          //   textAlign: 'left',
-          //   font: {
-          //     family: 'Lato',
-          //     size: 14,
-          //     style: 'normal',
-          //     weight: 400,
-          //   },
-          // },
+          {
+            label: 'AVERAGE: ',
+            data: '',
+            fill: false,
+            color: 'gray',
+            textAlign: 'left',
+            font: {
+              family: 'Lato',
+              size: 14,
+              style: 'normal',
+              weight: 400,
+            },
+          },
           {
             label: '- Temperature, C°',
             data: temperatures,
@@ -186,9 +187,9 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     });
 
-    city.addEventListener('click', () => {
-      const favoriteCity = city.textContent;
-      handleSelectedFavorite(favoriteCity);
-    });
+    // city.addEventListener('click', () => {
+    //   const favoriteCity = city.textContent;
+    //   handleSelectedFavorite(favoriteCity);
+    // });
   }
 });
