@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let weatherChart = null;
 
   hideChartButton.addEventListener('click', () => {
-    chartSection.classList.toggle('hidden-chart');
+    chartSection.classList.add('is-hidden');
   });
 
   const temperatureUnit = 'metric';
