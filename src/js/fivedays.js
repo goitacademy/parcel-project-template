@@ -1,5 +1,6 @@
 import refs from './ref';
 import { getFiveDayData } from './api';
+let fiveDayData = {};
 
 const renderFiveDaysWeather = data => {
   fiveDayData = data;
