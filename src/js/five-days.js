@@ -8,11 +8,14 @@ const temperatureUnit = 'metric';
 const input = document.querySelector('.js-form input[name="query"]');
 const form = document.querySelector('.js-form');
 const city = document.querySelector('.city__name');
+const fiveDaysSection = document.querySelector('.five-days');
 
 form.addEventListener('submit', fetchForecast5Day);
 
 async function fetchForecast5Day(e) {
   e.preventDefault();
+  fiveDaysSection.classList.add('is-hidden');
+  city.classList.add('is-hidden');
   try {
     const forecastData = await fetchForecast(input.value, temperatureUnit);
     city.textContent = forecastData.city.name;
