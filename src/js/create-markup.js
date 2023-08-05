@@ -11,7 +11,7 @@ export function createMarkup(markup) {
         </p>
         <ul class="forecast-info__details-item forecast-info__details-item--barometer unstyled-list">
           <li class="data__pressure">
-            <span>${pressure} hPa</span>
+            <span>${pressure} mm</span>
           </li>
           <li class="forecast-info__details-item forecast-info__details-item--humidity unstyled-list">
             <span>${humidity}%</span>

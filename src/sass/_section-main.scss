@@ -13,23 +13,15 @@ body {
   padding: 0;
 }
 .container {
-  background-color: $background-color;
   position: relative;
   margin: 0 auto;
   width: 320px;
-  height: 790px;
+
   overflow-x: hidden;
   &__background {
-    background: linear-gradient(
-        0.56deg,
-        #000000 -13.48%,
-        rgba(0, 0, 0, 0) 78.75%
-      ),
-      url(../images/background1-t.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height: 790px;
   }
 }
 .quote {
@@ -40,11 +32,9 @@ body {
   color: $white-color;
   display: flex;
   text-align: -webkit-right;
-  position: absolute;
   flex-direction: column;
   gap: 20px;
-  top: 677px;
-  left: 20px;
+  position: relative;
   &__text {
     font-size: 14px;
     font-style: italic;
@@ -55,6 +45,16 @@ body {
     font-size: 18px;
     line-height: 1.2;
   }
+}
+.quote::before {
+  position: absolute;
+  content: '\201D';
+  font-style: normal;
+  font-size: 90px;
+  right: -4px;
+  opacity: 0.4;
+  position: absolute;
+  top: -42px;
 }
 @media screen and (min-device-pixel-ratio: 2),
   screen and (min-resolution: 192dpi),
@@ -69,7 +69,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height: 790px;
   }
 }
 
@@ -87,7 +86,6 @@ body {
       background-size: cover;
       background-repeat: no-repeat;
       width: 100%;
-      height: 1219px;
     }
   }
   .quote {
@@ -120,7 +118,7 @@ body {
 @media screen and (min-width: 1280px) {
   .container {
     width: 100%;
-    height: 950px;
+
     &__background {
       background: linear-gradient(
           0.56deg,
@@ -131,7 +129,7 @@ body {
       background-size: cover;
       background-repeat: no-repeat;
       width: 100%;
-      height: 950px;
+
       left: -86px;
     }
   }

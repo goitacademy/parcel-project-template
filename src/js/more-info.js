@@ -83,12 +83,13 @@ function getThreeHourlyData(forecastData, day) {
   const data = forecastData.list.slice(startIndex, endIndex).map(item => {
     const dateItem = new Date(item.dt * 1000);
     const weatherIconName = item.weather[0].icon;
-
+    const pressureInHpa = item.main.pressure;
+    const pressureInMmHg = pressureInHpa * 0.75006;
     return {
       time: dateItem.getHours() + ':00',
       weatherIconName: weatherIconName,
       temperature: Math.round(item.main.temp),
-      pressure: item.main.pressure,
+      pressure: Math.round(pressureInMmHg),
       humidity: item.main.humidity,
       wint: item.wind.speed,
     };
