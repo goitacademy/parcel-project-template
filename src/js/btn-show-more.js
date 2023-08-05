@@ -3,9 +3,6 @@ const btnShowMoreLeft = document.querySelector('.show-more__left');
 const initialItems = document.querySelectorAll('.show-initial');
 const hiddenItems = document.querySelectorAll('.hide-initial');
 const moreInfo = document.querySelector('.more-info');
-const showChartBtn = document.querySelector('.show-chart');
-const chart = document.querySelectorAll('.chart');
-const hidden = document.querySelector('.is-hidden');
 btnShowMoreLeft.addEventListener('click', () => {
   initialItems.forEach(item => {
     item.classList.add('hide-on-click');
@@ -29,9 +26,4 @@ btnShowMoreRight.addEventListener('click', () => {
   if (window.matchMedia('(min-width: 768px) and (max-width: 1027px)').matches) {
     moreInfo.scrollLeft += 100;
   }
-});
-showChartBtn.addEventListener('click', () => {
-  chart.forEach(item => {
-    item.classList.remove('is-hidden');
-  });
 });

@@ -6,7 +6,9 @@ let todaySection = document.querySelector('.allday-wheather');
 const city = document.querySelector('.city');
 const quote = document.querySelector('.quote');
 const dateSection = document.querySelector('.dayli-container');
-const showChart = document.querySelector('.show-chart');
+const chart = document.querySelector('.chart');
+const showChartBtn = document.querySelector('.show-chart');
+
 openBtn5Days.addEventListener('click', open5Days);
 function open5Days() {
   hiddenItems.forEach(function (item) {
@@ -17,7 +19,7 @@ function open5Days() {
   todaySection.classList.add('is-hidden');
   quote.classList.add('is-hidden');
   dateSection.classList.add('is-hidden');
-  showChart.classList.remove('is-hidden');
+  chart.classList.add('is-hidden');
 }
 todayBtn.addEventListener('click', showToday);
 function showToday() {
@@ -26,5 +28,7 @@ function showToday() {
   city.classList.add('is-hidden');
   quote.classList.remove('is-hidden');
   dateSection.classList.remove('is-hidden');
-  showChart.classList.add('is-hidden');
 }
+showChartBtn.addEventListener('click', () => {
+  chart.classList.remove('is-hidden');
+});
