@@ -16,8 +16,11 @@ function open5Days() {
   });
   fiveDaysSection.classList.remove('is-hidden');
   city.classList.remove('is-hidden');
+
   if (fiveDaysSection.classList.contains('is-hidden')) {
     todaySection.classList.remove('is-hidden');
+    dateSection.classList.remove('is-hidden');
+    quote.classList.remove('is-hidden');
   } else {
     todaySection.classList.add('is-hidden');
   }
@@ -25,6 +28,7 @@ function open5Days() {
   quote.classList.add('is-hidden');
   dateSection.classList.add('is-hidden');
   chart.classList.add('is-hidden');
+  showChartBtn.classList.remove('is-hidden');
 }
 
 todayBtn.addEventListener('click', showToday);
@@ -34,6 +38,7 @@ function showToday() {
   city.classList.add('is-hidden');
   quote.classList.remove('is-hidden');
   dateSection.classList.remove('is-hidden');
+  showChartBtn.classList.add('is-hidden');
 }
 showChartBtn.addEventListener('click', () => {
   chart.classList.remove('is-hidden');

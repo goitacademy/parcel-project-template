@@ -9,13 +9,18 @@ const input = document.querySelector('.js-form input[name="query"]');
 const form = document.querySelector('.js-form');
 const city = document.querySelector('.city__name');
 const fiveDaysSection = document.querySelector('.five-days');
-
+const quote = document.querySelector('.quote');
+const btnShowChart = document.querySelector('.show-chart');
+const showRight = document.querySelector('.show-more__right');
 form.addEventListener('submit', fetchForecast5Day);
 
 async function fetchForecast5Day(e) {
   e.preventDefault();
   fiveDaysSection.classList.add('is-hidden');
   city.classList.add('is-hidden');
+  quote.classList.remove('is-hidden');
+  btnShowChart.classList.add('is-hidden');
+  showRight.classList.add('is-hidden');
   try {
     const forecastData = await fetchForecast(input.value, temperatureUnit);
     city.textContent = forecastData.city.name;

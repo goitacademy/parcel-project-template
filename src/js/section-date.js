@@ -1,5 +1,5 @@
 import { fetchCurrentWeather } from './api.js';
-
+const dayli = document.querySelector('.dayli-container');
 function updateCurrentDateData(data) {
   var now = new Date();
   var utc_now = new Date(
@@ -92,6 +92,7 @@ function getDayNumberOrder(dayNumber) {
 
 export function updateCurrentDate(city) {
   const temperatureUnit = 'metric';
+  dayli.classList.remove('is-hidden');
   fetchCurrentWeather(city, temperatureUnit)
     .then(weatherData => {
       updateCurrentDateData(weatherData);
