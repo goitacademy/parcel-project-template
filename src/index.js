@@ -2,6 +2,12 @@ import './js/widget';
 import './js/time';
 import './js/citat';
 import './js/chart';
+import './js/fivedays';
+import './js/ref';
+import './js/active-btn-fivedays-card';
+import './js/moreinfo';
+import './js/more-info-scroll-btn';
+import './js/five-days-scroll-btn';
 
 import { getCityImage, getWeather } from './js/api';
 import {
@@ -22,7 +28,7 @@ let itemsSearch = [];
 
 /**
  * functie care updateaza componentele la schimbarea orasului
- * @param {*} data 
+ * @param {*} data
  */
 function changeCity(data) {
   updateWidget(data);
@@ -49,7 +55,7 @@ form.addEventListener('submit', async event => {
   addLocalStorage(itemsSearch);
 
   createCityElement(citySearch.id, citySearch.city);
-  
+
   // functie care face update la ora
   // clearInterval(intervalId);
   // const cityIntervalId = setInterval(() => {

@@ -86,4 +86,4 @@ const sunTime = (sunrise, sunset, timezone) => {
 };
 
 // export functie care populeaza widget
-export { sunTime};
+export { sunTime };
