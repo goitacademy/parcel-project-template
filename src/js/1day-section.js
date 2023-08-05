@@ -10,6 +10,8 @@ const maxTemperatureElement = document.querySelector(
 );
 const weatherIconElement = document.querySelector('.current-wheather-icon');
 const cityElement = document.querySelector('.current-wheather-city');
+const fiveDaysSection = document.querySelector('.five-days');
+const todaySection = document.querySelector('.allday-wheather');
 
 function roundToInteger(number) {
   return parseInt(number, 10);
@@ -41,6 +43,8 @@ function fetchWeatherData(city, temperatureUnit) {
 
 export function updateCurrentWeather(city) {
   const temperatureUnit = 'metric';
+  fiveDaysSection.classList.add('is-hidden');
+  todaySection.classList.remove('is-hidden');
   fetchWeatherData(city, temperatureUnit)
     .then(weatherData => {
       updateWeatherData(weatherData);
