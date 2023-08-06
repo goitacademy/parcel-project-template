@@ -1,6 +1,6 @@
 import { updateCityImage } from './section-main';
 import { fetchAndUpdateForecast } from './five-days';
-import { updateCurrentWeather } from './1day-section';
+import { updateCurrentWeather } from './today-section';
 import { updateCurrentDate } from './section-date';
 import { updateSelectedCity } from './more-info';
 
