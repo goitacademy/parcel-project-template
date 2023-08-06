@@ -12,6 +12,8 @@ const fiveDaysSection = document.querySelector('.five-days');
 const quote = document.querySelector('.quote');
 const btnShowChart = document.querySelector('.show-chart');
 const showRight = document.querySelector('.show-more__right');
+const buttonList = document.querySelector('.button-list');
+const chart = document.querySelector('.chart');
 form.addEventListener('submit', fetchForecast5Day);
 
 async function fetchForecast5Day(e) {
@@ -20,7 +22,12 @@ async function fetchForecast5Day(e) {
   city.classList.add('is-hidden');
   quote.classList.remove('is-hidden');
   btnShowChart.classList.add('is-hidden');
-  showRight.classList.add('is-hidden');
+  if (window.matchMedia('(min-width: 768px)').matches) {
+    showRight.classList.add('is-hidden');
+  }
+
+  buttonList.classList.remove('style-fivedays');
+  chart.classList.add('is-hidden');
   try {
     const forecastData = await fetchForecast(input.value, temperatureUnit);
     city.textContent = forecastData.city.name;
