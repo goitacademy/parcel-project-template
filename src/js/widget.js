@@ -1,8 +1,12 @@
 const widgetIcon = document.querySelector('.widget-icon');
+let cityName;
+let countryName;
 
 function updateWidget(data) {
   document.querySelector('.city').innerHTML =
     data.city.name + ',' + data.city.country;
+  cityName = data.city.name;
+  countryName = data.city.country;
   document.querySelector('.temp').innerHTML =
     Math.round(data.list[0].main.temp) + '°C';
 
@@ -18,4 +22,4 @@ function updateWidget(data) {
 function addBackgroundImage(url) {
   document.querySelector('body').style.backgroundImage = `url(${url})`;
 }
-export { addBackgroundImage, updateWidget };
+export { addBackgroundImage, updateWidget, cityName, countryName };

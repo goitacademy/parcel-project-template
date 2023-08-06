@@ -1,4 +1,6 @@
 import axios from 'axios';
+import refs from './ref';
+import { cityName, countryName } from './widget';
 
 const weatherApiKey = 'ce00f040ffac93595679fb6c48728697';
 const backgroundApiKey = '38102784-37e9ad2cc652dbc0da2d9323c';
@@ -8,16 +10,25 @@ function getRandomInt(max) {
 }
 
 async function getWeather(name) {
+  console.log('Fetching weather data for city:', name);
+
   const geoCodingResponse = await axios.get(
     `https://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=${weatherApiKey}`
   );
+
   const lat = geoCodingResponse.data[0].lat;
   const lon = geoCodingResponse.data[0].lon;
   const country = geoCodingResponse.data[0].country;
 
+  console.log('Geographic Coordinates:', lat, lon);
+  console.log('Country:', country);
+
   const weatherResponse = await axios.get(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`
   );
+
+  console.log('Weather data fetched successfully.');
+  console.log('Weather Response Data:', weatherResponse.data);
 
   return weatherResponse.data;
 }
@@ -32,10 +43,25 @@ async function getCityImage(name) {
 }
 
 // Variables for weather processing
-let location = 'Kyiv';
 let req = '';
 let fiveDayData = {};
 let moreInfoData = {};
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const fiveDaysContaineerCityName = document.querySelector(
+//     '.five-days-containeer__city-name'
+//   );
+//   if (fiveDaysContaineerCityName) {
+//     fiveDaysContaineerCityName.textContent = `${cityName}, ${countryName}`;
+//   } else {
+//     console.error('Element not found:', '.five-days-containeer__city-name');
+//   }
+// });
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   // Your code that interacts with the DOM elements
+//   refs.fiveDaysContaineerCityName.textContent = 'blabla'; // Example usage
+// });
 
 // Variables for api
 const OWM = 'https://api.openweathermap.org/data/2.5/';
@@ -43,7 +69,7 @@ const apiKey = '8601181a914c11cc995b00a13512046c';
 
 // Getting the right link
 const GetOWM_Request = RequestType =>
-  OWM + RequestType + '?q=' + location + '&appid=' + apiKey;
+  OWM + RequestType + '?q=' + cityName + '&appid=' + apiKey;
 
 // Make a request to the server and get the data
 const getWeatherData = async url => axios.get(url);
@@ -62,10 +88,10 @@ const getDate = data => {
   const timestampInMilliseconds = timestampInSeconds * 1000;
   const date = new Date(timestampInMilliseconds);
 
-  console.log('Received data:', data);
-  console.log('Unix timestamp (seconds):', timestampInSeconds);
-  console.log('Unix timestamp (milliseconds):', timestampInMilliseconds);
-  console.log('Converted date:', date);
+  // console.log('Received data:', data);
+  // console.log('Unix timestamp (seconds):', timestampInSeconds);
+  // console.log('Unix timestamp (milliseconds):', timestampInMilliseconds);
+  // console.log('Converted date:', date);
 
   return date.getDate();
 };

@@ -8,6 +8,7 @@ import './js/active-btn-fivedays-card';
 import './js/moreinfo';
 import './js/more-info-scroll-btn';
 import './js/five-days-scroll-btn';
+import './js/api';
 
 import { getCityImage, getWeather } from './js/api';
 import {

@@ -3,9 +3,11 @@ import { getFiveDayData } from './api';
 let fiveDayData = {};
 
 const renderFiveDaysWeather = data => {
+  console.log('Rendering five days weather data:', data);
+
   fiveDayData = data;
-  if (document.querySelector('.temperature-box')) {
-    document.querySelector('.temperature-box').remove();
+  if (document.querySelector('.weather')) {
+    // document.querySelector('.weather').remove();
     refs.todayContainer.classList.add('isHiden');
     refs.fiveDaysContainer.classList.remove('isHiden');
     refs.part2City.textContent =
@@ -13,11 +15,18 @@ const renderFiveDaysWeather = data => {
     refs.fiveDaysContaineerCityName.textContent =
       fiveDayData.city.name + ', ' + fiveDayData.city.country;
   }
-  const daysListBlock = document.querySelector('.days-list');
-  if (daysListBlock) {
-    daysListBlock.innerHTML = ''; // Clear the existing list items
+  const daysListItem = document.querySelectorAll('.days-list__item');
+  if (daysListItem) {
+    daysListItem.forEach(e => e.remove());
+    console.log('Removed existing moreDaysListItem');
   }
+
+  const daysFiveListblock = refs.daysFiveListblock;
+  daysFiveListblock.innerHTML = ''; // Clear the content before rendering
+
   data.list.forEach(item => {
+    console.log('Processing item:', item);
+
     const listItem = document.createElement('li');
     listItem.className = 'days-list__item';
 
@@ -63,22 +72,57 @@ const renderFiveDaysWeather = data => {
     listItem.appendChild(temperatureBlock);
     listItem.appendChild(moreBtn);
 
-    daysListBlock.appendChild(listItem);
+    daysFiveListblock.appendChild(listItem);
+    console.log('Item processed:', item);
   });
+
+  console.log('Five days weather rendering complete.');
 };
 
-const handleFiveDaysButtonClick = async () => {
-  const cityName = 'Kyiv';
-  try {
-    const fiveDayData = await getFiveDayData(cityName);
-    renderFiveDaysWeather(fiveDayData);
+// const handleFiveDaysButtonClick = async () => {
+//   try {
+//     const fiveDayData = await getFiveDayData();
+//     renderFiveDaysWeather(fiveDayData);
+//     refs.fiveDaysContainer.classList.remove('isHiden');
+//   } catch (error) {
+//     console.error('Error fetching five-day data:', error);
+//   }
+// };
+
+// refs.fiveDaysButton.addEventListener('click', handleFiveDaysButtonClick);
+
+refs.btnFiveDays[0].addEventListener('click', () => {
+  getFiveDayData().then(data => {
+    renderFiveDaysWeather(data);
+    refs.todayContainer.classList.add('isHiden');
+    refs.timesectionEl.classList.add('isHiden');
+    refs.containerquotesEl.classList.add('isHiden');
     refs.fiveDaysContainer.classList.remove('isHiden');
-  } catch (error) {
-    console.error('Error fetching five-day data:', error);
-  }
-};
+  });
+});
 
-refs.fiveDaysButton.addEventListener('click', handleFiveDaysButtonClick);
+refs.btnFiveDays[1].addEventListener('click', () => {
+  getFiveDayData().then(data => {
+    renderFiveDaysWeather(data);
+    refs.todayContainer.classList.add('isHiden');
+    refs.timesectionEl.classList.add('isHiden');
+    refs.containerquotesEl.classList.add('isHiden');
+    refs.fiveDaysContainer.classList.remove('isHiden');
+  });
+});
 
-// refs.btnFiveDays[0].addEventListener('click', handleFiveDaysButtonClick);
+refs.btnToday[0].addEventListener('click', () => {
+  refs.todayContainer.classList.remove('isHiden');
+  refs.timesectionEl.classList.remove('isHiden');
+  refs.containerquotesEl.classList.remove('isHiden');
+  refs.fiveDaysContainer.classList.add('isHiden');
+});
+
+refs.btnToday[1].addEventListener('click', () => {
+  refs.todayContainer.classList.remove('isHiden');
+  refs.timesectionEl.classList.remove('isHiden');
+  refs.containerquotesEl.classList.remove('isHiden');
+  refs.fiveDaysContainer.classList.add('isHiden');
+});
+
 // refs.btnFiveDays[1].addEventListener('click', handleFiveDaysButtonClick);
