@@ -22,12 +22,14 @@ refs.form.addEventListener('submit', function (event) {
   refs.timesectionEl.classList.remove('isHiden');
   refs.containerquotesEl.classList.remove('isHiden');
   refs.fiveDaysContainer.classList.add('isHiden');
+  refs.chartContainer.classList.add('hidden');
 });
 refs.sliderEl.addEventListener('click', function () {
   refs.todayContainer.classList.remove('isHiden');
   refs.timesectionEl.classList.remove('isHiden');
   refs.containerquotesEl.classList.remove('isHiden');
   refs.fiveDaysContainer.classList.add('isHiden');
+  refs.chartContainer.classList.add('hidden');
 });
 
 export { createCityElement };

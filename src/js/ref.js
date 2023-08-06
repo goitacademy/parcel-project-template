@@ -34,6 +34,7 @@ const fiveDaysContainer = document.querySelector('.five-days-container');
 const moreInfoBtn = document.querySelectorAll('.moreInfo_scroll_arrow');
 const fiveDaysButton = document.querySelector('.five-day-button');
 const sliderEl = document.querySelector('.slider');
+const chartContainer = document.querySelector('.chart-container');
 
 export default {
   searchInput,
@@ -68,4 +69,5 @@ export default {
   containerquotesEl,
   btnToday,
   sliderEl,
+  chartContainer,
 };

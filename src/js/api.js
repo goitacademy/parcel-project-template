@@ -1,6 +1,5 @@
 import axios from 'axios';
-import refs from './ref';
-import { cityName, countryName } from './widget';
+import { cityName } from './widget';
 
 const weatherApiKey = 'ce00f040ffac93595679fb6c48728697';
 const backgroundApiKey = '38102784-37e9ad2cc652dbc0da2d9323c';
@@ -47,22 +46,6 @@ let req = '';
 let fiveDayData = {};
 let moreInfoData = {};
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const fiveDaysContaineerCityName = document.querySelector(
-//     '.five-days-containeer__city-name'
-//   );
-//   if (fiveDaysContaineerCityName) {
-//     fiveDaysContaineerCityName.textContent = `${cityName}, ${countryName}`;
-//   } else {
-//     console.error('Element not found:', '.five-days-containeer__city-name');
-//   }
-// });
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   // Your code that interacts with the DOM elements
-//   refs.fiveDaysContaineerCityName.textContent = 'blabla'; // Example usage
-// });
-
 // Variables for api
 const OWM = 'https://api.openweathermap.org/data/2.5/';
 const apiKey = '8601181a914c11cc995b00a13512046c';
@@ -87,12 +70,6 @@ const getDate = data => {
   const timestampInSeconds = data.dt;
   const timestampInMilliseconds = timestampInSeconds * 1000;
   const date = new Date(timestampInMilliseconds);
-
-  // console.log('Received data:', data);
-  // console.log('Unix timestamp (seconds):', timestampInSeconds);
-  // console.log('Unix timestamp (milliseconds):', timestampInMilliseconds);
-  // console.log('Converted date:', date);
-
   return date.getDate();
 };
 

@@ -7,7 +7,6 @@ const renderFiveDaysWeather = data => {
 
   fiveDayData = data;
   if (document.querySelector('.weather')) {
-    // document.querySelector('.weather').remove();
     refs.todayContainer.classList.add('isHiden');
     refs.fiveDaysContainer.classList.remove('isHiden');
     refs.part2City.textContent =
@@ -79,18 +78,6 @@ const renderFiveDaysWeather = data => {
   console.log('Five days weather rendering complete.');
 };
 
-// const handleFiveDaysButtonClick = async () => {
-//   try {
-//     const fiveDayData = await getFiveDayData();
-//     renderFiveDaysWeather(fiveDayData);
-//     refs.fiveDaysContainer.classList.remove('isHiden');
-//   } catch (error) {
-//     console.error('Error fetching five-day data:', error);
-//   }
-// };
-
-// refs.fiveDaysButton.addEventListener('click', handleFiveDaysButtonClick);
-
 refs.btnFiveDays[0].addEventListener('click', () => {
   getFiveDayData().then(data => {
     renderFiveDaysWeather(data);
@@ -98,6 +85,7 @@ refs.btnFiveDays[0].addEventListener('click', () => {
     refs.timesectionEl.classList.add('isHiden');
     refs.containerquotesEl.classList.add('isHiden');
     refs.fiveDaysContainer.classList.remove('isHiden');
+    refs.chartContainer.classList.remove('hidden');
   });
 });
 
@@ -108,6 +96,7 @@ refs.btnFiveDays[1].addEventListener('click', () => {
     refs.timesectionEl.classList.add('isHiden');
     refs.containerquotesEl.classList.add('isHiden');
     refs.fiveDaysContainer.classList.remove('isHiden');
+    refs.chartContainer.classList.remove('hidden');
   });
 });
 
@@ -116,6 +105,7 @@ refs.btnToday[0].addEventListener('click', () => {
   refs.timesectionEl.classList.remove('isHiden');
   refs.containerquotesEl.classList.remove('isHiden');
   refs.fiveDaysContainer.classList.add('isHiden');
+  refs.chartContainer.classList.add('hidden');
 });
 
 refs.btnToday[1].addEventListener('click', () => {
@@ -123,6 +113,5 @@ refs.btnToday[1].addEventListener('click', () => {
   refs.timesectionEl.classList.remove('isHiden');
   refs.containerquotesEl.classList.remove('isHiden');
   refs.fiveDaysContainer.classList.add('isHiden');
+  refs.chartContainer.classList.add('hidden');
 });
-
-// refs.btnFiveDays[1].addEventListener('click', handleFiveDaysButtonClick);
