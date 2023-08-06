@@ -8,7 +8,7 @@ const quote = document.querySelector('.quote');
 const dateSection = document.querySelector('.dayli-container');
 const chart = document.querySelector('.chart');
 const showChartBtn = document.querySelector('.show-chart');
-
+const buttonList = document.querySelector('.button-list');
 openBtn5Days.addEventListener('click', open5Days);
 function open5Days() {
   hiddenItems.forEach(function (item) {
@@ -29,6 +29,9 @@ function open5Days() {
   dateSection.classList.add('is-hidden');
   chart.classList.add('is-hidden');
   showChartBtn.classList.remove('is-hidden');
+  if (window.matchMedia('(min-width: 1280px)').matches) {
+    buttonList.classList.add('style-fivedays');
+  }
 }
 
 todayBtn.addEventListener('click', showToday);
@@ -39,6 +42,7 @@ function showToday() {
   quote.classList.remove('is-hidden');
   dateSection.classList.remove('is-hidden');
   showChartBtn.classList.add('is-hidden');
+  buttonList.classList.remove('style-fivedays');
 }
 showChartBtn.addEventListener('click', () => {
   chart.classList.remove('is-hidden');

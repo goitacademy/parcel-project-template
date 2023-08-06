@@ -12,6 +12,11 @@ const weatherIconElement = document.querySelector('.current-wheather-icon');
 const cityElement = document.querySelector('.current-wheather-city');
 const fiveDaysSection = document.querySelector('.five-days');
 const todaySection = document.querySelector('.allday-wheather');
+const buttonList = document.querySelector('.button-list');
+const btnShowChart = document.querySelector('.show-chart');
+const quote = document.querySelector('.quote');
+const cityStyle = document.querySelector('.city');
+const chartSection = document.querySelector('.chart');
 
 function roundToInteger(number) {
   return parseInt(number, 10);
@@ -45,6 +50,12 @@ export function updateCurrentWeather(city) {
   const temperatureUnit = 'metric';
   fiveDaysSection.classList.add('is-hidden');
   todaySection.classList.remove('is-hidden');
+  buttonList.classList.remove('style-fivedays');
+  btnShowChart.classList.add('is-hidden');
+  quote.classList.remove('is-hidden');
+  cityStyle.classList.add('is-hidden');
+  chartSection.classList.add('is-hidden');
+
   fetchWeatherData(city, temperatureUnit)
     .then(weatherData => {
       updateWeatherData(weatherData);
