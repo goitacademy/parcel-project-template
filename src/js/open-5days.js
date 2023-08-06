@@ -43,6 +43,7 @@ function showToday() {
   dateSection.classList.remove('is-hidden');
   showChartBtn.classList.add('is-hidden');
   buttonList.classList.remove('style-fivedays');
+  chart.classList.add('is-hidden');
 }
 showChartBtn.addEventListener('click', () => {
   chart.classList.remove('is-hidden');
