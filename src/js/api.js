@@ -1,42 +1,47 @@
+// Import the axios library for making HTTP requests
 import axios from 'axios';
+
+// Import the cityName variable (or function) from the widget module
 import { cityName } from './widget';
 
+// Define API keys for OpenWeatherMap and Pixabay APIs
 const weatherApiKey = 'ce00f040ffac93595679fb6c48728697';
 const backgroundApiKey = '38102784-37e9ad2cc652dbc0da2d9323c';
 
+// Define a function to generate a random integer within a given range
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+// Define an asynchronous function to fetch weather forecast data
 async function getWeather(name) {
-  console.log('Fetching weather data for city:', name);
-
+  // Make a GET request to the OpenWeatherMap GeoCoding API to get latitude, longitude, and country data for the provided city name
   const geoCodingResponse = await axios.get(
     `https://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=${weatherApiKey}`
   );
 
+  // Extract latitude, longitude, and country from the response data
   const lat = geoCodingResponse.data[0].lat;
   const lon = geoCodingResponse.data[0].lon;
   const country = geoCodingResponse.data[0].country;
 
-  console.log('Geographic Coordinates:', lat, lon);
-  console.log('Country:', country);
-
+  // Make a GET request to the OpenWeatherMap API to fetch weather forecast data based on latitude, longitude, and API key
   const weatherResponse = await axios.get(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`
   );
 
-  console.log('Weather data fetched successfully.');
-  console.log('Weather Response Data:', weatherResponse.data);
-
+  // Return the fetched weather forecast data
   return weatherResponse.data;
 }
 
+// Define an asynchronous function to fetch an image of a city
 async function getCityImage(name) {
+  // Make a GET request to the Pixabay API to fetch images of the provided city name
   const imageResponse = await axios.get(
     `https://pixabay.com/api/?key=${backgroundApiKey}&q=${name}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=1`
   );
 
+  // Return a randomly selected large image URL from the response data
   return imageResponse.data.hits[getRandomInt(imageResponse.data.hits.length)]
     .largeImageURL;
 }
@@ -60,7 +65,6 @@ const getWeatherData = async url => axios.get(url);
 const getFiveDayData = () => {
   req = GetOWM_Request('forecast');
   return getWeatherData(req).then(response => {
-    console.log('Response data received:', response.data); // Add this line
     return dataProcessingFiveDays(response.data);
   });
 };
@@ -141,21 +145,15 @@ const getCurrentTime = data => {
 };
 
 const dataProcessingFiveDays = response => {
-  console.log('Received API response:', response);
-
   const dates = response.list
     .map(element => getDate(element))
     .filter((el, idx, arr) => arr.indexOf(el) === idx);
-  console.log('Dates:', dates);
 
   const list = dates
     .map(el => {
-      console.log('Processing date:', el);
       return response.list.filter(elem => getDate(elem) === el);
     })
     .map(element => {
-      console.log('Processing element:', element);
-
       return {
         DayNum: getDate(element[0]),
         Day: weekDayNow(element[0].dt),
@@ -166,26 +164,20 @@ const dataProcessingFiveDays = response => {
         temp: mathTemp(element),
       };
     });
-  console.log('Processed list:', list);
 
   if (list.length > 5) {
     list.shift();
-    console.log('Trimmed list:', list);
   }
 
   const changedData = { ...response, list };
-  console.log('Modified data:', changedData);
 
   fiveDayData = changedData;
-  console.log('Final fiveDayData:', fiveDayData);
 
   return fiveDayData;
 };
 
 // Data processing for more info block
 const dataProcessingMoreInfo = () => {
-  console.log('Starting dataProcessingMoreInfo');
-
   moreInfoData = fiveDayData.list.map(e => ({
     date: e.date,
     DayNum: e.DayNum,
@@ -199,8 +191,6 @@ const dataProcessingMoreInfo = () => {
       iconDescription: e.weather[0].description,
     })),
   }));
-
-  console.log('Processed moreInfoData:', moreInfoData);
 
   return moreInfoData;
 };

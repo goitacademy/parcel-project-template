@@ -5,8 +5,8 @@ const addToLocalStorageBtn = document.querySelector(
 );
 const form = document.querySelector('.search');
 const listOfButtons = document.querySelector('.btn-list');
-const btnPrev = document.querySelector('#left-arrow'); // Updated arrow IDs
-const btnNext = document.querySelector('#right-arrow'); // Updated arrow IDs
+const btnPrev = document.querySelector('#left-arrow');
+const btnNext = document.querySelector('#right-arrow');
 const btnShowChart = document.querySelector('.show-chart-btn-js');
 const btnHideChart = document.querySelector('.hide-chart-btn-js');
 const headerOfShowChart = document.querySelector('.show-chart-header-js');

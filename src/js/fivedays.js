@@ -1,31 +1,41 @@
+// Import the 'refs' object from the 'ref.js' module, containing references to DOM elements
 import refs from './ref';
+
+// Import the 'getFiveDayData' function from the 'api.js' module to retrieve weather data
 import { getFiveDayData } from './api';
+
+// Initialize an empty object to store five-day weather data
 let fiveDayData = {};
 
+// Function to render and display weather data for the next five days
 const renderFiveDaysWeather = data => {
-  console.log('Rendering five days weather data:', data);
-
+  // Store the retrieved data in the 'fiveDayData' variable
   fiveDayData = data;
+
+  // Check if the '.weather' element exists in the DOM
   if (document.querySelector('.weather')) {
-    refs.todayContainer.classList.add('isHiden');
-    refs.fiveDaysContainer.classList.remove('isHiden');
+    // Hide the 'todayContainer' and show the 'fiveDaysContainer'
+    refs.todayContainer.classList.add('hidden');
+    refs.fiveDaysContainer.classList.remove('hidden');
+
+    // Update city names in the UI
     refs.part2City.textContent =
       fiveDayData.city.name + ', ' + fiveDayData.city.country;
     refs.fiveDaysContaineerCityName.textContent =
       fiveDayData.city.name + ', ' + fiveDayData.city.country;
   }
+
+  // Remove any existing day list items from the DOM
   const daysListItem = document.querySelectorAll('.days-list__item');
   if (daysListItem) {
     daysListItem.forEach(e => e.remove());
-    console.log('Removed existing moreDaysListItem');
   }
 
+  // Clear the innerHTML of the 'daysFiveListblock' element
   const daysFiveListblock = refs.daysFiveListblock;
-  daysFiveListblock.innerHTML = ''; // Clear the content before rendering
+  daysFiveListblock.innerHTML = '';
 
   data.list.forEach(item => {
-    console.log('Processing item:', item);
-
     const listItem = document.createElement('li');
     listItem.className = 'days-list__item';
 
@@ -72,19 +82,16 @@ const renderFiveDaysWeather = data => {
     listItem.appendChild(moreBtn);
 
     daysFiveListblock.appendChild(listItem);
-    console.log('Item processed:', item);
   });
-
-  console.log('Five days weather rendering complete.');
 };
 
 refs.btnFiveDays[0].addEventListener('click', () => {
   getFiveDayData().then(data => {
     renderFiveDaysWeather(data);
-    refs.todayContainer.classList.add('isHiden');
-    refs.timesectionEl.classList.add('isHiden');
-    refs.containerquotesEl.classList.add('isHiden');
-    refs.fiveDaysContainer.classList.remove('isHiden');
+    refs.todayContainer.classList.add('hidden');
+    refs.timesectionEl.classList.add('hidden');
+    refs.containerquotesEl.classList.add('hidden');
+    refs.fiveDaysContainer.classList.remove('hidden');
     refs.chartContainer.classList.remove('hidden');
   });
 });
@@ -92,26 +99,29 @@ refs.btnFiveDays[0].addEventListener('click', () => {
 refs.btnFiveDays[1].addEventListener('click', () => {
   getFiveDayData().then(data => {
     renderFiveDaysWeather(data);
-    refs.todayContainer.classList.add('isHiden');
-    refs.timesectionEl.classList.add('isHiden');
-    refs.containerquotesEl.classList.add('isHiden');
-    refs.fiveDaysContainer.classList.remove('isHiden');
+    refs.todayContainer.classList.add('hidden');
+    refs.timesectionEl.classList.add('hidden');
+    refs.containerquotesEl.classList.add('hidden');
+    refs.fiveDaysContainer.classList.remove('hidden');
     refs.chartContainer.classList.remove('hidden');
   });
 });
 
 refs.btnToday[0].addEventListener('click', () => {
-  refs.todayContainer.classList.remove('isHiden');
-  refs.timesectionEl.classList.remove('isHiden');
-  refs.containerquotesEl.classList.remove('isHiden');
-  refs.fiveDaysContainer.classList.add('isHiden');
+  refs.todayContainer.classList.remove('hidden');
+  refs.timesectionEl.classList.remove('hidden');
+  refs.containerquotesEl.classList.remove('hidden');
+  refs.fiveDaysContainer.classList.add('hidden');
   refs.chartContainer.classList.add('hidden');
 });
 
 refs.btnToday[1].addEventListener('click', () => {
-  refs.todayContainer.classList.remove('isHiden');
-  refs.timesectionEl.classList.remove('isHiden');
-  refs.containerquotesEl.classList.remove('isHiden');
-  refs.fiveDaysContainer.classList.add('isHiden');
+  refs.todayContainer.classList.remove('hidden');
+  refs.timesectionEl.classList.remove('hidden');
+  refs.containerquotesEl.classList.remove('hidden');
+  refs.fiveDaysContainer.classList.add('hidden');
   refs.chartContainer.classList.add('hidden');
 });
+// In summary, this module handles the rendering and display of upcoming five - day weather data, updates the UI to reflect user interactions,
+// and seamlessly switches between five - day and today's weather views based on button clicks.
+// It makes the weather forecast application more interactive and informative for users.

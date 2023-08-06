@@ -6,20 +6,16 @@ let moreInfoData = {};
 // Rendering more info
 const renderMoreInfo = target => {
   moreInfoData = api.dataProcessingMoreInfo();
-  console.log('moreInfoData:', moreInfoData); // Logging the moreInfoData
 
-  refs.part6.classList.remove('isHiden');
+  refs.part6.classList.remove('hidden');
   const day = Number(target.dataset.day);
-  console.log('Day:', day); // Logging the selected day
 
   const moreDaysListItem = document.querySelectorAll('.timeWeather');
   if (moreDaysListItem) {
     moreDaysListItem.forEach(e => e.remove());
-    console.log('Removed existing moreDaysListItem');
   }
 
   const currentMoreInfo = moreInfoData.find(e => e.DayNum == day);
-  console.log('currentMoreInfo:', currentMoreInfo); // Logging the currentMoreInfo
 
   const moreInfoBlock = refs.moreInfoBlock;
   moreInfoBlock.innerHTML = ''; // Clear the content before rendering
@@ -73,8 +69,6 @@ const renderMoreInfo = target => {
 
     moreInfoBlock.appendChild(listItem); // Append each forecast item directly to moreInfoBlock
   });
-
-  console.log('Rendered more info:', currentMoreInfo.forecast);
 };
 
 // We're listening to the more info button
@@ -84,7 +78,6 @@ function handleBtnMIClick(event) {
   event.preventDefault();
   const target = event.target;
   if (target.nodeName === 'BUTTON') {
-    console.log('Button clicked');
     renderMoreInfo(target);
   }
 }
