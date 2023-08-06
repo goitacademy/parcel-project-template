@@ -65,7 +65,7 @@ function updateForecast(dailyData) {
     const date = item.querySelector('.five-days__date');
     const tempMin = item.querySelector('.temperature-min__value');
     const tempMax = item.querySelector('.temperature-max__value');
-    const icon = item.querySelector('.five-days__icon');
+    const iconDiv = item.querySelector('.five-days__icon');
 
     day.textContent = dateItem.toLocaleString('default', { weekday: 'long' });
     date.textContent = dateItem.toLocaleString('default', {
@@ -76,9 +76,15 @@ function updateForecast(dailyData) {
     tempMin.textContent = Math.round(Math.min(...temperatures));
     tempMax.textContent = Math.round(Math.max(...temperatures));
 
-    icon.src = `http://openweathermap.org/img/w/${forecastItem.weather[0].icon}.png`;
+    const iconUrl = `http://openweathermap.org/img/w/${forecastItem.weather[0].icon}.png`;
+    const img = document.createElement('img');
+    img.src = iconUrl;
+    img.alt = 'Weather icon';
+    iconDiv.innerHTML = '';
+    iconDiv.appendChild(img);
   }
 }
+
 export async function fetchAndUpdateForecast(cityName) {
   try {
     const forecastData = await fetchForecast(cityName, temperatureUnit);
