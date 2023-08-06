@@ -1,0 +1,428 @@
+.five-days-container {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.five-days-wrapper {
+  margin: 0 auto 28px;
+  border-radius: 35px;
+  background-color: rgba(16, 33, 54, 0.8);
+  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
+  @media screen and (min-width: 768px) {
+    margin-bottom: 25px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 14px;
+  }
+  &:hover {
+    transition: 200ms linear;
+    background-color: #102136;
+  }
+}
+
+.five-days-containeer {
+  margin: 0 auto;
+  width: 280px;
+  height: 270px;
+  padding: 30px 30px 0px;
+
+  &__city-name {
+    font-size: 18px;
+    font-family: 'Lato';
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-align: center;
+    margin: 0px auto 10px;
+  }
+
+  &__scroll {
+    display: flex;
+    justify-content: space-between;
+    height: 10px;
+    width: 58px;
+    margin: 0 auto;
+  }
+
+  &__arrow {
+    width: 6px;
+    height: 10px;
+    display: inline-block;
+    opacity: 0.541;
+    cursor: pointer;
+
+    &--hover:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.days-list {
+  display: flex;
+  justify-content: space-between;
+  height: 165px;
+  margin-bottom: 13px;
+  list-style: none;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &__item {
+    list-style: none;
+    width: 55px;
+
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+  }
+
+  &__day-of-the-week {
+    font-size: 12px;
+    font-family: 'Lato';
+    color: rgba(255, 255, 255, 0.541);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  &__day-of-the-week--active {
+    color: rgb(255, 107, 8);
+  }
+
+  &__date {
+    font-size: 16px;
+    font-family: 'Lato';
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  &__img {
+    margin: 0 auto;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+  }
+
+  &__temperature-block {
+    display: flex;
+    justify-content: space-between;
+    width: 55px;
+    margin-bottom: 10px;
+  }
+
+  &__min-max {
+    width: 26px;
+  }
+
+  &__title {
+    font-size: 12px;
+    font-family: 'Lato';
+    color: rgba(255, 255, 255, 0.541);
+    line-height: 0.8;
+    vertical-align: top;
+    margin-bottom: 5px;
+  }
+
+  &__value {
+    font-size: 16px;
+    font-family: 'Lato';
+    color: rgb(255, 107, 8);
+    font-weight: bold;
+    text-align: justify;
+    vertical-align: top;
+    margin-left: 70%;
+    margin-bottom: 50%;
+  }
+
+  &--degrees::after {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: url('../images/elips.png');
+    vertical-align: top;
+    margin-left: 100%;
+    margin-bottom: -100%;
+  }
+
+  &__line {
+    margin: 0 3px;
+
+    &--mobile {
+      background: url(../images/line.png);
+      width: 1px;
+      display: block;
+    }
+
+    &--tablet_desktop {
+      background: url(../images/tablet/line.png);
+      width: 1px;
+      display: none;
+    }
+  }
+
+  &__more-btn {
+    display: block;
+    font-size: 12px;
+    font-family: 'Lato';
+    color: rgba(255, 255, 255, 0.302);
+    text-decoration: underline;
+    text-align: center;
+    border: none;
+    background-image: none;
+    background: transparent;
+    background-color: transparent;
+    margin: 0 auto;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+
+    &__active {
+      color: #ffffff;
+    }
+
+    &:active,
+    &:hover,
+    &:focus {
+      color: #ffffff;
+    }
+  }
+}
+
+// TABLET
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .five-days-containeer {
+    width: 610px;
+    height: 260px;
+    padding: 45px 35px 0px;
+
+    &__city-name {
+      display: none;
+    }
+
+    &__scroll {
+      display: none;
+    }
+  }
+
+  .days-list {
+    height: 170px;
+
+    &__item {
+      width: 75px;
+      &:not(:last-child) {
+        margin-right: 0px;
+      }
+    }
+
+    &__day-of-the-week {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    &__date {
+      font-size: 18px;
+    }
+
+    &__temperature-block {
+      width: 75px;
+      margin-bottom: 15px;
+    }
+
+    &__min-max {
+      width: 30px;
+    }
+
+    &__title {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    &__value {
+      font-size: 18px;
+      margin-left: 90%;
+      margin-bottom: 50%;
+    }
+
+    &__line {
+      margin: 0 10px;
+
+      &--tablet_desktop {
+        display: block;
+      }
+
+      &--mobile {
+        display: none;
+      }
+    }
+
+    &__more-btn {
+      font-size: 14px;
+    }
+  }
+}
+
+// DESKTOP
+
+@media (min-width: 1280px) {
+  .five-days-containeer {
+    width: 1060px;
+    height: 300px;
+    padding: 40px 100px 0px;
+
+    &__city-name {
+      display: none;
+    }
+
+    &__scroll {
+      display: none;
+    }
+  }
+
+  .days-list {
+    height: 230px;
+
+    &__item {
+      width: 105px;
+      &:not(:last-child) {
+        margin-right: 0px;
+      }
+    }
+
+    &__day-of-the-week {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    &__date {
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    &__img {
+      margin: 0 auto 15px;
+    }
+
+    &__temperature-block {
+      width: 105px;
+      margin-bottom: 17px;
+      height: 55px;
+    }
+
+    &__min-max {
+      width: 35px;
+    }
+
+    &__title {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    &__value {
+      font-size: 25px;
+      margin-left: 90%;
+      margin-bottom: -70%;
+      margin-left: 105%;
+      margin-bottom: 40%;
+    }
+
+    &__line {
+      margin: 0 15px;
+
+      &--tablet_desktop {
+        display: block;
+      }
+
+      &--mobile {
+        display: none;
+      }
+    }
+  }
+}
+
+.five-days-container_btn-box {
+  width: 280px;
+  margin: 0 auto 25px;
+  @media (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+  }
+
+  @media (min-width: 1280px) {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+}
+.moreInfo {
+  font-family: 'Lato';
+  opacity: 0.8;
+  @media screen and (min-width: 320px) {
+    padding: 0 10px 35px;
+  }
+  @media screen and (min-width: 768px) {
+    padding: 0 30px 25px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 0 0 35px;
+  }
+
+  &_scroll {
+    @media screen and (min-width: 320px) {
+      display: none;
+    }
+    @media screen and (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+    }
+    @media screen and (min-width: 1280px) {
+      display: none;
+    }
+
+    &_arrow {
+      width: 28px;
+      height: 28px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      border: none;
+      padding: 0;
+      transition: opacity 200ms linear;
+      outline: none;
+      img {
+        margin: 0 auto;
+      }
+      &_hidden {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.today-city {
+  display: none;
+  font-family: 'Lato';
+  font-size: 28px;
+  line-height: 22px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  @media screen and (min-width: 1280px) {
+    margin-right: 20%;
+    display: block;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin: 30px 0;
+    display: block;
+  }
+}
