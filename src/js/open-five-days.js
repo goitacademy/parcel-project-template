@@ -10,6 +10,7 @@ const chart = document.querySelector('.chart');
 const showChartBtn = document.querySelector('.show-chart');
 const buttonList = document.querySelector('.button-list');
 const cityName = document.querySelector('.city__name');
+
 openBtn5Days.addEventListener('click', open5Days);
 function open5Days() {
   hiddenItems.forEach(function (item) {
