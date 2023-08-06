@@ -3,6 +3,7 @@ import { fetchForecast } from './api';
 
 const favoritesList = document.querySelector('.js-slider-list');
 let temperatureUnit = 'metric';
+const btnShowChart = document.querySelector('.show-chart');
 
 document.addEventListener('DOMContentLoaded', () => {
   const chartSection = document.querySelector('.chart');
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   hideChartButton.addEventListener('click', () => {
     chartSection.classList.add('is-hidden');
+    btnShowChart.classList.remove('is-hidden');
   });
 
   const temperatureUnit = 'metric';
