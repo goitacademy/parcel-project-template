@@ -47,4 +47,5 @@ function showToday() {
 }
 showChartBtn.addEventListener('click', () => {
   chart.classList.remove('is-hidden');
+  showChartBtn.classList.add('is-hidden');
 });
