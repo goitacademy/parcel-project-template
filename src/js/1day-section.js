@@ -34,9 +34,13 @@ function updateWeatherData(data) {
 
   if (weatherIconElement) {
     const iconUrl = `https://openweathermap.org/img/w/${weatherIcon}.png`;
-    weatherIconElement.setAttribute('src', iconUrl);
-  }
 
+    const img = document.createElement('img');
+    img.src = iconUrl;
+    img.alt = 'Weather icon';
+    weatherIconElement.innerHTML = '';
+    weatherIconElement.appendChild(img);
+  }
   if (cityElement) {
     cityElement.textContent = cityName;
   }
