@@ -26,7 +26,6 @@ const part2City = document.querySelector('.today-city');
 const fiveDaysContaineerCityName = document.querySelector(
   '.five-days-containeer__city-name'
 );
-// const fiveDaysContaineer = document.querySelector('.five-days-containeer');
 const todayContainer = document.querySelector('.weather-card');
 const weatherEl = document.querySelector('.weather');
 const timesectionEl = document.querySelector('.time-section');
