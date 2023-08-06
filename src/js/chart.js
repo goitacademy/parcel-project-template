@@ -20,13 +20,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const cityElement = document.querySelector('.city__name');
   form.addEventListener('submit', fetchAndRenderChart);
 
+  // async function fetchAndRenderChart(e) {
+  //   e.preventDefault();
+  //   console.log('Form submitted');
+  //   try {
+  //     const city = input.value;
+  //     const forecastData = await fetchForecast(city, temperatureUnit);
+  //     city.textContent = forecastData.city.name;
+  //     const dailyData = getDailyData(forecastData);
+  //     renderChart(dailyData);
+  //   } catch (error) {
+  //     console.error('Error while fetching weather data: ', error);
+  //   }
+  // }
+
   async function fetchAndRenderChart(e) {
     e.preventDefault();
     console.log('Form submitted');
     try {
-      const city = input.value;
-      const forecastData = await fetchForecast(city, temperatureUnit);
-      city.textContent = forecastData.city.name;
+      const cityValue = input.value;
+      const forecastData = await fetchForecast(cityValue, temperatureUnit);
+      cityElement.textContent = forecastData.city.name;
       const dailyData = getDailyData(forecastData);
       renderChart(dailyData);
     } catch (error) {
@@ -45,29 +59,59 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  async function fetchAndRenderFavoriteChart(city) {
+  // async function fetchAndRenderFavoriteChart(city) {
+  //   try {
+  //     const forecastData = await fetchForecast(city, temperatureUnit);
+  //     city.textContent = forecastData.city.name;
+  //     const dailyData = getDailyData(forecastData);
+  //     renderChart(dailyData);
+  //   } catch (error) {
+  //     console.error('Error while fetching weather data: ', error);
+  //   }
+  // }
+
+  async function fetchAndRenderFavoriteChart(cityValue) {
     try {
-      const forecastData = await fetchForecast(city, temperatureUnit);
-      city.textContent = forecastData.city.name;
+      const forecastData = await fetchForecast(cityValue, temperatureUnit);
+      cityElement.textContent = forecastData.city.name;
       const dailyData = getDailyData(forecastData);
       renderChart(dailyData);
     } catch (error) {
       console.error('Error while fetching weather data: ', error);
     }
   }
+
+  // favoritesList.addEventListener('click', event => {
+  //   if (event.target.classList.contains('favorite-button')) {
+  //     const city = event.target.value;
+  //     handleSelectedFavorite(city, temperatureUnit);
+  //     fetchAndRenderFavoriteChart(city, temperatureUnit);
+  //   }
+  // });
 
   favoritesList.addEventListener('click', event => {
     if (event.target.classList.contains('favorite-button')) {
-      const city = event.target.value;
-      handleSelectedFavorite(city, temperatureUnit);
-      fetchAndRenderFavoriteChart(city, temperatureUnit);
+      const cityValue = event.target.value;
+      handleSelectedFavorite(cityValue, temperatureUnit);
+      fetchAndRenderFavoriteChart(cityValue, temperatureUnit);
     }
   });
 
-  async function handleSelectedFavorite(city) {
+  // async function handleSelectedFavorite(city) {
+  //   try {
+  //     const forecastData = await fetchForecast(city, temperatureUnit);
+  //     city.textContent = forecastData.city.name;
+  //     const dailyData = getDailyData(forecastData);
+  //     renderChart(dailyData);
+  //   } catch (error) {
+  //     console.error('Error while fetching weather data: ', error);
+  //   }
+  // }
+
+  async function handleSelectedFavorite(cityValue) {
     try {
-      const forecastData = await fetchForecast(city, temperatureUnit);
-      city.textContent = forecastData.city.name;
+      const forecastData = await fetchForecast(cityValue, temperatureUnit);
+      cityElement.textContent = forecastData.city.name;
       const dailyData = getDailyData(forecastData);
       renderChart(dailyData);
     } catch (error) {
@@ -75,8 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function handleSelectedFavorite(city, temperatureUnit) {
-    fetchAndRenderFavoriteChart(city, temperatureUnit);
+  // function handleSelectedFavorite(city, temperatureUnit) {
+  //   fetchAndRenderFavoriteChart(city, temperatureUnit);
+  // }
+
+  function handleSelectedFavorite(cityValue, temperatureUnit) {
+    fetchAndRenderFavoriteChart(cityValue, temperatureUnit);
   }
 
   function renderChart(dailyData) {
