@@ -1,4 +1,5 @@
 //Slider
+import refs from './ref';
 const cityContainer = document.querySelector('.slider');
 
 const createCityElement = (id, name) => {
@@ -14,5 +15,19 @@ const createCityElement = (id, name) => {
   cityDiv.append(cityName, cityCloseBtn);
   cityContainer.appendChild(cityDiv);
 };
+
+refs.form.addEventListener('submit', function (event) {
+  event.preventDefault();
+  refs.todayContainer.classList.remove('isHiden');
+  refs.timesectionEl.classList.remove('isHiden');
+  refs.containerquotesEl.classList.remove('isHiden');
+  refs.fiveDaysContainer.classList.add('isHiden');
+});
+refs.sliderEl.addEventListener('click', function () {
+  refs.todayContainer.classList.remove('isHiden');
+  refs.timesectionEl.classList.remove('isHiden');
+  refs.containerquotesEl.classList.remove('isHiden');
+  refs.fiveDaysContainer.classList.add('isHiden');
+});
 
 export { createCityElement };

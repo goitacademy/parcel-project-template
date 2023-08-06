@@ -3,7 +3,7 @@ const backgroundWrapper = document.querySelector('.background-wrapper');
 const addToLocalStorageBtn = document.querySelector(
   '.search-location__form-btn'
 );
-const form = document.querySelector('.search-form');
+const form = document.querySelector('.search');
 const listOfButtons = document.querySelector('.btn-list');
 const btnPrev = document.querySelector('#left-arrow'); // Updated arrow IDs
 const btnNext = document.querySelector('#right-arrow'); // Updated arrow IDs
@@ -33,6 +33,7 @@ const containerquotesEl = document.querySelector('.container-quotes');
 const fiveDaysContainer = document.querySelector('.five-days-container');
 const moreInfoBtn = document.querySelectorAll('.moreInfo_scroll_arrow');
 const fiveDaysButton = document.querySelector('.five-day-button');
+const sliderEl = document.querySelector('.slider');
 
 export default {
   searchInput,
@@ -66,4 +67,5 @@ export default {
   timesectionEl,
   containerquotesEl,
   btnToday,
+  sliderEl,
 };
