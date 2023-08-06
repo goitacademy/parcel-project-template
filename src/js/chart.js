@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchAndRenderChart(e) {
     e.preventDefault();
-    console.log('Form submitted');
     try {
       const cityValue = input.value;
       const forecastData = await fetchForecast(cityValue, temperatureUnit);
