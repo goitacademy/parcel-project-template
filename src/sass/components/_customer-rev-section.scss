@@ -1,0 +1,232 @@
+@import 'src/sass/utils/_vars.scss';
+.customer-rev {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.customer-review {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 60px;
+  }
+  &__rev {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    align-items: center;
+  }
+  &__rev-container {
+    width: 90%;
+    padding: 30px 50px 17px;
+    background: #fafafa;
+    margin-bottom: 16px;
+    position: relative;
+    box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+  }
+  &__review {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 255%;
+    text-align: center;
+    letter-spacing: 0.04em;
+    position: relative;
+    padding: 15px 35px 8px 37px;
+    color: $blackColor;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      height: 23%;
+      width: 40%;
+      z-index: -2;
+      background-image: url(../images/quotes.svg);
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 0;
+      left: 23px;
+    }
+
+    &__photo {
+      transition: transform 0.3s;
+      &:focus {
+        transform: scale(1.25);
+      }
+    }
+  }
+
+  &__name-place {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 186%;
+    text-align: center;
+    color: $blackColor;
+    position: relative;
+
+    &::before {
+      content: '. . .';
+      color: #c7133e;
+      font-size: 40px;
+      position: absolute;
+      bottom: 48px;
+      right: 36%;
+    }
+  }
+}
+
+.customer-reviews__line {
+  background-image: repeating-linear-gradient(#e1e1e1 0 1px, #fafafa 0 30px);
+  position: absolute;
+  top: 75px;
+  left: 21%;
+  width: 60%;
+  height: 67%;
+}
+
+.carousel-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.carousel-container__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.carousel-arrow {
+  cursor: pointer;
+  background-color: $whiteColor;
+  border: none;
+}
+.carousel {
+  display: none;
+}
+
+.carousel:nth-child(1) {
+  display: flex;
+}
+
+@media screen and (min-width: 768px) {
+  .customer-review__rev-container {
+    width: 620px;
+  }
+
+  .customer-reviews__line {
+    width: 87%;
+    height: 40%;
+    left: 7%;
+  }
+
+  .customer-review__review:before {
+    height: 91%;
+    left: 1%;
+  }
+
+  .carousel-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  .carousel-container__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .carousel-arrow {
+    cursor: pointer;
+    background-color: $whiteColor;
+    border: none;
+  }
+  .carousel {
+    display: none;
+  }
+
+  .carousel:nth-child(1) {
+    display: flex;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .customer-rev {
+    padding-left: 116px;
+    padding-right: 116px;
+  }
+  .customer-review {
+    &__rev {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      width: 100%;
+    }
+
+    &__rev-container {
+      box-shadow: none;
+      transition: box-shadow 150ms $main-transition-timing-function;
+      width: 968px;
+      padding: 32px 74px 31px 72px;
+      &:hover,
+      &:focus {
+        box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+      }
+    }
+    &__review {
+      font-size: 16px;
+      line-height: 186%;
+      padding: 15px 35px 8px;
+
+      &::before {
+        top: 0;
+        left: 0;
+        height: 40px;
+        width: 54px;
+      }
+    }
+
+    &__photo {
+      transition: transform 0.3s;
+      &:hover,
+      &:focus {
+        transform: scale(1.25);
+      }
+    }
+  }
+
+  .customer-reviews__line {
+    width: 85%;
+    height: 42%;
+    background-image: repeating-linear-gradient(#e1e1e1 0 1px, #fafafa 0 31px);
+    top: 79px;
+    left: 7%;
+  }
+
+  .carousel-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  .carousel-container__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .carousel-arrow {
+    cursor: pointer;
+    background-color: $whiteColor;
+    border: none;
+  }
+  .carousel {
+    display: none;
+  }
+
+  .carousel:nth-child(1) {
+    display: flex;
+  }
+}

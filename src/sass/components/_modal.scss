@@ -1,0 +1,145 @@
+@import 'src/sass/utils/_vars.scss';
+
+.modal {
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 300ms $main-transition-timing-function,
+  transform 300ms $main-transition-timing-function;
+  
+
+  &__inner {
+    position: absolute;
+    width: 550px;
+    height: 650px;
+    background: $whiteColor;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10%;
+  }
+
+  &__btn {
+    background: $whiteColor;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    margin-top: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: none;
+
+    & svg {
+      display: flex;
+    }
+
+    & svg:hover,
+    & svg:active,
+    & svg:focus {
+      fill: $primaryColor;
+      transition: fill 250ms $main-transition-timing-function;
+    }
+  }
+
+  &__title {
+    font-family: 'Titan One';
+    font-size: 20px;
+    line-height: 34px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: $secondaryColor;
+    padding-top: 40px;
+    padding-bottom: 12px;
+  }
+  &__title-second {
+    font-family: 'Titan One';
+    font-size: 30px;
+    line-height: 66px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: $primaryColor;
+  }
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0, 1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  &__item {
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+    color: $primaryColor;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    & svg {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+    }
+
+    & input,
+    & textarea {
+      border: 1px solid rgba(33, 33, 33, 0.2);
+      border-radius: 4px;
+      background: transparent;
+      width: 448px;
+
+      &:focus,
+      &:focus {
+        border-color: $primaryColor;
+        outline: none;
+        transition: border-color 250ms $main-transition-timing-function;
+        cursor: pointer;
+      }
+
+      &:focus + svg {
+        fill: $primaryColor;
+        transition: fill 250ms $main-transition-timing-function;
+        cursor: pointer;
+      }
+    }
+
+    & input {
+      margin-top: 4px;
+      height: 40px;
+      padding-left: 30px;
+    }
+
+    & textarea {
+      margin-top: 4px;
+      padding: 12px 16px;
+
+      &::placeholder {
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0.01em;
+        color: $secondaryColor;
+      }
+    }
+  }
+
+}
+
+.btn-nav--modal {
+  background: $secondaryColor;
+}

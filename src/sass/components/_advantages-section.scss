@@ -1,0 +1,142 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+@import 'src/sass/utils/_vars.scss';
+
+.advantages {
+  padding: 40px 0 60px 20px;
+  background: $secondBackgroundColor;
+  &__list-item {
+    width: 230px;
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+    &::before {
+      content: '';
+      display: inline-block;
+      height: 50px;
+      background-repeat: no-repeat;
+      margin: 0;
+      margin-bottom: 16px;
+    }
+  }
+  &__list-item--mod1 {
+    &::before {
+      content: '';
+      width: 33px;
+      background-image: url(../images/bucket.png);
+    }
+  }
+
+  &__list-item--mod2 {
+    &::before {
+      content: '';
+      width: 50px;
+      background-image: url(../images/apples.png);
+    }
+  }
+
+  &__list-item--mod3 {
+    &::before {
+      content: '';
+      width: 50px;
+      background-image: url(../images/heart.png);
+    }
+  }
+
+  &__list-text {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    color: $blackColor;
+  }
+
+  &__list-number {
+    display: inline-block;
+    margin-bottom: 30px;
+    font-family: $secondFamily;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 41px;
+    text-align: left;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $primaryColor;
+    animation: flip 5s infinite;
+    animation-delay: calc(0.2s * var(--i));
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .advantages {
+    padding: 60px 0 64px 32px;
+
+    &__list {
+      display: flex;
+    }
+    &__list-item {
+      display: block;
+      width: 180px;
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 20px;
+      }
+
+      &::before {
+        content: '';
+        margin-bottom: 36px;
+      }
+    }
+    &__list-text {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    &__list-number {
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 55px;
+      text-transform: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .advantages {
+    padding-top: 40px;
+    padding-bottom: 120px;
+    &__list-item {
+      &::before {
+        content: '';
+        margin-bottom: 40px;
+      }
+    }
+    &__list-item {
+      display: block;
+      width: 400px;
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 20px;
+      }
+
+      &::before {
+        content: '';
+        margin-bottom: 36px;
+      }
+    }
+    &__list-text {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 28px;
+      width: 288px;
+    }
+
+    &__list-number {
+      font-weight: 400;
+      font-size: 58px;
+      line-height: 66px;
+    }
+  }
+}
