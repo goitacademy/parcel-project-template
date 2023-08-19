@@ -12,8 +12,8 @@ body {
 section.watches-and-sales {
   width: 100%;
   background: #fbfbfb;
-  margin-left: 20px;
-  margin-right: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 div.new-watches {
   width: 100%;
@@ -68,6 +68,11 @@ div.new-watches {
 }
 .sales ul {
   list-style-type: none;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
 }
 .sales h3 {
   color: var(--black);
@@ -76,7 +81,9 @@ div.new-watches {
   font-weight: 400;
   line-height: 24px; /* 100% */
   letter-spacing: -0.48px;
-  width: 335px;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0;
 }
 .tag {
   color: var(--link-detail-color);
@@ -85,6 +92,15 @@ div.new-watches {
   font-weight: 400;
   line-height: 18px; /* 128.571% */
   letter-spacing: -0.28px;
+  padding-top: 8px;
+  margin: 0;
+  padding-bottom: 16px;
+}
+.price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 40px;
 }
 .new-price {
   color: var(--black, #141414);
@@ -93,6 +109,7 @@ div.new-watches {
   font-weight: 400;
   line-height: 24px; /* 133.333% */
   letter-spacing: -0.36px;
+  margin: 0;
 }
 .old-price {
   color: var(--link-detail-color);
@@ -101,34 +118,65 @@ div.new-watches {
   font-weight: 400;
   line-height: 14px; /* 116.667% */
   letter-spacing: -0.24px;
-  text-decoration-line: strikethrough;
+  text-decoration-line: line-through;
   width: 32px;
   height: 11px;
+  margin: 0;
 }
 .product {
   width: 100%;
   display: flex;
+  flex-direction: column;
 }
-.image-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 0;
+.col-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  width: 100%;
+}
+.image-list,
+.first-watch {
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .next-image {
-    flex-direction: column;
-    flex: 1; 
-    padding: 0; 
-    box-sizing: border-box; 
+  width: 100%;
+  height: 80px;
+  margin: 0;
+  margin-bottom: 8px;
+  padding: 0;
+  box-sizing: border-box;
+}
+.first-watch {
+  padding-right: 20px;
 }
 
-.first-watch {
-    flex: 1;
-    padding: 0; 
-    box-sizing: border-box;
+.first-watch img {
+  max-width: 211px;
+  max-height: 322px;
+  display: flex;
+  width: 211px;
+  height: 350px;
+  padding: 14px 12px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--black);
+  background: #030303;
+}
+div.product h3 {
+  color: var(--black);
+  font-family: var(--black);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.36px;
+  text-transform: uppercase;
 }
 .product-description {
   color: var(--link-detail-color);
@@ -137,7 +185,16 @@ div.new-watches {
   font-weight: 400;
   line-height: 18px; /* 128.571% */
   letter-spacing: -0.14px;
-  width: 335px;
+  width: 100%;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
+.subtitle {
+  display: flex;
+  padding: 8px 0px;
+  align-items: center;
+  border-top: 1px solid var(--black, #141414);
+  height: 40px;
 }
 .product-features {
   color: var(--link-detail-color);
@@ -148,4 +205,5 @@ div.new-watches {
   letter-spacing: -0.14px;
   width: 100%;
   height: 143px;
+  padding-bottom: 40px;
 }
