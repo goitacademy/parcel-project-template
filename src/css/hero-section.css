@@ -1,0 +1,440 @@
+:root {
+    --main-color: #D41443;
+    --white-color: #fff;
+    --background-color: #FFB8CA;
+    --background-color-gradient-1: #d76280;
+    --hover-background: #ECEBEB;
+    --decoration-color:#e84f75;
+    --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+    --time: 250ms;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header {
+    scroll-behavior: smooth;
+    letter-spacing: .03em;
+    font-family: DM Sans, sans-serif;
+    cursor: default;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+button {
+    border: none;
+    cursor: pointer
+}
+
+header {
+    height: 502px;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    height: 100%;
+    padding: 8px 20px;
+    background-color: var(--background-color);
+    background-image: url(../images/hero-section/mobile/Ellipse-m-x1.png);
+    background-repeat: no-repeat;
+    background-position: 65% 45%;
+    position: relative;
+    overflow: hidden;
+    background-color: linear-gradient(
+        125deg, 
+        var(--background-color), 
+        var(--background-color-gradient-1));
+    animation: gradient 5s ease infinite alternate-reverse;
+}
+@media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        .container {
+            background-image: linear-gradient(to right,
+                rgba(46, 47, 66, 0.7),
+                rgba(46, 47, 66, 0.7)),
+                url(../images/hero-section/mobile/Ellipse-m-x2.png);
+            }
+    }
+
+
+
+@keyframes gradient {
+	0% {
+		background-color: var(--background-color);
+	}
+    100% {
+        background-color: var(--background-color-gradient-1);
+    }
+}
+
+.upper-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav {
+    display: none;
+}
+.nav-list {
+    display: none;
+}
+
+.logo-header {
+    display: inline-block;
+    background-color: var(--white-color);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.logo {
+    margin-left: -1px;
+    margin-top: -1px;
+}
+
+.burger {
+    padding-top: 17px;
+    background-color: transparent;
+}
+
+.mobile-menu-btn {
+   fill: var(--main-color);
+   stroke: var(--main-color);
+}
+
+
+.header-link {
+    text-decoration: none;
+    color: var(--white-color);
+    font-family: DM Sans;
+    font-weight: 700;
+    transition: color var(--time) var(--cubic-bezier);
+    display: inline-block;
+    position: relative;
+}
+
+.header-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    border-radius: 5px;
+    background-color: var(--decoration-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.header-link:hover, .header-link:focus {
+    color: var(--main-color);
+    transform: translateY(-2px);
+}
+
+.header-link:hover::after, .header-link:focus::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.header-link-color, .title-color {
+    color: var(--main-color);
+}
+
+.button-header {
+    display: none;
+}
+
+.button-header:hover, .button-header:focus {
+    background-color: var(--hover-background);
+    transform: translateY(-2px);
+}
+
+.arrow {
+    stroke: var(--main-color);
+}
+
+
+
+.title {
+    color: var(--white-color);
+    font-family: Titan One;
+    font-size: 38px;
+    font-weight: 400;
+    letter-spacing: 1.52px;
+    text-transform: uppercase;
+    padding-top: 135px;
+}
+
+.buttons-list {
+    display: flex;
+    padding-top: 24px;
+    gap: 12px;
+}
+
+.button-one, .button-two {
+    height: 40px;
+    border-radius: 20px;
+    padding-left: 23px;
+    padding-right: 23px;
+    transition: background-color var(--time) var(--cubic-bezier);
+}
+
+.button-one:hover, .button-two:hover, .button-one:focus, .button-two:focus {
+    background-color: var(--hover-background);
+    transform: translateY(-2px);
+}
+.button-one:hover, .button-two:focus {
+    background-color: var(--main-color);
+}
+
+.button-one {
+    background-color: var(--main-color);
+    
+}
+
+.button-two {
+    background-color: var(--white-color);
+}
+
+.button-one-link, .button-two-link {
+    text-align: center;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.button-one-link {
+    color: var(--white-color);
+
+}
+
+.button-two-link {
+    color: var(--main-color);
+}
+
+.sale-points {
+    padding-top: 72px;
+}
+
+.sale-points-item {
+    display: none;
+
+}
+
+.sale-points-color {
+    color: var(--white-color);
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: none;
+}
+
+.caption {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-product {
+    border-radius: 13px;
+    background-color: var(--white-color);
+    width: 26px;
+    height: 26px;
+    transition: .35s cubic-bezier(.4, 0, .2, 1) 0ms;
+    transition-property: all;
+}
+
+.button-product:hover, .button-product:focus {
+    background-color: var(--main-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    fill: var(--white-color);
+}
+
+.arrow-right:hover, .arrow-right:focus {
+    fill: var(--white-color);
+}
+
+.button-product:hover .arrow-right {
+    fill: var(--white-color);
+    transform: rotate(90deg);
+}
+
+.arrow-right {
+    fill: var(--main-color);
+}
+
+
+.description-product {
+    color: var(--white-color);
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    padding-bottom: 20px;
+    width: 25%;
+}
+
+.milk {
+    display: none;
+}
+
+.image-milk {
+    position: relative;
+    padding-top: 40px;
+    z-index: 1;
+}
+
+.image-milk:hover {
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    50% {
+        transform: rotate(40deg)
+    }
+}
+
+
+.description-product-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 108px;
+    z-index: 1;
+}
+
+.image-ice-cream {
+    right: 50px;
+    position: absolute;
+    padding-left: 117px;
+    padding-top: 30px;
+}
+
+.image-ice-cream-2 {
+    display: none;
+}
+
+
+
+/*Tablet*/
+
+@media screen and (min-width: 768px) {
+
+}
+
+/*Desktop*/
+
+@media screen and (min-width: 1200px) {
+     header {
+        height: 664px;
+    }
+
+    .container {
+        padding: 37px 115px;
+        background-image: url(../images/hero-section/desktop/Ellipse.png);
+        background-position: 65% 45%;
+    }
+
+    @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            .container {
+                background-image: linear-gradient(to right,
+                    rgba(46, 47, 66, 0.7),
+                    rgba(46, 47, 66, 0.7)),
+                    url(../images/hero-section/desktop/Ellipse-x2.png);
+                }
+    }
+
+
+
+    .mobile-menu {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+    }
+    .nav-list {
+        padding-left: 150px;
+        display: flex;
+        gap: 35px;
+    }   
+
+    .button-header {
+        display: flex;
+        align-items: center;
+        padding-left: 37px;
+        padding-right: 37px;
+        height: 44px;
+        flex-shrink: 0;
+        border-radius: 22px;
+        background-color: var(--white-color);
+        text-align: center;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--main-color);
+        gap: 12px;
+        transition: background-color var(--time) var(--cubic-bezier);
+    }
+
+    .sale-points-item {
+        color: var(--main-color);
+        font-family: Titan One;
+        font-size: 46px;
+        font-weight: 400;
+        letter-spacing: 1.84px;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: url(../images/hero-section/Ellipse-1.svg);
+        background-repeat: no-repeat;
+        background-position: 100% 0%;
+    }
+
+    .milk {
+        display: flex;
+    }
+
+    .image-ice-cream-2 {
+        display: block;
+        position: absolute;
+        padding-left: 880px;
+        padding-top: 336px;
+    }
+    
+    .image-ice-cream {
+        right: auto;
+        position: absolute;
+        padding-left: 620px;
+        padding-top: 20px;
+    }
+
+    .title {
+        padding-top: 60px;
+    }
+
+   
+}
