@@ -1,116 +1,73 @@
-
-<!-- 1. aici tb bagat un <script src="./js/play-movie.js"></script>, ma rog, asta era calea la mine iar continutul js-ului este: 
-document.addEventListener("DOMContentLoaded", function() {
-    const mediaSection = document.querySelector(".media-section");
-    const playPauseButton = document.querySelector(".play-btn");
-    const video = document.querySelector(".made-video");
-    let hoverTimeout;
-
-    mediaSection.addEventListener("click", function() {
-        if (video.paused) {
-            video.play();
-        } else {
-            video.pause();
-        }
-    });
-
-    video.addEventListener("play", function() {
-        playPauseButton.style.opacity = "0";
-    });
-
-    video.addEventListener("pause", function() {
-        playPauseButton.style.opacity = "1";
-    });
-
-    mediaSection.addEventListener("mouseenter", function() {
-        if (!video.paused) {
-            playPauseButton.style.opacity = "1";
-        }
-    });
-
-    mediaSection.addEventListener("mouseleave", function() {
-        if (!video.paused) {
-            hoverTimeout = setTimeout(function() {
-                playPauseButton.style.opacity = "0";
-            }, 500); // Butonul va dispărea în 0.5 secunde după ieșirea din hover
-        }
-    });
-
-    playPauseButton.addEventListener("mouseenter", function() {
-        clearTimeout(hoverTimeout);
-        playPauseButton.style.opacity = "1";
-    });
-});
--->
-
-
-
 <section class="hsmade-section">
-        
-    <h1 class="title-made-section">HOW IT'S <SPAN>MADE?</SPAN>
-    </h1>
-    <div class="content-hsmade-section">
-        <div class="media-section">
-            <picture>
+  <h1 class="title-made-section">HOW IT'S <span>MADE?</span></h1>
+  <div class="content-hsmade-section">
+    <div class="media-section">
+      <picture>
+        <!-- Mobile -->
+        <source
+          class="media-section-img"
+          media="(max-width:767px)"
+          srcset="images/made-process-m.png, images/made-process-m-2x.png"
+        />
 
-                <!-- Mobile -->
-                <source 
-                    class="media-section-img" 
-                    media="(max-width:767px)"
-                    srcset="images/made-process-m.png, images/made-process-m-2x.png"
-                >
-            
+        <!-- Tablet -->
 
-                <!-- Tablet -->
+        <source
+          class="media-section-img"
+          media="(min-width:768px) and (max-width:1157px)"
+          srcset="images/made-process-t.png, images/made-process-t-2x.png"
+        />
 
-                <source 
-                    class="media-section-img" 
-                    media="(min-width:768px) and (max-width:1157px)"
-                    srcset="images/made-process-t.png, images/made-process-t-2x.png"
-                >
+        <!-- Desktop -->
 
-                <!-- Desktop -->
+        <source
+          class="media-section-img"
+          media="(min-width:1158px)"
+          srcset="images/made-process-d.png, images/made-process-d-2x.png"
+        />
 
-                <source 
-                    class="media-section-img" 
-                    media="(min-width:1158px)"
-                    srcset="images/made-process-d.png, images/made-process-d-2x.png"
-                >
-           
-                <img
-                    class="media-section-img"
-                    src="images/made-process-m.png"
-                    alt="how chocolate is made"
-                >
-            </picture>
+        <img
+          class="media-section-img"
+          src="images/made-process-m.png"
+          alt="how chocolate is made"
+        />
+      </picture>
 
-            <!-- butonul de play -->
-            <button class="play-btn" type="button" data-video-open="">
-                <svg class="play-icon">
-                    <use 
-                        href="./images/symbol-defs.svg#icon-vector-play"
-                    ></use>
-                </svg>
-            </button>
+      <!-- butonul de play -->
+      <button class="play-btn" type="button" data-video-open="">
+        <svg class="play-icon">
+          <use href="./images/symbol-defs.svg#icon-vector-play"></use>
+        </svg>
+      </button>
 
-            <video preload="auto" poster="images/made-process-d.png"
-                src="images/chocolate_video.mp4" class="made-video">
-            </video>
-  
-        </div>
-
-        <div class="recipe-section">
-            <h2 class="recipe-section-describe">
-                Try  our chocolates today and discover the perfect balance of flavor
-            </h2>
-            <ul class="recipe-section-steps">
-                <li>Heat the milk in a saucepan without bringing it to a boil. Add sugar and cocoa powder.</li>
-                <li>At the same time, prepare a water bath. Melt the butter on it.</li>
-                <li>"Mix" the milk mixture and already liquid butter. Mix thoroughly with a silicone spatula so that the mass becomes uniform and silky.</li>
-                <li>Heat the mixture over low heat, letting it barely boil.</li>
-                <li>Pour the chocolate into special containers (can be replaced with ice molds). Allow to cool and harden.</li>
-            </ul>
-           
-        </div>
+      <video
+        preload="auto"
+        poster="images/made-process-d.png"
+        src="images/chocolate_video.mp4"
+        class="made-video"
+      ></video>
     </div>
+
+    <div class="recipe-section">
+      <h2 class="recipe-section-describe">
+        Try our chocolates today and discover the perfect balance of flavor
+      </h2>
+      <ul class="recipe-section-steps">
+        <li>
+          Heat the milk in a saucepan without bringing it to a boil. Add sugar
+          and cocoa powder.
+        </li>
+        <li>At the same time, prepare a water bath. Melt the butter on it.</li>
+        <li>
+          "Mix" the milk mixture and already liquid butter. Mix thoroughly with
+          a silicone spatula so that the mass becomes uniform and silky.
+        </li>
+        <li>Heat the mixture over low heat, letting it barely boil.</li>
+        <li>
+          Pour the chocolate into special containers (can be replaced with ice
+          molds). Allow to cool and harden.
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
