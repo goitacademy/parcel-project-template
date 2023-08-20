@@ -64,6 +64,7 @@
     openModalBtn: document.querySelector('[data-modal-open]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
+    modalContent: document.querySelector('.modal-content'),
   };
 
   refs.openModalBtn.addEventListener('click', toggleModal);
@@ -73,5 +74,4 @@
     refs.modal.classList.toggle('is-hidden');
   }
 })();
-
 
