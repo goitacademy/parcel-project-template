@@ -26,38 +26,36 @@
   });
 })();
 
-
 // Contacts btn
 (() => {
   const refs = {
-    openModalBtn: document.querySelector("[data-modal-open]"),
-    closeModalBtn: document.querySelector("[data-modal-close]"),
-    modal: document.querySelector("[data-modal]"),
+    openModalBtn: document.querySelector('[data-modal-open]'),
+    closeModalBtn: document.querySelector('[data-modal-close]'),
+    modal: document.querySelector('[data-modal]'),
   };
 
-  refs.openModalBtn.addEventListener("click", toggleModal);
-  refs.closeModalBtn.addEventListener("click", toggleModal);
+  refs.openModalBtn.addEventListener('click', toggleModal);
+  refs.closeModalBtn.addEventListener('click', toggleModal);
 
   function toggleModal() {
-    refs.modal.classList.toggle("is-hidden");
+    refs.modal.classList.toggle('is-hidden');
   }
 })();
 
 (() => {
   const refs = {
-    openModalBtn: document.querySelector("[data-modal-open-our]"),
-    closeModalBtn: document.querySelector("[data-modal-close-our]"),
-    modal: document.querySelector("[data-modal-our]"),
+    openModalBtn: document.querySelector('[data-modal-open-our]'),
+    closeModalBtn: document.querySelector('[data-modal-close-our]'),
+    modal: document.querySelector('[data-modal-our]'),
   };
 
-  refs.openModalBtn.addEventListener("click", toggleModal);
-  refs.closeModalBtn.addEventListener("click", toggleModal);
+  refs.openModalBtn.addEventListener('click', toggleModal);
+  refs.closeModalBtn.addEventListener('click', toggleModal);
 
   function toggleModal() {
-    refs.modal.classList.toggle("is-hidden");
+    refs.modal.classList.toggle('is-hidden');
   }
 })();
-=======
 // Buy now button
 (() => {
   const refs = {
@@ -74,4 +72,3 @@
     refs.modal.classList.toggle('is-hidden');
   }
 })();
-
