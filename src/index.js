@@ -25,7 +25,7 @@
     bodyScrollLock.enableBodyScroll(document.body);
   });
 })();
-// ------------------------------------------------------
+
 
 // Contacts btn
 (() => {
@@ -57,3 +57,21 @@
     refs.modal.classList.toggle("is-hidden");
   }
 })();
+=======
+// Buy now button
+(() => {
+  const refs = {
+    openModalBtn: document.querySelector('[data-modal-open]'),
+    closeModalBtn: document.querySelector('[data-modal-close]'),
+    modal: document.querySelector('[data-modal]'),
+  };
+
+  refs.openModalBtn.addEventListener('click', toggleModal);
+  refs.closeModalBtn.addEventListener('click', toggleModal);
+
+  function toggleModal() {
+    refs.modal.classList.toggle('is-hidden');
+  }
+})();
+
+
