@@ -29,31 +29,31 @@
 
 // Contacts btn
 (() => {
-  const refs = {
-    openModalBtn: document.querySelector("[data-modal-open]"),
-    closeModalBtn: document.querySelector("[data-modal-close]"),
-    modal: document.querySelector("[data-modal]"),
+  const contactRefs = {
+    openModalBtn: document.querySelector('[data-modal-open]'),
+    closeModalBtn: document.querySelector('[data-modal-close]'),
+    modal: document.querySelector('[data-modal]'),
   };
 
-  refs.openModalBtn.addEventListener("click", toggleModal);
-  refs.closeModalBtn.addEventListener("click", toggleModal);
+  contactRefs.openModalBtn.addEventListener('click', toggleModal);
+  contactRefs.closeModalBtn.addEventListener('click', toggleModal);
 
   function toggleModal() {
-    refs.modal.classList.toggle("is-hidden");
+    contactRefs.modal.classList.toggle('is-hidden');
   }
 })();
 
 (() => {
-  const refs = {
-    openModalBtn: document.querySelector("[data-modal-open-our]"),
-    closeModalBtn: document.querySelector("[data-modal-close-our]"),
-    modal: document.querySelector("[data-modal-our]"),
+  const contactRefs = {
+    openModalBtn: document.querySelector('[data-modal-open-our]'),
+    closeModalBtn: document.querySelector('[data-modal-close-our]'),
+    modal: document.querySelector('[data-modal-our]'),
   };
 
-  refs.openModalBtn.addEventListener("click", toggleModal);
-  refs.closeModalBtn.addEventListener("click", toggleModal);
+  contactRefs.openModalBtn.addEventListener('click', toggleModal);
+  contactRefs.closeModalBtn.addEventListener('click', toggleModal);
 
   function toggleModal() {
-    refs.modal.classList.toggle("is-hidden");
+    contactRefs.modal.classList.toggle('is-hidden');
   }
 })();
