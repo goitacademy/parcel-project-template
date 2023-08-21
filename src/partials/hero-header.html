@@ -2,12 +2,27 @@
   <a href="#products">
     <picture class="awesome-icecream-cone">
       <source
-        media="(max-width:1170px)"
-        srcset="images/header-cone.png, images/header-cone.png"
+        media="(min-width:1280px)"
+        srcset="
+          images/awesome-icecream-cone-d.png,
+          images/awesome-icecream-cone-d-2x.png
+        "
+      />
+      <source />
+      <source
+        media="(min-width:768px)"
+        srcset="
+          images/awesome-icecream-cone-t.png,
+          images/awesome-icecream-cone-t-2x.png
+        "
+      />
+      <source />
+      <source
+        media="(max-width:320px)"
+        srcset="images/header-cone.png, images/header-cone-2x.png"
       />
       <source />
       <img
-        class=""
         width="171"
         height="410"
         src="images/header-cone.png"
@@ -81,12 +96,8 @@
         >
       </h1>
       <div class="button-div">
-        <button class="products-btn" type="button">
-          <a href="#products">Products</a>
-        </button>
-        <button class="how-made-btn" type="button">
-          <a href="#how-its-made">How it&rsquo;s made?</a>
-        </button>
+        <a class="products-btn" href="#products">Products</a>
+        <a class="how-made-btn" href="#how-its-made">How it&rsquo;s made?</a>
       </div>
     </section>
     <div class="big-bubble-cone">
@@ -103,7 +114,7 @@
     <svg><use href="./images/icons.svg#icon-modal-close"></use></svg>
   </button>
   <div class="mobile-backdrop">
-    <button type="button" class="buy-now-btn">
+    <button data-modal-open type="button" class="buy-now-btn">
       <span>Buy now</span>
       <svg class="buy-now-vector">
         <use href="./images/icons.svg#icon-buy-now-vector"></use>
@@ -122,4 +133,89 @@
     </nav>
   </div>
 </div>
-
+<!-- BUY NOW MENU -->
+<div class="hero-header-modal-container">
+  <div class="data-modal is-hidden is-active" data-modal>
+    <div class="modal-content">
+      <div class="title-close-btn-container">
+        <h3 class="buy-now-modal-title">Syper pyper Ice<br />Cream</h3>
+        <button data-modal-close class="buy-now-close-btn">X</button>
+      </div>
+      <div class="buy-now-list-container">
+        <ul class="buy-now-modal-list">
+          <li>
+            <img
+              class="buy-now-modal-images"
+              width="30"
+              height="30"
+              src="./images/modal-picture-one.png"
+              alt="cherry ice cream"
+            />
+          </li>
+          <li><input type="number" class="ice-cream-modal-input" min="0" /></li>
+        </ul>
+        <ul class="buy-now-modal-list">
+          <li>
+            <img
+              class="buy-now-modal-images"
+              width="30"
+              height="30"
+              src="./images/modal-picture-two.png"
+              alt="banana smoothie"
+            />
+          </li>
+          <li><input type="number" class="ice-cream-modal-input" min="0" /></li>
+        </ul>
+        <ul class="buy-now-modal-list">
+          <li>
+            <img
+              class="buy-now-modal-images"
+              width="30"
+              height="30"
+              src="./images/modal-picture-three.png"
+              alt="chocolate ice cream glass"
+            />
+          </li>
+          <li><input type="number" class="ice-cream-modal-input" min="0" /></li>
+        </ul>
+      </div>
+      <form class="modal-form">
+        <label class="buy-now-form-label" for="username"
+          ><span>Name</span
+          ><input
+            class="buy-now-input-box"
+            type="text"
+            name="username"
+            id="username"
+        /></label>
+        <label class="buy-now-form-label" for="phone-number"
+          ><span>Phone</span
+          ><input
+            class="buy-now-input-box"
+            type="number"
+            name="phone-number"
+            id="phone-number"
+            min="0"
+        /></label>
+        <label class="buy-now-form-label" for="email"
+          ><span>Mail</span
+          ><input
+            class="buy-now-input-box"
+            type="email"
+            name="email"
+            id="email"
+        /></label>
+        <label class="buy-now-form-label" for="feedback">
+          <textarea
+            class="buy-now-modal-textarea buy-now-input-box"
+            name="feedback"
+            id="feedback"
+            rows="5"
+            placeholder="Write something and maybe we read this"
+          ></textarea>
+        </label>
+        <button class="i-want-that-btn" type="submit">I want that!</button>
+      </form>
+    </div>
+  </div>
+</div>
