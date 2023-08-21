@@ -8,7 +8,6 @@
       openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
     openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
     mobileMenu.classList.toggle('is-open');
-
     const scrollLockMethod = !isMenuOpen
       ? 'disableBodyScroll'
       : 'enableBodyScroll';
@@ -25,29 +24,27 @@
 })();
 // Contacts btn
 (() => {
-  const refs = {
+  const contactRefs = {
     openModalBtn: document.querySelector('[data-modal-open]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
   };
-
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
-
+  contactRefs.openModalBtn.addEventListener('click', toggleModal);
+  contactRefs.closeModalBtn.addEventListener('click', toggleModal);
   function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
+    contactRefs.modal.classList.toggle('is-hidden');
   }
 })();
 (() => {
-  const refs = {
+  const contactRefs = {
     openModalBtn: document.querySelector('[data-modal-open-our]'),
     closeModalBtn: document.querySelector('[data-modal-close-our]'),
     modal: document.querySelector('[data-modal-our]'),
   };
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
+  contactRefs.openModalBtn.addEventListener('click', toggleModal);
+  contactRefs.closeModalBtn.addEventListener('click', toggleModal);
   function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
+    contactRefs.modal.classList.toggle('is-hidden');
   }
 })();
 // Buy now button
@@ -64,3 +61,4 @@
     refs.modal.classList.toggle('is-hidden');
   }
 })();
+
