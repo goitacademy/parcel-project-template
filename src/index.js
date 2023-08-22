@@ -62,3 +62,9 @@
     refs.modal.classList.toggle('is-hidden');
   }
 })();
+// Carousel js
+$('.main-gallery').flickity({
+  // options
+  cellAlign: 'left',
+  contain: true
+});
