@@ -4,19 +4,16 @@
   --link-detail-color: rgba(20, 20, 20, 0.5);
   --black: #141414;
 }
-body {
-  width: 100%;
-  max-width: 1600px;
-  margin: 0;
-}
 section.watches-and-sales {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: #fbfbfb;
   padding-right: 20px;
   padding-left: 20px;
 }
 div.new-watches {
-  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -28,6 +25,8 @@ div.new-watches {
   font-weight: 300;
   line-height: 14px; /* 116.667% */
   letter-spacing: 0.72px;
+  margin: 0;
+  padding-bottom: 8px;
 }
 .new-watches h2 {
   color: var(--black);
@@ -36,6 +35,9 @@ div.new-watches {
   font-weight: 600;
   line-height: 40px; /* 125% */
   letter-spacing: -0.64px;
+  width: 335px;
+  margin: 0;
+  padding-bottom: 40px;
 }
 .new-watches ul {
   display: flex;
@@ -48,13 +50,12 @@ div.new-watches {
   margin-inline-end: 0px;
   padding-inline-start: 0px;
 }
-.new-watches li img {
-  width: 100%;
+.new-watches li {
+  width: 335px;
   height: 260px;
-  padding-bottom: 20px;
 }
 .sales {
-  width: 100%;
+  width: 335px;
   display: flex;
   flex-direction: column;
 }
@@ -81,7 +82,7 @@ div.new-watches {
   font-weight: 400;
   line-height: 24px; /* 100% */
   letter-spacing: -0.48px;
-  width: 100%;
+  width: 335px;
   padding: 0;
   margin-bottom: 0;
 }
@@ -97,10 +98,10 @@ div.new-watches {
   padding-bottom: 16px;
 }
 .price {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 40px;
 }
 .new-price {
   color: var(--black, #141414);
@@ -132,7 +133,6 @@ div.new-watches {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
-  width: 100%;
 }
 .image-list,
 .first-watch {
@@ -141,14 +141,13 @@ div.new-watches {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .next-image {
-  width: 100%;
+  width: 80px;
   height: 80px;
   margin: 0;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   padding: 0;
   box-sizing: border-box;
 }
@@ -161,7 +160,7 @@ div.new-watches {
   max-height: 322px;
   display: flex;
   width: 211px;
-  height: 350px;
+  height: 322px;
   padding: 14px 12px;
   flex-direction: column;
   justify-content: center;
@@ -178,6 +177,7 @@ div.product h3 {
   letter-spacing: -0.36px;
   text-transform: uppercase;
 }
+
 .product-description {
   color: var(--link-detail-color);
   font-family: var(--font);
@@ -185,7 +185,8 @@ div.product h3 {
   font-weight: 400;
   line-height: 18px; /* 128.571% */
   letter-spacing: -0.14px;
-  width: 100%;
+  width: 335px;
+  height: 132px;
   flex-direction: column;
   padding-bottom: 40px;
 }
@@ -203,7 +204,118 @@ div.product h3 {
   font-weight: 400;
   line-height: 18px; /* 128.571% */
   letter-spacing: -0.14px;
-  width: 100%;
+  width: 335px;
   height: 143px;
   padding-bottom: 40px;
+}
+@media only screen and (min-width: 768px) {
+  section.watches-and-sales {
+    padding: 0;
+    margin: 0;
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 100%;
+  }
+  .new-watches h2 {
+    width: 448px;
+    color: #1e2827;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 44px; /* 110% */
+    letter-spacing: -0.8px;
+  }
+  .new-watches ul {
+    flex-direction: row-reverse;
+    gap: 20px;
+  } 
+  .sales {
+    width: 704px;
+    padding-top: 128px;
+  }
+  .sales h2 {
+    color: #1e2827;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 44px; /* 110% */
+    letter-spacing: -0.8px;
+    width: 40px;
+  }
+  .sale {
+    width: 572px;
+    padding-left: 66px;
+    padding-right: 66px;
+    padding-top: 40px;
+  }
+  .next-image {
+    width: 146px;
+    height: 146px;
+
+  }
+  .first-watch {
+    width: 406px;
+    height: 614px;
+    flex-shrink: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--black);
+    background: #030303;
+  }
+  .sales h3 {
+    width: 572px;
+    font-size: 38px;
+    line-height: 40px; /* 105.263% */
+    letter-spacing: -0.76px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  section.watches-and-sales {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  .new-watches {
+    width: 100%;
+    padding-left: 132px;
+    padding-right: 132px;
+  }
+  .new-watches h2 {
+    color: #1e2827;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 44px; /* 110% */
+    letter-spacing: -0.8px;
+    padding-bottom: 80px;
+  }
+  .new-watches ul {
+    justify-content: space-between;
+  }
+  .sales {
+    width: 100%;
+  }
+
+  .sale {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+  }
+  
+  .image-list ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+  }
+  
+  .image-list li {
+    flex: 1;
+  }
+  
+  .first-watch picture,
+  .product {
+    border: 1px solid #ccc;
+  }
+  .col-container {
+    flex-direction: column;
+  }
 }
