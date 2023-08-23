@@ -8,7 +8,6 @@
       openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
     openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
     mobileMenu.classList.toggle('is-open');
-
     const scrollLockMethod = !isMenuOpen
       ? 'disableBodyScroll'
       : 'enableBodyScroll';
@@ -23,31 +22,30 @@
     bodyScrollLock.enableBodyScroll(document.body);
   });
 })();
+// ------------------------------------------------------
 // Contacts btn
 (() => {
-  const refs = {
-    openModalBtn: document.querySelector('[data-modal-open]'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('[data-modal]'),
+  const contactRefs = {
+    openModalBtn: document.querySelector('[data-modal-open-franchise]'),
+    closeModalBtn: document.querySelector('[data-modal-close-franchise]'),
+    modal: document.querySelector('[data-modal-franchise]'),
   };
-
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
-
+  contactRefs.openModalBtn.addEventListener('click', toggleModal);
+  contactRefs.closeModalBtn.addEventListener('click', toggleModal);
   function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
+    contactRefs.modal.classList.toggle('is-hidden');
   }
 })();
 (() => {
-  const refs = {
+  const contactRefs = {
     openModalBtn: document.querySelector('[data-modal-open-our]'),
     closeModalBtn: document.querySelector('[data-modal-close-our]'),
     modal: document.querySelector('[data-modal-our]'),
   };
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
+  contactRefs.openModalBtn.addEventListener('click', toggleModal);
+  contactRefs.closeModalBtn.addEventListener('click', toggleModal);
   function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
+    contactRefs.modal.classList.toggle('is-hidden');
   }
 })();
 // Buy now button
@@ -64,3 +62,9 @@
     refs.modal.classList.toggle('is-hidden');
   }
 })();
+// Carousel js
+$('.main-gallery').flickity({
+  // options
+  cellAlign: 'left',
+  contain: true
+});
