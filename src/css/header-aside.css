@@ -1,13 +1,14 @@
-/************************ Team 8 Authors - Valentin Cristian Calota, Ramona Monica,
-************************* Curelusa Ioana Mihaela, Patrunjel Daniel, Morosan Ilia,
-************************* Dragos Flueraru, Cosescu Nicu, Armand.
-*************************
-************************* Date: 17.08.2023
-************************* CSS - Text Style
-************************* Not sure what I'm doing yet!
-*************************
-****************************************************************************************************
-***************************************************************************************************/
+/**************************************************
+********** Web-site: Simply Chocolate
+********** Section: Header N Aside
+********** Company: GoIt
+********** Team: Team 8
+********** Date: 17.08.2023
+********** Files: HTML, CSS, JS
+********** Author: Valentin Cristian Calota
+********** Comment: Not sure what I'm doing yet!
+********** Social media: Ig - @cristianvalentinx
+**************************************************/
 /************************* Root *************************/
 :root {
   --hover-color: #fd9222;
@@ -38,11 +39,12 @@ aside button.to-how-its-made:hover {
   background-color: #fff;
   color: var(--hover-color);
 }
-aside button.scroll-down:hover {
-  background-color: var(--hover-color);
+aside a.scroll-down:hover {
+  color: var(--hover-color);
 }
-aside svg:hover {
+aside a.scroll-down:hover svg {
   color: #fff;
+  background-color: var(--hover-color);
 }
 nav a.mobile-navigation-menu:hover,
 header nav a.navigation-menu:hover {
@@ -160,13 +162,13 @@ nav a.mobile-navigation-menu {
 nav a.mobile-navigation-menu::after {
   content: "";
   position: absolute;
+  left: 0;
+  top: 17px;
   width: 100%;
-  transform: scaleX(0);
   height: 3px;
   border-radius: 3px;
-  top: 17px;
-  left: 0;
   background-color: var(--hover-color);
+  transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 250ms ease-in;
 }
@@ -221,6 +223,11 @@ aside div.aside {
   align-items: start;
   gap: 32px;
 }
+aside div.aside-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 aside button.buy-now {
   color: #fff;
   font-family: Montserrat;
@@ -235,6 +242,7 @@ aside button.buy-now {
   background: #fd9222;
   border: none;
   cursor: pointer;
+  transition: 250ms ease-in;
 }
 aside button.to-how-its-made {
   color: #fff;
@@ -253,38 +261,30 @@ aside button.to-how-its-made {
   border: 1px solid #fff;
   background-color: transparent;
   cursor: pointer;
+  transition: 250ms ease-in;
 }
-aside div {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-aside span {
+aside a.scroll-down {
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 14px; /* 116.667% */
-  letter-spacing: -0.36px;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.42px;
+  text-decoration: none;
+  transition: 250ms ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
-aside button.scroll-down {
+aside svg.scroll-down {
   width: 28px;
   height: 28px;
-  flex-shrink: 0;
-  border-radius: 14px;
-  border: none;
   background-color: #fff;
+  color: var(--active-color);
+  border-radius: 14px;
   cursor: pointer;
+  padding: 3px;
   transition: 250ms ease-in-out;
-}
-aside svg {
-  display: flex;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  color: #fd9222;
-  padding: 2px;
 }
 
 @media screen and (min-width: 768px) {
@@ -355,7 +355,6 @@ aside svg {
   aside button.to-how-its-made {
     width: 183px;
     height: 45px;
-    padding: 14px 40px;
   }
   aside span {
     font-size: 14px;
@@ -370,7 +369,7 @@ aside svg {
   aside svg {
     width: 28px;
     height: 28px;
-    padding-left: 6px;
+    padding-left: 4px;
   }
 }
 
@@ -417,15 +416,29 @@ aside svg {
   header nav a.navigation-menu::after {
     content: "";
     position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    border-radius: 3px;
-    top: 17px;
     left: 0;
+    top: 30px;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
     background-color: var(--hover-color);
+    transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 250ms ease-in;
+  }
+  header nav a.active {
+    color: var(--active-color);
+  }
+  header nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 30px;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--hover-color);
+    transform: none;
   }
   header div.social-media {
     display: flex;
@@ -454,7 +467,7 @@ aside svg {
     background-repeat: no-repeat;
     background-size: cover;
     height: 600px;
-    margin: 76px 32px 0px 32px;
+    margin: 79px 32px 0px 32px;
     padding: 40px;
   }
   aside h1 {
