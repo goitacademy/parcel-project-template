@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background-color: rgba(255, 245, 246, 1);
 }
 
 .how-is-made-container {
   width: 280px;
   margin: auto;
   flex-shrink: 0;
-  background-color: rgba(255, 245, 246, 1);
 }
 
 .tradition {
@@ -21,6 +21,19 @@
   text-transform: uppercase;
   margin-top: 60px;
   margin-bottom: 15px;
+
+}
+
+.tradition {
+  font-size: 18px;
+  transition-property: letter-spacing;
+  transition-duration: 2s;
+}
+
+.tradition:hover {
+  letter-spacing: 15px;
+  transition-timing-function: ease-out;
+  transition-duration: 1s;
 }
 
 .how-is-made-title {
@@ -34,6 +47,18 @@
   letter-spacing: 1.36px;
   text-transform: uppercase;
   margin-bottom: 32px;
+}
+
+.how-is-made-title {
+  font-size: 34px;
+  transition-property: letter-spacing;
+  transition-duration: 2s;
+}
+
+.how-is-made-title:hover {
+  letter-spacing: 40px;
+  transition-timing-function: ease-out;
+  transition-duration: 1s;
 }
 
 .tradition.how-is-made-title {
@@ -174,14 +199,6 @@
 
     }
   }
-
-  /* aici se adauga clase DOAR cu proprietatile care se modifica 
-  pentru deviceuri foarte mici - MAI MICI DEECAT CE AVEM NOI IN 
-  MACHETA DE MOBILE de ex: 
-    .advantages-text {
-    width: 350px;
-    height: 85px;}
-    */
 }
 
 
@@ -235,22 +252,30 @@
     font-size: 16px;
   }
 
+  .how-its-made-description {
+    background-image: none;
+  }
+
   .how-is-made-content {
     display: flex;
     flex-direction: row;
     background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../images/how-is-made-milk-d.png');
+    width: 768px;
+    height: 335px;
+  }
+
+  @media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+    .how-is-made-content {
+      background-image: url('../images/how-is-made-milk-d-2x.png');
+    }
   }
 }
 
-/* aici se adauga clase DOAR cu proprietatile care se modifica 
-  pentru TABLETA - 
-   de ex: 
-    .advantages-text {
-    width: 350px;
-    height: 85px;}
-
-    A SE RESPECTA DIMENSIUNILE DIN MACHETA
-    */
 
 
 @media screen and (min-width: 1280px) {
@@ -304,13 +329,16 @@
     font-size: 16px;
   }
 
+  .how-its-made-description {
+    background-image: none;
+  }
+
   .how-is-made-content {
     display: flex;
     flex-direction: row;
     background-repeat: no-repeat;
-  }
-
-  .how-its-made-description {
+    background-size: cover;
+    width: auto;
     background-image: url('../images/how-is-made-milk-d.png');
   }
 
@@ -318,6 +346,8 @@
   (-webkit-min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-    .how-its-made-description {
+    .how-is-made-content {
       background-image: url('../images/how-is-made-milk-d-2x.png');
     }
+  }
+}
