@@ -5,13 +5,10 @@
   --black: #141414;
 }
 section.watches-and-sales {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background: #fbfbfb;
   padding-right: 20px;
   padding-left: 20px;
+  width: 100%;
 }
 div.new-watches {
   display: flex;
@@ -49,6 +46,7 @@ div.new-watches {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 0px;
+  gap: 20px;
 }
 .new-watches li {
   width: 335px;
@@ -58,6 +56,7 @@ div.new-watches {
   width: 335px;
   display: flex;
   flex-direction: column;
+  padding-top: 80px;
 }
 .sales h2 {
   color: var(--black);
@@ -67,6 +66,9 @@ div.new-watches {
   line-height: 40px; /* 125% */
   letter-spacing: -0.64px;
 }
+.sale {
+  padding-top: 80px;
+}
 .sales ul {
   list-style-type: none;
   margin-block-start: 0em;
@@ -74,6 +76,7 @@ div.new-watches {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 0px;
+  gap: 8px;
 }
 .sales h3 {
   color: var(--black);
@@ -129,6 +132,9 @@ div.new-watches {
   display: flex;
   flex-direction: column;
 }
+.products {
+  padding-top: 40px;
+}
 .col-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -151,16 +157,12 @@ div.new-watches {
   padding: 0;
   box-sizing: border-box;
 }
-.first-watch {
-  padding-right: 20px;
-}
 
-.first-watch img {
-  max-width: 211px;
-  max-height: 322px;
+
+.first-watch {
   display: flex;
-  width: 211px;
-  height: 322px;
+  width: 235px;
+  height: 350px;
   padding: 14px 12px;
   flex-direction: column;
   justify-content: center;
@@ -177,7 +179,6 @@ div.product h3 {
   letter-spacing: -0.36px;
   text-transform: uppercase;
 }
-
 .product-description {
   color: var(--link-detail-color);
   font-family: var(--font);
@@ -186,16 +187,16 @@ div.product h3 {
   line-height: 18px; /* 128.571% */
   letter-spacing: -0.14px;
   width: 335px;
-  height: 132px;
   flex-direction: column;
   padding-bottom: 40px;
 }
 .subtitle {
   display: flex;
-  padding: 8px 0px;
   align-items: center;
   border-top: 1px solid var(--black, #141414);
   height: 40px;
+  padding-bottom: 17px;
+  padding-top: 8px;
 }
 .product-features {
   color: var(--link-detail-color);
@@ -205,7 +206,6 @@ div.product h3 {
   line-height: 18px; /* 128.571% */
   letter-spacing: -0.14px;
   width: 335px;
-  height: 143px;
   padding-bottom: 40px;
 }
 @media only screen and (min-width: 768px) {
@@ -216,6 +216,9 @@ div.product h3 {
     padding-right: 32px;
     width: 100%;
   }
+  .new-watches {
+    width: 704px;
+  }
   .new-watches h2 {
     width: 448px;
     color: #1e2827;
@@ -223,9 +226,11 @@ div.product h3 {
     font-weight: 600;
     line-height: 44px; /* 110% */
     letter-spacing: -0.8px;
+    padding-bottom: 60px;
   }
   .new-watches ul {
     flex-direction: row-reverse;
+    justify-content: start;
     gap: 20px;
   } 
   .sales {
@@ -238,13 +243,14 @@ div.product h3 {
     font-weight: 600;
     line-height: 44px; /* 110% */
     letter-spacing: -0.8px;
-    width: 40px;
+    width: auto;
   }
   .sale {
     width: 572px;
     padding-left: 66px;
     padding-right: 66px;
     padding-top: 40px;
+    padding-bottom: 60px;
   }
   .next-image {
     width: 146px;
@@ -268,16 +274,17 @@ div.product h3 {
     letter-spacing: -0.76px;
   }
 }
+
 @media only screen and (min-width: 1280px) {
   section.watches-and-sales {
     padding: 0;
     margin: 0;
     width: 100%;
-  }
-  .new-watches {
-    width: 100%;
     padding-left: 132px;
     padding-right: 132px;
+  }
+  .new-watches {
+    width: 1176px;
   }
   .new-watches h2 {
     color: #1e2827;
@@ -288,34 +295,49 @@ div.product h3 {
     padding-bottom: 80px;
   }
   .new-watches ul {
-    justify-content: space-between;
-  }
-  .sales {
-    width: 100%;
+    justify-content: start;
+    gap: 24px;
   }
 
+  .sales {
+   width: 1176px;
+   padding-top: 160px;
+  }
+  .sales h2 {
+    width: auto;
+  }
   .sale {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; 
+    width: 981px;
+    padding-left: 97px;
+    padding-right: 97px;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
-  
   .image-list ul {
     list-style: none;
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px; 
   }
   
   .image-list li {
     flex: 1;
   }
-  
-  .first-watch picture,
-  .product {
-    border: 1px solid #ccc;
-  }
-  .col-container {
+  .products {
     flex-direction: column;
+    margin-left: 40px;
+
+  }
+  .sales h3 {
+    width: 369px;
+  }
+  .subtitle {
+    padding-bottom: 17px;
+    padding-top: 8px;
+  }
+  .product-description {
+    padding-bottom: 20px;
   }
 }
