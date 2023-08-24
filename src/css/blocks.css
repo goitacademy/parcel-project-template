@@ -26,6 +26,8 @@ body {
   align-items: center;
   justify-content: center;
   row-gap: 32px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title-container {
@@ -37,7 +39,7 @@ body {
   flex-shrink: 0;
 }
 .title {
-  color: #111;
+  color: var(--black-main);
   text-align: center;
   font-family: Montserrat;
   font-size: 20px;
@@ -48,7 +50,7 @@ body {
   text-transform: uppercase;
 }
 span {
-  color: #fd9222;
+  color: var(--orange-main);
   font-family: Montserrat;
   font-size: 20px;
   font-style: normal;
@@ -58,7 +60,7 @@ span {
   text-transform: uppercase;
 }
 .description {
-  color: #111;
+  color: var(--black-main);
   text-align: center;
   font-family: Montserrat;
   font-size: 14px;
@@ -81,25 +83,48 @@ span {
   height: 270px;
   flex-shrink: 0;
 }
+
+.card-content {
+  position: relative;
+  transition: transform 2s;
+  transform-style: preserve-3d;
+}
+
+.card-front {
+  border-radius: 15px;
+}
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.card-back {
+  transform: rotateY(-180deg);
+}
 .milk-chocolate {
   border-radius: 15px;
-  background: #fd9222;
+  background: var(--orange-main);
 }
 .milk,
 .sweet {
   border-radius: 15px;
-  border: 1px solid #fd9222;
-  background: #fff;
+  border: 1px solid var(--orange-main);
+  background: var(--white-main);
 }
 .milk .content-title {
-  color: #1e1823;
+  color: var(--dark-purple-main);
+}
+.sweet .content-title {
+  color: var(--dark-purple-main);
 }
 .nuts {
   border-radius: 15px;
-  background: #1e1823;
-}
-.front-content {
-  position: relative;
+  background: var(--dark-purple-main);
 }
 #card-picture {
   display: block;
@@ -114,7 +139,7 @@ span {
   position: absolute;
   top: 224px;
   left: 28px;
-  color: #fff;
+  color: var(--white-main);
   font-family: Montserrat;
   font-size: 14px;
   font-style: normal;
@@ -124,21 +149,14 @@ span {
   text-transform: uppercase;
 }
 .content-title.second {
-  color: #111;
+  color: var(--black-main);
 }
-.back-content {
-  display: flex;
-  width: 279px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-  flex-shrink: 0;
-}
-.back {
+
+.card-back {
   height: 214px;
   padding: 28px;
   border-radius: 15px;
-  background: #fff;
+  background: var(--white-main);
   row-gap: 14px;
 }
 
@@ -147,9 +165,10 @@ span {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
+  margin-bottom: 14px;
 }
 .about-card {
-  color: #111;
+  color: var(--black-main);
   font-family: Montserrat;
   font-size: 18px;
   font-style: normal;
@@ -169,9 +188,9 @@ span {
   justify-content: center;
   align-items: center;
   gap: 4px;
-  color: #fff;
+  color: var(--white-main);
   border-radius: 35px;
-  background: var(--unnamed, #fd9222);
+  background: var(--orange-main);
 }
 .black {
   display: flex;
@@ -180,35 +199,15 @@ span {
   align-items: center;
   gap: 4px;
   border-radius: 35px;
-  border: 1px solid var(--unnamed, #fd9222);
-  background: var(--unnamed, #fafafa);
+  border: 1px solid var(--orange-main);
+  background: var(--white-main);
 }
-
-.rotate {
-  position: relative;
-  transition: transform 3s;
-  transform-style: preserve-3d;
-}
-.card:hover .rotate {
-  transform: rotateY(180deg);
-}
-.front,
-.back {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  border-radius: 15px;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  transition: transform 0.8s ease-in-out;
-}
-.front {
-  transform: rotateY(180deg);
+.card:hover .card-content {
+  transform: rotateY(-180deg);
 }
 #card-picture,
 .content-title {
-  transform: translateZ(170px);
+  transform: translateZ(200px);
   transform-style: preserve-3d;
 }
 @media screen and (min-width: 768px) {
@@ -232,6 +231,7 @@ span {
     flex-shrink: 0;
   }
   .title {
+    width: 411px;
     font-size: 24px;
     line-height: 28px; /* 120% */
     letter-spacing: -0.72px;
@@ -263,19 +263,25 @@ span {
 }
 
 @media screen and (min-width: 1200px) {
+  .container-blocks {
+    max-width: fit-content;
+  }
   .container-blocks.adaptiv {
     padding-top: 128px;
   }
 
-  .container {
-    max-width: 1200px;
-  }
-
   .title-container {
+    display: flex;
+    width: 486px;
+    height: 156px;
+    flex-direction: column;
+    align-items: center;
     gap: 28px;
     flex-shrink: 0;
   }
+
   .title {
+    width: 411px;
     font-size: 24px;
     line-height: 28px; /* 120% */
     letter-spacing: -0.72px;
@@ -292,27 +298,29 @@ span {
     margin: 0;
   }
   .card-container {
-    max-width: 1136px;
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: row;
-    align-items: flex-start;
     gap: 19px;
     flex-shrink: 0;
-  }
-  .back {
-    display: flex;
-    width: 270px;
-    height: 270px;
-    padding: 20px;
     justify-content: center;
     align-items: center;
   }
-  .front {
-    display: flex;
+  .card {
     width: 270px;
     height: 270px;
-    padding: 20px;
-    justify-content: center;
+  }
+  #card-picture {
+    position: relative;
+    display: block;
+    height: 171px;
+  }
+  .card-back {
+    display: flex;
+    padding: 28px 0;
     align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
