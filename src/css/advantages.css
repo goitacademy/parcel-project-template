@@ -1,7 +1,8 @@
+
 :root {
-  --primary-text-color: #d41443;
+  --primary-text-color: #D41443;
   --secondary-text-color: #000000;
-  --white-background-color: #fff5f6;
+  --white-background-color: #FFF5F6;
 }
 body {
   font-family: 'DM Sans', sans-serif;
@@ -25,64 +26,82 @@ p {
   text-decoration: none;
   list-style-type: none;
 }
-img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
 ::after,
 ::before {
   box-sizing: border-box;
 }
+
 .visually-hidden {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
 }
 .container-advantages {
-  min-width: 320px;
-  padding-left: 20px;
-  padding-right: 20px;
+  max-width: 320px;
   margin: 0 auto;
+  background-color: #fff5f6;
+}
+@media screen and (min-width: 480px) {
+  .container-advantages {
+    width: 480px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container-advantages {
+    width: 768px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container-advantages {
+    width: 1280px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media screen and (min-width: 320px) {
+  .advantages {
+    padding: 40px 0 40px 0;
+    background-color: #FFF5F6;
+  }
 }
 .advantages-list {
   display: flex;
+
   flex-direction: column;
-  width: 280px;
-  margin: 0 auto 39px;
   gap: 32px;
-  position: relative;
+  padding: 0 20px;
 }
-.advantages-item:not(:last-child) {
-  margin-right: 60px;
-}
-.advantages-img {
-  display: block;
-  width: auto;
-  height: auto;
-  margin-bottom: 16px;
-}
+
 .advantages-number {
+  margin-bottom: 20px;
   font-family: 'Titan One';
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
-  line-height: 1.6;
-  letter-spacing: 1.1;
+  letter-spacing: 1.44px;
   text-transform: uppercase;
   color: #d41443;
 }
-.advantages-img-ice {
-  width: auto;
+.advantages-img.ice {
+  width: 33px;
   height: 50px;
   flex-shrink: 0;
   display: none;
 }
-.advantages-img-apples {
+.advantages-img.apples {
   width: 49.694px;
   height: 50px;
   flex-shrink: 0;
   display: none;
 }
-.advantages-img-hertz {
+.advantages-img.hertz {
   width: 44px;
   height: 50px;
   flex-shrink: 0;
@@ -101,47 +120,127 @@ img {
   display: flex;
 }
 .advantages-text {
-  width: 280px;
-  height: 36px;
-  flex-shrink: 0;
-  font-family: 'DM Sans';
+  color: #000;
+  font-family: DM Sans;
+  font-size: 12px;
+
   font-style: normal;
   font-weight: 700;
-  font-size: 12px;
-  color: var(--main-color-black);
+  line-height: 170%;
+  letter-spacing: 0.24px;
 }
-
+.advantages-text.second-advantage {
+  width: 280px;
+  flex-shrink: 0;
+}
+.advantages-text.third-advantage {
+  width: 280px;
+  flex-shrink: 0;
+}
 /* MEDIA Query */
 
-
 @media screen and (max-width: 320px) {
-  /* aici se adauga clase DOAR cu proprietatile care se modifica 
-  pentru deviceuri foarte mici - MAI MICI DEECAT CE AVEM NOI IN 
-  MACHETA DE MOBILE de ex: 
-    .advantages-text {
-    width: 350px;
-    height: 85px;}
-    */
-}
-@media screen and (min-width: 768px) {
-  /* aici se adauga clase DOAR cu proprietatile care se modifica 
-  pentru TABLETA - 
-   de ex: 
-    .advantages-text {
-    width: 350px;
-    height: 85px;}
+  .advantages-list {
+    width: 100%;
+    height: auto;
+  }
 
-    A SE RESPECTA DIMENSIUNILE DIN MACHETA
-    */
+
+@media screen and (min-width: 768px) {
+  .container-advantages {
+    max-width: 768px;
+  }
+  .advantages-list {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 19px;
+    padding-right: 173px;
+    padding-left: 32px;
+  }
+  .advantages-img.ice {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    display: none;
+  }
+  .advantages-img.apples {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    display: none;
+  }
+  .advantages-text {
+    font-size: 14px;
+    line-height: 174%; /* 24.36px */
+    letter-spacing: 0.28px;
+  }
+  .advantages-number {
+    font-size: 48px;
+    line-height: normal;
+    letter-spacing: 1.92px;
+  }
+  .advantages-text.first-advantage {
+    width: 165px;
+  }
+
+  .advantages-text.second-advantage {
+    width: 162px;
+    margin-right: 3px;
+  }
+
+  .advantages-text.third-advantage {
+    width: 199px;
+  }
+
+  .advantages-text {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 174%;
+    letter-spacing: 0.28px;
+  }
+
+  .advantages-number {
+    font-size: 48px;
+    letter-spacing: 1.92px;
+  }
 }
 @media screen and (min-width: 1280px) {
-    /* aici se adauga clase DOAR cu proprietatile care se modifica 
-  pentru DESKTOP - 
-   de ex: 
-    .advantages-text {
-    width: 400px;
-    height: 55px;}
+  .container-advantages {
+    max-width: 1280px;
+  }
+  .advantages-list {
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 96px;
+  }
+  .advantages-text {
+    font-size: 14px;
+    line-height: 174%;
+    letter-spacing: 0.28px;
+  }
 
-    A SE RESPECTA DIMENSIUNILE DIN MACHETA
-    */
+  .advantages-number {
+    font-size: 58px;
+    line-height: normal;
+    letter-spacing: 2.32px;
+  }
+
+  .advantages-text.first-advantage {
+    width: 288px;
+  }
+
+  .advantages-text.second-advantage {
+    width: 317px;
+  }
+
+  .advantages-text.third-advantage {
+    width: 290px;
+  }
+
+  .advantages-text {
+    font-size: 16px;
+    line-height: 176%;
+    letter-spacing: 0.32px;
+  }
+
 }
