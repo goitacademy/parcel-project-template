@@ -6,8 +6,11 @@ body {
   font-family: sans-serif;
 }
 .flickity-viewport {
-  width: 280px;
+  max-width: 280px;
   height: 200px;
+}
+.flickity-prev-next-button {
+  visibility: hidden;
 }
 
 .costumers-review-section {
@@ -59,7 +62,7 @@ body {
 }
 
 .review-text {
-  background-color: #fafafa;
+  background: #fafafa;
   color: #000;
   text-align: center;
   font-family: DM Sans, sans-serif;
@@ -67,9 +70,77 @@ body {
   font-style: normal;
   font-weight: 500;
   line-height: 260%;
-  letter-spacing: 0.48px;
+  letter-spacing: 0.47px;
   width: 280px;
   height: 307px;
   flex-shrink: 0;
   padding: 47px 58px 47px 65px;
+  position: relative;
+  z-index: 2;
+}
+
+.review-text::before {
+  content: url(../images/quotation-mark.svg);
+  position: absolute;
+  top: 30px;
+  left: 53px;
+  z-index: -1;
+}
+
+.name-and-city {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 186%; /* 26.04px */
+}
+
+.name-and-city::before {
+  content: url(../images/red-dots.svg);
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .flickity-viewport {
+    max-width: 768px;
+  }
+  .costumers-review-section {
+    width: 620px;
+  }
+  .review-text {
+    font-size: 14px;
+    line-height: 214%;
+    letter-spacing: 0.56px;
+    width: 620px;
+    height: 164px;
+    z-index: 2;
+    padding: 37px 64px 36px 64px;
+    position: relative;
+  }
+  .name-and-city {
+    font-size: 16px;
+    line-height: 186%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .flickity-viewport {
+    max-width: 968px;
+  }
+  .costumers-review-section {
+    width: 968px;
+  }
+  .review-text {
+    font-size: 16px;
+    line-height: 186%;
+    letter-spacing: 0.64px;
+    width: 968px;
+    height: 138px;
+    flex-shrink: 0;
+    z-index: 2;
+    padding: 37px 64px 36px 64px;
+    position: relative;
+  }
+  .name-and-city {
+    font-size: 20px;
+  }
 }
