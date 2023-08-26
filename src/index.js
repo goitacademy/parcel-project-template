@@ -11,7 +11,6 @@
     const scrollLockMethod = !isMenuOpen
       ? 'disableBodyScroll'
       : 'enableBodyScroll';
-    bodyScrollLock[scrollLockMethod](document.body);
   };
   openMenuBtn.addEventListener('click', toggleMenu);
   closeMenuBtn.addEventListener('click', toggleMenu);
@@ -19,7 +18,6 @@
     if (!e.matches) return;
     mobileMenu.classList.remove('is-open');
     openMenuBtn.setAttribute('aria-expanded', false);
-    bodyScrollLock.enableBodyScroll(document.body);
   });
 })();
 // ------------------------------------------------------
@@ -71,15 +69,7 @@
     modalContent: document.querySelector('.modal-content-nav'),
   };
   refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
   function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
   }
 })();
-
-// Carousel js
-$('.main-gallery').flickity({
-  // options
-  cellAlign: 'left',
-  contain: true,
-});
