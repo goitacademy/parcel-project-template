@@ -48,7 +48,7 @@
     contactRefs.modal.classList.toggle('is-hidden');
   }
 })();
-// Buy now button
+// Buy now button - backdrop
 (() => {
   const refs = {
     openModalBtn: document.querySelector('[data-modal-open]'),
@@ -62,6 +62,23 @@
     refs.modal.classList.toggle('is-hidden');
   }
 })();
+// Buy now button - nav bar
+(() => {
+  const refs = {
+    openModalBtn: document.querySelector('[data-modal-open-nav]'),
+    closeModalBtn: document.querySelector('[data-modal-close-nav]'),
+    modal: document.querySelector('[data-modal-nav]'),
+    modalContent: document.querySelector('.modal-content-nav'),
+  };
+  refs.openModalBtn.addEventListener('click', toggleModal);
+  refs.closeModalBtn.addEventListener('click', toggleModal);
+  function toggleModal() {
+    refs.modal.classList.toggle('is-hidden');
+  }
+})();
+
+
+
 // Carousel js
 $('.main-gallery').flickity({
   // options

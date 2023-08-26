@@ -179,8 +179,8 @@ p {
     line-height: 174%;
     letter-spacing: 0.28px;
   }
-  .advantages-item:hover {
-    animation: rotation 2s linear;
+  .advantages-section:hover .advantages-item {
+    animation: rotation 2s cubic-bezier(0.4, 0, 0.2, 1);
   }
   @keyframes rotation {
     from {
@@ -188,6 +188,17 @@ p {
     }
     to {
       transform: rotate(360deg);
+    }
+  }
+  .advantages-section:not(:hover) .advantages-item {
+    animation: rotation-back 2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @keyframes rotation-back {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
     }
   }
 }
