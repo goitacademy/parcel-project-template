@@ -27,14 +27,14 @@ body::-webkit-scrollbar {
   display: none;
 }
 /************************* Pseudo Classes *************************/
-body div svg.js-close-menu:hover {
+div.mobile-menu-container svg.js-close-menu:hover {
   color: var(--hover-color);
   width: 32px;
   height: 32px;
   transform: rotate(180deg);
 }
 aside button.buy-now:hover,
-aside button.to-how-its-made:hover {
+aside a.to-how-its-made:hover {
   background-color: #fff;
   color: var(--hover-color);
 }
@@ -45,16 +45,16 @@ aside a.scroll-down:hover svg {
   color: #fff;
   background-color: var(--hover-color);
 }
-nav a.mobile-navigation-menu:hover,
+div.mobile-menu-container a.mobile-navigation-menu:hover,
 header nav a.navigation-menu:hover {
   color: var(--hover-color);
 }
-nav a.mobile-navigation-menu:hover::after,
+div.mobile-menu-container a.mobile-navigation-menu:hover::after,
 header nav a.navigation-menu:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-svg.mobile-social-media:hover,
+div.mobile-menu-container svg.mobile-social-media:hover,
 header svg.social-media:hover {
   color: var(--hover-color);
 }
@@ -112,7 +112,10 @@ header svg.mobile-menu {
   color: #111111;
 }
 
-body div.is-open {
+div.mobile-menu-container.is-open {
+  transform: translate(0);
+}
+div.mobile-menu-container {
   background-color: var(--background-color);
   width: 220px;
   height: 812px;
@@ -122,11 +125,11 @@ body div.is-open {
   top: 0;
   z-index: 2;
   position: fixed;
+  transform: translate(100%);
+  transition: transform 255ms ease-in-out;
 }
-body div.js-menu-container {
-  display: none;
-}
-body div svg.js-close-menu {
+
+div.mobile-menu-container svg.js-close-menu {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -137,17 +140,17 @@ body div svg.js-close-menu {
   cursor: pointer;
   transition: 250ms ease-in-out;
 }
-nav ul.mobile-navigation-menu {
+div.mobile-menu-container ul.mobile-navigation-menu {
   margin: 0px;
   padding: 0px;
   list-style: none;
   display: inline-block;
   padding: 136px 0px 0px 50px;
 }
-nav li.mobile-navigation-menu {
+div.mobile-menu-container li.mobile-navigation-menu {
   padding-bottom: 24px;
 }
-nav a.mobile-navigation-menu {
+div.mobile-menu-container a.mobile-navigation-menu {
   text-decoration: none;
   color: #fff;
   font-size: 14px;
@@ -159,8 +162,8 @@ nav a.mobile-navigation-menu {
   position: relative;
   transition: 250ms ease-in;
 }
-nav a.mobile-navigation-menu::after {
-  content: "";
+div.mobile-menu-container a.mobile-navigation-menu::after {
+  content: '';
   position: absolute;
   left: 0;
   top: 17px;
@@ -172,12 +175,12 @@ nav a.mobile-navigation-menu::after {
   transform-origin: bottom right;
   transition: transform 250ms ease-in;
 }
-div.mobile-social-media {
+div.mobile-menu-container div.mobile-social-media {
   display: flex;
   gap: 18px;
   margin: 320px 0px 0px 20px;
 }
-svg.mobile-social-media {
+div.mobile-menu-container svg.mobile-social-media {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
@@ -245,7 +248,7 @@ aside button.buy-now {
   cursor: pointer;
   transition: 250ms ease-in;
 }
-aside button.to-how-its-made {
+aside a.to-how-its-made {
   color: #fff;
   font-family: Montserrat;
   font-size: 14px;
@@ -299,28 +302,25 @@ aside svg.scroll-down {
     max-width: 704px;
   }
 
-  body div.is-open {
+  div.mobile-menu-container {
     width: 290px;
     height: 1024px;
   }
-  body div.js-menu-container {
-    display: none;
-  }
-  body div svg.js-close-menu {
+
+  div.mobile-menu-container div svg.js-close-menu {
     top: 24px;
     right: 32px;
     width: 32px;
     height: 32px;
   }
-  nav ul.mobile-navigation-menu {
+  div.mobile-menu-container ul.mobile-navigation-menu {
     padding: 156px 0px 0px 85px;
   }
-  div.mobile-social-media {
+  div.mobile-menu-container div.mobile-social-media {
     display: flex;
     gap: 18px;
-    margin: 520px 0px 0px 24px;
+    margin: 350px 0px 0px 24px;
   }
-
   /********** ********** **********     aside     ********** ********** **********/
   aside {
     background-image: -webkit-linear-gradient(
@@ -355,7 +355,7 @@ aside svg.scroll-down {
   aside button.buy-now {
     padding: 14px 40px;
   }
-  aside button.to-how-its-made {
+  aside a.to-how-its-made {
     width: 183px;
     height: 45px;
   }
@@ -382,10 +382,7 @@ aside svg.scroll-down {
   body {
     height: 680px;
   }
-  body div.is-open {
-    display: none;
-  }
-  body div.js-menu-container {
+  div.mobile-menu-container {
     display: none;
   }
   header {
@@ -424,7 +421,7 @@ aside svg.scroll-down {
     transition: 250ms ease-in;
   }
   header nav a.navigation-menu::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 30px;
@@ -440,7 +437,7 @@ aside svg.scroll-down {
     color: var(--active-color);
   }
   header nav a.active::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 30px;
