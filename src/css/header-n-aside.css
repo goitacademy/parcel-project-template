@@ -14,6 +14,7 @@
   --hover-color: #fd9222;
   --active-color: #fd9222;
   --background-color: #1e1823;
+  --transition: 400ms ease-in-out;
 }
 /************************* Body *************************/
 body {
@@ -21,13 +22,11 @@ body {
   background-color: #fafafa;
   margin: 0 auto;
   width: 100%;
-  min-width: 320px;
+  overflow: hidden;
 }
-body::-webkit-scrollbar {
-  display: none;
-}
+
 /************************* Pseudo Classes *************************/
-div.mobile-menu-container svg.js-close-menu:hover {
+div.js-menu-container svg.js-close-menu:hover {
   color: var(--hover-color);
   width: 32px;
   height: 32px;
@@ -38,23 +37,24 @@ aside a.to-how-its-made:hover {
   background-color: #fff;
   color: var(--hover-color);
 }
-aside a.scroll-down:hover {
+aside a.scroll-down:hover,
+header svg.mobile-menu:hover {
   color: var(--hover-color);
 }
 aside a.scroll-down:hover svg {
   color: #fff;
   background-color: var(--hover-color);
 }
-div.mobile-menu-container a.mobile-navigation-menu:hover,
+div.js-menu-container a.mobile-navigation-menu:hover,
 header nav a.navigation-menu:hover {
   color: var(--hover-color);
 }
-div.mobile-menu-container a.mobile-navigation-menu:hover::after,
+div.js-menu-container a.mobile-navigation-menu:hover::after,
 header nav a.navigation-menu:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-div.mobile-menu-container svg.mobile-social-media:hover,
+div.js-menu-container svg.mobile-social-media:hover,
 header svg.social-media:hover {
   color: var(--hover-color);
 }
@@ -109,48 +109,57 @@ header button {
 header svg.mobile-menu {
   width: 28px;
   height: 28px;
-  color: #111111;
+  color: #111;
+  transition: var(--transition);
 }
 
-div.mobile-menu-container.is-open {
-  transform: translate(0);
-}
-div.mobile-menu-container {
+div.js-menu-container {
   background-color: var(--background-color);
   width: 220px;
-  height: 812px;
+  height: 716px;
+  border-radius: 80px 0px 0px 80px;
   flex-shrink: 0;
   position: absolute;
   right: 0;
   top: 0;
   z-index: 2;
-  position: fixed;
-  transform: translate(100%);
-  transition: transform 255ms ease-in-out;
+  transform: translateX(0);
+  transition: transform var(--transition);
 }
 
-div.mobile-menu-container svg.js-close-menu {
+div.is-close {
+  transform: translateX(100%);
+}
+
+div.js-menu-container button.js-close-menu {
   position: absolute;
   top: 20px;
   right: 20px;
+  flex-shrink: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+div.js-menu-container svg.js-close-menu {
   width: 20px;
   height: 20px;
-  flex-shrink: 0;
   color: #fff;
   cursor: pointer;
-  transition: 250ms ease-in-out;
+  transition: var(--transition);
+  background-color: transparent;
 }
-div.mobile-menu-container ul.mobile-navigation-menu {
+div.js-menu-container ul.mobile-navigation-menu {
   margin: 0px;
   padding: 0px;
   list-style: none;
   display: inline-block;
   padding: 136px 0px 0px 50px;
 }
-div.mobile-menu-container li.mobile-navigation-menu {
+div.js-menu-container li.mobile-navigation-menu {
   padding-bottom: 24px;
 }
-div.mobile-menu-container a.mobile-navigation-menu {
+div.js-menu-container a.mobile-navigation-menu {
   text-decoration: none;
   color: #fff;
   font-size: 14px;
@@ -160,9 +169,9 @@ div.mobile-menu-container a.mobile-navigation-menu {
   letter-spacing: -0.28px;
   display: inline-block;
   position: relative;
-  transition: 250ms ease-in;
+  transition: var(--transition);
 }
-div.mobile-menu-container a.mobile-navigation-menu::after {
+div.js-menu-container a.mobile-navigation-menu::after {
   content: '';
   position: absolute;
   left: 0;
@@ -173,19 +182,19 @@ div.mobile-menu-container a.mobile-navigation-menu::after {
   background-color: var(--hover-color);
   transform: scaleX(0);
   transform-origin: bottom right;
-  transition: transform 250ms ease-in;
+  transition: transform var(--transition);
 }
-div.mobile-menu-container div.mobile-social-media {
+div.js-menu-container div.mobile-social-media {
   display: flex;
   gap: 18px;
-  margin: 320px 0px 0px 20px;
+  margin: 250px 0px 0px 20px;
 }
-div.mobile-menu-container svg.mobile-social-media {
+div.js-menu-container svg.mobile-social-media {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
   color: #fff;
-  transition: 250ms ease-in-out;
+  transition: var(--transition);
   cursor: pointer;
 }
 
@@ -200,7 +209,8 @@ aside {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 30px;
-  width: 335px;
+  width: 100%;
+  max-width: 315px;
   height: 621px;
   display: flex;
   flex-direction: column;
@@ -246,7 +256,7 @@ aside button.buy-now {
   background: #fd9222;
   border: none;
   cursor: pointer;
-  transition: 250ms ease-in;
+  transition: var(--transition);
 }
 aside a.to-how-its-made {
   color: #fff;
@@ -265,7 +275,7 @@ aside a.to-how-its-made {
   border: 1px solid #fff;
   background-color: transparent;
   cursor: pointer;
-  transition: 250ms ease-in;
+  transition: var(--transition);
 }
 aside a.scroll-down {
   color: #fff;
@@ -275,7 +285,7 @@ aside a.scroll-down {
   line-height: 18px; /* 128.571% */
   letter-spacing: -0.42px;
   text-decoration: none;
-  transition: 250ms ease-in-out;
+  transition: var(--transition);
   display: flex;
   align-items: center;
   gap: 14px;
@@ -285,41 +295,42 @@ aside svg.scroll-down {
   height: 28px;
   background-color: #fff;
   color: var(--active-color);
-  border-radius: 14px;
+  border-radius: 100%;
   cursor: pointer;
   padding: 3px;
-  transition: 250ms ease-in-out;
+  transition: var(--transition);
 }
 
 @media screen and (min-width: 768px) {
   /********** ********** **********     index.html     ********** ********** **********/
   /********** ********** **********     header     ********** ********** **********/
   body {
-    height: 970px;
+    height: 1050px;
+    overflow-y: auto;
   }
   header {
     padding: 24px 32px 12px;
     max-width: 704px;
   }
 
-  div.mobile-menu-container {
+  div.js-menu-container {
     width: 290px;
-    height: 1024px;
+    height: 1034px;
   }
 
-  div.mobile-menu-container div svg.js-close-menu {
+  div.js-menu-container div svg.js-close-menu {
     top: 24px;
     right: 32px;
     width: 32px;
     height: 32px;
   }
-  div.mobile-menu-container ul.mobile-navigation-menu {
+  div.js-menu-container ul.mobile-navigation-menu {
     padding: 156px 0px 0px 85px;
   }
-  div.mobile-menu-container div.mobile-social-media {
+  div.js-menu-container div.mobile-social-media {
     display: flex;
     gap: 18px;
-    margin: 350px 0px 0px 24px;
+    margin: 590px 0px 0px 24px;
   }
   /********** ********** **********     aside     ********** ********** **********/
   aside {
@@ -333,6 +344,7 @@ aside svg.scroll-down {
     background-size: cover;
     width: 704px;
     height: 890px;
+    max-width: 704px;
     margin: 0px auto;
     padding: 40px;
     display: flex;
@@ -367,7 +379,7 @@ aside svg.scroll-down {
   aside button.scroll-down {
     width: 38px;
     height: 38px;
-    border-radius: 22px;
+    border-radius: 100%;
   }
   aside svg {
     width: 28px;
@@ -382,9 +394,14 @@ aside svg.scroll-down {
   body {
     height: 680px;
   }
-  div.mobile-menu-container {
+
+  div.js-menu-container {
     display: none;
   }
+  div.is-close {
+    display: none;
+  }
+
   header {
     padding: 24px 32px 26px;
     max-width: 1200px;
@@ -418,7 +435,7 @@ aside svg.scroll-down {
     letter-spacing: -0.28px;
     display: inline-block;
     position: relative;
-    transition: 250ms ease-in;
+    transition: var(--transition);
   }
   header nav a.navigation-menu::after {
     content: '';
@@ -431,7 +448,7 @@ aside svg.scroll-down {
     background-color: var(--hover-color);
     transform: scaleX(0);
     transform-origin: bottom right;
-    transition: transform 250ms ease-in;
+    transition: transform var(--transition);
   }
   header nav a.active {
     color: var(--active-color);
@@ -458,7 +475,7 @@ aside svg.scroll-down {
     width: 24px;
     height: 24px;
     cursor: pointer;
-    transition: 250ms ease-in-out;
+    transition: var(--transition);
   }
   header button.js-open-menu {
     display: none;
@@ -476,7 +493,7 @@ aside svg.scroll-down {
     width: 1136px;
     height: 600px;
     margin: 0px auto;
-    max-width: 1200px;
+    max-width: 1136px;
     padding: 40px;
   }
   aside h1 {
