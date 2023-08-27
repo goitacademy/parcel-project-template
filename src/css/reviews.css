@@ -1,94 +1,555 @@
-.reviews-sections{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-    margin-top: 128px;
-    margin-bottom: 128px;
+*, :before, :after {
+    box-sizing: border-box;
+}
+:root {
+    scroll-behavior: smooth;
+    --black-main: #111111;
+    --dark-purple-main: #1e1823;
+    --orange-main: #fd9222;
+    --white-main: #fafafa;
+}
+
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
+.container {
+    max-width: 335px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #FAFAFA;;
 }
-.reviews-title {
-    text-transform: uppercase;
-    color: #111;
+.section {
+    width: 100%;
+    padding-top: 72px;
 }
-
-.span-reviews-chocolate {
-    color:#FD9222;
+.reviews-section {
+    background-color: #fafafa;
 }
-
-.reviews-list{
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    padding: 32px;
+section {
+    display: block;
 }
-
-.reviews-list .card-review{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 360px;
-    color: #fff;
-    border-radius: 15px;
-    border: 1px solid rgba(17, 17, 17, 0.10);
-    background: #FFF;
-    box-shadow: 0px 9.049315452575684px 26.571659088134766px 0px rgba(215, 228, 249, 0.25);
-}
-
-.card-review span{
-    color: #111;
-    text-align: center;
+body {
     font-family: Montserrat;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px; /* 133.333% */
-    text-transform: none;
-  
-}
-
-.card-review p{
-    color: rgba(17, 17, 17, 0.70);
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 18px; /* 128.571% */
-    letter-spacing: -0.28px;
-    margin-top: 24px;
-    margin-bottom: 24px;
-    width: 312px;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -.02em;
+    background-color: var(--white-main);
 }
-
-.reviews-list img{
-    width: 80px;
-    height: 80px;
-}
-
-.review-submit{
-    display: flex;
-    width: 222px;
-    height: 50px;
-    padding: 14px 40px;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 14px;
-    flex-shrink: 0;
-    color: #111;
-    font-family: Montserrat;
-    font-size: 18px;
-    font-style: normal;
+.made-titel {
     font-weight: 600;
-    line-height: normal;
-    border-radius: 100px;
-    border: 1px solid #FD9222;
-    background: #FAFAFA;
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+    letter-spacing: -.03em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    color: var(--black-main);
+}
+.made-titel-right-part {
+    color: var(--orange-main);
 }
 
-.image-prop{
-    position: relative;
-    bottom: 16%;
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
 }
+
+.swiper {
+    max-width: 100%;
+    min-width: 335px;
+    height: 397px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+
+}
+.swiper-wrapper {
+    cursor: grab;
+    display: flex;
+}
+
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid rgba(17,17,17,.1);
+    border-radius: 15px;
+}
+
+.swiper-slide.rev {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    width: 335px!important;
+    height: 200px!important;
+}
+.swiper-slide img {
+    align-items: center;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    padding-top: 32px;
+}
+.reviews-photo {
+    width: 80px!important;
+    position: absolute;
+    bottom: 160px;
+    border-radius: 50%;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.reviews-user {
+    width: 299px;
+}
+.reviews-name {
+    font-size: 18px;
+    line-height: 1.33em;
+    padding-bottom: 24px;
+    text-align: center;
+    color: #111;
+}
+p:last-child {
+    margin-bottom: 0;
+}
+.reviews-text {
+    font-size: 14px;
+    line-height: 1.29em;
+    margin-bottom: 42px;
+    text-align: center;
+    letter-spacing: -.02em;
+    color: #111111b3;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.swiper-pagination.rev {
+    position: static;
+    padding-top: 20px;
+    margin-bottom: 32px;
+}
+.swiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: .3s opacity;
+    transform: translate3d(0,0,0);
+    z-index: 10;
+}
+.swiper-pagination>span {
+    background-color: #fff;
+    color: #fd9222;
+    background-color: #fd9222;
+    border: solid 1px #fd9222;
+    margin-top: 20px;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    transition: ease-in .25s;
+    background-color: var(--orange-main);
+    width: 28px;
+    border-radius: 7px;
+}
+
+.swiper-pagination-bullet {
+    width: 13px;
+    height: 13px;
+    transition: ease-out .25s;
+}
+
+.button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 72px;
+}
+
+.button-review {
+    font: inherit;
+    padding: 14px 40px;
+    border: 1px solid #fd9222;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.2em;
+    background-color: #fafafa;
+    transition: ease-out .3s;
+    color: #111;
+}
+button {
+    cursor: pointer;
+    border: none;
+}
+button, select {
+    text-transform: none;
+}
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+/*MODAL REVIEW CSS*/
+.backdrop.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+.is-hidden {
+    display: block;
+}
+.backdrop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: #0000004d;
+    backdrop-filter: blur(2px);
+    transform: translate(1);
+    transition: opacity .4s linear,visibility .4s linear;
+}
+.backdrop.is-hidden>.modal {
+    transform: translate(-50%,-50%);
+}
+
+.modal {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    max-width: 311px;
+    width: 100%;
+    padding: 32px 24px;
+    background: #fafafa;
+    border-radius: 15px;
+    transition-duration: .4s;
+}
+.review-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    stroke: #000;
+    background: transparent;
+    transition: stroke .4s cubic-bezier(.4,0,.2,1);
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-review-title {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -.03em;
+    text-transform: uppercase;
+    color: #111;
+    margin-bottom: 32px;
+    max-width: 255px;
+    height: 48px;
+}
+
+.strong-orang {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -.03em;
+    text-transform: uppercase;
+    color: #fd9222;
+}
+
+
+.modal-review-field {
+    margin-bottom: 14px;
+}
+
+.modal-review-input {
+    width: 100%;
+    height: 45px;
+    border: 1.5px solid rgba(17,17,17,.05);
+    filter: drop-shadow(0px 5.44492px 5.44492px rgba(0,0,0,.03));
+    border-radius: 8px;
+    padding-left: 18px;
+    transition: border-color .4s cubic-bezier(.4,0,.2,1);
+}
+.modal-buy-now-input-wrapper {
+    position: relative;
+}
+
+
+
+
+.modal-buy-now-icon-flag {
+    position: absolute;
+    top: 45%;
+    left: 24px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 18px;
+}
+
+.code-number {
+    position: absolute;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    transform: translateY(-50%);
+    top: 43%;
+    left: 66px;
+}
+
+.user-form-review {
+    display: block;
+    width: 100%;
+    height: 91px;
+    resize: none;
+    border: 1.5px solid rgba(17,17,17,.05);
+    filter: drop-shadow(0px 5.44492px 5.44492px rgba(0,0,0,.03));
+    border-radius: 8px;
+    padding-left: 18px;
+    padding-top: 14px;
+    outline: 4px solid transparent;
+    transition: border-color .4s cubic-bezier(.4,0,.2,1);
+}
+
+.send-btn {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.21;
+    color: #fff;
+    width: 93px;
+    height: 41px;
+    padding: 12px 28px;
+    background: #fd9222;
+    border-radius: 100px;
+    margin-top: 18px;
+    outline: transparent;
+    transition: background-color .4s cubic-bezier(.4,0,.2,1),color .4s cubic-bezier(.4,0,.2,1);
+}
+
+.button-review:hover,.button-review:focus {
+    background-color: #fd9222;
+    color: #fafafa;
+    transition: ease-in .3s
+}
+
+@media screen and (max-width: 767px){
+.modal-phone-input {
+    position: relative;
+    color: #000;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    padding-left: 114px;
+}
+}
+@media screen and (max-width: 767px){
+.modal-buy-now-input {
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 18px;
+    padding: 14px 18px;
+    border: 1.5px solid rgba(17,17,17,.05);
+    border-radius: 13px;
+    font-size: 14px;
+    line-height: 1.2;
+    background-color: transparent;
+    padding-left: 125px;
+}
+}
+    @media only screen and (min-width: 768px){
+    .section {
+        padding-top: 100px;
+    }
+    }
+    @media only screen and (min-width: 768px){
+    .made-titel {
+        font-size: 24px;
+        line-height: 1.17;
+        margin-bottom: 50px;
+    }
+    }
+    
+    @media only screen and (min-width: 768px){
+    .container {
+        max-width: 704px;
+    }
+    }
+    @media only screen and (min-width: 768px){
+        .send-btn {
+            width: 117px;
+            height: 45px;
+            padding: 14px 40px;
+        }
+        }
+        @media screen and (min-width: 768px){
+            .swiper-slide.rev {
+                width: 344px!important;
+            }
+            }
+        
+                
+                @media screen and (min-width: 768px){
+                .swiper-pagination.rev {
+                    padding-top: 31px;
+                    margin-bottom: 50px;
+                }
+                }
+               
+                    @media screen and (min-width: 768px){
+                    .button-wrapper {
+                        margin-bottom: 100px;
+                    }
+                    }
+                    @media screen and (min-width: 768px){
+                        .button-review {
+                            font-size: 18px;
+                        }
+                        }   
+                        @media only screen and (min-width: 768px){
+                            .modal {
+                                max-width: 517px;
+                                height: 631px;
+                                padding: 40px;
+                            }
+                            }    
+                            @media only screen and (min-width: 768px){
+                                .review-form {
+                                    max-width: 437px;
+                                
+                                }
+                                .modal-buy-now-icon-flag{
+                                    width:32px;
+                                    height:24px;
+                                }
+                                }    
+                               
+                                @media only screen and (min-width: 768px){
+                                    .modal-review-title {
+                                        font-size: 24px;
+                                        line-height: 1.17;
+                                        max-width: 298px;
+                                        height: 56px;
+                                    }
+                                    }   
+                                    @media only screen and (min-width: 768px){
+                                        .strong-orang {
+                                            font-size: 24px;
+                                            line-height: 1.17;
+                                        }      
+                                    }  
+                                    @media only screen and (min-width: 768px){
+                                        .modal-review-field {
+                                            margin-bottom: 19px;
+                                        }
+                                        }    
+                                        @media only screen and (min-width: 768px){
+                                            .modal-review-input {
+                                                height: 66px;
+                                                padding-left: 24px;
+                                                border-radius: 13px;
+                                            }
+                                            .review-close-btn{
+                                                width:28px;
+                                                height:28px;
+                                            }
+
+                                            }                     
+                                            @media screen and (min-width: 768px){
+                                                .modal-phone-input {
+                                                    position: relative;
+                                                    font-weight: 500;
+                                                    font-size: 18px;
+                                                    line-height: 22px;
+                                                    padding-left: 182px;
+                                                }
+                                                }
+                                                @media screen and (min-width: 768px){
+                                                .modal-buy-now-input {
+                                                    width: 100%;
+                                                    margin-top: 8px;
+                                                    margin-bottom: 18px;
+                                                    padding: 22px 24px;
+                                                    border: 1.5px solid rgba(17,17,17,.05);
+                                                    border-radius: 13px;
+                                                    background-color: transparent;
+                                                }
+                                                }
+
+                                            
+
+                                                @media screen and (min-width: 768px){
+                                                .modal-phone-input {
+                                                    position: relative;
+                                                    font-weight: 500;
+                                                    font-size: 18px;
+                                                    line-height: 22px;
+                                                    padding-left: 182px;
+                                                }
+                                                }
+                                                @media screen and (min-width: 768px){
+                                                    .code-number {
+                                                        padding-right: 32px;
+                                                        border-right: 1.5px solid rgba(17,17,17,.05);
+                                                        font-size:18px;
+                                                        top: 45%;
+                                                        left: 74px;
+                                                    }
+                                                    }
+                                                    @media only screen and (min-width: 768px){
+                                                        .user-form-review {
+                                                            height: 137px;
+                                                            padding-top: 22px;
+                                                            padding-left: 24px;
+                                                            border: 1.5px solid rgba(17,17,17,.05);
+                                                            border-radius: 13px;
+                                                        }
+                                                        }
+                                                        @media only screen and (min-width: 1200px){
+                                                            .section {
+                                                                padding-top: 128px;
+                                                            }
+                                                            }      
+                                                            @media only screen and (min-width: 1200px){
+                                                                .container {
+                                                                    max-width: 1136px;
+                                                                }
+                                                                }                                                    
+                                                                @media screen and (min-width: 1200px){
+                                                                    .swiper-slide.rev {
+                                                                        width: 360px!important;
+                                                                    }
+                                                                    }
+                                                                    @media screen and (min-width: 1200px){
+                                                                        .reviews-photo {
+                                                                            bottom: 160px;
+                                                                        }
+                                                                        }  
+                                                                        @media screen and (min-width: 1200px){
+                                                                            .button-wrapper {
+                                                                                margin-bottom: 128px;
+                                                                            }
+                                                                            }       
