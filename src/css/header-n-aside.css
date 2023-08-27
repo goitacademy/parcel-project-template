@@ -1,0 +1,598 @@
+/**************************************************
+********** Web-site: Simply Chocolate
+********** Section: Header N Aside
+********** Company: GoIt
+********** Team: Team 8
+********** Date: 17.08.2023
+********** Files: HTML, CSS, JS
+********** Author: Valentin Cristian Calota
+********** Comment: Not sure what I'm doing yet!
+********** Social media: Ig - @cristianvalentinx
+**************************************************/
+/************************* Root *************************/
+:root {
+  --active-color: #fd9222;
+  --hover-color: #fd9222;
+  --background-color: #1e1823;
+  --transition: 400ms ease-in-out;
+}
+/************************* Body *************************/
+body {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  background-color: #fafafa;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/************************* Pseudo Classes *************************/
+div.js-menu-container svg.js-close-menu:hover {
+  color: var(--hover-color);
+  width: 32px;
+  height: 32px;
+  transform: rotate(180deg);
+}
+aside button.buy-now:hover,
+aside a.to-how-its-made:hover {
+  background-color: #fff;
+  color: var(--hover-color);
+}
+aside a.scroll-down:hover,
+header svg.mobile-menu:hover {
+  color: var(--hover-color);
+}
+aside a.scroll-down:hover svg {
+  color: #fff;
+  background-color: var(--hover-color);
+}
+div.js-menu-container a.mobile-navigation-menu:hover,
+header nav a.navigation-menu:hover {
+  color: var(--hover-color);
+}
+div.js-menu-container a.mobile-navigation-menu:hover::after,
+header nav a.navigation-menu:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+div.js-menu-container svg.mobile-social-media:hover,
+header svg.social-media:hover {
+  color: var(--hover-color);
+}
+/********** ********** **********     index.html     ********** ********** **********/
+/********** ********** **********     header     ********** ********** **********/
+header {
+  width: 100%;
+  padding: 20px 20px 7px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fafafaee;
+  margin: 0 auto;
+  max-width: 375px;
+  top: 0;
+  z-index: 1;
+}
+header div {
+  display: flex;
+  gap: 4px;
+}
+header a.logo {
+  color: #111;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.42px;
+  text-decoration: none;
+}
+header span.logo {
+  font-style: normal;
+}
+header svg.logo {
+  width: 21px;
+  height: 21px;
+}
+header nav.navigation-menu {
+  display: none;
+}
+header div.social-media {
+  display: none;
+}
+header button {
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  height: 28px;
+  cursor: pointer;
+}
+header svg.mobile-menu {
+  width: 28px;
+  height: 28px;
+  color: #111;
+  transition: var(--transition);
+}
+
+div.js-menu-container {
+  background-color: var(--background-color);
+  width: 220px;
+  height: 716px;
+  border-radius: 0px 0px 0px 100px;
+  box-shadow: 10px 1px 35px 1px var(--active-color);
+  flex-shrink: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  transform: translateY(0);
+  transition: transform var(--transition);
+}
+
+div.is-close {
+  transform: translateY(-150%);
+}
+
+div.js-menu-container button.js-close-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  flex-shrink: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+div.js-menu-container svg.js-close-menu {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: transparent;
+}
+div.js-menu-container ul.mobile-navigation-menu {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  display: inline-block;
+  padding: 136px 0px 0px 50px;
+}
+div.js-menu-container li.mobile-navigation-menu {
+  padding-bottom: 24px;
+}
+div.js-menu-container a.mobile-navigation-menu {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 114.286% */
+  letter-spacing: -0.28px;
+  display: inline-block;
+  position: relative;
+  transition: var(--transition);
+}
+div.js-menu-container a.mobile-navigation-menu::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 17px;
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  background-color: var(--hover-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform var(--transition);
+}
+div.js-menu-container div.mobile-social-media {
+  display: flex;
+  gap: 18px;
+  margin: 250px 0px 0px 30px;
+}
+div.js-menu-container svg.mobile-social-media {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #fff;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+/********** ********** **********     aside     ********** ********** **********/
+aside {
+  background-image: -webkit-linear-gradient(
+      180deg,
+      rgba(17, 17, 17, 0) 0%,
+      rgba(17, 17, 17, 0.4) 100%
+    ),
+    url(../images/chocolate-cover-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 35px;
+  width: 100%;
+  max-width: 315px;
+  height: 621px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 32px;
+  padding: 20px;
+  margin: 0px auto;
+  margin-bottom: 71px;
+}
+aside h1 {
+  color: #fff;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 120% */
+  letter-spacing: -0.6px;
+  width: 290px;
+  height: 72px;
+  flex-shrink: 0;
+  margin: 0px;
+}
+aside div.aside {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 32px;
+}
+aside div.aside-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+aside button.buy-now {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 100px;
+  background: #fd9222;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+aside a.to-how-its-made {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  width: 159px;
+  height: 41px;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  border-radius: 100px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+aside a.scroll-down {
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.42px;
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+aside svg.scroll-down {
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+  color: var(--active-color);
+  border-radius: 100%;
+  cursor: pointer;
+  padding: 3px;
+  transition: var(--transition);
+}
+/********** ********** **********     benefits     ********** ********** **********/
+section.benefits {
+  background-color: var(--background-color);
+  margin-bottom: 72px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+section.benefits div.benefits-container {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+section.benefits div.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+section.benefits div.benefits-container-svg {
+  display: flex;
+  width: 62px;
+  height: 62px;
+  justify-content: center;
+  align-items: center;
+  gap: 7.303px;
+  flex-shrink: 0;
+  border-radius: 365px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+section.benefits svg.benefits {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+section.benefits div.benefits-text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+section.benefits h3.benefits {
+  margin: 0px;
+  padding: 0px;
+  color: #fff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+section.benefits p.benefits {
+  margin: 0px;
+  padding: 0px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  width: 308px;
+}
+
+@media screen and (min-width: 768px) {
+  /********** ********** **********     index.html     ********** ********** **********/
+  /********** ********** **********     header     ********** ********** **********/
+  body {
+    height: 1050px;
+  }
+  header {
+    padding: 24px 32px 12px;
+    max-width: 768px;
+  }
+
+  div.js-menu-container {
+    width: 290px;
+    height: 1034px;
+  }
+
+  div.js-menu-container div svg.js-close-menu {
+    top: 24px;
+    right: 32px;
+    width: 32px;
+    height: 32px;
+  }
+  div.js-menu-container ul.mobile-navigation-menu {
+    padding: 156px 0px 0px 85px;
+  }
+  div.js-menu-container div.mobile-social-media {
+    display: flex;
+    gap: 18px;
+    margin: 590px 0px 0px 34px;
+  }
+  /********** ********** **********     aside     ********** ********** **********/
+  aside {
+    background-image: -webkit-linear-gradient(
+        180deg,
+        rgba(17, 17, 17, 0) 0%,
+        rgba(17, 17, 17, 0.4) 100%
+      ),
+      url(../images/chocolate-cover-tablet.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 704px;
+    height: 890px;
+    max-width: 704px;
+    margin: 0px auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 32px;
+    margin-bottom: 50px;
+  }
+  aside h1 {
+    width: 484px;
+    height: 100px;
+    font-size: 28px;
+    line-height: 34px; /* 121.429% */
+    letter-spacing: -0.84px;
+  }
+  aside div.aside {
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+  }
+  aside button.buy-now {
+    padding: 14px 40px;
+  }
+  aside a.to-how-its-made {
+    width: 183px;
+    height: 45px;
+  }
+  aside span {
+    font-size: 14px;
+    line-height: 18px; /* 128.571% */
+    letter-spacing: -0.42px;
+  }
+  aside button.scroll-down {
+    width: 38px;
+    height: 38px;
+    border-radius: 100%;
+  }
+  aside svg {
+    width: 28px;
+    height: 28px;
+    padding-left: 4px;
+  }
+  /********** ********** **********     benefits     ********** ********** **********/
+  section.benefits {
+    margin-bottom: 72px;
+    justify-content: center;
+    padding: 50px;
+  }
+  section.benefits div.benefits-container {
+    width: 768px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 60px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  /********** ********** **********     index.html     ********** ********** **********/
+  /********** ********** **********     header     ********** ********** **********/
+  body {
+    height: 680px;
+  }
+
+  div.js-menu-container {
+    display: none;
+  }
+  div.is-close {
+    display: none;
+  }
+
+  header {
+    padding: 24px 32px 26px;
+    max-width: 1200px;
+  }
+  header a.logo {
+    font-size: 18px;
+    line-height: 20px; /* 111.111% */
+    letter-spacing: -0.54px;
+  }
+  header svg.logo {
+    width: 24px;
+    height: 24px;
+  }
+  header nav.navigation-menu {
+    display: flex;
+  }
+  header nav ul.navigation-menu {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    display: flex;
+    gap: 24px;
+  }
+  header nav a.navigation-menu {
+    text-decoration: none;
+    color: #111;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 114.286% */
+    letter-spacing: -0.28px;
+    display: inline-block;
+    position: relative;
+    transition: var(--transition);
+  }
+  header nav a.navigation-menu::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 30px;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--hover-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform var(--transition);
+  }
+  header nav a.active {
+    color: var(--active-color);
+  }
+  header nav a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 30px;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--hover-color);
+    transform: none;
+  }
+  header div.social-media {
+    display: flex;
+    gap: 18px;
+  }
+  header a.social-media {
+    color: #111;
+  }
+  header svg.social-media {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  header button.js-open-menu {
+    display: none;
+  }
+  /********** ********** **********     aside     ********** ********** **********/
+  aside {
+    background-image: -webkit-linear-gradient(
+        180deg,
+        rgba(17, 17, 17, 0) 0%,
+        rgba(17, 17, 17, 0.4) 100%
+      ),
+      url(../images/chocolate-cover-desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1136px;
+    height: 600px;
+    margin: 0px auto;
+    max-width: 1136px;
+    padding: 40px;
+    margin-bottom: 70px;
+  }
+  aside h1 {
+    height: 102px;
+  }
+  /********** ********** **********     benefits     ********** ********** **********/
+  section.benefits {
+    margin-bottom: 128px;
+  }
+  section.benefits div.benefits-container {
+    width: 1200px;
+    gap: 88px;
+    position: relative;
+  }
+  section.benefits div.benefits-after::after {
+    content: '';
+    position: absolute;
+    top: 64px;
+    bottom: 0;
+    width: 1px;
+    height: 124px;
+    margin: 0px 327px;
+    border-radius: 3px;
+    background-color: #ffffff80;
+  }
+}
