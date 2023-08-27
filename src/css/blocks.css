@@ -18,14 +18,17 @@ body {
 .container-blocks.adaptiv {
   width: 100%;
 }
+img {
+  display: block;
+}
 
 .container {
   display: flex;
   max-width: 335px;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  row-gap: 32px;
+  align-items: flex-start;
+  gap: 32px;
+  flex-shrink: 0;
   margin-left: auto;
   margin-right: auto;
 }
@@ -37,6 +40,7 @@ body {
   align-items: center;
   row-gap: 24px;
   flex-shrink: 0;
+  margin-bottom: 32px;
 }
 .title {
   color: var(--black-main);
@@ -72,163 +76,119 @@ body {
 }
 .card-container {
   display: flex;
-  max-width: 335px;
+  width: 335px;
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
   flex-shrink: 0;
 }
-.card {
-  width: 335px;
-  height: 270px;
-  flex-shrink: 0;
-}
 
-.card-content {
+.card-taste {
   position: relative;
-  transition: transform 2s;
-  transform-style: preserve-3d;
-}
-.card-back {
   display: flex;
-  flex-direction: column;
-  height: 214px;
-  padding: 28px;
-  border-radius: 15px;
-  background: var(--white-main);
-  row-gap: 14px;
+  width: 100%;
+  max-width: 335px;
+  height: 270px;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  cursor: context-menu;
 }
 
-.card-front {
-  border-radius: 15px;
+.card-taste {
+  margin-bottom: 20px;
 }
-.card-front,
-.card-back {
+
+.card-taste .front,
+.card-taste .back {
   position: absolute;
   top: 0;
-  bottom: 0;
   left: 0;
+  bottom: 0;
   right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border-radius: 15px;
   backface-visibility: hidden;
   transform-style: preserve-3d;
+  transition: transform 0.8s ease-in-out;
 }
-.card-back {
-  transform: rotateY(-180deg);
-}
-.milk-chocolate {
-  border-radius: 15px;
-  background: var(--orange-main);
-}
-.milk,
-.sweet {
-  border-radius: 15px;
+
+.card-taste .milk {
+  background-color: var(--white-main);
   border: 1px solid var(--orange-main);
-  background: var(--white-main);
 }
-.milk .content-title {
-  color: var(--dark-purple-main);
-}
-.sweet .content-title {
-  color: var(--dark-purple-main);
-}
-.nuts {
-  border-radius: 15px;
-  background: var(--dark-purple-main);
-}
-.card-picture {
-  display: block;
-  width: 224px;
-  height: 171px;
-  flex-shrink: 0;
-  position: absolute;
-  top: 28px;
-  left: 56px;
-}
-.content-title {
-  position: absolute;
-  top: 224px;
-  left: 28px;
-  color: var(--white-main);
+
+.title-card {
+  letter-spacing: -0.28px;
+  text-transform: uppercase;
   font-family: Montserrat;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 18px; /* 128.571% */
-  letter-spacing: -0.28px;
-  text-transform: uppercase;
+  line-height: 18px;
 }
-.content-title.second {
+.milk .title-card {
   color: var(--black-main);
 }
 
-.card-back {
-  height: 214px;
-  padding: 28px;
-  border-radius: 15px;
-  background: var(--white-main);
-  row-gap: 14px;
-}
-
-.about {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-.about-card {
-  color: var(--black-main);
-  font-family: Montserrat;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: -0.54px;
-  text-transform: uppercase;
-}
-.little-blocks {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 6px;
-}
-.white {
-  font-family: Montserrat;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 12px; /* 120% */
-  display: inline-flex;
-  padding: 6px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
+.milk-chocolate .title-card {
   color: var(--white-main);
-  border-radius: 35px;
-  background: var(--orange-main);
 }
-.black {
+.card-taste .milk-chocolate {
+  background-color: var(--orange-main);
+}
+
+.card-taste .nuts {
+  background-color: var(--dark-purple-main);
+}
+
+.card-taste .back {
+  background-color: var(--white-main);
+  transform: rotateY(180deg);
+}
+
+.card-taste:hover .front {
+  transform: rotateY(-180deg);
+}
+
+.card-taste:hover .back {
+  transform: rotateY(0);
+}
+
+.card-taste .contents {
+  width: 100%;
+  height: 100%;
+  color: var(--white-main);
+  transform: translateZ(100px) scale(0.86);
+}
+
+.card-taste .front .img-taste {
+  margin: 0 auto 25px;
+}
+
+.card-taste .contents .title-taste {
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.card-taste .contents .subtitle-taste {
+  margin-bottom: 8px;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
   color: var(--black-main);
-  font-family: Montserrat;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 12px; /* 120% */
-  display: inline-flex;
-  padding: 6px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  border-radius: 35px;
-  border: 1px solid var(--orange-main);
-  background: var(--white-main);
 }
-.about-description {
-  width: 280px;
+
+.card-taste .contents .text-taste {
+  width: 279px;
   height: 146px;
   overflow: hidden;
   color: #111;
   text-overflow: ellipsis;
-  white-space: normal;
   font-family: Montserrat;
   font-size: 14px;
   font-style: normal;
@@ -237,30 +197,55 @@ body {
   letter-spacing: -0.28px;
 }
 
-.card:hover .card-content {
-  transform: rotateY(-180deg);
+.card-taste .contents .list-taste {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
 }
-.card-picture,
-.content-title {
-  transform: translateZ(200px);
-  transform-style: preserve-3d;
+
+.card-taste .contents .btn-taste {
+  display: block;
+  padding: 6px 16px;
+  font-size: 10px;
+  line-height: 1.2;
+  color: var(--black-main);
+  background: transparent;
+  border-radius: 35px;
+  border: 1px solid var(--orange-main);
+  cursor: pointer;
+}
+
+.card-taste .contents .btn-taste.active-taste {
+  color: var(--white-main);
+  background: var(--orange-main);
+  border: transparent;
 }
 @media screen and (min-width: 768px) {
   .container-blocks {
     max-width: 768px;
   }
 
+  .container-blocks.adaptiv {
+    padding-top: 100px;
+  }
+
   .container {
     max-width: 704px;
-    row-gap: 50px;
+    flex-direction: column;
     flex-shrink: 0;
+    align-items: center;
+    gap: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
   }
 
   .title-container {
     height: 156px;
     width: 486px;
-    gap: 28px;
     flex-shrink: 0;
+    margin-bottom: 50px;
   }
   .title {
     width: 411px;
@@ -280,17 +265,18 @@ body {
     margin: 0;
   }
   .card-container {
-    max-width: 704px;
+    width: 704px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     gap: 32px;
     flex-shrink: 0;
   }
-  .card {
+  .card-taste {
     width: 335px;
     height: 270px;
     flex-shrink: 0;
+    margin: 0;
   }
 }
 
@@ -331,7 +317,7 @@ body {
     margin: 0;
   }
   .card-container {
-    max-width: 1136px;
+    width: 1136px;
     display: flex;
     flex-wrap: nowrap;
     gap: 19px;
@@ -341,24 +327,26 @@ body {
   }
   .card {
     width: 270px;
+    height: 270px;
   }
-  .card-picture {
-    position: relative;
-    display: block;
-  }
-  .card-back {
+  .card-taste .back {
+    display: inline-flex;
+    height: 270px;
     padding: 20px;
+    justify-content: center;
+    align-items: center;
   }
+  .card-taste .front {
+    display: flex;
+    padding: 28px 36px 28px 28px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 36px;
+  }
+
   .about-description {
     width: 230px;
     height: 140px;
   }
-  /* .card-back {
-    display: flex;
-    padding: 28px 0;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-  } */
 }
