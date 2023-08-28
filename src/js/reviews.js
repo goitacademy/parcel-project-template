@@ -30,7 +30,7 @@ new Swiper(".myswipernav",{
 });
 (() => {
     const review = {
-      openModalBtn: document.querySelectorAll('[reviews-data-modal-open]'),
+      openModalBtn: document.querySelectorAll('[reveiws-data-modal-open]'),
       closeModalBtn: document.querySelector('[reviews-data-modal-close]'),
       modal: document.querySelector('[reviews-data-modal]'),
       submitBtn: document.querySelector('.submit-btn'),

@@ -203,14 +203,6 @@ button, input, optgroup, select, textarea {
     margin: 0;
 }
 /*MODAL REVIEW CSS*/
-.backdrop.is-hidden {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-}
-.is-hidden {
-    display: block;
-}
 .backdrop {
     position: fixed;
     left: 0;
@@ -223,11 +215,15 @@ button, input, optgroup, select, textarea {
     transform: translate(1);
     transition: opacity .4s linear,visibility .4s linear;
 }
-.backdrop.is-hidden>.modal {
-    transform: translate(-50%,-50%);
-}
 
-.modal {
+
+/* .reviews-is-hidden {
+visibility: hidden;
+} */
+
+
+
+.container-reviews {
     position: absolute;
     transform: translate(-50%,-50%);
     left: 50%;
@@ -239,19 +235,32 @@ button, input, optgroup, select, textarea {
     border-radius: 15px;
     transition-duration: .4s;
 }
-.review-close-btn {
+
+span.x-close-xx {
+font-size: 29px;
+font-weight: 500;
+transition: 400ms ease-in-out;
+}
+
+span.x-close-xx:hover {
+    color: #fd9222;
+}
+
+.callout {
     position: absolute;
-    top: 14px;
-    right: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    top: 8px;
+    right: 8px;
     width: 24px;
     height: 24px;
     padding: 0;
-    stroke: #000;
+    color: #000;
     background: transparent;
     transition: stroke .4s cubic-bezier(.4,0,.2,1);
+}
+
+.callout button {
+    background-color: transparent;
+
 }
 
 .review-form {
@@ -302,7 +311,6 @@ button, input, optgroup, select, textarea {
 
 
 
-
 .modal-buy-now-icon-flag {
     position: absolute;
     top: 45%;
@@ -320,6 +328,7 @@ button, input, optgroup, select, textarea {
     transform: translateY(-50%);
     top: 43%;
     left: 66px;
+    color: #000;
 }
 
 .user-form-review {
@@ -358,6 +367,7 @@ button, input, optgroup, select, textarea {
 }
 
 @media screen and (max-width: 767px){
+
 .modal-phone-input {
     position: relative;
     color: #000;
@@ -382,6 +392,15 @@ button, input, optgroup, select, textarea {
 }
 }
     @media only screen and (min-width: 768px){
+
+        .callout {
+            top: 8px;
+            right: 13px;
+        }
+        .span.x-close-xx {
+            font-size: 33px;
+            font-weight: 500;
+        }
     .section {
         padding-top: 100px;
     }
@@ -431,7 +450,7 @@ button, input, optgroup, select, textarea {
                         }
                         }   
                         @media only screen and (min-width: 768px){
-                            .modal {
+                            .container-reviews {
                                 max-width: 517px;
                                 height: 631px;
                                 padding: 40px;
@@ -473,9 +492,10 @@ button, input, optgroup, select, textarea {
                                                 padding-left: 24px;
                                                 border-radius: 13px;
                                             }
-                                            .review-close-btn{
+                                            .callout .close-button{
                                                 width:28px;
                                                 height:28px;
+                                                
                                             }
 
                                             }                     
