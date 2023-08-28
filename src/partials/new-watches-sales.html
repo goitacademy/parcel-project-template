@@ -3,23 +3,23 @@
                     <h5>New watches</h5>
                     <h2>Green And Bronze—The Match Made In Heaven</h2>
                     <ul>
-                        <li>
-                            <div class="new-image">
+                        <li class="animate-on-scroll">
+                            <div class="new-image animate-on-scroll">
                                 <picture>
                                     <source
                                         media="(min-width: 1280px)"
-                                        srcset="./images/desknewwatch1.jpg" 
+                                        srcset="./images/desknewwatch1.jpg, ./images/newwatch1x2.jpg" 
                                     />
                                     <img class="watch-one sliding" src="./images/newwatch1.jpg" alt="Watch presentation">
                                 </picture>
                             </div>
                         </li>
-                        <li>
-                            <div class="new-image">
+                        <li class="animate-on-scroll">
+                            <div class="new-image ">
                                 <picture>
                                     <source
                                         media="(min-width: 1280px)"
-                                        srcset="./images/desknewwatch2.jpg"
+                                        srcset="./images/desknewwatch2.jpg, ./images/newwatch2x2.jpg"
                                     />
                                     <img class="watch-one sliding" src="./images/newwatch2.jpg" alt="Watch presentation">
                                 </picture>
@@ -38,7 +38,7 @@
                                             <picture>
                                                 <source
                                                     media="(min-width: 768px)"
-                                                    srcset="./images/tabletwatch4.jpg"
+                                                    srcset="./images/tabletwatch4.jpg, ./images/watch2x2.jpg"
                                                 />
                                                 <img src="./images/watch2.jpg" alt="Watch presentation">
                                             </picture>
@@ -48,7 +48,7 @@
                                         <picture>
                                             <source
                                                 media="(min-width: 768px)"
-                                                srcset="./images/tabletwatch3.jpg"
+                                                srcset="./images/tabletwatch3.jpg, ./images/watch3x2.jpg"
                                             />
                                             <img src="./images/watch3.jpg" alt="Watch presentation">
                                         </picture>
@@ -57,7 +57,7 @@
                                             <picture>
                                                 <source
                                                     media="(min-width: 768px)"
-                                                    srcset="./images/tabletwatch1.jpg"
+                                                    srcset="./images/tabletwatch1.jpg, ./images/watch4x2.jpg"
                                                 />
                                                 <img src="./images/watch4.jpg" alt="Watch presentation">
                                             </picture>
@@ -66,7 +66,7 @@
                                         <picture>
                                             <source
                                                 media="(min-width: 768px)"
-                                                srcset="./images/tabletwatch5.jpg"
+                                                srcset="./images/tabletwatch5.jpg, ./images/watch5x2.jpg"
                                             />
                                             <img src="./images/watch5.jpg" alt="Watch presentation">
                                         </picture>
@@ -77,7 +77,7 @@
                                 <picture>
                                     <source
                                         media="(min-width: 768px)"
-                                        srcset="./images/tabletwatch6.png"
+                                        srcset="./images/tabletwatch6.png, ./images/watch1x2.jpg"
                                     />
                                     <img src="./images/watch1.jpg" alt="Watch presentation">
                                 </picture>
@@ -120,33 +120,3 @@
                     </div>
                 </div>
             </section>
-            <script>
-                // Targetați toate imaginile care trebuie să aibă animația
-                const imagesToAnimate = document.querySelectorAll('.watch-one');
-              
-                // Definiți opțiunile pentru Intersection Observer
-                const options = {
-                  root: null,
-                  rootMargin: '0px',
-                  threshold: 0.5, // Poate fi ajustat pentru pragul de vizibilitate necesar
-                };
-              
-                // Definiți funcția callback pentru observator
-                const handleIntersection = (entries, observer) => {
-                  entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                      // Adăugați clasa sliding pentru a declanșa animația
-                      entry.target.classList.add('sliding');
-                      // Dezactivați observatorul după ce animația a fost declanșată o dată
-                      observer.unobserve(entry.target);
-                    }
-                  });
-                };
-              
-                // Creați un observator pentru fiecare imagine
-                imagesToAnimate.forEach(image => {
-                  const observer = new IntersectionObserver(handleIntersection, options);
-                  observer.observe(image);
-                });
-              </script>
-              
