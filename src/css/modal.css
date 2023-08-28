@@ -6,7 +6,9 @@
 
 @media only screen and (max-width: 759px) {
   /* Modal */
+
   .modal {
+    z-index: 1000;
     position: fixed;
     top: 0;
     left: 0;
@@ -16,7 +18,7 @@
     justify-content: center;
     align-items: center;
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    top: 50%;
+    top: 59%;
     left: 50%;
     transform: translate(-50%, -50%);
     flex: 1;
@@ -27,6 +29,7 @@
     padding: 25px;
     background-color: #fff;
     background: var(--white, #fff);
+    padding-bottom: 67px;
   }
 
   .is-hidden {
@@ -195,38 +198,40 @@
     margin-top: 12px;
     margin-left: 20px;
   }
-}
+  .modal-label input:not(:placeholder-shown):invalid {
+    border-color: red;
+  }
 
-/* Button Catalog */
-.buy-btn {
-  background-color: transparent;
-  border-radius: 8px;
-  background: var(--dark-green, #1e2827);
-  display: inline-flex;
-  padding: 14px 28px;
-  align-items: flex-start;
-  gap: 10px;
-  cursor: pointer;
-  outline: none;
-}
+  /* Button Catalog */
+  .buy-btn {
+    background-color: transparent;
+    border-radius: 8px;
+    background: var(--dark-green, #1e2827);
+    display: inline-flex;
+    padding: 14px 28px;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    outline: none;
+  }
 
-.buy-btn:focus,
-.buy-btn:hover {
-  box-shadow: 4px 6px 8px 3px rgba(0, 0, 0, 0.16),
-    0px 4px 4px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
-}
+  .buy-btn:focus,
+  .buy-btn:hover {
+    box-shadow: 4px 6px 8px 3px rgba(0, 0, 0, 0.16),
+      0px 4px 4px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+  }
 
-.buy-span {
-  color: var(--white, #fff);
-  text-align: center;
-  font-family: Epilogue;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14px; /* 116.667% */
-  text-transform: uppercase;
+  .buy-span {
+    color: var(--white, #fff);
+    text-align: center;
+    font-family: Epilogue;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px; /* 116.667% */
+    text-transform: uppercase;
+  }
 }
-
 /*  Modal Tablet  */
 @media only screen and (min-width: 760px) {
   .modal {
@@ -438,6 +443,9 @@
     line-height: 14px; /* 116.667% */
     letter-spacing: -0.24px;
   }
+  .modal-label input:not(:placeholder-shown):invalid {
+    border-color: red;
+  }
 }
 
 /* Modal Desktop */
@@ -606,5 +614,8 @@
   .modal-paragraph {
     width: 490px;
     margin-left: 5px;
+  }
+  .modal-label input:not(:placeholder-shown):invalid {
+    border-color: red;
   }
 }
