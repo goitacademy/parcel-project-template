@@ -1,0 +1,336 @@
+/* Common */
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h2 {
+  color: var(--dark-green, #1e2827);
+  font-family: Epilogue;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: -0.64px;
+  margin-bottom: 40px;
+}
+
+h4 {
+  width: 255px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: var(--black, #141414);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Epilogue;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.28px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  color: rgba(20, 20, 20, 0.5);
+  font-family: Epilogue;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+  letter-spacing: -0.24px;
+}
+
+/* Mobile */
+
+.catalog {
+  width: 335px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.catalog-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+.catalog-description {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: start;
+}
+
+.flip-box {
+  background-color: transparent;
+  width: 336px;
+  height: 360px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-box-front {
+  color: black;
+  padding: 43px 30px;
+}
+
+/* Style the back side */
+.flip-box-back {
+  background-color: #141414;
+  color: white;
+  transform: rotateY(180deg);
+  width: 100%;
+  height: 100%;
+  padding: 46px 60px 41px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+  border-radius: 6px;
+}
+
+.flip-box-back-description h4,
+.flip-box-back-details h4 {
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-align: start;
+  color: var(--white, #fff);
+  font-family: Epilogue;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.28px;
+  text-transform: uppercase;
+}
+
+.flip-box-back-description p {
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-align: start;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: Epilogue;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.14px;
+  padding-right: 50px;
+}
+
+.flip-box-back-details ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 0;
+}
+
+.flip-box-back-details ul li {
+  width: 100%;
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-align: start;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: Epilogue;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+  letter-spacing: -0.14px;
+}
+
+.flip-box-back-description {
+  width: 236px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
+.flip-box-back-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
+.desktop {
+  display: none;
+}
+/* Submit button Modal */
+.button-catalog {
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  margin-left: 200px;
+}
+
+/* Tablet */
+
+@media only screen and (min-width: 768px) {
+  .catalog {
+    width: 768px;
+    padding: 0 32px;
+  }
+
+  .catalog-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0 32px;
+  }
+
+  .catalog-list li {
+    margin-top: 40px;
+  }
+
+  /* Submit button Modal */
+  .button-catalog {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 128px;
+    margin-left: 585px;
+  }
+  .buy-btn {
+    background-color: transparent;
+    border-radius: 8px;
+    background: var(--dark-green, #1e2827);
+    display: inline-flex;
+    padding: 14px 28px;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .buy-btn:focus,
+  .buy-btn:hover {
+    box-shadow: 4px 6px 8px 3px rgba(0, 0, 0, 0.16),
+      0px 4px 4px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+  }
+
+  .buy-span {
+    color: var(--white, #fff);
+    text-align: center;
+    font-family: Epilogue;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px; /* 116.667% */
+    text-transform: uppercase;
+  }
+}
+
+/* Desktop */
+
+@media only screen and (min-width: 1280px) {
+  .catalog {
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 80px 60px;
+  }
+
+  .catalog-list {
+    min-width: 1180px;
+    gap: 0 24px;
+    justify-content: start;
+  }
+
+  .catalog-list li {
+    margin-top: 64px;
+  }
+
+  .desktop {
+    display: initial;
+  }
+
+  .flip-box {
+    width: 276px;
+    height: 325px;
+  }
+
+  .flip-box-front {
+    padding: 26px 0px 25px 0px;
+  }
+
+  .flip-box-back {
+    padding: 20px;
+  }
+
+  /* Submit button Modal */
+  .button-catalog {
+    display: flex;
+    margin-top: 80px;
+    margin-left: 1030px;
+  }
+  .buy-btn {
+    background-color: transparent;
+    border-radius: 8px;
+    background: var(--dark-green, #1e2827);
+    display: inline-flex;
+    padding: 14px 28px;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    outline: none;
+  }
+  .buy-btn:focus,
+  .buy-btn:hover {
+    box-shadow: 4px 6px 8px 3px rgba(0, 0, 0, 0.16),
+      0px 4px 4px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+  }
+
+  .buy-span {
+    color: var(--white, #fff);
+    text-align: center;
+    font-family: Epilogue;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px; /* 116.667% */
+    text-transform: uppercase;
+  }
+}
