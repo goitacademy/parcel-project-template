@@ -15,6 +15,7 @@
   line-height: 18px;
   letter-spacing: -0.42px;
   position: relative;
+  flex-shrink: 0;
 }
 
 .header-logo .simply-logo {
@@ -35,9 +36,18 @@
   font-weight: 500;
   line-height: 16px; /* 114.286% */
   letter-spacing: -0.28px;
+  margin: 136px 46px 550px 50px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+.header-navigation-bar {
+  display: none;
+}
+
+.header-icons-bar {
+  display: none;
 }
 
 .header-social-icons {
@@ -65,21 +75,30 @@
 
 .header-modal {
   position: fixed;
+  visibility: visible;
   top: 0;
   right: 0;
-  width: 220px;
-  padding-top: 136px;
-  padding-bottom: 20px;
+}
+
+.header-modal-content {
   background-color: #1e1823;
   display: flex;
   flex-direction: column;
-  gap: 460px;
+  width: 220px;
+}
+
+.header-modal-is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: 250ms ease;
 }
 
 .header-icons-section {
   display: flex;
   gap: 18px;
-  padding-left: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .close-burger-btn {
@@ -94,9 +113,75 @@
   height: 28px;
 }
 
-.header-modal-is-hidden {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: 250ms ease;
+@media screen and (min-width: 768px) {
+  .header-section {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 31px 32px;
+  }
+
+  .burger-button {
+    width: 32px;
+    height: 32px;
+    top: 24px;
+    right: 32px;
+  }
+
+  .header-modal-content {
+    background-color: #1e1823;
+    display: flex;
+    flex-direction: column;
+    width: 290px;
+  }
+
+  .navigation-header-bar {
+    margin: 156px 81px 550px 85px;
+    gap: 24px;
+  }
+
+  .header-icons-section {
+    display: flex;
+    gap: 18px;
+    margin-left: 32px;
+    margin-bottom: 24px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .burger-button {
+    display: none;
+  }
+
+  .header-navigation-bar {
+    display: flex;
+    gap: 24px;
+    color: #111;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 114.286% */
+    letter-spacing: -0.28px;
+  }
+
+  .header-icons-bar {
+    display: flex;
+    gap: 18px;
+  }
+  .header-social {
+    width: 24px;
+    height: 24px;
+  }
+
+  .header-social:hover {
+    cursor: pointer;
+    color: #fd9222;
+  }
 }
