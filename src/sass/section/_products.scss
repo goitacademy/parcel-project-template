@@ -1,0 +1,127 @@
+/* Stiluri pentru mobil*/
+
+.products {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 28px;
+  &__card-set {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    background: var(--products-card-bg-color);
+    border-radius: 24px;
+    width: 280px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 165px;
+    padding-bottom: 60px;
+  }
+  &__pic {
+    width: 280px;
+    background-color: transparent;
+    position: relative;
+    left: 30px;
+    top: 120px;
+  }
+  &__item-text {
+    font-family: var(--products-text-font-family);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 176%;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: var(--item-text-color);
+    padding-bottom: 32px;
+  }
+  &__item-points {
+    display: inline-block;
+    background: var(--item-modified-color);
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: 32px 0;
+  }
+}
+.arrow {
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+/* Stiluri pentru tableta*/
+
+@media screen and (min-width: $mobile-breakpoint) {
+  .products {
+    display: flex;
+    flex-direction: row;
+    &__card-set {
+      display: flex;
+      flex-direction: column;
+      width: 224px;
+    }
+    &__pic {
+      width: 224px;
+    }
+  }
+}
+
+@media screen and (min-width: $tablet-breakpoint) {
+  .products {
+    display: flex;
+    flex-direction: row;
+    &__card-set {
+      display: flex;
+      flex-direction: column;
+      width: 368px;
+    }
+    &__pic {
+      width: 368px;
+    }
+  }
+}
+
+/*Modal*/
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform var(--transition);
+  padding: 40px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  &__content {
+    padding: 30px;
+    background: var(--modal-content-bg);
+    margin: 0 auto;
+    width: 30%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  &__form-text {
+    font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: var(--modal-form-text-color);
+    padding: 40px;
+  }
+}
+
+.is-hidden {
+  visibility: hidden;
+  transform: scale(1.1);
+}
