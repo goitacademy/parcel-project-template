@@ -6,10 +6,10 @@ Acest proiect a fost creat cu ajutorul Parcel. Pentru familiarizare și configur
 
 1. Asigură-te că pe PC este instalată versiunea LTS Node.js.
    [Descarcă și instalează](https://nodejs.org/en/) dacă este necesar.
-2. Clonează acest depozit.
+2. Clonează acest repository.
 3. Schimbă numele folderului din `parcel-project-template` în numele proiectului tău.
-4. Creează un depozit nou și gol pe GitHub.
-5. Deschide proiectul în VSCode, pornește terminalul și conectează proiectul cu depozitul GitHub
+4. Creează un repository nou și gol pe GitHub.
+5. Deschide proiectul în VSCode, pornește terminalul și conectează proiectul cu repo-ul GitHub
    [conform instrucțiunilor](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
 6. Setează dependențele proiectului în terminal cu ajutorul comenzii `npm install` .
 7. Pornește modul dezvoltator prin rularea comenzii `npm start`.
@@ -43,7 +43,7 @@ după un push direct sau după o cerere acceptată pool-request. Pentru aceasta,
 },
 ```
 
-Apoi, accesează setările depozitului GitHub (`Settings` > `Pages`) și setează distribuția versiunii de producție a fișierelor din folderul `/root` ramurii `gh-pages`, dacă acest lucru nu a fost făcut automat.
+Apoi, accesează setările repository-ului GitHub (`Settings` > `Pages`) și setează distribuția versiunii de producție a fișierelor din folderul `/root` ramurii `gh-pages`, dacă acest lucru nu a fost făcut automat.
 
 ![GitHub Pages settings](./assets/repo-settings.png)
 
@@ -61,7 +61,7 @@ Mai multe informații despre stare pot fi obținute dând clic pe pictogramă ș
 
 ### Pagină live
 
-După un timp, de obicei câteva minute, pagina live poate fi vizualizată la adresa specificată în proprietatea editată `homepage`. De exemplu, iată linkul către versiunea live pentru acest depozit
+După un timp, de obicei câteva minute, pagina live poate fi vizualizată la adresa specificată în proprietatea editată `homepage`. De exemplu, iată linkul către versiunea live pentru acest repository
 [https://goitacademy.github.io/parcel-project-template](https://goitacademy.github.io/parcel-project-template).
 
 Dacă se deschide o pagină goală, asigură-te că fila `Console` nu conține erori legate de căile incorecte ale fișierelor proCSS și JS din proiect (**404**). Probabil că este greșită valoarea proprietății `homepage` sau scriptului `build` în fișierul `package.json`.
@@ -70,7 +70,7 @@ Dacă se deschide o pagină goală, asigură-te că fila `Console` nu conține e
 
 ![How it works](./assets/how-it-works.png)
 
-1. După fiecare push în ramura `main` depozitului GitHub, este rulat un script special (GitHub Action) din fișierul `.github/workflows/deploy.yml`.
-2. Vor fi copiate toate fișierele din depozitul de cod pe server, unde proiectul va fi inițializat și va trece prin procesul de construcție înainte de implementare
+1. După fiecare push în ramura `main` al repo-ului GitHub, este rulat un script special (GitHub Action) din fișierul `.github/workflows/deploy.yml`.
+2. Vor fi copiate toate fișierele din repo-ul de cod pe server, unde proiectul va fi inițializat și va trece prin procesul de construcție înainte de implementare
 3. Dacă toți pașii sunt executați cu succes, versiunea de producție asamblată a fișierelor proiectului este trimisă la ramura `gh-pages`. În caz contrar, în jurnalul de execuție al scriptului va fi indicată problema.
 
