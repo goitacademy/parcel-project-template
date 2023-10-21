@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <style>
+      #weather-graph-container {
+        width: 80%;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="weather-graph-container">
+      <h1>Weather Graph</h1>
+      <canvas id="weather-graph"></canvas>
+    </div>
+
+    <script>
+      const apiKey = 'b020e77384bc7c2bb3dc12335a4ea0e7';
+      const latitude = '23'; // Replace with your latitude
+      const longitude = '46'; // Replace with your longitude
+
+      const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          const timestamps = data.list.map(item => moment(item.dt * 1000)); // Use moment.js for time formatting
+          const temperatures = data.list.map(item => item.main.temp - 273.15); // Convert temperature from Kelvin to Celsius
+
+          const ctx = document.getElementById('weather-graph').getContext('2d');
+
+          new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: timestamps,
+              datasets: [
+                {
+                  label: 'Temperature (°C)',
+                  data: temperatures,
+                  borderColor: 'rgba(75, 192, 192, 1)',
+                  backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                  pointRadius: 4,
+                  pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                },
+              ],
+            },
+            options: {
+              scales: {
+                x: {
+                  type: 'time',
+                  time: {
+                    unit: 'hour',
+                    displayFormats: {
+                      hour: 'HH:mm',
+                    },
+                  },
+                },
+                y: {
+                  beginAtZero: false,
+                },
+              },
+            },
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching weather data:', error);
+        });
+    </script>
+  </body>
+</html>
