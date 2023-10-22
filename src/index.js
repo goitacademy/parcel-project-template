@@ -1,12 +1,12 @@
 import '../src/js/header';
 import '../src/js/footer';
-import '../src/js/search';
 
-import { handleResponse } from './js/galleryBuilder';
+import { fetchGenreList } from './js/fetchGenreList';
 import { showPage } from './js/pageBuilder';
 import { fetchPopularMovies } from './js/fetchMovieApi';
-import { fetchGenreList } from './js/fetchGenreList';
 import { loadMoreMovies } from './js/loadMore';
+import '../src/js/search';
+import { handleResponse } from './js/galleryBuilder';
 
 // Funcția de inițializare a aplicației
 const startingPagination = async () => {

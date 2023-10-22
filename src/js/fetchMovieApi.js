@@ -1,16 +1,5 @@
 import { fetchData } from './apiUtils';
 
-// Funcție pentru obținerea listei de filme în funcție de un cuvânt cheie și pagină
-const fetchMovies = async (searchQuery, page) => {
-  const params = {
-    query: searchQuery,
-    include_adult: false,
-    language: 'en-US',
-    page: page,
-  };
-  return fetchData('/search/movie', params); // Efectuează cererea pentru filme
-};
-
 // Funcție pentru obținerea listei de filme populare în funcție de pagină
 const fetchPopularMovies = async page => {
   const params = { page: page };
@@ -23,4 +12,4 @@ const fetchMovieDetails = async movieId => {
   return fetchData(`/movie/${movieId}`, params); // Efectuează cererea pentru detalii de film
 };
 
-export { fetchMovies, fetchPopularMovies, fetchMovieDetails };
+export { fetchPopularMovies, fetchMovieDetails };

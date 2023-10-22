@@ -1,4 +1,7 @@
-import TheMovieDbApi from './themoviedb-api.js';
+import TheMovieDbApi from './themoviedb-api';
+import { clearGallery } from './clearGallery';
+import { handleResponse } from './galleryBuilder';
+
 const ITEMS_PER_PAGE = 20;
 
 const form = document.querySelector('.search-form');
@@ -32,6 +35,8 @@ function onSearchFormSubmit(event) {
         ShowTextError(noResultsError);
       } else {
         HideTextError(noResultsError);
+        clearGallery(); // Șterge galeria înainte de a afișa rezultatele căutării
+        handleResponse(res, true); // Afișează rezultatele căutării în galerie
       }
     })
     .catch(err => {
