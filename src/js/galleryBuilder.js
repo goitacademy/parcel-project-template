@@ -41,8 +41,10 @@ const markupGalleryItem = (result, index, genreList, isPopular = false) => {
       </div>
       <div class="gallery__items__details">
         <p class="gallery__items__details--title">${title}</p>
-        <p class="gallery__items__details--genres">${genres.join(', ')}</p>
-        <p class="gallery__items__details--year">${year}</p>
+        <p class="gallery__items__details--genres">${genres.join(
+          ', '
+        )} | <span class="gallery__items__details--year">${year}</span>
+</p>
       </div>
     </li>
   `;

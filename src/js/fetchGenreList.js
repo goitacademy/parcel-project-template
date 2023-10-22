@@ -29,6 +29,9 @@ const getGenres = (genreIds, genres) => {
 
   if (arr.length === 0) {
     arr.push('Other'); // Dacă nu există genuri, se adaugă "Other" la listă
+  } else if (arr.length > 2) {
+    arr.splice(2); // Dacă lista conține mai mult de 3 genuri, elimină genurile de la indexul 3 înainte
+    arr.push('Other'); // Adaugă "Other" la final
   }
   return arr;
 };

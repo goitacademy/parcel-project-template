@@ -5,20 +5,22 @@ import { handleResponse } from './js/galleryBuilder';
 import { showPage } from './js/pageBuilder';
 import { fetchPopularMovies } from './js/fetchMovieApi';
 import { fetchGenreList } from './js/fetchGenreList';
-
-const currentPage = 1;
+import { loadMoreMovies } from './js/loadMore';
 
 // Funcția de inițializare a aplicației
-
 const startingPagination = async () => {
   try {
-    showPage(currentPage); // Afișează pagina curentă
-    const genreList = await fetchGenreList();
-    const popularMovies = await fetchPopularMovies(currentPage);
-    handleResponse(popularMovies, true, genreList); // Manipulează răspunsul API-ului cu funcția handleResponse
+    showPage(1); // Afișează pagina curentă (pagina 1)
+    const genreList = await fetchGenreList(); // Obtin lista de genuri (ACTIUNE, COMEDIE ETC)
+    const popularMovies = await fetchPopularMovies(1); // Obtin lista de filmele populare pentru pagina curentă (pagina 1)
+    handleResponse(popularMovies, true, genreList); // Manipulez răspunsul API-ului cu funcția handleResponse
   } catch (error) {
-    console.error('Error', error);
+    console.error('Error', error); // Afisam erorile în caz de problema
   }
 };
-// Apelul funcției de inițializare a aplicației
-startingPagination();
+
+startingPagination(); // Apelul funcției de inițializare a aplicației
+
+// Adăugați un eveniment de ascultare pentru clic pe butonul "Load More"
+const loadMoreButton = document.querySelector('.load-more');
+loadMoreButton.addEventListener('click', loadMoreMovies); // Când se face clic pe buton, se apelează funcția loadMoreMovies
