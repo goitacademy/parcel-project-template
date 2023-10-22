@@ -1,5 +1,6 @@
 import '../src/js/header';
 import '../src/js/footer';
+import '../src/js/search';
 
 import { handleResponse } from './js/galleryBuilder';
 import { showPage } from './js/pageBuilder';
