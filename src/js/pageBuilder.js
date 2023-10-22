@@ -1,6 +1,6 @@
 import { fetchGenreList } from './fetchGenreList';
 import { handleResponse } from './galleryBuilder';
-import { fetchMovies, fetchPopularMovies } from './fetchMovieApi';
+import { fetchPopularMovies } from './fetchMovieApi';
 
 // Funcție pentru popularea paginii in main
 const showPage = async (page, isSearch = false, searchQuery = '') => {
