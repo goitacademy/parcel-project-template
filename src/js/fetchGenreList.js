@@ -20,19 +20,24 @@ const fetchGenreList = async () => {
 const getGenres = (genreIds, genres) => {
   const arr = [];
 
-  for (const id of genreIds) {
-    const genre = genres.find(genre => genre.id === id); // Caută genul corespunzător în lista de genuri
-    if (genre) {
-      arr.push(genre.name); // Adaugă numele genului la lista de genuri
+  if (!genreIds || !genres) {
+    arr.push('Unknown'); // Adăugați o valoare implicită în caz de lipsă de date
+  } else {
+    for (const id of genreIds) {
+      const genre = genres.find(genre => genre.id === id);
+      if (genre) {
+        arr.push(genre.name);
+      }
+    }
+
+    if (arr.length === 0) {
+      arr.push('Other');
+    } else if (arr.length > 2) {
+      arr.splice(2);
+      arr.push('Other');
     }
   }
 
-  if (arr.length === 0) {
-    arr.push('Other'); // Dacă nu există genuri, se adaugă "Other" la listă
-  } else if (arr.length > 2) {
-    arr.splice(2); // Dacă lista conține mai mult de 3 genuri, elimină genurile de la indexul 3 înainte
-    arr.push('Other'); // Adaugă "Other" la final
-  }
   return arr;
 };
 

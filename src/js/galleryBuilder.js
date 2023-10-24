@@ -2,8 +2,11 @@ import { getGenres } from './fetchGenreList';
 import { clearGallery } from './clearGallery';
 import { getGalleryElement } from './clearGallery';
 
+const nullPoster =
+  'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
+
 // Funcția se ocupă de manipularea răspunsului API și afișarea datelor în galerie.
-const handleResponse = (data, isPopular = false, genreList) => {
+const handleResponse = (data, isSearch = false, genreList) => {
   if (!data.results) {
     console.error('Invalid API response');
     return;
@@ -17,16 +20,13 @@ const handleResponse = (data, isPopular = false, genreList) => {
   }
 
   const markup = data.results
-    .map((result, index) =>
-      markupGalleryItem(result, index, genreList, isPopular)
-    )
+    .map((result, index) => markupGalleryItem(result, genreList))
     .join('');
   galleryElement.insertAdjacentHTML('beforeend', markup);
 };
 
 // Funcția generează HTML pentru fiecare element din galerie.
-
-const markupGalleryItem = (result, index, genreList, isPopular = false) => {
+const markupGalleryItem = (result, genreList) => {
   const { title, release_date, poster_path, genre_ids, id } = result;
   const coverUrl = poster_path
     ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -44,10 +44,10 @@ const markupGalleryItem = (result, index, genreList, isPopular = false) => {
         <p class="gallery__items__details--genres">${genres.join(
           ', '
         )} | <span class="gallery__items__details--year">${year}</span>
-</p>
+      </p>
       </div>
     </li>
   `;
 };
 
-export { handleResponse, markupGalleryItem, getGalleryElement, nullPoster };
+export { handleResponse, getGalleryElement, nullPoster };
