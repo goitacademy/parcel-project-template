@@ -1,8 +1,7 @@
 // My API key:07aed853a2b3116bf7e19dfeee63b968
 
 const apiKey = '07aed853a2b3116bf7e19dfeee63b968';
-const city = 'London';
-
+const city = 'Dublin';
 const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
 
 async function fetchWeatherData() {
@@ -37,29 +36,30 @@ function updateForecast(data) {
   for (const day in dayMap) {
     const forecastItem = document.createElement('div');
     forecastItem.classList.add('weather-forecast-item');
-
     const firstItem = dayMap[day][0];
-
+    const allInfo = document.createElement('div');
+    allInfo.classList.add('all-about');
     const dayElement = document.createElement('div');
     dayElement.classList.add('day');
     const date = new Date(firstItem.dt * 1000);
-    dayElement.textContent = `${getDayOfWeek(date)}, ${formatDate(date)}`;
-    forecastItem.appendChild(dayElement);
+    dayElement.innerHTML = `${getDayOfWeek(date)} </br> ${formatDate(date)}`;
+    allInfo.appendChild(dayElement);
+
+    const iconElement = document.createElement('img');
+    iconElement.classList.add('w-icon');
+    const iconCode = firstItem.weather[0].icon;
+    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    iconElement.src = iconUrl;
+    iconElement.alt = 'weather-icon';
+    allInfo.appendChild(iconElement);
 
     const temperatureElement = document.createElement('div');
     temperatureElement.classList.add('temperature');
-    const minTemp = firstItem.main.temp_min;
-    const maxTemp = firstItem.main.temp_max;
+    const minTemp = Math.round(firstItem.main.temp_min);
+    const maxTemp = Math.round(firstItem.main.temp_max);
     temperatureElement.innerHTML = `Min: ${minTemp}&deg;C | Max: ${maxTemp}&deg;C`;
-    forecastItem.appendChild(temperatureElement);
-
-    const iconElement = document.createElement('img');
-    const iconCode = firstItem.weather[0].icon;
-    iconElement.src = `https://openweathermap.org/img/wn/${iconCode}.png`;
-    iconElement.alt = 'weather-icon';
-    forecastItem.appendChild(iconElement);
-
-    forecastItems.appendChild(forecastItem);
+    allInfo.appendChild(temperatureElement);
+    forecastItems.appendChild(allInfo);
   }
 }
 
