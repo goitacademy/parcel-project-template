@@ -1,3 +1,5 @@
+import { fetchCityImage } from './background.js';
+
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('.search-bar');
   const searchBarInput = document.querySelector('.search-bar_input');
@@ -35,7 +37,16 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(response => response.json())
       .then(data => {
         if (data.cod === 200) {
-          console.log(data);
+          fetchCityImage(cityName)
+            .then(imageUrl => {
+              document.body.style.backgroundImage = `url(${imageUrl})`;
+              document.body.style.backgroundSize = 'cover';
+              document.body.style.backgroundPosition = 'center';
+              document.body.style.backgroundRepeat = 'no-repeat';
+            })
+            .catch(error => {
+              console.error('Error fetching city image:', error);
+            });
         } else {
           alert(data.message);
         }
