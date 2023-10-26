@@ -24,3 +24,12 @@ player.on('play', function () {
 player.on('ended', function (data) {
   saveTimeThrottled(data.seconds);
 });
+player.ready().then(function () {
+  if (savedTime) {
+    player.setCurrentTime(savedTime);
+  }
+});
+
+player.on('ended', function (data) {
+  saveTimeThrottled(data.seconds);
+});

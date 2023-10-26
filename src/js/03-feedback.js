@@ -18,3 +18,13 @@ if (savedData) {
   emailInput.value = formData.email || '';
   messageInput.value = formData.message || '';
 }
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  console.log({
+    email: formData.email,
+    message: formData.message,
+  });
+  localStorage.removeItem('feedback-form-state');
+  emailInput.value = '';
+  messageInput.value = '';
+});
