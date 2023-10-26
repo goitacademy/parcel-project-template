@@ -1,9 +1,12 @@
+// Desktop style
+
 .days {
   width: 1248px;
   height: 556px;
   border-radius: 34px;
   background: rgba(16, 33, 54, 0.8);
   box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.6);
+  margin: 0 auto;
   padding: 40px 45px;
   display: flex;
   flex-direction: row;
@@ -11,6 +14,7 @@
   overflow-x: auto;
   white-space: nowrap;
 }
+
 .weather-card {
   display: flex;
   flex-direction: column;
@@ -23,8 +27,12 @@
   margin-top: 33px;
   margin-bottom: 40px;
 }
-.weather-card:nth-child(n + 8) {
+.weather-card:nth-child(n + 9) {
   display: none;
+}
+.weather-card:hover,
+.weather-card:focus {
+  background: rgba(255, 255, 255, 0.1);
 }
 .weather-card__time-hour {
   text-align: center;
@@ -54,4 +62,37 @@
   width: 20px;
   height: 20px;
   margin-right: 10px;
+}
+
+// Tablet style
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .days {
+    width: 704px;
+    height: 569px;
+    padding: 40px 20px;
+  }
+  .weather-card {
+    width: 120px;
+  }
+  .weather-card:nth-child(n + 7) {
+    display: none;
+  }
+  .weather-card__time-temp {
+    font-size: 18px;
+  }
+}
+
+// Mobile style
+@media screen and (max-width: 767px) {
+  .days {
+    width: 280px;
+    height: 541px;
+    padding: 40px 5px;
+  }
+  .weather-card {
+    width: 120px;
+  }
+  .weather-card:nth-child(n + 4) {
+    display: none;
+  }
 }
