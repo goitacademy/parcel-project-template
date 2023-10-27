@@ -1,0 +1,286 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(94, 99, 99, 0.7);
+
+  overflow-y: auto;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body.show-modal .backdrop {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+
+  transition: opacity $duration $timing-function,
+    visibility $duration $timing-function;
+}
+
+body.show-modal {
+  overflow-y: hidden;
+}
+
+.modal__btn-close {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 0px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 50;
+}
+
+.modal {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  padding-top: 48px;
+  padding-right: 20px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+  text-align: left;
+  min-height: 200px;
+  width: 280px;
+
+  @media screen and (max-width: 767px) {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+    padding-right: 72px;
+    padding-bottom: 40px;
+    padding-left: 36px;
+    width: 704px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  @media screen and (min-width: 1280px) {
+    min-width: 806px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  &__wrap {
+    @media screen and (min-width: 768px) {
+      display: flex;
+    }
+  }
+
+  &__img {
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+      min-width: 264px;
+      max-height: 374px;
+      margin-right: 68px;
+      margin-bottom: 0;
+    }
+
+    @media screen and (min-width: 1280px) {
+      min-width: 320px;
+      min-height: 478px;
+      margin-right: 16px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: calc(23 / 20);
+
+    @media screen and (min-width: 1280px) {
+      font-size: 30px;
+      line-height: calc(35 / 30);
+    }
+  }
+
+  &__list-box {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 40px;
+
+    @media screen and (min-width: 1280px) {
+      gap: 83px;
+    }
+  }
+
+  &__list {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #8c8c8c;
+  }
+
+  &__list-item:not(:last-child) {
+    margin-bottom: 8px;
+  }
+  &__list-item:not(:last-child).modal__left {
+    margin-bottom: 10px;
+  }
+
+  &__list-left {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+    color: #000000;
+  }
+
+  &__list-vote {
+    padding: 1px 9px;
+    background: $color-accent;
+    border-radius: 5px;
+
+    color: #ffffff;
+  }
+
+  &__list-slesh {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #8c8c8c;
+  }
+
+  &__list-votes {
+    padding: 1px 9px;
+    background: #f7f7f7;
+    border-radius: 5px;
+  }
+
+  &__subtitle {
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(16 / 12);
+  }
+
+  &__descrpt {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(20 / 12);
+    overflow: auto;
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+      margin-bottom: 36px;
+    }
+  }
+
+  &__btn-list {
+    display: flex;
+    gap: 20px;
+
+    @media screen and (min-width: 768px) {
+      gap: 15px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      margin-left: 24px;
+    }
+  }
+
+  &__btn {
+    width: 110px;
+    height: 40px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(16 / 12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    background-color: transparent;
+    cursor: pointer;
+
+    transition: background-color $duration $timing-function,
+      color $duration $timing-function, border $duration $timing-function;
+
+    &:hover,
+    &:focus {
+      color: #ffffff;
+      background-color: $color-accent;
+      border: none;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 125px;
+      height: 44px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      width: 136px;
+      height: 44px;
+    }
+  }
+
+  &__btn-trailer {
+    margin-bottom: 20px;
+    min-width: 150px;
+    gap: 5px;
+
+    @media screen and (min-width: 1280px) {
+      margin-left: 25px;
+    }
+  }
+
+  &__icon-youtube {
+    width: 30px;
+  }
+
+  &__trailer {
+    padding-top: 16px;
+  }
+}
+
+body.show-modal .modal {
+  opacity: 1;
+  visibility: visible;
+
+  @media screen and (max-width: 768px) {
+    transform: translate(-50%) scale(1);
+  }
+
+  @media screen and (min-width: 768px) {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  @media screen and (min-width: 1280px) {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  transition: transform 500ms $timing-function $duration,
+    opacity 500ms $timing-function $duration,
+    visibility 500ms $timing-function $duration;
+
+  .modal__empty {
+    margin: 50px auto;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
