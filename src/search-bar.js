@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const searchBarInput = document.querySelector('.search-bar_input');
   const starIcon = document.querySelector('.search-bar_favorites-icon');
   const favoritesList = document.querySelector('.favorites_list');
-  let currentSlidePosition = 0;
-  const maxSlide = window.innerWidth <= 767 ? 150 : 350;
+  const favoritesLeftIcon = document.querySelector('.favorites_prev-btn');
+  const favoritesRightIcon = document.querySelector('.favorites_next-btn');
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -18,17 +18,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
   starIcon.addEventListener('click', function () {
     const cityName = searchBarInput.value.trim();
+    this.classList.toggle('selected');
     if (cityName && !isCityInFavorites(cityName)) {
       addToFavorites(cityName);
     }
   });
 
-  document
-    .querySelector('.favorites_prev-btn')
-    .addEventListener('click', () => slideFavorites('prev'));
-  document
-    .querySelector('.favorites_next-btn')
-    .addEventListener('click', () => slideFavorites('next'));
+  const SCROLL_AMOUNT = 100;
+  favoritesLeftIcon.addEventListener('click', function () {
+    favoritesList.scrollBy({
+      left: -SCROLL_AMOUNT,
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
+
+  favoritesRightIcon.addEventListener('click', function () {
+    favoritesList.scrollBy({
+      left: SCROLL_AMOUNT,
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
 
   function fetchWeather(cityName) {
     const apiKey = '07aed853a2b3116bf7e19dfeee63b968';
@@ -70,21 +81,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const listItem = document.createElement('li');
     listItem.classList.add('favorites_item');
     listItem.textContent = cityName;
-    favoritesList.appendChild(listItem);
-  }
 
-  function slideFavorites(direction) {
-    let totalWidth = 0;
-    favoritesList.querySelectorAll('.favorites_item').forEach(item => {
-      totalWidth +=
-        item.offsetWidth + parseInt(window.getComputedStyle(item).marginRight);
+    const closeButton = document.createElement('span');
+    closeButton.classList.add('close-button');
+    closeButton.textContent = 'x';
+    closeButton.addEventListener('click', function () {
+      listItem.remove();
     });
 
-    if (direction === 'next' && currentSlidePosition - maxSlide > -totalWidth) {
-      currentSlidePosition -= maxSlide;
-    } else if (direction === 'prev' && currentSlidePosition < 0) {
-      currentSlidePosition += maxSlide;
-    }
-    favoritesList.style.transform = `translateX(${currentSlidePosition}px)`;
+    listItem.appendChild(closeButton);
+    favoritesList.appendChild(listItem);
   }
 });
