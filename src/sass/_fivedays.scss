@@ -4,59 +4,25 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  //height: 100%;
-  //width: 100%;
-}
-
-body {
-  background-image: url(../images/one.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  animation-name: cover;
-  animation-direction: alternate-reverse;
-  animation-duration: 60s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-play-state: running;
-  animation-timing-function: ease-in-out;
-  height: 100vh;
-}
-
-@keyframes cover {
-  0% {
-    background-image: url(../images/two.jpg);
-  }
-  25% {
-    background-image: url(../images/three.jpg);
-  }
-  50% {
-    background-image: url(../images/four.jpg);
-  }
-  75% {
-    background-image: url(../images/five.jpg);
-  }
-  100% {
-    background-image: url(../images/six.jpg);
-    background-position: center;
-  }
 }
 
 .future-forecast {
   font-family: 'Lato', sans-serif;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 20px;
-  color: bisque;
   border-radius: 30px;
-  background-color: #102136;
-  opacity: 0.7;
-  margin-left: 100px;
-  margin-right: 100px;
-  width: auto;
+  background-color: #102136cc;
+  margin: 20px;
+  //max-width: 100vh;
+  //max-width: 1500px;
   gap: 15px;
+  position: absolute;
+  bottom: 20px;
+  width: 97%;
+  margin-left: 25px;
 }
 
 .weather-forecast {
@@ -64,6 +30,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+
   .all-about {
     padding: 15px;
     display: flex;
@@ -73,82 +40,162 @@ body {
   }
 }
 
-.weather-forecast-item {
+.day {
+  text-align: center;
   display: flex;
   flex-direction: column;
-  width: 50px;
-  padding: 20px;
-  width: 15%;
-  margin: 10px;
-
-  .day {
+  .day-name {
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0.04em;
     text-align: center;
-    display: flex;
-    flex-direction: column;
+    color: grey;
   }
-  .w-icon {
-    width: 50px;
+  .date {
+    font-family: Lato;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    color: white;
+  }
+}
+
+.w-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.temperature {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding-bottom: 10px;
+  &__deg {
+    padding: 5px;
+    margin: 3px;
+  }
+  &__line {
     height: 50px;
+    border-left: 1px solid rgb(49, 49, 52);
+    position: relative;
+    top: 5px;
   }
-
-  .temperature {
-    display: flex;
-    flex-direction: row;
+  &__design {
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
     text-align: center;
-    padding-bottom: 10px;
+  }
+  &__data {
+    font-family: Lato;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #ff6b09;
   }
 }
 
 .more-btn {
+  font-family: Lato;
   font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+
   background: none;
   border: none;
-  color: white;
+  color: grey;
   text-decoration: underline;
 }
 
 @media only screen and (max-width: 768px) {
-  .weather-forecast-item {
-    padding: 0;
-
+  .future-forecast {
+    width: auto;
     .day {
-      font-size: 14px;
+      .day-name {
+        font-family: Lato;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0.04em;
+        text-align: center;
+      }
+      .date {
+        font-family: Lato;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0.04em;
+        text-align: center;
+      }
     }
-
-    .date {
-      font-size: 18px;
-    }
-
     .temperature {
-      transform: translate(-15px, 10px);
-      font-size: 14px;
+      &__design {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0em;
+        text-align: center;
+      }
+      &__data {
+        font-family: Lato;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+      }
     }
-  }
-
-  .more-btn {
-    font-size: 10px;
-    display: flex;
-    flex-direction: row;
   }
 }
 
 @media only screen and (max-width: 320px) {
   .future-forecast {
-    background: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .weather-forecast {
-    flex-wrap: wrap;
-  }
-
-  .weather-forecast-item {
-    color: bisque;
-    border-radius: 30px;
-    background-color: #102136;
-    opacity: 0.7;
-    margin: 20px;
     width: auto;
+    .day {
+      .day-name {
+        font-family: Lato;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        letter-spacing: 0.04em;
+        text-align: center;
+      }
+      .date {
+        font-family: Lato;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19px;
+        letter-spacing: 0.04em;
+        text-align: center;
+      }
+    }
+    .temperature {
+      &__design {
+        font-family: Lato;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        letter-spacing: 0em;
+        text-align: center;
+      }
+      &__data {
+        font-family: Lato;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0em;
+        text-align: center;
+      }
+    }
   }
 }
