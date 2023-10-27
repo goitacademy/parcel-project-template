@@ -271,3 +271,17 @@ function activateChartContainer() {
     toggleButton.innerText = 'Show Chart';
   }
 }
+
+var activateButton = document.getElementById('5-days-button');
+activateButton.addEventListener('click', activateChartContainer);
+
+function deactivateChartContainer() {
+  var chartContainer = document.querySelector('.chart-container');
+  if (chartContainer) {
+    chartContainer.classList.add('hidden');
+    localStorage.setItem('chartContainerDeactivated', 'true');
+  }
+}
+
+var deactivateButton = document.getElementById('today-button');
+deactivateButton.addEventListener('click', deactivateChartContainer);
