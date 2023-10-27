@@ -42,7 +42,9 @@ function updateForecast(data) {
     const dayElement = document.createElement('div');
     dayElement.classList.add('day');
     const date = new Date(firstItem.dt * 1000);
-    dayElement.innerHTML = `${getDayOfWeek(date)} </br> ${formatDate(date)}`;
+    dayElement.innerHTML = `<div class="day-name">${getDayOfWeek(
+      date
+    )}</div> <div class="date">${formatDate(date)}</div>`;
     allInfo.appendChild(dayElement);
 
     const iconElement = document.createElement('img');
@@ -57,8 +59,14 @@ function updateForecast(data) {
     temperatureElement.classList.add('temperature');
     const minTemp = Math.round(firstItem.main.temp_min);
     const maxTemp = Math.round(firstItem.main.temp_max);
-    temperatureElement.innerHTML = `Min: ${minTemp}&deg;C | Max: ${maxTemp}&deg;C`;
+    temperatureElement.innerHTML = `<div class="temperature__deg"><div class="temperature__design">min</div>
+      <div class="temperature__data"> ${minTemp}&deg;C</div></div><span class="temperature__line"></span><div class="temperature__deg"><div class="temperature__design" > max</div>
+    <div class="temperature__data"> ${maxTemp}&deg;C</div></div>`;
     allInfo.appendChild(temperatureElement);
+    const moreButton = document.createElement('button');
+    moreButton.classList.add('more-btn');
+    moreButton.innerHTML = 'more info';
+    allInfo.appendChild(moreButton);
     forecastItems.appendChild(allInfo);
   }
 }
