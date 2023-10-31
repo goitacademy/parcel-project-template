@@ -103,8 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log('Location access allowed');
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      const geoApiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${Key}`;
-      console.log('Latitude:', latitude, 'Longitude:', longitude);
+      const geoApiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${Key}`;
 
       fetch(geoApiUrl)
         .then(res => res.json())
