@@ -1,5 +1,5 @@
 const apiKey = '07aed853a2b3116bf7e19dfeee63b968';
-const city = 'Dublin';
+const city = 'Budapest';
 const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
 
 async function fetchWeatherData() {
@@ -20,7 +20,14 @@ function updateForecast(data) {
 
   const dayMap = {};
 
-  data.list.forEach(item => {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const filteredData = data.list.filter(item => {
+    const date = new Date(item.dt * 1000);
+    return date >= tomorrow;
+  });
+
+  filteredData.forEach(item => {
     const date = new Date(item.dt * 1000);
     const day = date.toDateString();
 
