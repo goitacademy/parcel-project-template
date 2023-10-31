@@ -1,13 +1,23 @@
 export function fetchCityImage(cityName) {
-  const unsplashApiKey = '3eLdLI3McT-xMd_k4uMgU6VIED8TAquFAmIAMFjfgHU';
-  const unsplashUrl = `https://api.unsplash.com/search/photos?query=${cityName}&client_id=${unsplashApiKey}&per_page=1`;
+  const URL = 'https://pixabay.com/api/';
+  const KEY = 'key=40060920-6840b24aaee2d2997514145f9';
+  const requestParameters = `?image_type=photo&category=travel&orientation=horizontal&q=${encodeURIComponent(
+    cityName
+  )}&page=1&per_page=40`;
 
-  return fetch(unsplashUrl)
-    .then(response => response.json())
-    .then(data => {
-      if (data && data.results && data.results.length > 0) {
-        return data.results[0].urls.full;
+  return fetch(URL + requestParameters + '&' + KEY)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
       }
-      throw new Error('No image found for the given city.');
+      return res.json();
+    })
+    .then(image => {
+      if (image.hits && image.hits.length) {
+        const randomImg = Math.floor(Math.random() * image.hits.length);
+        return image.hits[randomImg].largeImageURL;
+      } else {
+        throw new Error('No images found.');
+      }
     });
 }

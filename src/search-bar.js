@@ -1,6 +1,9 @@
 import { fetchCityImage } from './background.js';
 
+const Key = '07aed853a2b3116bf7e19dfeee63b968';
+
 document.addEventListener('DOMContentLoaded', function () {
+  console.log('DOMContentLoaded fired');
   const form = document.querySelector('.search-bar');
   const searchBarInput = document.querySelector('.search-bar_input');
   const starIcon = document.querySelector('.search-bar_favorites-icon');
@@ -42,14 +45,14 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function fetchWeather(cityName) {
-    const apiKey = '07aed853a2b3116bf7e19dfeee63b968';
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${Key}`;
     fetch(url)
       .then(response => response.json())
       .then(data => {
         if (data.cod === 200) {
           fetchCityImage(cityName)
             .then(imageUrl => {
+              console.log('Fetched Image URL:', imageUrl);
               document.body.style.backgroundImage = `url(${imageUrl})`;
               document.body.style.backgroundSize = 'cover';
               document.body.style.backgroundPosition = 'center';
@@ -92,4 +95,43 @@ document.addEventListener('DOMContentLoaded', function () {
     listItem.appendChild(closeButton);
     favoritesList.appendChild(listItem);
   }
+
+  const findCityLocation = () => {
+    console.log('findCityLocation called');
+
+    const success = position => {
+      console.log('Location access allowed');
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const geoApiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${Key}`;
+      console.log('Latitude:', latitude, 'Longitude:', longitude);
+
+      fetch(geoApiUrl)
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.length > 0) {
+            const cityName = data[0].name;
+            console.log('Resolved City:', cityName);
+            fetchWeather(cityName);
+          } else {
+            console.error('City not found.');
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching city name:', error);
+        });
+    };
+
+    const error = () => {
+      console.error('Could not get location.');
+    };
+    navigator.geolocation.getCurrentPosition(success, error);
+    const locationIcon = document.querySelector('.search-bar_location-icon');
+    locationIcon.addEventListener('click', () => {
+      console.log('Location icon clicked');
+      navigator.geolocation.getCurrentPosition(success, error);
+    });
+  };
+
+  findCityLocation();
 });
