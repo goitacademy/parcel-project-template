@@ -1,6 +1,6 @@
 async function getWeatherData() {
   const API_KEY = '07aed853a2b3116bf7e19dfeee63b968';
-  const city = 'Bucharest';
+  const city = 'Cluj-Napoca';
 
   try {
     const response = await axios.get(
