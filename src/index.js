@@ -55,8 +55,10 @@ function updateForecast(data) {
 
     const temperatureElement = document.createElement('div');
     temperatureElement.classList.add('temperature');
-    const minTemp = Math.round(firstItem.main.temp_min);
-    const maxTemp = Math.round(firstItem.main.temp_max);
+    const minTempKelvin = firstItem.main.temp_min;
+    const maxTempKelvin = firstItem.main.temp_max;
+    const minTemp = Math.round(minTempKelvin - 273.15);
+    const maxTemp = Math.round(maxTempKelvin - 273.15);
     temperatureElement.innerHTML = `<div class="temperature__deg"><div class="temperature__design">min</div>
       <div class="temperature__data"> ${minTemp}&deg;C</div></div><span class="temperature__line"></span><div class="temperature__deg"><div class="temperature__design" > max</div>
     <div class="temperature__data"> ${maxTemp}&deg;C</div></div>`;
