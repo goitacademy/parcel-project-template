@@ -1,5 +1,5 @@
 import { fetchCityImage } from './background.js';
-
+// import { todayWeather } from './today.js';
 const Key = '07aed853a2b3116bf7e19dfeee63b968';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
               document.body.style.backgroundSize = 'cover';
               document.body.style.backgroundPosition = 'center';
               document.body.style.backgroundRepeat = 'no-repeat';
+              // todayWeather(cityName);
             })
             .catch(error => {
               console.error('Error fetching city image:', error);
