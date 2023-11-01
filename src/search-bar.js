@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
               document.body.style.backgroundSize = 'cover';
               document.body.style.backgroundPosition = 'center';
               document.body.style.backgroundRepeat = 'no-repeat';
+              document.body.style.height = '954px';
               updateTimeForCity(cityName);
               updateTimeWithTimeZone(data);
             })
