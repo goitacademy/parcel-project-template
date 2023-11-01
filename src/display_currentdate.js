@@ -1,4 +1,4 @@
-function displayCurrentTime() {
+export function displayCurrentTime() {
   const currentDate = new Date();
   const dayDisplay = document.getElementById('dayDisplay');
   const monthDisplay = document.getElementById('monthDisplay');
@@ -6,15 +6,7 @@ function displayCurrentTime() {
   const sunriseDisplay = document.getElementById('sunriseDisplay');
   const sunsetDisplay = document.getElementById('sunsetDisplay');
 
-  const daysOfWeek = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
+  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const months = [
     'January',
     'February',
@@ -65,19 +57,24 @@ function displayCurrentTime() {
       const { latitude, longitude } = position.coords;
       const apiKey = '384cfe62d8b3ed2e8a555db347025eef';
 
-      // Fetch sunrise and sunset times
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
       )
         .then(response => response.json())
         .then(data => {
+          const DayContent = `
+          <h3>${day}<sup class="exponent">${getOrdinalIndicator(
+            day
+          )}</sup> ${dayOfWeek}</h3>
+        `;
+          dayDisplay.innerHTML = DayContent;
           const sunrise = new Date(data.sys.sunrise * 1000).toLocaleTimeString(
             [],
-            { hour: '2-digit', minute: '2-digit' }
+            { hour: '2-digit', minute: '2-digit', hour12: false }
           );
           const sunset = new Date(data.sys.sunset * 1000).toLocaleTimeString(
             [],
-            { hour: '2-digit', minute: '2-digit' }
+            { hour: '2-digit', minute: '2-digit', hour12: false }
           );
 
           sunriseDisplay.textContent = `${sunrise}`;
@@ -89,4 +86,3 @@ function displayCurrentTime() {
     });
   }
 }
-displayCurrentTime();

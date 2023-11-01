@@ -1,5 +1,8 @@
 import { fetchCityImage } from './background.js';
-// import { todayWeather } from './today.js';
+//import { todayWeather } from './today.js';
+import { displayCurrentTime } from './display_currentdate.js';
+import { updateTimeForCity } from './display_citydate.js';
+import { updateTimeWithTimeZone } from './display_citydate.js';
 const Key = '07aed853a2b3116bf7e19dfeee63b968';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -43,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
       behavior: 'smooth',
     });
   });
-
+displayCurrentTime()
   function fetchWeather(cityName) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${Key}`;
     fetch(url)
@@ -58,6 +61,11 @@ document.addEventListener('DOMContentLoaded', function () {
               document.body.style.backgroundPosition = 'center';
               document.body.style.backgroundRepeat = 'no-repeat';
               // todayWeather(cityName);
+        
+              const timezoneOffset = data.timezone / 3600;
+              document.body.style.height = '954px';
+              updateTimeForCity(cityName);
+              updateTimeWithTimeZone(timezoneOffset);
             })
             .catch(error => {
               console.error('Error fetching city image:', error);
@@ -105,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
       const geoApiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${Key}`;
+      console.log('Latitude:', latitude, 'Longitude:', longitude);
 
       fetch(geoApiUrl)
         .then(res => res.json())
@@ -132,6 +141,5 @@ document.addEventListener('DOMContentLoaded', function () {
       navigator.geolocation.getCurrentPosition(success, error);
     });
   };
-
   findCityLocation();
 });
