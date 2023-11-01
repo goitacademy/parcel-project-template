@@ -2,16 +2,24 @@
   padding: 0 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .logo-simply-text {
-  color: #111;
+  color: var(--main-color);
   font-family: Montserrat;
   font-size: 14px;
   font-style: italic;
@@ -21,7 +29,7 @@
 }
 
 .logo-chocolate-text {
-  color: #111;
+  color: var(--main-color);
   font-family: Montserrat;
   font-size: 14px;
   font-style: normal;
@@ -36,12 +44,20 @@
 }
 
 .hamburger-icon-mobile {
-  stroke: #111111;
+  stroke: var(--main-color);
   width: 28px;
   height: 28px;
 }
 
 .hamburger_tablet-container {
+  display: none;
+}
+
+.main-navigation ul {
+  display: none;
+}
+
+.social-icons-container {
   display: none;
 }
 
@@ -55,9 +71,9 @@
   .hamburger_tablet-container {
     display: block;
   }
-  
+
   .icon-hamburger_tablet {
-    stroke: #111111;
+    stroke: var(--main-color);
     width: 32px;
     height: 32px;
   }
@@ -66,4 +82,70 @@
 // Desktop
 
 @media screen and (min-width: 1158px) {
+  .hamburger_tablet-container {
+    display: none;
+  }
+
+  .logo-simply-text {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .logo-chocolate-text {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .logo-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .main-navigation ul {
+    display: flex;
+    gap: 24px;
+  }
+
+  .desktop-navigation-link {
+    color: var(--main-color);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 114.286% */
+    letter-spacing: -0.28px;
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .desktop-navigation-link:hover,
+  .desktop-navigation-link:focus,
+  .desktop-navigation-link:active {
+    color: var(--highlight-color);
+  }
+
+  .current {
+    color: var(--highlight-color);;
+    padding-bottom: 20px;
+    border-bottom: 4px solid var(--highlight-color);
+    border-radius: 4px;
+  }
+
+  .social-icons-container {
+    display: flex;
+    gap: 18px;
+  }
+
+  .social-icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    stroke: var(--main-color);
+    transition: stroke var(--transition);
+  }
+
+  .social-icon:hover,
+  .social-icon:focus {
+    stroke: var(--highlight-color);
+  }
 }
