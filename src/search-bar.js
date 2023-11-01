@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
       behavior: 'smooth',
     });
   });
-
+displayCurrentTime()
   function fetchWeather(cityName) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${Key}`;
     fetch(url)
