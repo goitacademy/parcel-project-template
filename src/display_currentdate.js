@@ -1,4 +1,6 @@
 function displayCurrentTime() {
+  let timezoneOffset = 0;
+
   const currentDate = new Date();
   const dayDisplay = document.getElementById('dayDisplay');
   const monthDisplay = document.getElementById('monthDisplay');
@@ -57,7 +59,6 @@ function displayCurrentTime() {
       const { latitude, longitude } = position.coords;
       const apiKey = '384cfe62d8b3ed2e8a555db347025eef';
 
-      // Fetch sunrise and sunset times
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
       )
