@@ -1,4 +1,6 @@
 import { fetchCityImage } from './background.js';
+import { updateTimeForCity } from './display_citydate.js';
+import { fupdateTimeWithTimeZone } from './display_citydate.js';
 
 const Key = '07aed853a2b3116bf7e19dfeee63b968';
 
@@ -57,6 +59,8 @@ document.addEventListener('DOMContentLoaded', function () {
               document.body.style.backgroundSize = 'cover';
               document.body.style.backgroundPosition = 'center';
               document.body.style.backgroundRepeat = 'no-repeat';
+              updateTimeForCity(cityName);
+              updateTimeWithTimeZone(data);
             })
             .catch(error => {
               console.error('Error fetching city image:', error);
