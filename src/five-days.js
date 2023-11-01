@@ -1,5 +1,6 @@
 const apiKey = '07aed853a2b3116bf7e19dfeee63b968';
 const city = 'Dublin';
+
 const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
 
 async function fetchWeatherData() {
