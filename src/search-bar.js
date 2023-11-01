@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
               document.body.style.backgroundSize = 'cover';
               document.body.style.backgroundPosition = 'center';
               document.body.style.backgroundRepeat = 'no-repeat';
+            
             const timezoneOffset = data.timezone / 3600;
               document.body.style.height = '954px';
               updateTimeForCity(cityName);
@@ -110,7 +111,8 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log('Location access allowed');
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      const geoApiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${Key}`;
+      const geoApiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${Key}`;
+      console.log('Latitude:', latitude, 'Longitude:', longitude);
 
       fetch(geoApiUrl)
         .then(res => res.json())
