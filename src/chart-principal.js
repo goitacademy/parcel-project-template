@@ -8,20 +8,18 @@ async function getWeatherData() {
     );
 
     const weatherData = response.data.list
-      .slice(0, 5)
+      .filter((item, index) => index % 8 === 0)
       .map(item => item.main.temp);
 
-    const labels = response.data.list.slice(0, 5).map(item => {
-      const date = new Date(item.dt * 1000);
-      const day = date.getDate().toString().padStart(2, '0');
-      const month = (date.getMonth() + 1).toString().padStart(2, '0');
-      const year = date.getFullYear();
-      const hours = date.getHours();
-      const minutes = date.getMinutes();
-      return `${day}/${month}/${year} ${hours}:${
-        minutes < 10 ? '0' : ''
-      }${minutes}`;
-    });
+    const labels = response.data.list
+      .filter((item, index) => index % 8 === 0)
+      .map(item => {
+        const date = new Date(item.dt * 1000);
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+      });
 
     return { weatherData, labels };
   } catch (error) {
@@ -40,19 +38,17 @@ async function getHumidityData() {
     );
 
     const humidityData = response.data.list
-      .slice(0, 5)
+      .filter((item, index) => index % 8 === 0)
       .map(item => item.main.humidity);
-    const labels = response.data.list.slice(0, 5).map(item => {
-      const date = new Date(item.dt * 1000);
-      const day = date.getDate().toString().padStart(2, '0');
-      const month = (date.getMonth() + 1).toString().padStart(2, '0');
-      const year = date.getFullYear();
-      const hours = date.getHours();
-      const minutes = date.getMinutes();
-      return `${day}/${month}/${year} ${hours}:${
-        minutes < 10 ? '0' : ''
-      }${minutes}`;
-    });
+    const labels = response.data.list
+      .filter((item, index) => index % 8 === 0)
+      .map(item => {
+        const date = new Date(item.dt * 1000);
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+      });
 
     return { humidityData, labels };
   } catch (error) {
@@ -71,19 +67,17 @@ async function getWindData() {
     );
 
     const windData = response.data.list
-      .slice(0, 5)
+      .filter((item, index) => index % 8 === 0)
       .map(item => item.wind.speed);
-    const labels = response.data.list.slice(0, 5).map(item => {
-      const date = new Date(item.dt * 1000);
-      const day = date.getDate().toString().padStart(2, '0');
-      const month = (date.getMonth() + 1).toString().padStart(2, '0');
-      const year = date.getFullYear();
-      const hours = date.getHours();
-      const minutes = date.getMinutes();
-      return `${day}/${month}/${year} ${hours}:${
-        minutes < 10 ? '0' : ''
-      }${minutes}`;
-    });
+    const labels = response.data.list
+      .filter((item, index) => index % 8 === 0)
+      .map(item => {
+        const date = new Date(item.dt * 1000);
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+      });
 
     return { windData, labels };
   } catch (error) {
@@ -102,20 +96,18 @@ async function getAtmosphereData() {
     );
 
     const atmosphereData = response.data.list
-      .slice(0, 5)
+      .filter((item, index) => index % 8 === 0)
       .map(item => item.main.pressure);
 
-    const labels = response.data.list.slice(0, 5).map(item => {
-      const date = new Date(item.dt * 1000);
-      const day = date.getDate().toString().padStart(2, '0');
-      const month = (date.getMonth() + 1).toString().padStart(2, '0');
-      const year = date.getFullYear();
-      const hours = date.getHours();
-      const minutes = date.getMinutes();
-      return `${day}/${month}/${year} ${hours}:${
-        minutes < 10 ? '0' : ''
-      }${minutes}`;
-    });
+    const labels = response.data.list
+      .filter((item, index) => index % 8 === 0)
+      .map(item => {
+        const date = new Date(item.dt * 1000);
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+      });
 
     return { atmosphereData, labels };
   } catch (error) {
@@ -188,7 +180,7 @@ async function generateWeatherChart() {
             },
             title: {
               display: true,
-              text: 'Date[dd/mm/yyyy - hour/minutes]',
+              text: 'Date[dd/mm/yyyy]',
               color: 'rgb(100, 100, 100)',
               font: {
                 size: chartFont(),
