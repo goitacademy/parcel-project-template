@@ -1,9 +1,8 @@
 const apiKey = '07aed853a2b3116bf7e19dfeee63b968';
-const city = 'Dublin';
-
-const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+let apiUrl = '';
 
 async function fetchWeatherData() {
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
@@ -61,13 +60,12 @@ function updateForecast(data) {
 
     const temperatureElement = document.createElement('div');
     temperatureElement.classList.add('temperature');
-    const minTempKelvin = firstItem.main.temp_min;
-    const maxTempKelvin = firstItem.main.temp_max;
-    const minTemp = Math.round(minTempKelvin - 273.15);
-    const maxTemp = Math.round(maxTempKelvin - 273.15);
+
+    const minTemp = Math.round(firstItem.main.temp_min);
+    const maxTemp = Math.round(firstItem.main.temp_max);
     temperatureElement.innerHTML = `<div class="temperature__deg"><div class="temperature__design">min</div>
-      <div class="temperature__data"> ${minTemp}&deg;C</div></div><span class="temperature__line"></span><div class="temperature__deg"><div class="temperature__design" > max</div>
-    <div class="temperature__data"> ${maxTemp}&deg;C</div></div>`;
+                    <div class="temperature__data"> ${minTemp}&deg;C</div></div><span class="temperature__line"></span><div class="temperature__deg"><div class="temperature__design" > max</div>
+                <div class="temperature__data"> ${maxTemp}&deg;C</div></div>`;
     allInfo.appendChild(temperatureElement);
     const moreButton = document.createElement('button');
     moreButton.classList.add('more-btn');
@@ -77,7 +75,8 @@ function updateForecast(data) {
   }
 }
 
-function getDayOfWeek(date) {
+function getDayOfWeek(timestamp) {
+  const date = new Date(timestamp * 1000);
   const daysOfWeek = [
     'Sunday',
     'Monday',
@@ -94,5 +93,26 @@ function formatDate(date) {
   const options = { month: 'short', day: 'numeric' };
   return date.toLocaleDateString('en-US', options);
 }
+const searchBarInput = document.querySelector('.search-bar_input');
+let city = '';
 
-fetchWeatherData();
+searchBarInput.addEventListener('input', function () {
+  city = searchBarInput.value;
+});
+
+const fiveDaysButton = document.getElementById('five-days');
+fiveDaysButton.addEventListener('click', function () {
+  const backgroundColor = document.querySelector('.future-forecast');
+  backgroundColor.style.backgroundColor = '#102136cc';
+  const cancelBtn = document.querySelector('.cancel');
+  cancelBtn.style.display = 'block';
+  const searchBarInput = document.querySelector('.search-bar_input');
+  const newCity = searchBarInput.value;
+  fetchWeatherData(newCity);
+});
+const cancelBtn = document.querySelector('.cancel');
+const display = document.querySelector('.future-forecast');
+
+cancelBtn.addEventListener('click', function () {
+  display.style.display = 'none';
+});
