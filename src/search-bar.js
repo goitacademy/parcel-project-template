@@ -1,5 +1,7 @@
 import { fetchCityImage } from './background.js';
 import { displayCurrentTime } from './display_currentdate.js';
+import { updateTimeForCity } from './display_citydate.js';
+import { updateTimeWithTimeZone } from './display_citydate.js';
 
 const Key = '07aed853a2b3116bf7e19dfeee63b968';
 
@@ -44,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
       behavior: 'smooth',
     });
   });
-  displayCurrentTime();
+
   function fetchWeather(cityName) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${Key}`;
     fetch(url)
@@ -58,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
               document.body.style.backgroundSize = 'cover';
               document.body.style.backgroundPosition = 'center';
               document.body.style.backgroundRepeat = 'no-repeat';
-
+              displayCurrentTime();
               const timezoneOffset = data.timezone / 3600;
               document.body.style.height = '954px';
               updateTimeForCity(cityName);
@@ -138,6 +140,5 @@ document.addEventListener('DOMContentLoaded', function () {
       navigator.geolocation.getCurrentPosition(success, error);
     });
   };
-
   findCityLocation();
 });
