@@ -1,5 +1,4 @@
 export function displayCurrentTime() {
-  let timezoneOffset = 0;
 
   const currentDate = new Date();
   const dayDisplay = document.getElementById('dayDisplay');
