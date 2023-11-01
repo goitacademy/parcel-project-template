@@ -1,4 +1,4 @@
-const apiKey = '6216a81b549dd86d0e4b82bf256e85c0';
+const apiKey = '07aed853a2b3116bf7e19dfeee63b968';
 const city = 'Paris';
 
 const cardsContainer = document.querySelector('.days');
@@ -81,7 +81,7 @@ function convertPressureToMmHg(pressureInhPa) {
 }
 
 fetch(
-  `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`
+  `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`
 )
   .then(response => response.json())
   .then(hourlyData => {
@@ -96,7 +96,7 @@ fetch(
         .toString()
         .padStart(2, '0')}`;
 
-      const hourTemperature = `${Math.round(hourData.main.temp - 273.15)}°C`;
+      const hourTemperature = `${Math.round(hourData.main.temp)}°C`;
       const hourPressureInMmHg = `${convertPressureToMmHg(
         hourData.main.pressure
       )} mm`;
