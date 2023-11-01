@@ -60,7 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
               document.body.style.backgroundSize = 'cover';
               document.body.style.backgroundPosition = 'center';
               document.body.style.backgroundRepeat = 'no-repeat';
-              const timezoneOffset = data.timezone / 3600;
+            const timezoneOffset = data.timezone / 3600;
+              document.body.style.height = '954px';
               updateTimeForCity(cityName);
               updateTimeWithTimeZone(timezoneOffset);
             })
