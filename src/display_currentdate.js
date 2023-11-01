@@ -1,5 +1,4 @@
 export function displayCurrentTime() {
-
   const currentDate = new Date();
   const dayDisplay = document.getElementById('dayDisplay');
   const monthDisplay = document.getElementById('monthDisplay');
