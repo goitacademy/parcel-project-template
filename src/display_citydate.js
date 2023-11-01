@@ -17,10 +17,14 @@ export function updateTimeForCity(cityName) {
       if (data.cod === 200) {
         const sunriseTime = new Date(
           data.sys.sunrise * 1000
-        ).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        ).toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+        });
         const sunsetTime = new Date(data.sys.sunset * 1000).toLocaleTimeString(
           [],
-          { hour: '2-digit', minute: '2-digit' }
+          { hour: '2-digit', minute: '2-digit', hour12: false }
         );
         sunriseDisplay.textContent = `${sunriseTime}`;
         sunsetDisplay.textContent = `${sunsetTime}`;
@@ -33,7 +37,7 @@ export function updateTimeForCity(cityName) {
     );
 }
 
-export function updateClockWithTimeZone(data) {
+export function updateTimeWithTimeZone(data) {
   const currentTime = new Date();
   let localTimeToGMT = data.locationTimezone / 3600;
   let searchedCityToGMT = data.timezone / 3600;
@@ -82,6 +86,6 @@ export function updateClockWithTimeZone(data) {
   const formattedMin = String(currentTime.getMinutes()).padStart(2, '0');
   const formattedSec = String(currentTime.getSeconds()).padStart(2, '0');
 
-  const clockElement = document.querySelector('.dateDisplay__hour');
-  clockElement.textContent = `${formattedHour}:${formattedMin}:${formattedSec}`;
+  const timeElement = document.querySelector('.dateDisplay__hour');
+  timeElement.textContent = `${formattedHour}:${formattedMin}:${formattedSec}`;
 }
