@@ -1,8 +1,8 @@
 import { fetchCityImage } from './background.js';
+//import { todayWeather } from './today.js';
 import { displayCurrentTime } from './display_currentdate.js';
 import { updateTimeForCity } from './display_citydate.js';
 import { updateTimeWithTimeZone } from './display_citydate.js';
-
 const Key = '07aed853a2b3116bf7e19dfeee63b968';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -60,6 +60,7 @@ displayCurrentTime()
               document.body.style.backgroundSize = 'cover';
               document.body.style.backgroundPosition = 'center';
               document.body.style.backgroundRepeat = 'no-repeat';
+              // todayWeather(cityName);
         
               const timezoneOffset = data.timezone / 3600;
               document.body.style.height = '954px';
