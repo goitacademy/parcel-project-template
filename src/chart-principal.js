@@ -1,6 +1,6 @@
 async function getWeatherData() {
-  const API_KEY = '07aed853a2b3116bf7e19dfeee63b968';
-  const city = 'Cluj-Napoca';
+  const API_KEY = 'b020e77384bc7c2bb3dc12335a4ea0e7';
+  const city = 'Bucharest';
 
   try {
     const response = await axios.get(
@@ -31,7 +31,7 @@ async function getWeatherData() {
 }
 
 async function getHumidityData() {
-  const API_KEY = '07aed853a2b3116bf7e19dfeee63b968';
+  const API_KEY = 'b020e77384bc7c2bb3dc12335a4ea0e7';
   const city = 'Bucharest';
 
   try {
@@ -61,8 +61,39 @@ async function getHumidityData() {
   }
 }
 
+async function getAirPollutionData() {
+  const API_KEY = 'b020e77384bc7c2bb3dc12335a4ea0e7';
+  const city = 'Bucharest';
+
+  try {
+    const response = await axios.get(
+      `http://api.openweathermap.org/data/2.5/air_pollution/history?lat=508&lon=50&start=1606223802&end=1606482999&appid=${API_KEY}`
+    );
+
+    const AirPollutionData = response.data.list
+      .slice(0, 5)
+      .map(item => item.main.AirPollution);
+    const labels = response.data.list.slice(0, 5).map(item => {
+      const date = new Date(item.dt * 1000);
+      const day = date.getDate().toString().padStart(2, '0');
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
+      const year = date.getFullYear();
+      const hours = date.getHours();
+      const minutes = date.getMinutes();
+      return `${day}/${month}/${year} ${hours}:${
+        minutes < 10 ? '0' : ''
+      }${minutes}`;
+    });
+
+    return { AirPollutionData, labels };
+  } catch (error) {
+    console.error('Eroare la obținerea datelor de Poluatie a aerului:', error);
+    return null;
+  }
+}
+
 async function getWindData() {
-  const API_KEY = '07aed853a2b3116bf7e19dfeee63b968';
+  const API_KEY = 'b020e77384bc7c2bb3dc12335a4ea0e7';
   const city = 'Bucharest';
 
   try {
@@ -93,7 +124,7 @@ async function getWindData() {
 }
 
 async function getAtmosphereData() {
-  const API_KEY = '07aed853a2b3116bf7e19dfeee63b968';
+  const API_KEY = 'b020e77384bc7c2bb3dc12335a4ea0e7';
   const city = 'Bucharest';
 
   try {
@@ -132,6 +163,7 @@ async function generateWeatherChart() {
   const humidityData = await getHumidityData();
   const windData = await getWindData();
   const atmosphereData = await getAtmosphereData();
+  const AirPollutionData = await getAirPollutionData();
   if (weatherData) {
     const ctx = document.getElementById('myChart').getContext('2d');
     const chartFont = () => {
@@ -170,6 +202,13 @@ async function generateWeatherChart() {
           {
             label: 'Atmosphere pressure',
             data: atmosphereData.atmosphereData,
+            borderColor: 'rgb(6, 120, 6)',
+            borderWidth: 2,
+            fill: false,
+          },
+          {
+            label: 'Air Pollution',
+            data: AirPollutionData.airpollutionData,
             borderColor: 'rgb(6, 120, 6)',
             borderWidth: 2,
             fill: false,
@@ -265,3 +304,21 @@ function activateChartContainer() {
     toggleButton.innerText = 'Show Chart';
   }
 }
+
+/* add Event
+
+var activateButton = document.getElementById('5-days-button');
+activateButton.addEventListener('click', activateChartContainer);
+
+function deactivateChartContainer() {
+  var chartContainer = document.querySelector('.chart-container');
+  if (chartContainer) {
+    chartContainer.classList.add('hidden');
+    localStorage.setItem('chartContainerDeactivated', 'true');
+  }
+}
+
+var deactivateButton = document.getElementById('today-button');
+deactivateButton.addEventListener('click', deactivateChartContainer); 
+
+*/
