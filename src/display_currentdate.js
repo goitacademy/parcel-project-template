@@ -1,4 +1,4 @@
-function displayCurrentTime() {
+export function displayCurrentTime() {
   let timezoneOffset = 0;
 
   const currentDate = new Date();
@@ -88,4 +88,3 @@ function displayCurrentTime() {
     });
   }
 }
-displayCurrentTime();
