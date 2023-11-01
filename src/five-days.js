@@ -1,6 +1,7 @@
 const apiKey = '07aed853a2b3116bf7e19dfeee63b968';
 const city = 'Dublin';
-const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
+
+const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
 
 async function fetchWeatherData() {
   try {
@@ -75,8 +76,6 @@ function updateForecast(data) {
     forecastItems.appendChild(allInfo);
   }
 }
-
-// A "getDayOfWeek" és "formatDate" függvények implementációjától függően azokat is módosíthatod az új dátumformátumhoz és a nap nevének megjelenítéséhez.
 
 function getDayOfWeek(date) {
   const daysOfWeek = [
