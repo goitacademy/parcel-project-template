@@ -15,20 +15,24 @@ async function fetchWeatherData() {
 
 function updateForecast(data) {
   const forecastItems = document.getElementById('weather-forecast');
-
   forecastItems.innerHTML = '';
 
   const dayMap = {};
+
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
 
   data.list.forEach(item => {
     const date = new Date(item.dt * 1000);
     const day = date.toDateString();
 
-    if (!dayMap[day]) {
-      dayMap[day] = [];
-    }
+    if (date >= tomorrow) {
+      if (!dayMap[day]) {
+        dayMap[day] = [];
+      }
 
-    dayMap[day].push(item);
+      dayMap[day].push(item);
+    }
   });
 
   for (const day in dayMap) {
@@ -39,10 +43,11 @@ function updateForecast(data) {
     allInfo.classList.add('all-about');
     const dayElement = document.createElement('div');
     dayElement.classList.add('day');
-    const date = new Date(firstItem.dt * 1000);
     dayElement.innerHTML = `<div class="day-name">${getDayOfWeek(
-      date
-    )}</div> <div class="date">${formatDate(date)}</div>`;
+      firstItem.dt
+    )}</div> <div class="date">${formatDate(
+      new Date(firstItem.dt * 1000)
+    )}</div>`;
     allInfo.appendChild(dayElement);
 
     const iconElement = document.createElement('img');
@@ -70,6 +75,8 @@ function updateForecast(data) {
     forecastItems.appendChild(allInfo);
   }
 }
+
+// A "getDayOfWeek" és "formatDate" függvények implementációjától függően azokat is módosíthatod az új dátumformátumhoz és a nap nevének megjelenítéséhez.
 
 function getDayOfWeek(date) {
   const daysOfWeek = [
