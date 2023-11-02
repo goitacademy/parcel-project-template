@@ -219,31 +219,6 @@ generateWeatherChart();
 const chartCanvas = document.getElementById('myChart');
 const toggleButton = document.getElementById('chartButton');
 
-window.addEventListener('load', function () {
-  const chartState = localStorage.getItem('chartContainerActivated');
-
-  if (chartState === 'true') {
-    chartCanvas.style.display = 'block';
-    toggleButton.innerText = 'Hide Chart';
-  } else {
-    chartCanvas.style.display = 'none';
-    toggleButton.innerText = 'Show Chart';
-  }
-});
-
-toggleButton.addEventListener('click', function (event) {
-  event.preventDefault();
-  if (chartCanvas.style.display === 'none') {
-    chartCanvas.style.display = 'block';
-    toggleButton.innerText = 'Hide Chart';
-    localStorage.setItem('chartContainerActivated', 'true');
-  } else {
-    chartCanvas.style.display = 'none';
-    toggleButton.innerText = 'Show Chart';
-    localStorage.setItem('chartContainerActivated', 'false');
-  }
-});
-
 chartCanvas.style.display = 'none';
 
 function activateChartContainer() {
@@ -259,7 +234,7 @@ function activateChartContainer() {
 }
 
 var activateButton = document.getElementsByClassName('five-days');
-activateButton.addEventListener('click', activateChartContainer);
+activateButton('click', activateChartContainer);
 
 function deactivateChartContainer() {
   var chartContainer = document.querySelector('.chart-container');
@@ -270,4 +245,4 @@ function deactivateChartContainer() {
 }
 
 var deactivateButton = document.getElementsByClassName('today-btn');
-deactivateButton.addEventListener('click', deactivateChartContainer);
+deactivateButton('click', deactivateChartContainer);
