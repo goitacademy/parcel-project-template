@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
       behavior: 'smooth',
     });
   });
+
   displayCurrentTime();
   function fetchWeather(cityName) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${Key}`;
@@ -119,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const cityName = data[0].name;
 
             fetchWeather(cityName);
+            todayWeather(cityName);
           } else {
             console.error('City not found.');
           }
