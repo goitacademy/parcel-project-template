@@ -44,6 +44,7 @@ todayBtn.addEventListener('click', e => {
   fiveDaysBtn.style.background = 'rgba(255, 255, 255, 0.5)';
   document.querySelector('.today-weather').style.display = 'block';
   todayWeather(cityName);
+  document.querySelector('.chart-container').hidden = 'true';
 });
 
 fiveDaysBtn.addEventListener('click', e => {
@@ -51,5 +52,6 @@ fiveDaysBtn.addEventListener('click', e => {
   fiveDaysBtn.style.background = 'white';
   todayBtn.style.background = 'rgba(255, 255, 255, 0.5)';
   document.querySelector('.today-weather').style.display = 'none';
+  document.querySelector('.chart-container').style.display = 'flex';
   // Here you would call a function to display five days forecast
 });
