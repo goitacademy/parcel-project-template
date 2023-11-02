@@ -1,12 +1,13 @@
+import axios from 'axios';
 import { fetchCityImage } from './background.js';
-//import { todayWeather } from './today.js';
+import { todayWeather } from './today.js';
 import { displayCurrentTime } from './display_currentdate.js';
 import { updateTimeForCity } from './display_citydate.js';
 import { updateTimeWithTimeZone } from './display_citydate.js';
+
 const Key = '07aed853a2b3116bf7e19dfeee63b968';
 
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('DOMContentLoaded fired');
   const form = document.querySelector('.search-bar');
   const searchBarInput = document.querySelector('.search-bar_input');
   const starIcon = document.querySelector('.search-bar_favorites-icon');
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const cityName = searchBarInput.value.trim();
     if (cityName) {
       fetchWeather(cityName);
+      todayWeather(cityName);
     }
   });
 
@@ -46,22 +48,21 @@ document.addEventListener('DOMContentLoaded', function () {
       behavior: 'smooth',
     });
   });
-displayCurrentTime()
+  displayCurrentTime();
   function fetchWeather(cityName) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${Key}`;
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
+    axios
+      .get(url)
+      .then(response => {
+        const data = response.data;
         if (data.cod === 200) {
           fetchCityImage(cityName)
             .then(imageUrl => {
-              console.log('Fetched Image URL:', imageUrl);
               document.body.style.backgroundImage = `url(${imageUrl})`;
               document.body.style.backgroundSize = 'cover';
               document.body.style.backgroundPosition = 'center';
               document.body.style.backgroundRepeat = 'no-repeat';
-              // todayWeather(cityName);
-        
+
               const timezoneOffset = data.timezone / 3600;
               document.body.style.height = '954px';
               updateTimeForCity(cityName);
@@ -106,21 +107,17 @@ displayCurrentTime()
   }
 
   const findCityLocation = () => {
-    console.log('findCityLocation called');
-
     const success = position => {
-      console.log('Location access allowed');
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
       const geoApiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${Key}`;
-      console.log('Latitude:', latitude, 'Longitude:', longitude);
 
       fetch(geoApiUrl)
         .then(res => res.json())
         .then(data => {
           if (data && data.length > 0) {
             const cityName = data[0].name;
-            console.log('Resolved City:', cityName);
+
             fetchWeather(cityName);
           } else {
             console.error('City not found.');
@@ -137,7 +134,6 @@ displayCurrentTime()
     navigator.geolocation.getCurrentPosition(success, error);
     const locationIcon = document.querySelector('.search-bar_location-icon');
     locationIcon.addEventListener('click', () => {
-      console.log('Location icon clicked');
       navigator.geolocation.getCurrentPosition(success, error);
     });
   };
