@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { fetchCityImage } from './background.js';
+//import { todayWeather } from './today.js';
 import { displayCurrentTime } from './display_currentdate.js';
 import { updateTimeForCity } from './display_citydate.js';
 import { updateTimeWithTimeZone } from './display_citydate.js';
