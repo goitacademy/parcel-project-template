@@ -246,32 +246,3 @@ toggleButton.addEventListener('click', function (event) {
 
 chartCanvas.style.display = 'none';
 
-function activateChartContainer() {
-  var chartContainer = document.querySelector('.chart-container');
-
-  if (chartContainer) {
-    chartContainer.classList.remove('hidden');
-    localStorage.setItem('chartContainerActivated', 'true');
-
-    var toggleButton = document.getElementById('chartButton');
-    toggleButton.innerText = 'Show Chart';
-  }
-}
-
-/* add Event
-
-var activateButton = document.getElementById('5-days-button');
-activateButton.addEventListener('click', activateChartContainer);
-
-function deactivateChartContainer() {
-  var chartContainer = document.querySelector('.chart-container');
-  if (chartContainer) {
-    chartContainer.classList.add('hidden');
-    localStorage.setItem('chartContainerDeactivated', 'true');
-  }
-}
-
-var deactivateButton = document.getElementById('today-button');
-deactivateButton.addEventListener('click', deactivateChartContainer); 
-
-*/

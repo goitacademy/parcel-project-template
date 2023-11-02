@@ -1,4 +1,5 @@
 const apiKey = '07aed853a2b3116bf7e19dfeee63b968';
+
 let apiUrl = '';
 
 async function fetchWeatherData() {
@@ -94,25 +95,9 @@ function formatDate(date) {
   return date.toLocaleDateString('en-US', options);
 }
 const searchBarInput = document.querySelector('.search-bar_input');
-let city = '';
 
 searchBarInput.addEventListener('input', function () {
   city = searchBarInput.value;
 });
 
-const fiveDaysButton = document.getElementById('five-days');
-fiveDaysButton.addEventListener('click', function () {
-  const backgroundColor = document.querySelector('.future-forecast');
-  backgroundColor.style.backgroundColor = '#102136cc';
-  const cancelBtn = document.querySelector('.cancel');
-  cancelBtn.style.display = 'block';
-  const searchBarInput = document.querySelector('.search-bar_input');
-  const newCity = searchBarInput.value;
-  fetchWeatherData(newCity);
-});
-const cancelBtn = document.querySelector('.cancel');
-const display = document.querySelector('.future-forecast');
-
-cancelBtn.addEventListener('click', function () {
-  display.style.display = 'none';
-});
+fetchWeatherData(); // Fetch data initially with the default city value
