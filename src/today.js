@@ -46,8 +46,6 @@ export async function todayWeather(cityName) {
   }
 }
 
-const cityName = searchBarInput.value.trim();
-
 todayBtn.addEventListener('click', e => {
   e.preventDefault();
   todayBtn.style.background = 'white';
