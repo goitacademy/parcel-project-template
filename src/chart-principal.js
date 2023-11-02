@@ -258,9 +258,7 @@ function activateChartContainer() {
   }
 }
 
-/* add Event
-
-var activateButton = document.getElementById('5-days-button');
+var activateButton = document.getElementById('five-days');
 activateButton.addEventListener('click', activateChartContainer);
 
 function deactivateChartContainer() {
@@ -272,6 +270,4 @@ function deactivateChartContainer() {
 }
 
 var deactivateButton = document.getElementById('today-button');
-deactivateButton.addEventListener('click', deactivateChartContainer); 
-
-*/
+deactivateButton.addEventListener('click', deactivateChartContainer);
