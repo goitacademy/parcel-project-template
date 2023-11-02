@@ -13,6 +13,16 @@ export async function todayWeather(cityName) {
     }
     var data = await response.json();
 
+  const heroWeatherIcon = document.querySelector('.hero-weather');
+  let iconToday = document.createElement('img');
+  const iconApi = data.weather[0].icon;
+  const iconLink = 'https://openweathermap.org/img/wn/${iconApi}@2x.png';
+  iconToday.classList.add('hero-weather__emoji');
+  iconToday.innerHTML = `
+  src="${iconLink}"
+  alt="${data.weather[0].description}"`;
+  heroWeatherIcon.prepend(iconToday);
+    
     // Update the DOM with new data
     document.querySelector('.hero-weather__city').textContent = data.name;
     document.querySelector('.hero-weather__degrees').textContent =
