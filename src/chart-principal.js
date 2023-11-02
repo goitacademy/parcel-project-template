@@ -219,30 +219,29 @@ generateWeatherChart();
 const chartCanvas = document.getElementById('myChart');
 const toggleButton = document.getElementById('chartButton');
 
-chartCanvas.style.display = 'none';
+window.addEventListener('load', function () {
+  const chartState = localStorage.getItem('chartContainerActivated');
 
-function activateChartContainer() {
-  var chartContainer = document.querySelector('.chart-container');
-
-  if (chartContainer) {
-    chartContainer.classList.remove('hidden');
-    localStorage.setItem('chartContainerActivated', 'true');
-
-    var toggleButton = document.getElementById('chartButton');
+  if (chartState === 'true') {
+    chartCanvas.style.display = 'block';
+    toggleButton.innerText = 'Hide Chart';
+  } else {
+    chartCanvas.style.display = 'none';
     toggleButton.innerText = 'Show Chart';
   }
-}
+});
 
-var activateButton = document.getElementsByClassName('five-days');
-activateButton('click', activateChartContainer);
-
-function deactivateChartContainer() {
-  var chartContainer = document.querySelector('.chart-container');
-  if (chartContainer) {
-    chartContainer.classList.add('hidden');
-    localStorage.setItem('chartContainerDeactivated', 'true');
+toggleButton.addEventListener('click', function (event) {
+  event.preventDefault();
+  if (chartCanvas.style.display === 'none') {
+    chartCanvas.style.display = 'block';
+    toggleButton.innerText = 'Hide Chart';
+    localStorage.setItem('chartContainerActivated', 'true');
+  } else {
+    chartCanvas.style.display = 'none';
+    toggleButton.innerText = 'Show Chart';
+    localStorage.setItem('chartContainerActivated', 'false');
   }
-}
+});
 
-var deactivateButton = document.getElementsByClassName('today-btn');
-deactivateButton('click', deactivateChartContainer);
+chartCanvas.style.display = 'none';
