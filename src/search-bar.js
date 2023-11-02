@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { fetchCityImage } from './background.js';
 import { displayCurrentTime } from './display_currentdate.js';
 import { updateTimeForCity } from './display_citydate.js';
@@ -46,12 +47,13 @@ document.addEventListener('DOMContentLoaded', function () {
       behavior: 'smooth',
     });
   });
-displayCurrentTime()
+  displayCurrentTime();
   function fetchWeather(cityName) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${Key}`;
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
+    axios
+      .get(url)
+      .then(response => {
+        const data = response.data;
         if (data.cod === 200) {
           fetchCityImage(cityName)
             .then(imageUrl => {
@@ -60,7 +62,7 @@ displayCurrentTime()
               document.body.style.backgroundSize = 'cover';
               document.body.style.backgroundPosition = 'center';
               document.body.style.backgroundRepeat = 'no-repeat';
-        
+
               const timezoneOffset = data.timezone / 3600;
               document.body.style.height = '954px';
               updateTimeForCity(cityName);
