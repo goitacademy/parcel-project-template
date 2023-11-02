@@ -22,6 +22,7 @@ export async function todayWeather(cityName) {
     document.querySelector('.values__max h5').textContent =
       Math.round(data.main.temp_max) + '°';
 
+
     // Update the weather icon based on the weather data
     const heroWeatherIcon = document.querySelector('.hero-weather');
     let iconToday = document.createElement('img');
@@ -32,12 +33,19 @@ export async function todayWeather(cityName) {
   src="${iconLink}"
   alt="${data.weather[0].description}"`;
     heroWeatherIcon.prepend(iconToday);
+
+    if (data.weather[0].main == 'Clouds') {
+      weatherIcon.src = './images/cloudy-today.jpg';
+    } else if (data.weather[0].main == 'Clear') {
+      weatherIcon.src = './images/sunny-today.png';
+    } else if (data.weather[0].main == 'Rain') {
+      weatherIcon.src = './images/rainy-today.png';
+    }
   } catch (error) {
     console.error('There was an error fetching the weather data:', error);
   }
 }
 
-// Event listeners for buttons
 todayBtn.addEventListener('click', e => {
   e.preventDefault();
   todayBtn.style.background = 'white';
@@ -54,4 +62,5 @@ fiveDaysBtn.addEventListener('click', e => {
   document.querySelector('.today-weather').style.display = 'none';
   document.querySelector('.chart-container').style.display = 'flex';
   // Here you would call a function to display five days forecast
+
 });
