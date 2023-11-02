@@ -258,8 +258,6 @@ function activateChartContainer() {
   }
 }
 
-/* add Event
-
 var activateButton = document.getElementById('5-days-button');
 activateButton.addEventListener('click', activateChartContainer);
 
@@ -272,6 +270,4 @@ function deactivateChartContainer() {
 }
 
 var deactivateButton = document.getElementById('today-button');
-deactivateButton.addEventListener('click', deactivateChartContainer); 
-
-*/
+deactivateButton.addEventListener('click', deactivateChartContainer);
