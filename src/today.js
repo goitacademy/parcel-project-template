@@ -20,18 +20,18 @@ export async function todayWeather(cityName) {
     document.querySelector('.values__max h5').textContent =
       Math.round(data.main.temp_max) + '°';
     // Update the weather icon based on the weather data
-    const heroWeatherIcon = document.querySelector('.hero-weather');
-    let iconToday = document.createElement('img');
-    const iconApi = data.weather[0].icon;
-    const iconLink = 'https://openweathermap.org/img/wn/${iconApi}@2x.png';
-    iconToday.classList.add('hero-weather__emoji');
-    iconToday.innerHTML = `
-  src=“${iconLink}”
-  alt=“${data.weather[0].description}“`;
-    heroWeatherIcon.prepend(iconToday);
   } catch (error) {
     console.error('There was an error fetching the weather data:', error);
   }
+  const heroWeatherIcon = document.querySelector('.hero-weather');
+  let iconToday = document.createElement('img');
+  iconToday.classList.add('hero-weather__emoji');
+  const iconApi = data.weather[0].icon;
+  const iconLink = 'https://openweathermap.org/img/wn/${iconApi}@2x.png';
+  iconToday.innerHTML = `
+  src=“${iconLink}”
+  alt=“${data.weather[0].description}“`;
+  heroWeatherIcon.prepend(iconToday);
 }
 // Event listeners for buttons
 todayBtn.addEventListener('click', e => {
