@@ -43,8 +43,8 @@ todayBtn.addEventListener('click', e => {
   todayBtn.style.background = 'white';
   fiveDaysBtn.style.background = 'rgba(255, 255, 255, 0.5)';
   document.querySelector('.today-weather').style.display = 'block';
+  document.querySelector('.chart-container').style.display = 'none';
   todayWeather(cityName);
-  document.querySelector('.chart-container').hidden = 'true';
 });
 
 fiveDaysBtn.addEventListener('click', e => {
