@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
           if (data && data.length > 0) {
             const cityName = data[0].name;
+
             fetchWeather(cityName);
             todayWeather(cityName);
           } else {
