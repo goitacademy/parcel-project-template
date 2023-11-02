@@ -1,5 +1,4 @@
 const apiKey = '07aed853a2b3116bf7e19dfeee63b968';
-let apiUrl = '';
 
 async function fetchWeatherData() {
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
