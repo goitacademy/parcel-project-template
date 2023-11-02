@@ -13,16 +13,6 @@ export async function todayWeather(cityName) {
     }
     var data = await response.json();
 
-  const heroWeatherIcon = document.querySelector('.hero-weather');
-  let iconToday = document.createElement('img');
-  const iconApi = data.weather[0].icon;
-  const iconLink = 'https://openweathermap.org/img/wn/${iconApi}@2x.png';
-  iconToday.classList.add('hero-weather__emoji');
-  iconToday.innerHTML = `
-  src="${iconLink}"
-  alt="${data.weather[0].description}"`;
-  heroWeatherIcon.prepend(iconToday);
-    
     // Update the DOM with new data
     document.querySelector('.hero-weather__city').textContent = data.name;
     document.querySelector('.hero-weather__degrees').textContent =
@@ -31,6 +21,18 @@ export async function todayWeather(cityName) {
       Math.round(data.main.temp_min) + '°';
     document.querySelector('.values__max h5').textContent =
       Math.round(data.main.temp_max) + '°';
+
+
+    // Update the weather icon based on the weather data
+    const heroWeatherIcon = document.querySelector('.hero-weather');
+    let iconToday = document.createElement('img');
+    const iconApi = data.weather[0].icon;
+    const iconLink = 'https://openweathermap.org/img/wn/${iconApi}@2x.png';
+    iconToday.classList.add('hero-weather__emoji');
+    iconToday.innerHTML = `
+  src="${iconLink}"
+  alt="${data.weather[0].description}"`;
+    heroWeatherIcon.prepend(iconToday);
 
     if (data.weather[0].main == 'Clouds') {
       weatherIcon.src = './images/cloudy-today.jpg';
@@ -49,6 +51,7 @@ todayBtn.addEventListener('click', e => {
   todayBtn.style.background = 'white';
   fiveDaysBtn.style.background = 'rgba(255, 255, 255, 0.5)';
   document.querySelector('.today-weather').style.display = 'block';
+  document.querySelector('.chart-container').style.display = 'none';
   todayWeather(cityName);
 });
 
@@ -57,4 +60,7 @@ fiveDaysBtn.addEventListener('click', e => {
   fiveDaysBtn.style.background = 'white';
   todayBtn.style.background = 'rgba(255, 255, 255, 0.5)';
   document.querySelector('.today-weather').style.display = 'none';
+  document.querySelector('.chart-container').style.display = 'flex';
+  // Here you would call a function to display five days forecast
+
 });
