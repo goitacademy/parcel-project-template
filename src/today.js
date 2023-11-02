@@ -22,7 +22,6 @@ export async function todayWeather(cityName) {
     document.querySelector('.values__max h5').textContent =
       Math.round(data.main.temp_max) + '°';
 
-    // Update the weather icon based on the weather data
     if (data.weather[0].main == 'Clouds') {
       weatherIcon.src = './images/cloudy-today.jpg';
     } else if (data.weather[0].main == 'Clear') {
@@ -35,7 +34,6 @@ export async function todayWeather(cityName) {
   }
 }
 
-// Event listeners for buttons
 todayBtn.addEventListener('click', e => {
   e.preventDefault();
   todayBtn.style.background = 'white';
@@ -49,5 +47,4 @@ fiveDaysBtn.addEventListener('click', e => {
   fiveDaysBtn.style.background = 'white';
   todayBtn.style.background = 'rgba(255, 255, 255, 0.5)';
   document.querySelector('.today-weather').style.display = 'none';
-  // Here you would call a function to display five days forecast
 });
