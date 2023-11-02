@@ -18,13 +18,15 @@ async function todayWeather(cityName) {
   document.querySelector('.values__max h5').innerHTML =
     Math.round(data.main.temp_max) + '°';
 
-  if (data.weather[0].main == 'Clouds') {
-    weatherIcon.src = './images/cloudy-today.jpg';
-  } else if (data.weather[0].main == 'Clear') {
-    weatherIcon.src = './images/sunny-today.png';
-  } else if (data.weather[0].main == 'Rain') {
-    weatherIcon.src = './images/snowy-today.png';
-  }
+  const heroWeatherIcon = document.querySelector('.hero-weather');
+  let iconToday = document.createElement('img');
+  const iconApi = data.weather[0].icon;
+  const iconLink = 'https://openweathermap.org/img/wn/${iconApi}@2x.png';
+  iconToday.classList.add('hero-weather__emoji');
+  iconToday.innerHTML = `
+  src="${iconLink}"
+  alt="${data.weather[0].description}"`;
+  heroWeatherIcon.prepend(iconToday);
 }
 
 todayWeather();
