@@ -1,5 +1,4 @@
 const apiKey = '07aed853a2b3116bf7e19dfeee63b968';
-
 let apiUrl = '';
 
 async function fetchWeatherData() {
@@ -95,9 +94,34 @@ function formatDate(date) {
   return date.toLocaleDateString('en-US', options);
 }
 const searchBarInput = document.querySelector('.search-bar_input');
+const fiveDaysButton = document.querySelector('.five-days');
+const cancelButton = document.querySelector('.today-btn');
+const futureForecastSection = document.querySelector('.future-forecast');
+const todayEl = document.querySelector('.dateDisplay-container');
+const moreInfo = document.querySelector('.more-btn');
+const daySection = document.querySelector('days');
 
-searchBarInput.addEventListener('input', function () {
-  city = searchBarInput.value;
+fiveDaysButton.addEventListener('click', function () {
+  futureForecastSection.style.display = 'block';
+  futureForecastSection.style.backgroundColor = '#102136cc';
+  todayEl.style.display = 'none';
+  fetchWeatherData(searchBarInput.value);
 });
 
-fetchWeatherData(); // Fetch data initially with the default city value
+cancelButton.addEventListener('click', function () {
+  futureForecastSection.style.display = 'none';
+  todayEl.style.display = 'flex';
+});
+
+async function fetchWeatherData(city) {
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    updateForecast(data);
+  } catch (error) {
+    console.error('Error fetching weather data:', error);
+  }
+}
+
+searchBarInput.addEventListener('input', function () {});

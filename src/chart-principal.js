@@ -245,4 +245,3 @@ toggleButton.addEventListener('click', function (event) {
 });
 
 chartCanvas.style.display = 'none';
-
