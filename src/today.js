@@ -13,7 +13,7 @@ export async function todayWeather(cityName) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     var data = await response.json();
-
+    console.log(data);
     document.querySelector('.hero-weather__city').textContent = data.name;
     document.querySelector('.hero-weather__degrees').textContent =
       Math.round(data.main.temp) + '°';
