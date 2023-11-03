@@ -1,0 +1,133 @@
+#myChart {
+  background: rgba(16, 33, 54, 0.8);
+  width: 1034px;
+  height: 412px;
+}
+
+.chart-container {
+  display: none;
+  flex-direction: column;
+  padding: 0px 20px 20px 20px;
+  border-radius: 40px;
+  margin-top: 50px;
+  background: rgba(16, 33, 54, 0.8);
+  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.8);
+}
+
+.chart-content {
+  display: flex;
+  justify-content: center;
+  width: 1248px;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  background: rgba(16, 33, 54, 0.8);
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.8);
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0px;
+}
+
+@media (max-width: 480px) {
+  .chart-container {
+    overflow-x: auto;
+  }
+  #myChart {
+    max-width: 100%;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .chart-container {
+    width: 768px;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+  #myChart {
+    max-width: 100%;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .chart-container {
+    width: 1280px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+  #myChart {
+    max-width: 100%;
+    font-size: 16px;
+  }
+}
+
+$speed: 0.5s;
+
+.btn-flip {
+  opacity: 1;
+  outline: 0;
+  background-color: #102136cc;
+  color: #ff6b09;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Open Sans';
+  text-transform: capitalize;
+  border-radius: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  &:hover {
+    cursor: pointer;
+    &:after {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+    }
+
+    &:before {
+      opacity: 0;
+      transform: translateY(50%) rotateX(90deg);
+    }
+  }
+
+  &:after {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: #323237;
+    display: block;
+    transition: $speed;
+    position: absolute;
+    background: #adadaf;
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+    border-color: #adadaf;
+  }
+
+  &:before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: #adadaf;
+    border-color: #adadaf;
+    display: block;
+    padding: 0 30px;
+    line-height: 40px;
+    transition: $speed;
+    position: relative;
+    background: #323237;
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+  }
+}
+// TODO to change the color!! //
