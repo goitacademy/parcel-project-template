@@ -11,6 +11,7 @@ export async function todayWeather(cityName) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     var data = await response.json();
+    console.log(data);
     // Update the DOM with new data
     document.querySelector('.hero-weather__city').textContent = data.name;
     document.querySelector('.hero-weather__degree').textContent =
@@ -27,10 +28,9 @@ export async function todayWeather(cityName) {
   let iconToday = document.createElement('img');
   iconToday.classList.add('hero-weather__emoji');
   const iconApi = data.weather[0].icon;
-  const iconLink = 'https://openweathermap.org/img/wn/${iconApi}@2x.png';
-  iconToday.innerHTML = `
-  src=“${iconLink}”
-  alt=“${data.weather[0].description}“`;
+  const iconLink = `https://openweathermap.org/img/wn/${iconApi}@2x.png`;
+  iconToday.src = iconLink;
+  iconToday.alt = data.weather[0].description;
   heroWeatherIcon.prepend(iconToday);
 }
 // Event listeners for buttons
