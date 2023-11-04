@@ -23,6 +23,7 @@ function showReviews() {
     }
 }
 
+
 showReviews();
 
 function currentDiv(n) {
@@ -49,6 +50,7 @@ for (var i = 0; i < bullets.length; i++) {
         currentDiv(index);
     });
 }
+
 
 
 
@@ -85,4 +87,27 @@ for (var i = 0; i < bullets.length; i++) {
         openMenuBtn.setAttribute('aria-expanded', false);
         bodyScrollLock.enableBodyScroll(document.body);
     });
+})();
+
+
+
+
+
+(() => {
+    const refs = {
+        openModalBtn: document.querySelector("[data-modal-open]"),
+        closeModalBtn: document.querySelector("[data-modal-close]"),
+        modal: document.querySelector("[data-modal]"),
+
+        openModalBtn: document.querySelector("[data-modal-open-subscribe]"),
+        closeModalBtn: document.querySelector("[data-modal-close-subscribe]"),
+        modal: document.querySelector("[data-modal-subscribe]"),
+    };
+
+    refs.openModalBtn.addEventListener("click", toggleModal);
+    refs.closeModalBtn.addEventListener("click", toggleModal);
+
+    function toggleModal() {
+        refs.modal.classList.toggle("is-hidden");
+    }
 })();
