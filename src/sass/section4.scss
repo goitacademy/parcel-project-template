@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+.sellers-section {
+  margin-bottom: 73px;
+}
+
 .top-sellers-title {
   margin-bottom: 32px;
   font-weight: 600;
@@ -22,13 +26,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 32px 16px;
-  margin-bottom: 20px;
 }
 
 .sellers-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.sellers-item:first-child {
+  margin-bottom: -12px;
 }
 
 .sellers-item:nth-child(2) {
@@ -55,6 +62,8 @@
 .top-sellers-modal-btn {
   display: flex;
   justify-content: center;
+  height: 41px;
+  margin-top: 20px;
 }
 
 .top-sellers-buy-now-btn {
@@ -67,6 +76,26 @@
   color: var(--white-color);
   background-color: rgba(253, 146, 34, 1);
   border: transparent;
+  cursor: pointer;
+}
+
+.top-sellers-buy-now-btn:hover,
+.top-sellers-buy-now-btn:focus {
+  color: var(--highlight-color);
+  background-color: var(--hover-beige-color);
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.buy-now-modal {
+  // position: fixed;
+  transition: var(--transition);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-overlay {
@@ -80,7 +109,7 @@
   padding: 20px 0;
   background-color: #0000004d;
   backdrop-filter: blur(2px);
-  transition: opacity 0.5s linear, visibility 0.5s linear;
+  transition: var(--transition);
 }
 
 .modal-open {
@@ -96,12 +125,12 @@
   margin: 20px auto;
   background: #fafafa;
   border-radius: 15px;
+  z-index: 100;
 }
 
 .is-hidden {
   visibility: hidden;
-  opacity: 0.5;
-  transition: var(--transition);
+  transition: transform var(--transition);
   transform: scale(0);
   pointer-events: auto;
 }
@@ -122,6 +151,12 @@
   width: 24px;
   height: 24px;
   cursor: pointer;
+}
+
+.icon-close:active,
+.icon-close:hover {
+  stroke: var(--highlight-color);
+  transition: stroke var(--transition);
 }
 
 .modal-content-title {
@@ -173,13 +208,13 @@
   justify-content: center;
   align-items: flex-start;
   margin: 0;
-  padding: 6px 16px;
-  background: #fafafa;
-  border: 1px solid rgba(17, 17, 17, 0.1);
-  border-radius: 100px;
+  color: var(--main-color);
   font-weight: 600;
-  font-size: 14px;
   line-height: 17px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: #fafafa;
 }
 
 .buy-now-modal-input {
@@ -210,6 +245,9 @@ textarea::placeholder {
   padding: 3.938px 5.029px 4.177px 5.029px;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  right: 14px;
+  top: calc(50% - 10.5px);
 }
 
 .buy-now-input-container {
@@ -236,12 +274,6 @@ textarea::placeholder {
   padding-right: 5px;
   border-right: 1px solid rgba(64, 64, 64, 0.3);
   top: calc(50% - 9px);
-}
-
-.icon-mastercard {
-  position: absolute;
-  right: 14px;
-  top: calc(50% - 10.5px);
 }
 
 .buy-now-label-text {
@@ -280,12 +312,14 @@ textarea {
   color: var(--white-color);
   background-color: rgba(253, 146, 34, 1);
   border: transparent;
+  cursor: pointer;
 }
 
-::placeholder,
-textarea::placeholder {
-  font-size: 18px;
-  letter-spacing: -0.36px;
+.top-sellers-send-btn:hover,
+.top-sellers-send-btn:focus {
+  color: var(--highlight-color);
+  background-color: var(--hover-beige-color);
+  transition: color var(--transition), background-color var(--transition);
 }
 
 /* Tablet */
@@ -296,12 +330,15 @@ textarea::placeholder {
     position: relative;
   }
 
+  .sellers-section {
+    margin-bottom: 0;
+  }
+
   .top-sellers-title {
     font-size: 24px;
   }
 
   .sellers-items {
-    margin-bottom: 32px;
     flex-direction: row;
   }
 
@@ -320,12 +357,17 @@ textarea::placeholder {
     max-width: 344px;
   }
 
+  .top-sellers-modal-btn {
+    height: 0;
+    margin-top: 0;
+  }
+
   .top-sellers-buy-now-btn {
     width: 162px;
     height: 50px;
     position: absolute;
     right: 0;
-    bottom: 62px;
+    bottom: 30px;
     padding: 14px 40px;
   }
 
@@ -366,11 +408,6 @@ textarea::placeholder {
     padding: 24px 20px 18px;
   }
 
-  .order-weight {
-    font-size: 14px;
-    font-weight: 600;
-  }
-
   .buy-now-label-text {
     font-size: 14px;
     line-height: 18px; /* 128.571% */
@@ -378,10 +415,8 @@ textarea::placeholder {
   }
 
   .buy-now-input-container {
-    display: flex;
     flex-direction: row;
     gap: 21px;
-    position: relative;
     margin-top: 8px;
     margin-bottom: 18px;
   }
@@ -427,9 +462,9 @@ textarea::placeholder {
   }
 
   .icon-frame + span {
-    padding-right: 14px;
     font-size: 18px;
     padding-left: 52px;
+    padding-right: 14px;
     top: calc(50% - 11px);
   }
 
@@ -444,25 +479,24 @@ textarea::placeholder {
   }
 
   .icon-mastercard {
-    display: flex;
     width: 44px;
     height: 30px;
     padding: 5.625px 6.914px 5.967px 6.914px;
-    justify-content: center;
-    align-items: center;
     right: 24px;
     top: calc(50% - 15px);
   }
 
   textarea {
-    display: flex;
     width: 513px;
     padding: 22px 24px 93px 24px;
-    align-items: flex-start;
-    gap: 40px;
     font-size: 18px;
     border-radius: 13px;
-    order: 1.5px solid rgba(17, 17, 17, 0.05);
+  }
+
+  ::placeholder,
+  textarea::placeholder {
+    font-size: 18px;
+    letter-spacing: -0.36px;
   }
 
   input[type='text'],
@@ -499,6 +533,6 @@ textarea::placeholder {
   }
 
   .top-sellers-buy-now-btn {
-    bottom: 45px;
+    bottom: 14px;
   }
 }
