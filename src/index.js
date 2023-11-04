@@ -23,6 +23,7 @@ function showReviews() {
     }
 }
 
+
 showReviews();
 
 function currentDiv(n) {
@@ -49,6 +50,7 @@ for (var i = 0; i < bullets.length; i++) {
         currentDiv(index);
     });
 }
+
 
 
 
