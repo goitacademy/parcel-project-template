@@ -58,7 +58,8 @@ p {
         height: 270px;
         border: 1px solid var(--orange-color);
         border-radius: 15px;
-        /*backface-visibility: hidden;*/
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
         /*transform-style: preserve-3d;
         transition: transform .8s ease-in-out;*/
     }
@@ -69,14 +70,17 @@ p {
 
     .front-2 {
         background-color: var(--white-font);
-        border: 1px solid var(--orange-color);
+
     }
 
     .front-3 {
         background-color: #1E1823;
+        border:none;
     }
 }
-
+.front-detail :nth-child(3){
+    border: transparent;
+}
 .card-taste:nth-child(odd) {
     color: var(--white-font);
 }
@@ -119,7 +123,7 @@ p {
     height: 270px;
     border-radius: 15px;
     backface-visibility: hidden;
-    visibility: hidden;
+    /*visibility: hidden;
     /*transform-style: preserve-3d;
     transition: transform .8s ease-in-out;
     transform: 400ms cubic-bezier(.4, 0, .2, 1);*/
@@ -129,7 +133,7 @@ p {
 .bg-details {
     width: 279px;
     height: 214px;
-    position: static;
+    position: absolute;
     top: 28px;
     left: 28px;
     /*transform: translateZ(100px) scale(.86);*/
@@ -264,22 +268,26 @@ p {
     }
 }
 
-.box {display: block;
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: scale(1);
+.front-detail{
+    
         transform-style: preserve-3d;
         transition: transform .8s ease-in-out;
-        background: var(--orange-color);
-        border-radius: 15px;
+        transform: scale(1);
+
 }
 
+.card-taste:hover .front-detail {
+    transform: rotateY(180deg);
+}
 
+.background-details {
+    backface-visibility: visible;
+    transform: rotateY(180deg);
+}
+
+/*
 .box {
-    /*transform: rotateY(180deg);*/
+    /*transform: rotateY(180deg);
     transform-style: preserve-3d;
     transition: transform .8s ease-in-out;
     content:"";
@@ -287,7 +295,6 @@ p {
     &.box:hover {transform: rotateY(180deg);
         transform-style: preserve-3d;
         transition: transform .8s ease-in-out;
-        content: "";
         transform: scale(1);
 
     }
@@ -330,5 +337,4 @@ p {
         &:hover {
             transform: translateY (100px) scale(.86);
         }
-    }
-}
+    }*/
