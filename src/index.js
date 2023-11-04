@@ -92,22 +92,23 @@ for (var i = 0; i < bullets.length; i++) {
 
 
 
-
 (() => {
-    const refs = {
-        openModalBtn: document.querySelector("[data-modal-open]"),
-        closeModalBtn: document.querySelector("[data-modal-close]"),
-        modal: document.querySelector("[data-modal]"),
+    const openModalBtnReviews = document.querySelector("[data-modal-open-reviews]");
+    const closeModalBtnReviews = document.querySelector("[data-modal-close-reviews]");
+    const modalReviews = document.querySelector("[data-modal-reviews]");
 
-        openModalBtn: document.querySelector("[data-modal-open-subscribe]"),
-        closeModalBtn: document.querySelector("[data-modal-close-subscribe]"),
-        modal: document.querySelector("[data-modal-subscribe]"),
-    };
+    const openModalBtnSubscribe = document.querySelector("[data-modal-open-subscribe]");
+    const closeModalBtnSubscribe = document.querySelector("[data-modal-close-subscribe]");
+    const modalSubscribe = document.querySelector("[data-modal-subscribe]");
 
-    refs.openModalBtn.addEventListener("click", toggleModal);
-    refs.closeModalBtn.addEventListener("click", toggleModal);
+    openModalBtnReviews.addEventListener("click", toggleModal.bind(null, modalReviews));
+    closeModalBtnReviews.addEventListener("click", toggleModal.bind(null, modalReviews));
 
-    function toggleModal() {
-        refs.modal.classList.toggle("is-hidden");
+    openModalBtnSubscribe.addEventListener("click", toggleModal.bind(null, modalSubscribe));
+    closeModalBtnSubscribe.addEventListener("click", toggleModal.bind(null, modalSubscribe));
+
+    function toggleModal(modal) {
+        modal.classList.toggle("is-hidden");
     }
 })();
+
