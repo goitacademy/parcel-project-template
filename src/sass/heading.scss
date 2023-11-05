@@ -22,6 +22,88 @@
 
     --pink: #AE1332;
     --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow: 0px 4px 70px 0px #0000001A;
+    --anim-transition: .25s linear;
+    /*
+      1. Use a more-intuitive box-sizing model.
+    */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+    
+        /*
+      2. Remove default margin
+    */
+        * {
+            margin: 0;
+        }
+    
+        /*
+      3. Allow percentage-based heights in the application
+    */
+        html,
+        body {
+            height: 100%;
+        }
+    
+        /*
+      Typographic tweaks!
+      4. Add accessible line-height
+      5. Improve text rendering
+    */
+        body {
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+    
+        /*
+      6. Improve media defaults
+    */
+        img,
+        picture,
+        video,
+        canvas,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+    
+        /*
+      7. Remove built-in form typography styles
+    */
+        input,
+        button,
+        textarea,
+        select {
+            font: inherit;
+        }
+    
+        /*
+      8. Avoid text overflows
+    */
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            overflow-wrap: break-word;
+        }
+    
+        /*
+      9. Create a root stacking context
+    */
+        #root,
+        #__next {
+            isolation: isolate;
+        }
+    
+        ul {
+            padding-inline-start: 0;
+        }
    
 }
 body {
@@ -29,60 +111,70 @@ body {
 }
 
 .heading {
+    padding-top: 56px;
+    padding-bottom: 80px;
+    color: white;
+    --anim-duration: 1s;
+    --anim-offset: 1000px;
+}
+.container {
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 375px;
+        margin: 0 auto;
+        padding: 0 20px 0;
+        
+}
+.heading-picture {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 44px;
-    padding: 56px 20px 80px;
-    color: white;
+    animation-name: fadeInDown;
+    animation-duration: var(--anim-duration);
 }
-.heading-picture {
+.title-container {
     position: relative;
-    padding-left: 20px;
-    padding-right: 20px;
+    max-width: 335px;
+    margin: auto;
+    animation-name: fadeInDown;
+    animation-duration: var(--anim-duration);
 }
-
-.heading-title {
+.title-strawberries {
     position: absolute;
-    font: var(--dm500-s28-lh28);
-    text-align: center;
-    text-transform: uppercase;
-    margin: 0;
-    
-}
-.heading-title::before {
-    position: absolute;
-    content: "";
     width: 56px;
     height: 56px;
     right: 0;
     top: 0;
-    background-image: url(../images/title-strawberries.png);
-    z-index: -1;
 }
-.heading-title::after {
+.title-bananas {
     position: absolute;
-        content: "";
-        width: 66px;
-        height: 44px;
-        left: 0;
-        bottom: 0;
-        transform: rotate(20deg);
-        background-image: url(../images/title-bananas.png);
-        z-index: -1;
+    top: 55px;
+    width: 66px;
+    height: 44px;
+    transform: rotate(10deg);
+
 }
-.heading-img {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 60px;
+.heading-title {
+    position: absolute;
+    font: var(--dm500-s28-lh28);
+    letter-spacing: -0.04em;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: var(--shadow)
 }
-.heading .heading-img img {
-   
+.heading-girl {
+      border-radius: 500px;
+  
+    }
+    .oval {
+    max-width: 335px;
+    margin-top: 49px;
+    padding: 11px 12px 14px;
     border-radius: 500px;
-    box-shadow: 12px 12px 12px 12px;
-}
-.heading-img a {
+    box-shadow: 0 -2px var(--pink), 0 1.5px 0 .4px #ffffff80;
+   }
+.heading-picture a {
     display: flex;
     align-items: center;
     margin-top: -40px;    
@@ -99,64 +191,261 @@ body {
     background-color: white;
     text-decoration: none;
     text-align: center;
-    box-shadow: 0px 4px 70px 0px #0000001A;
+    text-shadow: var(--shadow);
     transform: rotate(-14deg);
-    transition: transform var(--transition),color var(--transition),cursor var(--transition);
+    transition: transform var(--transition),color var(--transition);
 }
-.heading-img a:hover {
+.heading-picture a:hover {
     transform: rotate(0);
     color: var(--green);
-    cursor: pointer;
 }
 .heading-watermelon {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 44px;
+    gap: 44px;
     max-width: 279px;
+    animation-name: fadeInLeft;
+    animation-duration: var(--anim-duration);
+}
+.heading-watermelon .fruit-benefits img {
+    margin-top: 61px;
+
 }
 .heading-watermelon-details {
     font: var(--dm400-s14-lh18);
-    margin: 0 auto 44 auto;
+    letter-spacing: -0.04em;
+    text-align: left;
+    text-shadow: var(--shadow);
+    max-width: 279px;
 }
 .fruit-benefits {
+    position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    padding: 28px 0 40px 0;
     width: 249px;
+    height: 387px;
     border-radius: 500px;
     background-color: var(--green);
 }
+.fruit-benefits:after {
+display: block;
+content: "";
+position: absolute;
+width: 239px;
+height: 38px;
+left: 5px;
+top: 210px;
+background: #0000001A;
+filter: blur(13.5914px);
+}
+.heading-strawberries .fruit-benefits {
+    background-color: var(--yellow);
+
+}  
 .fruit-benefits span {
-    margin-top: 28px;
-    margin-bottom: 61px;
     font: var(--dm400-s12-lh14);
+    letter-spacing: -0.04em;
+    text-shadow: var(--shadow);
 }
 .heading-ovals-details {
     font: var(--dm500-s12-lh14);
-    width: 155px;
+    letter-spacing: -0.04em;
     text-align: center;
+    text-shadow: var(--shadow);
+    width: 155px;
     text-transform: uppercase;
-    margin: 2px auto 40px auto;
-}
+    }
 .heading-strawberries {
-   
-}
-.heading-strawberries-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 44px;
+    gap: 44px;
+    animation-name: fadeInRight;
+    animation-duration: var(--anim-duration);
+   }
+.heading-list {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     list-style-type: none;
-    padding: 0;
-    margin: 0 auto 44px;
-    max-width: 265px;
+    width: 268px;
 }
-.heading-strawberries-list li {
+.heading-list-ithem {
     font: var(--dm500-s12-lh14);
-    width: 125px;
+    letter-spacing: -0.04em;
     text-align: center;
-    padding: 12px 0;
+    text-shadow: var(--shadow);
+    padding: 12px 32px;
     border-radius: 1000px;
-    border: 1px solid #FFFFFF
-    
+    border: 1px solid #FFFFFF   
+}
+.heading-list-ithem:first-child {
+    min-width: 125px;
+    }
+.heading-list-ithem:nth-child(2) {
+    width: 132px;
+}
+.heading-list-ithem:nth-child(3) {
+    width: 125px;
+}
+.heading-list-ithem:last-child {
+    width: 132px;
+}
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(calc(var(--anim-offset) * -1));
+        transform: translateY(calc(var(--anim-offset) * -1))
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(calc(var(--anim-offset) * -1));
+        transform: translate(calc(var(--anim-offset) * -1))
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translate(0)
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(var(--anim-offset));
+        transform: translate(var(--anim-offset))
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translate(0)
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+    .heading {
+        padding-top: 64px;
+    }
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 768px;
+        padding: 0 32px;
+    }
+    .title-container {
+       max-width: 650px;
+    }
+    .heading-title {
+        font: var(--dm500-s50-lh54);
+   }
+    .title-strawberries {
+        width: 108px;
+        height: 108px;
+        right: 25px;
+        top: -9px;
+    }
+    .title-bananas {
+        top: 100px;
+        left: 20px;
+        width: 132px;
+        height: 90px;
+    }
+    .heading-picture a {
+        width: 114px;
+        height: 114px;
+        margin-top: -74px;
+        font: var(--dm500-s28-lh28);
+    }
+    .oval {
+        margin-top: 35px;
+        max-width: 486px;
+        padding: 20px 17px;
+    }
+    .heading-watermelon {
+        min-width: 50%;
+        align-items: flex-start;
+    }
+    .heading-watermelon .fruit-benefits {
+        margin-left: 32px;
+    }
+    .heading-strawberries {
+        min-width: 50%;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
+    .heading-list {
+        justify-content: flex-end;
+    }
+    .heading-strawberries .fruit-benefits {
+        margin-right: 32px;
+    }
+    .heading-list-ithem:nth-child(2) {
+        min-width: 133px;
+    }
+    .heading-list-ithem:nth-child(3) {
+        max-width: 115px;
+    }
+    .heading-list-ithem:last-child {
+        max-width: 110px;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1280px) {
+    .container {
+       
+        align-items: flex-start;
+        justify-content: space-between;
+        max-width: 100%;
+        padding: 0 62px;
+    }
+    .title-container {
+      max-width: 800px;
+    }
+    .heading-title {
+       font: var(--dm500-s64-lh64);
+    }
+    .oval {
+        margin-top: 38px;
+    }
+    .heading-picture {
+       order: 1;
+    }
+    .heading-watermelon {
+        min-width: auto;
+        order: 0;
+        margin-top: 344px;
+        margin-left: 0;
+    }
+    .heading-strawberries {
+        min-width: auto;
+        order: 2;
+        margin-top: 272px;
+    }
+    .heading-watermelon .fruit-benefits {
+        margin-left:  0;
+    }
+    .heading-strawberries .fruit-benefits {
+        margin-right: 0;
+    }
 
 }
