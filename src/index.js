@@ -157,6 +157,11 @@ for (var i = 0; i < productBullets.length; i++) {
     const closeModalBtnSubscribe = document.querySelector("[data-modal-close-subscribe]");
     const modalSubscribe = document.querySelector("[data-modal-subscribe]");
 
+    const openModalBtnSubscribe = document.querySelector("[data-modal-open]");
+    const closeModalBtnSubscribe = document.querySelector("[data-modal-close-buy]");
+    const modalSubscribe = document.querySelector("[data-modal-buy-now]");
+
+
     openModalBtnReviews.addEventListener("click", toggleModal.bind(null, modalReviews));
     closeModalBtnReviews.addEventListener("click", toggleModal.bind(null, modalReviews));
 
