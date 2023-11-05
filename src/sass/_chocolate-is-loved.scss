@@ -1,0 +1,409 @@
+.chocolate-reviews {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .chocolate-reviews-title {
+        text-align: center;
+        color: var(--dark-font);
+        font-family: "Montserrat", sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: -0.6px;
+        text-transform: uppercase;
+        margin: 0;
+        padding-bottom: 25px;
+        padding-top: 72px;
+    }
+
+    .chocolate-reviews-title span {
+        color: var(--orange-color);
+        font-family: "Montserrat", sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 24px;
+        /* 120% */
+        letter-spacing: -0.6px;
+        text-transform: uppercase;
+    }
+
+    .reviews-container {
+        margin-bottom: 32px;
+        margin-top: 32px;
+        .reviews {
+            .reviewer-name {
+                color: var(--dark-font);
+                font-family: "Montserrat", sans-serif;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 24px;
+                /* 133.333% */
+                margin-top: 18px;
+                margin-bottom: 0;
+            }
+            .review-comment {
+                color: rgba(17, 17, 17, 0.7);
+                text-align: center;
+                font-family: "Montserrat", sans-serif;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 18px; /* 128.571% */
+                letter-spacing: -0.28px;
+                margin: 24px 18px 42px 18px;
+            }
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 335px;
+            height: 200px;
+            flex-shrink: 0;
+            border-radius: 15px;
+            border: 1px solid rgba(17, 17, 17, 0.1);
+            background: #fff;
+            box-shadow: 0px 9.04932px 26.57166px 0px rgba(215, 228, 249, 0.25);
+        }
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .swiper-bullets-container {
+        .swiper-bullets {
+            color: rgba(17, 17, 17, 0.1);
+            background-color: rgba(17, 17, 17, 0.1);
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            transition:
+                color 250ms,
+                background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 13px;
+        position: static;
+        margin-bottom: 32px;
+    }
+
+    .swiper-bullets:hover,
+    .swiper-bullets:focus {
+        color: var(--orange-color);
+        background-color: var(--orange-color);
+    }
+    .swiper-bullets.active {
+        color: #fd9222;
+        background-color: var(--orange-color);
+        width: 28px;
+        border-radius: 5px;
+    }
+
+    .review-btn {
+        .leave-a-review-btn {
+            padding: 12px 28px;
+            border-radius: 100px;
+            border: 1px solid var(--orange-color);
+            background-color: #fff;
+            color: #111;
+            text-align: center;
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            transition:
+                color 250ms,
+                background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        display: flex;
+        justify-content: center;
+        margin-bottom: 72px;
+    }
+
+    .leave-a-review-btn:hover,
+    .leave-a-review-btn:focus {
+        background: var(--orange-color);
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
+.modal-reviews {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+
+    .modal-content-reviews {
+        position: relative;
+        padding: 32px 24px;
+        flex-shrink: 0;
+        width: 311px;
+        width: 80%;
+        height: auto;
+        border-radius: 15px;
+        background-color: #fafafa;
+        box-shadow:
+            0px 2px 1px 0px rgba(0, 0, 0, 0.2),
+            0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+            0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+        .close-btn-reviews {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            width: 28px;
+            height: 28px;
+            max-width: max-content;
+            border: none;
+            border-radius: 15px;
+            background-color: #fafafa;
+            cursor: pointer;
+            transition-property: color;
+            transition-duration: 250ms;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+}
+
+.modal-reviews:not(.is-hidden) {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.review-form {
+    #review-details-head {
+        color: var(--dark-font);
+        font-family: "Montserrat", sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px; /* 120% */
+        letter-spacing: -0.6px;
+        text-transform: uppercase;
+        width: 255px;
+        margin-bottom: 32px;
+        margin-top: 0;
+
+        .title-span {
+            color: var(--orange-color);
+            font-family: "Montserrat", sans-serif;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px;
+            letter-spacing: -0.6px;
+        }
+    }
+
+    .input-container {
+        position: relative;
+
+        .flag-nr {
+            position: absolute;
+            top: 10px;
+            left: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 74px;
+            padding-left: 0px;
+            gap: 8px;
+            flex-shrink: 0;
+            align-self: stretch;
+            .vertical-line {
+                border-right: 3px solid rgba(17, 17, 17, 0.05);
+                height: 25px;
+                padding-left: 10px;
+            }
+        }
+
+        .text-field.phone-flag {
+            padding-left: 120px;
+        }
+
+        .text-field {
+            width: 100%;
+            height: 46px;
+            border-radius: 13px;
+            border: 1.5px solid rgba(17, 17, 17, 0.05);
+            outline: none;
+            padding: 14px 18px;
+            margin-bottom: 14px;
+            background-color: #fafafa;
+
+            &::placeholder {
+                color: rgba(64, 64, 64, 0.3);
+                font-family: "Montserrat", sans-serif;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .comments-review {
+        width: 100%;
+        height: 120px;
+        padding-left: 24px;
+        padding-top: 22px;
+        margin-bottom: 18px;
+        border-radius: 13px;
+        border: 1.5px solid rgba(17, 17, 17, 0.05);
+        outline: none;
+        background-color: #fafafa;
+
+        &::placeholder {
+            color: rgba(64, 64, 64, 0.3);
+            font-family: "Montserrat", sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+}
+
+.close-btn-reviews:hover svg,
+.close-btn-reviews:focus svg {
+    fill: var(--orange-color);
+}
+
+.text-field:hover,
+.comments-review:hover {
+    cursor: text;
+}
+
+.button-container-modal {
+    display: flex;
+
+    .button-modal {
+        padding: 14px 40px;
+        margin-bottom: 32px;
+        border-radius: 100px;
+        border: 1px solid var(--orange-color);
+        cursor: pointer;
+        background-color: var(--orange-color);
+        color: #fff;
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .chocolate-reviews-title {
+        padding-top: 100px;
+    }
+    .reviews-container {
+        .reviews {
+            width: 344px;
+            height: 242px;
+        }
+    }
+
+    .swiper-bullets:last-child {
+        display: none;
+    }
+
+    .review-form {
+        #review-details-head {
+            width: 298px;
+        }
+    }
+
+    .modal-reviews {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out;
+
+        .modal-content-reviews {
+            position: relative;
+            padding: 40px;
+            flex-shrink: 0;
+            width: 60%;
+            height: 628px;
+            border-radius: 15px;
+        }
+    }
+
+    .review-form {
+        .input-container {
+            position: relative;
+            .text-field {
+                width: 100%;
+                height: 66px;
+                padding: 22px 24px;
+                margin-bottom: 18px;
+            }
+
+            .text-field.phone-flag {
+                padding-left: 155px;
+            }
+
+            .flag-nr {
+                top: 19px;
+                left: 40px;
+                width: 74px;
+                padding-right: 0px;
+                gap: 18px;
+                flex-shrink: 0;
+                align-self: stretch;
+                .vertical-line {
+                    border-right: 3px solid rgba(17, 17, 17, 0.05);
+                    height: 25px;
+                    padding-left: 10px;
+                }
+            }
+        }
+
+        .comments-review {
+            width: 100%;
+            height: 137px;
+            padding-left: 24px;
+            padding-top: 22px;
+        }
+    }
+}
+
+@media only screen and (min-width: 1158px) {
+    .chocolate-reviews-title {
+        padding-top: 128px;
+    }
+    .chocolate-reviews .reviews-container {
+        margin-bottom: 50px;
+        margin-top: 50px;
+        gap: 28px;
+
+        .reviews {
+            width: 360px;
+            height: 200px;
+        }
+    }
+    .swiper-bullets-container {
+        .mobile-1-bullet,
+        .mobile-2-bullet {
+            display: none;
+        }
+    }
+}
