@@ -1,3 +1,5 @@
+
+//SlideShow for Reviews
 var slideIndex = 0;
 var numReviews;
 var reviews = document.querySelectorAll('.reviews');
@@ -23,6 +25,7 @@ function showReviews() {
     }
 }
 
+
 showReviews();
 
 function currentDiv(n) {
@@ -47,6 +50,61 @@ for (var i = 0; i < bullets.length; i++) {
         var currentBullet = this;
         var index = Array.from(bullets).indexOf(currentBullet);
         currentDiv(index);
+    });
+}
+
+
+//SlideShow for Products
+
+var productSlideIndex = 0;
+var numProducts;
+var products = document.querySelectorAll('.card-products li');
+var productBullets = document.querySelectorAll('.swiper-bullets-products');
+
+function showProducts() {
+    var width = window.innerWidth;
+
+    if (width >= 1158) {
+        numProducts = 4;
+    } else if (width >= 768 && width < 1158) {
+        numProducts = 3;
+    } else {
+        numProducts = 1;
+    }
+
+    for (var i = 0; i < products.length; i++) {
+        if (i < productSlideIndex || i >= productSlideIndex + numProducts) {
+            products[i].style.display = 'none';
+        } else {
+            products[i].style.display = 'flex';
+        }
+    }
+}
+
+showProducts();
+
+function currentProductDiv(n) {
+    productSlideIndex = n;
+    showProducts();
+
+    for (var i = 0; i < productBullets.length; i++) {
+        if (i === n) {
+            productBullets[i].classList.add('active');
+        } else {
+            productBullets[i].classList.remove('active');
+        }
+    }
+}
+
+window.addEventListener('resize', function () {
+    showProducts();
+});
+
+for (var i = 0; i < productBullets.length; i++) {
+    productBullets[i].addEventListener('click', function () {
+        var currentProductBullet = this;
+        var index = Array.from(productBullets).indexOf(currentProductBullet);
+        currentProductDiv(index);
     });
 }
 
@@ -86,3 +144,27 @@ for (var i = 0; i < bullets.length; i++) {
         bodyScrollLock.enableBodyScroll(document.body);
     });
 })();
+
+
+
+
+(() => {
+    const openModalBtnReviews = document.querySelector("[data-modal-open-reviews]");
+    const closeModalBtnReviews = document.querySelector("[data-modal-close-reviews]");
+    const modalReviews = document.querySelector("[data-modal-reviews]");
+
+    const openModalBtnSubscribe = document.querySelector("[data-modal-open-subscribe]");
+    const closeModalBtnSubscribe = document.querySelector("[data-modal-close-subscribe]");
+    const modalSubscribe = document.querySelector("[data-modal-subscribe]");
+
+    openModalBtnReviews.addEventListener("click", toggleModal.bind(null, modalReviews));
+    closeModalBtnReviews.addEventListener("click", toggleModal.bind(null, modalReviews));
+
+    openModalBtnSubscribe.addEventListener("click", toggleModal.bind(null, modalSubscribe));
+    closeModalBtnSubscribe.addEventListener("click", toggleModal.bind(null, modalSubscribe));
+
+    function toggleModal(modal) {
+        modal.classList.toggle("is-hidden");
+    }
+})();
+
