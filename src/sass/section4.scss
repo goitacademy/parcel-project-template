@@ -88,18 +88,16 @@
 
 .buy-now-modal {
   position: fixed;
-  transition: var(--transition);
   top: 0;
   left: 0;
   z-index: 500;
   overflow-y: auto;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   padding: 20px 0;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(2px);
-  background-color: #0000004d;
+  transition: opacity 0.5s linear, visibility 0.5s linear;
 }
 
 .modal-overlay {
@@ -108,9 +106,13 @@
   height: 100%;
   top: 0;
   left: 0;
+  flex-shrink: 0;
+  overflow-y: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(2px);
+  background-color: #0000004d;
 }
 
 .modal-open {
@@ -119,22 +121,26 @@
 }
 
 .modal-content {
-  position: relative;
-  // transform: scale(1);
+  position: fixed;
+  transform: scale(1);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
   width: 311px;
   height: 994px;
   padding: 32px 24px;
   margin: 20px auto;
   background: #fafafa;
   border-radius: 15px;
+  top: 3%;
+  transform: translate(-50%, -50%);
 }
 
 .is-hidden {
   visibility: hidden;
   opacity: 0.5;
-  transition: var(--transition);
-  transform: scale(0);
   pointer-events: auto;
+  transition: opacity 0.5s linear, visibility 0.5s linear;
 }
 
 .close-btn {
@@ -333,7 +339,7 @@ textarea {
   }
 
   .sellers-section {
-    margin-bottom: 0;
+    margin-bottom: 72px;
   }
 
   .top-sellers-title {
@@ -362,6 +368,7 @@ textarea {
   .top-sellers-modal-btn {
     height: 0;
     margin-top: 0;
+    margin-bottom: 72px;
   }
 
   .top-sellers-buy-now-btn {
@@ -374,7 +381,7 @@ textarea {
   }
 
   .modal-content {
-    position: relative;
+    position: fixed;
     width: 609px;
     height: 1058px;
     padding: 48px;
