@@ -15,35 +15,53 @@ body {
 
 .modal {
     width: 100%;
-    position: absolute;
-    display: block;
     z-index: 999999;
     height: 100%;
+    display: block;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.1);
 }
 
 
-.modal-content {
-    background-color: white;
-    padding: 10px;
+.modal-container {
     height: calc(100% - 30px);
+    background-color: #fff;
+    padding: 40px 10px;
+    max-width: 900px;
+    margin: auto;
+    overflow-y: scroll;
+    position: relative;
+}
 
+.modal-content {
+    column-count: 2;
+    column-gap: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.modal-header,
+.modal-body {
+    flex: 0 1 auto;
+    flex-basis: 50%;
 }
 
 .close-btn {
     width: 30px;
     height: 30px;
-    display: block;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    color: black;
+    color: #000;
     cursor: pointer;
-    position: absolute;
-    top: 12px;
-    right: 12px;
     background: none;
+    border: 1px solid #0000001a;
+    border-radius: 50%;
+    padding: 0;
     font-size: 49px;
     line-height: 26px;
-    padding: 0;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 0;
 }
 
 .modal-text {
@@ -78,7 +96,7 @@ body {
 .contact-form {
     display: block;
     height: 100%;
-    overflow: scroll;
+    position: relative;
 }
 
 .modal-watch-img {
@@ -121,14 +139,14 @@ textarea {
     color: rgba(20, 20, 20, 1);
 }
 
-.form-control:hover,
-textarea:hover {
-    cursor: pointer;
-}
+.form-control, textarea {
+    &:hover {
+        cursor: pointer;
+    }
 
-.form-control:focus,
-textarea:focus {
-    border: 1px solid rgba(33, 150, 243, 1);
+    &:focus {
+        border: 1px solid rgba(33, 150, 243, 1);
+    }
 }
 
 .form-control:focus+svg {
@@ -136,9 +154,9 @@ textarea:focus {
 }
 
 .modal-button {
-    width: 350px;
+    width: 95%;
     height: 50px;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     border: none;
@@ -151,16 +169,14 @@ textarea:focus {
 }
 
 input {
-    font-family: 'Epilogue',
-        sans-serif;
+    font-family: 'Epilogue', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #FFFFFF;
 }
 
 .footer-modal-text {
-    font-family: 'Epilogue',
-        sans-serif;
+    font-family: 'Epilogue', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: rgba(20, 20, 20, 0.4);
