@@ -157,11 +157,19 @@ for (var i = 0; i < productBullets.length; i++) {
     const closeModalBtnSubscribe = document.querySelector("[data-modal-close-subscribe]");
     const modalSubscribe = document.querySelector("[data-modal-subscribe]");
 
+    const openModalBtnBuy = document.querySelector("[data-modal-open-buy]");
+    const closeModalBtnBuy = document.querySelector("[data-modal-close-buy]");
+    const modalBuy = document.querySelector("[data-modal-buy]");
+
+
     openModalBtnReviews.addEventListener("click", toggleModal.bind(null, modalReviews));
     closeModalBtnReviews.addEventListener("click", toggleModal.bind(null, modalReviews));
 
     openModalBtnSubscribe.addEventListener("click", toggleModal.bind(null, modalSubscribe));
     closeModalBtnSubscribe.addEventListener("click", toggleModal.bind(null, modalSubscribe));
+
+    openModalBtnBuy.addEventListener("click", toggleModal.bind(null, modalBuy));
+    closeModalBtnBuy.addEventListener("click", toggleModal.bind(null, modalBuy));
 
     function toggleModal(modal) {
         modal.classList.toggle("is-hidden");
