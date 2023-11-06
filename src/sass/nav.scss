@@ -1,28 +1,214 @@
-.example {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
-  background-color: #fff;
-  color: #2f2f37;
-  max-width: 960px;
-  padding: 16px;
-}
+:root {
 
-.example code {
-  font-family: monospace;
-  font-size: 16px;
-  font-weight: 700;
-  background-color: #ff6b0a;
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 2px;
-}
+    --dm700-s14-lh18: normal normal 700 14px/18px "DM Sans", sans-serif;
+    --dm700-s18-lh24: normal normal 700 18px/24px "DM Sans", sans-serif;
+    --dm700-s24-lh28: normal normal 700 24px/28px "DM Sans", sans-serif;
+    --dm700-s32-lh38: normal normal 700 32px/38px "DM Sans", sans-serif;
+    --dm500-s12-lh14: normal normal 500 12px/14px "DM Sans", sans-serif;
+    --dm500-s18-lh24: normal normal 500 18px/24px "DM Sans", sans-serif;
+    --dm500-s28-lh28: normal normal 500 28px/28px "DM Sans", sans-serif;
+    --dm500-s32-lh32: normal normal 500 32px/32px "DM Sans", sans-serif;
+    --dm500-s40-lh44: normal normal 500 40px/44px "DM Sans", sans-serif;
+    --dm500-s50-lh54: normal normal 500 50px/54px "DM Sans", sans-serif;
+    --dm500-s54-lh54: normal normal 500 54px/54px "DM Sans", sans-serif;
+    --dm500-s64-lh64: normal normal 500 64px/64px "DM Sans", sans-serif;
+    --dm400-s12-lh14: normal normal 400 12px/14px "DM Sans", sans-serif;
+    --dm400-s14-lh18: normal normal 400 14px/18px "DM Sans", sans-serif;
+    --dm400-s18-lh24: normal normal 400 18px/24px "DM Sans", sans-serif;
+    --yellow: #F5CE13;
+    --green: #A4CB66;
+    --pink: #AE1332;}
 
-.example .background {
-  height: 240px;
-  // ❗️❗️❗️ The path to images from a SASS file
-  // is always the same as from the css folder.
-  background-image: url('../images/logo.png');
-  background-size: cover;
-  background-position: center;
-}
+body {background-color: var(--pink);}
+.js-close-menu:focus,
+.js-close-menu:hover {color: var(--green);
+                     fill: var(--green);}
+
+.js-menu-container {display: none;
+ cursor: pointer;
+ background-color: var(--pink);}
+.js-menu-container.is-open {position: fixed;
+   top: 0px;
+   right: 0px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   z-index: 20;}
+.mobile-modal-header {
+                     display: flex;
+                     flex-direction: row;
+                     color: var(--pink);
+                     font: var(--dm700-s14-lh18);
+                     width: 100vw;
+                     padding-left:20px;
+                     padding-right: 20px;
+                     background-color: white;
+                     justify-content: space-between;
+                     align-items: center;
+                     padding-bottom: 10px;
+                     padding-top: 10px;}
+.mobile-modal-header div {transition-property: color;
+                         transition-duration: 250ms;
+                         transition-timing-function: cubic-bezier (0.4, 0, 0.2, 1);
+                         transition-delay: 0;}
+.mobile-modal-header div  svg{transition-property: fill;
+                             transition-duration: 250ms;
+                             transition-timing-function: cubic-bezier (0.4, 0, 0.2, 1);
+                             transition-delay: 0;}                     
+.mobile-modal-body li a{transition-property: color;
+                       transition-duration: 250ms;
+                       transition-timing-function: cubic-bezier (0.4, 0, 0.2, 1);
+                       transition-delay: 0;}
+.mobile-modal-header div:hover,
+.mobile-modal-header div:focus,
+.mobile-modal-body li a:hover,
+.mobile-modal-body li a:focus {color: var(--green);
+                                 fill: var(--green);}
+.mobile-modal-body li svg {fill: white;
+                           transition-property: fill;
+                           transition-duration: 250ms;
+                           transition-timing-function: cubic-bezier (0.4, 0, 0.2, 1);
+                           transition-delay: 0;}
+.mobile-modal-body li svg:focus,
+.mobile-modal-body li svg:hover {fill: var(--green);}
+.mobile-modal-header div  {display: flex;
+                          flex-direction: row;
+                         gap: 10px;
+                         fill: var(--pink);}
+
+.mobile-modal-header .js-close-menu {background-color: white;
+                                    border: none;}
+.mobile-modal-body {display: flex;
+                   flex-direction: column;
+                   align-items: center;
+                   gap: 16px;
+                   list-style-type: none;
+                   font: var(--dm400-s14-lh18);
+                   margin-top: 124px;}
+.mobile-modal-body li a {text-decoration: none;
+                        color: white;}
+mobile-modal-header svg use {fill: var(--pink);}                     
+                  
+
+/* NAVIGATION */
+.navigation-top {background-color: white;}
+.nav-bar {display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         align-items: center;
+         padding-left: 32px;
+         padding-right: 32px;
+         color: var(--pink);}
+.nav-bar ul {list-style-type: none;
+                   flex-direction: row;
+                   padding-inline-start:0px;
+                   font: var(--dm700-s14-lh18);
+                   letter-spacing: -0.04em;
+                   margin-top: 16px;
+                   margin-bottom: 16px;}
+.nav-bar a {color:var(--pink);
+           text-decoration: none;
+           transition-property: color;
+           transition-duration: 250ms;
+           transition-timing-function: cubic-bezier (0.4, 0, 0.2, 1);
+           transition-delay: 0;}                  
+.navigation-link:focus,
+.navigation-link:hover {color: var(--green);
+                       text-shadow: 0px 0px 1px var(--green);}
+.navigation-link {position: relative;
+                 transition-property: color;
+                 transition-duration: 250ms;
+                 transition-timing-function: cubic-bezier (0.4, 0, 0.2, 1);
+                 transition-delay: 0;
+                 transition-property: text-shadow;
+                 transition-duration: 250ms;
+                 transition-timing-function: cubic-bezier (0.4, 0, 0.2, 1);
+                 transition-delay: 0;}
+.navigation-link:after {content: "";
+                       width: 0;
+                       height: 2px;
+                       position: absolute;
+                       right: 0;
+                       bottom: -4px;
+                       background: var(--green);
+                       transition: width .5s,left .5s;}
+.navigation-link:hover:after {width: 100%;
+                         left: 0;}
+ 
+.nav-bar .cubic-text {display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    gap:8px;
+                    font: var(--dm700-s14-lh18);
+                    letter-spacing: -0.04em;
+                    align-items: center;}
+.nav-bar div svg {fill: var(--pink);
+                 transition-property: fill;
+                 transition-duration: 250ms;
+                 transition-timing-function: cubic-bezier (0.4, 0, 0.2, 1);
+                 transition-delay: 0;}
+.nav-bar div svg:hover,
+.nav-bar div svg:focus {fill: var(--green);
+                       cursor: pointer;}
+
+.nav-bar .cubic-text:hover svg,
+.nav-bar .cubic-text:focus svg {color: var(--green);
+                              fill: var(--green);}
+.nav-bar .cubic-text:hover a,
+.nav-bar .cubic-text:focus a {color: var(--green);
+                           fill: var(--green);}                           
+.cubic-text {position: absolute;
+                     left:32px;
+                     top: 16px;}
+
+              
+
+   /* end Mobile-menu*/
+
+
+
+@media screen and (min-width: 300px) 
+{
+   .nav-bar {min-width: 375px;
+             padding-top: 16px;
+             padding-bottom: 16px;}
+   .nav-bar ul {display: none;}
+   .nav-order {display: none;}
+   .nav-mobile {display: block;}
+
+ }
+ 
+ @media screen and (min-width: 768px) 
+ {
+   .nav-bar {width: 768px;
+             padding-left: 32px;
+             padding-right: 32px;
+             justify-content: center;
+             margin:0 auto;}
+   .nav-bar ul {display: flex;
+                gap: 16px;
+                margin-right: 90px;}
+   .cubic-text {margin-right: 226px;
+                   position: static;}
+   .nav-mobile {display: none;}
+   .nav-order {display: block;}
+   .nav-mobile {display: none;}
+   }
+ 
+ @media screen and (min-width: 1280px) 
+{
+   .nav-bar {width: 1280px;
+             margin: 0 auto;}
+   .nav-bar ul {display: flex;
+                gap: 16px;
+                margin-right: 325px;}
+   .cubic-text {margin-right: 502px;
+                   position: static;}
+   .nav-mobile {display: none;}
+   .nav-order {display: block;}
+   .menu-toggle {display: none;}
+ }
+/*END NAVIGATION */ 
+
