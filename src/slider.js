@@ -1,4 +1,4 @@
-(() => {
+
               function showElement(elementId) {
                     const elements = document.querySelectorAll('.element');
                     elements.forEach(element => {
@@ -8,4 +8,3 @@
                     const selectedElement = document.getElementById(elementId);
                     selectedElement.style.display = 'block';
                 }                
-})();
