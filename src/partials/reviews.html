@@ -1,58 +1,94 @@
-<section class="spacing-section">
+<section class="reviews-section">
     <div  class="reviews">
     <div id="element1" class="emily-box element">
-        <div class="each-review">
+        <div class="slider-container">
             <img src="/src/images/happy1.png" alt="img not found">
+            <div class="background-container">
+              <!-- <svg class="icon-background">
+                    <use xlink:href="/src/images/symbol-defs.svg#icon-untitled" />
+                </svg> -->
+            <div class="text-container">
             <p>
                 I love visiting your cafe. You prepare the most delicious ice cream in Los Angeles! In addition, you
                 have beautiful
                 serving, cozy atmosphere and polite staff.
             </p>
-            <p>.&nbsp;.&nbsp;.</p>
-            <p>Emily, Los Angeles</p>
+            </div>
+            </div>
+            <div >
+                <p class="dots">.&nbsp;.&nbsp;.</p>
+                <p class="reviewer">Emily, Los Angeles</p>
+            </div>
         </div>
-        
+       
     </div>
     <div id="element2" class="mila-box element">
-        <div class="each-review">
+        
+            <div class="slider-container">
             <img src="/src/images/happy2.png" alt="img not found">
+           
+            <div class="background-container">
+            <div class="text-container">
             <p>
                 I love visiting your cafe. You prepare the most delicious ice cream in Los Angeles! In addition, you
                 have
                 beautiful
                 serving, cozy atmosphere and polite staff.
             </p>
+            </div>
+            <div>
             <p>.&nbsp;.&nbsp;.</p>
             <p>Mila, New York City</p>
+            </div>
+            </div>
         </div>
 
         
     </div>
     <div id="element3" class="agata-box element">
-            <div class="each-review">
+        <div class="slider-container">
                 <img src="/src/images/happy3.png" alt="img not found">
+                <div class="background-container">
+                <div class="text-container">
                 <p>
                     I love visiting your cafe. You prepare the most delicious ice cream in Los Angeles! In addition, you
                     have
                     beautiful
                     serving, cozy atmosphere and polite staff.
                 </p>
+                </div>
+                <div>
                 <p>.&nbsp;.&nbsp;.</p>
                 <p>Agata, California</p>
+                </div>
             </div>
-
+            </div>
     </div>
     <div class="slider-buttons">
-            <button id="button1" onclick="showElement('element1')"> <svg class="icon-home">
+            <button id="button1" class="button" onclick="showElement('element1'); addClassToElement('button1');" > 
+                <svg id="svg1" class="svg icon-home active">
                     <use xlink:href="/src/images/symbol-defs.svg#icon-home" />
-                </svg></button>
-            <button id="button2" onclick="showElement('element2')"><svg class="icon-home">
+                </svg>
+            <svg id="svg2" class="svg icon-elipse hidden">
+                <use xlink:href="/src/images/symbol-defs.svg#icon-Ellipse-8" />
+            </svg>
+            </button>
+            <button id="button2" class="button" onclick="showElement('element2');addClassToElement('button2');">
+                <svg id="svg1" class="svg icon-home hidden">
                     <use xlink:href="/src/images/symbol-defs.svg#icon-home" />
-                </svg></button>
-            <button id="button3" onclick="showElement('element3')">
-                <svg class="icon-home">
+                </svg>
+                <svg id="svg2" class="svg icon-elipse ">
+                    <use xlink:href="/src/images/symbol-defs.svg#icon-Ellipse-8" />
+                </svg>
+            </button>
+            <button id="button3" class="button" onclick="showElement('element3'); addClassToElement('button3');">
+                <svg id="svg1" class="svg icon-home hidden">
                     <use xlink:href="/src/images/symbol-defs.svg#icon-home" />
-                </svg></button>
+                </svg>
+                <svg id="svg2" class="svg icon-elipse active">
+                    <use xlink:href="/src/images/symbol-defs.svg#icon-Ellipse-8" />
+                </svg>
+            </button>
     </div>
     </div>
 </section>
@@ -65,7 +101,15 @@
 
                     const selectedElement = document.getElementById(elementId);
                     selectedElement.style.display = 'block';
-                }        
+                } 
+                function addClassToElement(buttonId) {
+                        const button = document.getElementById(buttonId);
+                        const selectedButton = document.getElementById(svgId);
+                        selectedButton.style.display = 'block';
+                        svgs.forEach(svg => {
+                            svg.classList.toggle('hidden');
+                        });
+                    }
             </script>
 
 
