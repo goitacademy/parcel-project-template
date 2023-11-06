@@ -1,13 +1,15 @@
     
     /*Modal-thanks*/
-    .body{
-        background-color: #fff;
+    :root{
+        --main-font-family:"DM Sans", sans-serif;
+        --main-text-color: #fff;
+        --main-color-button:#9DC162;
+        --modal-thanks-background-color:rgba(224, 63, 94, 1);
+        --transition-modal:.25s cubic-bezier(.4,0,.2,1) ;
 
     }
 
-    .moda{
-        visibility: hidden;
-    }
+
     .is-hidden-thanks{
         visibility: hidden;
     }
@@ -21,13 +23,21 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 2;
-        transition: opacity var(--anim-transition),visibility var(--anim-transition);
+        z-index: 4;
+        transition: opacity var(--transition-modal),visibility var(--transition-modal);  
     }
     .modal2-container{
+        max-width: 335px;
+        max-height: 426px;
         position: relative;
-        background-color:rgba(224, 63, 94, 1);
+        background-color:var(--modal-thanks-background-color);
         border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        padding: 40px 20px;
     }
     .modal2-close-button{
         position: absolute;
@@ -35,14 +45,14 @@
         height: 24px;
         top:12px;
         right: 12px;
-        fill:rgba(255, 255, 255, 1);
+        fill:var(--main-text-color);
         border: none;
-        background-color:rgba(224, 63, 94, 1);
+        background-color:var(--modal-thanks-background-color);
         padding: 0px;
     }
     .modal2-container picture img{
-        width: 207;
-        height: 176px;
+        max-width: 207;
+        max-height: 176px;
     }
     .modal2-container h2{
       font-family: var(--main-font-family);
@@ -51,7 +61,8 @@
       line-height: 28px;
       letter-spacing: -0.04em;
       text-align: center;
-      color:rgba(255, 255, 255, 1);
+      color:var(--main-text-color);
+      margin: 0px;
     }
     .modal2-container p{
       font-family:var(--main-font-family);
@@ -60,7 +71,9 @@
       line-height: 18px;
       letter-spacing: -0.04em;
       text-align: center;
-      color: rgba(255, 255, 255, 1);
+      color: var(--main-text-color);
+      margin: 0px;
+      max-width: 295px;
     }
 
 
@@ -68,6 +81,14 @@
     /*  Tablet */
 @media screen and (min-width: 768px){
  /* Modal 2*/
+.modal2-container{
+    max-width: 600px;
+    max-height: 545px;
+}
+.modal2-close-button {
+    width: 28px;
+    height: 28px;
+}
  .modal2-container picture img{
     width: 278;
     height: 239px;
@@ -76,8 +97,9 @@
     font-size: 40px;
     line-height: 44px;
 }
-
-
+.modal2-container p{
+    max-width: 391px;
+}
 
 
 }

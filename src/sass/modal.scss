@@ -2,18 +2,14 @@
     --main-font-family:"DM Sans", sans-serif;
     --main-text-color: #fff;
     --main-color-button:#9DC162;
-}
-
-body{
-    background-color: #AE1332;
-   margin: 0px;
-}
-.order-button{
-    background-color: #fff;
-    border: none;
-    margin: 50px 50px;
-    width: 150px;
-    height: 70px;
+    --main-text-color-modal:#AE1332;
+    --strawberry-basket-background:#F8766B;
+    --apple-basket-background:#EDD251;
+    --fruits-basket-background:#9DC262;
+    --modal-thanks-background-color:rgba(224, 63, 94, 1);
+    --transition-modal:.25s cubic-bezier(.4,0,.2,1) ;
+    --transform-btn-close: .8s .2s cubic-bezier(.4,0,.2,1);
+    --transition-basket-focus-hover: cubic-bezier (0.4, 0, 0.2, 1);
 }
 .is-hidden {
     visibility: hidden;
@@ -28,10 +24,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: opacity var(--transition-modal),visibility var(--transition-modal);
 }
 .modal-container{
     position: relative;
-    background-color: #fff;
+    background-color: var(--main-text-color);
     border-radius: 20px;
     padding: 5%;
     width: 80%;
@@ -45,7 +42,7 @@ body{
     font-size: 28px;
     line-height: 28px;
     letter-spacing: -0.04em;
-    color: #AE1332;
+    color: var(--main-text-color-modal);
     text-transform: uppercase; 
     margin: 0px;
     text-align: start;
@@ -56,17 +53,16 @@ body{
     height: 20px;
     top:20px;
     right: 20px;
-    fill: #AE1332;
+    fill: var(--main-text-color-modal);
     border: none;
-    background-color: #fff;
+    background-color: var(--main-text-color);
     padding: 0px;
+    transform:var(--transform-btn-close);
 }
 .modal-content{
     display: flex;
     flex-direction: column;
     gap: 40px;
-    justify-conten: center;
-    align-item: center;
     margin-top: 40px;
     width: 295px;
 }
@@ -82,22 +78,21 @@ body{
     border-radius: 20px;
     padding: 20px;
     width: 295px;
-    height: 119px;
-    transition: box-shadow var(--anim-transition);
+    height: 119px; 
+}.choose-basket:focus, .choose-basket:hover{
+    transition-timing-function: var(--transition-basket-focus-hover);
 }
-.girl-with-banana{
-    display: none;
-}
+
 .strawberry-basket{
-    background-color: #F8766B;
+    background-color: var(--strawberry-basket-background);
     box-sizing: border-box;
 }
 .apple-basket{
-    background-color: #EDD251;
+    background-color: var(--apple-basket-background);
     box-sizing: border-box;
 }
 .fruits-basket{
-    background-color:#9DC262;
+    background-color: var(--fruits-basket-background);
     box-sizing: border-box;
 }
 .strawberry-basket picture img{
@@ -122,6 +117,7 @@ body{
     right: 20px;
 }
 
+ /*Checkbox*/
 .choose-basket input[type=checkbox]{
     opacity: 0;
     position: absolute;
@@ -130,8 +126,6 @@ body{
     top: 14px;
     right: 14px;
 }
-
-   /*Checkbox*/
  .choose-basket input[type=checkbox] + label::before{
     content:"" ;
     position: absolute;
@@ -144,13 +138,13 @@ body{
     cursor: pointer;
  }
  .strawberry-basket input[type=checkbox] + label::before{
-   background: #F8766B;
+   background: var(--strawberry-basket-background);
  }
  .apple-basket input[type=checkbox] + label::before{
-     background: #EDD251;
+     background: var(--apple-basket-background);
  }
  .fruits-basket input[type=checkbox] + label::before{
-     background: #9DC262;
+     background:var(--fruits-basket-background);
  }
 
 .choose-basket input[type=checkbox]:checked + label::after{
@@ -160,7 +154,7 @@ body{
      height: 16px;
      top: 14px;
      right: 14px;
-     color: #fff;
+     color: var(--main-text-color);
      background-size: contain;
      display: flex;
      justify-content: center;
