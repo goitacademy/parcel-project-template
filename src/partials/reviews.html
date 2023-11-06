@@ -1,6 +1,6 @@
-<section class="reviews-section">
+<section  onload="initialize()" class="reviews-section">
     <div  class="reviews-box">
-    <div id="element1" class="emily-box element">
+    <div id="element1" class="emily-box element hidden">
         <div class="slider-container">
             <img src="/src/images/happy1.png" alt="img not found">
             <div class="background-container">
@@ -22,7 +22,7 @@
         </div>
        
     </div>
-    <div id="element2" class="mila-box element">
+    <div id="element2" class="mila-box element hidden">
         
             <div class="slider-container">
             <img src="/src/images/happy2.png" alt="img not found">
@@ -45,8 +45,8 @@
 
         
     </div>
-    <div id="element3" class="agata-box element">
-        <div class="slider-container">
+    <div id="element3" class="agata-box element hidden">
+        <div id="slider-container" class="slider-container">
                 <img src="/src/images/happy3.png" alt="img not found">
                 <div class="background-container">
                 <div class="text-container">
@@ -66,7 +66,7 @@
             </div>
     </div>
     <div class="slider-buttons">
-            <button id="button1" class="button" onclick="showElement('element1')">
+            <button id="button1" class="button" onclick="showElement('element1'); slideElement();">
                 <svg id="svg1" class="icon-home active">
                     <use xlink:href="/src/images/symbol-defs.svg#icon-home" />
                 </svg>
@@ -74,7 +74,7 @@
                 <use xlink:href="/src/images/symbol-defs.svg#icon-Ellipse-8" />
             </svg>
             </button>
-            <button id="button2" class="button" onclick="showElement('element2')">
+            <button id="button2" class="button" onclick="showElement('element2'); slideElement();">
                 <svg id="svg1" class="icon-home">
                     <use xlink:href="/src/images/symbol-defs.svg#icon-home" />
                 </svg>
@@ -82,7 +82,7 @@
                     <use xlink:href="/src/images/symbol-defs.svg#icon-Ellipse-8" />
                 </svg>
             </button>
-            <button id="button3" class="button" onclick="showElement('element3')">
+            <button id="button3" class="button" onclick="showElement('element3'); slideElement();">
                 <svg id="svg1" class="icon-home">
                     <use xlink:href="/src/images/symbol-defs.svg#icon-home" />
                 </svg>
@@ -94,7 +94,7 @@
     </div>
 </section>
             <script>
-                function showElement(elementId) {
+              function showElement(elementId) {
                     const elements = document.querySelectorAll('.element');
                     elements.forEach(element => {
                         element.style.display = 'none';
@@ -102,7 +102,7 @@
 
                     const selectedElement = document.getElementById(elementId);
                     selectedElement.style.display = 'block';
-                } 
+                }                
             </script>
 
 
