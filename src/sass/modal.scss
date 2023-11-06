@@ -1,0 +1,381 @@
+:root{
+    --main-font-family:"DM Sans", sans-serif;
+    --main-text-color: #fff;
+    --main-color-button:#9DC162;
+    --main-text-color-modal:#AE1332;
+    --strawberry-basket-background:#F8766B;
+    --apple-basket-background:#EDD251;
+    --fruits-basket-background:#9DC262;
+    --modal-thanks-background-color:rgba(224, 63, 94, 1);
+    --transition-modal:.25s cubic-bezier(.4,0,.2,1) ;
+    --transform-btn-close: .8s .2s cubic-bezier(.4,0,.2,1);
+    --transition-basket-focus-hover: cubic-bezier (0.4, 0, 0.2, 1);
+}
+
+.is-hidden {
+    visibility: hidden;
+}
+.modal{
+    background: rgba(0, 0, 0, 0.20);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity var(--transition-modal),visibility var(--transition-modal);
+}
+.modal-container{
+    position: relative;
+    background-color: var(--main-text-color);
+    border-radius: 20px;
+    padding: 5%;
+    width: 80%;
+    height: 90%;
+    overflow: auto;
+}
+
+.modal-container h2{
+    font-family: "DM Sans";
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 28px;
+    letter-spacing: -0.04em;
+    color: var(--main-text-color-modal);
+    text-transform: uppercase; 
+    margin: 0px;
+    text-align: start;
+}
+.modal-close-button{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top:20px;
+    right: 20px;
+    fill: var(--main-text-color-modal);
+    border: none;
+    background-color: var(--main-text-color);
+    padding: 0px;
+    transform:var(--transform-btn-close);
+}
+ .modal-close-button:hover, .modal-close-button:hover {
+    transform: scale(1.5);
+}
+.modal-content{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+    width: 295px;
+}
+.type-of-products{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+.choose-basket{
+    position: relative;
+    border-radius: 20px;
+    padding: 20px;
+    width: 295px;
+    height: 119px; 
+}
+.choose-basket:focus, .choose-basket:hover{
+    box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.16), 0px 4px 4px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+.strawberry-basket{
+    background-color: var(--strawberry-basket-background);
+    box-sizing: border-box;
+}
+.apple-basket{
+    background-color: var(--apple-basket-background);
+    box-sizing: border-box;
+}
+.fruits-basket{
+    background-color: var(--fruits-basket-background);
+    box-sizing: border-box;
+}
+.strawberry-basket picture img{
+    width: 88px;
+    height: 95px;
+    position: absolute;
+    top:16px;
+    right: 20px;
+}
+.apple-basket picture img{
+    width: 109px;
+    height: 95px;
+    position: absolute;
+    top:16px;
+    right: 20px;
+}
+.fruits-basket picture img{
+    width: 107px;
+    height: 95px;
+    position: absolute;
+    top:16px;
+    right: 20px;
+}
+
+ /*Checkbox*/
+.choose-basket input[type=checkbox]{opacity: 0;
+                                    position: absolute;
+                                    width: 16px;
+                                    height: 16px;
+                                    top: 14px;
+                                    right: 14px;}
+
+ .choose-basket input[type=checkbox] + label::before{
+    content:"" ;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 14px;
+    right: 14px;
+    border: 1.5px solid #fff;
+    border-radius: 4px;
+    cursor: pointer;
+ }
+ .strawberry-basket input[type=checkbox] + label::before{
+   background: var(--strawberry-basket-background);
+ }
+ .apple-basket input[type=checkbox] + label::before{
+     background: var(--apple-basket-background);
+ }
+ .fruits-basket input[type=checkbox] + label::before{
+     background:var(--fruits-basket-background);
+ }
+
+.choose-basket input[type=checkbox]:checked + label::after{
+     content:"\002714";
+     position: absolute;
+     width: 16px;
+     height: 16px;
+     top: 14px;
+     right: 14px;
+     color: var(--main-text-color);
+     background-size: contain;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.choose-basket h3{
+    font-family: var(--main-font-family);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    text-align: left;
+    color: var(--main-text-color);
+    margin: 0px;
+}
+.choose-basket p{
+    font-family: var(--main-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    text-align:left;
+    color: var(--main-text-color);
+    margin: 0px;
+}
+
+.modal-form{
+    display: flex;
+    flex-direction: column;
+    gap:14px;
+    margin: 0px;
+}
+.modal-form input{
+    border: 1px solid  rgba(0, 0, 0, .3);
+    border-radius: 100px;
+    outline: none;
+    padding: 18px 0px 18px 24px;
+    width: 271px;
+    height: 10px;
+    transition: box-shadow var(--anim-transition);
+    cursor: pointer;
+}
+.modal-form textarea{
+    height: 132px;
+     width: 271px;
+    border: 1px solid  rgba(0, 0, 0, .3);
+    border-radius: 20px;
+    outline: none;
+    padding: 18px 0px 0px 24px;
+    transition: box-shadow var(--anim-transition);
+    cursor: pointer;
+}
+.modal-form input:focus,.modal-form textarea:focus, .modal-form input:hover, .modal-form textarea:hover{
+    background-color: #ae13321a;
+    box-shadow: 0 3px 1px #0000001a, 0 2px 1px #00000014, 0 2px 2px #0000001f;
+}
+.modal-form input::placeholder, .modal-form textarea::placeholder{
+  font-family: var(--main-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  text-align: left;
+}
+
+.modal-form button{
+  font-family: var(--main-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  color: var(--main-text-color);
+  background-color: var(--main-color-button);
+  padding: 12px 12px 12px 24px;
+  width: 92px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+}
+.modal-form button:focus, .modal-form button:hover{
+    border:1px solid var(--main-color-button);
+    color: var(--main-color-button);
+    background-color: var(--main-text-color);
+}
+
+
+
+
+
+/*  Tablet */
+@media screen and (min-width: 768px){
+    .modal-container{
+        max-width: 70%;
+        max-height: 70%;
+        overflow:auto;
+        padding:5%;
+       
+    }
+    .modal-container h2{    
+       font-size: 40px;
+       line-height: 44px;
+    }
+    .modal-content{
+        width: 624px;
+        background-image: url(../images/modal-girl-t-1x.png);
+        background-repeat: no-repeat;
+        background-position: right bottom;
+    }
+    .modal-close-button{
+        width: 28px;
+        height: 28px;
+    }
+    .type-of-products {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .choose-basket h3{
+        margin-top: 15px;
+    }
+    .choose-basket input[type=checkbox] + label::before{
+        width: 20px;
+        height: 20px;
+    }
+    .choose-basket input[type=checkbox]:checked + label::after{
+        width: 20px;
+        height: 20px;
+    }
+    .choose-basket {
+        width: 200px;
+        height: 250px;
+    }
+    .strawberry-basket picture img{
+        width: 133px;
+        height: 148px;
+        position: absolute;
+        top:88px;
+        left: 34px;
+    }
+    .apple-basket picture img{
+        width: 172px;
+        height: 148px;
+        position: absolute;
+        top:88px;
+        left:14px;
+    }
+    .fruits-basket picture img{
+        width: 172px;
+        height: 148px;
+        position: absolute;
+        top:88px;
+        left:14px;
+    }
+    .modal-form{
+        width: 360px;
+        height: 399px;
+        display: flex;
+        align-items: start;
+    }
+  
+
+
+
+}
+    
+
+/*  Desktop */
+@media screen and (min-width: 1158px){
+    .modal-container {
+        max-width: 65%;
+        max-height: 70%;
+    }
+    .modal-content{
+        width: 811px;
+        background-image: url(../images/modal-girl-d-1x.png);
+    }
+    .type-of-products {
+        gap: 20px;
+    }
+    .choose-basket{
+        width: 257px;
+        height: 308px;
+    }
+    .choose-basket h3{    
+        font-size: 24px;
+        line-height: 28px;
+    }
+    .strawberry-basket picture img{
+        width: 173px;
+        height: 196px;
+        top:98px;
+        left: 42px;
+    }
+    .apple-basket picture img{
+        width: 229px;
+        height: 196px;
+        top:98px;
+        left:14px;
+    }
+    .fruits-basket picture img{
+        width: 229px;
+        height: 196px;
+        top:98px;
+        left:14px;
+    }
+    .girl-with-banana {
+        display: flex;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+    }
+
+
+
+    
+}
