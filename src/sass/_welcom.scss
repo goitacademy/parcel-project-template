@@ -1,24 +1,25 @@
-.slideshow-container {
-    text-align: center;
+:root {
+    --main-text-color: #fff;
+    --main-family: "Epilogue", sans-serif;
+    --main-header-background-color: #1E2827;
+    --trasform: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.slideshow {
-    display: inline-block;
-    position: relative;
+.main-container{
+    display: block;
+    background-color: var(--main-header-background-color);
+    font-family: var(--font-family);
+    list-style-type: none;
+    color: var(--main-text-color);
+    width: 375px;
+    flex-shrink: 0;
 }
-
-.mySlides {
-    display: none;
-    max-width: 100%;
+.main-container {
+    padding: 40px 20px;
 }
-
 .section {
-    text-align: center;
-    padding: 20px;
-}
-
-.title {
-    color: #FFF;
+width: 335px;
+.title{
+color: var(--main-text-color);
     font-family: Epilogue;
     font-size: 38px;
     font-style: normal;
@@ -26,27 +27,97 @@
     line-height: 40px;
     letter-spacing: -1.52px;
 }
-
-.paragraph {
-    color: #FFF;
-    font-family: Epilogue;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 18px;
-    letter-spacing: -0.28px;
+   
 }
 
-.image-slider {
-    display: flex;
-    overflow: hidden;
-    width: 226px;
-    height: 190px;
-    margin: 0 auto;
+.paragraph{
+    width: 248px;
+    display: block;
+        justify-content: center;
+        align-items: center;
+    color: var(--main-text-color);
+    
+        font-family: Epilogue;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 18px;
+        letter-spacing: -0.28px;
 }
+   .prev,
+   .next {
+    border-radius: 8px;
+        border: 1px solid #FFF;
+       background: transparent;
+       font-size: 24px;
+       color:var(--main-text-color);
+       position: absolute;
+       top: 50%;
+       transform: translateY(-50%);
+       cursor: pointer;
+       z-index: 1;
+   }
 
-.image {
-    flex: 0 0 226px;
-    height: 190px;
-    transition: transform 0.3s;
-}
+   .prev {
+       left: 20px;
+   }
+
+   .next {
+       right: 20px;
+   }
+   /* Stiluri pentru dispozitive desktop */
+   .main-container {
+       width: 900px;
+       margin: 0 auto;
+       padding: 40px;
+   }
+
+   .title {
+       font-size: 38px;
+       line-height: 40px;
+   }
+
+   .paragraph {
+       width: 500px;
+       /* Lățimea pentru desktop */
+       font-size: 14px;
+       line-height: 18px;
+   }
+
+   /* Stiluri pentru tablete (landscape) */
+   @media (max-width: 1024px) {
+       .main-container {
+           width: 768px;
+           /* Lățimea pentru tablete landscape */
+       }
+
+       .title {
+           font-size: 32px;
+           line-height: 36px;
+       }
+
+       .paragraph {
+           width: 400px;
+           font-size: 12px;
+           line-height: 16px;
+       }
+   }
+
+   /* Stiluri pentru telefoane */
+   @media (max-width: 768px) {
+       .main-container {
+           width: 100%;
+           padding: 20px;
+       }
+
+       .title {
+           font-size: 24px;
+           line-height: 28px;
+       }
+
+       .paragraph {
+           width: 100%;
+           font-size: 14px;
+           line-height: 18px;
+       }
+   }
