@@ -2,35 +2,31 @@
 
 .about-us {
   width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
   padding: 0px 10%;
   padding-top: 80px;
   padding-bottom: 80px;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 110px;
-  display: inline-flex;
+  gap: 20px;
 
   .title-about {
     display: flex;
     height: 44px;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 346px;
 
     .title-about h2 {
       color: #1e2827;
       font-size: 40px;
       font-family: Epilogue;
       font-weight: 600;
-      line-height: 44px;
       word-wrap: break-word;
     }
   }
 
   .content {
     flex-direction: column;
-    height: 44px;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 40px;
@@ -40,10 +36,16 @@
       display: flex;
       flex-direction: column;
       gap: 50px;
+
       .text-about {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
         .text-first {
           width: 100%;
         }
+
         .text-second {
           width: 100%;
         }
@@ -58,54 +60,7 @@
   }
 }
 
-// Web desing! Starting 1024 width screen resolution, it will apply the following formats.
-
-@media screen and (min-width: 1024px) {
-  .about-us {
-    .content {
-      display: grid;
-      grid-template-columns: 20% 80%;
-      width: 100%;
-      justify-content: space-evenly;
-      .title-about {
-        display: flex;
-        padding: 20px;
-        justify-content: flex-end;
-
-        h2 {
-          font-size: 60px;
-          line-height: 44px;
-        }
-      }
-      .text-image {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img {
-          width: 80%;
-          padding: 0;
-        }
-        .text-about {
-          display: flex;
-          color: #1e2827;
-          width: 80%;
-          padding: 20px;
-          .text-first {
-            width: 50%;
-          }
-
-          .text-second {
-            width: 50%;
-          }
-        }
-      }
-    }
-  }
-}
-/* for phone*/
-
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) {
   .about-us {
     display: inline-flex;
     width: 100%;
@@ -171,3 +126,58 @@
     }
   }
 }
+
+// Web desing! Starting 1024 width screen resolution, it will apply the following formats.
+
+@media screen and (min-width: 1024px) {
+  .about-us {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    width: 100%;
+
+    .content {
+      width: 100%;
+      height: auto;
+
+      .text-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .text-about {
+          height: auto;
+          display: flex;
+          flex-direction: row;
+          color: #1e2827;
+          width: 80%;
+          padding: 20px;
+
+          .text-first {
+            width: 50%;
+          }
+
+          .text-second {
+            width: 50%;
+          }
+        }
+
+        img {
+          width: 80%;
+          padding: 0;
+        }
+      }
+    }
+
+    .title-about {
+      display: flex;
+      padding: 20px;
+      justify-content: flex-end;
+
+      h2 {
+        font-size: 80px;
+      }
+    }
+  }
+}
+/* for phone*/
