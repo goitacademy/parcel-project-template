@@ -63,31 +63,19 @@
   gap: 14px;
 }
 
-.container-cards-fruits h4 {
-  font: var(--dm700-s24-lh28);
-  padding-left: 24px;
-  margin: 0px;
-  padding-top: 64px;
-  padding-bottom: 8px;
-}
 
-.container-cards-fruits h5 {
-  font: var(--dm400-s14-lh18);
-  padding-left: 24px;
-  margin: 0px;
-}
+.container-cards-fruits li {height: 465px;
+                            color: white;
+                          position: relative;}
 
-.container-cards-fruits li img {
-  display: flex;
-  margin: auto;
-  padding-bottom: 22px;
-}
-
-.container-fruits h4,
-h5 {
-  color: #fff;
-}
-.container-cards-fruits li {height: 465px;}
+.container-cards-fruits li h3 {font: var(--dm700-s24-lh28);
+                               padding-top: 64px;
+                               padding-left: 24px;
+                               margin-block-end: 0px;
+                               margin-block-start: 0px;}
+.container-cards-fruits li h4 {font: var(--dm400-s14-lh18);
+                               margin-top: 8px;
+                              padding-left: 24px;}
 .container-cards-fruits li:nth-child(1) {
   background-color: #f8766b;
   width: 344px;
@@ -140,34 +128,36 @@ h5 {
   background-color: #98b37e;
   width: 344px;
   border-radius: 20px;
+  display: none;
 }
+.container-cards-fruits li img {position: absolute;
+  top:120px;
+  left:8%;}
 
 .price {
+  position: absolute;
+  bottom:24px;
+  left:24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   width: 126px;
-  height: 42px;
   border-radius: 200px;
   background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 24px;
-  margin-bottom: 24px;
-  padding: 0px;
   color: #ae1332;
-  font-family: DM Sans;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 18px;
-  /* 128.571% */
+  font: var(--dm500-s14-lh18);
   letter-spacing: -0.56px;
   cursor: pointer;
+  width: 126px;
 }
 
 /* Button */
+
 .order-container {
-  width: 80px;
-  height: 80px;
+  width: 82px;
+  height: 82px;
   border-radius: 50%;
   border: none;
   display: flex;
@@ -178,8 +168,6 @@ h5 {
   margin-bottom: 80px;
   border: 1px solid #9dc262;
   border-radius: 50%;
-  background-color: #9dc262;
-  color: #fff;
   text-align: center;
   text-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
   font-family: DM Sans;
@@ -197,21 +185,41 @@ h5 {
 .order-btn {
   background-color: inherit;
   border: none;
-  color: #fff;
+  color: white;
   text-align: center;
   text-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
-  font-family: DM Sans;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 18px;
+ font: var(--dm500-s14-lh18);
   /* 128.571% */
   letter-spacing: -0.56px;
   text-transform: uppercase;
   cursor: pointer;
 }
+.container-fruits .order-container {color: white;
+                                    fill: white;
+                                    background-color: #9DC262;
+                                    transition-property: color, fill, background-color;
+                                      transition-duration: 300ms;
+                                      transition-timing-function: cubic-bezier (0.4, 0, 0.2, 1);
+                                      transition-delay: 0;}
+
+.container-fruits .order-container:hover,
+.container-fruits .order-container:focus {background-color: white;}
+
+.container-fruits .order-container:hover svg,
+.container-fruits .order-container:focus svg,
+.container-fruits .order-container:hover button,
+.container-fruits .order-container:focus button {fill: #9DC262;
+                                         color: #9DC262;}
+
 
 @media screen and (min-width: 768px) {
+  .price {
+      font: var(--dm500-s18-lh24);
+    }
+  .order-btn {font: var(--dm500-s18-lh24);}
+  .order-container {
+      width: 115px;
+      height: 115px;}
   .container-fruits {
     display: flex;
     flex-direction: row;
@@ -234,7 +242,7 @@ h5 {
     width: 100%;
     display: flex;
     justify-content: center;
-    font: var(--dm500-s28-lh28);
+    font: var(--dm500-s40-lh44);
     color: #ffffff;
     padding-bottom: 14px;
     margin: 0px;
@@ -261,9 +269,19 @@ h5 {
     list-style: none;
     gap: 14px;
   }
+    .container-cards-fruits li h3 {
+      font: var(--dm700-s32-lh38);
+    }
+  
+    .container-cards-fruits li h4 {
+      font: var(--dm400-s18-lh24);
+    }
+
 }
 
 @media screen and (min-width: 1280px) {
+  .price {font: var(--dm500-s18-lh24);}
+  .container-cards-fruits li img {left: 12%;}
   .container-fruits {
     display: flex;
     flex-direction: row;
@@ -273,6 +291,7 @@ h5 {
     width: 1200px;
     margin: auto;
   }
+  .container-cards-fruits li:nth-child(9) {display: block;}
   .container-cards-fruits li:nth-child(1),
   .container-cards-fruits li:nth-child(2),
   .container-cards-fruits li:nth-child(3),
