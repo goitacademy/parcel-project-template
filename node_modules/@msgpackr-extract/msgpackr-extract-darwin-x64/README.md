@@ -1,1 +1,0 @@
-Platform specific binary for msgpackr-extract on darwin OS with x64 architecture
