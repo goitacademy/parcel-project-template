@@ -22,4 +22,3 @@ const lightboxInstance = new SimpleLightbox('.gallery__item a', {
 // Change code below this line
 
 console.log(galleryItems);
-ą
