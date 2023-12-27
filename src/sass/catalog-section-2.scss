@@ -1,7 +1,9 @@
 :root {
   --font-family: 'Epilogue';
 }
-
+.catalog {
+  padding-left: 20px;
+}
 .catalog-container {
   display: flex;
   flex-direction: column;
@@ -21,14 +23,6 @@
   font-style: normal;
   font-weight: 600;
   letter-spacing: -0.64px;
-}
-
-.watch-section {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  gap: 40px;
 }
 
 .cards-catalog-container {
@@ -111,14 +105,13 @@
   position: absolute;
   overflow: hidden;
   width: 336px;
-  height: 360px;
   flex-shrink: 0;
   background: #1e2827;
   border-radius: 8px;
 }
 
 .watch-section img {
-  width: 300px;
+  width: 275px;
 }
 
 .watch-price h3 {
@@ -159,53 +152,65 @@
   align-self: self-end;
 }
 
-.watch-section {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 50px;
-}
+@media screen and (min-width: 1024px) {
+  h2 {
+    color: var(--dark-green, #1e2827);
+    font-family: var(--font-family);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: -0.64px;
+    align-self: self-start;
+  }
+  /*
+  .watch-section {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+  */
+  .watch-section h3 {
+    width: 336px;
+    height: 18px;
+    overflow: hidden;
+    color: var(--black, #141414);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: Epilogue;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.28px;
+  }
 
-.watch-section h3 {
-  width: 336px;
-  height: 18px;
-  overflow: hidden;
-  color: var(--black, #141414);
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-family: Epilogue;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: -0.28px;
-}
+  .watch-price p {
+    color: #ffffff80;
+    font-family: Epilogue;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.24px;
+  }
 
-.watch-section p {
-  color: rgba(20, 20, 20, 0.5);
-  font-family: Epilogue;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: -0.24px;
-}
-
-.button-buy-now {
-  margin-top: 50px;
-  border-radius: 8px;
-  background: var(--dark-green, #1e2827);
-  color: var(--white, #fff);
-  font-family: Epilogue;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  text-transform: uppercase;
-  gap: 10px;
-  padding: 20px 50px;
-  align-self: self-end;
-  cursor: pointer;
+  .button-buy-now {
+    margin-top: 50px;
+    border-radius: 8px;
+    background: var(--dark-green, #1e2827);
+    color: var(--white, #fff);
+    font-family: Epilogue;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+    gap: 10px;
+    padding: 20px 50px;
+    align-self: self-end;
+    cursor: pointer;
+  }
 }
 
 .button-buy-now:hover,
@@ -432,6 +437,24 @@ textarea:focus {
 /*Tablet*/
 
 @media screen and(min-width:768px) {
+  .catalog {
+    padding-left: 20px;
+  }
+  .catalog-container {
+    max-width: 768px;
+  }
+
+  .watch-list {
+    flex-flow: wrap;
+    justify-content: center;
+    gap: 32px;
+    display: flex;
+  }
+  .watch-section img {
+    width: 310px;
+    height: 312px;
+  }
+  /*
   .watch-section {
     display: grid;
     grid-template-columns: auto auto;
@@ -446,11 +469,42 @@ textarea:focus {
   .laptop-watches {
     display: none;
   }
+  */
 }
 
 /*Desktop*/
 
 @media screen and(min-width:1158px) {
+  .catalog-container {
+    max-width: 1118px;
+  }
+
+  .catalog-container h2 {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: -0.8px;
+  }
+
+  .watch-list {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .cards-catalog-container {
+    width: 250px;
+  }
+
+  .flip-flop {
+    padding-left: 20px;
+  }
+  .laptop-watches {
+    display: flex;
+  }
+
+  /*
   .catalog-watch-container {
     padding: 0;
   }
@@ -461,15 +515,13 @@ textarea:focus {
     gap: 24px;
   }
 
-  .catalog-container {
-    padding: 80px 132px;
-  }
+  
 
-  h2 {
-    padding-right: 110px;
-  }
+  
 
   .laptop-watches {
     display: block;
   }
+
+  */
 }
