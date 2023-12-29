@@ -152,67 +152,6 @@
   align-self: self-end;
 }
 
-@media screen and (min-width: 1024px) {
-  h2 {
-    color: var(--dark-green, #1e2827);
-    font-family: var(--font-family);
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 600;
-    letter-spacing: -0.64px;
-    align-self: self-start;
-  }
-  /*
-  .watch-section {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 50px;
-  }
-  */
-  .watch-section h3 {
-    width: 336px;
-    height: 18px;
-    overflow: hidden;
-    color: var(--black, #141414);
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-family: Epilogue;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: -0.28px;
-  }
-
-  .watch-price p {
-    color: #ffffff80;
-    font-family: Epilogue;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: -0.24px;
-  }
-
-  .button-buy-now {
-    margin-top: 50px;
-    border-radius: 8px;
-    background: var(--dark-green, #1e2827);
-    color: var(--white, #fff);
-    font-family: Epilogue;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    text-transform: uppercase;
-    gap: 10px;
-    padding: 20px 50px;
-    align-self: self-end;
-    cursor: pointer;
-  }
-}
-
 .button-buy-now:hover,
 .button-buy-now:active {
   background: var(--dark-green, #1e2827);
@@ -245,12 +184,14 @@
 
   .modal-content {
     background-color: rgba(255, 255, 255, 1);
-    width: 904px;
-    height: 694px;
+    max-width: 375px;
+    height: 1113px;
     position: relative;
     padding: 54px, 92px, 54px, 287px;
     border-radius: 8px;
     gap: 8px;
+    flex-direction: column;
+    display: flex;
     box-shadow: 0px 0px 8.775463104248047px 0px #00000003;
     box-shadow: 0px 0px 18.17037010192871px 0px #00000005;
     box-shadow: 0px 0px 36.23749923706055px 0px #00000006;
@@ -264,8 +205,8 @@
 
     .close-btn {
       box-sizing: content-box;
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       padding: 6px;
       cursor: pointer;
       position: absolute;
@@ -276,22 +217,22 @@
     .form-container {
       display: flex;
       flex-direction: column;
-      padding: 40px 41px;
+      padding: 40px 20px;
 
       .modal-container {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
         align-content: center;
         width: 100%;
         gap: 40px;
 
         .currentwatch {
-          width: 276px;
-          height: 325px;
+          width: 100%;
+          height: 375px;
           display: flex;
           flex-direction: column;
-          align-items: center;
-          align-content: center;
+          justify-content: center;
           padding: 0;
 
           div {
@@ -304,11 +245,15 @@
             letter-spacing: -0.02em;
             text-align: left;
             padding: 0;
-            img {
-              padding: 0;
-            }
+            justify-content: center;
+            align-content: center;
+            display: flex;
+            flex-direction: column;
+
             p + p {
               color: #14141480;
+              font-size: 12px;
+              line-height: 14px;
             }
           }
         }
@@ -316,15 +261,17 @@
         form {
           display: flex;
           flex-direction: column;
-          gap: 24px;
+          gap: 18px;
           position: relative;
+          justify-content: center;
+          align-content: center;
 
           .label-content {
             .form-label {
               font-family: Epilogue;
-              font-size: 14px;
+              font-size: 12px;
               font-weight: 400;
-              line-height: 18px;
+              line-height: 14px;
               letter-spacing: -0.02em;
               text-align: left;
               color: #141414;
@@ -337,13 +284,13 @@
 
               .textfield {
                 height: 42px;
-                width: 508px;
+                width: 100%;
                 border: 1px solid #14141480;
                 border-radius: 8px;
                 padding: 12px 16px;
                 outline: none;
                 font-family: Epilogue;
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 400;
                 line-height: 18px;
                 letter-spacing: -0.02em;
@@ -353,14 +300,14 @@
             }
 
             textarea {
-              height: 166px;
-              width: 508px;
+              height: 170px;
+              width: 100%;
               padding: 12px 16px;
               border: 1px solid #14141480;
               border-radius: 4px;
               outline: none;
               font-family: Epilogue;
-              font-size: 16px;
+              font-size: 14px;
               font-weight: 400;
               line-height: 18px;
               letter-spacing: -0.02em;
@@ -374,7 +321,7 @@
               line-height: 16px;
               letter-spacing: 0.01em;
               color: rgba(117, 117, 117, 0.5);
-              padding-top: 6px;
+              padding-top: 2px;
             }
           }
 
@@ -383,16 +330,14 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding-top: 16px;
+            padding-top: 2px;
 
             .btnform {
-              width: 507px;
+              width: 100%;
               height: 50px;
-              padding: 18px, 222px, 18px, 222px;
+              padding: 18px, 116px, 18px, 116px;
               border-radius: 8px;
-              gap: 10px;
               cursor: pointer;
-              border-radius: 4px;
               box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
               background-color: #1e2827;
               color: #ffffff;
@@ -403,7 +348,7 @@
               letter-spacing: 0em;
               text-align: center;
             }
-            span {
+            p {
               padding-top: 12px;
               font-family: Epilogue;
               font-size: 12px;
@@ -412,6 +357,10 @@
               letter-spacing: -0.02em;
               text-align: left;
               color: #14141466;
+
+              span {
+                text-decoration: underline;
+              }
             }
           }
         }
@@ -454,22 +403,73 @@ textarea:focus {
     width: 310px;
     height: 312px;
   }
-  /*
-  .watch-section {
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: center;
-    gap: 32px;
-  }
 
-  .button-buy-now {
-    padding: 14px 28px;
-  }
+  .modal {
+    .modal-content {
+      max-width: 744px;
+      height: 670px;
 
-  .laptop-watches {
-    display: none;
+      .close-btn {
+        width: 24px;
+        height: 24px;
+      }
+
+      .form-container {
+        padding: 40px 40px;
+
+        .modal-container {
+          width: 100%;
+          flex-direction: row;
+          gap: 20px;
+
+          .currentwatch {
+            width: 276px;
+            height: 274px;
+            justify-content: start;
+          }
+
+          form {
+            gap: 18px;
+
+            .label-content {
+              .form-label {
+                font-size: 14px;
+                line-height: 18px;
+              }
+
+              .form-input-container {
+                .textfield {
+                  height: 42px;
+                  width: 100%;
+                  font-size: 16px;
+                }
+              }
+
+              textarea {
+                height: 166px;
+                width: 100%;
+                font-size: 16px;
+              }
+
+              textarea::placeholder {
+                font-size: 16px;
+              }
+            }
+
+            .label-terms {
+              padding-top: 2px;
+
+              .btnform {
+                width: 100%;
+                height: 50px;
+                padding: 18px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
-  */
 }
 
 /*Desktop*/
@@ -482,8 +482,53 @@ textarea:focus {
   .catalog-container h2 {
     font-size: 40px;
     font-weight: 600;
+    color: var(--dark-green, #1e2827);
+    font-family: var(--font-family);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
     line-height: 44px;
-    letter-spacing: -0.8px;
+    letter-spacing: -0.02em;
+    align-self: self-start;
+  }
+
+  .watch-section h3 {
+    width: 336px;
+    height: 18px;
+    overflow: hidden;
+    color: var(--black, #141414);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: Epilogue;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.28px;
+  }
+
+  .watch-price p {
+    color: #ffffff80;
+    font-family: Epilogue;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.24px;
+  }
+
+  .button-buy-now {
+    margin-top: 50px;
+    border-radius: 8px;
+    background: var(--dark-green, #1e2827);
+    color: var(--white, #fff);
+    font-family: Epilogue;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+    gap: 10px;
+    padding: 20px 50px;
+    align-self: self-end;
+    cursor: pointer;
   }
 
   .watch-list {
@@ -504,24 +549,30 @@ textarea:focus {
     display: flex;
   }
 
-  /*
-  .catalog-watch-container {
-    padding: 0;
+  .modal {
+    .modal-content {
+      max-width: 904px;
+      height: 694px;
+
+      .form-container {
+        padding: 40px 41px;
+
+        .modal-container {
+          gap: 40px;
+
+          .currentwatch {
+            height: 325px;
+          }
+
+          form {
+            gap: 24px;
+
+            .label-terms {
+              padding-top: 16px;
+            }
+          }
+        }
+      }
+    }
   }
-  .watch-section {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    justify-content: center;
-    gap: 24px;
-  }
-
-  
-
-  
-
-  .laptop-watches {
-    display: block;
-  }
-
-  */
 }
