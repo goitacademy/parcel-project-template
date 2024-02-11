@@ -22,6 +22,7 @@ a{
 }
 
 .nav-list {
+    position: relative;
     list-style: none;
     display: flex;
     align-items: center;
@@ -38,16 +39,48 @@ text-decoration: none;
 
 .nav-list-item {
     color:  #ae1332;
-}
-.nav-list-item:hover {
-    color: #A4CB66;
-    text-decoration: underline;
-}
-.text-logo:hover{
-    color: #A4CB66;
+    position: relative;
 }
 
+.nav-li { 
+    color: #ae1332;
+}
+
+
+.nav-list-item::after {
+    content: '';
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #A4CB66;
+    transform: scale(0);
+    transition: transform 0.25s ease-out;
+} 
+.nav-list-item:hover::after {
+    visibility: visible;
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-list-item:hover {
+    color: #A4CB66;
+    
+}
+
+
+
+// .text-logo:hover{
+//     color: #A4CB66;
+// }
+
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.logo-div{
     display: flex;
     align-items: center;
     gap: 6px;
@@ -67,8 +100,16 @@ text-decoration: none;
       justify-content: center;
 }
 
-.logo-name:hover{
+.logo-name:hover,
+.logo-name:focus
+{
     color: #A4CB66;
+}
+
+.logo-name:hover .icons,
+.logo-name:focus .icons
+{
+    fill: #A4CB66;
 }
 
 .svghover{
@@ -97,7 +138,8 @@ text-decoration: none;
 .icons {
     fill:#ae1332;
 }
-.icons:hover {
+.icons:hover, 
+.icons:focus {
     
         fill:#A4CB66;
     }
