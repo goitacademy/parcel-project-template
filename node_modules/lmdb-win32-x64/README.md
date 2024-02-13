@@ -1,0 +1,1 @@
+Platform specific binary for lmdb on win32 OS with x64 architecture
