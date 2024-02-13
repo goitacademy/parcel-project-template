@@ -5,7 +5,7 @@ var os = require('os')
 var path = require('path')
 
 if (!buildFromSource()) {
-  proc.exec('node-gyp-build-test', function (err, stdout, stderr) {
+  proc.exec('node-gyp-build-optional-packages-test', function (err, stdout, stderr) {
     if (err) {
       if (verbose()) console.error(stderr)
       preinstall()
