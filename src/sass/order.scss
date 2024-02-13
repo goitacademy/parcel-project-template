@@ -1,0 +1,398 @@
+.backdrop {
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    background-color: rgba(66, 67, 47, 0.5);
+    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1), visibility 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .is-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .backdrop.is-hidden .modal-order {
+    opacity: 0;
+    transform: translate(-50%) scale(0.2);
+  }
+  .modal-order {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    z-index: 20;
+    transform: translate(-50%) scale(1);
+    max-width: 335px;
+    width: 100%;
+    padding: 20px;
+    min-height: 903px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1), opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  
+  .order-button-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  .modal-order-title {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #ae1332;
+    text-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-order-button {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background-color: white;
+    transform: scale(1);
+    transition: scale 250ms 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .modal-order-button:hover,
+  .modal-order-button:hover {
+    transform: scale(1.2);
+  }
+  
+  .modal-order-button-icon {
+    fill: #ae1332;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .modal-order-basket {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 40px;
+    border: none;
+  }
+  
+  .modal-order-label {
+    position: relative;
+    display: block;
+    padding-top: 20px;
+    padding-left: 20px;
+    max-width: 295px;
+    height: 119px;
+    border-radius: 20px;
+  }
+  
+  .strawberry {
+    background-color: #f8766b;
+  }
+  .apple {
+    background-color: #edd251;
+  }
+  .fruits {
+    background-color: #9dc262;
+  }
+  .modal-order-text {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.33;
+    color: white;
+  }
+  
+  .modal-order-plant {
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.02em;
+    color: white;
+  }
+  .modal-order-img {
+    position: absolute;
+    z-index: 100;
+    top: 16px;
+    right: 32px;
+    width: auto;
+  }
+  
+  .modal-order-checkbox {
+    appearance: none;
+  }
+  .modal-order-checkbox-span {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 14px;
+    right: 14px;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #ffffff;
+    border-radius: 4px;
+  }
+  .modal-order-icon {
+    fill: #ffffff;
+    opacity: 0;
+    transition: opacity  300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .modal-order-checkbox:checked + .modal-order-checkbox-span .modal-order-icon {
+    opacity: 1;
+  }
+  .modal-order-group {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    border: none;
+  }
+  .modal-order-input {
+    display: block;
+    max-width: 295px;
+    width: 100%;
+    height: 46px;
+    padding: 14px 24px;
+    margin-bottom: 14px;
+    opacity: 0.5;
+    border: 1px solid #000000;
+    border-radius: 100px;
+    outline: none;
+  }
+  
+  .modal-order-input:not(:placeholder-shown):required:invalid {
+    border-color: #ff0000;
+    opacity: 1;
+  }
+  .modal-order-comments {
+    display: block;
+    max-width: 295px;
+    width: 100%;
+    min-height: 132px;
+    padding: 14px 24px;
+    opacity: 0.5;
+    border: 1px solid #000000;
+    outline: none;
+    border-radius: 20px;
+  }
+  
+  .modal-form-input::placeholder {
+    font-size: 14px;
+    line-height: 1.29;
+    color: #000000;
+  }
+  .modal-order-submit {
+    width: 92px;
+    height: 42px;
+    background-color: #9dc162;
+    border-radius: 100px;
+    border: none;
+    font-size: 14px;
+    line-height: 1.29;
+    text-transform: capitalize;
+    color: white;
+  }
+  
+  #submitButton {
+    border: 2px solid transparent;
+    transition: border  300ms cubic-bezier(0.4, 0, 0.2, 1), color  300ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color  300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  #submitButton.inactive {
+    cursor: not-allowed;
+  }
+  #submitButton.inactive:hover,
+  #submitButton.inactive:focus {
+    cursor: not-allowed;
+    border: 2px solid #ae1332;
+    color: red;
+    background-color: white;
+  }
+  
+  #submitButton:hover,
+  #submitButton:focus {
+    border: 2px solid #a4cb66;
+    color: #a4cb66;
+    background-color: white;
+  }
+  @media only screen and (min-width: 768px) {
+    .modal-order {
+      max-width: 704px;
+      width: 100%;
+      min-height: 853px;
+      padding: 40px;
+      background-image: url(../images/modal-girl-tablet.png);
+      background-position: right bottom;
+      background-repeat: no-repeat;
+      background-size: 291px 467px;
+    }
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      .modal-order {
+        background-image: url(../images/modal-girl-tablet.png);
+      }
+    }
+  }
+  @media only screen and (min-width: 1280px) {
+    .modal-order {
+      max-width: 891px;
+      width: 100%;
+      min-height: 911px;
+      padding: 40px;
+      background-image: url(../images/modal-girl-desk.png);
+      background-size: 471px 458px;
+    }
+    }
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      .modal-order {
+        background-image: url(../images/modal-girl-desk.png);
+      }
+    }
+    @media only screen and (min-width: 768px) {
+      .modal-order-title {
+        font-size: 40px;
+        line-height: 1.1;
+      }
+    }
+  
+    @media only screen and (min-width: 768px) {
+      .modal-order-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 28px;
+        height: 28px;
+      }
+    }
+  
+    @media only screen and (min-width: 768px) {
+      .modal-order-button-icon {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  
+    @media only screen and (min-width: 768px) {
+      .modal-order-basket {
+        display: flex;
+        gap: 12px;
+      }
+    }
+    @media only screen and (min-width: 1280px) {
+      .modal-order-basket {
+        gap: 20px;
+      }
+    }
+  
+    @media only screen and (min-width: 1280px) {
+      .modal-order-text {
+        margin-bottom: 8px;
+      }
+    }
+  
+    @media only screen and (min-width: 768px) {
+      .modal-order-img {
+        top: 88px;
+        right: 14px;
+      }
+    }
+    @media only screen and (min-width: 1280px) {
+      .modal-order-img {
+        top: 98px;
+      }
+    }
+    @media only screen and (min-width: 768px) {
+      .strawberry-img {
+        right: 33px;
+      }
+    }
+    @media only screen and (min-width: 1280px) {
+      .strawberry-img {
+        right: 42px;
+      }
+    }
+  
+    @media only screen and (min-width: 768px) {
+      .modal-order-label {
+        padding-top: 40px;
+        width: 200px;
+        height: 250px;
+      }
+    }
+    @media only screen and (min-width: 1280px) {
+      .modal-order-label {
+        width: 257px;
+        height: 308px;
+      }
+    }
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      .modal-order-label:not(:last-child) {
+        margin-bottom: 12px;
+      }
+    }
+  
+    @media only screen and (min-width: 768px) {
+    .modal-order-label {
+      padding-top: 40px;
+      width: 200px;
+      height: 250px;
+    }
+  }
+  @media only screen and (min-width: 1280px) {
+    .modal-order-label {
+      width: 257px;
+      height: 308px;
+    }
+  }
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .modal-order-label:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .modal-order-input {
+      max-width: 360px;
+      width: 100%;
+      height: 48px;
+      padding: 15px 24px;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .modal-order-comments {
+      max-width: 360px;
+      width: 100%;
+      height: 48px;
+      padding: 15px 24px;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .modal-order-label {
+      padding-top: 40px;
+      width: 200px;
+      height: 250px;
+    }
+  }
+  @media only screen and (min-width: 1280px) {
+    .modal-order-label {
+      width: 257px;
+      height: 308px;
+    }
+  }
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .modal-order-label:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .modal-order-submit {
+      width: 114px;
+      height: 48px;
+    }
+  }
