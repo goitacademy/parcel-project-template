@@ -1,0 +1,351 @@
+
+// // bubble  effect
+
+// $bubble-count: 50;
+// $sway-type: 'sway-left-to-right', 'sway-right-to-left';
+
+// @function random_range($min, $max) {
+//   $rand: random();
+//   $random_range: $min + floor($rand * (($max - $min) + 1));
+//   @return $random_range;
+// }
+
+// @function sample($list) {
+//   @return nth($list, random(length($list)));
+// }
+// .bubbles {
+//   position: relative;
+//   width: 100%;
+
+//   height: 100vh;
+//   overflow: hidden;
+// }
+
+// .bubble {
+//   position: absolute;
+//   left: var(--bubble-left-offset);
+//   bottom: -75%;
+//   display: block;
+//   width: var(--bubble-radius);
+//   height: var(--bubble-radius);
+//   border-radius: 50%;
+//   animation: float-up var(--bubble-float-duration) var(--bubble-float-delay)
+//     ease-in infinite;
+
+//   &::before {
+//     position: absolute;
+//     content: '';
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: rgba(255, 255, 255, 0.3);
+//     border-radius: inherit;
+//     animation: var(--bubble-sway-type) var(--bubble-sway-duration)
+//       var(--bubble-sway-delay) ease-in-out alternate infinite;
+//   }
+
+//   @for $i from 0 through $bubble-count {
+//     &:nth-child(#{$i}) {
+//       --bubble-left-offset: #{random_range(0vw, 100vw)};
+//       --bubble-radius: #{random_range(1vw, 10vw)};
+//       --bubble-float-duration: #{random_range(6s, 12s)};
+//       --bubble-sway-duration: #{random_range(4s, 6s)};
+//       --bubble-float-delay: #{random_range(0s, 4s)};
+//       --bubble-sway-delay: #{random_range(0s, 4s)};
+//       --bubble-sway-type: #{sample($sway-type)};
+//     }
+//   }
+// }
+
+// @keyframes float-up {
+//   to {
+//     transform: translateY(-175vh);
+//   }
+// }
+
+// @keyframes sway-left-to-right {
+//   from {
+//     transform: translateX(-100%);
+//   }
+
+//   to {
+//     transform: translateX(100%);
+//   }
+// }
+
+// @keyframes sway-right-to-left {
+//   from {
+//     transform: translateX(100%);
+//   }
+
+//   to {
+//     transform: translateX(-100%);
+//   }
+// }
+
+// // end bubble
+
+.hero {
+  background-color: #ffb8ca;
+  position: relative;
+  @include mq(mobile-only) {
+    background-image: url('../images/hero(Mihai)/ellipse-tablet.svg');
+    background-repeat: no-repeat;
+  }
+
+  &__container {
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 502px;
+    background-image: url('../images/hero(Mihai)/icecrem.svg');
+
+    background-position: top 92px left 117px;
+    background-repeat: no-repeat;
+
+    @include mq(tablet-only) {
+      position: relative;
+      width: 768px;
+      height: 416px;
+      background-color: #ffb8ca;
+      background-image: url('../images/hero(Mihai)/ice-cream-tablet.svg'),
+        url('../images/hero(Mihai)/slider-pic-tablet.svg'),
+        url('../images/hero(Mihai)/slider-pic-tablet1.svg'),
+        url('../images/hero(Mihai)/ellipse-tablet.svg');
+      background-repeat: no-repeat;
+      background-position: bottom left 320px, bottom 16px left 32px,
+        bottom 1px right 32px, left 248px bottom 40px;
+    }
+
+    @include mq(desktop) {
+      position: relative;
+      width: 1200px;
+      height: 664px;
+      background-color: #ffb8ca;
+      background-image: url('../images/hero(Mihai)/ice-cream-desktop.svg'),
+        url('../images/hero(Mihai)/slider-desktop.svg'),
+        url('../images/hero(Mihai)/slider-1-desktop.svg'),
+        url('../images/hero(Mihai)/ellipse-desktop.svg');
+      background-repeat: no-repeat;
+      background-position: right 328px bottom 0px, bottom 60px left 16px,
+        bottom 1px right 16px, right 149px bottom 76px;
+    }
+  }
+
+  &__title {
+    width: 216px;
+    height: 106px;
+    color: var(--white-text-color);
+    font-family: 'Titan One', 'Sans serif';
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    &:hover {
+      scale: 1.1;
+    }
+
+    @include mq(tablet-only) {
+      width: 162px;
+      height: 80px;
+      font-size: 22px;
+      line-height: calc(25 / 22);
+      &:hover {
+        scale: 1.1;
+      }
+    }
+    @include mq(desktop) {
+      width: 277px;
+      height: 137px;
+      font-size: 38px;
+      line-height: calc(44 / 38);
+      margin-bottom: 24px;
+      &:hover {
+        scale: 1.1;
+      }
+    }
+  }
+  .hero__title-word {
+    color: var(--red-text-color);
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 1.04;
+    text-transform: uppercase;
+
+    @include mq(tablet-only) {
+      font-size: 34px;
+      line-height: calc(31 / 34);
+    }
+    @include mq(desktop) {
+      font-size: 58px;
+      line-height: calc(58 / 52);
+    }
+  }
+  .hero {
+    &__content {
+      padding-top: 194px;
+      padding-bottom: 158px;
+      margin-left: 20px;
+      @include mq(tablet-only) {
+        padding-top: 102px;
+        padding-bottom: 190px;
+        // margin-left: 32px;
+      }
+      @include mq(desktop) {
+        padding-top: 147px;
+        // padding-left: 16px;
+        margin-left: 16px;
+      }
+    }
+    &__content-list {
+      @include mq(mobile-only) {
+        display: none;
+      }
+      @include mq(tablet-only) {
+        position: absolute;
+        right: 32px;
+        top: 94px;
+      }
+      @include mq(desktop) {
+        position: absolute;
+        right: 16px;
+        top: 152px;
+      }
+    }
+    &__paragraph {
+      color: white;
+      font-family: 'DM Sans', 'Sans-serif';
+      font-weight: 400;
+      &:hover {
+        scale: 1.1;
+      }
+      @include mq(mobile-only) {
+        display: none;
+      }
+      @include mq(tablet-only) {
+        max-width: 115px;
+        font-size: 8px;
+        line-height: 1.5;
+        left: 184px;
+        bottom: 81px;
+        margin-bottom: 7px;
+        &:hover {
+          scale: 1.1;
+        }
+      }
+      @include mq(desktop) {
+        max-width: 200px;
+        font-size: 14px;
+        font-size: 14px;
+        line-height: 1.4;
+        left: 229px;
+        margin-bottom: 20px;
+        // bottom: 230px;
+      }
+    }
+  }
+  .hero {
+    &__content-item {
+      background-repeat: no-repeat;
+      background-position: right top;
+      display: flex;
+      flex-direction: column;
+      @include mq(tablet) {
+        &:first-child {
+          margin-bottom: 17px;
+        }
+      }
+      @include mq(desktop) {
+        &:first-child {
+          margin-bottom: 35px;
+        }
+      }
+    }
+    &__content-number {
+      z-index: 1;
+      color: var(--red-text-color);
+      font-family: 'Titan One', 'Sans-serif';
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: left;
+      @include mq(tablet-only) {
+        font-size: 28px;
+        line-height: calc(32 / 28);
+      }
+      @include mq(desktop) {
+        font-size: 46px;
+        line-height: calc(53 / 46);
+      }
+    }
+    &__content-words {
+      color: var(--white-text-color);
+      font-family: 'DM Sans', 'Sans-serif';
+      font-weight: 400;
+      text-align: center;
+      @include mq(tablet-only) {
+        font-size: 8px;
+        line-height: 1.25;
+      }
+      @include mq(desktop) {
+        font-size: 14px;
+        line-height: 1.28;
+      }
+    }
+  }
+
+  .hero__block {
+    position: absolute;
+    @include mq(tablet) {
+      left: 184px;
+      bottom: 56px;
+    }
+    @include mq(desktop) {
+      left: 229px;
+      bottom: 84px;
+    }
+  }
+
+  .video {
+    width: 480px;
+    height: 320px;
+    display: flex;
+  }
+
+  .hero__content-item-circle {
+    position: absolute;
+    @include mq(tablet-only) {
+      left: 25px;
+      width: 20px;
+      height: 20px;
+    }
+    @include mq(desktop) {
+      left: 40px;
+      width: 30px;
+      height: 30px;
+    }
+
+    border-radius: 50%;
+    box-sizing: border-box;
+
+    overflow: hidden;
+  }
+
+  .hero__content-item-circle::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    border-radius: 50%;
+    @include mq(tablet-only) {
+      background: var(--white-text-color);
+    }
+    @include mq(desktop) {
+      background: var(--white-text-color);
+    }
+    transform: translateX(-20%) translateY(-20%) rotate(-45deg);
+  }
+}

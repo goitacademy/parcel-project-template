@@ -1,0 +1,79 @@
+.header__nav-container {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bgc-modal-color);
+  z-index: 10;
+  padding: 0 0 0 0;
+  transition: right 0.3s ease 0s;
+  overflow: auto;
+
+  @include mq(tablet) {
+    max-width: 38%;
+  }
+  @include mq(desktop) {
+    display: none;
+  }
+}
+
+.header__nav-container._active {
+  right: 0;
+}
+
+.menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.menu-toggle {
+  border: none;
+  background-color: transparent;
+  margin-left: auto;
+  transition-property: color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
+  // @include mq(tablet-only)
+  @include mq(desktop) {
+    display: none;
+  }
+}
+
+.header__buy-button-menu {
+  display: block;
+  margin: 60px auto 19px;
+  width: 209px;
+  height: 44px;
+  padding-right: 40px;
+  border-radius: 22px;
+  border-color: transparent;
+
+  background-image: url('../images/hero(Mihai)/arrow-2.svg');
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-position: right 55px top 15px;
+  color: var(--red-text-color);
+
+  background-color: var(--white-text-color);
+
+  font-family: 'DM Sans', 'Sans-serif';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(21 / 16);
+
+  transform: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus,
+  &:hover {
+    color: var(--white-text-color);
+    background-color: var(--red-text-color);
+    background-image: url('../images/hero(Mihai)/arrow.svg');
+  }
+  @include mq(tablet) {
+    width: 186px;
+    background-position: right 50px top 15px;
+  }
+}
+
