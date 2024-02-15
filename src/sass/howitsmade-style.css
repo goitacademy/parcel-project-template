@@ -76,24 +76,25 @@ h3 {
   flex-shrink: 0;
 
   border-radius: 15px;
-  background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.4) 0%,
-      rgba(0, 0, 0, 0.4) 100%
-    ),
-    url(<path-to-image>),
-    lightgray -10.819px -343.839px / 103.473% 236.295% no-repeat;
+  background-color: black;
   position: relative;
 }
 #video {
   object-fit: fill;
   border-radius: inherit;
 }
+.cover-image {
+  position: absolute;
+  border-radius: inherit;
+  content: url('../images/howitsmade-images/desktop-video-cover.jpg');
+}
 .play-button {
   position: absolute;
   z-index: 1;
   left: 278px;
   top: 178px;
+  background: none;
+  border: none;
 }
 .howitsmade-list {
   display: flex;
@@ -103,37 +104,35 @@ h3 {
 li {
   text-align: left;
 }
-
-@media screen and (width <= 768px) {
-  .text-container {
-    width: 614px;
-    height: 356px;
-  }
-  .video-container {
-    width: 614px;
-    height: 400px;
-  }
-  #video {
-    /* object-fit: fill;
-    border-radius: inherit;
-    width: 100%;
-    height: auto; */
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-  }
+@media screen and (width < 1200px) {
   .all-container {
     align-items: center;
     justify-content: center;
+  }
+}
+@media screen and (width <= 768px) {
+  .text-container {
+    width: 600px;
+    height: 356px;
+  }
+
+  #video {
+    width: 100%;
+    height: 100%;
   }
 }
 @media screen and (width <= 480px) {
   .video-container {
     width: 335px;
     height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #video {
+    width: 100%;
+    height: auto;
+    border-radius: 0%;
   }
 
   .text-container {
@@ -145,5 +144,16 @@ li {
     font-size: 20px;
     line-height: 120%;
     letter-spacing: -0.6px;
+  }
+  .play-button {
+    left: 150px;
+    top: 233px;
+  }
+  .play-svg {
+    width: 35px;
+    height: 35px;
+  }
+  .cover-image {
+    content: url('../images/howitsmade-images/phone-video-cover.jpg');
   }
 }
