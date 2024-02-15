@@ -1,0 +1,398 @@
+/*-------------------------------------------------------------------*/
+/*                    MODAL CSS                                      */
+/*-------------------------------------------------------------------*/
+
+.backdrop {
+    left: 0;
+    top: 0;
+    opacity: 2;
+    padding: 30px 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.3, 1);
+}
+
+
+.modal-container {
+    position: relative;
+    height: 100vh;
+    top: 20px;
+    @media screen and  (min-height: 1000px) {
+        top: 0;
+    }
+}
+
+.modal {
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    border-radius: 0;
+    position: absolute;
+    padding: 20px 20px 100px;
+    background-color: $white;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 40px;
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-title {
+    padding-bottom: 40px;
+    color: $hotpink;
+    text-shadow: 0px 4px 70px rgba(0, 0, 0, 0.10);
+    font-family: DM Sans;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -1.12px;
+}
+
+/* Modal icon X(close) button  */
+.is-hidden {
+    opacity: 0;
+    visibility: none;
+    pointer-events: none;
+}
+
+
+.modal-close {
+    top: 21px;
+    right: 17px;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    color: #f8766b;
+
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-icon {
+    fill: currentColor;
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0);
+}
+
+
+/* Modal Form field inputs */
+.form-field {
+    display: block;
+    margin-top: 16px;
+    position: relative;
+}
+
+.form-field .form-label {
+    top: -20px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    position: absolute;
+    letter-spacing: 0.48px;
+    color: var(--lightslate);
+}
+
+.form-field .form-input,
+.form-field .text-area {
+    width: 100%;
+    height: 46px;
+    display: block;
+    border-radius: 100px;
+    margin-bottom: 14px;
+    /* color: gray; */
+    padding: 14px 24px;
+    /* border: 1px solid rgba(46, 47, 66, 0.4); */
+    border: 1px solid #000;
+    opacity: 0.3;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color: #000;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.56px;
+}
+
+.form-field .text-area {
+    resize: none;
+    border-radius: 20px;
+    height: 132px;
+}
+
+.form-field .form-input:hover,
+.form-field .form-input:focus,
+.form-field .text-area:hover,
+.form-field .text-area:focus {
+    outline: none;
+    border-color: black;
+}
+
+
+.form-modal-button {
+    width: 92px;
+    margin-top: 20px;
+    display: inline-flex;
+    padding: 12px 24px;
+    align-items: center;
+    gap: 15px;
+    border-radius: 100px;
+    background: #9DC162;
+    border: none;
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.56px;
+}
+
+/* css for order tags */
+.order__cart {
+    margin: 0;
+    padding: 0px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.close-banner {
+    color: #FFF;
+}
+
+.modal__checkmark {
+    cursor: pointer;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+}
+
+.order__fruits {
+    position: relative;
+    background-color: red;
+    padding: 14px 14px 8px 20px;
+    gap: 5px 2px;
+    display: flex;
+    border-radius: 30px;
+    flex-direction: row;
+    width: 295px;
+    height: 119px;
+}
+
+.fruit-name-order {
+    color: #FFF;
+    font-family: DM Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    /* 133.333% */
+    letter-spacing: -0.72px;
+    width: 150px;
+}
+
+.fruit-type-order {
+    color: #FFF;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    /* 128.571% */
+    letter-spacing: -0.28px;
+}
+
+
+
+.picture-order-box {
+    padding-right: 12px;
+}
+
+.fruits__checkmark {
+    width: 20px;
+    height: 20px;
+    fill: transparent;
+}
+
+.checkbox-form:checked + .fruits__checkmark {
+    fill: $white;
+}
+
+.fruits-basket {
+    height: 95px;
+}
+
+.order__cart>.order__fruits:nth-child(1) {
+    background-color: #f8766b;
+}
+
+.order__cart>.order__fruits:nth-child(2) {
+    background-color: #EDD251;
+}
+
+.order__cart>.order__fruits:nth-child(3) {
+    background-color: #9DC262;
+}
+
+.fixed-banner{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+}
+
+// Banana Girl
+
+.banana-gurl {
+    position: absolute;
+    bottom: -75px;
+    right: -175px;
+    width: 469px;
+    height: 467px;
+    display: none;
+}
+
+
+
+// Banner Display
+
+.banner-fruits {
+    border-radius: 20px;
+    background: #E03F5E;
+    color: #fff;
+    position: absolute;
+    display: flex;
+    width: 88%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -350%);
+    transition: transform 250ms ease-in-out;
+}
+
+.banner-fruits.is-display {
+    transform: translate(-50%, -50%);
+}
+
+.raspberry-fruit {
+    width: 207px;
+    height: 176px;
+}
+
+.banner__fruits__title {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 44px; 
+    letter-spacing: -1.6px;
+    text-transform: uppercase;
+}
+
+
+/*-------------------------------------------*/
+/*                 VIEWPORT                  */
+/*-------------------------------------------*/
+@media screen and (min-width: 375px) {
+    @media screen and (min-height: 1000px) {
+        .modal {
+            padding: 20px;
+            border-radius: 20px; 
+            overflow-y: hidden;
+            height: auto;
+        }
+    }
+}
+
+/* TABLET SCREEN */
+@media screen and (min-width: 768px) {
+    .modal {
+        width: 704px;
+        padding: 40px;
+    }
+
+    .order__fruits{
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 200px;
+        height: 250px;
+        padding: 40px 20px 20px;
+    }
+
+    .fruits-basket {
+        height: 148px;
+    }
+
+    .form {
+        width: 360px;
+    }
+
+    @media screen and (min-height: 853px) {
+        .modal{
+            border-radius: 20px; 
+            height: auto;
+            overflow-y: hidden;
+        }
+    }
+
+    .banner-fruits {
+        width: 600px;
+        padding: 68px 105px 80px;
+    }
+
+    .banana-gurl {
+        display: block;
+    }
+
+    .raspberry-fruit {
+        height: 239px;
+    }
+}
+
+    /* LARGE SCREEN(Desktop) */
+@media screen and (min-width: 1280px) {
+    .modal {
+        width: 891px;
+        background-position: 453px 420px;
+    }
+
+    .order__cart {
+        justify-content: space-between;
+    }
+
+    .order__fruits{
+        width: 257px;
+        height: 308px;
+    }
+
+    .fruits-basket {
+        height: 196px;
+    }
+
+    @media screen and (min-height: 911px) {
+        .modal{
+            border-radius: 20px; 
+            height: auto;
+            overflow-y: hidden;
+        }
+    }
+    
+    .banana-gurl {
+        right: 0;
+    }
+}
