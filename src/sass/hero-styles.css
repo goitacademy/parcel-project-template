@@ -1,11 +1,12 @@
 /* Global styles for Header-Hero-Footer */
 
 :root {
-  --main-color: #fafafa;
-  --text-color: #111111;
-  --hover-color: #fd9222;
+  --text-font-family: 'Montserrat', sans-serif;
+  --body-color: #fafafa;
+  --dark-text-color: #111;
+  --light-text-color: #fff;
+  --orange-color: #fd9222;
   --black-color: #1e1823;
-  --white-color: #fcf1e0;
 }
 
 * {
@@ -31,9 +32,9 @@ img {
 /* Styles for Desktop */
 
 section {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--text-font-family);
   background-color: white;
-  color: var(--text-color);
+  color: var(--dark-text-color);
 }
 
 button {
@@ -69,6 +70,7 @@ html {
   align-items: baseline;
   justify-content: space-between;
   margin: 0 40px;
+  flex-wrap: wrap;
 }
 
 .hero-buttons {
@@ -86,13 +88,13 @@ html {
   font-size: 14px;
   font-weight: 600;
   word-wrap: break-word;
-  background-color: var(--hover-color);
+  background-color: var(--orange-color);
 }
 
 .buy-button:hover,
 .buy-button:focus {
   background-color: #fcf1e0;
-  color: var(--hover-color);
+  color: var(--orange-color);
 }
 
 .how-button {
@@ -108,9 +110,9 @@ html {
 
 .how-button:hover,
 .how-button:focus {
-  color: var(--hover-color);
+  color: var(--orange-color);
   background-color: white;
-  border-color: var(--hover-color);
+  border-color: var(--orange-color);
 }
 
 .scroll {
@@ -126,8 +128,8 @@ html {
 
 .scroll:hover,
 .scroll:focus {
-  color: var(--hover-color);
-  fill: var(--hover-color);
+  color: var(--orange-color);
+  fill: var(--orange-color);
 }
 
 .scroll-down {
@@ -136,12 +138,12 @@ html {
   border-radius: 50px;
   background-color: #ffffff;
   padding: 8px;
-  fill: var(--hover-color);
+  fill: var(--orange-color);
 }
 
 .scroll-down:hover,
 .scroll-down:focus {
-  background-color: var(--hover-color);
+  background-color: var(--orange-color);
   fill: white;
 }
 
@@ -155,12 +157,80 @@ html {
   }
 }
 
-/* Resize for Tablet */
+/*===== Resize for Mobile =====*/
 
-@media screen and (428px < width < 768px) {
+@media screen and (width <= 768px) {
+  .main-background {
+    /* max-width: 1158px; */
+    height: 621px;
+    margin: 14px 20px 71px 20px;
+    background-image: url(../images/hero-images/mobile-hero-background.jpg);
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .main-background {
+      background-image: url(../images/hero-images/mobile-hero-background@2x.jpg);
+    }
+  }
+
+  .main-title {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 390px 20px 32px 20px;
+  }
+
+  .buy-button {
+    width: 130px;
+    height: 41px;
+    padding: 12px 17px;
+    margin-left: -23px;
+  }
+
+  .how-button {
+    width: 145px;
+    height: 41px;
+    padding: 12px 20px;
+  }
+
+  .scroll-down-button {
+    margin-top: 32px;
+    margin-left: -15px;
+    margin-bottom: 28px;
+  }
+
+  .scroll {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .scroll-down {
+    width: 28px;
+    height: 28px;
+    padding: 6px;
+  }
 }
 
-/* Resize for Mobile */
+/*===== Resize for Tablet =====*/
 
-@media screen and (max-width: 428px) {
+@media screen and (768px < width < 1158px) {
+  .main-background {
+    /* max-width: 1158px; */
+    height: 890px;
+    margin: 50px 32px;
+    background-image: url(../images/hero-images/tablet-hero-background.jpg);
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .main-background {
+      background-image: url(../images/hero-images/tablet-hero-background@2x.jpg);
+    }
+  }
+
+  .main-title {
+    padding: 671px 181px 32px 40px;
+  }
 }

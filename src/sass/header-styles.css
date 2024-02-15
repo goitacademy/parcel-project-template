@@ -1,11 +1,12 @@
 /* Global styles for Header-Hero-Footer */
 
 :root {
-  --main-color: #fafafa;
-  --text-color: #111111;
-  --hover-color: #fd9222;
+  --text-font-family: 'Montserrat', sans-serif;
+  --body-color: #fafafa;
+  --dark-text-color: #111;
+  --light-text-color: #fff;
+  --orange-color: #fd9222;
   --black-color: #1e1823;
-  --white-color: #fcf1e0;
 }
 
 * {
@@ -31,9 +32,9 @@ img {
 /* Styles for Desktop */
 
 header {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--text-font-family);
   background-color: white;
-  color: var(--text-color);
+  color: var(--dark-text-color);
 }
 
 .main-navigation {
@@ -44,7 +45,7 @@ header {
 }
 
 .logo {
-  color: var(--text-color);
+  color: var(--dark-text-color);
   font-size: 18px;
   font-weight: 700;
   line-height: 20px;
@@ -62,7 +63,7 @@ header {
 }
 
 .home-navigation {
-  color: var(--hover-color);
+  color: var(--orange-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 16px;
@@ -77,12 +78,12 @@ header {
   bottom: -5px;
   width: 100%;
   height: 2px;
-  background-color: var(--hover-color);
+  background-color: var(--orange-color);
   border-radius: 2px;
 }
 
 .navigation {
-  color: var(--text-color);
+  color: var(--dark-text-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 16px;
@@ -91,7 +92,7 @@ header {
 
 .navigation:hover,
 .navigation:focus {
-  color: var(--hover-color);
+  color: var(--orange-color);
 }
 
 .social-media-navigation {
@@ -101,17 +102,127 @@ header {
 
 .social-media:hover,
 .social-media:focus {
-  fill: var(--hover-color);
+  fill: var(--orange-color);
 }
 
 /* ===== Mobile Menu ===== */
 
-/* Resize for Tablet */
-
-@media screen and (428px < width < 768px) {
+.hamburger-menu {
+  visibility: hidden;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-/* Resize for Mobile */
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 
-@media screen and (max-width: 428px) {
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background-color: var(--black-color);
+  top: 0;
+  right: 0;
+  left: 38vh;
+  height: 100vh;
+  align-items: center;
+  /* padding: 24px 32px; */
+}
+
+.mobile-navigation {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  word-wrap: break-word;
+}
+
+.mobile-navigation:hover,
+.mobile-navigation:focus {
+  color: var(--orange-color);
+}
+
+.mobile-close-button {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: var(--black-color);
+  margin-left: auto;
+  padding: 0;
+  cursor: pointer;
+  /* margin-bottom: 100px; */
+}
+
+/* .mobile-close-button:hover,
+.mobile-close-button:focus {
+  fill: var(--orange-color);
+} */
+
+.mobile-social-media {
+  fill: white;
+}
+
+.mobile-social-media:hover,
+.mobile-social-media:focus {
+  fill: var(--orange-color);
+}
+
+.nav-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 156px;
+}
+
+.mobile-social {
+  display: flex;
+  gap: 18px;
+  margin-top: 220px;
+  margin-right: 90px;
+}
+
+/*===== Resize for Mobile =====*/
+
+@media screen and (width <= 768px) {
+  .show-container {
+    display: none;
+  }
+
+  .hamburger-menu {
+    visibility: visible;
+  }
+
+  .mobile-menu {
+    padding: 20px;
+  }
+
+  .mobile-close-button {
+    width: 28px;
+    height: 28px;
+    top: 20px;
+    right: 20px;
+  }
+
+  .mobile-social {
+    margin-left: 30px;
+  }
+}
+
+/*===== Resize for Tablet =====*/
+
+@media screen and (768px < width < 1158px) {
+  .show-container {
+    display: none;
+  }
+
+  .hamburger-menu {
+    visibility: visible;
+  }
 }
