@@ -1,5 +1,15 @@
 :root {
   --text-font-family: 'Montserrat', sans-serif;
+  --body-color: #fafafa;
+  --dark-text-color: #111;
+  --light-text-color: #fff;
+  --orange-color: #fd9222;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -49,7 +59,7 @@ h2 {
   flex-wrap: wrap;
 }
 .titles-benefits {
-  color: #ffffff;
+  color: var(--light-text-color);
   font-size: 18px;
   font-weight: 600;
   line-height: 22px;
@@ -66,7 +76,7 @@ h2 {
   color: rgba(255, 255, 255, 0.7);
 }
 .benefits-svg {
-  fill: #fd9222;
+  fill: var(--orange-color);
   width: 32px;
   height: 32px;
 }
@@ -87,12 +97,16 @@ h2 {
   width: 100%;
   max-width: 308px;
 }
-/* .line-svg {
-    width: 1px;
-    height: 124px;
-    background: rgba(255, 255, 255, 0.5);
-  } */
-@media screen and (429px <= width <= 768px) {
+.line-svg {
+  width: 1px;
+  height: 124px;
+  border: 1px;
+  transform: rotate(-90 deg);
+  background: rgba(255, 255, 255, 0.5);
+  margin-top: -50px;
+}
+
+@media screen and (768px <= width <= 1158px) {
   .container {
     width: auto;
   }
@@ -111,9 +125,12 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Două coloane */
   }
+  .line-svg {
+    display: none;
+  }
 }
 
-@media screen and (max-width: 428px) {
+@media screen and (max-width: 768px) {
   .container {
     width: auto;
   }
@@ -132,4 +149,12 @@ h2 {
   .paragraphs-benefits {
     max-width: 335px;
   }
+  .line-svg {
+    display: none;
+  }
+}
+
+.flex {
+  display: flex;
+  gap: 18px;
 }
