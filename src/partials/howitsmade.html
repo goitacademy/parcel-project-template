@@ -11,15 +11,22 @@
     <link rel="stylesheet" href="../sass/howitsmade-style.css" />
   </head>
   <body>
-    <section class="howitsmade-section">
+    <section class="howitsmade-section" id="how">
       <h2 class="modal-h2">
         How it's <span class="modal-h2-orange">made?</span>
       </h2>
       <div class="all-container">
         <div class="video-container">
           <!-- Insert svg into button below to replace text -->
-          <button onclick="playPause()" class="play-button">Play/Pause</button>
-          <video id="video" width="600" height="400">
+          <button id="buttonPlay" onclick="playPause()" class="play-button">
+            <svg width="44" height="44" class="play-svg">
+              <use
+                href="../images/howitsmade-images/symbol-defs.svg#play"
+              ></use>
+            </svg>
+          </button>
+          <img id="photo" class="cover-image" alt="" />
+          <video onclick="videoClick()" id="video" width="600" height="400">
             <source src="../images/howitsmade.mp4" type="video/mp4" />
           </video>
         </div>
@@ -49,15 +56,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Move this to the JS folder  -->
-    <script>
-      var howitsmadeVideo = document.getElementById('video');
-
-      function playPause() {
-        if (howitsmadeVideo.paused) howitsmadeVideo.play();
-        else howitsmadeVideo.pause();
-      }
-    </script>
+    <script src="../howitsmade-section.js"></script>
   </body>
 </html>
