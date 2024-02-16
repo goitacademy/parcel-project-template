@@ -1,11 +1,12 @@
 /* Global styles for Header-Hero-Footer */
 
 :root {
-  --main-color: #fafafa;
-  --text-color: #111111;
-  --hover-color: #fd9222;
+  --text-font-family: 'Montserrat', sans-serif;
+  --body-color: #fafafa;
+  --dark-text-color: #111;
+  --light-text-color: #fff;
+  --orange-color: #fd9222;
   --black-color: #1e1823;
-  --white-color: #fcf1e0;
 }
 
 * {
@@ -31,9 +32,13 @@ img {
 /* Styles for Desktop */
 
 footer {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--text-font-family);
   background-color: var(--black-color);
   color: white;
+}
+
+.footer-container {
+  padding: 50px 32px;
 }
 
 .subtitle-footer {
@@ -42,8 +47,6 @@ footer {
   font-weight: 500;
   line-height: 34px;
   word-wrap: break-word;
-  padding-top: 50px;
-  padding-left: 32px;
   margin-bottom: 62px;
   margin-right: 543px;
   width: 334px;
@@ -51,20 +54,17 @@ footer {
 }
 
 .span-footer {
-  color: var(--hover-color);
+  color: var(--orange-color);
 }
 
 .footer-text {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .social-media-footer {
   display: flex;
   gap: 18px;
-  margin-top: -35px;
-  margin-right: 32px;
 }
 
 .media-footer {
@@ -73,7 +73,7 @@ footer {
 
 .media-footer:hover,
 .media-footer:focus {
-  fill: var(--hover-color);
+  fill: var(--orange-color);
 }
 
 .contact-footer {
@@ -97,7 +97,7 @@ footer {
 
 .address-footer:hover,
 .address-footer:focus {
-  color: var(--hover-color);
+  color: var(--orange-color);
 }
 
 .footer-navigation {
@@ -111,7 +111,7 @@ footer {
 
 .footer-navigation:hover,
 .footer-navigation:focus {
-  color: var(--hover-color);
+  color: var(--orange-color);
 }
 
 .devider {
@@ -126,16 +126,39 @@ footer {
   justify-content: flex-start;
   align-items: center;
   gap: 24px;
-  margin-left: 32px;
-  padding-bottom: 50px;
 }
 
-/* Resize for Tablet */
+/*===== Resize for Mobile =====*/
 
-@media screen and (428px < width < 768px) {
+@media screen and (width <= 768px) {
+  .footer-container {
+    padding: 32px 20px;
+  }
+
+  .footer-text {
+    flex-wrap: wrap;
+  }
+
+  .subtitle-footer {
+    margin-right: 0;
+  }
+
+  .devider {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  .navigation-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
 }
 
-/* Resize for Mobile */
+/*===== Resize for Tablet =====*/
 
-@media screen and (max-width: 428px) {
+@media screen and (min-width: 768px) and (max-width: 1158px) {
+  .subtitle-footer {
+    margin-right: 0;
+  }
 }
