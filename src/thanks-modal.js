@@ -5,14 +5,10 @@
     modal: document.querySelector('[thanks-modal]'),
   };
 
-  refs.openModalBtn.addEventListener('click', openModal);
-  refs.closeModalBtn.addEventListener('click', closeModal);
+  refs.openModalBtn.addEventListener('click', toggleModal);
+  refs.closeModalBtn.addEventListener('click', toggleModal);
 
-  function openModal() {
-    refs.modal.style.visibility = 'visible';
-  }
-
-  function closeModal() {
-    refs.modal.style.visibility = 'hidden';
+  function toggleModal() {
+    refs.modal.classList.toggle('is-hidden');
   }
 })();
