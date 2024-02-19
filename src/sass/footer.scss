@@ -5,8 +5,41 @@
   --text-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
 }
 
-.footer-container {
+.nav-list-item {
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-align: center;
+  display: block;
+  position: relative;
+  padding: 3px 0;
+  color: var(--red-color);
+}
+
+.nav-list-item:hover {
+  color: var(--button-color);
+}
+
+.nav-list-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
+  height: 2px;
+  background-color: var(--green-fruits-card);
+  visibility: hidden;
+  transform: scale(0);
+  transition: transform 0.25s ease-out;
+}
+
+.nav-list-item:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.footer-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -20,7 +53,6 @@
 
 .footer {
   background-color: #fff;
-  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
