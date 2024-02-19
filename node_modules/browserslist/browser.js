@@ -46,7 +46,5 @@ module.exports = {
 
   clearCaches: noop,
 
-  oldDataWarning: noop,
-
-  env: {}
+  oldDataWarning: noop
 }

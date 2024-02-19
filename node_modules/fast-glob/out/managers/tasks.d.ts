@@ -1,13 +1,13 @@
 import Settings from '../settings';
 import { Pattern, PatternsGroup } from '../types';
-export type Task = {
+export declare type Task = {
     base: string;
     dynamic: boolean;
     patterns: Pattern[];
     positive: Pattern[];
     negative: Pattern[];
 };
-export declare function generate(input: Pattern[], settings: Settings): Task[];
+export declare function generate(patterns: Pattern[], settings: Settings): Task[];
 /**
  * Returns tasks grouped by basic pattern directories.
  *

@@ -1,100 +1,32 @@
-<!-- Header -->
 <header class="header">
-    <div class="container position">
-        <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="#how-it-works" class="nav-link">How It Works</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#fruits" class="nav-link">Fruits</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contacts" class="nav-link">Contacts</a>
-                </li>
-            </ul>
-        </nav>
-        <a class="logo-link" href="./index.html">
-            <svg class="logo-icon" width="16" height="16">
-                <use href="/src/images/sprite-collection.svg#freshlogo"></use>
-            </svg>
-            fresh harvest box
-        </a>
-        <button class="burger js-open-menu" type="button" aria-label="Main menu">
-            <svg class="burger-icon" width="24" height="24">
-                <use href="/src/images/sprite-collection.svg#burger_menu"></use>
-            </svg>
-        </button>
-        <button type="button" class="basket-button" aria-label="Basket">
-            <svg class="basket-icon" width="24" height="24">
-                <use href="/src/images/sprite-collection.svg#basket"></use>
-            </svg>
-        </button>
-    </div>
-</header>
-
-<!-- MOBILE-MENU -->
-
-<div class="mobile-menu js-menu-container">
-    <div class="menu-header">
-        <a class="logo-link" href="./index.html">
-            <svg class="logo-icon" width="16" height="16">
-                <use href="/src/image #freshlogo"></use>
-            </svg>
-            fresh harvest box
-        </a>
-        <button class="close-menu js-close-menu" type="button" aria-label="Close main menu">
-            <svg class="close-icon" width="24" height="24">
-                <use href="/src/images/sprite-collection.svg#close_icon"></use>
-            </svg>
-        </button>
-    </div>
-    <ul class="menu-list">
-        <li class="menu-item">
-            <a class="menu-link js-close-menu1" href="#how-it-works">How It Works</a>
-        </li>
-        <li class="menu-item">
-            <a class="menu-link js-close-menu2" href="#fruits">Fruits</a>
-        </li>
-        <li class="menu-item">
-            <a class="menu-link js-close-menu3" href="#contacts">Contacts</a>
-        </li>
-        <li class="menu-item">
-            <button type="button" class="menu-basket-button" aria-label="Basket">
-                <svg class="menu-basket-icon" width="24" height="24">
-                    <use href="/src/images/sprite-collection.svg#basket"></use>
+    <div class="container header-container">
+        <div class="header-logo">
+            <a href="./index.html" class="logo-link link">
+                <svg class="logo-icon icon">
+                    <use href="./images/icons1.svg#icon-blocks"></use>
+                </svg>
+                fresh harvest box
+            </a>
+            <button type="button" class="toggle-menu open-menu">
+                <svg class="icon-close icon">
+                    <use href="./images/icons1.svg#icon-close"></use>
+                </svg>
+                <svg class="icon-fries icon">
+                    <use href="./images/icons1.svg#icon-fries"></use>
                 </svg>
             </button>
-        </li>
-    </ul>
-</div>
-<script>
-    (() => {
-        const mobileMenu = document.querySelector(".js-menu-container");
-        const openMenuBtn = document.querySelector(".js-open-menu");
-        const closeMenuBtn = document.querySelector(".js-close-menu");
-
-        const toggleMenu = () => {
-            const isMenuOpen =
-                openMenuBtn.getAttribute("aria-expanded") === "true" || false;
-            openMenuBtn.setAttribute("aria-expanded", !isMenuOpen);
-            mobileMenu.classList.toggle("is-open");
-
-            const scrollLockMethod = !isMenuOpen
-                ? "disableBodyScroll"
-                : "enableBodyScroll";
-            bodyScrollLock[scrollLockMethod](document.body);
-        };
-
-        openMenuBtn.addEventListener("click", toggleMenu);
-        closeMenuBtn.addEventListener("click", toggleMenu);
-
-        // Close the mobile menu on wider screens if the device orientation changes
-        window.matchMedia("(min-width: 768px)").addEventListener("change", (e) => {
-            if (!e.matches) return;
-            mobileMenu.classList.remove("is-open");
-            openMenuBtn.setAttribute("aria-expanded", false);
-            bodyScrollLock.enableBodyScroll(document.body);
-        });
-    })();
-</script>
+        </div>
+        <nav class="nav-box menu-box">
+            <ul class="nav-menu list">
+                <li><a href="#how-it-work" class="pages link">How It Works</a></li>
+                <li><a href="#fruits" class="pages link">Fruits</a></li>
+                <li><a href="#Contacts" class="pages link">Contacts</a></li>
+            </ul>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="bag-icon link">
+                <svg class="icon-bag icon">
+                    <use href="./images/icons1.svg#icon-bag"></use>
+                </svg>
+            </a>
+        </nav>
+    </div>
+</header>

@@ -32,8 +32,6 @@ queue.pause()
 
 queue.resume()
 
-queue.running()
-
 queue.saturated = () => undefined
 
 queue.unshift('world', (err, result) => {

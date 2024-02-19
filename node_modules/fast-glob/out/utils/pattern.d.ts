@@ -1,5 +1,5 @@
 import { MicromatchOptions, Pattern, PatternRe } from '../types';
-type PatternTypeOptions = {
+declare type PatternTypeOptions = {
     braceExpansion?: boolean;
     caseSensitiveMatch?: boolean;
     extglob?: boolean;
@@ -39,9 +39,4 @@ export declare function getPatternParts(pattern: Pattern, options: MicromatchOpt
 export declare function makeRe(pattern: Pattern, options: MicromatchOptions): PatternRe;
 export declare function convertPatternsToRe(patterns: Pattern[], options: MicromatchOptions): PatternRe[];
 export declare function matchAny(entry: string, patternsRe: PatternRe[]): boolean;
-/**
- * This package only works with forward slashes as a path separator.
- * Because of this, we cannot use the standard `path.normalize` method, because on Windows platform it will use of backslashes.
- */
-export declare function removeDuplicateSlashes(pattern: string): string;
 export {};
