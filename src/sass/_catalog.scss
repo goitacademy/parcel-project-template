@@ -33,8 +33,13 @@
   width: 100%;
 }
 
+.catalog-hidden {
+  display: none;
+}
+
 .catalog-images-card {
   display: flex;
+  height: 360px;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -61,6 +66,7 @@
   width: 276px;
   height: 274px;
   flex-shrink: 0;
+  object-fit: cover;
 }
 
 .cards-flip:hover .front,
@@ -88,17 +94,16 @@
   justify-content: space-between;
   align-items: flex-start;
   background-color: var(--dark-green-color);
-  height: fit-content;
-  max-width: 360px;
-  padding: 40px 60px 40px 40px;
+  height: 100%;
 }
 
 .back {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   transform: rotateY(90deg);
   width: 100%;
+  padding: 40px 60px 40px 40px;
 }
 
 .catalog-cards-title {
@@ -108,7 +113,8 @@
   line-height: 128.571%;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin: 0;
+  text-align: left;
 }
 
 .catalog-cards-description {
@@ -121,17 +127,17 @@
 
 .first {
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .catalog-cards-container {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 4px;
   align-items: flex-start;
 }
 
 .catalog-description-front {
-  overflow: hidden;
   color: var(--black-color);
   text-overflow: ellipsis;
   white-space: wrap;
@@ -139,6 +145,7 @@
   font-weight: 400;
   line-height: 128.571%;
   letter-spacing: -0.02em;
+  margin: 0;
 }
 
 .catalog-cards-price {
@@ -146,6 +153,7 @@
   font-size: 12px;
   line-height: 116.667%;
   letter-spacing: -0.02em;
+  margin: 0;
 }
 
 .button {
@@ -327,7 +335,7 @@
 
 @media screen and (width >=768px) {
   .catalog-container {
-    padding: 32px 64px;
+    padding: 43px, 30px;
   }
 
   .catalog-title {
@@ -401,15 +409,15 @@
     width: calc((100% - 24px) / 5);
   }
 
+  .catalog-hidden {
+    display: block;
+  }
+
   .catalog-images-card {
     padding: 26px 0 25px;
   }
 
-  /* .catalog-image-photo {
-        width: 100%;
-    } */
-
-  .catalog-cards-description {
-    padding: 20px;
+  .catalog-image-photo {
+    width: 100%;
   }
 }
