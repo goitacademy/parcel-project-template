@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="./css/test.css" />
+<section class="rev" id="love-section">
+  <h2><span>CHOCOLATE</span> IS LOVED</h2>
+  <div class="secondslider">
+    <div class="cardssecond">
+      <div class="secondcard">
+        <img src="./src/images/img/victoria.png" alt="victoria" />
+        <div class="card-content">
+          <h3>Victoria Dobrzhanska</h3>
+          <p class="text-love">
+            I love this chocolate bar. Perfect combination of light crispy
+            wafer, covered in a thin layer chocolate.
+          </p>
+        </div>
+      </div>
+      <div class="secondcard">
+        <img src="./src/images/img/nazar.png" alt="nazar" />
+        <div class="card-content">
+          <h3>Nazar Babenko</h3>
+          <p class="text-love">
+            This chocolate confection is a delight! A delight! The wafer is
+            light and crisp, the hazelnut cream is smooth, and the chocolate is
+            good.
+          </p>
+        </div>
+      </div>
+      <div class="secondcard">
+        <img src="./src/images/img/olena.png" alt="olena" />
+        <div class="card-content">
+          <h3>Olena Kampusch</h3>
+          <p class="text-love">
+            Chocolate is a family favourite treat. Love the delicious smooth
+            chocolate and the creaminess inside. The wafer is soft but crunchy.
+          </p>
+        </div>
+      </div>
+      <div class="secondcard">
+        <img src="./src/images/img/natalia.png" alt="natalia" />
+        <div class="card-content">
+          <h3>Natalia Sus</h3>
+          <p class="text-love">
+            The chocolate assortment was delicious. Both dark and milk chocolate
+            pieces were smooth and just right on the sweetness level.
+          </p>
+        </div>
+      </div>
+      <div class="secondcard">
+        <img src="./src/images/img/danilo.png" alt="danilo" />
+        <div class="card-content">
+          <h3>Danilo Nottingham</h3>
+          <p class="text-love">
+            This is delicious. It so rich and flavorful you don’t need to use as
+            many. I love topping an apple with almond butter and these chips for
+            a snack.
+          </p>
+        </div>
+      </div>
+      <div class="secondcard">
+        <img src="./src/images/img/irina.png" alt="irina" />
+        <div class="card-content">
+          <h3>Irina Tydnyuk</h3>
+          <p class="text-love">
+            This is simply the best chocolate around, and I'm just thrilled to
+            support a local company! Best local chocolate - world class.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--Carousel section-->
+    <div class="indicator">
+      <div class="dotssecond"></div>
+      <div class="dotssecond"></div>
+      <div class="dotssecond"></div>
+      <div class="dotssecond"></div>
+    </div>
+    <button id="open-third" type="button" class="orange">Leave a review</button>
+  </div>
+  <script>
+    const secondslider = document.querySelector(".secondslider");
+    const cardssecond = document.querySelector(".cardssecond");
+    const cardWidthsecond = document.querySelector(".secondcard").offsetWidth;
+    const dotssecond = document.querySelectorAll(".dotssecond");
+    let currentCardIndex = 0;
+    function showCards() {
+      cardssecond.style.transform = `translateX(-${
+        currentCardIndex * (cardWidthsecond + 20)
+      }px)`;
+      updateDots();
+    }
+    function nextCard() {
+      if (currentCardIndex < 5) {
+        currentCardIndex++;
+        showCards();
+      }
+    }
+    function prevCard() {
+      if (currentCardIndex > 0) {
+        currentCardIndex--;
+        showCards();
+      }
+    }
+    function goToCard(index) {
+      currentCardIndex = index;
+      showCards();
+    }
+    function updateDots() {
+      dotssecond.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentCardIndex);
+      });
+    }
+    dotssecond.forEach((dot, index) => {
+      dot.addEventListener("click", () => goToCard(index));
+    });
+    document.addEventListener("DOMContentLoaded", showCards);
+  </script>
+</section>
+<script src="./js/test.js"></script>
