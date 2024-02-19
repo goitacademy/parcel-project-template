@@ -7,7 +7,8 @@
     }
 
     const refs = {
-      openModalBtn1: contains('button', 'Buy now')[0],
+      openModalBtn1a: contains('button', 'Buy now')[0],
+      openModalBtn1b: contains('button', 'Buy now')[1],
       closeModalBtn1: document.querySelector("[data-modal-close1]"),
       modal1: document.querySelector("[data-modal1]"),
 
@@ -20,7 +21,8 @@
       modal3: document.querySelector("[data-modal3]"),
     };
   
-    refs.openModalBtn1.addEventListener("click", toggleModal1);
+    refs.openModalBtn1a.addEventListener("click", toggleModal1);
+    refs.openModalBtn1b.addEventListener("click", toggleModal1);
     refs.closeModalBtn1.addEventListener("click", toggleModal1);
 
     refs.openModalBtn2.addEventListener("click", toggleModal2);
