@@ -7,36 +7,62 @@
             designs to
             modern ones, we have a watch to suit every taste and occasion.</p>
     </div>
-
-
-
-   <div>
-
-      
-    </div> 
-    <div>
-         <svg>
-            <use></use>
-        </svg>
-        <svg>
-            <use></use>
-        </svg> 
-        <img src="./images/catalog-watch1.png" alt="">
-        <img src="./images/catalog-watch10.png" alt="">
-        <img src="./images/catalog-watch3.png" alt="">
-        <img src="./images/catalog-watch6.png" alt="">
-        <img src="./images/catalog-watch5.png" alt="">
-
-        <p>01</p>
-        <p>02</p>
-        <p>03</p>
-        <p>04</p>
-        <p>05</p>
-        <svg>
-            <use></use>
-        </svg> 
-        <p>05</p>
-
-
+    <div class="test">
+        <div class="carousel">
+            <div class="poze">
+                <img src="./images/header-black-watch.png" class="active poza">
+                <img src="./images/header-blsilver-watch.png" class="poza">
+                <img src="./images/header-green-watch.png" class="poza">
+                <img src="./images/header-silver-watch.png" class="poza">
+                <img src="./images/header-white-watch.png" class="poza">
+            </div>
+            <div class="controls">
+                <div class="butoane">
+                    <button class="buton" onclick="prevImage()">
+                        <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 13L1 7L7 1" stroke="white" stroke-opacity="0.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button class="buton" onclick="nextImage()"><svg width="8" height="14" viewBox="0 0 8 14"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 13L7 7L1 1" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="contor">
+                    <span class="numar" id="counter">1</span>
+                    <svg class="linie" width="40" height="2" viewBox="0 0 40 2" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 1H40" stroke="white" />
+                    </svg> 5
+                </div>
+            </div>
+        </div>
+        <div>
+            <img src="./images/header-hand-watch.png" alt="">
+        </div>
     </div>
+    <script>
+        const images = document.querySelectorAll('.carousel img');
+        let index = 0;
+        const counter = document.getElementById('counter');
+
+        function showImage(index) {
+            images.forEach(image => image.classList.remove('active'));
+            images[index].classList.add('active');
+            counter.textContent = index + 1;
+        }
+
+        function nextImage() {
+            index = (index + 1) % images.length;
+            showImage(index);
+        }
+
+        function prevImage() {
+            index = (index - 1 + images.length) % images.length;
+            showImage(index);
+        }
+    </script>
+
 </article>
