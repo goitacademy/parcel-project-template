@@ -1,0 +1,218 @@
+.first-page-container {
+  position: relative;
+
+  padding: 29px 20px 40px;
+  max-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 69px;
+
+  background-color: var(--black-color);
+}
+
+.header {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo-container {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  max-width: fit-content;
+  align-items: center;
+}
+
+.logo > svg {
+  width: 14px;
+  height: 14px;
+}
+
+.header-logo-paragraph {
+  /* width: 80px; */
+  height: 10px;
+
+  color: var(--white-color);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.header-hamburger-button {
+  background-color: transparent;
+  fill: var(--white-color);
+  border: none;
+  cursor: pointer;
+}
+
+/* Header mobile menu */
+.header-mobile-meniu {
+  position: fixed;
+  padding: 29px 20px;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--dark-green-color);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-mobile-meniu-logo-and-close-button {
+  display: flex;
+  justify-content: space-between;
+  stroke: var(--white-color);
+}
+
+.header-nav-list {
+  margin-top: calc(100vh / 3);
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-meniu-logo-container {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  max-width: fit-content;
+  align-items: center;
+}
+
+.header-nav-list-item-link {
+  color: var(--white-color);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 128.571%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  transition: text-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-nav-list-item-link:hover {
+  text-shadow: 0 0 5px white, 0 0 10px #00ffff, 0 0 15px #7fff00, 0 0 20px white;
+  transform: scale(1.5);
+}
+
+.header-phone {
+  display: none;
+  width: 159px;
+  height: 48px;
+  flex-shrink: 0;
+  padding: 18px 36px 19px 35px;
+
+  border-radius: 8px;
+  background: var(--dark-green-color);
+  margin-left: auto;
+
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-phone:hover {
+  transform: scale(1.04);
+}
+
+.header-phone-number {
+  color: var(--white-color);
+  font-style: normal;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 133.333%;
+  text-transform: uppercase;
+  transition: text-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-phone-number:hover {
+  text-shadow: 0 0 5px white, 0 0 10px #00ffff, 0 0 15px #7fff00, 0 0 20px white;
+  transform: scale(1.3);
+}
+
+/* Media Querries */
+
+@media screen and (width < 768px) {
+  .is-open {
+    transform: translateX(100%);
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+  }
+}
+
+@media screen and (width >=768px) {
+  .first-page-container {
+    padding: 20px 32px 64px;
+    gap: 80px;
+  }
+
+  .header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .logo > svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .header-mobile-meniu {
+    position: static;
+    padding: 29px 20px;
+    z-index: initial;
+
+    background-color: transparent;
+    flex-direction: row;
+  }
+
+  .header-mobile-meniu-logo-and-close-button {
+    display: none;
+  }
+
+  .header-hamburger-button {
+    display: none;
+  }
+
+  .header-nav-list {
+    margin-top: 0;
+    flex-direction: row;
+    gap: 40px;
+    margin-left: 80px;
+  }
+
+  .header-nav-list-item-link {
+    text-align: center;
+    font-size: 9px;
+    line-height: 133.333%;
+  }
+
+  .header-phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (width >=1158px) {
+  .first-page-container {
+    padding: 20px 132px 80px;
+  }
+}
